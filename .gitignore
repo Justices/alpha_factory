@@ -1,0 +1,56 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Virtual Environment
+.venv/
+venv/
+ENV/
+env/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Testing
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Project specific
+runs/*.json
+runs/*.db
+!runs/.gitkeep
+
+# OS
+.DS_Store
+Thumbs.db
+.idea/*
+.brain_session.json
+.claude
+__pycache__
+runs/*
+.brain.json
+.brain.json
+.brain_session.json.lock

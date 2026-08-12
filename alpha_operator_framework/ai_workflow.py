@@ -14,6 +14,7 @@ from __future__ import annotations
 
 import asyncio
 import json
+import random
 from dataclasses import dataclass, field
 from pathlib import Path
 from typing import List, Dict, Any, Optional, Sequence
@@ -25,6 +26,7 @@ from . import fields
 from . import density
 from . import operators
 from . import optimize  # 新增
+from .database import AlphaDatabase, persist_workflow_row
 
 
 # ---------------------------------------------------------------------------
@@ -70,7 +72,8 @@ class SurveyConfig:
     field_ids: Optional[List[str]] = None   # None表示采样,否则使用指定字段列表
 
     # 采样参数(仅当field_ids=None时生效)
-    sample_n: int = 80
+    sample_n: int = 80                 # 字段池大小
+    backtest_sample_n: int = 80        # 一阶表达式抽样回测数量; <=0=全部
     min_coverage: float = 0.0
     prefer_cold: bool = True
     seed: int = 42
@@ -78,9 +81,10 @@ class SurveyConfig:
 
     # 模板选择
     include_unary: bool = True
-    include_binary: bool = True
+    include_binary: bool = False       # 信号筛选后再走二元分支
     include_ternary: bool = False
     include_quaternary: bool = False
+    include_semantic_pairs: bool = True
     group_fields: Optional[List[str]] = None
 
     # 模拟参数
@@ -88,6 +92,9 @@ class SurveyConfig:
     neutralization: str = "SUBINDUSTRY"
     truncation: float = 0.08
     decay: float = 6.0
+
+    # 第一阶段默认完整计算已选字段的所有组合；sample_n仍用于字段池大小。
+    all_combinations: bool = True
 
 
 @dataclass
@@ -103,6 +110,19 @@ class DeepenConfig:
     # 字段扩展
     sample_n: int = 400
     top_n_templates: int = 3
+
+
+@dataclass
+class SignalBranchConfig:
+    """一阶信号筛选后的分支配置."""
+    min_sharpe: float = 0.7
+    min_fitness: float = 0.7
+    max_signal_expressions: int = 200
+    branch_backtest_sample_n: int = 80  # 每个分支回测数量; <=0=全部
+    include_binary: bool = True
+    include_second_order: bool = True
+    group_ops: Optional[List[str]] = None
+    groups: Optional[List[str]] = None
 
 
 @dataclass
@@ -131,6 +151,204 @@ class WorkflowResult:
     # 元数据
     timestamp: str = field(default_factory=lambda: datetime.now().isoformat())
     config: Dict = field(default_factory=dict)
+
+
+def build_signal_branches(
+    results: Sequence[Dict[str, Any]],
+    config: SignalBranchConfig = SignalBranchConfig(),
+) -> Dict[str, List[Dict[str, Any]]]:
+    """从一阶回测信号生成二元与二阶两个分支的任务。
+
+    这里先做信号门和表达式去重，再生成分支，避免把弱信号或重复表达式
+    扩散到后续回测。返回值中的字典可直接转换为 ``Task.to_sim_dict``。
+    """
+    signal_gate = density.SignalGate(
+        abs_sharpe_min=config.min_sharpe,
+        abs_fitness_min=config.min_fitness,
+    )
+    expressions: List[str] = []
+    seen = set()
+    for row in results:
+        expression = row.get("expression") or (row.get("regular") or {}).get("code")
+        if not expression or expression in seen:
+            continue
+        ok, _ = signal_gate.is_signal(row)
+        if ok:
+            expressions.append(expression)
+            seen.add(expression)
+    if config.max_signal_expressions > 0:
+        expressions = expressions[:config.max_signal_expressions]
+
+    branches: Dict[str, List[Dict[str, Any]]] = {"binary": [], "second_order": []}
+    if config.include_binary:
+        branches["binary"] = [
+            {
+                "expression": task.expression,
+                "family": task.family,
+                "template_index": task.template_index,
+                "fields_per_alpha": task.fields_per_alpha,
+                "base_fields": list(task.base_fields),
+            }
+            for task in families.binary_factory(expressions)
+        ]
+
+    if config.include_second_order:
+        from .operators import second_order_factory
+        branches["second_order"] = [
+            {
+                "expression": expression,
+                "family": "second_order",
+                "template_index": index,
+                "fields_per_alpha": 1,
+                "base_fields": [source],
+            }
+            for source in expressions
+            for index, expression in enumerate(
+                second_order_factory(
+                    [source],
+                    group_ops_set=config.group_ops,
+                    available_groups=config.groups or (),
+                )
+            )
+        ]
+    return branches
+
+
+async def run_signal_branches(
+    first_order_results: Sequence[Dict[str, Any]],
+    survey_config: SurveyConfig,
+    branch_config: SignalBranchConfig = SignalBranchConfig(),
+    output_dir: Path = Path("runs"),
+    execute: bool = False,
+) -> Dict[str, WorkflowResult]:
+    """分别回测并持久化一阶信号的二元、二阶分支。
+
+    每个分支独立抽样、独立调用 simulate、独立写入结果文件和数据库，避免
+    二元分支与二阶分支的结果互相覆盖。数据库 stage 分别为
+    ``binary_branch`` 和 ``second_order_branch``。
+    """
+    output_dir.mkdir(parents=True, exist_ok=True)
+    branches = build_signal_branches(first_order_results, branch_config)
+    output: Dict[str, WorkflowResult] = {}
+
+    for branch_name, branch_tasks in branches.items():
+        stage = f"{branch_name}_branch"
+        rng = random.Random(survey_config.seed)
+        sampled_tasks = list(branch_tasks)
+        rng.shuffle(sampled_tasks)
+        if branch_config.branch_backtest_sample_n > 0:
+            sampled_tasks = sampled_tasks[:branch_config.branch_backtest_sample_n]
+
+        tasks_file = output_dir / (
+            f"{stage}_tasks_{survey_config.region}_"
+            f"{survey_config.dataset_id or 'all'}.json"
+        )
+        tasks_file.write_text(
+            json.dumps({
+                "stage": stage,
+                "source": "first_order_signal",
+                "tasks": sampled_tasks,
+            }, ensure_ascii=False, indent=2) + "\n",
+            encoding="utf-8",
+        )
+
+        if not execute:
+            output[branch_name] = WorkflowResult(
+                success=True,
+                stage=stage,
+                message=f"[DRY-RUN] {branch_name}生成{len(branch_tasks)}个任务，抽样{len(sampled_tasks)}个",
+                tasks_generated=len(sampled_tasks),
+                tasks_file=tasks_file,
+                config=branch_config.__dict__.copy(),
+            )
+            continue
+
+        if not sampled_tasks:
+            output[branch_name] = WorkflowResult(
+                success=True,
+                stage=stage,
+                message=f"没有满足信号门的{branch_name}任务",
+                tasks_file=tasks_file,
+                config=branch_config.__dict__.copy(),
+            )
+            continue
+
+        try:
+            import alpha_machine
+
+            sim_tasks = [
+                {
+                    "expression": task["expression"],
+                    "decay": survey_config.decay,
+                    "family": task["family"],
+                    "template_index": task["template_index"],
+                    "fields_per_alpha": task["fields_per_alpha"],
+                }
+                for task in sampled_tasks
+            ]
+            results = await alpha_machine.simulate(
+                sim_tasks,
+                _make_sim_config(survey_config),
+            )
+
+            meta = {task["expression"]: task for task in sampled_tasks}
+            for row in results:
+                expression = row.get("expression")
+                task = meta.get(expression)
+                if task:
+                    row["family"] = task["family"]
+                    row["template_index"] = task["template_index"]
+                    row["fields_per_alpha"] = task["fields_per_alpha"]
+                    row["branch"] = branch_name
+
+            results_file = output_dir / (
+                f"{stage}_results_{survey_config.region}_"
+                f"{survey_config.dataset_id or 'all'}.json"
+            )
+            alpha_machine.write_json(results_file, {
+                "stage": stage,
+                "config": survey_config.__dict__,
+                "branch_config": branch_config.__dict__,
+                "results": results,
+            })
+
+            db = AlphaDatabase(output_dir / "alpha_research.db")
+            settings = {
+                "region": survey_config.region,
+                "universe": survey_config.universe,
+                "delay": survey_config.delay,
+                "neutralization": survey_config.neutralization,
+                "truncation": survey_config.truncation,
+                "decay": survey_config.decay,
+                "branch": branch_name,
+            }
+            persisted = 0
+            for row in results:
+                if persist_workflow_row(db, row, settings, stage=stage, status="pending"):
+                    persisted += 1
+            db.close()
+
+            output[branch_name] = WorkflowResult(
+                success=True,
+                stage=stage,
+                message=f"{branch_name}完成: {len(results)}条回测，持久化{persisted}条",
+                tasks_generated=len(sampled_tasks),
+                tasks_file=tasks_file,
+                simulations_run=len(results),
+                results_file=results_file,
+                config=branch_config.__dict__.copy(),
+            )
+        except ImportError:
+            output[branch_name] = WorkflowResult(
+                success=False,
+                stage=stage,
+                message="未安装alpha_machine,无法执行分支回测",
+                tasks_generated=len(sampled_tasks),
+                tasks_file=tasks_file,
+                config=branch_config.__dict__.copy(),
+            )
+
+    return output
 
 
 # ---------------------------------------------------------------------------
@@ -177,9 +395,10 @@ async def run_survey_with_fields(
                 sample_n=config.sample_n,
                 min_coverage=config.min_coverage,
                 prefer_cold=config.prefer_cold,
-                seed=config.seed
+                seed=config.seed,
+                all_combinations=config.all_combinations,
             )
-            selected = fields.candidate_scalars(field_specs, spec)
+            selected = fields.sample_field_specs(field_specs, spec)
 
         # 预处理成标量表达式
         scalars = []
@@ -188,33 +407,68 @@ async def run_survey_with_fields(
 
         # 2. 构造任务
         tasks = []
+        unary_tasks = []
+        semantic_pair_tasks = []
         if config.include_unary:
-            tasks.extend(families.unary_factory(scalars))
+            # 调查阶段先展开一阶算子，形成可直接回测的表达式。
+            unary_tasks = families.first_order_task_factory(scalars, decay=config.decay)
+            tasks.extend(unary_tasks)
+
+        if config.include_semantic_pairs:
+            from .semantic_pairs import semantic_pair_task_factory
+            semantic_pair_tasks = semantic_pair_task_factory(
+                selected,
+                decay=config.decay,
+            )
+            tasks.extend(semantic_pair_tasks)
 
         if config.include_binary:
-            pairs = list(zip(scalars[::2], scalars[1::2]))  # 简单配对
-            tasks.extend(families.binary_factory(scalars, max_pairs=len(pairs)))
+            if config.all_combinations:
+                # 第一阶段计算所有二元组合，不再按 sample_n 截断。
+                max_pairs = None
+            else:
+                max_pairs = config.sample_n
+            tasks.extend(families.binary_factory(scalars, max_pairs=max_pairs))
 
         if config.include_ternary:
-            from itertools import combinations
-            triples = list(combinations(scalars, 3))[:config.sample_n]
-            tasks.extend(families.ternary_factory(scalars, max_triples=len(triples)))
+            if config.all_combinations:
+                # 第一阶段计算所有三元组合，不再按 sample_n 截断。
+                max_triples = None
+            else:
+                max_triples = config.sample_n
+            tasks.extend(families.ternary_factory(scalars, max_triples=max_triples))
 
         if config.include_quaternary and config.group_fields:
             tasks.extend(families.quaternary_factory(
-                scalars, config.group_fields, max_quadruples=len(pairs)
+                scalars, config.group_fields, max_quadruples=None
             ))
 
-        # 3. 写任务列表
+        # 3. 一阶表达式全量入目录，再随机抽样回测。
+        from .database import AlphaDatabase
+        catalog_db = AlphaDatabase(output_dir / "alpha_research.db")
+        catalog_count = catalog_db.catalog_tasks(unary_tasks, stage="first_order")
+        catalog_count += catalog_db.catalog_tasks(semantic_pair_tasks, stage="semantic_pair")
+        other_tasks = [t for t in tasks if t not in unary_tasks and t not in semantic_pair_tasks]
+        catalog_count += catalog_db.catalog_tasks(other_tasks, stage="survey")
+        sampled_expressions = catalog_db.sample_catalog_expressions(
+            [task.expression for task in tasks],
+            limit=config.backtest_sample_n,
+            seed=config.seed,
+        )
+        sampled_set = set(sampled_expressions)
+        sampled_tasks = [t for t in tasks if t.expression in sampled_set]
+        catalog_db.close()
+
+        # 4. 写入本次实际回测的任务列表
         tasks_file = output_dir / f"survey_tasks_{config.region}_{config.dataset_id or 'all'}.json"
-        _write_tasks(tasks, tasks_file, config.__dict__)
+        _write_tasks(sampled_tasks, tasks_file, config.__dict__)
 
         if not execute:
             return WorkflowResult(
                 success=True,
                 stage="survey",
-                message=f"[DRY-RUN] 生成{len(tasks)}个任务,加execute=True运行模拟",
-                tasks_generated=len(tasks),
+                message=f"[DRY-RUN] 一阶目录{catalog_count}个，抽样{len(sampled_tasks)}个回测",
+                tasks_generated=len(sampled_tasks),
                 tasks_file=tasks_file,
                 config=config.__dict__
             )
@@ -231,7 +485,7 @@ async def run_survey_with_fields(
                     "template_index": t.template_index,
                     "fields_per_alpha": t.fields_per_alpha
                 }
-                for t in tasks
+                for t in sampled_tasks
             ]
 
             results = await alpha_machine.simulate(
@@ -270,7 +524,7 @@ async def run_survey_with_fields(
 
             # 6. 计算密度
             # 回填元数据
-            meta = {t.expression: t for t in tasks}
+            meta = {t.expression: t for t in sampled_tasks}
             for row in results:
                 expr = row.get("expression")
                 if expr in meta:
@@ -293,8 +547,8 @@ async def run_survey_with_fields(
             return WorkflowResult(
                 success=True,
                 stage="survey",
-                message=f"完成: {len(tasks)}任务→{len(results)}结果→密度{len(density_rows)}",
-                tasks_generated=len(tasks),
+                message=f"完成: 目录{catalog_count}个→抽样{len(sampled_tasks)}个→{len(results)}结果→密度{len(density_rows)}",
+                tasks_generated=len(sampled_tasks),
                 tasks_file=tasks_file,
                 simulations_run=len(results),
                 results_file=results_file,
@@ -308,7 +562,7 @@ async def run_survey_with_fields(
                 success=False,
                 stage="survey",
                 message="未安装alpha_machine,无法执行模拟",
-                tasks_generated=len(tasks),
+                tasks_generated=len(sampled_tasks),
                 tasks_file=tasks_file,
                 config=config.__dict__
             )
@@ -329,6 +583,7 @@ async def run_full_workflow(
     dataset_id: str = "",
     field_ids: Optional[List[str]] = None,
     field_specs: Optional[Sequence[fields.FieldSpec]] = None,
+    fields_file: Optional[str | Path] = None,
     sample_n: int = 80,
     top_n: int = 3,
     min_sharpe: float = 1.2,
@@ -343,6 +598,7 @@ async def run_full_workflow(
         dataset_id: 数据集ID (空=全字段)
         field_ids: 指定字段ID列表 (None=采样)
         field_specs: 字段规格列表 (如提供则不查询平台)
+        fields_file: 本地字段文件（CSV 或 JSON 数组）；如提供则不查询平台
         sample_n: 采样数量 (仅当field_ids=None时生效)
         top_n: 取top-N模板用于深挖
         min_sharpe: Deepen阶段Sharpe阈值
@@ -373,7 +629,17 @@ async def run_full_workflow(
         top_n_templates=top_n
     )
 
-    # 如果未提供field_specs,需要查询平台
+    # 本地字段文件优先；其次使用调用方提供的字段；最后才查询平台。
+    if fields_file is not None:
+        from .local_fields import load_local_field_specs
+        field_specs = load_local_field_specs(
+            fields_file,
+            region=region,
+            universe=universe,
+            delay=delay,
+            dataset_id=dataset_id,
+        )
+
     if field_specs is None:
         try:
             import alpha_machine
@@ -405,7 +671,19 @@ async def run_full_workflow(
     if not results["survey"].success or not execute:
         return results
 
-    # 2. Deepen阶段 (基于survey结果)
+    # 2. 一阶信号后分成两条独立路径：二元组合 / 二阶算子变化。
+    if results["survey"].results_file and results["survey"].results_file.exists():
+        survey_payload = json.loads(results["survey"].results_file.read_text(encoding="utf-8"))
+        branch_results = await run_signal_branches(
+            survey_payload.get("results", []),
+            survey_config,
+            SignalBranchConfig(),
+            output_dir=Path("runs"),
+            execute=execute,
+        )
+        results.update(branch_results)
+
+    # 3. Deepen阶段 (基于survey结果)
     if results["survey"].top_templates:
         deepen_config = DeepenConfig(
             min_sharpe=min_sharpe,
@@ -721,8 +999,11 @@ if __name__ == "__main__":
 __all__ = [
     "SurveyConfig",
     "DeepenConfig",
+    "SignalBranchConfig",
     "OptimizeConfig",
     "WorkflowResult",
+    "build_signal_branches",
+    "run_signal_branches",
     "run_survey_with_fields",
     "run_full_workflow",
     "filter_alphas_for_optimization",

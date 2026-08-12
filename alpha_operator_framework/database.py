@@ -2,9 +2,8 @@
 
 设计理念:
   1. alpha_expressions: 表达式表,去重存储(基于expression_sha)
-  2. backtest_results: 回测结果表,跟踪状态变化
-  3. alpha_details: 详情表,平铺所有指标便于查询 (含PC/SC/checks)
-  4. alpha_checks: 检查子表,存平台全部提交检查项 (1:N, 按地区动态约18种)
+  2. alpha_details: 详情表,平铺所有指标便于查询 (含PC/SC/checks)
+  3. alpha_checks: 检查子表,存平台全部提交检查项 (1:N, 按地区动态约18种)
 
 基于CSV参考:
   - sim_queue.csv: 模拟队列
@@ -32,20 +31,6 @@ class AlphaExpression:
     expression: str = ""      # alpha表达式
     settings: str = ""        # JSON字符串
     created_at: str = ""      # ISO格式时间
-    updated_at: str = ""
-
-
-@dataclass
-class BacktestResult:
-    """回测结果."""
-    id: Optional[int] = None
-    alpha_id: str = ""        # 平台alpha_id
-    expression_sha: str = ""  # 表达式哈希
-    expression: str = ""      # 表达式快照
-    result: str = ""          # JSON字符串(回测结果)
-    stage: str = "backtest"  # 阶段: backtest/check/submit/end
-    status: str = "pending"   # 状态: pending/abandoned/optimize/ready
-    created_at: str = ""
     updated_at: str = ""
 
 
@@ -157,7 +142,9 @@ def persist_workflow_row(
 ) -> Optional[str]:
     """把单条工作流结果行持久化到数据库.
 
-    依次: insert_expression → save_result_with_checks → insert_backtest_result.
+    依次: insert_expression → save_result_with_checks。
+
+    ``alpha_details`` 是工作流唯一的回测结果表。
 
     Args:
         db: AlphaDatabase 实例
@@ -182,7 +169,6 @@ def persist_workflow_row(
 
     db.insert_expression(expression, settings)
     db.save_result_with_checks(alpha_id, row, settings)
-    db.insert_backtest_result(alpha_id, expression, row, stage=stage, status=status)
     return alpha_id
 
 
@@ -227,22 +213,7 @@ class AlphaDatabase:
         )
         """)
 
-        # 表2: backtest_results
-        cursor.execute("""
-        CREATE TABLE IF NOT EXISTS backtest_results (
-            id INTEGER PRIMARY KEY AUTOINCREMENT,
-            alpha_id TEXT,
-            expression_sha TEXT NOT NULL,
-            expression TEXT NOT NULL,
-            result TEXT,
-            stage TEXT NOT NULL DEFAULT 'backtest',
-            status TEXT NOT NULL DEFAULT 'pending',
-            created_at TEXT NOT NULL,
-            updated_at TEXT NOT NULL
-        )
-        """)
-
-        # 表3: alpha_details
+        # 表2: alpha_details
         cursor.execute("""
         CREATE TABLE IF NOT EXISTS alpha_details (
             id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -381,8 +352,6 @@ class AlphaDatabase:
 
         # 创建索引
         cursor.execute("CREATE INDEX IF NOT EXISTS idx_expr_sha ON alpha_expressions(expression_sha)")
-        cursor.execute("CREATE INDEX IF NOT EXISTS idx_backtest_alpha ON backtest_results(alpha_id)")
-        cursor.execute("CREATE INDEX IF NOT EXISTS idx_backtest_sha ON backtest_results(expression_sha)")
         cursor.execute("CREATE INDEX IF NOT EXISTS idx_detail_sha ON alpha_details(expression_sha)")
         cursor.execute("CREATE INDEX IF NOT EXISTS idx_detail_sharpe ON alpha_details(sharpe)")
         cursor.execute("CREATE INDEX IF NOT EXISTS idx_detail_fitness ON alpha_details(fitness)")
@@ -458,80 +427,56 @@ class AlphaDatabase:
             )
         return None
 
-    # ---------------------------------------------------------------------------
-    # 回测结果操作
-    # ---------------------------------------------------------------------------
-
-    def insert_backtest_result(
+    def catalog_expression(
         self,
-        alpha_id: str,
         expression: str,
-        result: Dict,
-        stage: str = "backtest",
-        status: str = "pending"
+        *,
+        stage: str = "first_order",
+        family: str = "unary",
+        template_index: int = -1,
+        fields_per_alpha: int = 0,
+        base_fields: Optional[List[str]] = None,
+        metadata: Optional[Dict] = None,
+        status: str = "generated",
     ) -> int:
-        """插入回测结果.
+        """把候选表达式写入现有 alpha_expressions 表，重复表达式幂等处理。"""
+        settings = {
+            "stage": stage,
+            "family": family,
+            "template_index": template_index,
+            "fields_per_alpha": fields_per_alpha,
+            "base_fields": base_fields or [],
+            "metadata": metadata or {},
+            "status": status,
+        }
+        return self.insert_expression(expression, settings)
 
-        Args:
-            alpha_id: 平台alpha_id
-            expression: 表达式
-            result: 回测结果字典
-            stage: 阶段
-            status: 状态
-
-        Returns:
-            结果ID
-        """
-        conn = self._get_connection()
-        cursor = conn.cursor()
-
-        expression_sha = self.compute_sha(expression)
-        result_json = json.dumps(result)
-        now = datetime.now().isoformat()
-
-        cursor.execute("""
-            INSERT INTO backtest_results (alpha_id, expression_sha, expression, result, stage, status, created_at, updated_at)
-            VALUES (?, ?, ?, ?, ?, ?, ?, ?)
-        """, (alpha_id, expression_sha, expression, result_json, stage, status, now, now))
-
-        conn.commit()
-        return cursor.lastrowid
-
-    def update_backtest_status(self, alpha_id: str, stage: str, status: str):
-        """更新回测状态."""
-        conn = self._get_connection()
-        cursor = conn.cursor()
-        now = datetime.now().isoformat()
-
-        cursor.execute("""
-            UPDATE backtest_results
-            SET stage = ?, status = ?, updated_at = ?
-            WHERE alpha_id = ?
-        """, (stage, status, now, alpha_id))
-
-        conn.commit()
-
-    def get_backtest_by_alpha_id(self, alpha_id: str) -> Optional[BacktestResult]:
-        """通过alpha_id查询回测结果."""
-        conn = self._get_connection()
-        cursor = conn.cursor()
-
-        cursor.execute("SELECT * FROM backtest_results WHERE alpha_id = ? ORDER BY created_at DESC LIMIT 1", (alpha_id,))
-        row = cursor.fetchone()
-
-        if row:
-            return BacktestResult(
-                id=row['id'],
-                alpha_id=row['alpha_id'],
-                expression_sha=row['expression_sha'],
-                expression=row['expression'],
-                result=row['result'],
-                stage=row['stage'],
-                status=row['status'],
-                created_at=row['created_at'],
-                updated_at=row['updated_at']
+    def catalog_tasks(
+        self, tasks: List[Any], *, stage: str = "first_order", settings: Optional[Dict] = None
+    ) -> int:
+        """批量登记 Task 到现有 alpha_expressions 表。"""
+        count = 0
+        for task in tasks:
+            self.catalog_expression(
+                task.expression,
+                stage=stage,
+                family=task.family,
+                template_index=task.template_index,
+                fields_per_alpha=task.fields_per_alpha,
+                base_fields=list(task.base_fields),
+                metadata=task.meta,
             )
-        return None
+            count += 1
+        return count
+
+    def sample_catalog_expressions(
+        self, expressions: List[str], *, limit: int = 80, seed: Optional[int] = 42
+    ) -> List[str]:
+        """从本次已写入 alpha_expressions 的表达式中随机抽样。"""
+        import random
+        selected = list(expressions)
+        random.Random(seed).shuffle(selected)
+        return selected if limit <= 0 else selected[:limit]
 
     # ---------------------------------------------------------------------------
     # Alpha详情操作
@@ -553,6 +498,15 @@ class AlphaDatabase:
         self._upsert_detail(cursor, detail, now)
         conn.commit()
         return cursor.lastrowid
+
+    def update_alpha_status(self, alpha_id: str, status: str) -> None:
+        """更新 alpha_details 中的平台状态。"""
+        conn = self._get_connection()
+        conn.execute(
+            "UPDATE alpha_details SET status_platform = ?, updated_at = ? WHERE alpha_id = ?",
+            (status, datetime.now().isoformat(), alpha_id),
+        )
+        conn.commit()
 
     def _upsert_detail(self, cursor: sqlite3.Cursor, detail: AlphaDetail, now: str) -> None:
         """内部: 插入或更新alpha详情 (upsert, 不提交).
@@ -960,13 +914,6 @@ class AlphaDatabase:
                 if checks:
                     self.upsert_checks(row['alpha_id'], checks)
 
-                # 插入回测结果
-                self.insert_backtest_result(
-                    alpha_id=row['alpha_id'],
-                    expression=expression,
-                    result=is_result
-                )
-
                 count += 1
 
             except Exception as e:
@@ -984,7 +931,6 @@ class AlphaDatabase:
 __all__ = [
     "AlphaDatabase",
     "AlphaExpression",
-    "BacktestResult",
     "AlphaDetail",
     "persist_workflow_row",
 ]

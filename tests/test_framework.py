@@ -18,7 +18,7 @@ sys.path.insert(0, str(ROOT))
 
 from alpha_operator_framework import (
     # 算子
-    basic_ops, ts_ops, group_ops, extended_ops,
+    basic_ops, ts_ops, group_ops, vec_ops, extended_ops,
     ts_factory, first_order_factory,
     # 模板族
     UNARY_TEMPLATES, BINARY_TEMPLATES, TERNARY_TEMPLATES,
@@ -26,7 +26,8 @@ from alpha_operator_framework import (
     Task,
     # 字段
     FieldSpec, SampleSpec,
-    preprocess_field, sample_scalar_expressions,
+    preprocess_field, sample_scalar_expressions, load_local_field_specs,
+    find_positive_negative_pairs, find_cap_pairs, semantic_pair_task_factory,
     # 密度
     SignalGate, compute_density, top_templates,
     # 剪枝
@@ -44,6 +45,9 @@ def test_operators():
     assert len(basic_ops) == 6, f"basic_ops应有6个, 实际{len(basic_ops)}"
     assert len(ts_ops) >= 10, f"ts_ops应至少10个, 实际{len(ts_ops)}"
     assert len(group_ops) == 3, f"group_ops应有3个, 实际{len(group_ops)}"
+    assert vec_ops == [
+        "vec_avg", "vec_sum", "vec_min", "vec_max", "vec_stddev", "vec_range", "vec_count"
+    ], f"VEC算子集合不正确: {vec_ops}"
 
     # ts_factory测试
     exprs = ts_factory("ts_rank", "close", windows=[5, 22])
@@ -121,15 +125,62 @@ def test_fields():
         coverage=0.80
     )
     exprs = preprocess_field(vec_field)
-    assert len(exprs) == 2, f"VECTOR字段应生成2个表达式(vec_avg+vec_sum), 实际{len(exprs)}"
+    assert len(exprs) == len(vec_ops), f"VECTOR字段应为每个VEC算子生成表达式, 实际{len(exprs)}"
 
     # sample_scalar_expressions测试
     fields = [field, vec_field]
     spec = SampleSpec(sample_n=10, seed=42)
     scalars = sample_scalar_expressions(fields, spec)
-    assert len(scalars) == 3, f"应生成3个表达式(close+vec_avg+vec_sum), 实际{len(scalars)}"
+    assert len(scalars) == 1 + len(vec_ops), f"应生成MATRIX与全部VEC归约表达式, 实际{len(scalars)}"
 
     print("✓ 字段处理测试通过")
+
+
+def test_local_field_files():
+    """测试本地 CSV / JSON 字段文件读取和研究设置预筛选。"""
+    print("测试本地字段文件...")
+
+    fixture_dir = ROOT / "tests" / "fixtures"
+    csv_fields = load_local_field_specs(
+        fixture_dir / "local_fields.csv", region="GBR", universe="TOP700", delay=1
+    )
+    assert len(csv_fields) == 1
+    assert csv_fields[0].id == "act_12m_cps_value"
+    assert csv_fields[0].dataset_id == "analyst7"
+    assert csv_fields[0].coverage == 0.1642
+
+    json_fields = load_local_field_specs(
+        fixture_dir / "local_fields.json", region="GBR", universe="TOP700", delay=1,
+        dataset_id="acquisition_model", data_type="VECTOR",
+    )
+    assert len(json_fields) == 1
+    assert json_fields[0].id == "country_percentile_acquisition_likelihood"
+    assert json_fields[0].type == "VECTOR"
+    assert load_local_field_specs(fixture_dir / "local_fields.json", region="EUR") == []
+
+    print("✓ 本地字段文件测试通过")
+
+
+def test_semantic_pairs():
+    """测试正负字段配对和同前缀 cap 归一化。"""
+    print("测试语义二元配对...")
+    fields = [
+        FieldSpec(id="earnings_positive", dataset_id="d1", type="MATRIX"),
+        FieldSpec(id="earnings_negative", dataset_id="d1", type="MATRIX"),
+        FieldSpec(id="abc_revenue", dataset_id="d1", type="MATRIX"),
+        FieldSpec(id="abc_cap", dataset_id="d1", type="MATRIX"),
+        FieldSpec(id="other_positive", dataset_id="d2", type="MATRIX"),
+        FieldSpec(id="other_negative", dataset_id="d3", type="MATRIX"),
+    ]
+    assert [(a.id, b.id) for a, b in find_positive_negative_pairs(fields)] == [
+        ("earnings_positive", "earnings_negative")
+    ]
+    assert [(a.id, b.id) for a, b in find_cap_pairs(fields)] == [("abc_revenue", "abc_cap")]
+    tasks = semantic_pair_task_factory(fields)
+    assert len(tasks) == 2
+    assert any(" - " in task.expression and task.meta["pair_type"] == "polarity" for task in tasks)
+    assert any(" / " in task.expression and task.meta["pair_type"] == "cap_ratio" for task in tasks)
+    print("✓ 语义二元配对测试通过")
 
 
 def test_density():
@@ -266,6 +317,8 @@ def run_all_tests():
         test_operators()
         test_families()
         test_fields()
+        test_local_field_files()
+        test_semantic_pairs()
         test_density()
         test_pruning()
 

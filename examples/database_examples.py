@@ -20,7 +20,6 @@ sys.path.insert(0, str(ROOT))
 from alpha_operator_framework.database import (
     AlphaDatabase,
     AlphaExpression,
-    BacktestResult,
     AlphaDetail,
 )
 
@@ -91,27 +90,14 @@ def example_save_backtest_result():
         ]
     }
 
-    # 插入回测结果
-    result_id = db.insert_backtest_result(
-        alpha_id=alpha_id,
-        expression=expression,
-        result=result,
-        stage="backtest",
-        status="pending"
-    )
-
-    print(f"\n回测结果ID: {result_id}")
-
-    # 更新状态
-    db.update_backtest_status(alpha_id, stage="check", status="optimize")
-    print("状态更新为: check/optimize")
-
-    # 查询结果
-    backtest = db.get_backtest_by_alpha_id(alpha_id)
-
-    if backtest:
-        print(f"\n阶段: {backtest.stage}")
-        print(f"状态: {backtest.status}")
+    # 回测完成后直接保存到 alpha_details
+    result["expression"] = expression
+    db.save_result_with_checks(alpha_id, result, {
+        "region": "EUR", "universe": "TOP2500", "delay": 1,
+        "decay": 6.0, "neutralization": "SUBINDUSTRY",
+        "truncation": 0.08, "stage": "backtest", "status": "pending",
+    })
+    print("\n回测结果已保存到 alpha_details")
 
     db.close()
 
@@ -326,16 +312,15 @@ def example_workflow_integration():
     print("\n典型工作流:")
     print("  1. Survey阶段:")
     print("     - 插入表达式 → insert_expression()")
-    print("     - 保存回测结果 → insert_backtest_result()")
-    print("     - 保存详情 → insert_alpha_detail()")
+    print("     - 回测完成后统一保存 → alpha_details")
 
     print("\n  2. Deepen阶段:")
     print("     - 查询候选 → query_alphas(min_sharpe=1.2, max_sharpe=1.8)")
-    print("     - 更新状态 → update_backtest_status(stage='optimize')")
+    print("     - 更新状态 → alpha_details.status_platform='optimize'")
 
     print("\n  3. Submit阶段:")
     print("     - 查询可提交 → query_alphas(min_sharpe=1.58)")
-    print("     - 更新状态 → update_backtest_status(stage='submit')")
+    print("     - 更新状态 → alpha_details.status_platform='submit'")
 
     db.close()
 
@@ -365,9 +350,8 @@ def main():
     print("\n数据库位置: runs/alpha_research.db")
     print("\n表结构:")
     print("  1. alpha_expressions (表达式表, 基于expression_sha去重)")
-    print("  2. backtest_results (回测结果表, 跟踪阶段和状态)")
-    print("  3. alpha_details (详情表, 平铺所有字段便于查询, 含PC/SC/checks)")
-    print("  4. alpha_checks (检查子表, 平台全部提交检查项, 1:N)")
+    print("  2. alpha_details (回测详情表, 平铺所有字段便于查询, 含PC/SC/checks)")
+    print("  3. alpha_checks (检查子表, 平台全部提交检查项, 1:N)")
 
 
 if __name__ == "__main__":

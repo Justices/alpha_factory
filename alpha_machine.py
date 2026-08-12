@@ -20,6 +20,7 @@ STANDARD_WINDOWS = (5, 22, 66, 120, 252, 504)
 FIRST_ORDER_OPS = ("rank", "zscore", "quantile", "normalize", "ts_rank", "ts_zscore",
                    "ts_delta", "ts_mean", "ts_std_dev", "ts_sum", "ts_delay")
 GROUP_OPS = ("group_neutralize", "group_rank", "group_zscore")
+VEC_OPS = ("vec_avg", "vec_sum", "vec_min", "vec_count", "vec_max", "vec_stddev", "vec_range")
 
 
 @dataclass(frozen=True)
@@ -88,7 +89,7 @@ def select_fields(rows: Iterable[dict[str, Any]], *, dataset_id: str = "", data_
 
 
 def preprocess_field(field: FieldSpec, *, backfill: int = 120, winsorize_std: float = 4.0,
-                     vector_ops: Sequence[str] = ("vec_avg", "vec_sum")) -> list[str]:
+                     vector_ops: Sequence[str] = VEC_OPS) -> list[str]:
     """将可用 MATRIX/VECTOR 字段变成一阶工厂的标量输入；GROUP 不当作原子信号。"""
     if field.type == "MATRIX":
         bases = [field.id]

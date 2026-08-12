@@ -182,6 +182,40 @@ def unary_factory(
     return tasks
 
 
+def first_order_task_factory(
+    scalar_fields: Iterable[str],
+    ops_set: Sequence[str] | None = None,
+    *,
+    decay: float = 6.0,
+) -> List[Task]:
+    """一阶算子任务工厂: 字段 × 全部一阶算子(含时间窗口).
+
+    与 ``operators.first_order_factory`` 保持同一展开逻辑，但包装成
+    ``Task``，使表达式可以直接进入 survey 回测和密度统计。
+    ``template_index`` 表示同一算子在一阶算子集合中的位置，便于聚合。
+    """
+    from alpha_operator_framework.operators import first_order_factory
+
+    tasks: List[Task] = []
+    for field_expr in list(scalar_fields):
+        expressions = first_order_factory([field_expr], ops_set)
+        for idx, expression in enumerate(expressions):
+            tasks.append(Task(
+                expression=expression,
+                template_index=idx,
+                family="unary",
+                fields_per_alpha=1,
+                decay=decay,
+                base_fields=(field_expr,),
+                meta={
+                    "label": "first_order_operator",
+                    "stage": "first_order",
+                    "source_freq": "unknown",
+                },
+            ))
+    return tasks
+
+
 def binary_factory(
     scalar_fields: Iterable[str],
     *,
@@ -323,6 +357,7 @@ __all__ = [
     "Task",
     # 工厂函数
     "unary_factory",
+    "first_order_task_factory",
     "binary_factory",
     "ternary_factory",
     "quaternary_factory",

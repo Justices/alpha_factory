@@ -14,7 +14,7 @@
 
 from __future__ import annotations
 
-from dataclasses import dataclass, field
+from dataclasses import dataclass, field, replace
 from itertools import combinations
 from typing import Iterable, Sequence, List, Tuple
 
@@ -40,6 +40,7 @@ class Task:
     template_index: int
     family: str  # "unary" | "binary" | "ternary" | "quaternary"
     fields_per_alpha: int
+    expression_origin: str = ""
     decay: float = 6.0
     base_fields: Tuple[str, ...] = ()
     meta: dict = field(default_factory=dict)
@@ -173,12 +174,79 @@ def unary_factory(
                 tasks.append(Task(
                     expression=expr,
                     template_index=idx,
-                    family="unary",
-                    fields_per_alpha=fpa,
-                    base_fields=(a,),
+                family="unary",
+                fields_per_alpha=fpa,
+                expression_origin="unary_template",
+                base_fields=(a,),
                     meta={"label": rationale, "window": 500, "source_freq": "unknown"},
                 ))
 
+    return tasks
+
+
+def first_order_task_factory(
+    scalar_fields: Iterable[str],
+    ops_set: Sequence[str] | None = None,
+    *,
+    decay: float = 6.0,
+) -> List[Task]:
+    """一阶算子任务工厂: 字段 × 全部一阶算子(含时间窗口).
+
+    与 ``operators.first_order_factory`` 保持同一展开逻辑，但包装成
+    ``Task``，使表达式可以直接进入 survey 回测和密度统计。
+    ``template_index`` 表示同一算子在一阶算子集合中的位置，便于聚合。
+    """
+    from alpha_operator_framework.operators import first_order_factory
+
+    tasks: List[Task] = []
+    for field_expr in list(scalar_fields):
+        expressions = first_order_factory([field_expr], ops_set)
+        for idx, expression in enumerate(expressions):
+            tasks.append(Task(
+                expression=expression,
+                template_index=idx,
+                family="unary",
+                fields_per_alpha=1,
+                expression_origin="first_order",
+                decay=decay,
+                base_fields=(field_expr,),
+                meta={
+                    "label": "first_order_operator",
+                    "stage": "first_order",
+                    "source_freq": "unknown",
+                },
+            ))
+    return tasks
+
+
+def economic_first_order_task_factory(
+    field_specs: Iterable,
+    *,
+    backfill: int = 120,
+    winsorize_std: float = 4.0,
+    vector_ops: Sequence[str] | None = None,
+    decay: float = 6.0,
+) -> List[Task]:
+    """Build first-order tasks after applying conservative field-level economic rules."""
+    from alpha_operator_framework.economic_rules import allowed_first_order_ops, infer_economic_type
+    from alpha_operator_framework.fields import preprocess_field
+
+    tasks: List[Task] = []
+    for field in field_specs:
+        scalar_fields = preprocess_field(
+            field, backfill=backfill, winsorize_std=winsorize_std,
+            vector_ops=tuple(vector_ops) if vector_ops is not None else None,
+        ) if vector_ops is not None else preprocess_field(field, backfill=backfill, winsorize_std=winsorize_std)
+        ops = allowed_first_order_ops(field)
+        for task in first_order_task_factory(scalar_fields, ops, decay=decay):
+            tasks.append(replace(
+                task,
+                meta={
+                    **task.meta,
+                    "economic_type": infer_economic_type(field) or "unknown",
+                    "economic_ops": ops,
+                },
+            ))
     return tasks
 
 
@@ -323,6 +391,8 @@ __all__ = [
     "Task",
     # 工厂函数
     "unary_factory",
+    "first_order_task_factory",
+    "economic_first_order_task_factory",
     "binary_factory",
     "ternary_factory",
     "quaternary_factory",

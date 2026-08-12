@@ -24,6 +24,8 @@ from .families import (
     QUATERNARY_TEMPLATES,  # 新增: 多阶group模板
     Task,
     unary_factory,
+    first_order_task_factory,
+    economic_first_order_task_factory,
     binary_factory,
     ternary_factory,
     quaternary_factory,  # 新增
@@ -34,6 +36,8 @@ from .operators import (
     basic_ops,
     ts_ops,
     group_ops,
+    VEC_OPS,
+    vec_ops,
     extended_ops,
     # 工厂函数
     ts_factory,
@@ -46,7 +50,31 @@ from .fields import (
     FieldSpec,
     SampleSpec,
     preprocess_field,
+    sample_field_specs,
     sample_scalar_expressions,
+)
+
+from .local_fields import (
+    read_local_field_rows,
+    load_local_field_specs,
+)
+
+from .semantic_pairs import (
+    find_positive_negative_pairs,
+    find_cap_pairs,
+    semantic_pair_task_factory,
+)
+
+from .paired_bases import (
+    PairSpec,
+    parse_pair_spec,
+    parse_pair_specs,
+    discover_pair_specs,
+    paired_field_ids,
+    paired_base_task_factory,
+    paired_unary_task_factory,
+    paired_first_order_task_factory,
+    paired_group_first_order_task_factory,
 )
 
 from .density import (
@@ -59,8 +87,11 @@ from .density import (
 from .ai_workflow import (
     SurveyConfig,
     DeepenConfig,
+    SignalBranchConfig,
     OptimizeConfig,
     WorkflowResult,
+    build_signal_branches,
+    run_signal_branches,
     run_survey_with_fields,
     run_full_workflow,
     filter_alphas_for_optimization,
@@ -83,7 +114,6 @@ from .optimize import (
 from .database import (
     AlphaDatabase,
     AlphaExpression,
-    BacktestResult,
     AlphaDetail,
 )
 
@@ -134,6 +164,7 @@ __all__ = [
     "QUATERNARY_TEMPLATES",
     "Task",
     "unary_factory",
+    "first_order_task_factory",
     "binary_factory",
     "ternary_factory",
     "quaternary_factory",
@@ -141,6 +172,8 @@ __all__ = [
     "basic_ops",
     "ts_ops",
     "group_ops",
+    "VEC_OPS",
+    "vec_ops",
     "extended_ops",
     "ts_factory",
     "group_factory",
@@ -150,7 +183,22 @@ __all__ = [
     "FieldSpec",
     "SampleSpec",
     "preprocess_field",
+    "sample_field_specs",
     "sample_scalar_expressions",
+    "read_local_field_rows",
+    "load_local_field_specs",
+    "find_positive_negative_pairs",
+    "find_cap_pairs",
+    "semantic_pair_task_factory",
+    "PairSpec",
+    "parse_pair_spec",
+    "parse_pair_specs",
+    "discover_pair_specs",
+    "paired_field_ids",
+    "paired_base_task_factory",
+    "paired_unary_task_factory",
+    "paired_first_order_task_factory",
+    "paired_group_first_order_task_factory",
     # Density
     "SignalGate",
     "DensityRow",
@@ -159,8 +207,11 @@ __all__ = [
     # AI Workflow
     "SurveyConfig",
     "DeepenConfig",
+    "SignalBranchConfig",
     "OptimizeConfig",
     "WorkflowResult",
+    "build_signal_branches",
+    "run_signal_branches",
     "run_survey_with_fields",
     "run_full_workflow",
     # Alpha Filtering
@@ -185,7 +236,6 @@ __all__ = [
     # Database
     "AlphaDatabase",
     "AlphaExpression",
-    "BacktestResult",
     "AlphaDetail",
     # Pruning
     "classify_field",

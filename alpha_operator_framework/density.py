@@ -76,6 +76,7 @@ class DensityRow:
 
     template_index: int
     family: str
+    expression_origin: str = ""
     source_freq: str = "unknown"
     sample_n: int = 0
     signal_n: int = 0
@@ -90,8 +91,9 @@ class DensityRow:
         return asdict(self)
 
 
-def _denkey(row: dict) -> tuple[str, int, str]:
+def _denkey(row: dict) -> tuple[str, str, int, str]:
     """以 (family, template_index, source_freq) 为聚合key."""
+    origin = row.get("expression_origin") or (row.get("meta") or {}).get("expression_origin") or ""
     family = row.get("family") or row.get("template_family") or "unknown"
     raw_idx = row.get("template_index")
     if raw_idx is None:
@@ -100,7 +102,7 @@ def _denkey(row: dict) -> tuple[str, int, str]:
     src = (row.get("source_freq")
            or (row.get("meta") or {}).get("source_freq")
            or "unknown")
-    return (family or "unknown", idx, src)
+    return (origin, family or "unknown", idx, src)
 
 
 def compute_density(
@@ -136,7 +138,7 @@ def compute_density(
     ops = tuple(access_limited_ops or ())
 
     for key, items in buckets.items():
-        family, idx, src = key
+        origin, family, idx, src = key
         signals = 0
         sharpes: List[float] = []
         fpa = int(items[0].get("fields_per_alpha", 0) or 0)
@@ -162,6 +164,7 @@ def compute_density(
         rows.append(DensityRow(
             template_index=idx,
             family=family,
+            expression_origin=origin,
             source_freq=src,
             sample_n=n,
             signal_n=signals,

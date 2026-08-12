@@ -1,10 +1,10 @@
 # alpha_machine 使用说明
 
-本目录的 `alpha_machine.py` 迁移自 `/Users/liujiaping/ai/quant/scripts/alpha_machine.py`(原样复制,sha 校验一致)。
+本目录的 `alpha_machine.py` 从历史项目的 `scripts/alpha_machine.py` 迁移而来。
 它是 WorldQuant BRAIN 平台的封装:字段探索、一阶/二阶构造、回测任务与质量门筛选。
 
-> 重要:它**不是独立库**,运行时依赖 quant 工作区 venv 里的真实平台客户端
-> (`cnhkmcp.untracked.platform_functions`)。因此**必须用 quant 的 venv python 运行**。
+> 重要:运行时依赖当前 Python 环境已安装的 `cnhkmcp` 平台客户端
+> (`cnhkmcp.untracked.platform_functions`)。
 
 ## 迁移过来的文件
 
@@ -14,19 +14,19 @@ cnhkmcp/
   __init__.py                       # shim 包入口
   session_manager.py                # BRAIN 会话持久化 (cookie)
   untracked/
-    platform_functions.py           # shim: 加载 quant venv 里的真实客户端
+    platform_functions.py           # shim: 加载当前 Python 环境中的真实客户端
 .brain.json                         # BRAIN 账号凭据 (同 quant 账号, 权限600)
 .brain_session.json                 # 登录会话缓存 (首次认证后自动生成)
 ```
 
-## 为什么必须用 quant 的 venv python
+## Python 环境要求
 
-真实平台客户端(在 `quant/.venv/site-packages/cnhkmcp/`)依赖 `mcp` / `pydantic`,
-系统 python 没有装。用 quant venv 即可全部满足:
+真实平台客户端依赖 `mcp` / `pydantic`。请使用已经安装这些依赖及
+`cnhkmcp` 的 Python 环境运行：
 
 ```bash
-PY=/Users/liujiaping/ai/quant/.venv/bin/python
-$PY --version   # Python 3.13
+PY=python
+$PY --version
 ```
 
 ## 三种使用方式
@@ -34,7 +34,7 @@ $PY --version   # Python 3.13
 ### 1. 命令行 CLI(不写代码)
 
 ```bash
-PY=/Users/liujiaping/ai/quant/.venv/bin/python
+PY=python
 
 # ① 发现字段 (只读, 不消耗额度)
 $PY alpha_machine.py discover \

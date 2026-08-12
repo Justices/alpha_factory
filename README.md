@@ -37,6 +37,63 @@ python3 examples/demo_workflow.py
 python3 examples/ai_workflow_examples.py
 ```
 
+### 使用本地字段文件预筛选
+
+字段文件支持平台导出的 CSV，以及字段对象组成的 JSON 数组。提供本地文件后，
+Survey 不会请求平台字段接口；会按 `region`、`universe`、`delay`、`dataset`、
+`type` 和 `search` 过滤，再按 coverage 和冷门度进入后续预筛选。
+
+```bash
+python3 -m alpha_operator_framework.orchestrator survey \
+  --fields-file data/fields/GBR/1/TOP700/risk68.csv --fields-file-type csv \
+  --region GBR --universe TOP700 --delay 1 \
+  --min-coverage 0.1 --sample 80 --backtest-sample 100
+```
+
+Python API：
+
+```python
+results = await run_full_workflow(
+    region="GBR",
+    universe="TOP700",
+    delay=1,
+    fields_file="data/fields/GBR/1/TOP700/risk68.json",
+    execute=False,
+)
+```
+
+### 语义二元配对
+
+Survey 会在实际入选字段中自动识别同数据集的定向字段对，并将表达式与一阶
+表达式一起登记、随机抽样回测：
+
+- `earnings_positive` + `earnings_negative` → `positive - negative`
+- `abc_revenue` + `abc_cap` → `abc_revenue / abc_cap`
+
+`*_cap` 只会匹配同数据集、同前缀的字段，避免无关字段相除。需要关闭时传入
+`--no-semantic-pairs`。
+
+### Explicit binary base signals
+
+Survey automatically discovers strict same-dataset revision (`raisednum`,
+`lowerednum`, `num`) and dispersion (`high`, `low`, `mean`) groups. Group
+members are excluded from standalone unary and first-order generation. Instead,
+the combined economic base signal is expanded with the complete first-order
+operator set (for example `rank(base)` and `ts_rank(base, 22)`). Repeatable
+`--pair` parameters may add an explicit group. Tasks retain `paired_base` or
+`paired_first_order` provenance, plus pair kind, stage, source, and source
+fields.
+
+```bash
+python -m alpha_operator_framework.orchestrator survey \
+  --field-source local --region GBR --universe TOP700 --delay 1 --dataset analyst7 \
+  --pair net_revision:est_12m_ebi_raisednum_4wks:est_12m_ebi_lowerednum_4wks:est_12m_ebi_num \
+  --backtest-sample 0
+```
+
+Use `ratio:NUMERATOR:DENOMINATOR` or
+`difference|spread|net_revision:LEFT:RIGHT[:NORMALIZER]`.
+
 ## 核心特性
 
 ### 1. AI友好的API设计

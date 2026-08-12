@@ -28,6 +28,20 @@ ts_ops = [
 # 分组算子 (来自 machine_lib group_factory)
 group_ops = ["group_neutralize", "group_rank", "group_zscore"]
 
+# 向量归约算子 (将 VECTOR 数据字段转换为标量表达式)
+# 顺序与 BRAIN 当前 Vector 分类保持一致，并兼容已有 vec_avg/vec_sum 默认行为。
+VEC_OPS = [
+    "vec_avg",
+    "vec_sum",
+    "vec_min",
+    "vec_max",
+    "vec_stddev",
+    "vec_range",
+    "vec_count",
+]
+# 小写名称遵循现有 ``basic_ops`` / ``ts_ops`` 的公共 API 命名约定。
+vec_ops = VEC_OPS
+
 # 扩展算子 (来自 cold_templates ACCESS_LIMITED_OPS + machine_lib)
 extended_ops = [
     "regression_neut",      # 回归中性化
@@ -212,23 +226,23 @@ def uses_access_limited_op(expression: str) -> List[str]:
 # ---------------------------------------------------------------------------
 
 def get_vec_fields(fields: Sequence[str], vec_ops: Sequence[str] = None) -> List[str]:
-    """对VECTOR字段应用vec_avg/vec_sum归约为标量.
+    """对 VECTOR 字段应用 VEC 算子归约为标量。
 
     来自 machine_lib.get_vec_fields.
 
     Args:
         fields: VECTOR字段ID列表
-        vec_ops: vec操作符列表, 默认 ["vec_avg", "vec_sum"]
+        vec_ops: VEC 算子列表；默认使用全部 ``vec_ops``。
 
     Returns:
         归约后的标量表达式列表
 
     Example:
-        >>> get_vec_fields(["nws82_sentiment"])
-        ['vec_avg(nws82_sentiment)', 'vec_sum(nws82_sentiment)']
+        >>> get_vec_fields(["nws82_sentiment"], ["vec_avg", "vec_count"])
+        ['vec_avg(nws82_sentiment)', 'vec_count(nws82_sentiment)']
     """
     if vec_ops is None:
-        vec_ops = ["vec_avg", "vec_sum"]
+        vec_ops = VEC_OPS
 
     vec_fields = []
     for field in fields:
@@ -273,6 +287,8 @@ __all__ = [
     "basic_ops",
     "ts_ops",
     "group_ops",
+    "VEC_OPS",
+    "vec_ops",
     "extended_ops",
     "ACCESS_LIMITED_OPS",
     # 工厂函数

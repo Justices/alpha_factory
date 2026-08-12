@@ -112,8 +112,13 @@ def write_tasks(tasks: list, path: Path, settings: dict) -> Path:
                 "expression": t.expression,
                 "family": t.family,
                 "template_index": t.template_index,
+                "expression_origin": t.expression_origin,
                 "source_freq": t.meta.get("source_freq"),
-                "fields_per_alpha": t.fields_per_alpha
+                "fields_per_alpha": t.fields_per_alpha,
+                "base_fields": list(t.base_fields),
+                "pair_kind": t.meta.get("pair_kind"),
+                "pair_stage": t.meta.get("pair_stage"),
+                "pair_source": t.meta.get("pair_source"),
             }
             for t in tasks
         ],
@@ -153,28 +158,78 @@ def cmd_survey(args) -> None:
     print(f"[survey] {args.region}/{args.universe} delay={args.delay} "
           f"dataset={args.dataset or 'all'} sample={args.sample}")
 
-    # 延迟导入 (避免启动时循环依赖)
-    import alpha_machine
+    # 1. 发现字段：auto 优先加载约定本地目录，缺失时再访问平台。
     from alpha_operator_framework import families, fields
-
-    # 1. 发现字段 (带翻页延迟防 429)
-    page_delay = getattr(args, 'page_delay', 0.5)
-    field_rows = asyncio.run(alpha_machine.fetch_datafields(
-        args.region, args.universe, args.delay,
-        dataset_id=args.dataset, search=args.search, data_type=args.type,
-        page_delay=page_delay
-    ))
-    field_specs = [
-        fields.FieldSpec(
-            id=r["id"],
-            dataset_id=r.get("dataset", {}).get("id", ""),
-            type=r.get("type", "MATRIX"),
-            coverage=r.get("coverage", 0.0),
-            user_count=r.get("userCount", 0),
-            alpha_count=r.get("alphaCount", 0)
+    fields_file = getattr(args, "fields_file", None)
+    field_source = getattr(args, "field_source", "auto")
+    fields_file_type = getattr(args, "fields_file_type", "auto")
+    if fields_file and field_source == "platform":
+        raise ValueError("--fields-file 与 --field-source platform 不能同时使用")
+    if fields_file:
+        from alpha_operator_framework.local_fields import load_local_field_directory, load_local_field_specs
+        field_path = Path(fields_file)
+        loader = load_local_field_directory if field_path.is_dir() else load_local_field_specs
+        field_specs = loader(
+            field_path,
+            file_type=fields_file_type,
+            region=args.region,
+            universe=args.universe,
+            delay=args.delay,
+            dataset_id=args.dataset,
+            search=args.search,
+            data_type=args.type,
         )
-        for r in field_rows
-    ]
+        print(f"  本地字段{'目录' if field_path.is_dir() else '文件'} → {field_path} ({len(field_specs)} 个匹配字段)")
+    elif field_source != "platform":
+        from alpha_operator_framework.local_fields import (
+            default_dataset_file, default_fields_directory, load_local_field_directory, load_local_field_specs,
+        )
+        local_dir = default_fields_directory(ROOT, args.region, args.delay, args.universe)
+        if args.dataset:
+            types = (fields_file_type,) if fields_file_type in ("csv", "json") else ("json", "csv")
+            candidates = [
+                default_dataset_file(ROOT, args.region, args.delay, args.universe, args.dataset, kind)
+                for kind in types
+            ]
+            local_file = next((path for path in candidates if path.is_file()), None)
+            field_specs = load_local_field_specs(
+                local_file, file_type=local_file.suffix[1:], region=args.region, universe=args.universe,
+                delay=args.delay, dataset_id=args.dataset, search=args.search, data_type=args.type,
+            ) if local_file else []
+            local_dir = local_file or candidates[0]
+        else:
+            field_specs = load_local_field_directory(
+                local_dir, file_type=fields_file_type, region=args.region, universe=args.universe,
+                delay=args.delay, dataset_id=args.dataset, search=args.search, data_type=args.type,
+            ) if local_dir.is_dir() else []
+        if field_specs:
+            print(f"  默认本地字段目录 → {local_dir} ({len(field_specs)} 个匹配字段)")
+        elif field_source == "local":
+            raise FileNotFoundError(f"本地字段目录不存在或无匹配字段: {local_dir}")
+    else:
+        field_specs = []
+    if not field_specs:
+        if field_source == "local":
+            raise FileNotFoundError("未找到可用本地字段")
+        import alpha_machine
+        page_delay = getattr(args, 'page_delay', 0.5)
+        field_rows = asyncio.run(alpha_machine.fetch_datafields(
+            args.region, args.universe, args.delay,
+            dataset_id=args.dataset, search=args.search, data_type=args.type,
+            page_delay=page_delay
+        ))
+        field_specs = [
+            fields.FieldSpec(
+                id=r["id"],
+                dataset_id=r.get("dataset", {}).get("id", ""),
+                type=r.get("type", "MATRIX"),
+                coverage=r.get("coverage", 0.0),
+                user_count=r.get("userCount", 0),
+                alpha_count=r.get("alphaCount", 0)
+            )
+            for r in field_rows
+        ]
+        print(f"  平台字段接口 → {len(field_specs)} 个匹配字段")
 
     # 1.5 基于数据包预筛数据集 (可选)
     use_datapack = getattr(args, 'use_datapack', None)
@@ -193,11 +248,8 @@ def cmd_survey(args) -> None:
             print(f"  数据包预筛: 区域平均 sharpe={stats['mean_sharpe']:.3f}, "
                   f"甜点区={len(stats['sweet_spot'])}个, 允许数据集={len(allowed_datasets)}个")
             # 过滤字段行
-            field_rows = [
-                r for r in field_rows
-                if r.get('dataset', {}).get('id', '') in allowed_datasets
-            ]
-            print(f"  数据包过滤后: 字段池 {len(field_rows)} 个")
+            field_specs = [f for f in field_specs if f.dataset_id in allowed_datasets]
+            print(f"  数据包过滤后: 字段池 {len(field_specs)} 个")
         except Exception as e:
             print(f"  警告: 数据包预筛失败, 跳过: {e}")
 
@@ -211,31 +263,105 @@ def cmd_survey(args) -> None:
         prefer_cold=not args.no_cold,
         seed=args.seed,
         backfill=args.backfill,
-        winsorize_std=args.winsorize_std
+        winsorize_std=args.winsorize_std,
+        all_combinations=getattr(args, "all_combinations", True),
     )
-    scalars = fields.sample_scalar_expressions(field_specs, spec)
-    pairs = fields.sample_pair_combinations(field_specs, spec)
-    triples = fields.sample_triple_combinations(field_specs, spec)
+    selected_fields = fields.sample_field_specs(field_specs, spec)
+    from alpha_operator_framework.paired_bases import (
+        discover_pair_specs, paired_base_task_factory, paired_field_ids, paired_group_first_order_task_factory,
+        parse_pair_specs,
+    )
+    automatic_pair_specs = discover_pair_specs(field_specs)
+    explicit_pair_specs = parse_pair_specs(getattr(args, "pairs", []))
+    pair_specs = []
+    seen_pair_specs = set()
+    for pair_spec in automatic_pair_specs + explicit_pair_specs:
+        key = (pair_spec.kind, pair_spec.left, pair_spec.right, pair_spec.denominator)
+        if key not in seen_pair_specs:
+            seen_pair_specs.add(key)
+            pair_specs.append(pair_spec)
+    grouped_field_ids = paired_field_ids(pair_specs)
+    ordinary_fields = [field for field in field_specs if field.id not in grouped_field_ids]
+    ordinary_selected_fields = [field for field in selected_fields if field.id not in grouped_field_ids]
+    scalars = fields.sample_scalar_expressions(ordinary_fields, spec)
+    pairs = fields.sample_pair_combinations(ordinary_fields, spec)
+    triples = fields.sample_triple_combinations(ordinary_fields, spec)
 
     # 3. 构造任务
     tasks: List = []
+    unary_tasks: List = []
+    unary_template_tasks: List = []
+    first_order_tasks: List = []
+    semantic_pair_tasks: List = []
+    paired_base_tasks: List = []
+    paired_first_order_tasks: List = []
     if args.unary:
-        tasks.extend(families.unary_factory(scalars))
+        # 调查阶段先展开一阶算子，形成表达式后统一进入回测。
+        unary_template_tasks = families.unary_factory(scalars)
+        first_order_tasks = families.economic_first_order_task_factory(
+            ordinary_selected_fields,
+            backfill=args.backfill,
+            winsorize_std=args.winsorize_std,
+            vector_ops=spec.vector_ops,
+        )
+        unary_tasks = unary_template_tasks + first_order_tasks
+        tasks.extend(unary_tasks)
+    if pair_specs:
+        paired_base_tasks = paired_base_task_factory(
+            pair_specs, field_specs,
+            backfill=args.backfill, winsorize_std=args.winsorize_std,
+            vector_ops=spec.vector_ops,
+        )
+        tasks.extend(paired_base_tasks)
+        if args.unary:
+            paired_first_order_tasks = paired_group_first_order_task_factory(paired_base_tasks)
+            tasks.extend(paired_first_order_tasks)
+    if getattr(args, "semantic_pairs", True):
+        from alpha_operator_framework.semantic_pairs import semantic_pair_task_factory
+        semantic_pair_tasks = semantic_pair_task_factory(
+            selected_fields,
+            backfill=args.backfill,
+            winsorize_std=args.winsorize_std,
+        )
+        tasks.extend(semantic_pair_tasks)
     if args.binary:
-        tasks.extend(families.binary_factory(scalars, max_pairs=len(pairs)))
+        max_pairs = None if getattr(args, "all_combinations", True) else len(pairs)
+        tasks.extend(families.binary_factory(scalars, max_pairs=max_pairs))
     if args.ternary:
-        tasks.extend(families.ternary_factory(scalars, max_triples=len(triples)))
+        max_triples = None if getattr(args, "all_combinations", True) else len(triples)
+        tasks.extend(families.ternary_factory(scalars, max_triples=max_triples))
     if args.quaternary and args.groups:
         tasks.extend(families.quaternary_factory(
-            scalars, args.groups, max_quadruples=len(pairs)
+            scalars, args.groups,
+            max_quadruples=None if getattr(args, "all_combinations", True) else len(pairs)
         ))
 
     print(f"  构造任务 {len(tasks)} 个 "
           f"(unary={args.unary} binary={args.binary} ternary={args.ternary} quaternary={args.quaternary})")
 
-    # 4. 写任务列表
+    # 4. 一阶表达式全量入目录，再随机抽样回测。
+    catalog_db = AlphaDatabase(RUNS / "alpha_research.db")
+    catalog_count = catalog_db.catalog_tasks(unary_tasks, stage="first_order")
+    catalog_count += catalog_db.catalog_tasks(semantic_pair_tasks, stage="semantic_pair")
+    paired_tasks = paired_base_tasks + paired_first_order_tasks
+    catalog_count += catalog_db.catalog_tasks(paired_tasks, stage="paired_base")
+    other_tasks = [
+        t for t in tasks
+        if t not in unary_tasks and t not in semantic_pair_tasks and t not in paired_tasks
+    ]
+    catalog_count += catalog_db.catalog_tasks(other_tasks, stage="survey")
+    sampled_expressions = catalog_db.sample_catalog_expressions(
+        [task.expression for task in tasks],
+        limit=getattr(args, "backtest_sample", 80),
+        seed=args.seed,
+    )
+    sampled_set = set(sampled_expressions)
+    sampled_tasks = [t for t in tasks if t.expression in sampled_set]
+    catalog_db.close()
+
+    # 5. 写入本次实际回测的任务列表
     write_tasks(
-        tasks,
+        sampled_tasks,
         RUNS / args.tasks_out,
         {
             "stage": "survey",
@@ -245,7 +371,7 @@ def cmd_survey(args) -> None:
             "dataset": args.dataset
         }
     )
-    print(f"  tasks → {RUNS / args.tasks_out} ({len(tasks)} 条)")
+    print(f"  一阶表达式目录 → {catalog_count} 条; 抽样回测 → {len(sampled_tasks)} 条")
 
     # 5. Dry-run检查
     if not args.execute:
@@ -253,8 +379,9 @@ def cmd_survey(args) -> None:
         return
 
     # 6. 模拟
+    import alpha_machine
     results = asyncio.run(alpha_machine.simulate(
-        [t.to_sim_dict() for t in tasks],
+        [t.to_sim_dict() for t in sampled_tasks],
         _ns(
             region=args.region,
             universe=args.universe,
@@ -265,13 +392,14 @@ def cmd_survey(args) -> None:
     ))
 
     # 7. 回填元数据
-    meta = {t.expression: t for t in tasks}
+    meta = {t.expression: t for t in sampled_tasks}
     for row in results:
         expr = row.get("expression")
         if expr in meta:
             t = meta[expr]
             row["family"] = t.family
             row["template_index"] = t.template_index
+            row["expression_origin"] = t.expression_origin
             row["source_freq"] = t.meta.get("source_freq")
             row["fields_per_alpha"] = t.fields_per_alpha
 
@@ -323,7 +451,6 @@ def cmd_deepen(args) -> None:
             --sample 400 --execute
     """
     from alpha_operator_framework.density import read_report, top_templates
-    import alpha_machine
     from alpha_operator_framework import families, fields
 
     # 1. 读density报告
@@ -331,22 +458,37 @@ def cmd_deepen(args) -> None:
     top = report.get("top_for_deepen", [])
     print(f"[deepen] 从 {args.density_out} 读 top {len(top)} 模板")
 
-    # 2. 发现字段 (带翻页延迟防 429)
-    page_delay = getattr(args, 'page_delay', 0.5)
-    field_rows = asyncio.run(alpha_machine.fetch_datafields(
-        args.region, args.universe, args.delay,
-        page_delay=page_delay
-    ))
-    field_specs = [
-        fields.FieldSpec(
-            id=r["id"],
-            dataset_id=r.get("dataset", {}).get("id", ""),
-            type=r.get("type", "MATRIX"),
-            coverage=r.get("coverage", 0.0),
-            user_count=r.get("userCount", 0)
+    # 2. 发现字段：本地文件优先；未提供文件时才请求平台。
+    fields_file = getattr(args, "fields_file", None)
+    if fields_file:
+        from alpha_operator_framework.local_fields import load_local_field_specs
+        field_specs = load_local_field_specs(
+            fields_file,
+            region=args.region,
+            universe=args.universe,
+            delay=args.delay,
+            dataset_id=getattr(args, "dataset", ""),
+            search=getattr(args, "search", ""),
+            data_type=getattr(args, "type", ""),
         )
-        for r in field_rows
-    ]
+        print(f"  本地字段文件 → {fields_file} ({len(field_specs)} 个匹配字段)")
+    else:
+        import alpha_machine
+        page_delay = getattr(args, 'page_delay', 0.5)
+        field_rows = asyncio.run(alpha_machine.fetch_datafields(
+            args.region, args.universe, args.delay,
+            page_delay=page_delay
+        ))
+        field_specs = [
+            fields.FieldSpec(
+                id=r["id"],
+                dataset_id=r.get("dataset", {}).get("id", ""),
+                type=r.get("type", "MATRIX"),
+                coverage=r.get("coverage", 0.0),
+                user_count=r.get("userCount", 0)
+            )
+            for r in field_rows
+        ]
 
     # 2.5 语义剪枝 (可选, 压缩字段池)
     field_specs = _semantic_prune(field_specs, getattr(args, "prune_fields", 0))
@@ -364,19 +506,30 @@ def cmd_deepen(args) -> None:
     tasks: List = []
     for t in top:
         family, idx = t.get("family"), t.get("template_index")
+        origin = t.get("expression_origin", "")
 
         if family == "unary":
-            donations = [(s,) for s in scalars]
+            if origin == "first_order":
+                tasks.extend(
+                    task for task in families.first_order_task_factory(scalars)
+                    if task.template_index == idx
+                )
+                continue
+            if origin in ("", "unary_template"):
+                tasks.extend(
+                    task for task in families.unary_factory(scalars)
+                    if task.template_index == idx
+                )
+                continue
+            continue
         elif family == "binary":
-            from itertools import combinations
-            donations = list(combinations(scalars, 2))[:args.sample]
+            generated = families.binary_factory(scalars, max_pairs=args.sample)
         elif family == "ternary":
-            from itertools import combinations
-            donations = list(combinations(scalars, 3))[:args.sample]
+            generated = families.ternary_factory(scalars, max_triples=args.sample)
         else:
             continue
 
-        tasks.extend(families.single_index_factory(family, idx, donations))
+        tasks.extend(task for task in generated if task.template_index == idx)
 
     print(f"  构造任务 {len(tasks)} 个")
 
@@ -389,6 +542,7 @@ def cmd_deepen(args) -> None:
         return
 
     # 6. 模拟
+    import alpha_machine
     results = asyncio.run(alpha_machine.simulate(
         [t.to_sim_dict() for t in tasks],
         _ns(region=args.region, universe=args.universe, delay=args.delay)
@@ -536,7 +690,7 @@ def cmd_submit(args) -> None:
             pc_ok = pc is None or pc.get("result") in ("PASS", "WARNING")
 
             status = "ready" if (sc_ok and pc_ok) else "optimize"
-            db.update_backtest_status(alpha_id, stage="submit", status=status)
+            db.update_alpha_status(alpha_id, status)
 
             print(f"  {alpha_id}: SC={sc.get('result') if sc else 'n/a'}"
                   f"  PC={pc.get('result') if pc else 'n/a'}  → {status}")
@@ -576,8 +730,6 @@ def cmd_run_all(args) -> None:
             --region USA --universe TOP3000 \\
             --local-sc
     """
-    import alpha_machine
-
     print("=" * 70)
     print("Alpha Operator Framework — 一键运行")
     print("=" * 70)
@@ -607,6 +759,12 @@ def cmd_run_all(args) -> None:
         ternary=args.ternary,
         quaternary=args.quaternary,
         groups=args.groups,
+        fields_file=args.fields_file,
+        field_source=args.field_source,
+        fields_file_type=args.fields_file_type,
+        semantic_pairs=args.semantic_pairs,
+        pairs=args.pairs,
+        backtest_sample=args.backtest_sample,
         top_n=args.top_n,
         prune_fields=args.prune_fields,
         tasks_out="survey_tasks.json",
@@ -649,6 +807,7 @@ def cmd_run_all(args) -> None:
         max_turnover=args.max_turnover,
         prune_fields=args.prune_fields,
         prune_per_field=args.prune_per_field,
+        fields_file=args.fields_file,
         tasks_out="deepen_tasks.json",
         results_out="deepen_results.json",
         kept_out="deepen_kept.json",
@@ -709,11 +868,22 @@ def build_parser() -> argparse.ArgumentParser:
         p.add_argument("--dataset", default="", help="数据集ID; 空=全字段")
         p.add_argument("--search", default="", help="字段搜索词")
         p.add_argument("--type", default="", help="字段类型过滤")
+        p.add_argument("--fields-file", default=None,
+                       help="本地字段文件（CSV 或 JSON 数组）；提供后不请求平台字段接口")
+        p.add_argument("--field-source", choices=["auto", "local", "platform"], default="auto",
+                       help="字段来源：auto=本地目录优先后平台，local=仅本地，platform=仅平台")
+        p.add_argument("--fields-file-type", choices=["auto", "csv", "json"], default="auto",
+                       help="本地目录读取的文件类型；指定 --fields-file 时也用于声明预期格式")
         p.add_argument("--min-coverage", type=float, default=0.0)
         p.add_argument("--seed", type=int, default=42)
         p.add_argument("--backfill", type=int, default=120)
         p.add_argument("--winsorize-std", type=float, default=4.0)
         p.add_argument("--no-cold", action="store_true", help="不优先冷门字段")
+        p.add_argument("--no-semantic-pairs", action="store_false", dest="semantic_pairs",
+                       help="关闭 positive/negative 与 *_cap 的定向二元配对")
+        p.add_argument("--pair", dest="pairs", action="append", default=[],
+                       metavar="KIND:LEFT:RIGHT[:DENOMINATOR]",
+                       help="Explicit binary base signal; repeat as needed")
         p.add_argument("--prune-fields", type=int, default=0,
                        help="语义剪枝: 每语义类保留字段代表数(0=关)")
         p.add_argument("--execute", action="store_true", help="实际消耗额度(默认dry-run)")
@@ -730,6 +900,8 @@ def build_parser() -> argparse.ArgumentParser:
 
     # Survey 参数
     run_all.add_argument("--survey-sample", type=int, default=80, help="Survey阶段字段池样本数")
+    run_all.add_argument("--backtest-sample", type=int, default=0,
+                         help="从一阶表达式目录随机抽样回测数量(<=0=全部)")
     run_all.add_argument("--unary", action="store_true", default=True)
     run_all.add_argument("--binary", action="store_true", default=True)
     run_all.add_argument("--ternary", action="store_true", default=False)
@@ -776,8 +948,13 @@ def build_parser() -> argparse.ArgumentParser:
     survey = sub.add_parser("survey", help="调研: 字段池×全模板 → 密度 → top-N")
     add_common(survey)
     survey.add_argument("--sample", type=int, default=80, help="字段池样本数")
+    survey.add_argument("--backtest-sample", type=int, default=0,
+                        help="从一阶表达式目录随机抽样回测数量(<=0=全部)")
+    survey.add_argument("--all-combinations", action="store_true", default=True,
+                        help="第一阶段计算已选字段的全部二元/三元/四元组合(默认开启)")
     survey.add_argument("--unary", action="store_true", default=True)
-    survey.add_argument("--binary", action="store_true", default=True)
+    survey.add_argument("--binary", action="store_true", default=False,
+                        help="信号筛选后再启用二元分支")
     survey.add_argument("--ternary", action="store_true", default=False)
     survey.add_argument("--quaternary", action="store_true", default=False)
     survey.add_argument("--groups", nargs="*", default=None, help="GROUP字段列表")

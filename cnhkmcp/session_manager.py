@@ -16,9 +16,14 @@ from contextlib import contextmanager
 from pathlib import Path
 from typing import Any, Iterator
 
-import fcntl
 import requests
 from requests.cookies import create_cookie
+
+try:
+    import fcntl
+except ImportError:  # Windows does not expose POSIX flock.
+    fcntl = None
+    import msvcrt
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -47,12 +52,32 @@ class BrainSessionManager:
                 return
             self.lock_path.parent.mkdir(parents=True, exist_ok=True)
             with self.lock_path.open("a+", encoding="utf-8") as lock_file:
-                fcntl.flock(lock_file.fileno(), fcntl.LOCK_EX)
+                self._lock_file(lock_file)
                 try:
                     yield
                 finally:
                     self._lock_depth.value -= 1
-                    fcntl.flock(lock_file.fileno(), fcntl.LOCK_UN)
+                    self._unlock_file(lock_file)
+
+    @staticmethod
+    def _lock_file(lock_file: Any) -> None:
+        if fcntl is not None:
+            fcntl.flock(lock_file.fileno(), fcntl.LOCK_EX)
+            return
+        lock_file.seek(0)
+        if not lock_file.read(1):
+            lock_file.write("0")
+            lock_file.flush()
+        lock_file.seek(0)
+        msvcrt.locking(lock_file.fileno(), msvcrt.LK_LOCK, 1)
+
+    @staticmethod
+    def _unlock_file(lock_file: Any) -> None:
+        if fcntl is not None:
+            fcntl.flock(lock_file.fileno(), fcntl.LOCK_UN)
+            return
+        lock_file.seek(0)
+        msvcrt.locking(lock_file.fileno(), msvcrt.LK_UNLCK, 1)
 
     def hydrate(self, session: requests.Session) -> bool:
         with self.locked():
@@ -88,12 +113,14 @@ class BrainSessionManager:
             fd, temporary_name = tempfile.mkstemp(prefix=self.state_path.name + ".", dir=self.state_path.parent)
             try:
                 with os.fdopen(fd, "w", encoding="utf-8") as temporary_file:
-                    os.fchmod(temporary_file.fileno(), 0o600)
+                    if hasattr(os, "fchmod"):
+                        os.fchmod(temporary_file.fileno(), 0o600)
                     json.dump(payload, temporary_file, separators=(",", ":"))
                     temporary_file.flush()
                     os.fsync(temporary_file.fileno())
                 os.replace(temporary_name, self.state_path)
-                os.chmod(self.state_path, 0o600)
+                if os.name != "nt":
+                    os.chmod(self.state_path, 0o600)
             finally:
                 if os.path.exists(temporary_name):
                     os.unlink(temporary_name)

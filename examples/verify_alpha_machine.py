@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 """手动验证 alpha_machine 迁移是否可用.
 
-用法 (必须用 quant venv python, 因为它有 mcp/pydantic 依赖):
-    PY=/Users/liujiaping/ai/quant/.venv/bin/python
+用法（使用已安装 cnhkmcp、mcp、pydantic 的 Python 环境）：
+    PY=python
     $PY examples/verify_alpha_machine.py                # 离线验证 (不访问平台)
     $PY examples/verify_alpha_machine.py --online       # 含平台只读请求 (认证+拉字段, 不消耗额度)
 

@@ -18,6 +18,11 @@ from dataclasses import dataclass
 from itertools import combinations
 from typing import Sequence, List, Tuple
 
+from .operators import vec_ops
+
+
+DEFAULT_VEC_OPS = tuple(vec_ops)
+
 
 # ---------------------------------------------------------------------------
 # 字段规格 — alpha_machine.FieldSpec 的简化版
@@ -35,6 +40,10 @@ class FieldSpec:
     alpha_count: int = 0             # alpha计数
     name: str = ""                   # 字段名(可选)
     description: str = ""            # 描述(可选)
+    economic_type: str = ""          # price / return / volume / fundamental_flow ...
+    frequency: str = ""              # daily / monthly / quarterly
+    signedness: str = ""             # signed / nonnegative / positive
+    scale: str = ""                  # level / ratio / bounded / categorical
 
 
 # ---------------------------------------------------------------------------
@@ -46,12 +55,12 @@ def preprocess_field(
     *,
     backfill: int = 120,
     winsorize_std: float = 4.0,
-    vector_ops: Tuple[str, ...] = ("vec_avg", "vec_sum")
+    vector_ops: Tuple[str, ...] = DEFAULT_VEC_OPS
 ) -> List[str]:
     """单个字段预处理 → 标量表达式列表.
 
     MATRIX字段: 直接winsorize + ts_backfill
-    VECTOR字段: 先vec_avg/vec_sum归约, 再预处理
+    VECTOR 字段: 对每个配置的 VEC 算子归约后，再预处理
     GROUP字段: 不做预处理(不作为原子信号)
 
     Args:
@@ -100,9 +109,10 @@ class SampleSpec:
     min_coverage: float = 0.0     # 可选coverage闸
     backfill: int = 120
     winsorize_std: float = 4.0
-    vector_ops: Tuple[str, ...] = ("vec_avg", "vec_sum")
+    vector_ops: Tuple[str, ...] = DEFAULT_VEC_OPS
     prefer_cold: bool = True      # True: 低userCount优先 (蓝海降PC)
     seed: int | None = 42
+    all_combinations: bool = False  # 组合阶段是否保留全部组合
 
 
 def candidate_scalars(
@@ -173,6 +183,26 @@ def sample_scalar_expressions(
         >>> len(exprs)
         1
     """
+    selected_fields = sample_field_specs(fields, spec)
+
+    # 预处理: 每个FieldSpec → 标量表达式列表
+    out: List[str] = []
+    for spec_field in selected_fields:
+        out.extend(preprocess_field(
+            spec_field,
+            backfill=spec.backfill,
+            winsorize_std=spec.winsorize_std,
+            vector_ops=spec.vector_ops,
+        ))
+
+    return out
+
+
+def sample_field_specs(
+    fields: Sequence[FieldSpec],
+    spec: SampleSpec = SampleSpec(),
+) -> List[FieldSpec]:
+    """按采样规格返回实际进入表达式生成的字段。"""
     eligible = candidate_scalars(fields, spec)
     rng = random.Random(spec.seed)
 
@@ -183,17 +213,7 @@ def sample_scalar_expressions(
     if spec.sample_n > 0:
         shuffled = shuffled[:spec.sample_n]
 
-    # 预处理: 每个FieldSpec → 标量表达式列表
-    out: List[str] = []
-    for spec_field in shuffled:
-        out.extend(preprocess_field(
-            spec_field,
-            backfill=spec.backfill,
-            winsorize_std=spec.winsorize_std,
-            vector_ops=spec.vector_ops,
-        ))
-
-    return out
+    return shuffled
 
 
 def sample_pair_combinations(
@@ -223,7 +243,7 @@ def sample_pair_combinations(
     rng = random.Random(spec.seed)
     rng.shuffle(pairs)
 
-    if spec.sample_n > 0:
+    if spec.sample_n > 0 and not spec.all_combinations:
         pairs = pairs[:spec.sample_n]
 
     return pairs
@@ -257,7 +277,7 @@ def sample_triple_combinations(
     rng = random.Random(spec.seed)
     rng.shuffle(triples)
 
-    if spec.sample_n > 0:
+    if spec.sample_n > 0 and not spec.all_combinations:
         triples = triples[:spec.sample_n]
 
     return triples
@@ -268,6 +288,7 @@ __all__ = [
     "SampleSpec",
     "preprocess_field",
     "candidate_scalars",
+    "sample_field_specs",
     "sample_scalar_expressions",
     "sample_pair_combinations",
     "sample_triple_combinations",

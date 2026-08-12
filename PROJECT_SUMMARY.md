@@ -3,12 +3,12 @@
 ## 项目背景
 
 ### 原始项目
-1. **machine_lib.py** (位于 `/Users/liujiaping/ai/quant/scripts/`)
+1. **machine_lib.py**（历史来源项目中的 `scripts/` 目录）
    - 多阶因子生成库
    - 支持一阶因子(basic_ops, ts_ops)、二阶因子(group_ops)
    - 提供批量模拟和提交功能
 
-2. **cold_templates** (位于 `/Users/liujiaping/ai/quant/scripts/cold_templates/`)
+2. **cold_templates**（历史来源项目的 `scripts/cold_templates/` 目录）
    - 冷神模板群项目(基于论坛帖子35253150989719)
    - 结构正交的一元/二元/三元模板
    - 因子密度评估方法论
@@ -21,7 +21,7 @@
 ## 项目结构
 
 ```
-/Users/liujiaping/ai/template_project/
+alpha_factory/
 ├── README.md                           # 项目说明
 ├── alpha_operator_framework/           # 核心包
 │   ├── __init__.py                    # 包入口

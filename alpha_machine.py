@@ -20,6 +20,7 @@ STANDARD_WINDOWS = (5, 22, 66, 120, 252, 504)
 FIRST_ORDER_OPS = ("rank", "zscore", "quantile", "normalize", "ts_rank", "ts_zscore",
                    "ts_delta", "ts_mean", "ts_std_dev", "ts_sum", "ts_delay")
 GROUP_OPS = ("group_neutralize", "group_rank", "group_zscore")
+VEC_OPS = ("vec_avg", "vec_sum", "vec_min", "vec_count", "vec_max", "vec_stddev", "vec_range")
 
 
 @dataclass(frozen=True)
@@ -62,7 +63,10 @@ def read_json(path: Path) -> Any:
 
 def write_json(path: Path, value: Any) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
-    path.write_text(json.dumps(value, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    path.write_text(
+        json.dumps(value, ensure_ascii=False, indent=2, default=str) + "\n",
+        encoding="utf-8",
+    )
 
 
 def select_fields(rows: Iterable[dict[str, Any]], *, dataset_id: str = "", data_type: str = "",
@@ -88,7 +92,7 @@ def select_fields(rows: Iterable[dict[str, Any]], *, dataset_id: str = "", data_
 
 
 def preprocess_field(field: FieldSpec, *, backfill: int = 120, winsorize_std: float = 4.0,
-                     vector_ops: Sequence[str] = ("vec_avg", "vec_sum")) -> list[str]:
+                     vector_ops: Sequence[str] = VEC_OPS) -> list[str]:
     """将可用 MATRIX/VECTOR 字段变成一阶工厂的标量输入；GROUP 不当作原子信号。"""
     if field.type == "MATRIX":
         bases = [field.id]
@@ -243,8 +247,10 @@ async def fetch_datafields(region: str, universe: str, delay: int, dataset_id: s
 
 
 async def simulate(tasks: Sequence[dict[str, Any]], args: argparse.Namespace) -> list[dict[str, Any]]:
-    """按 decay 分桶后调用 MCP 的 multi simulation；尾部单条任务保留为 pending。"""
-    from cnhkmcp.untracked.platform_functions import brain_client, create_multi_simulation
+    """Submit durable batches and return their persisted identities without waiting."""
+    from alpha_operator_framework.database import AlphaDatabase
+    from alpha_operator_framework.simulation_tracker import SimulationTracker
+    from cnhkmcp.untracked.platform_functions import brain_client
     await brain_client.ensure_authenticated()
     results: list[dict[str, Any]] = []
     by_decay: dict[float, list[dict[str, Any]]] = {}
@@ -255,21 +261,69 @@ async def simulate(tasks: Sequence[dict[str, Any]], args: argparse.Namespace) ->
             if len(batch) < 2:
                 results.extend({**task, "status": "PENDING_NEEDS_PAIR"} for task in batch)
                 continue
-            response = await create_multi_simulation(
-                [task["expression"] for task in batch], region=args.region, universe=args.universe,
-                delay=args.delay, decay=decay, neutralization=args.neutralization, truncation=args.truncation,
-                visualization=False, nan_handling=args.nan_handling, test_period=args.test_period,
-            )
-            alpha_results = response.get("alpha_results", []) if isinstance(response, dict) else []
-            records = []
-            for index, task in enumerate(batch):
-                child = alpha_results[index] if index < len(alpha_results) else {}
-                details = child.get("details") if isinstance(child, dict) else None
-                records.append({**task, "alpha_id": child.get("alpha_id") if isinstance(child, dict) else None,
-                                **(details if isinstance(details, dict) else {}),
-                                "simulation_error": child.get("error") if isinstance(child, dict) else None})
-            results.extend(records)
+            settings = {"region": args.region, "universe": args.universe, "delay": args.delay,
+                        "decay": decay, "neutralization": args.neutralization, "truncation": args.truncation,
+                        "nan_handling": args.nan_handling, "test_period": args.test_period}
+            db = AlphaDatabase(Path("runs") / "alpha_research.db")
+            try:
+                def submit(batch_tasks):
+                    payload = [{"type": "REGULAR", "settings": {
+                        "instrumentType": "EQUITY", "region": args.region, "universe": args.universe,
+                        "delay": args.delay, "decay": decay, "neutralization": args.neutralization,
+                        "truncation": args.truncation, "pasteurization": "ON", "unitHandling": "VERIFY",
+                        "nanHandling": args.nan_handling, "language": "FASTEXPR", "visualization": False,
+                        "testPeriod": args.test_period, "maxTrade": "OFF",
+                    }, "regular": task["expression"]} for task in batch_tasks]
+                    response = brain_client.session.post(f"{brain_client.base_url}/simulations", json=payload)
+                    response.raise_for_status()
+                    location = response.headers.get("Location")
+                    if not location:
+                        raise RuntimeError("platform did not return a simulation Location")
+                    return location
+
+                def fetch(location):
+                    response = brain_client.session.get(location)
+                    response.raise_for_status()
+                    return (response.json() if response.text else {}, float(response.headers.get("Retry-After", 0)))
+
+                def detail(alpha_id):
+                    response = brain_client.session.get(f"{brain_client.base_url}/alphas/{alpha_id}")
+                    response.raise_for_status()
+                    return response.json()
+
+                tracker = SimulationTracker(db, submit=submit, fetch=fetch, detail=detail)
+                batch_id = tracker.submit(batch, settings)
+                results.append({"simulation_batch_id": batch_id, "status": "submitted",
+                                "requested_count": len(batch)})
+            finally:
+                db.close()
     return results
+
+
+async def poll_simulation_batch(batch_id: int) -> dict[str, Any]:
+    """Poll one persisted platform batch without submitting a new simulation."""
+    from alpha_operator_framework.database import AlphaDatabase
+    from alpha_operator_framework.simulation_tracker import SimulationTracker
+    from cnhkmcp.untracked.platform_functions import brain_client
+
+    await brain_client.ensure_authenticated()
+    db = AlphaDatabase(Path("runs") / "alpha_research.db")
+    try:
+        def fetch(location):
+            response = brain_client.session.get(location)
+            response.raise_for_status()
+            return (response.json() if response.text else {}, float(response.headers.get("Retry-After", 0)))
+
+        def detail(alpha_id):
+            response = brain_client.session.get(f"{brain_client.base_url}/alphas/{alpha_id}")
+            response.raise_for_status()
+            return response.json()
+
+        tracker = SimulationTracker(db, submit=lambda _: "", fetch=fetch, detail=detail)
+        batch = tracker.poll(batch_id)
+        return {"batch": batch, "results": db.get_simulation_results(batch_id)}
+    finally:
+        db.close()
 
 
 def parse_decays(raw: str) -> tuple[float, ...]:
@@ -339,6 +393,13 @@ def command_simulate(args: argparse.Namespace) -> None:
     print(f"simulation batches={len(results)} output={args.output}")
 
 
+def command_poll_simulation(args: argparse.Namespace) -> None:
+    payload = asyncio.run(poll_simulation_batch(args.batch_id))
+    write_json(Path(args.output), payload)
+    batch = payload["batch"]
+    print(f"batch={args.batch_id} status={batch['status']} completed={batch['completed_count']} failed={batch['failed_count']}")
+
+
 def add_settings(parser: argparse.ArgumentParser) -> None:
     parser.add_argument("--region", required=True); parser.add_argument("--universe", required=True)
     parser.add_argument("--delay", type=int, default=1)
@@ -372,6 +433,10 @@ def main() -> None:
     add_settings(sim); sim.add_argument("--tasks", required=True); sim.add_argument("--output", required=True); sim.add_argument("--execute", action="store_true")
     sim.add_argument("--batch-size", type=int, default=8); sim.add_argument("--neutralization", default="SUBINDUSTRY"); sim.add_argument("--truncation", type=float, default=0.08)
     sim.add_argument("--nan-handling", default="OFF"); sim.add_argument("--test-period", default="P0Y0M"); sim.set_defaults(func=command_simulate)
+    poll = sub.add_parser("poll-simulation", help="Poll an existing persisted BRAIN simulation batch")
+    poll.add_argument("--batch-id", required=True, type=int)
+    poll.add_argument("--output", required=True)
+    poll.set_defaults(func=command_poll_simulation)
     args = parser.parse_args(); args.func(args)
 
 

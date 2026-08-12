@@ -19,8 +19,8 @@
 ### 1.1 Python 环境
 
 ```bash
-# 回测和平台访问必须使用 quant venv (有 mcp/pydantic/pandas 依赖)
-export PY=/Users/liujiaping/ai/quant/.venv/bin/python
+# 回测和平台访问使用已安装 cnhkmcp、mcp、pydantic、pandas 的当前 Python 环境
+export PY=python
 
 # 离线计算 (剪枝/评价) 可用系统 python3
 export PY3=python3
@@ -37,6 +37,24 @@ export PY3=python3
 ```
 runs/WebData_20260219_V0.10.9.zip  (35MB, 90万+ 已提交 alpha 统计)
 runs/alpha_research.db              (SQLite 数据库)
+```
+
+### 1.4 项目数据目录
+
+```text
+data/fields/<region>/<delay>/<universe>/  # 平台导出的字段 CSV / JSON；默认优先读取
+data/imports/    # 外部 Alpha / 回测结果 CSV
+runs/            # 自动生成的任务、结果、密度报告和数据库
+```
+
+默认 `--field-source auto` 按 `region`、`delay`、`universe`、`dataset` 直接定位
+`data/fields/<region>/<delay>/<universe>/<dataset>.json`，找不到时尝试 CSV；未传
+`dataset` 时才合并范围内的所有本地字段文件。不存在或无匹配字段时才请求平台。可传
+`--field-source local` 强制本地或 `--field-source platform` 强制平台。显式文件必须标明格式：
+
+```bash
+$PY -m alpha_operator_framework.orchestrator survey \
+  --field-source local --region GBR --universe TOP700 --delay 1 --dataset risk68
 ```
 
 ---

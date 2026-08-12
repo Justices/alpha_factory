@@ -2,9 +2,8 @@
 
 设计理念:
   1. alpha_expressions: 表达式表,去重存储(基于expression_sha)
-  2. backtest_results: 回测结果表,跟踪状态变化
-  3. alpha_details: 详情表,平铺所有指标便于查询 (含PC/SC/checks)
-  4. alpha_checks: 检查子表,存平台全部提交检查项 (1:N, 按地区动态约18种)
+  2. alpha_details: 详情表,平铺所有指标便于查询 (含PC/SC/checks)
+  3. alpha_checks: 检查子表,存平台全部提交检查项 (1:N, 按地区动态约18种)
 
 基于CSV参考:
   - sim_queue.csv: 模拟队列
@@ -17,80 +16,9 @@ import hashlib
 from pathlib import Path
 from datetime import datetime
 from typing import List, Dict, Any, Optional, Tuple
-from dataclasses import dataclass, asdict
+from dataclasses import asdict
 
-
-# ---------------------------------------------------------------------------
-# 数据模型
-# ---------------------------------------------------------------------------
-
-@dataclass
-class AlphaExpression:
-    """Alpha表达式."""
-    id: Optional[int] = None
-    expression_sha: str = ""  # SHA256哈希
-    expression: str = ""      # alpha表达式
-    settings: str = ""        # JSON字符串
-    created_at: str = ""      # ISO格式时间
-    updated_at: str = ""
-
-
-@dataclass
-class BacktestResult:
-    """回测结果."""
-    id: Optional[int] = None
-    alpha_id: str = ""        # 平台alpha_id
-    expression_sha: str = ""  # 表达式哈希
-    expression: str = ""      # 表达式快照
-    result: str = ""          # JSON字符串(回测结果)
-    stage: str = "backtest"  # 阶段: backtest/check/submit/end
-    status: str = "pending"   # 状态: pending/abandoned/optimize/ready
-    created_at: str = ""
-    updated_at: str = ""
-
-
-@dataclass
-class AlphaDetail:
-    """Alpha详情(平铺所有字段)."""
-    id: Optional[int] = None
-    alpha_id: str = ""
-    expression_sha: str = ""
-    expression: str = ""
-
-    # 回测设置
-    region: str = ""
-    universe: str = ""
-    delay: int = 1
-    decay: float = 0.0
-    neutralization: str = ""
-    truncation: float = 0.0
-
-    # 回测指标
-    sharpe: float = 0.0
-    fitness: float = 0.0
-    turnover: float = 0.0
-    margin: float = 0.0
-    pnl: float = 0.0
-    returns: float = 0.0
-    drawdown: float = 0.0
-    long_count: int = 0
-    short_count: int = 0
-
-    # 平台信息
-    grade: str = ""           # INFERIOR/AVERAGE
-    stage_platform: str = ""   # IS/OS
-    status_platform: str = ""  # UNSUBMITTED
-
-    # 提交检查指标
-    sc_result: str = ""                 # SELF_CORRELATION: PASS/FAIL/WARNING/ERROR/PENDING
-    sc_value: Optional[float] = None    # self-correlation max(标量)
-    pc_result: str = ""                 # PROD_CORRELATION
-    pc_value: Optional[float] = None    # prod-correlation max(标量)
-    checks_json: str = ""               # 完整 is.checks 数组原样 JSON
-
-    # 时间戳
-    created_at: str = ""
-    updated_at: str = ""
+from .models import AlphaDetail, AlphaExpression
 
 
 # ---------------------------------------------------------------------------
@@ -157,7 +85,9 @@ def persist_workflow_row(
 ) -> Optional[str]:
     """把单条工作流结果行持久化到数据库.
 
-    依次: insert_expression → save_result_with_checks → insert_backtest_result.
+    依次: insert_expression → save_result_with_checks。
+
+    ``alpha_details`` 是工作流唯一的回测结果表。
 
     Args:
         db: AlphaDatabase 实例
@@ -182,7 +112,6 @@ def persist_workflow_row(
 
     db.insert_expression(expression, settings)
     db.save_result_with_checks(alpha_id, row, settings)
-    db.insert_backtest_result(alpha_id, expression, row, stage=stage, status=status)
     return alpha_id
 
 
@@ -200,6 +129,7 @@ class AlphaDatabase:
             db_path: 数据库文件路径
         """
         self.db_path = Path(db_path)
+        self.db_path.parent.mkdir(parents=True, exist_ok=True)
         self.conn = None
         self._init_database()
 
@@ -221,33 +151,20 @@ class AlphaDatabase:
             id INTEGER PRIMARY KEY AUTOINCREMENT,
             expression_sha TEXT NOT NULL UNIQUE,
             expression TEXT NOT NULL,
+            expression_origin TEXT NOT NULL DEFAULT '',
             settings TEXT NOT NULL,
             created_at TEXT NOT NULL,
             updated_at TEXT NOT NULL
         )
         """)
 
-        # 表2: backtest_results
-        cursor.execute("""
-        CREATE TABLE IF NOT EXISTS backtest_results (
-            id INTEGER PRIMARY KEY AUTOINCREMENT,
-            alpha_id TEXT,
-            expression_sha TEXT NOT NULL,
-            expression TEXT NOT NULL,
-            result TEXT,
-            stage TEXT NOT NULL DEFAULT 'backtest',
-            status TEXT NOT NULL DEFAULT 'pending',
-            created_at TEXT NOT NULL,
-            updated_at TEXT NOT NULL
-        )
-        """)
-
-        # 表3: alpha_details
+        # 表2: alpha_details
         cursor.execute("""
         CREATE TABLE IF NOT EXISTS alpha_details (
             id INTEGER PRIMARY KEY AUTOINCREMENT,
             alpha_id TEXT NOT NULL UNIQUE,
             expression_sha TEXT NOT NULL,
+            alpha_sha TEXT NOT NULL DEFAULT '',
             expression TEXT NOT NULL,
 
             -- 回测设置
@@ -299,6 +216,48 @@ class AlphaDatabase:
             created_at TEXT NOT NULL,
             updated_at TEXT NOT NULL,
             PRIMARY KEY (alpha_id, check_name)
+        )
+        """)
+
+        cursor.execute("""
+        CREATE TABLE IF NOT EXISTS simulation_batches (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            platform_batch_id TEXT UNIQUE,
+            platform_location TEXT,
+            status TEXT NOT NULL DEFAULT 'created',
+            settings_json TEXT NOT NULL,
+            requested_count INTEGER NOT NULL DEFAULT 0,
+            completed_count INTEGER NOT NULL DEFAULT 0,
+            failed_count INTEGER NOT NULL DEFAULT 0,
+            progress_json TEXT,
+            result_json TEXT,
+            error_message TEXT,
+            submitted_at TEXT,
+            last_polled_at TEXT,
+            completed_at TEXT,
+            created_at TEXT NOT NULL,
+            updated_at TEXT NOT NULL
+        )
+        """)
+        cursor.execute("""
+        CREATE TABLE IF NOT EXISTS simulation_results (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            batch_id INTEGER NOT NULL,
+            sequence_no INTEGER NOT NULL,
+            expression_sha TEXT NOT NULL,
+            alpha_sha TEXT NOT NULL DEFAULT '',
+            expression TEXT NOT NULL,
+            decay REAL NOT NULL DEFAULT 0.0,
+            platform_child_url TEXT,
+            alpha_id TEXT,
+            status TEXT NOT NULL DEFAULT 'created',
+            result_json TEXT,
+            error_message TEXT,
+            completed_at TEXT,
+            created_at TEXT NOT NULL,
+            updated_at TEXT NOT NULL,
+            UNIQUE(batch_id, sequence_no),
+            FOREIGN KEY(batch_id) REFERENCES simulation_batches(id)
         )
         """)
 
@@ -373,22 +332,33 @@ class AlphaDatabase:
         """)
 
         # ALTER-guard: 给已存在的 alpha_details 补新列 (fresh DB 自动跳过)
+        expression_columns = {r["name"] for r in cursor.execute("PRAGMA table_info(alpha_expressions)")}
+        if "expression_origin" not in expression_columns:
+            cursor.execute("ALTER TABLE alpha_expressions ADD COLUMN expression_origin TEXT NOT NULL DEFAULT ''")
+
         existing = {r["name"] for r in cursor.execute("PRAGMA table_info(alpha_details)")}
         for col, decl in (("sc_result", "TEXT"), ("sc_value", "REAL"),
                           ("pc_result", "TEXT"), ("pc_value", "REAL"), ("checks_json", "TEXT")):
             if col not in existing:
                 cursor.execute(f"ALTER TABLE alpha_details ADD COLUMN {col} {decl}")
+        if "alpha_sha" not in existing:
+            cursor.execute("ALTER TABLE alpha_details ADD COLUMN alpha_sha TEXT NOT NULL DEFAULT ''")
+        simulation_result_columns = {r["name"] for r in cursor.execute("PRAGMA table_info(simulation_results)")}
+        if "alpha_sha" not in simulation_result_columns:
+            cursor.execute("ALTER TABLE simulation_results ADD COLUMN alpha_sha TEXT NOT NULL DEFAULT ''")
 
         # 创建索引
         cursor.execute("CREATE INDEX IF NOT EXISTS idx_expr_sha ON alpha_expressions(expression_sha)")
-        cursor.execute("CREATE INDEX IF NOT EXISTS idx_backtest_alpha ON backtest_results(alpha_id)")
-        cursor.execute("CREATE INDEX IF NOT EXISTS idx_backtest_sha ON backtest_results(expression_sha)")
         cursor.execute("CREATE INDEX IF NOT EXISTS idx_detail_sha ON alpha_details(expression_sha)")
         cursor.execute("CREATE INDEX IF NOT EXISTS idx_detail_sharpe ON alpha_details(sharpe)")
         cursor.execute("CREATE INDEX IF NOT EXISTS idx_detail_fitness ON alpha_details(fitness)")
         cursor.execute("CREATE INDEX IF NOT EXISTS idx_detail_stage ON alpha_details(stage_platform)")
         cursor.execute("CREATE INDEX IF NOT EXISTS idx_checks_alpha ON alpha_checks(alpha_id)")
         cursor.execute("CREATE INDEX IF NOT EXISTS idx_checks_name ON alpha_checks(check_name)")
+        cursor.execute("CREATE INDEX IF NOT EXISTS idx_sim_batch_status ON simulation_batches(status)")
+        cursor.execute("CREATE INDEX IF NOT EXISTS idx_sim_result_batch ON simulation_results(batch_id)")
+        cursor.execute("CREATE INDEX IF NOT EXISTS idx_sim_result_alpha ON simulation_results(alpha_id)")
+        cursor.execute("CREATE INDEX IF NOT EXISTS idx_sim_result_alpha_sha ON simulation_results(alpha_sha)")
 
         # 新表索引
         cursor.execute("CREATE INDEX IF NOT EXISTS idx_opt_queue_alpha ON alpha_optimization_queue(alpha_id)")
@@ -400,6 +370,96 @@ class AlphaDatabase:
 
         conn.commit()
 
+    @staticmethod
+    def _timestamp() -> str:
+        return datetime.now().isoformat(timespec="seconds")
+
+    @staticmethod
+    def _json(value: Any) -> str:
+        return json.dumps(value, ensure_ascii=False, default=str, separators=(",", ":"))
+
+    def create_simulation_batch(self, tasks: List[Dict[str, Any]], settings: Dict[str, Any]) -> int:
+        now = self._timestamp()
+        conn = self._get_connection()
+        cursor = conn.execute(
+            """INSERT INTO simulation_batches
+            (status, settings_json, requested_count, created_at, updated_at)
+            VALUES ('created', ?, ?, ?, ?)""",
+            (self._json(settings), len(tasks), now, now),
+        )
+        batch_id = int(cursor.lastrowid)
+        for sequence_no, task in enumerate(tasks):
+            expression = str(task["expression"])
+            conn.execute(
+                """INSERT INTO simulation_results
+                (batch_id, sequence_no, expression_sha, alpha_sha, expression, decay, status, created_at, updated_at)
+                VALUES (?, ?, ?, ?, ?, ?, 'created', ?, ?)""",
+                (batch_id, sequence_no, self.compute_sha(expression), self.compute_alpha_sha(expression, settings), expression,
+                 float(task.get("decay", 0.0)), now, now),
+            )
+        conn.commit()
+        return batch_id
+
+    def attach_platform_batch(self, batch_id: int, platform_batch_id: str, platform_location: str) -> None:
+        now = self._timestamp()
+        self._get_connection().execute(
+            """UPDATE simulation_batches SET platform_batch_id=?, platform_location=?, status='submitted',
+            submitted_at=?, updated_at=? WHERE id=?""",
+            (platform_batch_id, platform_location, now, now, batch_id),
+        )
+        self._get_connection().commit()
+
+    def record_simulation_progress(self, batch_id: int, progress: Any, *, status: str = "polling",
+                                   error_message: str = "") -> None:
+        now = self._timestamp()
+        self._get_connection().execute(
+            """UPDATE simulation_batches SET status=?, progress_json=?, last_polled_at=?,
+            error_message=COALESCE(NULLIF(?, ''), error_message), updated_at=? WHERE id=?""",
+            (status, self._json(progress), now, error_message, now, batch_id),
+        )
+        self._get_connection().commit()
+
+    def record_simulation_result(self, batch_id: int, sequence_no: int, *, status: str,
+                                 alpha_id: str = "", child_url: str = "", result: Any = None,
+                                 error_message: str = "") -> None:
+        now = self._timestamp()
+        terminal = status in ("completed", "failed")
+        self._get_connection().execute(
+            """UPDATE simulation_results SET status=?, alpha_id=COALESCE(NULLIF(?, ''), alpha_id),
+            platform_child_url=COALESCE(NULLIF(?, ''), platform_child_url), result_json=COALESCE(?, result_json),
+            error_message=COALESCE(NULLIF(?, ''), error_message), completed_at=CASE WHEN ? THEN ? ELSE completed_at END,
+            updated_at=? WHERE batch_id=? AND sequence_no=?""",
+            (status, alpha_id, child_url, self._json(result) if result is not None else None, error_message,
+             terminal, now, now, batch_id, sequence_no),
+        )
+        self._refresh_simulation_batch(batch_id)
+        self._get_connection().commit()
+
+    def _refresh_simulation_batch(self, batch_id: int) -> None:
+        conn = self._get_connection()
+        counts = conn.execute(
+            """SELECT COUNT(*) AS total, SUM(status='completed') AS completed,
+            SUM(status='failed') AS failed FROM simulation_results WHERE batch_id=?""", (batch_id,)
+        ).fetchone()
+        completed, failed = int(counts["completed"] or 0), int(counts["failed"] or 0)
+        status = "completed" if completed + failed == int(counts["total"] or 0) else "polling"
+        now = self._timestamp()
+        conn.execute(
+            """UPDATE simulation_batches SET status=?, completed_count=?, failed_count=?,
+            completed_at=CASE WHEN ?='completed' THEN ? ELSE completed_at END, updated_at=? WHERE id=?""",
+            (status, completed, failed, status, now, now, batch_id),
+        )
+
+    def get_simulation_batch(self, batch_id: int) -> Optional[Dict[str, Any]]:
+        row = self._get_connection().execute("SELECT * FROM simulation_batches WHERE id=?", (batch_id,)).fetchone()
+        return dict(row) if row else None
+
+    def get_simulation_results(self, batch_id: int) -> List[Dict[str, Any]]:
+        rows = self._get_connection().execute(
+            "SELECT * FROM simulation_results WHERE batch_id=? ORDER BY sequence_no", (batch_id,)
+        ).fetchall()
+        return [dict(row) for row in rows]
+
     # ---------------------------------------------------------------------------
     # 表达式操作
     # ---------------------------------------------------------------------------
@@ -409,7 +469,13 @@ class AlphaDatabase:
         """计算表达式SHA256哈希."""
         return hashlib.sha256(expression.encode()).hexdigest()
 
-    def insert_expression(self, expression: str, settings: Dict) -> int:
+    @staticmethod
+    def compute_alpha_sha(expression: str, settings: Dict[str, Any]) -> str:
+        """Hash the normalized expression and complete simulation settings."""
+        canonical = json.dumps(settings, ensure_ascii=False, sort_keys=True, separators=(",", ":"), default=str)
+        return hashlib.sha256(f"{expression}\n{canonical}".encode("utf-8")).hexdigest()
+
+    def insert_expression(self, expression: str, settings: Dict, *, expression_origin: str = "") -> int:
         """插入alpha表达式(去重).
 
         Args:
@@ -428,12 +494,20 @@ class AlphaDatabase:
 
         try:
             cursor.execute("""
-                INSERT INTO alpha_expressions (expression_sha, expression, settings, created_at, updated_at)
-                VALUES (?, ?, ?, ?, ?)
-            """, (expression_sha, expression, settings_json, now, now))
+                INSERT INTO alpha_expressions
+                    (expression_sha, expression, expression_origin, settings, created_at, updated_at)
+                VALUES (?, ?, ?, ?, ?, ?)
+            """, (expression_sha, expression, expression_origin, settings_json, now, now))
             conn.commit()
             return cursor.lastrowid
         except sqlite3.IntegrityError:
+            if expression_origin:
+                cursor.execute("""
+                    UPDATE alpha_expressions
+                    SET expression_origin = ?, updated_at = ?
+                    WHERE expression_sha = ? AND expression_origin = ''
+                """, (expression_origin, now, expression_sha))
+                conn.commit()
             # 已存在,返回已有ID
             cursor.execute("SELECT id FROM alpha_expressions WHERE expression_sha = ?", (expression_sha,))
             row = cursor.fetchone()
@@ -452,86 +526,65 @@ class AlphaDatabase:
                 id=row['id'],
                 expression_sha=row['expression_sha'],
                 expression=row['expression'],
+                expression_origin=row['expression_origin'],
                 settings=row['settings'],
                 created_at=row['created_at'],
                 updated_at=row['updated_at']
             )
         return None
 
-    # ---------------------------------------------------------------------------
-    # 回测结果操作
-    # ---------------------------------------------------------------------------
-
-    def insert_backtest_result(
+    def catalog_expression(
         self,
-        alpha_id: str,
         expression: str,
-        result: Dict,
-        stage: str = "backtest",
-        status: str = "pending"
+        *,
+        stage: str = "first_order",
+        family: str = "unary",
+        template_index: int = -1,
+        fields_per_alpha: int = 0,
+        base_fields: Optional[List[str]] = None,
+        metadata: Optional[Dict] = None,
+        status: str = "generated",
+        expression_origin: str = "",
     ) -> int:
-        """插入回测结果.
+        """把候选表达式写入现有 alpha_expressions 表，重复表达式幂等处理。"""
+        settings = {
+            "stage": stage,
+            "family": family,
+            "template_index": template_index,
+            "fields_per_alpha": fields_per_alpha,
+            "base_fields": base_fields or [],
+            "metadata": metadata or {},
+            "status": status,
+        }
+        return self.insert_expression(expression, settings, expression_origin=expression_origin)
 
-        Args:
-            alpha_id: 平台alpha_id
-            expression: 表达式
-            result: 回测结果字典
-            stage: 阶段
-            status: 状态
-
-        Returns:
-            结果ID
-        """
-        conn = self._get_connection()
-        cursor = conn.cursor()
-
-        expression_sha = self.compute_sha(expression)
-        result_json = json.dumps(result)
-        now = datetime.now().isoformat()
-
-        cursor.execute("""
-            INSERT INTO backtest_results (alpha_id, expression_sha, expression, result, stage, status, created_at, updated_at)
-            VALUES (?, ?, ?, ?, ?, ?, ?, ?)
-        """, (alpha_id, expression_sha, expression, result_json, stage, status, now, now))
-
-        conn.commit()
-        return cursor.lastrowid
-
-    def update_backtest_status(self, alpha_id: str, stage: str, status: str):
-        """更新回测状态."""
-        conn = self._get_connection()
-        cursor = conn.cursor()
-        now = datetime.now().isoformat()
-
-        cursor.execute("""
-            UPDATE backtest_results
-            SET stage = ?, status = ?, updated_at = ?
-            WHERE alpha_id = ?
-        """, (stage, status, now, alpha_id))
-
-        conn.commit()
-
-    def get_backtest_by_alpha_id(self, alpha_id: str) -> Optional[BacktestResult]:
-        """通过alpha_id查询回测结果."""
-        conn = self._get_connection()
-        cursor = conn.cursor()
-
-        cursor.execute("SELECT * FROM backtest_results WHERE alpha_id = ? ORDER BY created_at DESC LIMIT 1", (alpha_id,))
-        row = cursor.fetchone()
-
-        if row:
-            return BacktestResult(
-                id=row['id'],
-                alpha_id=row['alpha_id'],
-                expression_sha=row['expression_sha'],
-                expression=row['expression'],
-                result=row['result'],
-                stage=row['stage'],
-                status=row['status'],
-                created_at=row['created_at'],
-                updated_at=row['updated_at']
+    def catalog_tasks(
+        self, tasks: List[Any], *, stage: str = "first_order", settings: Optional[Dict] = None
+    ) -> int:
+        """批量登记 Task 到现有 alpha_expressions 表。"""
+        count = 0
+        for task in tasks:
+            self.catalog_expression(
+                task.expression,
+                stage=stage,
+                family=task.family,
+                template_index=task.template_index,
+                fields_per_alpha=task.fields_per_alpha,
+                base_fields=list(task.base_fields),
+                metadata=task.meta,
+                expression_origin=task.expression_origin,
             )
-        return None
+            count += 1
+        return count
+
+    def sample_catalog_expressions(
+        self, expressions: List[str], *, limit: int = 80, seed: Optional[int] = 42
+    ) -> List[str]:
+        """从本次已写入 alpha_expressions 的表达式中随机抽样。"""
+        import random
+        selected = list(expressions)
+        random.Random(seed).shuffle(selected)
+        return selected if limit <= 0 else selected[:limit]
 
     # ---------------------------------------------------------------------------
     # Alpha详情操作
@@ -554,6 +607,15 @@ class AlphaDatabase:
         conn.commit()
         return cursor.lastrowid
 
+    def update_alpha_status(self, alpha_id: str, status: str) -> None:
+        """更新 alpha_details 中的平台状态。"""
+        conn = self._get_connection()
+        conn.execute(
+            "UPDATE alpha_details SET status_platform = ?, updated_at = ? WHERE alpha_id = ?",
+            (status, datetime.now().isoformat(), alpha_id),
+        )
+        conn.commit()
+
     def _upsert_detail(self, cursor: sqlite3.Cursor, detail: AlphaDetail, now: str) -> None:
         """内部: 插入或更新alpha详情 (upsert, 不提交).
 
@@ -562,15 +624,16 @@ class AlphaDatabase:
         """
         cursor.execute("""
             INSERT INTO alpha_details (
-                alpha_id, expression_sha, expression,
+                alpha_id, expression_sha, alpha_sha, expression,
                 region, universe, delay, decay, neutralization, truncation,
                 sharpe, fitness, turnover, margin, pnl, returns, drawdown, long_count, short_count,
                 grade, stage_platform, status_platform,
                 sc_result, sc_value, pc_result, pc_value, checks_json,
                 created_at, updated_at
-            ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+            ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
             ON CONFLICT(alpha_id) DO UPDATE SET
                 expression_sha=excluded.expression_sha,
+                alpha_sha=excluded.alpha_sha,
                 expression=excluded.expression,
                 region=excluded.region,
                 universe=excluded.universe,
@@ -597,7 +660,7 @@ class AlphaDatabase:
                 checks_json=excluded.checks_json,
                 updated_at=excluded.updated_at
         """, (
-            detail.alpha_id, detail.expression_sha, detail.expression,
+            detail.alpha_id, detail.expression_sha, detail.alpha_sha, detail.expression,
             detail.region, detail.universe, detail.delay, detail.decay, detail.neutralization, detail.truncation,
             detail.sharpe, detail.fitness, detail.turnover, detail.margin, detail.pnl, detail.returns, detail.drawdown,
             detail.long_count, detail.short_count,
@@ -855,6 +918,7 @@ class AlphaDatabase:
         detail = AlphaDetail(
             alpha_id=alpha_id,
             expression_sha=self.compute_sha(expression) if expression else "",
+            alpha_sha=self.compute_alpha_sha(expression, settings) if expression else "",
             expression=expression,
             region=settings.get("region", ""),
             universe=settings.get("universe", ""),
@@ -960,13 +1024,6 @@ class AlphaDatabase:
                 if checks:
                     self.upsert_checks(row['alpha_id'], checks)
 
-                # 插入回测结果
-                self.insert_backtest_result(
-                    alpha_id=row['alpha_id'],
-                    expression=expression,
-                    result=is_result
-                )
-
                 count += 1
 
             except Exception as e:
@@ -984,7 +1041,6 @@ class AlphaDatabase:
 __all__ = [
     "AlphaDatabase",
     "AlphaExpression",
-    "BacktestResult",
     "AlphaDetail",
     "persist_workflow_row",
 ]

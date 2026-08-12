@@ -1,0 +1,2 @@
+alphaCount,category,coverage,dataset,dateCoverage,dateCreated,delay,description,id,pyramidMultiplier,region,subcategory,themes,type,universe,userCount
+0,"{""id"":""analyst"",""name"":""Analyst""}",0.1642,"{""id"":""analyst7"",""name"":""Broker Estimates""}",1,2026/7/1,1,actual cash flow per share regarding the last 4 quarters,act_12m_cps_value,2,GBR,"{""id"":""analyst-analyst-estimates"",""name"":""Analyst Estimates""}",[],MATRIX,TOP700,0

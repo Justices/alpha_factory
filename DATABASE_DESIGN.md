@@ -17,6 +17,7 @@
 | `id` | INTEGER | 自增主键 |
 | `expression_sha` | TEXT | 表达式SHA256哈希，唯一索引 |
 | `expression` | TEXT | alpha表达式 |
+| `expression_origin` | TEXT | `unary_template` / `first_order` / `semantic_pair` 等生成来源 |
 | `settings` | TEXT | 回测设置JSON |
 | `created_at` | TEXT | 创建时间(ISO格式) |
 | `updated_at` | TEXT | 更新时间 |
@@ -40,54 +41,10 @@ VALUES (
 
 ---
 
-### 表2: backtest_results (回测结果表)
+### 表2: alpha_details (当前回测状态表)
 
-**用途**: 跟踪alpha的回测历史和状态变化。
-
-**字段**:
-
-| 字段 | 类型 | 说明 |
-|------|------|------|
-| `id` | INTEGER | 自增主键 |
-| `alpha_id` | TEXT | 平台alpha_id |
-| `expression_sha` | TEXT | 表达式哈希 |
-| `expression` | TEXT | 表达式快照 |
-| `result` | TEXT | 回测结果JSON |
-| `stage` | TEXT | 阶段 |
-| `status` | TEXT | 状态 |
-| `created_at` | TEXT | 创建时间 |
-| `updated_at` | TEXT | 更新时间 |
-
-**阶段(stage)枚举**:
-- `backtest`: 回测阶段
-- `check`: Check Submission阶段
-- `submit`: 提交阶段
-- `end`: 结束
-
-**状态(status)枚举**:
-- `pending`: 待处理
-- `abandoned`: 放弃
-- `optimize`: 待优化
-- `ready`: 准备提交
-
-**示例**:
-```sql
-INSERT INTO backtest_results (alpha_id, expression_sha, expression, result, stage, status, ...)
-VALUES (
-    'alpha_001',
-    'sha256...',
-    'ts_rank(close, 22)',
-    '{"sharpe":1.85,"fitness":1.45,...}',
-    'backtest',
-    'pending',
-    ...
-);
-```
-
-**关键特性**:
-- 一个alpha_id可以有多条记录(状态历史)
-- `result` JSON存储完整回测结果
-- 支持状态流转跟踪
+`alpha_details` 是本项目唯一的回测结果表。每个 `alpha_id` 使用 upsert
+保存最新回测状态；项目不保存重复回测历史。
 
 ---
 
@@ -217,8 +174,6 @@ CREATE INDEX IF NOT EXISTS idx_checks_name ON alpha_checks(check_name);
 ```
 alpha_expressions (表达式表)
     ↓ expression_sha
-backtest_results (回测结果表)
-    ↓ alpha_id
 alpha_details (详情表)
     ↓ alpha_id
 alpha_checks (检查子表, 1:N)
@@ -226,9 +181,8 @@ alpha_checks (检查子表, 1:N)
 
 **关系说明**:
 1. `alpha_expressions` 存储唯一表达式
-2. `backtest_results` 记录每个alpha的状态历史
-3. `alpha_details` 存储当前状态的平铺详情(含PC/SC/checks_json)
-4. `alpha_checks` 每个alpha的多条提交检查项(1:N)
+2. `alpha_details` 存储每个 alpha 的最新平铺详情(含PC/SC/checks_json)
+3. `alpha_checks` 每个alpha的多条提交检查项(1:N)
 
 ---
 
@@ -372,7 +326,7 @@ for d in ready:
 |------|---------|-------------|
 | **查询能力** | 弱(JSON文件) | 强(SQL查询) |
 | **去重** | 手动 | 自动(expression_sha) |
-| **状态跟踪** | 无 | 有(backtest_results) |
+| **状态跟踪** | 无 | 有(alpha_details 最新状态) |
 | **并发安全** | 否 | 是 |
 | **数据完整性** | 弱 | 强(事务) |
 | **备份** | 复制文件 | 复制文件 |
@@ -397,7 +351,7 @@ for alpha in alphas:
 
 ```python
 # 清理旧记录
-conn.execute("DELETE FROM backtest_results WHERE created_at < ?", (old_date,))
+conn.execute("DELETE FROM alpha_details WHERE created_at < ?", (old_date,))
 conn.commit()
 ```
 
@@ -450,7 +404,7 @@ python3 examples/database_examples.py
 
 数据库设计核心:
 - ✅ 表达式去重(expression_sha)
-- ✅ 状态跟踪(backtest_results)
+- ✅ 当前状态查询(alpha_details)
 - ✅ 平铺查询(alpha_details)
 - ✅ 提交检查指标(PC/SC列 + alpha_checks子表 + checks_json)
 - ✅ 工作流集成(survey→deepen→submit 均写入数据库)

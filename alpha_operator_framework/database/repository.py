@@ -224,6 +224,7 @@ class AlphaDatabase:
             id INTEGER PRIMARY KEY AUTOINCREMENT,
             platform_batch_id TEXT UNIQUE,
             platform_location TEXT,
+            simulation_type TEXT NOT NULL DEFAULT 'REGULAR',
             status TEXT NOT NULL DEFAULT 'created',
             settings_json TEXT NOT NULL,
             requested_count INTEGER NOT NULL DEFAULT 0,
@@ -247,6 +248,7 @@ class AlphaDatabase:
             expression_sha TEXT NOT NULL,
             alpha_sha TEXT NOT NULL DEFAULT '',
             expression TEXT NOT NULL,
+            task_json TEXT NOT NULL DEFAULT '{}',
             decay REAL NOT NULL DEFAULT 0.0,
             platform_child_url TEXT,
             alpha_id TEXT,
@@ -258,6 +260,25 @@ class AlphaDatabase:
             updated_at TEXT NOT NULL,
             UNIQUE(batch_id, sequence_no),
             FOREIGN KEY(batch_id) REFERENCES simulation_batches(id)
+        )
+        """)
+
+        cursor.execute("""
+        CREATE TABLE IF NOT EXISTS super_alpha_candidates (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            candidate_sha TEXT NOT NULL UNIQUE,
+            component_ids_json TEXT NOT NULL,
+            selection_name TEXT NOT NULL,
+            selection TEXT NOT NULL,
+            combo_name TEXT NOT NULL,
+            combo TEXT NOT NULL,
+            settings_json TEXT NOT NULL,
+            status TEXT NOT NULL DEFAULT 'prepared',
+            alpha_id TEXT,
+            result_json TEXT,
+            error_message TEXT,
+            created_at TEXT NOT NULL,
+            updated_at TEXT NOT NULL
         )
         """)
 
@@ -346,6 +367,11 @@ class AlphaDatabase:
         simulation_result_columns = {r["name"] for r in cursor.execute("PRAGMA table_info(simulation_results)")}
         if "alpha_sha" not in simulation_result_columns:
             cursor.execute("ALTER TABLE simulation_results ADD COLUMN alpha_sha TEXT NOT NULL DEFAULT ''")
+        if "task_json" not in simulation_result_columns:
+            cursor.execute("ALTER TABLE simulation_results ADD COLUMN task_json TEXT NOT NULL DEFAULT '{}'")
+        simulation_batch_columns = {r["name"] for r in cursor.execute("PRAGMA table_info(simulation_batches)")}
+        if "simulation_type" not in simulation_batch_columns:
+            cursor.execute("ALTER TABLE simulation_batches ADD COLUMN simulation_type TEXT NOT NULL DEFAULT 'REGULAR'")
 
         # 创建索引
         cursor.execute("CREATE INDEX IF NOT EXISTS idx_expr_sha ON alpha_expressions(expression_sha)")
@@ -359,6 +385,7 @@ class AlphaDatabase:
         cursor.execute("CREATE INDEX IF NOT EXISTS idx_sim_result_batch ON simulation_results(batch_id)")
         cursor.execute("CREATE INDEX IF NOT EXISTS idx_sim_result_alpha ON simulation_results(alpha_id)")
         cursor.execute("CREATE INDEX IF NOT EXISTS idx_sim_result_alpha_sha ON simulation_results(alpha_sha)")
+        cursor.execute("CREATE INDEX IF NOT EXISTS idx_super_candidate_status ON super_alpha_candidates(status)")
 
         # 新表索引
         cursor.execute("CREATE INDEX IF NOT EXISTS idx_opt_queue_alpha ON alpha_optimization_queue(alpha_id)")
@@ -378,24 +405,27 @@ class AlphaDatabase:
     def _json(value: Any) -> str:
         return json.dumps(value, ensure_ascii=False, default=str, separators=(",", ":"))
 
-    def create_simulation_batch(self, tasks: List[Dict[str, Any]], settings: Dict[str, Any]) -> int:
+    def create_simulation_batch(self, tasks: List[Dict[str, Any]], settings: Dict[str, Any],
+                                simulation_type: str = "REGULAR") -> int:
         now = self._timestamp()
         conn = self._get_connection()
         cursor = conn.execute(
             """INSERT INTO simulation_batches
-            (status, settings_json, requested_count, created_at, updated_at)
-            VALUES ('created', ?, ?, ?, ?)""",
-            (self._json(settings), len(tasks), now, now),
+            (status, simulation_type, settings_json, requested_count, created_at, updated_at)
+            VALUES ('created', ?, ?, ?, ?, ?)""",
+            (simulation_type.upper(), self._json(settings), len(tasks), now, now),
         )
         batch_id = int(cursor.lastrowid)
         for sequence_no, task in enumerate(tasks):
-            expression = str(task["expression"])
+            expression = str(task.get("expression") or task.get("candidate_sha") or "")
+            if not expression:
+                raise ValueError("simulation task requires expression or candidate_sha")
             conn.execute(
                 """INSERT INTO simulation_results
-                (batch_id, sequence_no, expression_sha, alpha_sha, expression, decay, status, created_at, updated_at)
-                VALUES (?, ?, ?, ?, ?, ?, 'created', ?, ?)""",
+                (batch_id, sequence_no, expression_sha, alpha_sha, expression, task_json, decay, status, created_at, updated_at)
+                VALUES (?, ?, ?, ?, ?, ?, ?, 'created', ?, ?)""",
                 (batch_id, sequence_no, self.compute_sha(expression), self.compute_alpha_sha(expression, settings), expression,
-                 float(task.get("decay", 0.0)), now, now),
+                 self._json(task), float(task.get("decay", settings.get("decay", 0.0))), now, now),
             )
         conn.commit()
         return batch_id
@@ -459,6 +489,53 @@ class AlphaDatabase:
             "SELECT * FROM simulation_results WHERE batch_id=? ORDER BY sequence_no", (batch_id,)
         ).fetchall()
         return [dict(row) for row in rows]
+
+    def save_super_candidates(self, candidates: List[Dict[str, Any]], settings: Dict[str, Any]) -> None:
+        """Upsert generated Super Alpha hypotheses before any platform submission."""
+        now = self._timestamp()
+        conn = self._get_connection()
+        for candidate in candidates:
+            conn.execute(
+                """INSERT INTO super_alpha_candidates
+                (candidate_sha, component_ids_json, selection_name, selection, combo_name, combo, settings_json, created_at, updated_at)
+                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
+                ON CONFLICT(candidate_sha) DO UPDATE SET updated_at=excluded.updated_at""",
+                (candidate["candidate_sha"], self._json(candidate["component_ids"]), candidate["selection_name"],
+                 candidate["selection"], candidate["combo_name"], candidate["combo"], self._json(settings), now, now),
+            )
+        conn.commit()
+
+    def get_super_candidates(self, status: str | None = None) -> List[Dict[str, Any]]:
+        sql = "SELECT * FROM super_alpha_candidates"
+        params: tuple[Any, ...] = ()
+        if status:
+            sql += " WHERE status=?"
+            params = (status,)
+        rows = self._get_connection().execute(sql + " ORDER BY id", params).fetchall()
+        candidates = []
+        for row in rows:
+            value = dict(row)
+            value["component_ids"] = json.loads(value.pop("component_ids_json"))
+            value.pop("settings_json", None)
+            value.pop("id", None)
+            value.pop("status", None)
+            value.pop("alpha_id", None)
+            value.pop("result_json", None)
+            value.pop("error_message", None)
+            value.pop("created_at", None)
+            value.pop("updated_at", None)
+            candidates.append(value)
+        return candidates
+
+    def mark_super_candidate_result(self, candidate_sha: str, *, alpha_id: str = "", status: str = "completed",
+                                    result: Any = None, error_message: str = "") -> None:
+        self._get_connection().execute(
+            """UPDATE super_alpha_candidates SET status=?, alpha_id=COALESCE(NULLIF(?, ''), alpha_id),
+            result_json=COALESCE(?, result_json), error_message=COALESCE(NULLIF(?, ''), error_message), updated_at=?
+            WHERE candidate_sha=?""",
+            (status, alpha_id, self._json(result) if result is not None else None, error_message, self._timestamp(), candidate_sha),
+        )
+        self._get_connection().commit()
 
     # ---------------------------------------------------------------------------
     # 表达式操作

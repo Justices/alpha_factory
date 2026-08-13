@@ -23,7 +23,8 @@ class SimulationTracker:
 
     def submit(self, tasks: Sequence[dict[str, Any]], settings: dict[str, Any]) -> int:
         """Create a local batch, submit it once, and save its platform Location."""
-        batch_id = self.database.create_simulation_batch(list(tasks), settings)
+        simulation_type = str(settings.get("simulation_type") or "REGULAR")
+        batch_id = self.database.create_simulation_batch(list(tasks), settings, simulation_type=simulation_type)
         try:
             location = self.submit_request(list(tasks))
             platform_batch_id = location.rstrip("/").split("/")[-1]
@@ -64,6 +65,8 @@ class SimulationTracker:
         if not isinstance(children, list):
             children = []
         results = self.database.get_simulation_results(batch_id)
+        if not children and len(results) == 1:
+            children = [location]
         for sequence_no, child_url in enumerate(children[:len(results)]):
             child, _ = self.fetch_progress(child_url)
             alpha_id = child.get("alpha") if isinstance(child, dict) else None
@@ -75,7 +78,13 @@ class SimulationTracker:
                 batch_id, sequence_no, status="completed", alpha_id=str(alpha_id), child_url=child_url, result=details,
             )
             settings = _decode_settings(batch.get("settings_json"))
-            persist_workflow_row(self.database, {**details, "alpha_id": str(alpha_id)}, settings, stage="simulation")
+            if batch.get("simulation_type") == "SUPER":
+                task = _decode_settings(results[sequence_no].get("task_json"))
+                candidate_sha = task.get("candidate_sha")
+                if candidate_sha:
+                    self.database.mark_super_candidate_result(candidate_sha, alpha_id=str(alpha_id), result=details)
+            else:
+                persist_workflow_row(self.database, {**details, "alpha_id": str(alpha_id)}, settings, stage="simulation")
         return self.database.get_simulation_batch(batch_id) or batch
 
 

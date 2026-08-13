@@ -36,7 +36,7 @@ export PY3=python3
 
 ```
 runs/WebData_20260219_V0.10.9.zip  (35MB, 90万+ 已提交 alpha 统计)
-runs/alpha_research.db              (SQLite 数据库)
+data/alpha_research.db              (SQLite 回测状态数据库)
 ```
 
 ### 1.4 项目数据目录
@@ -333,7 +333,7 @@ ds_quality.recommendation # 推荐动作
 ```python
 from alpha_operator_framework import AlphaDatabase
 
-db = AlphaDatabase("runs/alpha_research.db")
+db = AlphaDatabase("data/alpha_research.db")
 
 # 保存回测结果
 db.save_result_with_checks(alpha_id, is_result, settings)
@@ -516,7 +516,7 @@ $PY -m alpha_operator_framework.orchestrator submit \
 
 ```bash
 # 1. 查看待优化 alpha
-sqlite3 runs/alpha_research.db "
+sqlite3 data/alpha_research.db "
 SELECT alpha_id, expression, failed_ra_count, optimization_hints 
 FROM alpha_optimization_queue 
 WHERE status='pending' 

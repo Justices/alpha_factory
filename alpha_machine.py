@@ -16,6 +16,7 @@ from pathlib import Path
 from typing import Any, Iterable, Sequence
 
 ROOT = Path(__file__).resolve().parents[1]
+DEFAULT_DATABASE_PATH = Path("data") / "alpha_research.db"
 STANDARD_WINDOWS = (5, 22, 66, 120, 252, 504)
 FIRST_ORDER_OPS = ("rank", "zscore", "quantile", "normalize", "ts_rank", "ts_zscore",
                    "ts_delta", "ts_mean", "ts_std_dev", "ts_sum", "ts_delay")
@@ -67,6 +68,24 @@ def write_json(path: Path, value: Any) -> None:
         json.dumps(value, ensure_ascii=False, indent=2, default=str) + "\n",
         encoding="utf-8",
     )
+
+
+def database_path(args: argparse.Namespace) -> Path:
+    """Return the durable simulation database, optionally overridden by the CLI."""
+    configured = getattr(args, "database", None)
+    return Path(configured) if configured else DEFAULT_DATABASE_PATH
+
+
+def prepare_super_candidates(database: Any, settings: dict[str, Any], *, max_candidates: int = 6) -> list[dict[str, Any]]:
+    """Build and persist bounded SUPER hypotheses from regular alpha_details records."""
+    from alpha_operator_framework.super_alpha import SuperAlphaConfig, build_super_candidates
+
+    rows = [dict(row) for row in database._get_connection().execute(
+        "SELECT alpha_id, expression, sharpe, fitness, turnover, sc_value, pc_value FROM alpha_details"
+    ).fetchall()]
+    candidates = build_super_candidates(rows, SuperAlphaConfig(max_candidates=max_candidates), settings)
+    database.save_super_candidates(candidates, settings)
+    return candidates
 
 
 def select_fields(rows: Iterable[dict[str, Any]], *, dataset_id: str = "", data_type: str = "",
@@ -264,7 +283,7 @@ async def simulate(tasks: Sequence[dict[str, Any]], args: argparse.Namespace) ->
             settings = {"region": args.region, "universe": args.universe, "delay": args.delay,
                         "decay": decay, "neutralization": args.neutralization, "truncation": args.truncation,
                         "nan_handling": args.nan_handling, "test_period": args.test_period}
-            db = AlphaDatabase(Path("runs") / "alpha_research.db")
+            db = AlphaDatabase(database_path(args))
             try:
                 def submit(batch_tasks):
                     payload = [{"type": "REGULAR", "settings": {
@@ -300,14 +319,14 @@ async def simulate(tasks: Sequence[dict[str, Any]], args: argparse.Namespace) ->
     return results
 
 
-async def poll_simulation_batch(batch_id: int) -> dict[str, Any]:
+async def poll_simulation_batch(batch_id: int, database: Path = DEFAULT_DATABASE_PATH) -> dict[str, Any]:
     """Poll one persisted platform batch without submitting a new simulation."""
     from alpha_operator_framework.database import AlphaDatabase
     from alpha_operator_framework.simulation_tracker import SimulationTracker
     from cnhkmcp.untracked.platform_functions import brain_client
 
     await brain_client.ensure_authenticated()
-    db = AlphaDatabase(Path("runs") / "alpha_research.db")
+    db = AlphaDatabase(database)
     try:
         def fetch(location):
             response = brain_client.session.get(location)
@@ -324,6 +343,39 @@ async def poll_simulation_batch(batch_id: int) -> dict[str, Any]:
         return {"batch": batch, "results": db.get_simulation_results(batch_id)}
     finally:
         db.close()
+
+
+async def simulate_super(candidates: Sequence[dict[str, Any]], args: argparse.Namespace) -> list[dict[str, Any]]:
+    """Submit each durable SUPER hypothesis once; polling is a separate command."""
+    from alpha_operator_framework.database import AlphaDatabase
+    from alpha_operator_framework.simulation_tracker import SimulationTracker
+    from alpha_operator_framework.super_alpha import super_simulation_payload
+    from cnhkmcp.untracked.platform_functions import brain_client
+
+    await brain_client.ensure_authenticated()
+    settings = {"region": args.region, "universe": args.universe, "delay": args.delay, "decay": args.decay,
+                "neutralization": args.neutralization, "truncation": args.truncation, "nan_handling": args.nan_handling,
+                "simulation_type": "SUPER"}
+    results = []
+    for candidate in candidates:
+        task = {**candidate, "expression": candidate["candidate_sha"], "decay": args.decay}
+        db = AlphaDatabase(database_path(args))
+        try:
+            def submit(tasks):
+                payload = super_simulation_payload(tasks[0], {"instrumentType": "EQUITY", **settings,
+                    "pasteurization": "ON", "unitHandling": "VERIFY", "language": "FASTEXPR", "visualization": False})
+                response = brain_client.session.post(f"{brain_client.base_url}/simulations", json=payload)
+                response.raise_for_status()
+                location = response.headers.get("Location")
+                if not location:
+                    raise RuntimeError("platform did not return a simulation Location")
+                return location
+            tracker = SimulationTracker(db, submit=submit, fetch=lambda _: ({}, 0), detail=lambda _: {})
+            batch_id = tracker.submit([task], settings)
+            results.append({"candidate_sha": candidate["candidate_sha"], "simulation_batch_id": batch_id, "status": "submitted"})
+        finally:
+            db.close()
+    return results
 
 
 def parse_decays(raw: str) -> tuple[float, ...]:
@@ -394,10 +446,33 @@ def command_simulate(args: argparse.Namespace) -> None:
 
 
 def command_poll_simulation(args: argparse.Namespace) -> None:
-    payload = asyncio.run(poll_simulation_batch(args.batch_id))
+    payload = asyncio.run(poll_simulation_batch(args.batch_id, database_path(args)))
     write_json(Path(args.output), payload)
     batch = payload["batch"]
     print(f"batch={args.batch_id} status={batch['status']} completed={batch['completed_count']} failed={batch['failed_count']}")
+
+
+def command_prepare_super(args: argparse.Namespace) -> None:
+    from alpha_operator_framework.database import AlphaDatabase
+    settings = {"region": args.region, "universe": args.universe, "delay": args.delay, "decay": args.decay,
+                "neutralization": args.neutralization, "truncation": args.truncation, "nan_handling": args.nan_handling}
+    db = AlphaDatabase(database_path(args))
+    try:
+        candidates = prepare_super_candidates(db, settings, max_candidates=args.max_candidates)
+    finally:
+        db.close()
+    write_json(Path(args.output), {"settings": settings, "candidates": candidates})
+    print(f"super_candidates={len(candidates)} output={args.output}")
+
+
+def command_simulate_super(args: argparse.Namespace) -> None:
+    if not args.execute:
+        raise SystemExit("Refusing to consume BRAIN simulation quota: rerun with --execute.")
+    payload = read_json(Path(args.candidates))
+    candidates = payload.get("candidates", payload) if isinstance(payload, dict) else payload
+    results = asyncio.run(simulate_super(candidates, args))
+    write_json(Path(args.output), {"settings": vars(args), "results": results})
+    print(f"super simulation batches={len(results)} output={args.output}")
 
 
 def add_settings(parser: argparse.ArgumentParser) -> None:
@@ -432,11 +507,29 @@ def main() -> None:
     sim = sub.add_parser("simulate", help="使用 MCP multi-simulation 回测已准备任务")
     add_settings(sim); sim.add_argument("--tasks", required=True); sim.add_argument("--output", required=True); sim.add_argument("--execute", action="store_true")
     sim.add_argument("--batch-size", type=int, default=8); sim.add_argument("--neutralization", default="SUBINDUSTRY"); sim.add_argument("--truncation", type=float, default=0.08)
-    sim.add_argument("--nan-handling", default="OFF"); sim.add_argument("--test-period", default="P0Y0M"); sim.set_defaults(func=command_simulate)
+    sim.add_argument("--nan-handling", default="OFF"); sim.add_argument("--test-period", default="P0Y0M")
+    sim.add_argument("--database", default=str(DEFAULT_DATABASE_PATH), help="持久化回测状态的 SQLite 文件")
+    sim.set_defaults(func=command_simulate)
     poll = sub.add_parser("poll-simulation", help="Poll an existing persisted BRAIN simulation batch")
     poll.add_argument("--batch-id", required=True, type=int)
     poll.add_argument("--output", required=True)
+    poll.add_argument("--database", default=str(DEFAULT_DATABASE_PATH), help="持久化回测状态的 SQLite 文件")
     poll.set_defaults(func=command_poll_simulation)
+    super_prepare = sub.add_parser("prepare-super", help="从已回测普通 Alpha 构造并持久化 Super Alpha 候选")
+    add_settings(super_prepare)
+    super_prepare.add_argument("--output", required=True); super_prepare.add_argument("--database", default=str(DEFAULT_DATABASE_PATH))
+    super_prepare.add_argument("--max-candidates", type=int, default=6); super_prepare.add_argument("--decay", type=float, default=6)
+    super_prepare.add_argument("--neutralization", default="SUBINDUSTRY"); super_prepare.add_argument("--truncation", type=float, default=0.08)
+    super_prepare.add_argument("--nan-handling", default="OFF"); super_prepare.set_defaults(func=command_prepare_super)
+    super_sim = sub.add_parser("simulate-super", help="异步提交已准备的 Super Alpha 候选")
+    add_settings(super_sim); super_sim.add_argument("--candidates", required=True); super_sim.add_argument("--output", required=True)
+    super_sim.add_argument("--execute", action="store_true"); super_sim.add_argument("--database", default=str(DEFAULT_DATABASE_PATH))
+    super_sim.add_argument("--decay", type=float, default=6); super_sim.add_argument("--neutralization", default="SUBINDUSTRY")
+    super_sim.add_argument("--truncation", type=float, default=0.08); super_sim.add_argument("--nan-handling", default="OFF")
+    super_sim.set_defaults(func=command_simulate_super)
+    super_poll = sub.add_parser("poll-super", help="轮询已持久化的 Super Alpha 回测批次")
+    super_poll.add_argument("--batch-id", required=True, type=int); super_poll.add_argument("--output", required=True)
+    super_poll.add_argument("--database", default=str(DEFAULT_DATABASE_PATH)); super_poll.set_defaults(func=command_poll_simulation)
     args = parser.parse_args(); args.func(args)
 
 

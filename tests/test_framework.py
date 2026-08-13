@@ -9,6 +9,7 @@
   - density: 因子密度评估
 """
 
+import argparse
 import sys
 import sqlite3
 import tempfile
@@ -48,6 +49,11 @@ from alpha_operator_framework.local_fields import (
 from alpha_machine import write_json
 from alpha_machine import main as alpha_machine_main
 from alpha_operator_framework.simulation_tracker import SimulationTracker
+from alpha_operator_framework.super_alpha import (
+    SuperAlphaConfig,
+    build_super_candidates,
+    super_simulation_payload,
+)
 from alpha_operator_framework.paired_bases import (
     discover_pair_specs, paired_field_ids, parse_pair_spec, paired_base_task_factory,
     paired_group_first_order_task_factory,
@@ -204,6 +210,72 @@ def test_simulation_batch_database_lifecycle():
             db.close()
 
 
+def test_super_alpha_candidates_are_gated_bounded_and_canonical():
+    """Super Alpha candidates use quality-gated components and deterministic hashes."""
+    components = [
+        {"alpha_id": "good-a", "expression": "rank(close)", "sharpe": 2.0, "fitness": 1.1,
+         "turnover": 0.20, "sc_value": 0.2, "pc_value": 0.3},
+        {"alpha_id": "good-b", "expression": "rank(volume)", "sharpe": 1.8, "fitness": 1.0,
+         "turnover": 0.24, "sc_value": 0.3, "pc_value": 0.4},
+        {"alpha_id": "weak", "expression": "rank(low)", "sharpe": 0.2, "fitness": 0.1,
+         "turnover": 0.20, "sc_value": 0.2, "pc_value": 0.3},
+    ]
+    config = SuperAlphaConfig(min_sharpe=1.0, min_fitness=0.8, max_candidates=4)
+    settings = {"region": "GBR", "universe": "TOP700", "delay": 1, "decay": 6}
+
+    candidates = build_super_candidates(components, config, settings)
+
+    assert len(candidates) == 4
+    assert all(candidate["component_ids"] == ["good-a", "good-b"] for candidate in candidates)
+    assert len({candidate["candidate_sha"] for candidate in candidates}) == 4
+    assert {candidate["selection_name"] for candidate in candidates} >= {"baseline", "quality_turnover"}
+    payload = super_simulation_payload(candidates[0], {**settings, "simulation_type": "SUPER"})
+    assert payload["type"] == "SUPER"
+    assert payload["selection"] == candidates[0]["selection"]
+    assert payload["combo"] == candidates[0]["combo"]
+    assert payload["settings"]["region"] == "GBR"
+    assert "simulation_type" not in payload["settings"]
+
+
+def test_super_alpha_candidate_and_batch_are_durable():
+    """SUPER work stores its complete payload and remains resumable after restart."""
+    with tempfile.TemporaryDirectory() as tmp:
+        db = AlphaDatabase(Path(tmp) / "super.db")
+        try:
+            candidate = {"candidate_sha": "candidate-1", "component_ids": ["a", "b"],
+                         "selection_name": "baseline", "selection": "1",
+                         "combo_name": "equal_weight", "combo": "1"}
+            db.save_super_candidates([candidate], {"region": "GBR", "universe": "TOP700", "delay": 1})
+            assert db.get_super_candidates() == [candidate]
+            batch_id = db.create_simulation_batch([candidate], {"region": "GBR"}, simulation_type="SUPER")
+            batch = db.get_simulation_batch(batch_id)
+            task = db.get_simulation_results(batch_id)[0]
+            assert batch["simulation_type"] == "SUPER"
+            assert json.loads(task["task_json"])["selection"] == "1"
+        finally:
+            db.close()
+
+
+def test_super_alpha_preparation_reads_regular_details():
+    """The command adapter builds stored SUPER hypotheses from the regular-alpha ledger."""
+    import alpha_machine
+    with tempfile.TemporaryDirectory() as tmp:
+        db = AlphaDatabase(Path(tmp) / "super-prepare.db")
+        try:
+            db._get_connection().executemany(
+                """INSERT INTO alpha_details (alpha_id, expression_sha, alpha_sha, expression, sharpe, fitness, turnover,
+                sc_value, pc_value, created_at, updated_at) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)""",
+                [("a", "a", "a", "rank(close)", 2, 1, .2, .2, .2, "now", "now"),
+                 ("b", "b", "b", "rank(volume)", 2, 1, .2, .2, .2, "now", "now")],
+            )
+            db._get_connection().commit()
+            candidates = alpha_machine.prepare_super_candidates(db, {"region": "GBR", "universe": "TOP700", "delay": 1})
+            assert len(candidates) == 6
+            assert db.get_super_candidates()[0]["component_ids"] == ["a", "b"]
+        finally:
+            db.close()
+
+
 def test_simulation_tracker_submits_once_and_polls_children():
     """A saved platform batch is polled and never posted twice."""
     submitted = []
@@ -259,6 +331,48 @@ def test_database_package_has_models_repository_and_schema_files():
     assert (database_dir / "migrations.py").is_file()
     assert (database_dir / "schema" / "001_initial.sql").is_file()
     assert (database_dir / "schema" / "002_expression_origin.sql").is_file()
+    assert (database_dir / "schema" / "003_simulation_batches.sql").is_file()
+    assert (database_dir / "schema" / "latest_schema.sql").is_file()
+
+
+def test_latest_schema_initializes_current_database():
+    """The current schema snapshot must initialize a fresh SQLite database by itself."""
+    schema_path = ROOT / "alpha_operator_framework" / "database" / "schema" / "latest_schema.sql"
+
+    with tempfile.TemporaryDirectory() as temp_dir:
+        connection = sqlite3.connect(Path(temp_dir) / "fresh.db")
+        try:
+            connection.executescript(schema_path.read_text(encoding="utf-8"))
+            tables = {
+                row[0]
+                for row in connection.execute(
+                    "SELECT name FROM sqlite_master WHERE type = 'table'"
+                )
+            }
+            assert {
+                "alpha_expressions",
+                "alpha_details",
+                "alpha_checks",
+                "simulation_batches",
+                "simulation_results",
+                "super_alpha_candidates",
+                "alpha_optimization_queue",
+                "alpha_submission_candidates",
+            } <= tables
+
+            expression_columns = {
+                row[1] for row in connection.execute("PRAGMA table_info(alpha_expressions)")
+            }
+            detail_columns = {row[1] for row in connection.execute("PRAGMA table_info(alpha_details)")}
+            result_columns = {row[1] for row in connection.execute("PRAGMA table_info(simulation_results)")}
+            assert {"expression_origin"} <= expression_columns
+            assert {"alpha_sha"} <= detail_columns
+            assert {"alpha_sha", "platform_child_url"} <= result_columns
+            assert {"simulation_type"} <= {
+                row[1] for row in connection.execute("PRAGMA table_info(simulation_batches)")
+            }
+        finally:
+            connection.close()
 
 
 def test_session_manager_imports_on_current_platform():
@@ -281,6 +395,14 @@ def test_alpha_machine_write_json_serializes_platform_values():
         assert json.loads(path.read_text(encoding="utf-8")) == {"result": "platform-value"}
 
 
+def test_alpha_machine_uses_durable_data_database_by_default():
+    """Run artifacts and the long-lived simulation database have separate locations."""
+    import alpha_machine
+
+    assert alpha_machine.DEFAULT_DATABASE_PATH == Path("data") / "alpha_research.db"
+    assert alpha_machine.database_path(argparse.Namespace(database="custom/state.db")) == Path("custom/state.db")
+
+
 def test_alpha_machine_poll_command_is_available():
     """The CLI exposes polling without requiring a second simulation submission."""
     import alpha_machine
@@ -293,6 +415,15 @@ def test_alpha_machine_poll_command_is_available():
         assert "poll_simulation_batch" in (ROOT / "alpha_machine.py").read_text(encoding="utf-8")
     finally:
         sys.argv = previous
+
+
+def test_alpha_machine_prepare_super_command_is_available():
+    """The CLI exposes a non-network Super Alpha preparation command."""
+    source = (ROOT / "alpha_machine.py").read_text(encoding="utf-8")
+    assert 'add_parser("prepare-super"' in source
+    assert "prepare_super_candidates" in source
+    assert 'add_parser("simulate-super"' in source
+    assert 'add_parser("poll-super"' in source
 
 
 def test_fields():
@@ -616,9 +747,12 @@ def run_all_tests():
         test_simulation_tracker_submits_once_and_polls_children()
         test_platform_loader_uses_active_python_environment_only()
         test_database_package_has_models_repository_and_schema_files()
+        test_latest_schema_initializes_current_database()
         test_session_manager_imports_on_current_platform()
         test_alpha_machine_write_json_serializes_platform_values()
+        test_alpha_machine_uses_durable_data_database_by_default()
         test_alpha_machine_poll_command_is_available()
+        test_alpha_machine_prepare_super_command_is_available()
         test_fields()
         test_economic_rules_filter_invalid_first_order_operators()
         test_local_field_files()

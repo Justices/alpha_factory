@@ -42,6 +42,7 @@ htmlcov/
 runs/*.json
 runs/*.db
 !runs/.gitkeep
+data/*.db
 
 # OS
 .DS_Store
@@ -54,8 +55,7 @@ runs/*
 data/fields/*
 data/imports/*
 !data/README.md
-!data/fields/.gitkeep
-!data/imports/.gitkeep
+**/*/.gitkeep
 .brain.json
 .brain_session.json.lock
 .codex

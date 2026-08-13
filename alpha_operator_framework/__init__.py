@@ -77,6 +77,13 @@ from .paired_bases import (
     paired_group_first_order_task_factory,
 )
 
+from .super_alpha import (
+    SuperAlphaConfig,
+    build_super_candidates,
+    eligible_components,
+    super_simulation_payload,
+)
+
 from .density import (
     SignalGate,
     DensityRow,

@@ -36,7 +36,6 @@ from .operators import (
     basic_ops,
     ts_ops,
     group_ops,
-    VEC_OPS,
     vec_ops,
     extended_ops,
     # 工厂函数
@@ -118,6 +117,14 @@ from .optimize import (
     summarize_filtered,
 )
 
+from .alpha_source import (
+    get_alphas_from_workflow_result,
+    load_alphas_from_file,
+    fetch_user_alphas,
+    fetch_alpha_by_ids,
+    get_and_filter_alphas,
+)
+
 from .database import (
     AlphaDatabase,
     AlphaExpression,
@@ -179,7 +186,6 @@ __all__ = [
     "basic_ops",
     "ts_ops",
     "group_ops",
-    "VEC_OPS",
     "vec_ops",
     "extended_ops",
     "ts_factory",

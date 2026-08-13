@@ -30,7 +30,7 @@ group_ops = ["group_neutralize", "group_rank", "group_zscore"]
 
 # 向量归约算子 (将 VECTOR 数据字段转换为标量表达式)
 # 顺序与 BRAIN 当前 Vector 分类保持一致，并兼容已有 vec_avg/vec_sum 默认行为。
-VEC_OPS = [
+vec_ops = [
     "vec_avg",
     "vec_sum",
     "vec_min",
@@ -39,8 +39,6 @@ VEC_OPS = [
     "vec_range",
     "vec_count",
 ]
-# 小写名称遵循现有 ``basic_ops`` / ``ts_ops`` 的公共 API 命名约定。
-vec_ops = VEC_OPS
 
 # 扩展算子 (来自 cold_templates ACCESS_LIMITED_OPS + machine_lib)
 extended_ops = [
@@ -242,7 +240,7 @@ def get_vec_fields(fields: Sequence[str], vec_ops: Sequence[str] = None) -> List
         ['vec_avg(nws82_sentiment)', 'vec_count(nws82_sentiment)']
     """
     if vec_ops is None:
-        vec_ops = VEC_OPS
+        vec_ops = vec_ops
 
     vec_fields = []
     for field in fields:
@@ -287,7 +285,6 @@ __all__ = [
     "basic_ops",
     "ts_ops",
     "group_ops",
-    "VEC_OPS",
     "vec_ops",
     "extended_ops",
     "ACCESS_LIMITED_OPS",

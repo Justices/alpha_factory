@@ -1,0 +1,3906 @@
+﻿[
+    {
+        "id":  "eur_img_feature1_leapstar6_d1",
+        "description":  "First extracted image-based feature for the EUR region, using the Leap Star6 model, daily frequency.",
+        "dataset":  {
+                        "id":  "chart_cnn_alpha",
+                        "name":  "Deep Learning Chart-Based Alpha"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-mlai-models",
+                            "name":  "ML/AI Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "eur_img_feature1_malta1_d1",
+        "description":  "First extracted image-based feature for the EUR region, using the first Malta model, daily frequency.",
+        "dataset":  {
+                        "id":  "chart_cnn_alpha",
+                        "name":  "Deep Learning Chart-Based Alpha"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-mlai-models",
+                            "name":  "ML/AI Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "eur_img_feature1_malta2_d1",
+        "description":  "First extracted image-based feature for the EUR region, using the second Malta model, daily frequency.",
+        "dataset":  {
+                        "id":  "chart_cnn_alpha",
+                        "name":  "Deep Learning Chart-Based Alpha"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-mlai-models",
+                            "name":  "ML/AI Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "eur_img_feature2_leapstar6_d1",
+        "description":  "Second extracted image-based feature for the EUR region, using the Leap Star6 model, daily frequency.",
+        "dataset":  {
+                        "id":  "chart_cnn_alpha",
+                        "name":  "Deep Learning Chart-Based Alpha"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-mlai-models",
+                            "name":  "ML/AI Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "eur_img_feature2_malta1_d1",
+        "description":  "Second extracted image-based feature for the EUR region, using the first Malta model, daily frequency.",
+        "dataset":  {
+                        "id":  "chart_cnn_alpha",
+                        "name":  "Deep Learning Chart-Based Alpha"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-mlai-models",
+                            "name":  "ML/AI Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "eur_img_feature2_malta2_d1",
+        "description":  "Second extracted image-based feature for the EUR region, using the second Malta model, daily frequency.",
+        "dataset":  {
+                        "id":  "chart_cnn_alpha",
+                        "name":  "Deep Learning Chart-Based Alpha"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-mlai-models",
+                            "name":  "ML/AI Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "eur_img_feature3_malta1_d1",
+        "description":  "Third extracted image-based feature for the EUR region, using the first Malta model, daily frequency.",
+        "dataset":  {
+                        "id":  "chart_cnn_alpha",
+                        "name":  "Deep Learning Chart-Based Alpha"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-mlai-models",
+                            "name":  "ML/AI Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "eur_img_feature3_malta2_d1",
+        "description":  "Third extracted image-based feature for the EUR region, using the second Malta model, daily frequency.",
+        "dataset":  {
+                        "id":  "chart_cnn_alpha",
+                        "name":  "Deep Learning Chart-Based Alpha"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-mlai-models",
+                            "name":  "ML/AI Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "img_leapstar6_r30_q1_quantile_label",
+        "description":  "Predicted quantile label (1-quantile, i.e., all-in-one) for 30-day horizon using LeapStar6 image-based model.",
+        "dataset":  {
+                        "id":  "chart_cnn_alpha",
+                        "name":  "Deep Learning Chart-Based Alpha"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-mlai-models",
+                            "name":  "ML/AI Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  0.7993,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "img_leapstar6_r30_q2_prob_class0",
+        "description":  "Predicted probability for class 0 in 2-quantile return prediction for 30-day horizon using LeapStar6 image model.",
+        "dataset":  {
+                        "id":  "chart_cnn_alpha",
+                        "name":  "Deep Learning Chart-Based Alpha"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-mlai-models",
+                            "name":  "ML/AI Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  0.7993,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "img_leapstar6_r30_q2_prob_class1",
+        "description":  "Predicted probability for class 1 in 2-quantile return prediction for 30-day horizon using LeapStar6 image model.",
+        "dataset":  {
+                        "id":  "chart_cnn_alpha",
+                        "name":  "Deep Learning Chart-Based Alpha"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-mlai-models",
+                            "name":  "ML/AI Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  0.7993,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "img_leapstar6_r30_q2_quantile_label",
+        "description":  "Predicted quantile label (1-2) for 30-day horizon using LeapStar6 image-based model.",
+        "dataset":  {
+                        "id":  "chart_cnn_alpha",
+                        "name":  "Deep Learning Chart-Based Alpha"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-mlai-models",
+                            "name":  "ML/AI Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  0.7993,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "img_leapstar6_r30_q3_prob_class0",
+        "description":  "Predicted probability for class 0 in 3-quantile return prediction for 30-day horizon using LeapStar6 image model.",
+        "dataset":  {
+                        "id":  "chart_cnn_alpha",
+                        "name":  "Deep Learning Chart-Based Alpha"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-mlai-models",
+                            "name":  "ML/AI Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  0.7993,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "img_leapstar6_r30_q3_prob_class1",
+        "description":  "Predicted probability for class 1 in 3-quantile return prediction for 30-day horizon using LeapStar6 image model.",
+        "dataset":  {
+                        "id":  "chart_cnn_alpha",
+                        "name":  "Deep Learning Chart-Based Alpha"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-mlai-models",
+                            "name":  "ML/AI Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  0.7993,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "img_leapstar6_r30_q3_prob_class2",
+        "description":  "Predicted probability for class 2 in 3-quantile return prediction for 30-day horizon using LeapStar6 image model.",
+        "dataset":  {
+                        "id":  "chart_cnn_alpha",
+                        "name":  "Deep Learning Chart-Based Alpha"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-mlai-models",
+                            "name":  "ML/AI Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  0.7993,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "img_leapstar6_r30_q3_quantile_label",
+        "description":  "Predicted quantile label (1-3) for 30-day horizon using LeapStar6 image-based model.",
+        "dataset":  {
+                        "id":  "chart_cnn_alpha",
+                        "name":  "Deep Learning Chart-Based Alpha"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-mlai-models",
+                            "name":  "ML/AI Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  0.7993,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "img_leapstar6_r30_q4_prob_class0",
+        "description":  "Predicted probability for class 0 in 4-quantile return prediction for 30-day horizon using LeapStar6 image model.",
+        "dataset":  {
+                        "id":  "chart_cnn_alpha",
+                        "name":  "Deep Learning Chart-Based Alpha"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-mlai-models",
+                            "name":  "ML/AI Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  0.7993,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "img_leapstar6_r30_q4_prob_class1",
+        "description":  "Predicted probability for class 1 in 4-quantile return prediction for 30-day horizon using LeapStar6 image model.",
+        "dataset":  {
+                        "id":  "chart_cnn_alpha",
+                        "name":  "Deep Learning Chart-Based Alpha"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-mlai-models",
+                            "name":  "ML/AI Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  0.7993,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "img_leapstar6_r30_q4_prob_class2",
+        "description":  "Predicted probability for class 2 in 4-quantile return prediction for 30-day horizon using LeapStar6 image model.",
+        "dataset":  {
+                        "id":  "chart_cnn_alpha",
+                        "name":  "Deep Learning Chart-Based Alpha"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-mlai-models",
+                            "name":  "ML/AI Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  0.7993,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "img_leapstar6_r30_q4_prob_class3",
+        "description":  "Predicted probability for class 3 in 4-quantile return prediction for 30-day horizon using LeapStar6 image model.",
+        "dataset":  {
+                        "id":  "chart_cnn_alpha",
+                        "name":  "Deep Learning Chart-Based Alpha"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-mlai-models",
+                            "name":  "ML/AI Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  0.7993,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "img_leapstar6_r30_q4_quantile_label",
+        "description":  "Predicted quantile label (1-4) for 30-day horizon using LeapStar6 image-based model.",
+        "dataset":  {
+                        "id":  "chart_cnn_alpha",
+                        "name":  "Deep Learning Chart-Based Alpha"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-mlai-models",
+                            "name":  "ML/AI Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  0.7993,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "img_leapstar6_r30_q5_prob_class0",
+        "description":  "Predicted probability for class 0 in 5-quantile return prediction for 30-day horizon using LeapStar6 image model.",
+        "dataset":  {
+                        "id":  "chart_cnn_alpha",
+                        "name":  "Deep Learning Chart-Based Alpha"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-mlai-models",
+                            "name":  "ML/AI Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  0.7993,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "img_leapstar6_r30_q5_prob_class1",
+        "description":  "Predicted probability for class 1 in 5-quantile return prediction for 30-day horizon using LeapStar6 image model.",
+        "dataset":  {
+                        "id":  "chart_cnn_alpha",
+                        "name":  "Deep Learning Chart-Based Alpha"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-mlai-models",
+                            "name":  "ML/AI Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  0.7993,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "img_leapstar6_r30_q5_prob_class2",
+        "description":  "Predicted probability for class 2 in 5-quantile return prediction for 30-day horizon using LeapStar6 image model.",
+        "dataset":  {
+                        "id":  "chart_cnn_alpha",
+                        "name":  "Deep Learning Chart-Based Alpha"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-mlai-models",
+                            "name":  "ML/AI Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  0.7993,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "img_leapstar6_r30_q5_prob_class3",
+        "description":  "Predicted probability for class 3 in 5-quantile return prediction for 30-day horizon using LeapStar6 image model.",
+        "dataset":  {
+                        "id":  "chart_cnn_alpha",
+                        "name":  "Deep Learning Chart-Based Alpha"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-mlai-models",
+                            "name":  "ML/AI Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  0.7993,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "img_leapstar6_r30_q5_prob_class4",
+        "description":  "Predicted probability for class 4 in 5-quantile return prediction for 30-day horizon using LeapStar6 image model.",
+        "dataset":  {
+                        "id":  "chart_cnn_alpha",
+                        "name":  "Deep Learning Chart-Based Alpha"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-mlai-models",
+                            "name":  "ML/AI Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  0.7993,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "img_leapstar6_r30_q5_quantile_label",
+        "description":  "Predicted quantile label (1-5) for 30-day horizon using LeapStar6 image-based model.",
+        "dataset":  {
+                        "id":  "chart_cnn_alpha",
+                        "name":  "Deep Learning Chart-Based Alpha"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-mlai-models",
+                            "name":  "ML/AI Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  0.7993,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "img_leapstar6_r5_q1_quantile_label",
+        "description":  "Predicted quantile label (1-quantile, i.e., all-in-one) for 5-day horizon using LeapStar6 image-based model.",
+        "dataset":  {
+                        "id":  "chart_cnn_alpha",
+                        "name":  "Deep Learning Chart-Based Alpha"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-mlai-models",
+                            "name":  "ML/AI Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  0.7993,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "img_leapstar6_r5_q2_prob_class0",
+        "description":  "Predicted probability for class 0 in 2-quantile return prediction for 5-day horizon using LeapStar6 image model.",
+        "dataset":  {
+                        "id":  "chart_cnn_alpha",
+                        "name":  "Deep Learning Chart-Based Alpha"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-mlai-models",
+                            "name":  "ML/AI Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  0.7993,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "img_leapstar6_r5_q2_prob_class1",
+        "description":  "Predicted probability for class 1 in 2-quantile return prediction for 5-day horizon using LeapStar6 image model.",
+        "dataset":  {
+                        "id":  "chart_cnn_alpha",
+                        "name":  "Deep Learning Chart-Based Alpha"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-mlai-models",
+                            "name":  "ML/AI Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  0.7993,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "img_leapstar6_r5_q2_quantile_label",
+        "description":  "Predicted quantile label (1-2) for 5-day horizon using LeapStar6 image-based model.",
+        "dataset":  {
+                        "id":  "chart_cnn_alpha",
+                        "name":  "Deep Learning Chart-Based Alpha"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-mlai-models",
+                            "name":  "ML/AI Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  0.7993,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "img_leapstar6_r5_q3_prob_class0",
+        "description":  "Predicted probability for class 0 in 3-quantile return prediction for 5-day horizon using LeapStar6 image model.",
+        "dataset":  {
+                        "id":  "chart_cnn_alpha",
+                        "name":  "Deep Learning Chart-Based Alpha"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-mlai-models",
+                            "name":  "ML/AI Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  0.7993,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "img_leapstar6_r5_q3_prob_class1",
+        "description":  "Predicted probability for class 1 in 3-quantile return prediction for 5-day horizon using LeapStar6 image model.",
+        "dataset":  {
+                        "id":  "chart_cnn_alpha",
+                        "name":  "Deep Learning Chart-Based Alpha"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-mlai-models",
+                            "name":  "ML/AI Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  0.7993,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "img_leapstar6_r5_q3_prob_class2",
+        "description":  "Predicted probability for class 2 in 3-quantile return prediction for 5-day horizon using LeapStar6 image model.",
+        "dataset":  {
+                        "id":  "chart_cnn_alpha",
+                        "name":  "Deep Learning Chart-Based Alpha"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-mlai-models",
+                            "name":  "ML/AI Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  0.7993,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "img_leapstar6_r5_q3_quantile_label",
+        "description":  "Predicted quantile label (1-3) for 5-day horizon using LeapStar6 image-based model.",
+        "dataset":  {
+                        "id":  "chart_cnn_alpha",
+                        "name":  "Deep Learning Chart-Based Alpha"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-mlai-models",
+                            "name":  "ML/AI Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  0.7993,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "img_leapstar6_r5_q4_prob_class0",
+        "description":  "Predicted probability for class 0 in 4-quantile return prediction for 5-day horizon using LeapStar6 image model.",
+        "dataset":  {
+                        "id":  "chart_cnn_alpha",
+                        "name":  "Deep Learning Chart-Based Alpha"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-mlai-models",
+                            "name":  "ML/AI Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  0.7993,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "img_leapstar6_r5_q4_prob_class1",
+        "description":  "Predicted probability for class 1 in 4-quantile return prediction for 5-day horizon using LeapStar6 image model.",
+        "dataset":  {
+                        "id":  "chart_cnn_alpha",
+                        "name":  "Deep Learning Chart-Based Alpha"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-mlai-models",
+                            "name":  "ML/AI Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  0.7993,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "img_leapstar6_r5_q4_prob_class2",
+        "description":  "Predicted probability for class 2 in 4-quantile return prediction for 5-day horizon using LeapStar6 image model.",
+        "dataset":  {
+                        "id":  "chart_cnn_alpha",
+                        "name":  "Deep Learning Chart-Based Alpha"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-mlai-models",
+                            "name":  "ML/AI Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  0.7993,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "img_leapstar6_r5_q4_prob_class3",
+        "description":  "Predicted probability for class 3 in 4-quantile return prediction for 5-day horizon using LeapStar6 image model.",
+        "dataset":  {
+                        "id":  "chart_cnn_alpha",
+                        "name":  "Deep Learning Chart-Based Alpha"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-mlai-models",
+                            "name":  "ML/AI Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  0.7993,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "img_leapstar6_r5_q4_quantile_label",
+        "description":  "Predicted quantile label (1-4) for 5-day horizon using LeapStar6 image-based model.",
+        "dataset":  {
+                        "id":  "chart_cnn_alpha",
+                        "name":  "Deep Learning Chart-Based Alpha"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-mlai-models",
+                            "name":  "ML/AI Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  0.7993,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "img_leapstar6_r5_q5_prob_class0",
+        "description":  "Predicted probability for class 0 in 5-quantile return prediction for 5-day horizon using LeapStar6 image model.",
+        "dataset":  {
+                        "id":  "chart_cnn_alpha",
+                        "name":  "Deep Learning Chart-Based Alpha"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-mlai-models",
+                            "name":  "ML/AI Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  0.7993,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "img_leapstar6_r5_q5_prob_class1",
+        "description":  "Predicted probability for class 1 in 5-quantile return prediction for 5-day horizon using LeapStar6 image model.",
+        "dataset":  {
+                        "id":  "chart_cnn_alpha",
+                        "name":  "Deep Learning Chart-Based Alpha"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-mlai-models",
+                            "name":  "ML/AI Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  0.7993,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "img_leapstar6_r5_q5_prob_class2",
+        "description":  "Predicted probability for class 2 in 5-quantile return prediction for 5-day horizon using LeapStar6 image model.",
+        "dataset":  {
+                        "id":  "chart_cnn_alpha",
+                        "name":  "Deep Learning Chart-Based Alpha"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-mlai-models",
+                            "name":  "ML/AI Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  0.7993,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "img_leapstar6_r5_q5_prob_class3",
+        "description":  "Predicted probability for class 3 in 5-quantile return prediction for 5-day horizon using LeapStar6 image model.",
+        "dataset":  {
+                        "id":  "chart_cnn_alpha",
+                        "name":  "Deep Learning Chart-Based Alpha"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-mlai-models",
+                            "name":  "ML/AI Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  0.7993,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "img_leapstar6_r5_q5_prob_class4",
+        "description":  "Predicted probability for class 4 in 5-quantile return prediction for 5-day horizon using LeapStar6 image model.",
+        "dataset":  {
+                        "id":  "chart_cnn_alpha",
+                        "name":  "Deep Learning Chart-Based Alpha"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-mlai-models",
+                            "name":  "ML/AI Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  0.7993,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "img_leapstar6_r5_q5_quantile_label",
+        "description":  "Predicted quantile label (1-5) for 5-day horizon using LeapStar6 image-based model.",
+        "dataset":  {
+                        "id":  "chart_cnn_alpha",
+                        "name":  "Deep Learning Chart-Based Alpha"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-mlai-models",
+                            "name":  "ML/AI Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  0.7993,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "img_malta1_r180_q1_quantile_label",
+        "description":  "Predicted quantile label (1-quantile, i.e., all-in-one) for 180-day horizon using Malta1 image-based model.",
+        "dataset":  {
+                        "id":  "chart_cnn_alpha",
+                        "name":  "Deep Learning Chart-Based Alpha"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-mlai-models",
+                            "name":  "ML/AI Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  0.7993,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "img_malta1_r180_q2_prob_class0",
+        "description":  "Predicted probability for class 0 in 2-quantile return prediction for 180-day horizon using Malta1 image model.",
+        "dataset":  {
+                        "id":  "chart_cnn_alpha",
+                        "name":  "Deep Learning Chart-Based Alpha"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-mlai-models",
+                            "name":  "ML/AI Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  0.7993,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "img_malta1_r180_q2_quantile_label",
+        "description":  "Predicted quantile label (1-2) for 180-day horizon using Malta1 image-based model.",
+        "dataset":  {
+                        "id":  "chart_cnn_alpha",
+                        "name":  "Deep Learning Chart-Based Alpha"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-mlai-models",
+                            "name":  "ML/AI Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  0.7993,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "img_malta1_r180_q3_prob_class0",
+        "description":  "Predicted probability for class 0 in 3-quantile return prediction for 180-day horizon using Malta1 image model.",
+        "dataset":  {
+                        "id":  "chart_cnn_alpha",
+                        "name":  "Deep Learning Chart-Based Alpha"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-mlai-models",
+                            "name":  "ML/AI Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  0.7993,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "img_malta1_r180_q3_quantile_label",
+        "description":  "Predicted quantile label (1-3) for 180-day horizon using Malta1 image-based model.",
+        "dataset":  {
+                        "id":  "chart_cnn_alpha",
+                        "name":  "Deep Learning Chart-Based Alpha"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-mlai-models",
+                            "name":  "ML/AI Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  0.7993,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "img_malta1_r180_q4_prob_class0",
+        "description":  "Predicted probability for class 0 in 4-quantile return prediction for 180-day horizon using Malta1 image model.",
+        "dataset":  {
+                        "id":  "chart_cnn_alpha",
+                        "name":  "Deep Learning Chart-Based Alpha"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-mlai-models",
+                            "name":  "ML/AI Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  0.7993,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "img_malta1_r180_q4_prob_class1",
+        "description":  "Predicted probability for class 1 in 4-quantile return prediction for 180-day horizon using Malta1 image model.",
+        "dataset":  {
+                        "id":  "chart_cnn_alpha",
+                        "name":  "Deep Learning Chart-Based Alpha"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-mlai-models",
+                            "name":  "ML/AI Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  0.7993,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "img_malta1_r180_q4_prob_class2",
+        "description":  "Predicted probability for class 2 in 4-quantile return prediction for 180-day horizon using Malta1 image model.",
+        "dataset":  {
+                        "id":  "chart_cnn_alpha",
+                        "name":  "Deep Learning Chart-Based Alpha"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-mlai-models",
+                            "name":  "ML/AI Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  0.7993,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "img_malta1_r180_q4_prob_class3",
+        "description":  "Predicted probability for class 3 in 4-quantile return prediction for 180-day horizon using Malta1 image model.",
+        "dataset":  {
+                        "id":  "chart_cnn_alpha",
+                        "name":  "Deep Learning Chart-Based Alpha"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-mlai-models",
+                            "name":  "ML/AI Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  0.7993,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "img_malta1_r180_q4_quantile_label",
+        "description":  "Predicted quantile label (1-4) for 180-day horizon using Malta1 image-based model.",
+        "dataset":  {
+                        "id":  "chart_cnn_alpha",
+                        "name":  "Deep Learning Chart-Based Alpha"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-mlai-models",
+                            "name":  "ML/AI Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  0.7993,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "img_malta1_r180_q5_prob_class1",
+        "description":  "Predicted probability for class 1 in 5-quantile return prediction for 180-day horizon using Malta1 image model.",
+        "dataset":  {
+                        "id":  "chart_cnn_alpha",
+                        "name":  "Deep Learning Chart-Based Alpha"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-mlai-models",
+                            "name":  "ML/AI Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  0.7993,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "img_malta1_r180_q5_prob_class2",
+        "description":  "Predicted probability for class 2 in 5-quantile return prediction for 180-day horizon using Malta1 image model.",
+        "dataset":  {
+                        "id":  "chart_cnn_alpha",
+                        "name":  "Deep Learning Chart-Based Alpha"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-mlai-models",
+                            "name":  "ML/AI Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  0.7993,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "img_malta1_r180_q5_prob_class3",
+        "description":  "Predicted probability for class 3 in 5-quantile return prediction for 180-day horizon using Malta1 image model.",
+        "dataset":  {
+                        "id":  "chart_cnn_alpha",
+                        "name":  "Deep Learning Chart-Based Alpha"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-mlai-models",
+                            "name":  "ML/AI Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  0.7993,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "img_malta1_r180_q5_prob_class4",
+        "description":  "Predicted probability for class 4 in 5-quantile return prediction for 180-day horizon using Malta1 image model.",
+        "dataset":  {
+                        "id":  "chart_cnn_alpha",
+                        "name":  "Deep Learning Chart-Based Alpha"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-mlai-models",
+                            "name":  "ML/AI Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  0.7993,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "img_malta1_r80_q2_prob_class1",
+        "description":  "Predicted probability for class 1 in 2-quantile return prediction for 80-day horizon using Malta1 image model.",
+        "dataset":  {
+                        "id":  "chart_cnn_alpha",
+                        "name":  "Deep Learning Chart-Based Alpha"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-mlai-models",
+                            "name":  "ML/AI Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  0.7993,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "img_malta1_r80_q2_quantile_label",
+        "description":  "Predicted quantile label (1-2) for 80-day horizon using Malta1 image-based model.",
+        "dataset":  {
+                        "id":  "chart_cnn_alpha",
+                        "name":  "Deep Learning Chart-Based Alpha"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-mlai-models",
+                            "name":  "ML/AI Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  0.7993,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "img_malta1_r80_q3_prob_class0",
+        "description":  "Predicted probability for class 0 in 3-quantile return prediction for 80-day horizon using Malta1 image model.",
+        "dataset":  {
+                        "id":  "chart_cnn_alpha",
+                        "name":  "Deep Learning Chart-Based Alpha"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-mlai-models",
+                            "name":  "ML/AI Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  0.7993,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "img_malta1_r80_q4_prob_class1",
+        "description":  "Predicted probability for class 1 in 4-quantile return prediction for 80-day horizon using Malta1 image model.",
+        "dataset":  {
+                        "id":  "chart_cnn_alpha",
+                        "name":  "Deep Learning Chart-Based Alpha"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-mlai-models",
+                            "name":  "ML/AI Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  0.7993,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "img_malta1_r80_q4_quantile_label",
+        "description":  "Predicted quantile label (1-4) for 80-day horizon using Malta1 image-based model.",
+        "dataset":  {
+                        "id":  "chart_cnn_alpha",
+                        "name":  "Deep Learning Chart-Based Alpha"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-mlai-models",
+                            "name":  "ML/AI Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  0.7993,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "img_malta1_r80_q5_prob_class1",
+        "description":  "Predicted probability for class 1 in 5-quantile return prediction for 80-day horizon using Malta1 image model.",
+        "dataset":  {
+                        "id":  "chart_cnn_alpha",
+                        "name":  "Deep Learning Chart-Based Alpha"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-mlai-models",
+                            "name":  "ML/AI Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  0.7993,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "img_malta1_r80_q5_prob_class3",
+        "description":  "Predicted probability for class 3 in 5-quantile return prediction for 80-day horizon using Malta1 image model.",
+        "dataset":  {
+                        "id":  "chart_cnn_alpha",
+                        "name":  "Deep Learning Chart-Based Alpha"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-mlai-models",
+                            "name":  "ML/AI Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  0.7993,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "img_malta2_r50_q1_quantile_label",
+        "description":  "Predicted quantile label (1-quantile, i.e., all-in-one) for 50-day horizon using Malta2 image-based model.",
+        "dataset":  {
+                        "id":  "chart_cnn_alpha",
+                        "name":  "Deep Learning Chart-Based Alpha"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-mlai-models",
+                            "name":  "ML/AI Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  0.7993,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "img_malta2_r50_q2_prob_class0",
+        "description":  "Predicted probability for class 0 in 2-quantile return prediction for 50-day horizon using Malta2 image model.",
+        "dataset":  {
+                        "id":  "chart_cnn_alpha",
+                        "name":  "Deep Learning Chart-Based Alpha"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-mlai-models",
+                            "name":  "ML/AI Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  0.7993,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "img_malta2_r50_q2_prob_class1",
+        "description":  "Predicted probability for class 1 in 2-quantile return prediction for 50-day horizon using Malta2 image model.",
+        "dataset":  {
+                        "id":  "chart_cnn_alpha",
+                        "name":  "Deep Learning Chart-Based Alpha"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-mlai-models",
+                            "name":  "ML/AI Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  0.7993,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "img_malta2_r50_q2_quantile_label",
+        "description":  "Predicted quantile label (1-2) for 50-day horizon using Malta2 image-based model.",
+        "dataset":  {
+                        "id":  "chart_cnn_alpha",
+                        "name":  "Deep Learning Chart-Based Alpha"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-mlai-models",
+                            "name":  "ML/AI Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  0.7993,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "img_malta2_r50_q3_prob_class0",
+        "description":  "Predicted probability for class 0 in 3-quantile return prediction for 50-day horizon using Malta2 image model.",
+        "dataset":  {
+                        "id":  "chart_cnn_alpha",
+                        "name":  "Deep Learning Chart-Based Alpha"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-mlai-models",
+                            "name":  "ML/AI Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  0.7993,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "img_malta2_r50_q3_prob_class1",
+        "description":  "Predicted probability for class 1 in 3-quantile return prediction for 50-day horizon using Malta2 image model.",
+        "dataset":  {
+                        "id":  "chart_cnn_alpha",
+                        "name":  "Deep Learning Chart-Based Alpha"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-mlai-models",
+                            "name":  "ML/AI Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  0.7993,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "img_malta2_r50_q3_prob_class2",
+        "description":  "Predicted probability for class 2 in 3-quantile return prediction for 50-day horizon using Malta2 image model.",
+        "dataset":  {
+                        "id":  "chart_cnn_alpha",
+                        "name":  "Deep Learning Chart-Based Alpha"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-mlai-models",
+                            "name":  "ML/AI Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  0.7993,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "img_malta2_r50_q3_quantile_label",
+        "description":  "Predicted quantile label (1-3) for 50-day horizon using Malta2 image-based model.",
+        "dataset":  {
+                        "id":  "chart_cnn_alpha",
+                        "name":  "Deep Learning Chart-Based Alpha"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-mlai-models",
+                            "name":  "ML/AI Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  0.7993,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "img_malta2_r50_q4_prob_class0",
+        "description":  "Predicted probability for class 0 in 4-quantile return prediction for 50-day horizon using Malta2 image model.",
+        "dataset":  {
+                        "id":  "chart_cnn_alpha",
+                        "name":  "Deep Learning Chart-Based Alpha"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-mlai-models",
+                            "name":  "ML/AI Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  0.7993,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "img_malta2_r50_q4_prob_class1",
+        "description":  "Predicted probability for class 1 in 4-quantile return prediction for 50-day horizon using Malta2 image model.",
+        "dataset":  {
+                        "id":  "chart_cnn_alpha",
+                        "name":  "Deep Learning Chart-Based Alpha"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-mlai-models",
+                            "name":  "ML/AI Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  0.7993,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "img_malta2_r50_q4_prob_class2",
+        "description":  "Predicted probability for class 2 in 4-quantile return prediction for 50-day horizon using Malta2 image model.",
+        "dataset":  {
+                        "id":  "chart_cnn_alpha",
+                        "name":  "Deep Learning Chart-Based Alpha"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-mlai-models",
+                            "name":  "ML/AI Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  0.7993,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "img_malta2_r50_q4_prob_class3",
+        "description":  "Predicted probability for class 3 in 4-quantile return prediction for 50-day horizon using Malta2 image model.",
+        "dataset":  {
+                        "id":  "chart_cnn_alpha",
+                        "name":  "Deep Learning Chart-Based Alpha"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-mlai-models",
+                            "name":  "ML/AI Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  0.7993,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "img_malta2_r50_q4_quantile_label",
+        "description":  "Predicted quantile label (1-4) for 50-day horizon using Malta2 image-based model.",
+        "dataset":  {
+                        "id":  "chart_cnn_alpha",
+                        "name":  "Deep Learning Chart-Based Alpha"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-mlai-models",
+                            "name":  "ML/AI Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  0.7993,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "img_malta2_r50_q5_prob_class0",
+        "description":  "Predicted probability for class 0 in 5-quantile return prediction for 50-day horizon using Malta2 image model.",
+        "dataset":  {
+                        "id":  "chart_cnn_alpha",
+                        "name":  "Deep Learning Chart-Based Alpha"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-mlai-models",
+                            "name":  "ML/AI Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  0.7993,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "img_malta2_r50_q5_prob_class1",
+        "description":  "Predicted probability for class 1 in 5-quantile return prediction for 50-day horizon using Malta2 image model.",
+        "dataset":  {
+                        "id":  "chart_cnn_alpha",
+                        "name":  "Deep Learning Chart-Based Alpha"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-mlai-models",
+                            "name":  "ML/AI Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  0.7993,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "img_malta2_r50_q5_prob_class2",
+        "description":  "Predicted probability for class 2 in 5-quantile return prediction for 50-day horizon using Malta2 image model.",
+        "dataset":  {
+                        "id":  "chart_cnn_alpha",
+                        "name":  "Deep Learning Chart-Based Alpha"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-mlai-models",
+                            "name":  "ML/AI Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  0.7993,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "img_malta2_r50_q5_prob_class3",
+        "description":  "Predicted probability for class 3 in 5-quantile return prediction for 50-day horizon using Malta2 image model.",
+        "dataset":  {
+                        "id":  "chart_cnn_alpha",
+                        "name":  "Deep Learning Chart-Based Alpha"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-mlai-models",
+                            "name":  "ML/AI Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  0.7993,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "img_malta2_r50_q5_prob_class4",
+        "description":  "Predicted probability for class 4 in 5-quantile return prediction for 50-day horizon using Malta2 image model.",
+        "dataset":  {
+                        "id":  "chart_cnn_alpha",
+                        "name":  "Deep Learning Chart-Based Alpha"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-mlai-models",
+                            "name":  "ML/AI Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  0.7993,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "img_malta2_r50_q5_quantile_label",
+        "description":  "Predicted quantile label (1-5) for 50-day horizon using Malta2 image-based model.",
+        "dataset":  {
+                        "id":  "chart_cnn_alpha",
+                        "name":  "Deep Learning Chart-Based Alpha"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-mlai-models",
+                            "name":  "ML/AI Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  0.7993,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "img_malta2_r80_q1_quantile_label",
+        "description":  "Predicted quantile label (1-quantile, i.e., all-in-one) for 80-day horizon using Malta2 image-based model.",
+        "dataset":  {
+                        "id":  "chart_cnn_alpha",
+                        "name":  "Deep Learning Chart-Based Alpha"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-mlai-models",
+                            "name":  "ML/AI Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  0.7993,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "img_malta2_r80_q2_prob_class0",
+        "description":  "Predicted probability for class 0 in 2-quantile return prediction for 80-day horizon using Malta2 image model.",
+        "dataset":  {
+                        "id":  "chart_cnn_alpha",
+                        "name":  "Deep Learning Chart-Based Alpha"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-mlai-models",
+                            "name":  "ML/AI Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  0.7993,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "img_malta2_r80_q2_prob_class1",
+        "description":  "Predicted probability for class 1 in 2-quantile return prediction for 80-day horizon using Malta2 image model.",
+        "dataset":  {
+                        "id":  "chart_cnn_alpha",
+                        "name":  "Deep Learning Chart-Based Alpha"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-mlai-models",
+                            "name":  "ML/AI Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  0.7993,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "img_malta2_r80_q2_quantile_label",
+        "description":  "Predicted quantile label (1-2) for 80-day horizon using Malta2 image-based model.",
+        "dataset":  {
+                        "id":  "chart_cnn_alpha",
+                        "name":  "Deep Learning Chart-Based Alpha"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-mlai-models",
+                            "name":  "ML/AI Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  0.7993,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "img_malta2_r80_q3_prob_class0",
+        "description":  "Predicted probability for class 0 in 3-quantile return prediction for 80-day horizon using Malta2 image model.",
+        "dataset":  {
+                        "id":  "chart_cnn_alpha",
+                        "name":  "Deep Learning Chart-Based Alpha"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-mlai-models",
+                            "name":  "ML/AI Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  0.7993,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "img_malta2_r80_q3_prob_class1",
+        "description":  "Predicted probability for class 1 in 3-quantile return prediction for 80-day horizon using Malta2 image model.",
+        "dataset":  {
+                        "id":  "chart_cnn_alpha",
+                        "name":  "Deep Learning Chart-Based Alpha"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-mlai-models",
+                            "name":  "ML/AI Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  0.7993,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "img_malta2_r80_q3_prob_class2",
+        "description":  "Predicted probability for class 2 in 3-quantile return prediction for 80-day horizon using Malta2 image model.",
+        "dataset":  {
+                        "id":  "chart_cnn_alpha",
+                        "name":  "Deep Learning Chart-Based Alpha"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-mlai-models",
+                            "name":  "ML/AI Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  0.7993,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "img_malta2_r80_q3_quantile_label",
+        "description":  "Predicted quantile label (1-3) for 80-day horizon using Malta2 image-based model.",
+        "dataset":  {
+                        "id":  "chart_cnn_alpha",
+                        "name":  "Deep Learning Chart-Based Alpha"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-mlai-models",
+                            "name":  "ML/AI Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  0.7993,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "img_malta2_r80_q4_prob_class0",
+        "description":  "Predicted probability for class 0 in 4-quantile return prediction for 80-day horizon using Malta2 image model.",
+        "dataset":  {
+                        "id":  "chart_cnn_alpha",
+                        "name":  "Deep Learning Chart-Based Alpha"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-mlai-models",
+                            "name":  "ML/AI Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  0.7993,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "img_malta2_r80_q4_prob_class1",
+        "description":  "Predicted probability for class 1 in 4-quantile return prediction for 80-day horizon using Malta2 image model.",
+        "dataset":  {
+                        "id":  "chart_cnn_alpha",
+                        "name":  "Deep Learning Chart-Based Alpha"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-mlai-models",
+                            "name":  "ML/AI Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  0.7993,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "img_malta2_r80_q4_prob_class2",
+        "description":  "Predicted probability for class 2 in 4-quantile return prediction for 80-day horizon using Malta2 image model.",
+        "dataset":  {
+                        "id":  "chart_cnn_alpha",
+                        "name":  "Deep Learning Chart-Based Alpha"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-mlai-models",
+                            "name":  "ML/AI Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  0.7993,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "img_malta2_r80_q4_prob_class3",
+        "description":  "Predicted probability for class 3 in 4-quantile return prediction for 80-day horizon using Malta2 image model.",
+        "dataset":  {
+                        "id":  "chart_cnn_alpha",
+                        "name":  "Deep Learning Chart-Based Alpha"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-mlai-models",
+                            "name":  "ML/AI Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  0.7993,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "img_malta2_r80_q4_quantile_label",
+        "description":  "Predicted quantile label (1-4) for 80-day horizon using Malta2 image-based model.",
+        "dataset":  {
+                        "id":  "chart_cnn_alpha",
+                        "name":  "Deep Learning Chart-Based Alpha"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-mlai-models",
+                            "name":  "ML/AI Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  0.7993,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "img_malta2_r80_q5_prob_class0",
+        "description":  "Predicted probability for class 0 in 5-quantile return prediction for 80-day horizon using Malta2 image model.",
+        "dataset":  {
+                        "id":  "chart_cnn_alpha",
+                        "name":  "Deep Learning Chart-Based Alpha"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-mlai-models",
+                            "name":  "ML/AI Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  0.7993,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "img_malta2_r80_q5_prob_class1",
+        "description":  "Predicted probability for class 1 in 5-quantile return prediction for 80-day horizon using Malta2 image model.",
+        "dataset":  {
+                        "id":  "chart_cnn_alpha",
+                        "name":  "Deep Learning Chart-Based Alpha"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-mlai-models",
+                            "name":  "ML/AI Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  0.7993,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "img_malta2_r80_q5_prob_class2",
+        "description":  "Predicted probability for class 2 in 5-quantile return prediction for 80-day horizon using Malta2 image model.",
+        "dataset":  {
+                        "id":  "chart_cnn_alpha",
+                        "name":  "Deep Learning Chart-Based Alpha"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-mlai-models",
+                            "name":  "ML/AI Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  0.7993,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "img_malta2_r80_q5_prob_class3",
+        "description":  "Predicted probability for class 3 in 5-quantile return prediction for 80-day horizon using Malta2 image model.",
+        "dataset":  {
+                        "id":  "chart_cnn_alpha",
+                        "name":  "Deep Learning Chart-Based Alpha"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-mlai-models",
+                            "name":  "ML/AI Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  0.7993,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "img_malta2_r80_q5_prob_class4",
+        "description":  "Predicted probability for class 4 in 5-quantile return prediction for 80-day horizon using Malta2 image model.",
+        "dataset":  {
+                        "id":  "chart_cnn_alpha",
+                        "name":  "Deep Learning Chart-Based Alpha"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-mlai-models",
+                            "name":  "ML/AI Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  0.7993,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "img_malta2_r80_q5_quantile_label",
+        "description":  "Predicted quantile label (1-5) for 80-day horizon using Malta2 image-based model.",
+        "dataset":  {
+                        "id":  "chart_cnn_alpha",
+                        "name":  "Deep Learning Chart-Based Alpha"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-mlai-models",
+                            "name":  "ML/AI Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  0.7993,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "probability_rank0_180d_5bucket_img_malta1",
+        "description":  "Model probability that the 180-day return falls into the first of five ranked buckets, based on image-driven predictions.",
+        "dataset":  {
+                        "id":  "chart_cnn_alpha",
+                        "name":  "Deep Learning Chart-Based Alpha"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-mlai-models",
+                            "name":  "ML/AI Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  0.7993,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "probability_rank0_80d_2bucket_img_malta1",
+        "description":  "Model probability that the 80-day return falls into the first of two ranked buckets, based on image-driven predictions.",
+        "dataset":  {
+                        "id":  "chart_cnn_alpha",
+                        "name":  "Deep Learning Chart-Based Alpha"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-mlai-models",
+                            "name":  "ML/AI Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  0.7993,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "probability_rank0_80d_4bucket_img_malta1",
+        "description":  "Model probability that the 80-day return falls into the first of four ranked buckets, based on image-driven predictions.",
+        "dataset":  {
+                        "id":  "chart_cnn_alpha",
+                        "name":  "Deep Learning Chart-Based Alpha"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-mlai-models",
+                            "name":  "ML/AI Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  0.7993,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "probability_rank0_80d_5bucket_img_malta1",
+        "description":  "Model probability that the 80-day return falls into the first of five ranked buckets, based on image-driven predictions.",
+        "dataset":  {
+                        "id":  "chart_cnn_alpha",
+                        "name":  "Deep Learning Chart-Based Alpha"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-mlai-models",
+                            "name":  "ML/AI Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  0.7993,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "probability_rank1_180d_2bucket_img_malta1",
+        "description":  "Model probability that the 180-day return falls into the second of two ranked buckets, based on image-driven predictions.",
+        "dataset":  {
+                        "id":  "chart_cnn_alpha",
+                        "name":  "Deep Learning Chart-Based Alpha"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-mlai-models",
+                            "name":  "ML/AI Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  0.7993,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "probability_rank1_180d_3bucket_img_malta1",
+        "description":  "Model probability that the 180-day return falls into the first of three ranked buckets, based on image-driven predictions.",
+        "dataset":  {
+                        "id":  "chart_cnn_alpha",
+                        "name":  "Deep Learning Chart-Based Alpha"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-mlai-models",
+                            "name":  "ML/AI Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  0.7993,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "probability_rank1_80d_3bucket_img_malta1",
+        "description":  "Model probability that the 80-day return falls into the second of three ranked buckets, based on image-driven predictions.",
+        "dataset":  {
+                        "id":  "chart_cnn_alpha",
+                        "name":  "Deep Learning Chart-Based Alpha"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-mlai-models",
+                            "name":  "ML/AI Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  0.7993,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "probability_rank2_180d_3bucket_img_malta1",
+        "description":  "Model probability that the 180-day return falls into the third of three ranked buckets, based on image-driven predictions.",
+        "dataset":  {
+                        "id":  "chart_cnn_alpha",
+                        "name":  "Deep Learning Chart-Based Alpha"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-mlai-models",
+                            "name":  "ML/AI Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  0.7993,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "probability_rank2_80d_3bucket_img_malta1",
+        "description":  "Model probability that the 80-day return falls into the third of three ranked buckets, based on image-driven predictions.",
+        "dataset":  {
+                        "id":  "chart_cnn_alpha",
+                        "name":  "Deep Learning Chart-Based Alpha"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-mlai-models",
+                            "name":  "ML/AI Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  0.7993,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "probability_rank2_80d_4bucket_img_malta1",
+        "description":  "Model probability that the 80-day return falls into the third of four ranked buckets, based on image-driven predictions.",
+        "dataset":  {
+                        "id":  "chart_cnn_alpha",
+                        "name":  "Deep Learning Chart-Based Alpha"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-mlai-models",
+                            "name":  "ML/AI Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  0.7993,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "probability_rank2_80d_5bucket_img_malta1",
+        "description":  "Model probability that the 80-day return falls into the third of five ranked buckets, based on image-driven predictions.",
+        "dataset":  {
+                        "id":  "chart_cnn_alpha",
+                        "name":  "Deep Learning Chart-Based Alpha"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-mlai-models",
+                            "name":  "ML/AI Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  0.7993,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "probability_rank3_80d_4bucket_img_malta1",
+        "description":  "Model probability that the 80-day return falls into the fourth of four ranked buckets, based on image-driven predictions.",
+        "dataset":  {
+                        "id":  "chart_cnn_alpha",
+                        "name":  "Deep Learning Chart-Based Alpha"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-mlai-models",
+                            "name":  "ML/AI Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  0.7993,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "probability_rank4_80d_5bucket_img_malta1",
+        "description":  "Model probability that the 80-day return falls into the fifth of five ranked buckets, based on image-driven predictions.",
+        "dataset":  {
+                        "id":  "chart_cnn_alpha",
+                        "name":  "Deep Learning Chart-Based Alpha"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-mlai-models",
+                            "name":  "ML/AI Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  0.7993,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "quantile_rank_180d_5bucket_img_malta1",
+        "description":  "Predicted quantile rank (0-4) for 180-day return among five buckets, using image-based model output.",
+        "dataset":  {
+                        "id":  "chart_cnn_alpha",
+                        "name":  "Deep Learning Chart-Based Alpha"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-mlai-models",
+                            "name":  "ML/AI Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  0.7993,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "quantile_rank_80d_2bucket_img_malta1",
+        "description":  "Predicted quantile rank (0-1) for 80-day return among two buckets, using image-based model output.",
+        "dataset":  {
+                        "id":  "chart_cnn_alpha",
+                        "name":  "Deep Learning Chart-Based Alpha"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-mlai-models",
+                            "name":  "ML/AI Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  0.7993,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "quantile_rank_80d_3bucket_img_malta1",
+        "description":  "Predicted quantile rank (0-2) for 80-day return among three buckets, using image-based model output.",
+        "dataset":  {
+                        "id":  "chart_cnn_alpha",
+                        "name":  "Deep Learning Chart-Based Alpha"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-mlai-models",
+                            "name":  "ML/AI Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  0.7993,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "quantile_rank_80d_5bucket_img_malta1",
+        "description":  "Predicted quantile rank (0-4) for 80-day return among five buckets, using image-based model output.",
+        "dataset":  {
+                        "id":  "chart_cnn_alpha",
+                        "name":  "Deep Learning Chart-Based Alpha"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-mlai-models",
+                            "name":  "ML/AI Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  0.7993,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    }
+]

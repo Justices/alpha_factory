@@ -1,0 +1,3074 @@
+﻿[
+    {
+        "id":  "eps_actual_q1_qoq_growth",
+        "description":  "Actual reported Q1 EPS growth quarter over quarter",
+        "dataset":  {
+                        "id":  "analyst_factor_signals",
+                        "name":  "Global Analyst Factor Signals"
+                    },
+        "category":  {
+                         "id":  "analyst",
+                         "name":  "Analyst"
+                     },
+        "subcategory":  {
+                            "id":  "analyst-analyst-estimates",
+                            "name":  "Analyst Estimates"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.2183,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "eps_actual_q1_yoy_growth",
+        "description":  "Actual EPS growth for fiscal Q1, year-over-year",
+        "dataset":  {
+                        "id":  "analyst_factor_signals",
+                        "name":  "Global Analyst Factor Signals"
+                    },
+        "category":  {
+                         "id":  "analyst",
+                         "name":  "Analyst"
+                     },
+        "subcategory":  {
+                            "id":  "analyst-analyst-estimates",
+                            "name":  "Analyst Estimates"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.1734,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "eps_estimate_trend_slope_1yr",
+        "description":  "Slope of the 1-year consensus EPS forecast time series (quarterly)",
+        "dataset":  {
+                        "id":  "analyst_factor_signals",
+                        "name":  "Global Analyst Factor Signals"
+                    },
+        "category":  {
+                         "id":  "analyst",
+                         "name":  "Analyst"
+                     },
+        "subcategory":  {
+                            "id":  "analyst-analyst-estimates",
+                            "name":  "Analyst Estimates"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.2713,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "eps_estimate_trend_slope_2yr",
+        "description":  "Slope of the combined consensus forecast and actual EPS series (quarterly)",
+        "dataset":  {
+                        "id":  "analyst_factor_signals",
+                        "name":  "Global Analyst Factor Signals"
+                    },
+        "category":  {
+                         "id":  "analyst",
+                         "name":  "Analyst"
+                     },
+        "subcategory":  {
+                            "id":  "analyst-analyst-estimates",
+                            "name":  "Analyst Estimates"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.1842,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "eps_estimate_trend_slope_3yr",
+        "description":  "Slope of the current actual EPS series over the past year (quarterly)",
+        "dataset":  {
+                        "id":  "analyst_factor_signals",
+                        "name":  "Global Analyst Factor Signals"
+                    },
+        "category":  {
+                         "id":  "analyst",
+                         "name":  "Analyst"
+                     },
+        "subcategory":  {
+                            "id":  "analyst-analyst-estimates",
+                            "name":  "Analyst Estimates"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.1839,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "eps_estimate_zscore",
+        "description":  "Standardized EPS surprise z-score for Q1",
+        "dataset":  {
+                        "id":  "analyst_factor_signals",
+                        "name":  "Global Analyst Factor Signals"
+                    },
+        "category":  {
+                         "id":  "analyst",
+                         "name":  "Analyst"
+                     },
+        "subcategory":  {
+                            "id":  "analyst-analyst-estimates",
+                            "name":  "Analyst Estimates"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.1761,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "eps_q1_estimate_asymmetry",
+        "description":  "Asymmetry of the distribution of consensus Q1 EPS estimates",
+        "dataset":  {
+                        "id":  "analyst_factor_signals",
+                        "name":  "Global Analyst Factor Signals"
+                    },
+        "category":  {
+                         "id":  "analyst",
+                         "name":  "Analyst"
+                     },
+        "subcategory":  {
+                            "id":  "analyst-analyst-estimates",
+                            "name":  "Analyst Estimates"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.1855,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "eps_q1_estimate_change_1mo",
+        "description":  "Change in consensus EPS forecast for fiscal Q1 over the past 1 month",
+        "dataset":  {
+                        "id":  "analyst_factor_signals",
+                        "name":  "Global Analyst Factor Signals"
+                    },
+        "category":  {
+                         "id":  "analyst",
+                         "name":  "Analyst"
+                     },
+        "subcategory":  {
+                            "id":  "analyst-analyst-estimates",
+                            "name":  "Analyst Estimates"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.2647,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "eps_q1_estimate_coeff_var",
+        "description":  "Coefficient of variation of Q1 EPS consensus estimates",
+        "dataset":  {
+                        "id":  "analyst_factor_signals",
+                        "name":  "Global Analyst Factor Signals"
+                    },
+        "category":  {
+                         "id":  "analyst",
+                         "name":  "Analyst"
+                     },
+        "subcategory":  {
+                            "id":  "analyst-analyst-estimates",
+                            "name":  "Analyst Estimates"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.1855,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "eps_q1_estimate_qoq_growth",
+        "description":  "Forecast Q1 EPS growth quarter over quarter",
+        "dataset":  {
+                        "id":  "analyst_factor_signals",
+                        "name":  "Global Analyst Factor Signals"
+                    },
+        "category":  {
+                         "id":  "analyst",
+                         "name":  "Analyst"
+                     },
+        "subcategory":  {
+                            "id":  "analyst-analyst-estimates",
+                            "name":  "Analyst Estimates"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.2328,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "eps_q1_estimate_sequential",
+        "description":  "Difference between sequentially forecast and actual EPS growth for Q1",
+        "dataset":  {
+                        "id":  "analyst_factor_signals",
+                        "name":  "Global Analyst Factor Signals"
+                    },
+        "category":  {
+                         "id":  "analyst",
+                         "name":  "Analyst"
+                     },
+        "subcategory":  {
+                            "id":  "analyst-analyst-estimates",
+                            "name":  "Analyst Estimates"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.1727,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "eps_q1_estimate_skewness",
+        "description":  "Pearson skewness of the Q1 EPS forecast distribution",
+        "dataset":  {
+                        "id":  "analyst_factor_signals",
+                        "name":  "Global Analyst Factor Signals"
+                    },
+        "category":  {
+                         "id":  "analyst",
+                         "name":  "Analyst"
+                     },
+        "subcategory":  {
+                            "id":  "analyst-analyst-estimates",
+                            "name":  "Analyst Estimates"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.2711,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "eps_q1_estimate_yoy_growth",
+        "description":  "Forecast Q1 EPS growth year over year",
+        "dataset":  {
+                        "id":  "analyst_factor_signals",
+                        "name":  "Global Analyst Factor Signals"
+                    },
+        "category":  {
+                         "id":  "analyst",
+                         "name":  "Analyst"
+                     },
+        "subcategory":  {
+                            "id":  "analyst-analyst-estimates",
+                            "name":  "Analyst Estimates"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.1833,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "eps_q2_estimate_asymmetry",
+        "description":  "Asymmetry measure of the distribution of Q2 EPS forecasts",
+        "dataset":  {
+                        "id":  "analyst_factor_signals",
+                        "name":  "Global Analyst Factor Signals"
+                    },
+        "category":  {
+                         "id":  "analyst",
+                         "name":  "Analyst"
+                     },
+        "subcategory":  {
+                            "id":  "analyst-analyst-estimates",
+                            "name":  "Analyst Estimates"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.1751,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "eps_q2_estimate_coeff_var",
+        "description":  "Coefficient of variation (std/mean) of Q2 EPS estimates",
+        "dataset":  {
+                        "id":  "analyst_factor_signals",
+                        "name":  "Global Analyst Factor Signals"
+                    },
+        "category":  {
+                         "id":  "analyst",
+                         "name":  "Analyst"
+                     },
+        "subcategory":  {
+                            "id":  "analyst-analyst-estimates",
+                            "name":  "Analyst Estimates"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.1751,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "eps_q2_estimate_qoq_growth",
+        "description":  "Forecast Q2 EPS growth quarter over quarter",
+        "dataset":  {
+                        "id":  "analyst_factor_signals",
+                        "name":  "Global Analyst Factor Signals"
+                    },
+        "category":  {
+                         "id":  "analyst",
+                         "name":  "Analyst"
+                     },
+        "subcategory":  {
+                            "id":  "analyst-analyst-estimates",
+                            "name":  "Analyst Estimates"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.2711,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "eps_q2_estimate_skewness",
+        "description":  "Pearson\u0027s skewness of the forecast Q2 EPS estimate distribution",
+        "dataset":  {
+                        "id":  "analyst_factor_signals",
+                        "name":  "Global Analyst Factor Signals"
+                    },
+        "category":  {
+                         "id":  "analyst",
+                         "name":  "Analyst"
+                     },
+        "subcategory":  {
+                            "id":  "analyst-analyst-estimates",
+                            "name":  "Analyst Estimates"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.271,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "eps_revision_magnitude",
+        "description":  "Scaled magnitude of revisions to FY1 EPS (Street revision magnitude)",
+        "dataset":  {
+                        "id":  "analyst_factor_signals",
+                        "name":  "Global Analyst Factor Signals"
+                    },
+        "category":  {
+                         "id":  "analyst",
+                         "name":  "Analyst"
+                     },
+        "subcategory":  {
+                            "id":  "analyst-analyst-estimates",
+                            "name":  "Analyst Estimates"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.7633,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "eps_surprise_mean_diff",
+        "description":  "Difference in EPS surprise between Q1 and Q2 (Q1 minus Q2)",
+        "dataset":  {
+                        "id":  "analyst_factor_signals",
+                        "name":  "Global Analyst Factor Signals"
+                    },
+        "category":  {
+                         "id":  "analyst",
+                         "name":  "Analyst"
+                     },
+        "subcategory":  {
+                            "id":  "analyst-analyst-estimates",
+                            "name":  "Analyst Estimates"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.1845,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "eps_surprise_stddev",
+        "description":  "Standard deviation of EPS surprises",
+        "dataset":  {
+                        "id":  "analyst_factor_signals",
+                        "name":  "Global Analyst Factor Signals"
+                    },
+        "category":  {
+                         "id":  "analyst",
+                         "name":  "Analyst"
+                     },
+        "subcategory":  {
+                            "id":  "analyst-analyst-estimates",
+                            "name":  "Analyst Estimates"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.1897,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "eps_trailing_4q_estimate",
+        "description":  "Forecast trailing-twelve-month EPS growth",
+        "dataset":  {
+                        "id":  "analyst_factor_signals",
+                        "name":  "Global Analyst Factor Signals"
+                    },
+        "category":  {
+                         "id":  "analyst",
+                         "name":  "Analyst"
+                     },
+        "subcategory":  {
+                            "id":  "analyst-analyst-estimates",
+                            "name":  "Analyst Estimates"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.2334,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "eps_y1_cagr_2yr",
+        "description":  "Forecast FY1 EPS growth CAGR over 2 years",
+        "dataset":  {
+                        "id":  "analyst_factor_signals",
+                        "name":  "Global Analyst Factor Signals"
+                    },
+        "category":  {
+                         "id":  "analyst",
+                         "name":  "Analyst"
+                     },
+        "subcategory":  {
+                            "id":  "analyst-analyst-estimates",
+                            "name":  "Analyst Estimates"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.6555,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "eps_y1_cagr_3yr",
+        "description":  "Forecast FY1 EPS growth CAGR over 3 years",
+        "dataset":  {
+                        "id":  "analyst_factor_signals",
+                        "name":  "Global Analyst Factor Signals"
+                    },
+        "category":  {
+                         "id":  "analyst",
+                         "name":  "Analyst"
+                     },
+        "subcategory":  {
+                            "id":  "analyst-analyst-estimates",
+                            "name":  "Analyst Estimates"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.5808,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "eps_y1_cagr_4yr",
+        "description":  "Forecast FY1 EPS growth CAGR over 4 years",
+        "dataset":  {
+                        "id":  "analyst_factor_signals",
+                        "name":  "Global Analyst Factor Signals"
+                    },
+        "category":  {
+                         "id":  "analyst",
+                         "name":  "Analyst"
+                     },
+        "subcategory":  {
+                            "id":  "analyst-analyst-estimates",
+                            "name":  "Analyst Estimates"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.5159,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "eps_y1_cagr_5yr",
+        "description":  "Forecast FY1 EPS growth CAGR over 5 years",
+        "dataset":  {
+                        "id":  "analyst_factor_signals",
+                        "name":  "Global Analyst Factor Signals"
+                    },
+        "category":  {
+                         "id":  "analyst",
+                         "name":  "Analyst"
+                     },
+        "subcategory":  {
+                            "id":  "analyst-analyst-estimates",
+                            "name":  "Analyst Estimates"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.4566,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "eps_y1_consensus_value",
+        "description":  "Forecast FY1 EPS growth rate",
+        "dataset":  {
+                        "id":  "analyst_factor_signals",
+                        "name":  "Global Analyst Factor Signals"
+                    },
+        "category":  {
+                         "id":  "analyst",
+                         "name":  "Analyst"
+                     },
+        "subcategory":  {
+                            "id":  "analyst-analyst-estimates",
+                            "name":  "Analyst Estimates"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.7339,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "eps_y1_estimate_asymmetry",
+        "description":  "Asymmetry measure of the distribution of FY1 EPS forecasts",
+        "dataset":  {
+                        "id":  "analyst_factor_signals",
+                        "name":  "Global Analyst Factor Signals"
+                    },
+        "category":  {
+                         "id":  "analyst",
+                         "name":  "Analyst"
+                     },
+        "subcategory":  {
+                            "id":  "analyst-analyst-estimates",
+                            "name":  "Analyst Estimates"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.738,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "eps_y1_estimate_change_3mo",
+        "description":  "Change in consensus FY1 EPS forecast over the past 3 months",
+        "dataset":  {
+                        "id":  "analyst_factor_signals",
+                        "name":  "Global Analyst Factor Signals"
+                    },
+        "category":  {
+                         "id":  "analyst",
+                         "name":  "Analyst"
+                     },
+        "subcategory":  {
+                            "id":  "analyst-analyst-estimates",
+                            "name":  "Analyst Estimates"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.7633,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "eps_y1_estimate_coeff_var",
+        "description":  "Coefficient of variation (std/mean) of consensus FY1 EPS estimates",
+        "dataset":  {
+                        "id":  "analyst_factor_signals",
+                        "name":  "Global Analyst Factor Signals"
+                    },
+        "category":  {
+                         "id":  "analyst",
+                         "name":  "Analyst"
+                     },
+        "subcategory":  {
+                            "id":  "analyst-analyst-estimates",
+                            "name":  "Analyst Estimates"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.738,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "eps_y1_estimate_skewness",
+        "description":  "Pearson skewness of the FY1 EPS forecast distribution",
+        "dataset":  {
+                        "id":  "analyst_factor_signals",
+                        "name":  "Global Analyst Factor Signals"
+                    },
+        "category":  {
+                         "id":  "analyst",
+                         "name":  "Analyst"
+                     },
+        "subcategory":  {
+                            "id":  "analyst-analyst-estimates",
+                            "name":  "Analyst Estimates"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.7699,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "eps_y2_consensus_value",
+        "description":  "Forecast FY2 EPS growth rate",
+        "dataset":  {
+                        "id":  "analyst_factor_signals",
+                        "name":  "Global Analyst Factor Signals"
+                    },
+        "category":  {
+                         "id":  "analyst",
+                         "name":  "Analyst"
+                     },
+        "subcategory":  {
+                            "id":  "analyst-analyst-estimates",
+                            "name":  "Analyst Estimates"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.7696,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "eps_y2_estimate_change_3mo",
+        "description":  "Change in consensus FY2 EPS forecast over the past 3 months",
+        "dataset":  {
+                        "id":  "analyst_factor_signals",
+                        "name":  "Global Analyst Factor Signals"
+                    },
+        "category":  {
+                         "id":  "analyst",
+                         "name":  "Analyst"
+                     },
+        "subcategory":  {
+                            "id":  "analyst-analyst-estimates",
+                            "name":  "Analyst Estimates"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.7634,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "eps_y2_estimate_coeff_var",
+        "description":  "Coefficient of variation (std/mean) of FY2 EPS estimates",
+        "dataset":  {
+                        "id":  "analyst_factor_signals",
+                        "name":  "Global Analyst Factor Signals"
+                    },
+        "category":  {
+                         "id":  "analyst",
+                         "name":  "Analyst"
+                     },
+        "subcategory":  {
+                            "id":  "analyst-analyst-estimates",
+                            "name":  "Analyst Estimates"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.7385,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "netprofit_actual_q1_qoq_growth",
+        "description":  "Actual quarter-over-quarter growth for Q1 net profit",
+        "dataset":  {
+                        "id":  "analyst_factor_signals",
+                        "name":  "Global Analyst Factor Signals"
+                    },
+        "category":  {
+                         "id":  "analyst",
+                         "name":  "Analyst"
+                     },
+        "subcategory":  {
+                            "id":  "analyst-analyst-estimates",
+                            "name":  "Analyst Estimates"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.1844,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "netprofit_estimate_trend_slope_1yr",
+        "description":  "Slope of the 1-year consensus net profit forecast series (quarterly)",
+        "dataset":  {
+                        "id":  "analyst_factor_signals",
+                        "name":  "Global Analyst Factor Signals"
+                    },
+        "category":  {
+                         "id":  "analyst",
+                         "name":  "Analyst"
+                     },
+        "subcategory":  {
+                            "id":  "analyst-analyst-estimates",
+                            "name":  "Analyst Estimates"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.2418,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "netprofit_estimate_zscore",
+        "description":  "Standardized surprise (z-score) for Q1 net profit versus consensus",
+        "dataset":  {
+                        "id":  "analyst_factor_signals",
+                        "name":  "Global Analyst Factor Signals"
+                    },
+        "category":  {
+                         "id":  "analyst",
+                         "name":  "Analyst"
+                     },
+        "subcategory":  {
+                            "id":  "analyst-analyst-estimates",
+                            "name":  "Analyst Estimates"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.1665,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "netprofit_q1_estimate_asymmetry",
+        "description":  "Asymmetry of forecast Q1 net profit estimate distribution",
+        "dataset":  {
+                        "id":  "analyst_factor_signals",
+                        "name":  "Global Analyst Factor Signals"
+                    },
+        "category":  {
+                         "id":  "analyst",
+                         "name":  "Analyst"
+                     },
+        "subcategory":  {
+                            "id":  "analyst-analyst-estimates",
+                            "name":  "Analyst Estimates"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.1795,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "netprofit_q1_estimate_change_1mo",
+        "description":  "1-month change in the Q1 consensus net profit forecast",
+        "dataset":  {
+                        "id":  "analyst_factor_signals",
+                        "name":  "Global Analyst Factor Signals"
+                    },
+        "category":  {
+                         "id":  "analyst",
+                         "name":  "Analyst"
+                     },
+        "subcategory":  {
+                            "id":  "analyst-analyst-estimates",
+                            "name":  "Analyst Estimates"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.225,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "netprofit_q1_estimate_coeff_var",
+        "description":  "Coefficient of variation (std/mean) of Q1 consensus net profit estimates",
+        "dataset":  {
+                        "id":  "analyst_factor_signals",
+                        "name":  "Global Analyst Factor Signals"
+                    },
+        "category":  {
+                         "id":  "analyst",
+                         "name":  "Analyst"
+                     },
+        "subcategory":  {
+                            "id":  "analyst-analyst-estimates",
+                            "name":  "Analyst Estimates"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.1795,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "netprofit_q1_estimate_qoq_growth_alt",
+        "description":  "Forecast quarter-over-quarter growth for Q1 net profit",
+        "dataset":  {
+                        "id":  "analyst_factor_signals",
+                        "name":  "Global Analyst Factor Signals"
+                    },
+        "category":  {
+                         "id":  "analyst",
+                         "name":  "Analyst"
+                     },
+        "subcategory":  {
+                            "id":  "analyst-analyst-estimates",
+                            "name":  "Analyst Estimates"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.203,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "netprofit_q1_estimate_skewness",
+        "description":  "Pearson’s skewness of forecast Q1 net profit estimates",
+        "dataset":  {
+                        "id":  "analyst_factor_signals",
+                        "name":  "Global Analyst Factor Signals"
+                    },
+        "category":  {
+                         "id":  "analyst",
+                         "name":  "Analyst"
+                     },
+        "subcategory":  {
+                            "id":  "analyst-analyst-estimates",
+                            "name":  "Analyst Estimates"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.2418,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "netprofit_q2_estimate_asymmetry",
+        "description":  "Asymmetry (difference between mean and median) of second quarter net profit consensus estimates.",
+        "dataset":  {
+                        "id":  "analyst_factor_signals",
+                        "name":  "Global Analyst Factor Signals"
+                    },
+        "category":  {
+                         "id":  "analyst",
+                         "name":  "Analyst"
+                     },
+        "subcategory":  {
+                            "id":  "analyst-analyst-estimates",
+                            "name":  "Analyst Estimates"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.1568,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "netprofit_q2_estimate_coeff_var",
+        "description":  "Coefficient of variation of Q2 net profit estimates from analysts",
+        "dataset":  {
+                        "id":  "analyst_factor_signals",
+                        "name":  "Global Analyst Factor Signals"
+                    },
+        "category":  {
+                         "id":  "analyst",
+                         "name":  "Analyst"
+                     },
+        "subcategory":  {
+                            "id":  "analyst-analyst-estimates",
+                            "name":  "Analyst Estimates"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.1568,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "netprofit_q2_estimate_qoq_growth",
+        "description":  "Forecast quarter-over-quarter growth for Q2 net profit",
+        "dataset":  {
+                        "id":  "analyst_factor_signals",
+                        "name":  "Global Analyst Factor Signals"
+                    },
+        "category":  {
+                         "id":  "analyst",
+                         "name":  "Analyst"
+                     },
+        "subcategory":  {
+                            "id":  "analyst-analyst-estimates",
+                            "name":  "Analyst Estimates"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.2418,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "netprofit_q2_estimate_skewness",
+        "description":  "Pearson’s skewness of forecast Q2 net profit estimates",
+        "dataset":  {
+                        "id":  "analyst_factor_signals",
+                        "name":  "Global Analyst Factor Signals"
+                    },
+        "category":  {
+                         "id":  "analyst",
+                         "name":  "Analyst"
+                     },
+        "subcategory":  {
+                            "id":  "analyst-analyst-estimates",
+                            "name":  "Analyst Estimates"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.2416,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "netprofit_revision_magnitude",
+        "description":  "Revision magnitude of median FY1 net profit estimates (Street revision magnitude)",
+        "dataset":  {
+                        "id":  "analyst_factor_signals",
+                        "name":  "Global Analyst Factor Signals"
+                    },
+        "category":  {
+                         "id":  "analyst",
+                         "name":  "Analyst"
+                     },
+        "subcategory":  {
+                            "id":  "analyst-analyst-estimates",
+                            "name":  "Analyst Estimates"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.8524,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "netprofit_surprise_mean_diff",
+        "description":  "Difference in net profit surprise between Q1 and Q2 (Q1 minus Q2)",
+        "dataset":  {
+                        "id":  "analyst_factor_signals",
+                        "name":  "Global Analyst Factor Signals"
+                    },
+        "category":  {
+                         "id":  "analyst",
+                         "name":  "Analyst"
+                     },
+        "subcategory":  {
+                            "id":  "analyst-analyst-estimates",
+                            "name":  "Analyst Estimates"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.1672,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "netprofit_surprise_stddev",
+        "description":  "Standard deviation of historical net profit surprises (actual minus consensus).",
+        "dataset":  {
+                        "id":  "analyst_factor_signals",
+                        "name":  "Global Analyst Factor Signals"
+                    },
+        "category":  {
+                         "id":  "analyst",
+                         "name":  "Analyst"
+                     },
+        "subcategory":  {
+                            "id":  "analyst-analyst-estimates",
+                            "name":  "Analyst Estimates"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.1701,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "netprofit_trailing_4q_estimate_alt",
+        "description":  "Forecast trailing-twelve-month growth in net profit",
+        "dataset":  {
+                        "id":  "analyst_factor_signals",
+                        "name":  "Global Analyst Factor Signals"
+                    },
+        "category":  {
+                         "id":  "analyst",
+                         "name":  "Analyst"
+                     },
+        "subcategory":  {
+                            "id":  "analyst-analyst-estimates",
+                            "name":  "Analyst Estimates"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.2031,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "netprofit_y1_cagr_2yr_alt",
+        "description":  "Forecast FY1 net profit growth CAGR measured over 2 years",
+        "dataset":  {
+                        "id":  "analyst_factor_signals",
+                        "name":  "Global Analyst Factor Signals"
+                    },
+        "category":  {
+                         "id":  "analyst",
+                         "name":  "Analyst"
+                     },
+        "subcategory":  {
+                            "id":  "analyst-analyst-estimates",
+                            "name":  "Analyst Estimates"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.7361,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "netprofit_y1_cagr_3yr",
+        "description":  "Forecast FY1 net profit growth CAGR measured over 3 years",
+        "dataset":  {
+                        "id":  "analyst_factor_signals",
+                        "name":  "Global Analyst Factor Signals"
+                    },
+        "category":  {
+                         "id":  "analyst",
+                         "name":  "Analyst"
+                     },
+        "subcategory":  {
+                            "id":  "analyst-analyst-estimates",
+                            "name":  "Analyst Estimates"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.649,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "netprofit_y1_cagr_4yr",
+        "description":  "Forecast FY1 net profit growth CAGR measured over 4 years",
+        "dataset":  {
+                        "id":  "analyst_factor_signals",
+                        "name":  "Global Analyst Factor Signals"
+                    },
+        "category":  {
+                         "id":  "analyst",
+                         "name":  "Analyst"
+                     },
+        "subcategory":  {
+                            "id":  "analyst-analyst-estimates",
+                            "name":  "Analyst Estimates"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.5775,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "netprofit_y1_cagr_5yr",
+        "description":  "Forecast FY1 net profit growth CAGR measured over 5 years",
+        "dataset":  {
+                        "id":  "analyst_factor_signals",
+                        "name":  "Global Analyst Factor Signals"
+                    },
+        "category":  {
+                         "id":  "analyst",
+                         "name":  "Analyst"
+                     },
+        "subcategory":  {
+                            "id":  "analyst-analyst-estimates",
+                            "name":  "Analyst Estimates"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.5145,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "netprofit_y1_consensus_value",
+        "description":  "Forecast FY1 net profit growth",
+        "dataset":  {
+                        "id":  "analyst_factor_signals",
+                        "name":  "Global Analyst Factor Signals"
+                    },
+        "category":  {
+                         "id":  "analyst",
+                         "name":  "Analyst"
+                     },
+        "subcategory":  {
+                            "id":  "analyst-analyst-estimates",
+                            "name":  "Analyst Estimates"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.8225,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "netprofit_y1_estimate_asymmetry",
+        "description":  "Asymmetry of forecast FY1 net profit estimate distribution",
+        "dataset":  {
+                        "id":  "analyst_factor_signals",
+                        "name":  "Global Analyst Factor Signals"
+                    },
+        "category":  {
+                         "id":  "analyst",
+                         "name":  "Analyst"
+                     },
+        "subcategory":  {
+                            "id":  "analyst-analyst-estimates",
+                            "name":  "Analyst Estimates"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.7617,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "netprofit_y1_estimate_change_3mo",
+        "description":  "3-month change in the FY1 consensus net profit forecast",
+        "dataset":  {
+                        "id":  "analyst_factor_signals",
+                        "name":  "Global Analyst Factor Signals"
+                    },
+        "category":  {
+                         "id":  "analyst",
+                         "name":  "Analyst"
+                     },
+        "subcategory":  {
+                            "id":  "analyst-analyst-estimates",
+                            "name":  "Analyst Estimates"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.8524,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "netprofit_y1_estimate_skewness_alt",
+        "description":  "Pearson’s skewness of forecast FY1 net profit estimates",
+        "dataset":  {
+                        "id":  "analyst_factor_signals",
+                        "name":  "Global Analyst Factor Signals"
+                    },
+        "category":  {
+                         "id":  "analyst",
+                         "name":  "Analyst"
+                     },
+        "subcategory":  {
+                            "id":  "analyst-analyst-estimates",
+                            "name":  "Analyst Estimates"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.8603,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "netprofit_y1_estimate_volatility_adj_1yr",
+        "description":  "Coefficient of variation (standard deviation divided by mean) of analyst FY1 net profit estimates",
+        "dataset":  {
+                        "id":  "analyst_factor_signals",
+                        "name":  "Global Analyst Factor Signals"
+                    },
+        "category":  {
+                         "id":  "analyst",
+                         "name":  "Analyst"
+                     },
+        "subcategory":  {
+                            "id":  "analyst-analyst-estimates",
+                            "name":  "Analyst Estimates"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.7617,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "netprofit_y2_consensus_value",
+        "description":  "Forecast FY2 net profit growth",
+        "dataset":  {
+                        "id":  "analyst_factor_signals",
+                        "name":  "Global Analyst Factor Signals"
+                    },
+        "category":  {
+                         "id":  "analyst",
+                         "name":  "Analyst"
+                     },
+        "subcategory":  {
+                            "id":  "analyst-analyst-estimates",
+                            "name":  "Analyst Estimates"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.8603,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "netprofit_y2_estimate_change_3mo",
+        "description":  "Three-month change in the consensus forecast for FY2 net profit",
+        "dataset":  {
+                        "id":  "analyst_factor_signals",
+                        "name":  "Global Analyst Factor Signals"
+                    },
+        "category":  {
+                         "id":  "analyst",
+                         "name":  "Analyst"
+                     },
+        "subcategory":  {
+                            "id":  "analyst-analyst-estimates",
+                            "name":  "Analyst Estimates"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.8525,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "netprofit_y2_estimate_coeff_var",
+        "description":  "Coefficient of variation of FY2 net profit estimates from analysts",
+        "dataset":  {
+                        "id":  "analyst_factor_signals",
+                        "name":  "Global Analyst Factor Signals"
+                    },
+        "category":  {
+                         "id":  "analyst",
+                         "name":  "Analyst"
+                     },
+        "subcategory":  {
+                            "id":  "analyst-analyst-estimates",
+                            "name":  "Analyst Estimates"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.7618,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "revenue_actual_q1_qoq_growth",
+        "description":  "Actual Q1 revenue growth quarter over quarter",
+        "dataset":  {
+                        "id":  "analyst_factor_signals",
+                        "name":  "Global Analyst Factor Signals"
+                    },
+        "category":  {
+                         "id":  "analyst",
+                         "name":  "Analyst"
+                     },
+        "subcategory":  {
+                            "id":  "analyst-analyst-estimates",
+                            "name":  "Analyst Estimates"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.2411,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "revenue_actual_q1_yoy_growth",
+        "description":  "Actual Q1 revenue growth year over year",
+        "dataset":  {
+                        "id":  "analyst_factor_signals",
+                        "name":  "Global Analyst Factor Signals"
+                    },
+        "category":  {
+                         "id":  "analyst",
+                         "name":  "Analyst"
+                     },
+        "subcategory":  {
+                            "id":  "analyst-analyst-estimates",
+                            "name":  "Analyst Estimates"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.1862,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "revenue_estimate_trend_slope_1yr",
+        "description":  "Slope of the 1-year consensus revenue forecast (quarterly), indicating trend",
+        "dataset":  {
+                        "id":  "analyst_factor_signals",
+                        "name":  "Global Analyst Factor Signals"
+                    },
+        "category":  {
+                         "id":  "analyst",
+                         "name":  "Analyst"
+                     },
+        "subcategory":  {
+                            "id":  "analyst-analyst-estimates",
+                            "name":  "Analyst Estimates"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.3062,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "revenue_estimate_trend_slope_2yr",
+        "description":  "Slope of the linear trend in consensus revenue estimates over the past 2 years.",
+        "dataset":  {
+                        "id":  "analyst_factor_signals",
+                        "name":  "Global Analyst Factor Signals"
+                    },
+        "category":  {
+                         "id":  "analyst",
+                         "name":  "Analyst"
+                     },
+        "subcategory":  {
+                            "id":  "analyst-analyst-estimates",
+                            "name":  "Analyst Estimates"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.1982,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "revenue_estimate_trend_slope_3yr",
+        "description":  "Slope of the linear trend in consensus revenue estimates over the past 3 years.",
+        "dataset":  {
+                        "id":  "analyst_factor_signals",
+                        "name":  "Global Analyst Factor Signals"
+                    },
+        "category":  {
+                         "id":  "analyst",
+                         "name":  "Analyst"
+                     },
+        "subcategory":  {
+                            "id":  "analyst-analyst-estimates",
+                            "name":  "Analyst Estimates"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.1981,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "revenue_estimate_trend_slope_4yr",
+        "description":  "Slope of the current actual 2-year revenue series (quarterly), indicating longer-term trend",
+        "dataset":  {
+                        "id":  "analyst_factor_signals",
+                        "name":  "Global Analyst Factor Signals"
+                    },
+        "category":  {
+                         "id":  "analyst",
+                         "name":  "Analyst"
+                     },
+        "subcategory":  {
+                            "id":  "analyst-analyst-estimates",
+                            "name":  "Analyst Estimates"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.1531,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "revenue_estimate_volatility_adj_2yr",
+        "description":  "Volatility-adjusted 2-year projected revenue growth",
+        "dataset":  {
+                        "id":  "analyst_factor_signals",
+                        "name":  "Global Analyst Factor Signals"
+                    },
+        "category":  {
+                         "id":  "analyst",
+                         "name":  "Analyst"
+                     },
+        "subcategory":  {
+                            "id":  "analyst-analyst-estimates",
+                            "name":  "Analyst Estimates"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.153,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "revenue_estimate_zscore",
+        "description":  "Standardized z-score of the fiscal Q1 revenue surprise",
+        "dataset":  {
+                        "id":  "analyst_factor_signals",
+                        "name":  "Global Analyst Factor Signals"
+                    },
+        "category":  {
+                         "id":  "analyst",
+                         "name":  "Analyst"
+                     },
+        "subcategory":  {
+                            "id":  "analyst-analyst-estimates",
+                            "name":  "Analyst Estimates"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.196,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "revenue_q1_estimate_asymmetry",
+        "description":  "Asymmetry measure of the analyst forecast distribution for fiscal Q1 revenue",
+        "dataset":  {
+                        "id":  "analyst_factor_signals",
+                        "name":  "Global Analyst Factor Signals"
+                    },
+        "category":  {
+                         "id":  "analyst",
+                         "name":  "Analyst"
+                     },
+        "subcategory":  {
+                            "id":  "analyst-analyst-estimates",
+                            "name":  "Analyst Estimates"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.2282,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "revenue_q1_estimate_change_1mo",
+        "description":  "Change in consensus forecast for fiscal Q1 revenue over the past 1 month",
+        "dataset":  {
+                        "id":  "analyst_factor_signals",
+                        "name":  "Global Analyst Factor Signals"
+                    },
+        "category":  {
+                         "id":  "analyst",
+                         "name":  "Analyst"
+                     },
+        "subcategory":  {
+                            "id":  "analyst-analyst-estimates",
+                            "name":  "Analyst Estimates"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.2934,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "revenue_q1_estimate_coeff_var",
+        "description":  "Coefficient of variation (std/mean) of Q1 revenue estimates",
+        "dataset":  {
+                        "id":  "analyst_factor_signals",
+                        "name":  "Global Analyst Factor Signals"
+                    },
+        "category":  {
+                         "id":  "analyst",
+                         "name":  "Analyst"
+                     },
+        "subcategory":  {
+                            "id":  "analyst-analyst-estimates",
+                            "name":  "Analyst Estimates"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.2282,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "revenue_q1_estimate_qoq_growth",
+        "description":  "Forecast Q1 revenue growth quarter-over-quarter",
+        "dataset":  {
+                        "id":  "analyst_factor_signals",
+                        "name":  "Global Analyst Factor Signals"
+                    },
+        "category":  {
+                         "id":  "analyst",
+                         "name":  "Analyst"
+                     },
+        "subcategory":  {
+                            "id":  "analyst-analyst-estimates",
+                            "name":  "Analyst Estimates"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.2621,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "revenue_q1_estimate_sequential",
+        "description":  "Difference between sequential forecast and actual revenue growth for Q1",
+        "dataset":  {
+                        "id":  "analyst_factor_signals",
+                        "name":  "Global Analyst Factor Signals"
+                    },
+        "category":  {
+                         "id":  "analyst",
+                         "name":  "Analyst"
+                     },
+        "subcategory":  {
+                            "id":  "analyst-analyst-estimates",
+                            "name":  "Analyst Estimates"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.1861,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "revenue_q1_estimate_skewness",
+        "description":  "Pearson\u0027s skewness of the analyst forecast distribution for fiscal Q1 revenue",
+        "dataset":  {
+                        "id":  "analyst_factor_signals",
+                        "name":  "Global Analyst Factor Signals"
+                    },
+        "category":  {
+                         "id":  "analyst",
+                         "name":  "Analyst"
+                     },
+        "subcategory":  {
+                            "id":  "analyst-analyst-estimates",
+                            "name":  "Analyst Estimates"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.3061,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "revenue_q1_estimate_yoy_growth",
+        "description":  "Forecast year-over-year growth for fiscal Q1 revenue",
+        "dataset":  {
+                        "id":  "analyst_factor_signals",
+                        "name":  "Global Analyst Factor Signals"
+                    },
+        "category":  {
+                         "id":  "analyst",
+                         "name":  "Analyst"
+                     },
+        "subcategory":  {
+                            "id":  "analyst-analyst-estimates",
+                            "name":  "Analyst Estimates"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.1981,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "revenue_q2_estimate_asymmetry",
+        "description":  "Asymmetry measure of the forecast Q2 revenue estimate distribution from analysts",
+        "dataset":  {
+                        "id":  "analyst_factor_signals",
+                        "name":  "Global Analyst Factor Signals"
+                    },
+        "category":  {
+                         "id":  "analyst",
+                         "name":  "Analyst"
+                     },
+        "subcategory":  {
+                            "id":  "analyst-analyst-estimates",
+                            "name":  "Analyst Estimates"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.2041,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "revenue_q2_estimate_coeff_var",
+        "description":  "Coefficient of variation (std/mean) of Q2 revenue estimates",
+        "dataset":  {
+                        "id":  "analyst_factor_signals",
+                        "name":  "Global Analyst Factor Signals"
+                    },
+        "category":  {
+                         "id":  "analyst",
+                         "name":  "Analyst"
+                     },
+        "subcategory":  {
+                            "id":  "analyst-analyst-estimates",
+                            "name":  "Analyst Estimates"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.2041,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "revenue_q2_estimate_qoq_growth",
+        "description":  "Forecast Q2 revenue growth quarter-over-quarter",
+        "dataset":  {
+                        "id":  "analyst_factor_signals",
+                        "name":  "Global Analyst Factor Signals"
+                    },
+        "category":  {
+                         "id":  "analyst",
+                         "name":  "Analyst"
+                     },
+        "subcategory":  {
+                            "id":  "analyst-analyst-estimates",
+                            "name":  "Analyst Estimates"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.3061,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "revenue_q2_estimate_skewness",
+        "description":  "Pearson\u0027s skewness of the analyst forecast distribution for fiscal Q2 revenue",
+        "dataset":  {
+                        "id":  "analyst_factor_signals",
+                        "name":  "Global Analyst Factor Signals"
+                    },
+        "category":  {
+                         "id":  "analyst",
+                         "name":  "Analyst"
+                     },
+        "subcategory":  {
+                            "id":  "analyst-analyst-estimates",
+                            "name":  "Analyst Estimates"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.306,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "revenue_revision_magnitude",
+        "description":  "Scaled revision magnitude of the median FY1 revenue estimate (Street Revision Magnitude)",
+        "dataset":  {
+                        "id":  "analyst_factor_signals",
+                        "name":  "Global Analyst Factor Signals"
+                    },
+        "category":  {
+                         "id":  "analyst",
+                         "name":  "Analyst"
+                     },
+        "subcategory":  {
+                            "id":  "analyst-analyst-estimates",
+                            "name":  "Analyst Estimates"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.8683,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "revenue_surprise_mean_diff",
+        "description":  "Difference between Q1 and Q2 revenue surprise metrics (Q1 minus Q2)",
+        "dataset":  {
+                        "id":  "analyst_factor_signals",
+                        "name":  "Global Analyst Factor Signals"
+                    },
+        "category":  {
+                         "id":  "analyst",
+                         "name":  "Analyst"
+                     },
+        "subcategory":  {
+                            "id":  "analyst-analyst-estimates",
+                            "name":  "Analyst Estimates"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.1998,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "revenue_surprise_stddev",
+        "description":  "Standard deviation of revenue surprise",
+        "dataset":  {
+                        "id":  "analyst_factor_signals",
+                        "name":  "Global Analyst Factor Signals"
+                    },
+        "category":  {
+                         "id":  "analyst",
+                         "name":  "Analyst"
+                     },
+        "subcategory":  {
+                            "id":  "analyst-analyst-estimates",
+                            "name":  "Analyst Estimates"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.2056,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "revenue_trailing_4q_estimate",
+        "description":  "Trailing-twelve-month forecast revenue growth",
+        "dataset":  {
+                        "id":  "analyst_factor_signals",
+                        "name":  "Global Analyst Factor Signals"
+                    },
+        "category":  {
+                         "id":  "analyst",
+                         "name":  "Analyst"
+                     },
+        "subcategory":  {
+                            "id":  "analyst-analyst-estimates",
+                            "name":  "Analyst Estimates"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.2622,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "revenue_y1_cagr_2yr",
+        "description":  "Forecast compound annual growth rate to FY1 revenue measured over a 2-year horizon",
+        "dataset":  {
+                        "id":  "analyst_factor_signals",
+                        "name":  "Global Analyst Factor Signals"
+                    },
+        "category":  {
+                         "id":  "analyst",
+                         "name":  "Analyst"
+                     },
+        "subcategory":  {
+                            "id":  "analyst-analyst-estimates",
+                            "name":  "Analyst Estimates"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.7498,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "revenue_y1_cagr_3yr",
+        "description":  "Forecast compound annual growth rate to FY1 revenue measured over a 3-year horizon",
+        "dataset":  {
+                        "id":  "analyst_factor_signals",
+                        "name":  "Global Analyst Factor Signals"
+                    },
+        "category":  {
+                         "id":  "analyst",
+                         "name":  "Analyst"
+                     },
+        "subcategory":  {
+                            "id":  "analyst-analyst-estimates",
+                            "name":  "Analyst Estimates"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.6667,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "revenue_y1_cagr_4yr",
+        "description":  "Forecast compound annual growth rate to FY1 revenue measured over a 4-year horizon",
+        "dataset":  {
+                        "id":  "analyst_factor_signals",
+                        "name":  "Global Analyst Factor Signals"
+                    },
+        "category":  {
+                         "id":  "analyst",
+                         "name":  "Analyst"
+                     },
+        "subcategory":  {
+                            "id":  "analyst-analyst-estimates",
+                            "name":  "Analyst Estimates"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.5953,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "revenue_y1_cagr_5yr",
+        "description":  "Forecast compound annual growth rate to FY1 revenue measured over a 5-year horizon",
+        "dataset":  {
+                        "id":  "analyst_factor_signals",
+                        "name":  "Global Analyst Factor Signals"
+                    },
+        "category":  {
+                         "id":  "analyst",
+                         "name":  "Analyst"
+                     },
+        "subcategory":  {
+                            "id":  "analyst-analyst-estimates",
+                            "name":  "Analyst Estimates"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.5321,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "revenue_y1_consensus_value",
+        "description":  "Forecast growth for FY1 revenue",
+        "dataset":  {
+                        "id":  "analyst_factor_signals",
+                        "name":  "Global Analyst Factor Signals"
+                    },
+        "category":  {
+                         "id":  "analyst",
+                         "name":  "Analyst"
+                     },
+        "subcategory":  {
+                            "id":  "analyst-analyst-estimates",
+                            "name":  "Analyst Estimates"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.8387,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "revenue_y1_estimate_asymmetry",
+        "description":  "Asymmetry measure of the forecast FY1 revenue estimate distribution from analysts",
+        "dataset":  {
+                        "id":  "analyst_factor_signals",
+                        "name":  "Global Analyst Factor Signals"
+                    },
+        "category":  {
+                         "id":  "analyst",
+                         "name":  "Analyst"
+                     },
+        "subcategory":  {
+                            "id":  "analyst-analyst-estimates",
+                            "name":  "Analyst Estimates"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.8215,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "revenue_y1_estimate_change_3mo",
+        "description":  "Change in FY1 revenue consensus forecast over the past 3 months",
+        "dataset":  {
+                        "id":  "analyst_factor_signals",
+                        "name":  "Global Analyst Factor Signals"
+                    },
+        "category":  {
+                         "id":  "analyst",
+                         "name":  "Analyst"
+                     },
+        "subcategory":  {
+                            "id":  "analyst-analyst-estimates",
+                            "name":  "Analyst Estimates"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.8684,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "revenue_y1_estimate_coeff_var",
+        "description":  "Coefficient of variation (std/mean) of FY1 revenue estimates",
+        "dataset":  {
+                        "id":  "analyst_factor_signals",
+                        "name":  "Global Analyst Factor Signals"
+                    },
+        "category":  {
+                         "id":  "analyst",
+                         "name":  "Analyst"
+                     },
+        "subcategory":  {
+                            "id":  "analyst-analyst-estimates",
+                            "name":  "Analyst Estimates"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.8215,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "revenue_y1_estimate_skewness",
+        "description":  "Pearson\u0027s skewness of the FY1 revenue forecast distribution",
+        "dataset":  {
+                        "id":  "analyst_factor_signals",
+                        "name":  "Global Analyst Factor Signals"
+                    },
+        "category":  {
+                         "id":  "analyst",
+                         "name":  "Analyst"
+                     },
+        "subcategory":  {
+                            "id":  "analyst-analyst-estimates",
+                            "name":  "Analyst Estimates"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.8748,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "revenue_y2_consensus_value",
+        "description":  "Forecast growth for FY2 revenue",
+        "dataset":  {
+                        "id":  "analyst_factor_signals",
+                        "name":  "Global Analyst Factor Signals"
+                    },
+        "category":  {
+                         "id":  "analyst",
+                         "name":  "Analyst"
+                     },
+        "subcategory":  {
+                            "id":  "analyst-analyst-estimates",
+                            "name":  "Analyst Estimates"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.8748,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "revenue_y2_estimate_change_3mo",
+        "description":  "Change in consensus forecast for FY2 revenue over the past 3 months",
+        "dataset":  {
+                        "id":  "analyst_factor_signals",
+                        "name":  "Global Analyst Factor Signals"
+                    },
+        "category":  {
+                         "id":  "analyst",
+                         "name":  "Analyst"
+                     },
+        "subcategory":  {
+                            "id":  "analyst-analyst-estimates",
+                            "name":  "Analyst Estimates"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.8688,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "revenue_y2_estimate_coeff_var",
+        "description":  "Coefficient of variation (std/mean) of FY2 revenue estimates",
+        "dataset":  {
+                        "id":  "analyst_factor_signals",
+                        "name":  "Global Analyst Factor Signals"
+                    },
+        "category":  {
+                         "id":  "analyst",
+                         "name":  "Analyst"
+                     },
+        "subcategory":  {
+                            "id":  "analyst-analyst-estimates",
+                            "name":  "Analyst Estimates"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.8203,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    }
+]

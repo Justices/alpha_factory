@@ -1,0 +1,258 @@
+﻿[
+    {
+        "id":  "pv103_ivam_sum",
+        "description":  "daily sum of interval volume above mid quote",
+        "dataset":  {
+                        "id":  "pv103",
+                        "name":  "Interval and MOO\u0026MOC statistics"
+                    },
+        "category":  {
+                         "id":  "pv",
+                         "name":  "Price Volume"
+                     },
+        "subcategory":  {
+                            "id":  "pv-price-volume",
+                            "name":  "Price Volume"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "session_1600to1600_final_trade_price",
+        "description":  "Last trade price within the 16:00 to 16:00 session",
+        "dataset":  {
+                        "id":  "pv103",
+                        "name":  "Interval and MOO\u0026MOC statistics"
+                    },
+        "category":  {
+                         "id":  "pv",
+                         "name":  "Price Volume"
+                     },
+        "subcategory":  {
+                            "id":  "pv-price-volume",
+                            "name":  "Price Volume"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "session_1600to1600_initial_trade_price",
+        "description":  "First trade price within the 16:00 to 16:00 session",
+        "dataset":  {
+                        "id":  "pv103",
+                        "name":  "Interval and MOO\u0026MOC statistics"
+                    },
+        "category":  {
+                         "id":  "pv",
+                         "name":  "Price Volume"
+                     },
+        "subcategory":  {
+                            "id":  "pv-price-volume",
+                            "name":  "Price Volume"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "session_1600to1600_market_value",
+        "description":  "Aggregate market value of all trades during the 16:00 to 16:00 session.",
+        "dataset":  {
+                        "id":  "pv103",
+                        "name":  "Interval and MOO\u0026MOC statistics"
+                    },
+        "category":  {
+                         "id":  "pv",
+                         "name":  "Price Volume"
+                     },
+        "subcategory":  {
+                            "id":  "pv-price-volume",
+                            "name":  "Price Volume"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "session_1600to1600_max_trade_price",
+        "description":  "Highest trade price during the 16:00 to 16:00 session",
+        "dataset":  {
+                        "id":  "pv103",
+                        "name":  "Interval and MOO\u0026MOC statistics"
+                    },
+        "category":  {
+                         "id":  "pv",
+                         "name":  "Price Volume"
+                     },
+        "subcategory":  {
+                            "id":  "pv-price-volume",
+                            "name":  "Price Volume"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "session_1600to1600_min_trade_price",
+        "description":  "Lowest trade price during the 16:00 to 16:00 session",
+        "dataset":  {
+                        "id":  "pv103",
+                        "name":  "Interval and MOO\u0026MOC statistics"
+                    },
+        "category":  {
+                         "id":  "pv",
+                         "name":  "Price Volume"
+                     },
+        "subcategory":  {
+                            "id":  "pv-price-volume",
+                            "name":  "Price Volume"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "session_1600to1600_total_traded_volume",
+        "description":  "Total shares traded during the 16:00 to 16:00 session",
+        "dataset":  {
+                        "id":  "pv103",
+                        "name":  "Interval and MOO\u0026MOC statistics"
+                    },
+        "category":  {
+                         "id":  "pv",
+                         "name":  "Price Volume"
+                     },
+        "subcategory":  {
+                            "id":  "pv-price-volume",
+                            "name":  "Price Volume"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "session_1600to1600_volume_weighted_avg_price",
+        "description":  "Volume-weighted average trade price over the 16:00 to 16:00 session",
+        "dataset":  {
+                        "id":  "pv103",
+                        "name":  "Interval and MOO\u0026MOC statistics"
+                    },
+        "category":  {
+                         "id":  "pv",
+                         "name":  "Price Volume"
+                     },
+        "subcategory":  {
+                            "id":  "pv-price-volume",
+                            "name":  "Price Volume"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    }
+]

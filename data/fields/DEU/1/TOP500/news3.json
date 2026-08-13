@@ -1,0 +1,610 @@
+﻿[
+    {
+        "id":  "nws3_scores_certaintynormscr",
+        "description":  "Float vector of normalized certainty sentiment scores for all news articles about the company on that day",
+        "dataset":  {
+                        "id":  "news3",
+                        "name":  "Dow Jones News Analytics Data"
+                    },
+        "category":  {
+                         "id":  "news",
+                         "name":  "News"
+                     },
+        "subcategory":  {
+                            "id":  "news-news-sentiment",
+                            "name":  "News Sentiment"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "nws3_scores_certaintypartnormscr",
+        "description":  "Vector of normalized certainty sentiment scores from a prioritized subset of news articles for the stock and date",
+        "dataset":  {
+                        "id":  "news3",
+                        "name":  "Dow Jones News Analytics Data"
+                    },
+        "category":  {
+                         "id":  "news",
+                         "name":  "News"
+                     },
+        "subcategory":  {
+                            "id":  "news-news-sentiment",
+                            "name":  "News Sentiment"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "nws3_scores_fearnormscr",
+        "description":  "Float vector of normalized fear sentiment scores for all news articles about the company on that day",
+        "dataset":  {
+                        "id":  "news3",
+                        "name":  "Dow Jones News Analytics Data"
+                    },
+        "category":  {
+                         "id":  "news",
+                         "name":  "News"
+                     },
+        "subcategory":  {
+                            "id":  "news-news-sentiment",
+                            "name":  "News Sentiment"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "nws3_scores_fearpartnormscr",
+        "description":  "Vector of normalized fear sentiment scores from a prioritized subset of news articles for the stock and date",
+        "dataset":  {
+                        "id":  "news3",
+                        "name":  "Dow Jones News Analytics Data"
+                    },
+        "category":  {
+                         "id":  "news",
+                         "name":  "News"
+                     },
+        "subcategory":  {
+                            "id":  "news-news-sentiment",
+                            "name":  "News Sentiment"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "nws3_scores_findownnormscr",
+        "description":  "Float vector of normalized financial pessimism (downbeat financial news) scores for all news articles about the company on that day",
+        "dataset":  {
+                        "id":  "news3",
+                        "name":  "Dow Jones News Analytics Data"
+                    },
+        "category":  {
+                         "id":  "news",
+                         "name":  "News"
+                     },
+        "subcategory":  {
+                            "id":  "news-news-sentiment",
+                            "name":  "News Sentiment"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "nws3_scores_findownpartnormscr",
+        "description":  "Vector of normalized financial pessimism (downside emotion) scores from a prioritized subset of news articles for the stock on the given date",
+        "dataset":  {
+                        "id":  "news3",
+                        "name":  "Dow Jones News Analytics Data"
+                    },
+        "category":  {
+                         "id":  "news",
+                         "name":  "News"
+                     },
+        "subcategory":  {
+                            "id":  "news-news-sentiment",
+                            "name":  "News Sentiment"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "nws3_scores_finhypenormscr",
+        "description":  "Float vector of normalized financial hype sentiment scores for all news articles about the company on that day",
+        "dataset":  {
+                        "id":  "news3",
+                        "name":  "Dow Jones News Analytics Data"
+                    },
+        "category":  {
+                         "id":  "news",
+                         "name":  "News"
+                     },
+        "subcategory":  {
+                            "id":  "news-news-sentiment",
+                            "name":  "News Sentiment"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "nws3_scores_finhypepartnormscr",
+        "description":  "Vector of normalized “financial hype” sentiment scores from a prioritized subset of news articles related to the stock and date",
+        "dataset":  {
+                        "id":  "news3",
+                        "name":  "Dow Jones News Analytics Data"
+                    },
+        "category":  {
+                         "id":  "news",
+                         "name":  "News"
+                     },
+        "subcategory":  {
+                            "id":  "news-news-sentiment",
+                            "name":  "News Sentiment"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "nws3_scores_finupnormscr",
+        "description":  "Float vector of normalized financial optimism (upbeat financial news) scores for all news articles about the company on that day",
+        "dataset":  {
+                        "id":  "news3",
+                        "name":  "Dow Jones News Analytics Data"
+                    },
+        "category":  {
+                         "id":  "news",
+                         "name":  "News"
+                     },
+        "subcategory":  {
+                            "id":  "news-news-sentiment",
+                            "name":  "News Sentiment"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "nws3_scores_finuppartnormscr",
+        "description":  "Vector of normalized financial optimism (“financial up”) sentiment scores from a prioritized subset of news articles for the stock and date",
+        "dataset":  {
+                        "id":  "news3",
+                        "name":  "Dow Jones News Analytics Data"
+                    },
+        "category":  {
+                         "id":  "news",
+                         "name":  "News"
+                     },
+        "subcategory":  {
+                            "id":  "news-news-sentiment",
+                            "name":  "News Sentiment"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "nws3_scores_finvolatilenormscr",
+        "description":  "Float vector of normalized financial volatility sentiment scores for all news articles about the company on that day",
+        "dataset":  {
+                        "id":  "news3",
+                        "name":  "Dow Jones News Analytics Data"
+                    },
+        "category":  {
+                         "id":  "news",
+                         "name":  "News"
+                     },
+        "subcategory":  {
+                            "id":  "news-news-sentiment",
+                            "name":  "News Sentiment"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "nws3_scores_finvolatilepartnormscr",
+        "description":  "Vector of normalized “financial volatility” sentiment scores from a prioritized subset of news articles for the stock and date",
+        "dataset":  {
+                        "id":  "news3",
+                        "name":  "Dow Jones News Analytics Data"
+                    },
+        "category":  {
+                         "id":  "news",
+                         "name":  "News"
+                     },
+        "subcategory":  {
+                            "id":  "news-news-sentiment",
+                            "name":  "News Sentiment"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "nws3_scores_negnormscr",
+        "description":  "Float vector of normalized negative sentiment scores for all news articles about the company on that day",
+        "dataset":  {
+                        "id":  "news3",
+                        "name":  "Dow Jones News Analytics Data"
+                    },
+        "category":  {
+                         "id":  "news",
+                         "name":  "News"
+                     },
+        "subcategory":  {
+                            "id":  "news-news-sentiment",
+                            "name":  "News Sentiment"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "nws3_scores_negpartnormscr",
+        "description":  "Vector of normalized negative sentiment scores from prioritized/relevant subset of news articles for the company and date",
+        "dataset":  {
+                        "id":  "news3",
+                        "name":  "Dow Jones News Analytics Data"
+                    },
+        "category":  {
+                         "id":  "news",
+                         "name":  "News"
+                     },
+        "subcategory":  {
+                            "id":  "news-news-sentiment",
+                            "name":  "News Sentiment"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "nws3_scores_posnormscr",
+        "description":  "Float vector of normalized positive sentiment scores for all news articles about the company on that day",
+        "dataset":  {
+                        "id":  "news3",
+                        "name":  "Dow Jones News Analytics Data"
+                    },
+        "category":  {
+                         "id":  "news",
+                         "name":  "News"
+                     },
+        "subcategory":  {
+                            "id":  "news-news-sentiment",
+                            "name":  "News Sentiment"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "nws3_scores_pospartnormscr",
+        "description":  "Vector of normalized positive sentiment scores from prioritized/relevant subset of news articles for the company and date",
+        "dataset":  {
+                        "id":  "news3",
+                        "name":  "Dow Jones News Analytics Data"
+                    },
+        "category":  {
+                         "id":  "news",
+                         "name":  "News"
+                     },
+        "subcategory":  {
+                            "id":  "news-news-sentiment",
+                            "name":  "News Sentiment"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "nws3_scores_uncertaintynormscr",
+        "description":  "Float vector of normalized uncertainty sentiment scores for all news articles about the company on that day",
+        "dataset":  {
+                        "id":  "news3",
+                        "name":  "Dow Jones News Analytics Data"
+                    },
+        "category":  {
+                         "id":  "news",
+                         "name":  "News"
+                     },
+        "subcategory":  {
+                            "id":  "news-news-sentiment",
+                            "name":  "News Sentiment"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "nws3_scores_uncertaintypartnormscr",
+        "description":  "Vector of normalized uncertainty sentiment scores from a prioritized subset of news articles for the stock and date",
+        "dataset":  {
+                        "id":  "news3",
+                        "name":  "Dow Jones News Analytics Data"
+                    },
+        "category":  {
+                         "id":  "news",
+                         "name":  "News"
+                     },
+        "subcategory":  {
+                            "id":  "news-news-sentiment",
+                            "name":  "News Sentiment"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "nws3_wqreceivetime",
+        "description":  "Technical timestamp indicating when the data was received or captured",
+        "dataset":  {
+                        "id":  "news3",
+                        "name":  "Dow Jones News Analytics Data"
+                    },
+        "category":  {
+                         "id":  "news",
+                         "name":  "News"
+                     },
+        "subcategory":  {
+                            "id":  "news-news-sentiment",
+                            "name":  "News Sentiment"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    }
+]

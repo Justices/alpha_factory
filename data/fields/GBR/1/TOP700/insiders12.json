@@ -1,0 +1,226 @@
+﻿[
+    {
+        "id":  "insd12_mktprice",
+        "description":  "Market price per share/security at the transaction date, as reported, unadjusted for corporate actions",
+        "dataset":  {
+                        "id":  "insiders12",
+                        "name":  "UK Insider Transaction Data"
+                    },
+        "category":  {
+                         "id":  "insiders",
+                         "name":  "Insiders"
+                     },
+        "subcategory":  {
+                            "id":  "insiders-insider-data",
+                            "name":  "Insider Data"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "insd12_percent",
+        "description":  "Post-event insider ownership percentage, as directly reported; may be a bound depending on GLTPercent",
+        "dataset":  {
+                        "id":  "insiders12",
+                        "name":  "UK Insider Transaction Data"
+                    },
+        "category":  {
+                         "id":  "insiders",
+                         "name":  "Insiders"
+                     },
+        "subcategory":  {
+                            "id":  "insiders-insider-data",
+                            "name":  "Insider Data"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "insd12_positionchangetransactionamount",
+        "description":  "Number of shares bought (+) or sold (-) in the transaction",
+        "dataset":  {
+                        "id":  "insiders12",
+                        "name":  "UK Insider Transaction Data"
+                    },
+        "category":  {
+                         "id":  "insiders",
+                         "name":  "Insiders"
+                     },
+        "subcategory":  {
+                            "id":  "insiders-insider-data",
+                            "name":  "Insider Data"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "insd12_sharesheld",
+        "description":  "Number of shares held by the insider after the transaction as officially reported",
+        "dataset":  {
+                        "id":  "insiders12",
+                        "name":  "UK Insider Transaction Data"
+                    },
+        "category":  {
+                         "id":  "insiders",
+                         "name":  "Insiders"
+                     },
+        "subcategory":  {
+                            "id":  "insiders-insider-data",
+                            "name":  "Insider Data"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "option_exercise_price_eur",
+        "description":  "Exercise price for derivatives or options in EUR, as disclosed in the transaction",
+        "dataset":  {
+                        "id":  "insiders12",
+                        "name":  "UK Insider Transaction Data"
+                    },
+        "category":  {
+                         "id":  "insiders",
+                         "name":  "Insiders"
+                     },
+        "subcategory":  {
+                            "id":  "insiders-insider-data",
+                            "name":  "Insider Data"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "option_exercise_price_gbp",
+        "description":  "Exercise price of derivatives or options in GBP, as disclosed in the transaction",
+        "dataset":  {
+                        "id":  "insiders12",
+                        "name":  "UK Insider Transaction Data"
+                    },
+        "category":  {
+                         "id":  "insiders",
+                         "name":  "Insiders"
+                     },
+        "subcategory":  {
+                            "id":  "insiders-insider-data",
+                            "name":  "Insider Data"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "option_exercise_price_reported",
+        "description":  "Price at which the option/derivative was exercised at the time of the trade; currency varies by context",
+        "dataset":  {
+                        "id":  "insiders12",
+                        "name":  "UK Insider Transaction Data"
+                    },
+        "category":  {
+                         "id":  "insiders",
+                         "name":  "Insiders"
+                     },
+        "subcategory":  {
+                            "id":  "insiders-insider-data",
+                            "name":  "Insider Data"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    }
+]

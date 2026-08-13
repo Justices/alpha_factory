@@ -1,0 +1,4258 @@
+﻿[
+    {
+        "id":  "probability_label0_2quantile_10day_eur_ohlc_ma",
+        "description":  "Probability that the 10-day forward return falls into the first quantile group out of two using EUR OHLC moving average features.",
+        "dataset":  {
+                        "id":  "dl_riskfree_returns",
+                        "name":  "Deep Learning Risk Free Returns"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-aiml-data",
+                            "name":  "AI/ML Data"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.5879,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "probability_label0_2quantile_20day_eur_ohlcma",
+        "description":  "Model probability for label 0 in 2-quantile classification of 20-day return using European price chart features.",
+        "dataset":  {
+                        "id":  "dl_riskfree_returns",
+                        "name":  "Deep Learning Risk Free Returns"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-aiml-data",
+                            "name":  "AI/ML Data"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.5879,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "probability_label0_2quantile_20day_ohlcv",
+        "description":  "Log-probability for quantile bucket 0 (0-based) out of 2 buckets of the 20-day forward risk-free market-neutral return forecast",
+        "dataset":  {
+                        "id":  "dl_riskfree_returns",
+                        "name":  "Deep Learning Risk Free Returns"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-aiml-data",
+                            "name":  "AI/ML Data"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  0.9997,
+        "coverage":  1,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "probability_label0_2quantile_50day_eur_ohlc_ma",
+        "description":  "Probability that the 50-day forward return falls into the first quantile group out of two using EUR OHLC moving average features.",
+        "dataset":  {
+                        "id":  "dl_riskfree_returns",
+                        "name":  "Deep Learning Risk Free Returns"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-aiml-data",
+                            "name":  "AI/ML Data"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.5879,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "probability_label0_2quantile_5day_eur_ohlc_ma",
+        "description":  "Probability that the 5-day forward return falls into the first quantile group out of two using EUR OHLC moving average features.",
+        "dataset":  {
+                        "id":  "dl_riskfree_returns",
+                        "name":  "Deep Learning Risk Free Returns"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-aiml-data",
+                            "name":  "AI/ML Data"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.5879,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "probability_label0_2quantile_5day_ohlcv",
+        "description":  "Log-probability (log-softmax) that the 5-day forward market-neutral return falls in quantile bucket 0 of 2 (0-based); exponentiate value to get true probability",
+        "dataset":  {
+                        "id":  "dl_riskfree_returns",
+                        "name":  "Deep Learning Risk Free Returns"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-aiml-data",
+                            "name":  "AI/ML Data"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  0.9997,
+        "coverage":  1,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "probability_label0_2quantile_60day_ohlcv",
+        "description":  "Log-probability (log-softmax) that the 60-day forward market-neutral return falls in quantile bucket index 0 of 2 buckets for the ASI_IMG_pred_OHLCV risk-free model variant",
+        "dataset":  {
+                        "id":  "dl_riskfree_returns",
+                        "name":  "Deep Learning Risk Free Returns"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-aiml-data",
+                            "name":  "AI/ML Data"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  0.9997,
+        "coverage":  1,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "probability_label0_3quantile_10day_eur_ohlc_ma",
+        "description":  "Probability that the 10-day forward return falls into the first quantile group using EUR OHLC moving average features.",
+        "dataset":  {
+                        "id":  "dl_riskfree_returns",
+                        "name":  "Deep Learning Risk Free Returns"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-aiml-data",
+                            "name":  "AI/ML Data"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.5879,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "probability_label0_3quantile_20day_eur_ohlc_ma",
+        "description":  "Log-probability for quantile bucket 0 (zero-based) out of 3 buckets for 20-day forward market-neutral return",
+        "dataset":  {
+                        "id":  "dl_riskfree_returns",
+                        "name":  "Deep Learning Risk Free Returns"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-aiml-data",
+                            "name":  "AI/ML Data"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.5879,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "probability_label0_3quantile_20day_ohlcv_2",
+        "description":  "Log-probability that the 20-day forward return falls in quantile bucket index 0 out of 3 buckets (0-based); exp(value) gives actionable probability",
+        "dataset":  {
+                        "id":  "dl_riskfree_returns",
+                        "name":  "Deep Learning Risk Free Returns"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-aiml-data",
+                            "name":  "AI/ML Data"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  0.9997,
+        "coverage":  1,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "probability_label0_3quantile_50day_eur_ohlc_ma",
+        "description":  "Probability that the 50-day forward return falls into the first quantile group using EUR OHLC moving average features.",
+        "dataset":  {
+                        "id":  "dl_riskfree_returns",
+                        "name":  "Deep Learning Risk Free Returns"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-aiml-data",
+                            "name":  "AI/ML Data"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.5879,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "probability_label0_3quantile_5day_eur_ohlc_ma",
+        "description":  "Probability that the 5-day forward return falls into the first quantile group using EUR OHLC moving average features.",
+        "dataset":  {
+                        "id":  "dl_riskfree_returns",
+                        "name":  "Deep Learning Risk Free Returns"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-aiml-data",
+                            "name":  "AI/ML Data"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.5879,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "probability_label0_3quantile_5day_ohlcv_2",
+        "description":  "Log-probability for quantile bucket 0 (0-based) out of 3 buckets for 5-day forward risk-free return prediction; exp(value) gives probability",
+        "dataset":  {
+                        "id":  "dl_riskfree_returns",
+                        "name":  "Deep Learning Risk Free Returns"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-aiml-data",
+                            "name":  "AI/ML Data"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  0.9997,
+        "coverage":  1,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "probability_label0_3quantile_60day_ohlcv",
+        "description":  "Log-probability (log-softmax) that the 60-day forward market-neutral return falls in quantile bucket index 0 of 3 buckets for the ASI_IMG_pred_OHLCV risk-free model variant",
+        "dataset":  {
+                        "id":  "dl_riskfree_returns",
+                        "name":  "Deep Learning Risk Free Returns"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-aiml-data",
+                            "name":  "AI/ML Data"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  0.9997,
+        "coverage":  1,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "probability_label0_4quantile_10day_eur_ohlc_ma",
+        "description":  "Log-probability that 10-day forward return is in bucket index 0 of 4 buckets for European ohlc_ma MFM2 model; exponentiate to get probability",
+        "dataset":  {
+                        "id":  "dl_riskfree_returns",
+                        "name":  "Deep Learning Risk Free Returns"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-aiml-data",
+                            "name":  "AI/ML Data"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.5879,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "probability_label0_4quantile_20day_eur_ohlcma",
+        "description":  "Model probability for label 0 in 4-quantile classification of 20-day return using European price chart features.",
+        "dataset":  {
+                        "id":  "dl_riskfree_returns",
+                        "name":  "Deep Learning Risk Free Returns"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-aiml-data",
+                            "name":  "AI/ML Data"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.5879,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "probability_label0_4quantile_20day_ohlcv",
+        "description":  "Log-probability for quantile bucket 0 (zero-based) of 5 for 20-day forward return; exponentiate for probability",
+        "dataset":  {
+                        "id":  "dl_riskfree_returns",
+                        "name":  "Deep Learning Risk Free Returns"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-aiml-data",
+                            "name":  "AI/ML Data"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  0.9997,
+        "coverage":  1,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "probability_label0_4quantile_50day_eur_ohlc_ma",
+        "description":  "Probability that the 50-day forward return falls into the first quantile group out of four using EUR OHLC moving average features.",
+        "dataset":  {
+                        "id":  "dl_riskfree_returns",
+                        "name":  "Deep Learning Risk Free Returns"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-aiml-data",
+                            "name":  "AI/ML Data"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.5879,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "probability_label0_4quantile_5day_eur_ohlc_ma",
+        "description":  "Probability that the 5-day forward return falls into the first quantile group out of four using EUR OHLC moving average features.",
+        "dataset":  {
+                        "id":  "dl_riskfree_returns",
+                        "name":  "Deep Learning Risk Free Returns"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-aiml-data",
+                            "name":  "AI/ML Data"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.5879,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "probability_label0_4quantile_5day_ohlcv_2",
+        "description":  "Log-probability (log-softmax) that the 5-day forward market-neutral return falls in quantile bucket index 0 of 4 buckets for the ASI_IMG_pred_OHLCV risk-free model variant",
+        "dataset":  {
+                        "id":  "dl_riskfree_returns",
+                        "name":  "Deep Learning Risk Free Returns"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-aiml-data",
+                            "name":  "AI/ML Data"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  0.9997,
+        "coverage":  1,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "probability_label0_4quantile_60day_ohlcv",
+        "description":  "Log-probability (log-softmax) that the 60-day forward market-neutral return falls in quantile bucket 0 of 4 (0-based); exponentiate value to get true probability",
+        "dataset":  {
+                        "id":  "dl_riskfree_returns",
+                        "name":  "Deep Learning Risk Free Returns"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-aiml-data",
+                            "name":  "AI/ML Data"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  0.9997,
+        "coverage":  1,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "probability_label0_5quantile_10day_eur_ohlc_ma",
+        "description":  "Probability that the 10-day forward return falls into the first quantile group out of five using EUR OHLC moving average features.",
+        "dataset":  {
+                        "id":  "dl_riskfree_returns",
+                        "name":  "Deep Learning Risk Free Returns"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-aiml-data",
+                            "name":  "AI/ML Data"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.5879,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "probability_label0_5quantile_20day_eur_ohlcma",
+        "description":  "Model probability for label 0 in 5-quantile classification of 20-day return using European price chart features.",
+        "dataset":  {
+                        "id":  "dl_riskfree_returns",
+                        "name":  "Deep Learning Risk Free Returns"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-aiml-data",
+                            "name":  "AI/ML Data"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.5879,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "probability_label0_5quantile_20day_ohlcv",
+        "description":  "Log-probability that the 20-day forward market-neutral return falls in quantile bucket 0 of 5 (zero-based); exp(value) gives actionable probability",
+        "dataset":  {
+                        "id":  "dl_riskfree_returns",
+                        "name":  "Deep Learning Risk Free Returns"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-aiml-data",
+                            "name":  "AI/ML Data"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  0.9997,
+        "coverage":  1,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "probability_label0_5quantile_50day_eur_ohlc_ma",
+        "description":  "Probability that the 50-day forward return falls into the first quantile group out of five using EUR OHLC moving average features.",
+        "dataset":  {
+                        "id":  "dl_riskfree_returns",
+                        "name":  "Deep Learning Risk Free Returns"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-aiml-data",
+                            "name":  "AI/ML Data"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.5879,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "probability_label0_5quantile_5day_eur_ohlc_ma",
+        "description":  "Probability that the 5-day forward return falls into the first quantile group out of five using EUR OHLC moving average features.",
+        "dataset":  {
+                        "id":  "dl_riskfree_returns",
+                        "name":  "Deep Learning Risk Free Returns"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-aiml-data",
+                            "name":  "AI/ML Data"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.5879,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "probability_label0_5quantile_5day_ohlcv_2",
+        "description":  "Log-probability that the 5-day forward market-neutral return falls in quantile bucket 0 of 5 (zero-based); exp(value) gives actionable probability",
+        "dataset":  {
+                        "id":  "dl_riskfree_returns",
+                        "name":  "Deep Learning Risk Free Returns"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-aiml-data",
+                            "name":  "AI/ML Data"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  0.9997,
+        "coverage":  1,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "probability_label0_5quantile_60day_ohlcv_2",
+        "description":  "Log-probability that 60-day forward return is in bucket index 0 of 5 buckets (zero-based), exp(value) gives probability",
+        "dataset":  {
+                        "id":  "dl_riskfree_returns",
+                        "name":  "Deep Learning Risk Free Returns"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-aiml-data",
+                            "name":  "AI/ML Data"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  0.9997,
+        "coverage":  1,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "probability_label1_2quantile_10day_eur_ohlc_ma",
+        "description":  "Probability that the 10-day forward return falls into the second quantile group out of two using EUR OHLC moving average features.",
+        "dataset":  {
+                        "id":  "dl_riskfree_returns",
+                        "name":  "Deep Learning Risk Free Returns"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-aiml-data",
+                            "name":  "AI/ML Data"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.5879,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "probability_label1_2quantile_20day_eur_ohlcma",
+        "description":  "Model probability for label 1 in 2-quantile classification of 20-day return using European price chart features.",
+        "dataset":  {
+                        "id":  "dl_riskfree_returns",
+                        "name":  "Deep Learning Risk Free Returns"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-aiml-data",
+                            "name":  "AI/ML Data"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.5879,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "probability_label1_2quantile_20day_ohlcv_2",
+        "description":  "Log-probability for quantile bucket 1 (0-based) of 2 for 20-day forward market-neutral return; exp(value) yields actionable probability",
+        "dataset":  {
+                        "id":  "dl_riskfree_returns",
+                        "name":  "Deep Learning Risk Free Returns"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-aiml-data",
+                            "name":  "AI/ML Data"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  0.9997,
+        "coverage":  1,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "probability_label1_2quantile_50day_eur_ohlc_ma",
+        "description":  "Probability that the 50-day forward return falls into the second quantile group out of two using EUR OHLC moving average features.",
+        "dataset":  {
+                        "id":  "dl_riskfree_returns",
+                        "name":  "Deep Learning Risk Free Returns"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-aiml-data",
+                            "name":  "AI/ML Data"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.5879,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "probability_label1_2quantile_5day_eur_ohlc_ma",
+        "description":  "Probability that the 5-day forward return falls into the second quantile group out of two using EUR OHLC moving average features.",
+        "dataset":  {
+                        "id":  "dl_riskfree_returns",
+                        "name":  "Deep Learning Risk Free Returns"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-aiml-data",
+                            "name":  "AI/ML Data"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.5879,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "probability_label1_2quantile_5day_ohlcv",
+        "description":  "Log-probability (log-softmax) that the 5-day forward market-neutral return falls in quantile bucket 1 of 2 (0-based); exponentiate value to get true probability",
+        "dataset":  {
+                        "id":  "dl_riskfree_returns",
+                        "name":  "Deep Learning Risk Free Returns"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-aiml-data",
+                            "name":  "AI/ML Data"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  0.9997,
+        "coverage":  1,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "probability_label1_2quantile_60day_ohlcv",
+        "description":  "Log-probability that the 60-day forward market-neutral return is in quantile bucket 1 of 2 buckets, zero-based; exp(value) gives the actual probability",
+        "dataset":  {
+                        "id":  "dl_riskfree_returns",
+                        "name":  "Deep Learning Risk Free Returns"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-aiml-data",
+                            "name":  "AI/ML Data"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  0.9997,
+        "coverage":  1,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "probability_label1_3quantile_10day_eur_ohlc_ma",
+        "description":  "Log-probability that 10-day forward return is in bucket index 1 of 3 buckets for European ohlc_ma MFM2 model; exponentiate to get probability",
+        "dataset":  {
+                        "id":  "dl_riskfree_returns",
+                        "name":  "Deep Learning Risk Free Returns"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-aiml-data",
+                            "name":  "AI/ML Data"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.5879,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "probability_label1_3quantile_20day_eur_ohlc_ma",
+        "description":  "Log-probability for quantile bucket 1 (zero-based) out of 3 buckets for 20-day forward market-neutral return",
+        "dataset":  {
+                        "id":  "dl_riskfree_returns",
+                        "name":  "Deep Learning Risk Free Returns"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-aiml-data",
+                            "name":  "AI/ML Data"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.5879,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "probability_label1_3quantile_20day_ohlcv",
+        "description":  "Log-probability for quantile bucket 1 (0-based) of 3 for 20-day forward market-neutral return; exp(value) yields actionable probability",
+        "dataset":  {
+                        "id":  "dl_riskfree_returns",
+                        "name":  "Deep Learning Risk Free Returns"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-aiml-data",
+                            "name":  "AI/ML Data"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  0.9997,
+        "coverage":  1,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "probability_label1_3quantile_50day_eur_ohlc_ma",
+        "description":  "Probability that the 50-day forward return falls into the second quantile group using EUR OHLC moving average features.",
+        "dataset":  {
+                        "id":  "dl_riskfree_returns",
+                        "name":  "Deep Learning Risk Free Returns"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-aiml-data",
+                            "name":  "AI/ML Data"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.5879,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "probability_label1_3quantile_5day_eur_ohlc_ma",
+        "description":  "Probability that the 5-day forward return falls into the second quantile group using EUR OHLC moving average features.",
+        "dataset":  {
+                        "id":  "dl_riskfree_returns",
+                        "name":  "Deep Learning Risk Free Returns"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-aiml-data",
+                            "name":  "AI/ML Data"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.5879,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "probability_label1_3quantile_5day_ohlcv_2",
+        "description":  "Log-probability (log-softmax) that the 5-day forward market-neutral return falls in quantile bucket 1 of 3 (0-based); exponentiate value to get true probability",
+        "dataset":  {
+                        "id":  "dl_riskfree_returns",
+                        "name":  "Deep Learning Risk Free Returns"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-aiml-data",
+                            "name":  "AI/ML Data"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  0.9997,
+        "coverage":  1,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "probability_label1_3quantile_60day_ohlcv",
+        "description":  "Log-probability (log-softmax) that the 60-day forward market-neutral return falls in quantile bucket index 1 of 3 buckets for the ASI_IMG_pred_OHLCV risk-free model variant",
+        "dataset":  {
+                        "id":  "dl_riskfree_returns",
+                        "name":  "Deep Learning Risk Free Returns"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-aiml-data",
+                            "name":  "AI/ML Data"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  0.9997,
+        "coverage":  1,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "probability_label1_4quantile_10day_eur_ohlc_ma",
+        "description":  "Probability that the 10-day forward return falls into the second quantile group out of four using EUR OHLC moving average features.",
+        "dataset":  {
+                        "id":  "dl_riskfree_returns",
+                        "name":  "Deep Learning Risk Free Returns"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-aiml-data",
+                            "name":  "AI/ML Data"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.5879,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "probability_label1_4quantile_20day_eur_ohlcma",
+        "description":  "Model probability for label 1 in 4-quantile classification of 20-day return using European price chart features.",
+        "dataset":  {
+                        "id":  "dl_riskfree_returns",
+                        "name":  "Deep Learning Risk Free Returns"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-aiml-data",
+                            "name":  "AI/ML Data"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.5879,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "probability_label1_4quantile_20day_ohlcv",
+        "description":  "Log-probability (log-softmax) that the 20-day forward market-neutral return falls in quantile bucket index 1 of 4 buckets for the ASI_IMG_pred_OHLCV risk-free model variant",
+        "dataset":  {
+                        "id":  "dl_riskfree_returns",
+                        "name":  "Deep Learning Risk Free Returns"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-aiml-data",
+                            "name":  "AI/ML Data"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  0.9997,
+        "coverage":  1,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "probability_label1_4quantile_50day_eur_ohlc_ma",
+        "description":  "Probability that the 50-day forward return falls into the second quantile group out of four using EUR OHLC moving average features.",
+        "dataset":  {
+                        "id":  "dl_riskfree_returns",
+                        "name":  "Deep Learning Risk Free Returns"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-aiml-data",
+                            "name":  "AI/ML Data"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.5879,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "probability_label1_4quantile_5day_eur_ohlc_ma",
+        "description":  "Probability that the 5-day forward return falls into the second quantile group out of four using EUR OHLC moving average features.",
+        "dataset":  {
+                        "id":  "dl_riskfree_returns",
+                        "name":  "Deep Learning Risk Free Returns"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-aiml-data",
+                            "name":  "AI/ML Data"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.5879,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "probability_label1_4quantile_5day_ohlcv_2",
+        "description":  "Log-probability that the 5-day forward market-neutral return falls in quantile bucket 1 of 4 (zero-based); exp(value) gives actionable probability",
+        "dataset":  {
+                        "id":  "dl_riskfree_returns",
+                        "name":  "Deep Learning Risk Free Returns"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-aiml-data",
+                            "name":  "AI/ML Data"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  0.9997,
+        "coverage":  1,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "probability_label1_4quantile_60day_ohlcv",
+        "description":  "Log-probability that the 60-day forward market-neutral return falls in quantile bucket 1 of 4 (zero-based); exp(value) gives actionable probability",
+        "dataset":  {
+                        "id":  "dl_riskfree_returns",
+                        "name":  "Deep Learning Risk Free Returns"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-aiml-data",
+                            "name":  "AI/ML Data"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  0.9997,
+        "coverage":  1,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "probability_label1_5quantile_10day_eur_ohlc_ma",
+        "description":  "Probability that the 10-day forward return falls into the second quantile group out of five using EUR OHLC moving average features.",
+        "dataset":  {
+                        "id":  "dl_riskfree_returns",
+                        "name":  "Deep Learning Risk Free Returns"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-aiml-data",
+                            "name":  "AI/ML Data"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.5879,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "probability_label1_5quantile_20day_eur_ohlcma",
+        "description":  "Log-probability for quantile bucket 1 (zero-based) out of 5 buckets for 20-day forward market-neutral return",
+        "dataset":  {
+                        "id":  "dl_riskfree_returns",
+                        "name":  "Deep Learning Risk Free Returns"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-aiml-data",
+                            "name":  "AI/ML Data"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.5879,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "probability_label1_5quantile_20day_ohlcv",
+        "description":  "Log-probability that 20-day forward return is in bucket index 1 of 5 buckets (zero-based), exp(value) gives probability",
+        "dataset":  {
+                        "id":  "dl_riskfree_returns",
+                        "name":  "Deep Learning Risk Free Returns"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-aiml-data",
+                            "name":  "AI/ML Data"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  0.9997,
+        "coverage":  1,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "probability_label1_5quantile_50day_eur_ohlc_ma",
+        "description":  "Probability that the 50-day forward return falls into the second quantile group out of five using EUR OHLC moving average features.",
+        "dataset":  {
+                        "id":  "dl_riskfree_returns",
+                        "name":  "Deep Learning Risk Free Returns"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-aiml-data",
+                            "name":  "AI/ML Data"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.5879,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "probability_label1_5quantile_5day_eur_ohlc_ma",
+        "description":  "Probability that the 5-day forward return falls into the second quantile group out of five using EUR OHLC moving average features.",
+        "dataset":  {
+                        "id":  "dl_riskfree_returns",
+                        "name":  "Deep Learning Risk Free Returns"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-aiml-data",
+                            "name":  "AI/ML Data"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.5879,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "probability_label1_5quantile_5day_ohlcv_2",
+        "description":  "Log-probability (log-softmax) that the 5-day forward market-neutral return falls in quantile bucket 1 of 5 (0-based); exponentiate value to get true probability",
+        "dataset":  {
+                        "id":  "dl_riskfree_returns",
+                        "name":  "Deep Learning Risk Free Returns"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-aiml-data",
+                            "name":  "AI/ML Data"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  0.9997,
+        "coverage":  1,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "probability_label1_5quantile_60day_ohlcv",
+        "description":  "Log-probability that the 60-day forward market-neutral return is in quantile bucket index 1 out of 5; exponentiate to get probability",
+        "dataset":  {
+                        "id":  "dl_riskfree_returns",
+                        "name":  "Deep Learning Risk Free Returns"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-aiml-data",
+                            "name":  "AI/ML Data"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  0.9997,
+        "coverage":  1,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "probability_label2_3quantile_10day_eur_ohlc_ma",
+        "description":  "Log-probability that 10-day forward return is in bucket index 2 of 3 buckets for European ohlc_ma MFM2 model; exponentiate to get probability",
+        "dataset":  {
+                        "id":  "dl_riskfree_returns",
+                        "name":  "Deep Learning Risk Free Returns"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-aiml-data",
+                            "name":  "AI/ML Data"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.5879,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "probability_label2_3quantile_20day_eur_ohlcma",
+        "description":  "Log-probability for quantile bucket 2 (zero-based) out of 3 buckets for 20-day forward market-neutral return",
+        "dataset":  {
+                        "id":  "dl_riskfree_returns",
+                        "name":  "Deep Learning Risk Free Returns"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-aiml-data",
+                            "name":  "AI/ML Data"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.5879,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "probability_label2_3quantile_20day_ohlcv",
+        "description":  "Log-probability (log-softmax) that the 20-day forward market-neutral return falls in quantile bucket 2 of 3 (0-based); exponentiate value to get true probability",
+        "dataset":  {
+                        "id":  "dl_riskfree_returns",
+                        "name":  "Deep Learning Risk Free Returns"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-aiml-data",
+                            "name":  "AI/ML Data"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  0.9997,
+        "coverage":  1,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "probability_label2_3quantile_50day_eur_ohlc_ma",
+        "description":  "Log-probability that the 50-day forward market-neutral return falls in quantile bucket index 2 of 3; exp(value) converts to probability",
+        "dataset":  {
+                        "id":  "dl_riskfree_returns",
+                        "name":  "Deep Learning Risk Free Returns"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-aiml-data",
+                            "name":  "AI/ML Data"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.5879,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "probability_label2_3quantile_5day_eur_ohlc_ma",
+        "description":  "Probability that the 5-day forward return falls into the third quantile group using EUR OHLC moving average features.",
+        "dataset":  {
+                        "id":  "dl_riskfree_returns",
+                        "name":  "Deep Learning Risk Free Returns"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-aiml-data",
+                            "name":  "AI/ML Data"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.5879,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "probability_label2_3quantile_5day_ohlcv",
+        "description":  "Log-probability that the 5-day forward market-neutral return is in quantile bucket 2 of 3 buckets, zero-based; exp(value) gives the actual probability",
+        "dataset":  {
+                        "id":  "dl_riskfree_returns",
+                        "name":  "Deep Learning Risk Free Returns"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-aiml-data",
+                            "name":  "AI/ML Data"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  0.9997,
+        "coverage":  1,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "probability_label2_3quantile_60day_ohlcv",
+        "description":  "Log-probability for quantile bucket 2 (0-based) out of 3 buckets of the 60-day forward risk-free market-neutral return forecast",
+        "dataset":  {
+                        "id":  "dl_riskfree_returns",
+                        "name":  "Deep Learning Risk Free Returns"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-aiml-data",
+                            "name":  "AI/ML Data"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  0.9997,
+        "coverage":  1,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "probability_label2_4quantile_10day_eur_ohlc_ma",
+        "description":  "Log-probability that 10-day forward return is in bucket index 2 of 4 buckets for European ohlc_ma MFM2 model; exponentiate to get probability",
+        "dataset":  {
+                        "id":  "dl_riskfree_returns",
+                        "name":  "Deep Learning Risk Free Returns"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-aiml-data",
+                            "name":  "AI/ML Data"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.5879,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "probability_label2_4quantile_20day_eur_ohlcma",
+        "description":  "Model probability for label 2 in 4-quantile classification of 20-day return using European price chart features.",
+        "dataset":  {
+                        "id":  "dl_riskfree_returns",
+                        "name":  "Deep Learning Risk Free Returns"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-aiml-data",
+                            "name":  "AI/ML Data"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.5879,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "probability_label2_4quantile_20day_ohlcv_2",
+        "description":  "Log-probability that the 20-day forward market-neutral return falls in quantile bucket 2 of 4 (zero-based); exp(value) gives actionable probability",
+        "dataset":  {
+                        "id":  "dl_riskfree_returns",
+                        "name":  "Deep Learning Risk Free Returns"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-aiml-data",
+                            "name":  "AI/ML Data"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  0.9997,
+        "coverage":  1,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "probability_label2_4quantile_50day_eur_ohlc_ma",
+        "description":  "Probability that the 50-day forward return falls into the third quantile group out of four using EUR OHLC moving average features.",
+        "dataset":  {
+                        "id":  "dl_riskfree_returns",
+                        "name":  "Deep Learning Risk Free Returns"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-aiml-data",
+                            "name":  "AI/ML Data"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.5879,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "probability_label2_4quantile_5day_eur_ohlc_ma",
+        "description":  "Probability that the 5-day forward return falls into the third quantile group out of four using EUR OHLC moving average features.",
+        "dataset":  {
+                        "id":  "dl_riskfree_returns",
+                        "name":  "Deep Learning Risk Free Returns"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-aiml-data",
+                            "name":  "AI/ML Data"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.5879,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "probability_label2_4quantile_5day_ohlcv",
+        "description":  "Log-probability (log-softmax) that the 5-day forward market-neutral return falls in quantile bucket 2 of 4 (0-based); exponentiate value to get true probability",
+        "dataset":  {
+                        "id":  "dl_riskfree_returns",
+                        "name":  "Deep Learning Risk Free Returns"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-aiml-data",
+                            "name":  "AI/ML Data"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  0.9997,
+        "coverage":  1,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "probability_label2_4quantile_60day_ohlcv",
+        "description":  "Log-probability (log-softmax) that the 60-day forward market-neutral return will fall in quantile bucket index 2 of 4 (zero-based, 4 buckets total); apply exp() to get the actionable probability",
+        "dataset":  {
+                        "id":  "dl_riskfree_returns",
+                        "name":  "Deep Learning Risk Free Returns"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-aiml-data",
+                            "name":  "AI/ML Data"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  0.9997,
+        "coverage":  1,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "probability_label2_5quantile_10day_eur_ohlc_ma",
+        "description":  "Log-probability (log-softmax) of the 10-day forward return being in bucket index 2 (third bucket) out of 5 buckets for European ohlc_ma MFM2 model; exponentiate to get probability",
+        "dataset":  {
+                        "id":  "dl_riskfree_returns",
+                        "name":  "Deep Learning Risk Free Returns"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-aiml-data",
+                            "name":  "AI/ML Data"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.5879,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "probability_label2_5quantile_20day_eur_ohlcma",
+        "description":  "Model probability for label 2 in 5-quantile classification of 20-day return using European price chart features.",
+        "dataset":  {
+                        "id":  "dl_riskfree_returns",
+                        "name":  "Deep Learning Risk Free Returns"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-aiml-data",
+                            "name":  "AI/ML Data"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.5879,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "probability_label2_5quantile_20day_ohlcv_2",
+        "description":  "Log-probability for quantile bucket 2 (0-based) out of 5 buckets for 20-day forward risk-free return prediction; exp(value) gives probability",
+        "dataset":  {
+                        "id":  "dl_riskfree_returns",
+                        "name":  "Deep Learning Risk Free Returns"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-aiml-data",
+                            "name":  "AI/ML Data"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  0.9997,
+        "coverage":  1,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "probability_label2_5quantile_50day_eur_ohlc_ma",
+        "description":  "Probability that the 50-day forward return falls into the third quantile group out of five using EUR OHLC moving average features.",
+        "dataset":  {
+                        "id":  "dl_riskfree_returns",
+                        "name":  "Deep Learning Risk Free Returns"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-aiml-data",
+                            "name":  "AI/ML Data"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.5879,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "probability_label2_5quantile_5day_eur_ohlc_ma",
+        "description":  "Probability that the 5-day forward return falls into the third quantile group out of five using EUR OHLC moving average features.",
+        "dataset":  {
+                        "id":  "dl_riskfree_returns",
+                        "name":  "Deep Learning Risk Free Returns"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-aiml-data",
+                            "name":  "AI/ML Data"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.5879,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "probability_label2_5quantile_5day_ohlcv",
+        "description":  "Log-probability (log-softmax) that the 5-day forward market-neutral return falls in quantile bucket 2 of 5 (zero-based); exp(value) gives actionable probability",
+        "dataset":  {
+                        "id":  "dl_riskfree_returns",
+                        "name":  "Deep Learning Risk Free Returns"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-aiml-data",
+                            "name":  "AI/ML Data"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  0.9997,
+        "coverage":  1,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "probability_label2_5quantile_60day_ohlcv_2",
+        "description":  "Log-probability that the 60-day forward market-neutral return falls in quantile bucket 2 of 5 (zero-based); exp(value) gives actionable probability",
+        "dataset":  {
+                        "id":  "dl_riskfree_returns",
+                        "name":  "Deep Learning Risk Free Returns"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-aiml-data",
+                            "name":  "AI/ML Data"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  0.9997,
+        "coverage":  1,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "probability_label3_4quantile_10day_eur_ohlc_ma",
+        "description":  "Probability that the 10-day forward return falls into the fourth quantile group out of four using EUR OHLC moving average features.",
+        "dataset":  {
+                        "id":  "dl_riskfree_returns",
+                        "name":  "Deep Learning Risk Free Returns"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-aiml-data",
+                            "name":  "AI/ML Data"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.5879,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "probability_label3_4quantile_20day_eur_ohlcma",
+        "description":  "Model probability for label 3 in 4-quantile classification of 20-day return using European price chart features.",
+        "dataset":  {
+                        "id":  "dl_riskfree_returns",
+                        "name":  "Deep Learning Risk Free Returns"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-aiml-data",
+                            "name":  "AI/ML Data"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.5879,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "probability_label3_4quantile_20day_ohlcv_2",
+        "description":  "Log-probability (log-softmax) that the 20-day forward market-neutral return falls in quantile bucket index 3 of 4 buckets for the ASI_IMG_pred_OHLCV risk-free model variant",
+        "dataset":  {
+                        "id":  "dl_riskfree_returns",
+                        "name":  "Deep Learning Risk Free Returns"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-aiml-data",
+                            "name":  "AI/ML Data"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  0.9997,
+        "coverage":  1,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "probability_label3_4quantile_50day_eur_ohlc_ma",
+        "description":  "Probability that the 50-day forward return falls into the fourth quantile group out of four using EUR OHLC moving average features.",
+        "dataset":  {
+                        "id":  "dl_riskfree_returns",
+                        "name":  "Deep Learning Risk Free Returns"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-aiml-data",
+                            "name":  "AI/ML Data"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.5879,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "probability_label3_4quantile_5day_eur_ohlc_ma",
+        "description":  "Probability that the 5-day forward return falls into the fourth quantile group out of four using EUR OHLC moving average features.",
+        "dataset":  {
+                        "id":  "dl_riskfree_returns",
+                        "name":  "Deep Learning Risk Free Returns"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-aiml-data",
+                            "name":  "AI/ML Data"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.5879,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "probability_label3_4quantile_5day_ohlcv",
+        "description":  "Log-probability for quantile bucket 3 (zero-based) of 5 for 5-day forward return; exponentiate for probability",
+        "dataset":  {
+                        "id":  "dl_riskfree_returns",
+                        "name":  "Deep Learning Risk Free Returns"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-aiml-data",
+                            "name":  "AI/ML Data"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  0.9997,
+        "coverage":  1,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "probability_label3_4quantile_60day_ohlcv",
+        "description":  "Log-probability for quantile bucket 3 (0-based) out of 4 buckets for 60-day forward risk-free return prediction; exp(value) gives probability",
+        "dataset":  {
+                        "id":  "dl_riskfree_returns",
+                        "name":  "Deep Learning Risk Free Returns"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-aiml-data",
+                            "name":  "AI/ML Data"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  0.9997,
+        "coverage":  1,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "probability_label3_5quantile_10day_eur_ohlc_ma",
+        "description":  "Probability that the 10-day forward return falls into the fourth quantile group out of five using EUR OHLC moving average features.",
+        "dataset":  {
+                        "id":  "dl_riskfree_returns",
+                        "name":  "Deep Learning Risk Free Returns"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-aiml-data",
+                            "name":  "AI/ML Data"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.5879,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "probability_label3_5quantile_20day_eur_ohlcma",
+        "description":  "Model probability for label 3 in 5-quantile classification of 20-day return using European price chart features.",
+        "dataset":  {
+                        "id":  "dl_riskfree_returns",
+                        "name":  "Deep Learning Risk Free Returns"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-aiml-data",
+                            "name":  "AI/ML Data"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.5879,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "probability_label3_5quantile_20day_ohlcv_2",
+        "description":  "Log-probability for quantile bucket 3 (0-based) out of 5 buckets of the 20-day forward risk-free market-neutral return forecast",
+        "dataset":  {
+                        "id":  "dl_riskfree_returns",
+                        "name":  "Deep Learning Risk Free Returns"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-aiml-data",
+                            "name":  "AI/ML Data"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  0.9997,
+        "coverage":  1,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "probability_label3_5quantile_50day_eur_ohlc_ma",
+        "description":  "Probability that the 50-day forward return falls into the fourth quantile group out of five using EUR OHLC moving average features.",
+        "dataset":  {
+                        "id":  "dl_riskfree_returns",
+                        "name":  "Deep Learning Risk Free Returns"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-aiml-data",
+                            "name":  "AI/ML Data"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.5879,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "probability_label3_5quantile_5day_eur_ohlc_ma",
+        "description":  "Probability that the 5-day forward return falls into the fourth quantile group out of five using EUR OHLC moving average features.",
+        "dataset":  {
+                        "id":  "dl_riskfree_returns",
+                        "name":  "Deep Learning Risk Free Returns"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-aiml-data",
+                            "name":  "AI/ML Data"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.5879,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "probability_label3_5quantile_5day_ohlcv_2",
+        "description":  "Log-probability for quantile bucket 3 (0-based) out of 5 buckets for 5-day forward risk-free return prediction; exp(value) gives probability",
+        "dataset":  {
+                        "id":  "dl_riskfree_returns",
+                        "name":  "Deep Learning Risk Free Returns"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-aiml-data",
+                            "name":  "AI/ML Data"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  0.9997,
+        "coverage":  1,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "probability_label3_5quantile_60day_ohlcv",
+        "description":  "Log-probability that the 60-day forward market-neutral return falls in quantile bucket 3 of 5 (zero-based); exp(value) gives actionable probability",
+        "dataset":  {
+                        "id":  "dl_riskfree_returns",
+                        "name":  "Deep Learning Risk Free Returns"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-aiml-data",
+                            "name":  "AI/ML Data"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  0.9997,
+        "coverage":  1,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "probability_label4_5quantile_10day_eur_ohlc_ma",
+        "description":  "Probability that the 10-day forward return falls into the fifth quantile group using EUR OHLC moving average features.",
+        "dataset":  {
+                        "id":  "dl_riskfree_returns",
+                        "name":  "Deep Learning Risk Free Returns"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-aiml-data",
+                            "name":  "AI/ML Data"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.5879,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "probability_label4_5quantile_20day_eur_ohlcma",
+        "description":  "Model probability for label 4 in 5-quantile classification of 20-day return using European price chart features.",
+        "dataset":  {
+                        "id":  "dl_riskfree_returns",
+                        "name":  "Deep Learning Risk Free Returns"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-aiml-data",
+                            "name":  "AI/ML Data"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.5879,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "probability_label4_5quantile_20day_ohlcv",
+        "description":  "Log-probability (log-softmax) that the 20-day forward market-neutral return falls in quantile bucket index 4 of 5 buckets for the ASI_IMG_pred_OHLCV risk-free model variant",
+        "dataset":  {
+                        "id":  "dl_riskfree_returns",
+                        "name":  "Deep Learning Risk Free Returns"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-aiml-data",
+                            "name":  "AI/ML Data"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  0.9997,
+        "coverage":  1,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "probability_label4_5quantile_50day_eur_ohlc_ma",
+        "description":  "Probability that the 50-day forward return falls into the fifth quantile group using EUR OHLC moving average features.",
+        "dataset":  {
+                        "id":  "dl_riskfree_returns",
+                        "name":  "Deep Learning Risk Free Returns"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-aiml-data",
+                            "name":  "AI/ML Data"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.5879,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "probability_label4_5quantile_5day_eur_ohlc_ma",
+        "description":  "Probability that the 5-day forward return falls into the fifth quantile group using EUR OHLC moving average features.",
+        "dataset":  {
+                        "id":  "dl_riskfree_returns",
+                        "name":  "Deep Learning Risk Free Returns"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-aiml-data",
+                            "name":  "AI/ML Data"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.5879,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "probability_label4_5quantile_5day_ohlcv_2",
+        "description":  "Log-probability for quantile bucket 4 (0-based) out of 5 buckets of the 5-day forward risk-free market-neutral return forecast",
+        "dataset":  {
+                        "id":  "dl_riskfree_returns",
+                        "name":  "Deep Learning Risk Free Returns"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-aiml-data",
+                            "name":  "AI/ML Data"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  0.9997,
+        "coverage":  1,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "probability_label4_5quantile_60day_ohlcv",
+        "description":  "Log-probability that 60-day forward return is in bucket index 4 of 5 buckets (zero-based), exp(value) gives probability",
+        "dataset":  {
+                        "id":  "dl_riskfree_returns",
+                        "name":  "Deep Learning Risk Free Returns"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-aiml-data",
+                            "name":  "AI/ML Data"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  0.9997,
+        "coverage":  1,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "quantile_label_1bucket_20day_ohlcv",
+        "description":  "Continuous regression forecast of 20-day forward market-neutral return as a float; must be winsorized before use",
+        "dataset":  {
+                        "id":  "dl_riskfree_returns",
+                        "name":  "Deep Learning Risk Free Returns"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-aiml-data",
+                            "name":  "AI/ML Data"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  0.9997,
+        "coverage":  1,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "quantile_label_1bucket_5day_ohlcv_2",
+        "description":  "Continuous regression prediction (float) of the 5-day forward market-neutral return; requires winsorization before use",
+        "dataset":  {
+                        "id":  "dl_riskfree_returns",
+                        "name":  "Deep Learning Risk Free Returns"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-aiml-data",
+                            "name":  "AI/ML Data"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  0.9997,
+        "coverage":  1,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "quantile_label_1bucket_60day_ohlcv",
+        "description":  "Continuous regression prediction of 60-day forward risk-free return (float); requires winsorization before use",
+        "dataset":  {
+                        "id":  "dl_riskfree_returns",
+                        "name":  "Deep Learning Risk Free Returns"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-aiml-data",
+                            "name":  "AI/ML Data"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  0.9997,
+        "coverage":  1,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "quantile_label_2bucket_10day_eur_ohlc_ma",
+        "description":  "Assigned quantile bucket (integer 0 or 1) for the 10-day forward market-neutral return, divided into 2 buckets (0-based index)",
+        "dataset":  {
+                        "id":  "dl_riskfree_returns",
+                        "name":  "Deep Learning Risk Free Returns"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-aiml-data",
+                            "name":  "AI/ML Data"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.5879,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "quantile_label_2bucket_20day_eur_ohlcma",
+        "description":  "Assigned quantile bucket index (0 to 1) for 20-day forward market-neutral return divided into 2 buckets",
+        "dataset":  {
+                        "id":  "dl_riskfree_returns",
+                        "name":  "Deep Learning Risk Free Returns"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-aiml-data",
+                            "name":  "AI/ML Data"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.5879,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "quantile_label_2bucket_20day_ohlcv",
+        "description":  "Assigned quantile bucket (integer 0 or 1) of 2 buckets for the 20-day forward risk-free market-neutral return forecast",
+        "dataset":  {
+                        "id":  "dl_riskfree_returns",
+                        "name":  "Deep Learning Risk Free Returns"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-aiml-data",
+                            "name":  "AI/ML Data"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  0.9997,
+        "coverage":  1,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "quantile_label_2bucket_50day_eur_ohlc_ma",
+        "description":  "Assigned quantile bucket index (0-based) out of 2 buckets indicating predicted 50-day forward market-neutral return",
+        "dataset":  {
+                        "id":  "dl_riskfree_returns",
+                        "name":  "Deep Learning Risk Free Returns"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-aiml-data",
+                            "name":  "AI/ML Data"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.5879,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "quantile_label_2bucket_5day_eur_ohlc_ma",
+        "description":  "Predicted quantile label (out of 2) for 5-day forward return using EUR OHLC moving average features.",
+        "dataset":  {
+                        "id":  "dl_riskfree_returns",
+                        "name":  "Deep Learning Risk Free Returns"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-aiml-data",
+                            "name":  "AI/ML Data"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.5879,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "quantile_label_2bucket_5day_ohlcv_2",
+        "description":  "Assigned quantile bucket (0-based) index of 2 buckets for 5-day forward risk-free return prediction (integer)",
+        "dataset":  {
+                        "id":  "dl_riskfree_returns",
+                        "name":  "Deep Learning Risk Free Returns"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-aiml-data",
+                            "name":  "AI/ML Data"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  0.9997,
+        "coverage":  1,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "quantile_label_2bucket_60day_ohlcv",
+        "description":  "Assigned quantile bucket index (0 or 1) for the 60-day forward market-neutral return divided into 2 buckets, zero-based",
+        "dataset":  {
+                        "id":  "dl_riskfree_returns",
+                        "name":  "Deep Learning Risk Free Returns"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-aiml-data",
+                            "name":  "AI/ML Data"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  0.9997,
+        "coverage":  1,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "quantile_label_3bucket_10day_eur_ohlc_ma",
+        "description":  "Assigned quantile bucket (0-based, 0 to 2) for 10-day forward market-neutral return divided into 3 buckets for European ohlc_ma MFM2 model",
+        "dataset":  {
+                        "id":  "dl_riskfree_returns",
+                        "name":  "Deep Learning Risk Free Returns"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-aiml-data",
+                            "name":  "AI/ML Data"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.5879,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "quantile_label_3bucket_20day_eur_ohlc_ma",
+        "description":  "Assigned quantile bucket index (0 to 2) for 20-day forward market-neutral return divided into 3 buckets",
+        "dataset":  {
+                        "id":  "dl_riskfree_returns",
+                        "name":  "Deep Learning Risk Free Returns"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-aiml-data",
+                            "name":  "AI/ML Data"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.5879,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "quantile_label_3bucket_20day_ohlcv",
+        "description":  "Assigned quantile bucket (integer 0 to 2) for the 20-day forward market-neutral return, zero-based indexing",
+        "dataset":  {
+                        "id":  "dl_riskfree_returns",
+                        "name":  "Deep Learning Risk Free Returns"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-aiml-data",
+                            "name":  "AI/ML Data"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  0.9997,
+        "coverage":  1,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "quantile_label_3bucket_50day_eur_ohlc_ma",
+        "description":  "Assigned quantile bucket index (0-based) for the 50-day forward market-neutral return divided into 3 buckets",
+        "dataset":  {
+                        "id":  "dl_riskfree_returns",
+                        "name":  "Deep Learning Risk Free Returns"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-aiml-data",
+                            "name":  "AI/ML Data"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.5879,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "quantile_label_3bucket_5day_eur_ohlc_ma",
+        "description":  "Predicted quantile label (out of 3) for 5-day forward return using EUR OHLC moving average features.",
+        "dataset":  {
+                        "id":  "dl_riskfree_returns",
+                        "name":  "Deep Learning Risk Free Returns"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-aiml-data",
+                            "name":  "AI/ML Data"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.5879,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "quantile_label_3bucket_5day_ohlcv",
+        "description":  "Assigned quantile bucket index (0 to 2) for the 5-day forward market-neutral return divided into 3 buckets, zero-based",
+        "dataset":  {
+                        "id":  "dl_riskfree_returns",
+                        "name":  "Deep Learning Risk Free Returns"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-aiml-data",
+                            "name":  "AI/ML Data"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  0.9997,
+        "coverage":  1,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "quantile_label_3bucket_60day_ohlcv",
+        "description":  "Assigned quantile bucket (0-based) index of 3 buckets for 60-day forward risk-free return prediction (integer)",
+        "dataset":  {
+                        "id":  "dl_riskfree_returns",
+                        "name":  "Deep Learning Risk Free Returns"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-aiml-data",
+                            "name":  "AI/ML Data"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  0.9997,
+        "coverage":  1,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "quantile_label_4bucket_10day_eur_ohlc_ma",
+        "description":  "Assigned quantile bucket (0-based, 0 to 3) for 10-day forward market-neutral return divided into 4 buckets for the European ohlc_ma and MFM2 model",
+        "dataset":  {
+                        "id":  "dl_riskfree_returns",
+                        "name":  "Deep Learning Risk Free Returns"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-aiml-data",
+                            "name":  "AI/ML Data"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.5879,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "quantile_label_4bucket_20day_eur_ohlcma",
+        "description":  "Assigned quantile bucket index (0 to 3) for 20-day forward market-neutral return divided into 4 buckets",
+        "dataset":  {
+                        "id":  "dl_riskfree_returns",
+                        "name":  "Deep Learning Risk Free Returns"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-aiml-data",
+                            "name":  "AI/ML Data"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.5879,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "quantile_label_4bucket_20day_ohlcv",
+        "description":  "Assigned quantile bucket (integer, 0-based) index in 4 buckets for the 20-day forward market-neutral return from the ASI_IMG_pred_OHLCV risk-free model variant",
+        "dataset":  {
+                        "id":  "dl_riskfree_returns",
+                        "name":  "Deep Learning Risk Free Returns"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-aiml-data",
+                            "name":  "AI/ML Data"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  0.9997,
+        "coverage":  1,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "quantile_label_4bucket_50day_eur_ohlc_ma",
+        "description":  "Assigned quantile bucket index (0-based) out of 4 buckets indicating predicted 50-day forward market-neutral return",
+        "dataset":  {
+                        "id":  "dl_riskfree_returns",
+                        "name":  "Deep Learning Risk Free Returns"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-aiml-data",
+                            "name":  "AI/ML Data"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.5879,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "quantile_label_4bucket_5day_eur_ohlc_ma",
+        "description":  "Assigned quantile bucket index (0-based) for the 5-day forward market-neutral return divided into 4 buckets (values 0 to 3)",
+        "dataset":  {
+                        "id":  "dl_riskfree_returns",
+                        "name":  "Deep Learning Risk Free Returns"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-aiml-data",
+                            "name":  "AI/ML Data"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.5879,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "quantile_label_4bucket_5day_ohlcv",
+        "description":  "Assigned quantile bucket index (integer 0 to 3) for the 5-day forward market-neutral return divided into 4 buckets",
+        "dataset":  {
+                        "id":  "dl_riskfree_returns",
+                        "name":  "Deep Learning Risk Free Returns"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-aiml-data",
+                            "name":  "AI/ML Data"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  0.9997,
+        "coverage":  1,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "quantile_label_4bucket_60day_ohlcv",
+        "description":  "Assigned quantile bucket index (0-based) indicating which of 4 buckets the 60-day forward market-neutral return falls into",
+        "dataset":  {
+                        "id":  "dl_riskfree_returns",
+                        "name":  "Deep Learning Risk Free Returns"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-aiml-data",
+                            "name":  "AI/ML Data"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  0.9997,
+        "coverage":  1,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "quantile_label_5bucket_10day_eur_ohlc_ma",
+        "description":  "Assigned quantile bucket (0-based, 0 to 4) for 10-day forward market-neutral return divided into 5 buckets for European ohlc_ma MFM2 model",
+        "dataset":  {
+                        "id":  "dl_riskfree_returns",
+                        "name":  "Deep Learning Risk Free Returns"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-aiml-data",
+                            "name":  "AI/ML Data"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.5879,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "quantile_label_5bucket_20day_eur_ohlcma",
+        "description":  "Assigned quantile bucket index (0 to 4) for 20-day forward market-neutral return divided into 5 buckets",
+        "dataset":  {
+                        "id":  "dl_riskfree_returns",
+                        "name":  "Deep Learning Risk Free Returns"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-aiml-data",
+                            "name":  "AI/ML Data"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.5879,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "quantile_label_5bucket_20day_ohlcv",
+        "description":  "Assigned quantile bucket (integer 0 to 4) for the 20-day forward market-neutral return, zero-based indexing",
+        "dataset":  {
+                        "id":  "dl_riskfree_returns",
+                        "name":  "Deep Learning Risk Free Returns"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-aiml-data",
+                            "name":  "AI/ML Data"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  0.9997,
+        "coverage":  1,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "quantile_label_5bucket_50day_eur_ohlc_ma",
+        "description":  "Assigned quantile bucket index (0-based) out of 5 buckets indicating predicted 50-day forward market-neutral return",
+        "dataset":  {
+                        "id":  "dl_riskfree_returns",
+                        "name":  "Deep Learning Risk Free Returns"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-aiml-data",
+                            "name":  "AI/ML Data"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.5879,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "quantile_label_5bucket_5day_eur_ohlc_ma",
+        "description":  "Predicted quantile label (out of 5) for 5-day forward return using EUR OHLC moving average features.",
+        "dataset":  {
+                        "id":  "dl_riskfree_returns",
+                        "name":  "Deep Learning Risk Free Returns"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-aiml-data",
+                            "name":  "AI/ML Data"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.5879,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "quantile_label_5bucket_5day_ohlcv",
+        "description":  "Assigned quantile bucket index (integer 0 to 4) for the 5-day forward market-neutral return divided into 5 buckets",
+        "dataset":  {
+                        "id":  "dl_riskfree_returns",
+                        "name":  "Deep Learning Risk Free Returns"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-aiml-data",
+                            "name":  "AI/ML Data"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  0.9997,
+        "coverage":  1,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "quantile_label_5bucket_60day_ohlcv_2",
+        "description":  "Assigned quantile bucket index (integer between 0 and 4) for the 60-day forward market-neutral return, divided into 5 buckets",
+        "dataset":  {
+                        "id":  "dl_riskfree_returns",
+                        "name":  "Deep Learning Risk Free Returns"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-aiml-data",
+                            "name":  "AI/ML Data"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  0.9997,
+        "coverage":  1,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "single_bucket_10day_return_estimate_eur_ohlc_ma",
+        "description":  "Predicted 10-day forward return value for the single quantile group using EUR OHLC moving average features.",
+        "dataset":  {
+                        "id":  "dl_riskfree_returns",
+                        "name":  "Deep Learning Risk Free Returns"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-aiml-data",
+                            "name":  "AI/ML Data"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.5879,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "single_bucket_20day_return_estimate_eur_ohlc_ma",
+        "description":  "Continuous regression prediction of 20-day forward market-neutral return (float, must be winsorized before use)",
+        "dataset":  {
+                        "id":  "dl_riskfree_returns",
+                        "name":  "Deep Learning Risk Free Returns"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-aiml-data",
+                            "name":  "AI/ML Data"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.5879,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "single_bucket_50day_return_estimate_eur_ohlc_ma",
+        "description":  "Continuous regression prediction (float) of 50-day forward market-neutral return; requires winsorization before use",
+        "dataset":  {
+                        "id":  "dl_riskfree_returns",
+                        "name":  "Deep Learning Risk Free Returns"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-aiml-data",
+                            "name":  "AI/ML Data"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.5879,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "single_bucket_5day_return_estimate_eur_ohlc_ma",
+        "description":  "Continuous regression prediction of the 5-day forward market-neutral return; must be winsorized before use",
+        "dataset":  {
+                        "id":  "dl_riskfree_returns",
+                        "name":  "Deep Learning Risk Free Returns"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-aiml-data",
+                            "name":  "AI/ML Data"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.5879,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    }
+]

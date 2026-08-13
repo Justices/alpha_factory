@@ -1,0 +1,386 @@
+﻿[
+    {
+        "id":  "fnd45_lda_bigram_pr",
+        "description":  "Topic modeling score derived from an LDA model applied on bigrams from the Presentation section, reflecting key themes discussed in that section",
+        "dataset":  {
+                        "id":  "fundamental45",
+                        "name":  "Systematic mining of earnings calls data"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-data",
+                            "name":  "Fundamental Data"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.272,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "fnd45_mktcap",
+        "description":  "Market capitalization of the company at the relevant reporting time",
+        "dataset":  {
+                        "id":  "fundamental45",
+                        "name":  "Systematic mining of earnings calls data"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-data",
+                            "name":  "Fundamental Data"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  0.5915,
+        "coverage":  0.2981,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "fnd45_numeric_perct_pr",
+        "description":  "Proportion of numeric tokens relative to text tokens in the Presentation (prepared remarks) section of the earnings call transcript",
+        "dataset":  {
+                        "id":  "fundamental45",
+                        "name":  "Systematic mining of earnings calls data"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-data",
+                            "name":  "Fundamental Data"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.2758,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "fnd45_numeric_perct_qa",
+        "description":  "Proportion of numeric tokens relative to textual tokens in the Q\u0026A section of the earnings call transcript",
+        "dataset":  {
+                        "id":  "fundamental45",
+                        "name":  "Systematic mining of earnings calls data"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-data",
+                            "name":  "Fundamental Data"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.2758,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "fnd45_readability_executives",
+        "description":  "Readability (complexity or clarity) score for the executives\u0027 speech during the earnings call",
+        "dataset":  {
+                        "id":  "fundamental45",
+                        "name":  "Systematic mining of earnings calls data"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-data",
+                            "name":  "Fundamental Data"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.2758,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "fnd45_score",
+        "description":  "Final composite aggregate score synthesizing multiple metrics (such as sentiment, readability, topic modeling, etc.) to summarize the earnings call’s tone and quality",
+        "dataset":  {
+                        "id":  "fundamental45",
+                        "name":  "Systematic mining of earnings calls data"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-data",
+                            "name":  "Fundamental Data"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.2758,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "fnd45_sentiment_chanage_ceo",
+        "description":  "Change in sentiment score specifically attributed to statements made by the CEO, likely measuring difference versus prior periods or other sections",
+        "dataset":  {
+                        "id":  "fundamental45",
+                        "name":  "Systematic mining of earnings calls data"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-data",
+                            "name":  "Fundamental Data"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.2263,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "fnd45_sentiment_chanage_othr",
+        "description":  "Change in Sentiment (Others)",
+        "dataset":  {
+                        "id":  "fundamental45",
+                        "name":  "Systematic mining of earnings calls data"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-data",
+                            "name":  "Fundamental Data"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.2601,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "fnd45_sentiment_lm2_net_pr",
+        "description":  "Net sentiment score generated by the LM2 sentiment model, calculated for the Presentation (prepared remarks) section of the earnings call transcript",
+        "dataset":  {
+                        "id":  "fundamental45",
+                        "name":  "Systematic mining of earnings calls data"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-data",
+                            "name":  "Fundamental Data"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.2758,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "fnd45_sentiment_lm2_net_qa",
+        "description":  "Net sentiment score generated by the LM2 sentiment model, calculated for the Q\u0026A section of the earnings call transcript",
+        "dataset":  {
+                        "id":  "fundamental45",
+                        "name":  "Systematic mining of earnings calls data"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-data",
+                            "name":  "Fundamental Data"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.2758,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "fnd45_sentiment_vader_net_pr",
+        "description":  "Net sentiment score generated by the Vader sentiment analysis model for the Presentation (prepared remarks) section",
+        "dataset":  {
+                        "id":  "fundamental45",
+                        "name":  "Systematic mining of earnings calls data"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-data",
+                            "name":  "Fundamental Data"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.2758,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "fnd45_sentiment_vader_net_qa",
+        "description":  "Net sentiment score generated by the Vader sentiment analysis model for the Q\u0026A section",
+        "dataset":  {
+                        "id":  "fundamental45",
+                        "name":  "Systematic mining of earnings calls data"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-data",
+                            "name":  "Fundamental Data"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.2758,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    }
+]

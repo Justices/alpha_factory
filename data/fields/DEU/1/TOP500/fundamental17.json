@@ -1,0 +1,4322 @@
+﻿[
+    {
+        "id":  "annual_avg_shares_outstanding",
+        "description":  "Average shares outstanding for the most recent fiscal year",
+        "dataset":  {
+                        "id":  "fundamental17",
+                        "name":  "Direct Fundamental Data"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-data",
+                            "name":  "Fundamental Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "annual_basic_eps_excl_extraordinary",
+        "description":  "Basic earnings per share excluding extraordinary items for the most recent fiscal year",
+        "dataset":  {
+                        "id":  "fundamental17",
+                        "name":  "Direct Fundamental Data"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-data",
+                            "name":  "Fundamental Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "annual_book_value_per_share",
+        "description":  "Book value (common equity) per share for the most recent fiscal year",
+        "dataset":  {
+                        "id":  "fundamental17",
+                        "name":  "Direct Fundamental Data"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-data",
+                            "name":  "Fundamental Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "annual_common_equity_value",
+        "description":  "Common equity (book value) for the most recent fiscal year",
+        "dataset":  {
+                        "id":  "fundamental17",
+                        "name":  "Direct Fundamental Data"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-data",
+                            "name":  "Fundamental Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "annual_current_assets_value",
+        "description":  "Current assets for the most recent fiscal year",
+        "dataset":  {
+                        "id":  "fundamental17",
+                        "name":  "Direct Fundamental Data"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-data",
+                            "name":  "Fundamental Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "annual_current_liabilities",
+        "description":  "Current liabilities for the most recent fiscal year",
+        "dataset":  {
+                        "id":  "fundamental17",
+                        "name":  "Direct Fundamental Data"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-data",
+                            "name":  "Fundamental Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "annual_debt_to_equity_ratio",
+        "description":  "Total debt to equity ratio for the most recent fiscal year",
+        "dataset":  {
+                        "id":  "fundamental17",
+                        "name":  "Direct Fundamental Data"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-data",
+                            "name":  "Fundamental Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "annual_debt_to_total_capital",
+        "description":  "Total debt capital for the most recent fiscal year",
+        "dataset":  {
+                        "id":  "fundamental17",
+                        "name":  "Direct Fundamental Data"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-data",
+                            "name":  "Fundamental Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "annual_earnings_before_tax",
+        "description":  "Earnings before taxes for the most recent fiscal year",
+        "dataset":  {
+                        "id":  "fundamental17",
+                        "name":  "Direct Fundamental Data"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-data",
+                            "name":  "Fundamental Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "annual_ebit",
+        "description":  "Earnings before interest and taxes for the most recent fiscal year",
+        "dataset":  {
+                        "id":  "fundamental17",
+                        "name":  "Direct Fundamental Data"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-data",
+                            "name":  "Fundamental Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "annual_ebitda_amount",
+        "description":  "EBITDA for the most recent fiscal year",
+        "dataset":  {
+                        "id":  "fundamental17",
+                        "name":  "Direct Fundamental Data"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-data",
+                            "name":  "Fundamental Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "annual_ebitda_value",
+        "description":  "Earnings before interest, taxes, depreciation, and amortization for the year.",
+        "dataset":  {
+                        "id":  "fundamental17",
+                        "name":  "Direct Fundamental Data"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-data",
+                            "name":  "Fundamental Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "annual_net_income_available_common",
+        "description":  "Net income available to common shareholders for the most recent fiscal year",
+        "dataset":  {
+                        "id":  "fundamental17",
+                        "name":  "Direct Fundamental Data"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-data",
+                            "name":  "Fundamental Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "annual_net_income_change_percent",
+        "description":  "Net income change percentage from the quarter one year ago",
+        "dataset":  {
+                        "id":  "fundamental17",
+                        "name":  "Direct Fundamental Data"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-data",
+                            "name":  "Fundamental Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "annual_net_income_excl_extraordinary",
+        "description":  "Net income excluding extraordinary items for the most recent fiscal year",
+        "dataset":  {
+                        "id":  "fundamental17",
+                        "name":  "Direct Fundamental Data"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-data",
+                            "name":  "Fundamental Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "annual_net_income_incl_extraordinary",
+        "description":  "Net income including extraordinary items for the most recent fiscal year",
+        "dataset":  {
+                        "id":  "fundamental17",
+                        "name":  "Direct Fundamental Data"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-data",
+                            "name":  "Fundamental Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "annual_net_income_to_common",
+        "description":  "Net income available to common for the most recent fiscal year",
+        "dataset":  {
+                        "id":  "fundamental17",
+                        "name":  "Direct Fundamental Data"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-data",
+                            "name":  "Fundamental Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "annual_normalized_net_income_common",
+        "description":  "Normalized net income available to common shareholders for the most recent fiscal year (excludes unusual/one-time items)",
+        "dataset":  {
+                        "id":  "fundamental17",
+                        "name":  "Direct Fundamental Data"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-data",
+                            "name":  "Fundamental Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "annual_normalized_net_income_to_common",
+        "description":  "Normalized net income available to common for the most recent fiscal year",
+        "dataset":  {
+                        "id":  "fundamental17",
+                        "name":  "Direct Fundamental Data"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-data",
+                            "name":  "Fundamental Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "annual_price_to_sales_ratio",
+        "description":  "Price-to-sales ratio for the most recent fiscal year",
+        "dataset":  {
+                        "id":  "fundamental17",
+                        "name":  "Direct Fundamental Data"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-data",
+                            "name":  "Fundamental Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "annual_revenue_change_percent",
+        "description":  "Year-over-year percent change in annual revenue",
+        "dataset":  {
+                        "id":  "fundamental17",
+                        "name":  "Direct Fundamental Data"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-data",
+                            "name":  "Fundamental Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "annual_revenue_per_share",
+        "description":  "Annual revenue per share for the most recent fiscal year",
+        "dataset":  {
+                        "id":  "fundamental17",
+                        "name":  "Direct Fundamental Data"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-data",
+                            "name":  "Fundamental Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "annual_revenue_value",
+        "description":  "Revenue (total sales) for the most recent fiscal year",
+        "dataset":  {
+                        "id":  "fundamental17",
+                        "name":  "Direct Fundamental Data"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-data",
+                            "name":  "Fundamental Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "annual_total_assets_value",
+        "description":  "Total assets for the most recent fiscal year",
+        "dataset":  {
+                        "id":  "fundamental17",
+                        "name":  "Direct Fundamental Data"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-data",
+                            "name":  "Fundamental Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "annual_total_liabilities_value",
+        "description":  "Total liabilities for the most recent fiscal year",
+        "dataset":  {
+                        "id":  "fundamental17",
+                        "name":  "Direct Fundamental Data"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-data",
+                            "name":  "Fundamental Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "annual_total_revenue",
+        "description":  "Revenue for the most recent fiscal year",
+        "dataset":  {
+                        "id":  "fundamental17",
+                        "name":  "Direct Fundamental Data"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-data",
+                            "name":  "Fundamental Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "annual_total_shareholders_equity",
+        "description":  "Shareholders\u0027 equity - most recent fiscal year",
+        "dataset":  {
+                        "id":  "fundamental17",
+                        "name":  "Direct Fundamental Data"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-data",
+                            "name":  "Fundamental Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "annual_total_shareholder_equity",
+        "description":  "Total shareholders’ equity for the most recent fiscal year",
+        "dataset":  {
+                        "id":  "fundamental17",
+                        "name":  "Direct Fundamental Data"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-data",
+                            "name":  "Fundamental Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "capital_spending_per_share",
+        "description":  "Capital spending per share for the most recent fiscal year",
+        "dataset":  {
+                        "id":  "fundamental17",
+                        "name":  "Direct Fundamental Data"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-data",
+                            "name":  "Fundamental Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "cash_per_share",
+        "description":  "Cash per share for the most recent fiscal year",
+        "dataset":  {
+                        "id":  "fundamental17",
+                        "name":  "Direct Fundamental Data"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-data",
+                            "name":  "Fundamental Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "current_enterprise_value",
+        "description":  "Current enterprise value (market capitalization plus net debt)",
+        "dataset":  {
+                        "id":  "fundamental17",
+                        "name":  "Direct Fundamental Data"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-data",
+                            "name":  "Fundamental Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "daily_volume_to_shares_outstanding",
+        "description":  "Daily trading volume as a percentage of shares outstanding",
+        "dataset":  {
+                        "id":  "fundamental17",
+                        "name":  "Direct Fundamental Data"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-data",
+                            "name":  "Fundamental Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "enterprise_value_to_revenue",
+        "description":  "Current enterprise value to revenue ratio (EV/Revenue)",
+        "dataset":  {
+                        "id":  "fundamental17",
+                        "name":  "Direct Fundamental Data"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-data",
+                            "name":  "Fundamental Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "fnd17_0_fcfq",
+        "description":  "Free Cash Flow - most recent quarter",
+        "dataset":  {
+                        "id":  "fundamental17",
+                        "name":  "Direct Fundamental Data"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-data",
+                            "name":  "Fundamental Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "fnd17_10_2anrhsfcfq",
+        "description":  "Free Cash Flow per share - most recent quarter - 1 (not annualized)",
+        "dataset":  {
+                        "id":  "fundamental17",
+                        "name":  "Direct Fundamental Data"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-data",
+                            "name":  "Fundamental Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "fnd17_10_2rhsfcfq",
+        "description":  "Free Cash Flow per share - most recent quarter, 1 year ago",
+        "dataset":  {
+                        "id":  "fundamental17",
+                        "name":  "Direct Fundamental Data"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-data",
+                            "name":  "Fundamental Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "fnd17_10_anrhsfcfq",
+        "description":  "Free Cash Flow per share - most recent quarter (not annualized)",
+        "dataset":  {
+                        "id":  "fundamental17",
+                        "name":  "Direct Fundamental Data"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-data",
+                            "name":  "Fundamental Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "fnd17_10_reptoprcexrate",
+        "description":  "Reporting Currency to base currency exchange rate",
+        "dataset":  {
+                        "id":  "fundamental17",
+                        "name":  "Direct Fundamental Data"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-data",
+                            "name":  "Fundamental Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "fnd17_10_rhsfcfq",
+        "description":  "Free Cash Flow per share - most recent quarter (annualized)",
+        "dataset":  {
+                        "id":  "fundamental17",
+                        "name":  "Direct Fundamental Data"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-data",
+                            "name":  "Fundamental Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "fnd17_10_usdtorepexrate",
+        "description":  "Reporting Currency to USD exchange rate",
+        "dataset":  {
+                        "id":  "fundamental17",
+                        "name":  "Direct Fundamental Data"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-data",
+                            "name":  "Fundamental Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "interim_debt_to_capital_ratio",
+        "description":  "Total debt capital (LFI definition)",
+        "dataset":  {
+                        "id":  "fundamental17",
+                        "name":  "Direct Fundamental Data"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-data",
+                            "name":  "Fundamental Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "interim_debt_to_total_capital",
+        "description":  "Ratio of total debt to total capital for the most recent interim period.",
+        "dataset":  {
+                        "id":  "fundamental17",
+                        "name":  "Direct Fundamental Data"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-data",
+                            "name":  "Fundamental Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "interim_net_debt_value",
+        "description":  "Net debt (LFI definition)",
+        "dataset":  {
+                        "id":  "fundamental17",
+                        "name":  "Direct Fundamental Data"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-data",
+                            "name":  "Fundamental Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "market_capitalization_value_5",
+        "description":  "Current market capitalization",
+        "dataset":  {
+                        "id":  "fundamental17",
+                        "name":  "Direct Fundamental Data"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-data",
+                            "name":  "Fundamental Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "net_debt_interim",
+        "description":  "Net debt (total debt minus cash and equivalents) for the interim period.",
+        "dataset":  {
+                        "id":  "fundamental17",
+                        "name":  "Direct Fundamental Data"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-data",
+                            "name":  "Fundamental Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "net_income_after_tax_2",
+        "description":  "Net income after taxes for the most recent fiscal year",
+        "dataset":  {
+                        "id":  "fundamental17",
+                        "name":  "Direct Fundamental Data"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-data",
+                            "name":  "Fundamental Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "net_income_incl_extraordinary",
+        "description":  "Net income including extraordinary items for the most recent fiscal year",
+        "dataset":  {
+                        "id":  "fundamental17",
+                        "name":  "Direct Fundamental Data"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-data",
+                            "name":  "Fundamental Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "net_income_incl_extra_items",
+        "description":  "Net income including extraordinary items for the period.",
+        "dataset":  {
+                        "id":  "fundamental17",
+                        "name":  "Direct Fundamental Data"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-data",
+                            "name":  "Fundamental Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "normalized_ebt",
+        "description":  "Normalized earnings before taxes for the most recent fiscal year",
+        "dataset":  {
+                        "id":  "fundamental17",
+                        "name":  "Direct Fundamental Data"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-data",
+                            "name":  "Fundamental Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "normalized_net_income",
+        "description":  "Normalized net income after taxes for the most recent fiscal year (excludes unusual/one-time items)",
+        "dataset":  {
+                        "id":  "fundamental17",
+                        "name":  "Direct Fundamental Data"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-data",
+                            "name":  "Fundamental Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "one_day_avg_volume",
+        "description":  "Average daily trading volume over the last 91 days.",
+        "dataset":  {
+                        "id":  "fundamental17",
+                        "name":  "Direct Fundamental Data"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-data",
+                            "name":  "Fundamental Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "one_fifty_day_avg_price",
+        "description":  "150 day average price",
+        "dataset":  {
+                        "id":  "fundamental17",
+                        "name":  "Direct Fundamental Data"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-data",
+                            "name":  "Fundamental Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "pricing_currency_code_emi1",
+        "description":  "Code for the security’s price currency (base currency for price fields)",
+        "dataset":  {
+                        "id":  "fundamental17",
+                        "name":  "Direct Fundamental Data"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-data",
+                            "name":  "Fundamental Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "pricing_currency_code_ras10",
+        "description":  "base currency",
+        "dataset":  {
+                        "id":  "fundamental17",
+                        "name":  "Direct Fundamental Data"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-data",
+                            "name":  "Fundamental Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "pricing_currency_code_rasv2ff",
+        "description":  "Base/pricing currency code",
+        "dataset":  {
+                        "id":  "fundamental17",
+                        "name":  "Direct Fundamental Data"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-data",
+                            "name":  "Fundamental Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "prior_ttm_total_revenue",
+        "description":  "Total revenue for the prior trailing twelve months",
+        "dataset":  {
+                        "id":  "fundamental17",
+                        "name":  "Direct Fundamental Data"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-data",
+                            "name":  "Fundamental Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "public_float_shares",
+        "description":  "Free float shares, in millions",
+        "dataset":  {
+                        "id":  "fundamental17",
+                        "name":  "Direct Fundamental Data"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-data",
+                            "name":  "Fundamental Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "quarterly_accounts_receivable",
+        "description":  "Receivables (accounts receivable) for the most recent quarter",
+        "dataset":  {
+                        "id":  "fundamental17",
+                        "name":  "Direct Fundamental Data"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-data",
+                            "name":  "Fundamental Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "quarterly_avg_shares_outstanding",
+        "description":  "Average shares outstanding for the most recent quarter",
+        "dataset":  {
+                        "id":  "fundamental17",
+                        "name":  "Direct Fundamental Data"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-data",
+                            "name":  "Fundamental Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "quarterly_basic_eps_excl_extraordinary_2",
+        "description":  "Basic earnings per share excluding extraordinary items for the most recent quarter",
+        "dataset":  {
+                        "id":  "fundamental17",
+                        "name":  "Direct Fundamental Data"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-data",
+                            "name":  "Fundamental Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "quarterly_book_value_per_share_4",
+        "description":  "Book value per share (common equity) for the most recent quarter",
+        "dataset":  {
+                        "id":  "fundamental17",
+                        "name":  "Direct Fundamental Data"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-data",
+                            "name":  "Fundamental Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "quarterly_book_value_per_share_5",
+        "description":  "Book value per share for the most recent quarter",
+        "dataset":  {
+                        "id":  "fundamental17",
+                        "name":  "Direct Fundamental Data"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-data",
+                            "name":  "Fundamental Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "quarterly_cash_and_equivalents_2",
+        "description":  "Cash and cash equivalents for the most recent quarter",
+        "dataset":  {
+                        "id":  "fundamental17",
+                        "name":  "Direct Fundamental Data"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-data",
+                            "name":  "Fundamental Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "quarterly_cash_flow_per_share_4",
+        "description":  "Cash flow per share for the most recent quarter annualized",
+        "dataset":  {
+                        "id":  "fundamental17",
+                        "name":  "Direct Fundamental Data"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-data",
+                            "name":  "Fundamental Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "quarterly_common_equity_1y_ago",
+        "description":  "Common equity (book value) as of the most recent quarter one year ago",
+        "dataset":  {
+                        "id":  "fundamental17",
+                        "name":  "Direct Fundamental Data"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-data",
+                            "name":  "Fundamental Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "quarterly_common_equity_4",
+        "description":  "Common equity (book value) for the most recent quarter",
+        "dataset":  {
+                        "id":  "fundamental17",
+                        "name":  "Direct Fundamental Data"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-data",
+                            "name":  "Fundamental Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "quarterly_common_equity_value",
+        "description":  "Common equity book value for the most recent quarter",
+        "dataset":  {
+                        "id":  "fundamental17",
+                        "name":  "Direct Fundamental Data"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-data",
+                            "name":  "Fundamental Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "quarterly_current_assets_4",
+        "description":  "Current assets for the most recent quarter",
+        "dataset":  {
+                        "id":  "fundamental17",
+                        "name":  "Direct Fundamental Data"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-data",
+                            "name":  "Fundamental Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "quarterly_current_liabilities_4",
+        "description":  "Current liabilities for the most recent quarter",
+        "dataset":  {
+                        "id":  "fundamental17",
+                        "name":  "Direct Fundamental Data"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-data",
+                            "name":  "Fundamental Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "quarterly_debt_to_assets_ratio",
+        "description":  "Total Debt to Total Assets ratio for the most recent quarter",
+        "dataset":  {
+                        "id":  "fundamental17",
+                        "name":  "Direct Fundamental Data"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-data",
+                            "name":  "Fundamental Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "quarterly_debt_to_equity_ratio",
+        "description":  "Total Debt to Total Equity ratio for the most recent quarter",
+        "dataset":  {
+                        "id":  "fundamental17",
+                        "name":  "Direct Fundamental Data"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-data",
+                            "name":  "Fundamental Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "quarterly_debt_to_equity_ratio_1y_ago",
+        "description":  "Total Debt to Total Equity ratio as of the same quarter one year ago",
+        "dataset":  {
+                        "id":  "fundamental17",
+                        "name":  "Direct Fundamental Data"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-data",
+                            "name":  "Fundamental Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "quarterly_debt_to_equity_ratio_2",
+        "description":  "Total Debt to Total Equity ratio for the most recent quarter",
+        "dataset":  {
+                        "id":  "fundamental17",
+                        "name":  "Direct Fundamental Data"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-data",
+                            "name":  "Fundamental Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "quarterly_earnings_before_tax_4",
+        "description":  "Earnings before taxes for the most recent quarter",
+        "dataset":  {
+                        "id":  "fundamental17",
+                        "name":  "Direct Fundamental Data"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-data",
+                            "name":  "Fundamental Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "quarterly_ebitda_value",
+        "description":  "EBITDA for the most recent quarter",
+        "dataset":  {
+                        "id":  "fundamental17",
+                        "name":  "Direct Fundamental Data"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-data",
+                            "name":  "Fundamental Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "quarterly_ebit_value",
+        "description":  "EBIT for the most recent quarter",
+        "dataset":  {
+                        "id":  "fundamental17",
+                        "name":  "Direct Fundamental Data"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-data",
+                            "name":  "Fundamental Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "quarterly_eps_excl_extraordinary_2",
+        "description":  "Earnings per share excluding extraordinary items for the most recent quarter",
+        "dataset":  {
+                        "id":  "fundamental17",
+                        "name":  "Direct Fundamental Data"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-data",
+                            "name":  "Fundamental Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "quarterly_eps_incl_extraordinary_2",
+        "description":  "Earnings per share including extraordinary items for the most recent quarter",
+        "dataset":  {
+                        "id":  "fundamental17",
+                        "name":  "Direct Fundamental Data"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-data",
+                            "name":  "Fundamental Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "quarterly_net_income_3",
+        "description":  "Net income (earnings after taxes) for the most recent quarter",
+        "dataset":  {
+                        "id":  "fundamental17",
+                        "name":  "Direct Fundamental Data"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-data",
+                            "name":  "Fundamental Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "quarterly_net_income_available_common",
+        "description":  "Net income available to common shareholders for the most recent quarter (including adjustments), in reporting currency (millions)",
+        "dataset":  {
+                        "id":  "fundamental17",
+                        "name":  "Direct Fundamental Data"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-data",
+                            "name":  "Fundamental Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "quarterly_net_income_per_employee_4",
+        "description":  "Net income per employee for the most recent quarter (annualized)",
+        "dataset":  {
+                        "id":  "fundamental17",
+                        "name":  "Direct Fundamental Data"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-data",
+                            "name":  "Fundamental Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "quarterly_net_income_per_employee_value",
+        "description":  "Net income per employee for the most recent quarter annualized",
+        "dataset":  {
+                        "id":  "fundamental17",
+                        "name":  "Direct Fundamental Data"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-data",
+                            "name":  "Fundamental Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "quarterly_net_income_to_common",
+        "description":  "Net income available to common for the most recent quarter",
+        "dataset":  {
+                        "id":  "fundamental17",
+                        "name":  "Direct Fundamental Data"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-data",
+                            "name":  "Fundamental Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "quarterly_net_income_value",
+        "description":  "Earnings after taxes for the most recent quarter",
+        "dataset":  {
+                        "id":  "fundamental17",
+                        "name":  "Direct Fundamental Data"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-data",
+                            "name":  "Fundamental Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "quarterly_operating_margin_percent_4",
+        "description":  "Operating margin for the most recent quarter (percent)",
+        "dataset":  {
+                        "id":  "fundamental17",
+                        "name":  "Direct Fundamental Data"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-data",
+                            "name":  "Fundamental Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "quarterly_pretax_margin_percent_4",
+        "description":  "Pretax profit margin for the most recent quarter",
+        "dataset":  {
+                        "id":  "fundamental17",
+                        "name":  "Direct Fundamental Data"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-data",
+                            "name":  "Fundamental Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "quarterly_price_to_sales_ratio_4",
+        "description":  "Ratio of share price to revenue per share for the most recent quarter.",
+        "dataset":  {
+                        "id":  "fundamental17",
+                        "name":  "Direct Fundamental Data"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-data",
+                            "name":  "Fundamental Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "quarterly_return_on_equity_percent_3",
+        "description":  "Return on average equity for the most recent quarter (annualized, percent)",
+        "dataset":  {
+                        "id":  "fundamental17",
+                        "name":  "Direct Fundamental Data"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-data",
+                            "name":  "Fundamental Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "quarterly_revenue_per_employee_4",
+        "description":  "Revenue per employee for the most recent quarter, annualized",
+        "dataset":  {
+                        "id":  "fundamental17",
+                        "name":  "Direct Fundamental Data"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-data",
+                            "name":  "Fundamental Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "quarterly_revenue_per_share_4",
+        "description":  "Revenue per share for the most recent quarter",
+        "dataset":  {
+                        "id":  "fundamental17",
+                        "name":  "Direct Fundamental Data"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-data",
+                            "name":  "Fundamental Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "quarterly_revenue_per_share_nonannualized_2",
+        "description":  "Revenue per share for the most recent quarter (not annualized)",
+        "dataset":  {
+                        "id":  "fundamental17",
+                        "name":  "Direct Fundamental Data"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-data",
+                            "name":  "Fundamental Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "quarterly_revenue_value",
+        "description":  "Revenue for the most recent quarter",
+        "dataset":  {
+                        "id":  "fundamental17",
+                        "name":  "Direct Fundamental Data"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-data",
+                            "name":  "Fundamental Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "quarterly_taxes_paid_3",
+        "description":  "Income taxes paid during the most recent quarter",
+        "dataset":  {
+                        "id":  "fundamental17",
+                        "name":  "Direct Fundamental Data"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-data",
+                            "name":  "Fundamental Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "quarterly_total_assets_2",
+        "description":  "Total assets for the most recent quarter",
+        "dataset":  {
+                        "id":  "fundamental17",
+                        "name":  "Direct Fundamental Data"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-data",
+                            "name":  "Fundamental Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "quarterly_total_assets_3",
+        "description":  "Total assets for the most recent quarter",
+        "dataset":  {
+                        "id":  "fundamental17",
+                        "name":  "Direct Fundamental Data"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-data",
+                            "name":  "Fundamental Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "quarterly_total_debt_4",
+        "description":  "Total debt for the most recent quarter",
+        "dataset":  {
+                        "id":  "fundamental17",
+                        "name":  "Direct Fundamental Data"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-data",
+                            "name":  "Fundamental Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "quarterly_total_liabilities_4",
+        "description":  "Total liabilities for the most recent quarter",
+        "dataset":  {
+                        "id":  "fundamental17",
+                        "name":  "Direct Fundamental Data"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-data",
+                            "name":  "Fundamental Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "quarterly_total_liabilities_5",
+        "description":  "Total liabilities, most recent quarter",
+        "dataset":  {
+                        "id":  "fundamental17",
+                        "name":  "Direct Fundamental Data"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-data",
+                            "name":  "Fundamental Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "quarterly_total_revenue_3",
+        "description":  "Total revenue for the most recent quarter",
+        "dataset":  {
+                        "id":  "fundamental17",
+                        "name":  "Direct Fundamental Data"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-data",
+                            "name":  "Fundamental Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "quarterly_total_shareholders_equity",
+        "description":  "Shareholders’ equity for the most recent quarter",
+        "dataset":  {
+                        "id":  "fundamental17",
+                        "name":  "Direct Fundamental Data"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-data",
+                            "name":  "Fundamental Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "quarterly_total_shareholder_equity_3",
+        "description":  "Total shareholders\u0027 equity for the most recent quarter",
+        "dataset":  {
+                        "id":  "fundamental17",
+                        "name":  "Direct Fundamental Data"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-data",
+                            "name":  "Fundamental Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "quarterly_working_capital_per_share_to_price_3",
+        "description":  "Working capital per share divided by current price (most recent quarter)",
+        "dataset":  {
+                        "id":  "fundamental17",
+                        "name":  "Direct Fundamental Data"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-data",
+                            "name":  "Fundamental Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "reporting_currency_code_ras10",
+        "description":  "Reporting currency",
+        "dataset":  {
+                        "id":  "fundamental17",
+                        "name":  "Direct Fundamental Data"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-data",
+                            "name":  "Fundamental Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "reporting_currency_code_rasv2ff",
+        "description":  "Company’s reporting currency code",
+        "dataset":  {
+                        "id":  "fundamental17",
+                        "name":  "Direct Fundamental Data"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-data",
+                            "name":  "Fundamental Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "reporting_to_pricing_fx_rate",
+        "description":  "Exchange rate converting the company’s reporting currency into the base/pricing currency",
+        "dataset":  {
+                        "id":  "fundamental17",
+                        "name":  "Direct Fundamental Data"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-data",
+                            "name":  "Fundamental Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "reporting_to_pricing_fx_rate_2",
+        "description":  "Exchange rate from reporting currency to the base pricing currency",
+        "dataset":  {
+                        "id":  "fundamental17",
+                        "name":  "Direct Fundamental Data"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-data",
+                            "name":  "Fundamental Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "rep_to_pricing_fx_rate_emi1",
+        "description":  "Exchange rate from reporting currency to base/pricing currency",
+        "dataset":  {
+                        "id":  "fundamental17",
+                        "name":  "Direct Fundamental Data"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-data",
+                            "name":  "Fundamental Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "revenue_change_prior_quarter",
+        "description":  "Revenue change percentage for the prior quarter",
+        "dataset":  {
+                        "id":  "fundamental17",
+                        "name":  "Direct Fundamental Data"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-data",
+                            "name":  "Fundamental Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "revenue_change_year_ago_quarter",
+        "description":  "Percent change in revenue compared to the same quarter last year.",
+        "dataset":  {
+                        "id":  "fundamental17",
+                        "name":  "Direct Fundamental Data"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-data",
+                            "name":  "Fundamental Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "revenue_five_year_cagr",
+        "description":  "Five-year revenue growth rate",
+        "dataset":  {
+                        "id":  "fundamental17",
+                        "name":  "Direct Fundamental Data"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-data",
+                            "name":  "Fundamental Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "shares_outstanding_current",
+        "description":  "Shares outstanding – current, in millions",
+        "dataset":  {
+                        "id":  "fundamental17",
+                        "name":  "Direct Fundamental Data"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-data",
+                            "name":  "Fundamental Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "shares_outstanding_emi1",
+        "description":  "Current total shares outstanding",
+        "dataset":  {
+                        "id":  "fundamental17",
+                        "name":  "Direct Fundamental Data"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-data",
+                            "name":  "Fundamental Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "ten_day_avg_volume",
+        "description":  "Average trading volume over the last 10 days",
+        "dataset":  {
+                        "id":  "fundamental17",
+                        "name":  "Direct Fundamental Data"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-data",
+                            "name":  "Fundamental Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "ttm_basic_eps_excl_extraordinary",
+        "description":  "Basic EPS excluding extraordinary items over the trailing 12 months",
+        "dataset":  {
+                        "id":  "fundamental17",
+                        "name":  "Direct Fundamental Data"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-data",
+                            "name":  "Fundamental Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "ttm_earnings_before_tax",
+        "description":  "Earnings before taxes over the trailing twelve months",
+        "dataset":  {
+                        "id":  "fundamental17",
+                        "name":  "Direct Fundamental Data"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-data",
+                            "name":  "Fundamental Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "ttm_earnings_before_tax_value",
+        "description":  "Earnings before taxes over the trailing 12 months",
+        "dataset":  {
+                        "id":  "fundamental17",
+                        "name":  "Direct Fundamental Data"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-data",
+                            "name":  "Fundamental Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "ttm_ebitda_value",
+        "description":  "EBITDA over the trailing 12 months",
+        "dataset":  {
+                        "id":  "fundamental17",
+                        "name":  "Direct Fundamental Data"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-data",
+                            "name":  "Fundamental Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "ttm_eps_excl_extraordinary",
+        "description":  "EPS excluding extraordinary items over the trailing 12 months",
+        "dataset":  {
+                        "id":  "fundamental17",
+                        "name":  "Direct Fundamental Data"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-data",
+                            "name":  "Fundamental Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "ttm_net_income",
+        "description":  "Net income after taxes over the trailing twelve months",
+        "dataset":  {
+                        "id":  "fundamental17",
+                        "name":  "Direct Fundamental Data"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-data",
+                            "name":  "Fundamental Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "ttm_net_income_available_to_common",
+        "description":  "Net income available to common over the trailing 12 months",
+        "dataset":  {
+                        "id":  "fundamental17",
+                        "name":  "Direct Fundamental Data"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-data",
+                            "name":  "Fundamental Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "ttm_net_income_per_employee",
+        "description":  "Net income per employee over the trailing 12 months",
+        "dataset":  {
+                        "id":  "fundamental17",
+                        "name":  "Direct Fundamental Data"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-data",
+                            "name":  "Fundamental Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "ttm_net_income_per_employee_value",
+        "description":  "Net income per employee over the trailing 12 months",
+        "dataset":  {
+                        "id":  "fundamental17",
+                        "name":  "Direct Fundamental Data"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-data",
+                            "name":  "Fundamental Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "ttm_net_income_to_common",
+        "description":  "Net income available to common over the trailing 12 months",
+        "dataset":  {
+                        "id":  "fundamental17",
+                        "name":  "Direct Fundamental Data"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-data",
+                            "name":  "Fundamental Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "ttm_net_income_value",
+        "description":  "Net income after taxes over the trailing 12 months",
+        "dataset":  {
+                        "id":  "fundamental17",
+                        "name":  "Direct Fundamental Data"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-data",
+                            "name":  "Fundamental Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "ttm_revenue_change_percent",
+        "description":  "Revenue change percentage, TTM versus prior TTM",
+        "dataset":  {
+                        "id":  "fundamental17",
+                        "name":  "Direct Fundamental Data"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-data",
+                            "name":  "Fundamental Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "ttm_revenue_per_employee",
+        "description":  "Revenue per employee over the trailing 12 months",
+        "dataset":  {
+                        "id":  "fundamental17",
+                        "name":  "Direct Fundamental Data"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-data",
+                            "name":  "Fundamental Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "ttm_revenue_per_share",
+        "description":  "Revenue per share over the trailing 12 months",
+        "dataset":  {
+                        "id":  "fundamental17",
+                        "name":  "Direct Fundamental Data"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-data",
+                            "name":  "Fundamental Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "ttm_total_assets_value",
+        "description":  "Total assets - trailing 12 months",
+        "dataset":  {
+                        "id":  "fundamental17",
+                        "name":  "Direct Fundamental Data"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-data",
+                            "name":  "Fundamental Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "ttm_total_revenue",
+        "description":  "Total revenue over the trailing 12 months",
+        "dataset":  {
+                        "id":  "fundamental17",
+                        "name":  "Direct Fundamental Data"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-data",
+                            "name":  "Fundamental Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "ttm_total_revenue_value",
+        "description":  "Total revenue over the trailing twelve months",
+        "dataset":  {
+                        "id":  "fundamental17",
+                        "name":  "Direct Fundamental Data"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-data",
+                            "name":  "Fundamental Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "twelve_month_high_price",
+        "description":  "12 month high price",
+        "dataset":  {
+                        "id":  "fundamental17",
+                        "name":  "Direct Fundamental Data"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-data",
+                            "name":  "Fundamental Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "two_hundred_day_avg_price",
+        "description":  "200 day average price",
+        "dataset":  {
+                        "id":  "fundamental17",
+                        "name":  "Direct Fundamental Data"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-data",
+                            "name":  "Fundamental Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "usd_to_reporting_currency_fx",
+        "description":  "Exchange rate to convert USD into the company’s reporting currency (USD to reporting)",
+        "dataset":  {
+                        "id":  "fundamental17",
+                        "name":  "Direct Fundamental Data"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-data",
+                            "name":  "Fundamental Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "usd_to_reporting_fx_rate",
+        "description":  "USD to Reporting Currency exchange rate",
+        "dataset":  {
+                        "id":  "fundamental17",
+                        "name":  "Direct Fundamental Data"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-data",
+                            "name":  "Fundamental Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "usd_to_reporting_fx_rate_emi1",
+        "description":  "Exchange rate used to convert USD to reporting currency for this module.",
+        "dataset":  {
+                        "id":  "fundamental17",
+                        "name":  "Direct Fundamental Data"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-data",
+                            "name":  "Fundamental Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    }
+]

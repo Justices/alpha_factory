@@ -1,0 +1,578 @@
+﻿[
+    {
+        "id":  "average_trading_volume",
+        "description":  "The average trading volume for the security, provided as a double. This field is sourced from the \u0027VolAvg\u0027 column in the PulsePick files.",
+        "dataset":  {
+                        "id":  "socialmedia12",
+                        "name":  "Sentiment Data for Equity"
+                    },
+        "category":  {
+                         "id":  "socialmedia",
+                         "name":  "Social Media"
+                     },
+        "subcategory":  {
+                            "id":  "socialmedia-social-media",
+                            "name":  "Social Media"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "backtest_hit_ratio",
+        "description":  "The backtested hit ratio for the corresponding trading signal, provided as a double. This field is sourced from the \u0027Ratio\u0027 column in the PulsePick files.",
+        "dataset":  {
+                        "id":  "socialmedia12",
+                        "name":  "Sentiment Data for Equity"
+                    },
+        "category":  {
+                         "id":  "socialmedia",
+                         "name":  "Social Media"
+                     },
+        "subcategory":  {
+                            "id":  "socialmedia-social-media",
+                            "name":  "Social Media"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "entity_employee_count",
+        "description":  "Number of employees in the entity (e.g., company, index, person)",
+        "dataset":  {
+                        "id":  "socialmedia12",
+                        "name":  "Sentiment Data for Equity"
+                    },
+        "category":  {
+                         "id":  "socialmedia",
+                         "name":  "Social Media"
+                     },
+        "subcategory":  {
+                            "id":  "socialmedia-social-media",
+                            "name":  "Social Media"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  0.5474,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "entity_profile_summary",
+        "description":  "Description of the company from snapshot data",
+        "dataset":  {
+                        "id":  "socialmedia12",
+                        "name":  "Sentiment Data for Equity"
+                    },
+        "category":  {
+                         "id":  "socialmedia",
+                         "name":  "Social Media"
+                     },
+        "subcategory":  {
+                            "id":  "socialmedia-social-media",
+                            "name":  "Social Media"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  0.5474,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "entity_sector_name",
+        "description":  "Business sector or industry classification for the entity",
+        "dataset":  {
+                        "id":  "socialmedia12",
+                        "name":  "Sentiment Data for Equity"
+                    },
+        "category":  {
+                         "id":  "socialmedia",
+                         "name":  "Social Media"
+                     },
+        "subcategory":  {
+                            "id":  "socialmedia-social-media",
+                            "name":  "Social Media"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  0.5474,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "entity_total_revenue",
+        "description":  "Revenue of the company",
+        "dataset":  {
+                        "id":  "socialmedia12",
+                        "name":  "Sentiment Data for Equity"
+                    },
+        "category":  {
+                         "id":  "socialmedia",
+                         "name":  "Social Media"
+                     },
+        "subcategory":  {
+                            "id":  "socialmedia-social-media",
+                            "name":  "Social Media"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  0.5474,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "scl12_buzz",
+        "description":  "relative sentiment volume",
+        "dataset":  {
+                        "id":  "socialmedia12",
+                        "name":  "Sentiment Data for Equity"
+                    },
+        "category":  {
+                         "id":  "socialmedia",
+                         "name":  "Social Media"
+                     },
+        "subcategory":  {
+                            "id":  "socialmedia-social-media",
+                            "name":  "Social Media"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "scl12_sentiment",
+        "description":  "sentiment",
+        "dataset":  {
+                        "id":  "socialmedia12",
+                        "name":  "Sentiment Data for Equity"
+                    },
+        "category":  {
+                         "id":  "socialmedia",
+                         "name":  "Social Media"
+                     },
+        "subcategory":  {
+                            "id":  "socialmedia-social-media",
+                            "name":  "Social Media"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "sentiment_close_price",
+        "description":  "The daily close price of the stock, provided as a double. This field is sourced from the \u0027close\u0027 column in the PulsePickPerformance files.",
+        "dataset":  {
+                        "id":  "socialmedia12",
+                        "name":  "Sentiment Data for Equity"
+                    },
+        "category":  {
+                         "id":  "socialmedia",
+                         "name":  "Social Media"
+                     },
+        "subcategory":  {
+                            "id":  "socialmedia-social-media",
+                            "name":  "Social Media"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "sentiment_expected_price_change",
+        "description":  "The mean of the anticipated stock price change based on the trading signal, provided as a double. This field is sourced from the \u0027Mean\u0027 column in the PulsePick files.",
+        "dataset":  {
+                        "id":  "socialmedia12",
+                        "name":  "Sentiment Data for Equity"
+                    },
+        "category":  {
+                         "id":  "socialmedia",
+                         "name":  "Social Media"
+                     },
+        "subcategory":  {
+                            "id":  "socialmedia-social-media",
+                            "name":  "Social Media"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "sentiment_high_price",
+        "description":  "The daily high price of the stock, provided as a double. This field is sourced from the \u0027high\u0027 column in the PulsePickPerformance files.",
+        "dataset":  {
+                        "id":  "socialmedia12",
+                        "name":  "Sentiment Data for Equity"
+                    },
+        "category":  {
+                         "id":  "socialmedia",
+                         "name":  "Social Media"
+                     },
+        "subcategory":  {
+                            "id":  "socialmedia-social-media",
+                            "name":  "Social Media"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "sentiment_intraday_return",
+        "description":  "The percentage stock price change from the daily open to the high (for a buy signal) or low (for a sell signal). This is a double calculated as \u0027value * 100\u0027.",
+        "dataset":  {
+                        "id":  "socialmedia12",
+                        "name":  "Sentiment Data for Equity"
+                    },
+        "category":  {
+                         "id":  "socialmedia",
+                         "name":  "Social Media"
+                     },
+        "subcategory":  {
+                            "id":  "socialmedia-social-media",
+                            "name":  "Social Media"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "sentiment_low_price",
+        "description":  "The daily low price of the stock, provided as a double. This field is sourced from the \u0027low\u0027 column in the PulsePickPerformance files.",
+        "dataset":  {
+                        "id":  "socialmedia12",
+                        "name":  "Sentiment Data for Equity"
+                    },
+        "category":  {
+                         "id":  "socialmedia",
+                         "name":  "Social Media"
+                     },
+        "subcategory":  {
+                            "id":  "socialmedia-social-media",
+                            "name":  "Social Media"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "sentiment_open_price",
+        "description":  "The daily open price of the stock, provided as a double. This field is sourced from the \u0027open\u0027 column in the PulsePickPerformance files.",
+        "dataset":  {
+                        "id":  "socialmedia12",
+                        "name":  "Sentiment Data for Equity"
+                    },
+        "category":  {
+                         "id":  "socialmedia",
+                         "name":  "Social Media"
+                     },
+        "subcategory":  {
+                            "id":  "socialmedia-social-media",
+                            "name":  "Social Media"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "sentiment_open_to_close_return_pct",
+        "description":  "The percentage stock price change from the daily open to the close price. This is a double calculated as \u0027value * 100\u0027 and sourced from the \u0027dayclose\u0027 field.",
+        "dataset":  {
+                        "id":  "socialmedia12",
+                        "name":  "Sentiment Data for Equity"
+                    },
+        "category":  {
+                         "id":  "socialmedia",
+                         "name":  "Social Media"
+                     },
+        "subcategory":  {
+                            "id":  "socialmedia-social-media",
+                            "name":  "Social Media"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "sentiment_score",
+        "description":  "The aggregate sentiment score derived from social media and news. A value of 0 is neutral, positive values indicate positive opinion, and negative values indicate negative opinion.",
+        "dataset":  {
+                        "id":  "socialmedia12",
+                        "name":  "Sentiment Data for Equity"
+                    },
+        "category":  {
+                         "id":  "socialmedia",
+                         "name":  "Social Media"
+                     },
+        "subcategory":  {
+                            "id":  "socialmedia-social-media",
+                            "name":  "Social Media"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "sentiment_significance",
+        "description":  "The statistical significance of the backtesting hit ratio, provided as a double. This field is sourced from the \u0027Significance\u0027 column in the PulsePick files.",
+        "dataset":  {
+                        "id":  "socialmedia12",
+                        "name":  "Sentiment Data for Equity"
+                    },
+        "category":  {
+                         "id":  "socialmedia",
+                         "name":  "Social Media"
+                     },
+        "subcategory":  {
+                            "id":  "socialmedia-social-media",
+                            "name":  "Social Media"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "sentiment_stddev",
+        "description":  "The standard deviation of the anticipated stock price change based on the trading signal, provided as a double. This field is sourced from the \u0027StdDev\u0027 column in the PulsePick files.",
+        "dataset":  {
+                        "id":  "socialmedia12",
+                        "name":  "Sentiment Data for Equity"
+                    },
+        "category":  {
+                         "id":  "socialmedia",
+                         "name":  "Social Media"
+                     },
+        "subcategory":  {
+                            "id":  "socialmedia-social-media",
+                            "name":  "Social Media"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    }
+]

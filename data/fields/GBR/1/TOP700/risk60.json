@@ -1,0 +1,162 @@
+﻿[
+    {
+        "id":  "lending_fee_bid_rate",
+        "description":  "Composite lending fee (annualized) at which long inventory is lent",
+        "dataset":  {
+                        "id":  "risk60",
+                        "name":  "Securities Lending Insight Data"
+                    },
+        "category":  {
+                         "id":  "risk",
+                         "name":  "Risk"
+                     },
+        "subcategory":  {
+                            "id":  "risk-risk-models",
+                            "name":  "Risk Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  0.9997,
+        "coverage":  0.6694,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "rsk60_crowding",
+        "description":  "Signed daily indicator of shorting activity (positive = increased shorting/crowding, negative = covering/decrowding)",
+        "dataset":  {
+                        "id":  "risk60",
+                        "name":  "Securities Lending Insight Data"
+                    },
+        "category":  {
+                         "id":  "risk",
+                         "name":  "Risk"
+                     },
+        "subcategory":  {
+                            "id":  "risk-risk-models",
+                            "name":  "Risk Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  0.8086,
+        "coverage":  0.6694,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "rsk60_datatime",
+        "description":  "Vendor timestamp in HHMMSS for the snapshot, used to order intraday prints",
+        "dataset":  {
+                        "id":  "risk60",
+                        "name":  "Securities Lending Insight Data"
+                    },
+        "category":  {
+                         "id":  "risk",
+                         "name":  "Risk"
+                     },
+        "subcategory":  {
+                            "id":  "risk-risk-models",
+                            "name":  "Risk Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  0.9997,
+        "coverage":  0.6694,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "rsk60_last",
+        "description":  "Most recent borrow/lend rate observed at the snapshot time",
+        "dataset":  {
+                        "id":  "risk60",
+                        "name":  "Securities Lending Insight Data"
+                    },
+        "category":  {
+                         "id":  "risk",
+                         "name":  "Risk"
+                     },
+        "subcategory":  {
+                            "id":  "risk-risk-models",
+                            "name":  "Risk Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  0.9997,
+        "coverage":  0.6694,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "rsk60_offer",
+        "description":  "Composite borrow fee (annualized) paid by the short seller",
+        "dataset":  {
+                        "id":  "risk60",
+                        "name":  "Securities Lending Insight Data"
+                    },
+        "category":  {
+                         "id":  "risk",
+                         "name":  "Risk"
+                     },
+        "subcategory":  {
+                            "id":  "risk-risk-models",
+                            "name":  "Risk Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  0.9997,
+        "coverage":  0.6694,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    }
+]

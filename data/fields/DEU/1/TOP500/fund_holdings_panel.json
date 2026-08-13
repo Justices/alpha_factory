@@ -1,0 +1,578 @@
+﻿[
+    {
+        "id":  "boundary_transaction_total",
+        "description":  "Number of boundary transactions (new position initiations or complete liquidations) across all fund accounts on the date",
+        "dataset":  {
+                        "id":  "fund_holdings_panel",
+                        "name":  "Global Institutional Fund Holdings"
+                    },
+        "category":  {
+                         "id":  "institutions",
+                         "name":  "Institutions"
+                     },
+        "subcategory":  {
+                            "id":  "institutions-ownership-models",
+                            "name":  "Ownership Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  0.899,
+        "coverage":  0.9278,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "boundary_transaction_total_active",
+        "description":  "Number of boundary transactions across fund accounts (introductions of new positions or complete liquidations)",
+        "dataset":  {
+                        "id":  "fund_holdings_panel",
+                        "name":  "Global Institutional Fund Holdings"
+                    },
+        "category":  {
+                         "id":  "institutions",
+                         "name":  "Institutions"
+                     },
+        "subcategory":  {
+                            "id":  "institutions-ownership-models",
+                            "name":  "Ownership Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  0.899,
+        "coverage":  0.876,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "boundary_transaction_usd_value",
+        "description":  "Total USD value of boundary transactions (entries into new positions or complete liquidations) across all accounts on the date",
+        "dataset":  {
+                        "id":  "fund_holdings_panel",
+                        "name":  "Global Institutional Fund Holdings"
+                    },
+        "category":  {
+                         "id":  "institutions",
+                         "name":  "Institutions"
+                     },
+        "subcategory":  {
+                            "id":  "institutions-ownership-models",
+                            "name":  "Ownership Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  0.899,
+        "coverage":  0.9278,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "boundary_transaction_usd_value_active",
+        "description":  "Dollar value of boundary transactions in USD",
+        "dataset":  {
+                        "id":  "fund_holdings_panel",
+                        "name":  "Global Institutional Fund Holdings"
+                    },
+        "category":  {
+                         "id":  "institutions",
+                         "name":  "Institutions"
+                     },
+        "subcategory":  {
+                            "id":  "institutions-ownership-models",
+                            "name":  "Ownership Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  0.899,
+        "coverage":  0.876,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "herfindahl_index_transactions",
+        "description":  "Herfindahl-Hirschman Index of trade value concentration across transacting accounts (0 to 1, higher means more concentrated)",
+        "dataset":  {
+                        "id":  "fund_holdings_panel",
+                        "name":  "Global Institutional Fund Holdings"
+                    },
+        "category":  {
+                         "id":  "institutions",
+                         "name":  "Institutions"
+                     },
+        "subcategory":  {
+                            "id":  "institutions-ownership-models",
+                            "name":  "Ownership Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  0.899,
+        "coverage":  0.9278,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "herfindahl_index_transactions_active",
+        "description":  "Herfindahl-Hirschman Index concentration measure based on distribution of transaction value across accounts",
+        "dataset":  {
+                        "id":  "fund_holdings_panel",
+                        "name":  "Global Institutional Fund Holdings"
+                    },
+        "category":  {
+                         "id":  "institutions",
+                         "name":  "Institutions"
+                     },
+        "subcategory":  {
+                            "id":  "institutions-ownership-models",
+                            "name":  "Ownership Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  0.899,
+        "coverage":  0.876,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "large_trade_count_50bps",
+        "description":  "Number of transactions where the trade value exceeds 0.5% of the respective fund’s AUM",
+        "dataset":  {
+                        "id":  "fund_holdings_panel",
+                        "name":  "Global Institutional Fund Holdings"
+                    },
+        "category":  {
+                         "id":  "institutions",
+                         "name":  "Institutions"
+                     },
+        "subcategory":  {
+                            "id":  "institutions-ownership-models",
+                            "name":  "Ownership Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  0.899,
+        "coverage":  0.9278,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "large_trade_count_50bps_active",
+        "description":  "Count of transactions with transaction value greater than 0.5% of the fund’s AUM",
+        "dataset":  {
+                        "id":  "fund_holdings_panel",
+                        "name":  "Global Institutional Fund Holdings"
+                    },
+        "category":  {
+                         "id":  "institutions",
+                         "name":  "Institutions"
+                     },
+        "subcategory":  {
+                            "id":  "institutions-ownership-models",
+                            "name":  "Ownership Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  0.899,
+        "coverage":  0.876,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "security_transaction_usd_value",
+        "description":  "Dollar value of transactions in USD",
+        "dataset":  {
+                        "id":  "fund_holdings_panel",
+                        "name":  "Global Institutional Fund Holdings"
+                    },
+        "category":  {
+                         "id":  "institutions",
+                         "name":  "Institutions"
+                     },
+        "subcategory":  {
+                            "id":  "institutions-ownership-models",
+                            "name":  "Ownership Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  0.899,
+        "coverage":  0.9278,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "security_transaction_usd_value_active",
+        "description":  "Dollar value of transactions in USD",
+        "dataset":  {
+                        "id":  "fund_holdings_panel",
+                        "name":  "Global Institutional Fund Holdings"
+                    },
+        "category":  {
+                         "id":  "institutions",
+                         "name":  "Institutions"
+                     },
+        "subcategory":  {
+                            "id":  "institutions-ownership-models",
+                            "name":  "Ownership Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  0.899,
+        "coverage":  0.876,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "stable_boundary_trade_count_21d",
+        "description":  "Count of boundary transactions by accounts that had no boundary trade in the same security in the prior 21 weekdays (indicating more durable changes)",
+        "dataset":  {
+                        "id":  "fund_holdings_panel",
+                        "name":  "Global Institutional Fund Holdings"
+                    },
+        "category":  {
+                         "id":  "institutions",
+                         "name":  "Institutions"
+                     },
+        "subcategory":  {
+                            "id":  "institutions-ownership-models",
+                            "name":  "Ownership Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  0.899,
+        "coverage":  0.9278,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "stable_boundary_trade_count_21d_active",
+        "description":  "Count of boundary transactions from fund accounts with no prior boundary transaction in the past 21 weekdays for the security",
+        "dataset":  {
+                        "id":  "fund_holdings_panel",
+                        "name":  "Global Institutional Fund Holdings"
+                    },
+        "category":  {
+                         "id":  "institutions",
+                         "name":  "Institutions"
+                     },
+        "subcategory":  {
+                            "id":  "institutions-ownership-models",
+                            "name":  "Ownership Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  0.899,
+        "coverage":  0.876,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "top_weighted_transaction_number",
+        "description":  "Number of transactions in securities that were conviction holdings as of the prior or current day across all accounts",
+        "dataset":  {
+                        "id":  "fund_holdings_panel",
+                        "name":  "Global Institutional Fund Holdings"
+                    },
+        "category":  {
+                         "id":  "institutions",
+                         "name":  "Institutions"
+                     },
+        "subcategory":  {
+                            "id":  "institutions-ownership-models",
+                            "name":  "Ownership Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  0.899,
+        "coverage":  0.9278,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "top_weighted_transaction_number_active",
+        "description":  "Number of conviction transactions across fund accounts, where a conviction transaction is one in a security that was part of conviction holdings as of the previous or current day",
+        "dataset":  {
+                        "id":  "fund_holdings_panel",
+                        "name":  "Global Institutional Fund Holdings"
+                    },
+        "category":  {
+                         "id":  "institutions",
+                         "name":  "Institutions"
+                     },
+        "subcategory":  {
+                            "id":  "institutions-ownership-models",
+                            "name":  "Ownership Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  0.899,
+        "coverage":  0.876,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "transaction_account_total",
+        "description":  "Number of distinct accounts that transacted the security on the date",
+        "dataset":  {
+                        "id":  "fund_holdings_panel",
+                        "name":  "Global Institutional Fund Holdings"
+                    },
+        "category":  {
+                         "id":  "institutions",
+                         "name":  "Institutions"
+                     },
+        "subcategory":  {
+                            "id":  "institutions-ownership-models",
+                            "name":  "Ownership Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  0.899,
+        "coverage":  0.9278,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "transaction_account_total_active",
+        "description":  "Number of accounts that transacted the security",
+        "dataset":  {
+                        "id":  "fund_holdings_panel",
+                        "name":  "Global Institutional Fund Holdings"
+                    },
+        "category":  {
+                         "id":  "institutions",
+                         "name":  "Institutions"
+                     },
+        "subcategory":  {
+                            "id":  "institutions-ownership-models",
+                            "name":  "Ownership Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  0.899,
+        "coverage":  0.876,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "transaction_value_distribution_score",
+        "description":  "Index from 0 to 1 measuring how the day’s trade value is distributed across transacting accounts (higher means more concentrated)",
+        "dataset":  {
+                        "id":  "fund_holdings_panel",
+                        "name":  "Global Institutional Fund Holdings"
+                    },
+        "category":  {
+                         "id":  "institutions",
+                         "name":  "Institutions"
+                     },
+        "subcategory":  {
+                            "id":  "institutions-ownership-models",
+                            "name":  "Ownership Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  0.899,
+        "coverage":  0.9278,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "transaction_value_distribution_score_active",
+        "description":  "Concentration index (0 to 1) measuring how the transaction value is distributed across transacting accounts",
+        "dataset":  {
+                        "id":  "fund_holdings_panel",
+                        "name":  "Global Institutional Fund Holdings"
+                    },
+        "category":  {
+                         "id":  "institutions",
+                         "name":  "Institutions"
+                     },
+        "subcategory":  {
+                            "id":  "institutions-ownership-models",
+                            "name":  "Ownership Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  0.899,
+        "coverage":  0.876,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    }
+]

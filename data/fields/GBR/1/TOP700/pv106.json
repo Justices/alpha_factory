@@ -1,0 +1,258 @@
+﻿[
+    {
+        "id":  "aggregated_slippage_metric",
+        "description":  "Comprehensive measure of slippage across multiple trades or venues.",
+        "dataset":  {
+                        "id":  "pv106",
+                        "name":  "Microstructure Spread Data"
+                    },
+        "category":  {
+                         "id":  "pv",
+                         "name":  "Price Volume"
+                     },
+        "subcategory":  {
+                            "id":  "pv-price-volume",
+                            "name":  "Price Volume"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "pv106_lastspread",
+        "description":  "Bid-ask spread averaged over the last 30 minutes (in instrument currency)",
+        "dataset":  {
+                        "id":  "pv106",
+                        "name":  "Microstructure Spread Data"
+                    },
+        "category":  {
+                         "id":  "pv",
+                         "name":  "Price Volume"
+                     },
+        "subcategory":  {
+                            "id":  "pv-price-volume",
+                            "name":  "Price Volume"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "pv106_lastspreadbp",
+        "description":  "Bid-ask spread over the last 30 minutes expressed in basis points",
+        "dataset":  {
+                        "id":  "pv106",
+                        "name":  "Microstructure Spread Data"
+                    },
+        "category":  {
+                         "id":  "pv",
+                         "name":  "Price Volume"
+                     },
+        "subcategory":  {
+                            "id":  "pv-price-volume",
+                            "name":  "Price Volume"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "pv106_spread",
+        "description":  "Difference between best bid and best ask price for the security (in instrument currency)",
+        "dataset":  {
+                        "id":  "pv106",
+                        "name":  "Microstructure Spread Data"
+                    },
+        "category":  {
+                         "id":  "pv",
+                         "name":  "Price Volume"
+                     },
+        "subcategory":  {
+                            "id":  "pv-price-volume",
+                            "name":  "Price Volume"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "pv106_spreadbp",
+        "description":  "Bid-ask spread expressed in basis points (normalized to mid/VWAP)",
+        "dataset":  {
+                        "id":  "pv106",
+                        "name":  "Microstructure Spread Data"
+                    },
+        "category":  {
+                         "id":  "pv",
+                         "name":  "Price Volume"
+                     },
+        "subcategory":  {
+                            "id":  "pv-price-volume",
+                            "name":  "Price Volume"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "slippage_at_spread_35",
+        "description":  "Modeled slippage/transaction cost estimate for executing an order equal to 35% of average daily volume, derived from spread-based microstructure and VWAP data; point-in-time and embargoed",
+        "dataset":  {
+                        "id":  "pv106",
+                        "name":  "Microstructure Spread Data"
+                    },
+        "category":  {
+                         "id":  "pv",
+                         "name":  "Price Volume"
+                     },
+        "subcategory":  {
+                            "id":  "pv-price-volume",
+                            "name":  "Price Volume"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "transaction_cost_maximum",
+        "description":  "Maximum estimated transaction cost for a trade.",
+        "dataset":  {
+                        "id":  "pv106",
+                        "name":  "Microstructure Spread Data"
+                    },
+        "category":  {
+                         "id":  "pv",
+                         "name":  "Price Volume"
+                     },
+        "subcategory":  {
+                            "id":  "pv-price-volume",
+                            "name":  "Price Volume"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "transaction_cost_percentile_10",
+        "description":  "Estimated transaction cost at the 10th percentile for a trade.",
+        "dataset":  {
+                        "id":  "pv106",
+                        "name":  "Microstructure Spread Data"
+                    },
+        "category":  {
+                         "id":  "pv",
+                         "name":  "Price Volume"
+                     },
+        "subcategory":  {
+                            "id":  "pv-price-volume",
+                            "name":  "Price Volume"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    }
+]

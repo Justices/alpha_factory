@@ -1,0 +1,706 @@
+﻿[
+    {
+        "id":  "delta_surface_data_quality",
+        "description":  "Quality flag of the data point, where 0 indicates highest quality and higher values indicate less reliable or interpolated data",
+        "dataset":  {
+                        "id":  "option1",
+                        "name":  "Options Volatility Surfaces Data"
+                    },
+        "category":  {
+                         "id":  "option",
+                         "name":  "Option"
+                     },
+        "subcategory":  {
+                            "id":  "option-option-volatility",
+                            "name":  "Option Volatility"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  0.5476,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "opt1_deltasurface_d1_moneyness",
+        "description":  "Option moneyness indicating the relative position of strike to underlying price",
+        "dataset":  {
+                        "id":  "option1",
+                        "name":  "Options Volatility Surfaces Data"
+                    },
+        "category":  {
+                         "id":  "option",
+                         "name":  "Option"
+                     },
+        "subcategory":  {
+                            "id":  "option-option-volatility",
+                            "name":  "Option Volatility"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  0.5476,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "opt1_dvd_frequency",
+        "description":  "Frequency of dividend payments per year; integer codes such as 1=annual, 2=semiannual",
+        "dataset":  {
+                        "id":  "option1",
+                        "name":  "Options Volatility Surfaces Data"
+                    },
+        "category":  {
+                         "id":  "option",
+                         "name":  "Option"
+                     },
+        "subcategory":  {
+                            "id":  "option-option-volatility",
+                            "name":  "Option Volatility"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  0.5476,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "opt1_factor",
+        "description":  "Split factor; numeric ratio for corporate action adjustment",
+        "dataset":  {
+                        "id":  "option1",
+                        "name":  "Options Volatility Surfaces Data"
+                    },
+        "category":  {
+                         "id":  "option",
+                         "name":  "Option"
+                     },
+        "subcategory":  {
+                            "id":  "option-option-volatility",
+                            "name":  "Option Volatility"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  0.5476,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "opt1_isenabled",
+        "description":  "whether a root is standard (IsEnabled=0) or non-standard IsEnable=0)",
+        "dataset":  {
+                        "id":  "option1",
+                        "name":  "Options Volatility Surfaces Data"
+                    },
+        "category":  {
+                         "id":  "option",
+                         "name":  "Option"
+                     },
+        "subcategory":  {
+                            "id":  "option-option-volatility",
+                            "name":  "Option Volatility"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  0.5476,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "opt1_last_dvd_amount",
+        "description":  "Dividend amount adjusted to stock’s currency, used in calculations representing last dividend payment",
+        "dataset":  {
+                        "id":  "option1",
+                        "name":  "Options Volatility Surfaces Data"
+                    },
+        "category":  {
+                         "id":  "option",
+                         "name":  "Option"
+                     },
+        "subcategory":  {
+                            "id":  "option-option-volatility",
+                            "name":  "Option Volatility"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  0.5476,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "opt1_price_close",
+        "description":  "Adjusted stock closing price reflecting splits, dividends, and other corporate actions, used for total return and research",
+        "dataset":  {
+                        "id":  "option1",
+                        "name":  "Options Volatility Surfaces Data"
+                    },
+        "category":  {
+                         "id":  "option",
+                         "name":  "Option"
+                     },
+        "subcategory":  {
+                            "id":  "option-option-volatility",
+                            "name":  "Option Volatility"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  0.5476,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "opt1_price_close_ini",
+        "description":  "Unadjusted stock closing price as of the trade date, reflecting the raw market close without adjustment for corporate actions",
+        "dataset":  {
+                        "id":  "option1",
+                        "name":  "Options Volatility Surfaces Data"
+                    },
+        "category":  {
+                         "id":  "option",
+                         "name":  "Option"
+                     },
+        "subcategory":  {
+                            "id":  "option-option-volatility",
+                            "name":  "Option Volatility"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  0.5476,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "opt1_price_close_opt",
+        "description":  "Unadjusted closing price used specifically for options calculations like implied volatility and Greeks; may differ from raw close due to special conventions like index futures prices",
+        "dataset":  {
+                        "id":  "option1",
+                        "name":  "Options Volatility Surfaces Data"
+                    },
+        "category":  {
+                         "id":  "option",
+                         "name":  "Option"
+                     },
+        "subcategory":  {
+                            "id":  "option-option-volatility",
+                            "name":  "Option Volatility"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  0.5476,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "opt1_price_high",
+        "description":  "Adjusted highest stock price on the trading day, accounting for splits and dividends",
+        "dataset":  {
+                        "id":  "option1",
+                        "name":  "Options Volatility Surfaces Data"
+                    },
+        "category":  {
+                         "id":  "option",
+                         "name":  "Option"
+                     },
+        "subcategory":  {
+                            "id":  "option-option-volatility",
+                            "name":  "Option Volatility"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  0.5476,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "opt1_price_low",
+        "description":  "Adjusted lowest stock price of the trading day, accounting for corporate actions",
+        "dataset":  {
+                        "id":  "option1",
+                        "name":  "Options Volatility Surfaces Data"
+                    },
+        "category":  {
+                         "id":  "option",
+                         "name":  "Option"
+                     },
+        "subcategory":  {
+                            "id":  "option-option-volatility",
+                            "name":  "Option Volatility"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  0.5476,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "opt1_price_open",
+        "description":  "Adjusted opening price of the stock on the trading date, consistent with corporate action adjustments",
+        "dataset":  {
+                        "id":  "option1",
+                        "name":  "Options Volatility Surfaces Data"
+                    },
+        "category":  {
+                         "id":  "option",
+                         "name":  "Option"
+                     },
+        "subcategory":  {
+                            "id":  "option-option-volatility",
+                            "name":  "Option Volatility"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  0.5476,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "opt1_p_deltasurface_d1_delta",
+        "description":  "Option delta, representing the sensitivity of the option price to changes in the underlying price",
+        "dataset":  {
+                        "id":  "option1",
+                        "name":  "Options Volatility Surfaces Data"
+                    },
+        "category":  {
+                         "id":  "option",
+                         "name":  "Option"
+                     },
+        "subcategory":  {
+                            "id":  "option-option-volatility",
+                            "name":  "Option Volatility"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  0.5476,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "opt1_p_deltasurface_d1_vi",
+        "description":  "Implied volatility value at the surface coordinate defined by delta, moneyness, and period",
+        "dataset":  {
+                        "id":  "option1",
+                        "name":  "Options Volatility Surfaces Data"
+                    },
+        "category":  {
+                         "id":  "option",
+                         "name":  "Option"
+                     },
+        "subcategory":  {
+                            "id":  "option-option-volatility",
+                            "name":  "Option Volatility"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  0.5476,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "opt1_p_raw_deltasurface_d1_delta",
+        "description":  "Delta value of a virtual option contract, an axis coordinate of the volatility surface",
+        "dataset":  {
+                        "id":  "option1",
+                        "name":  "Options Volatility Surfaces Data"
+                    },
+        "category":  {
+                         "id":  "option",
+                         "name":  "Option"
+                     },
+        "subcategory":  {
+                            "id":  "option-option-volatility",
+                            "name":  "Option Volatility"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  0.5476,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "opt1_p_raw_deltasurface_d1_vi",
+        "description":  "Implied volatility of the virtual option contract at the given delta and period",
+        "dataset":  {
+                        "id":  "option1",
+                        "name":  "Options Volatility Surfaces Data"
+                    },
+        "category":  {
+                         "id":  "option",
+                         "name":  "Option"
+                     },
+        "subcategory":  {
+                            "id":  "option-option-volatility",
+                            "name":  "Option Volatility"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  0.5476,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "opt1_raw_deltasurface_d1_moneyness",
+        "description":  "Relative strike price measure compared to the underlying price, axis of volatility surface",
+        "dataset":  {
+                        "id":  "option1",
+                        "name":  "Options Volatility Surfaces Data"
+                    },
+        "category":  {
+                         "id":  "option",
+                         "name":  "Option"
+                     },
+        "subcategory":  {
+                            "id":  "option-option-volatility",
+                            "name":  "Option Volatility"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  0.5476,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "opt1_volume",
+        "description":  "Stock traded volume, adjusted consistently with price fields",
+        "dataset":  {
+                        "id":  "option1",
+                        "name":  "Options Volatility Surfaces Data"
+                    },
+        "category":  {
+                         "id":  "option",
+                         "name":  "Option"
+                     },
+        "subcategory":  {
+                            "id":  "option-option-volatility",
+                            "name":  "Option Volatility"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  0.5476,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "opt1_vp_deltasurface_d1_period",
+        "description":  "Option expiry measured in days to expiration",
+        "dataset":  {
+                        "id":  "option1",
+                        "name":  "Options Volatility Surfaces Data"
+                    },
+        "category":  {
+                         "id":  "option",
+                         "name":  "Option"
+                     },
+        "subcategory":  {
+                            "id":  "option-option-volatility",
+                            "name":  "Option Volatility"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  0.5476,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "opt1_vp_raw_deltasurface_d1_period",
+        "description":  "Maturity of the option or contract in calendar days (e.g., 30, 60, 90... days to expiry)",
+        "dataset":  {
+                        "id":  "option1",
+                        "name":  "Options Volatility Surfaces Data"
+                    },
+        "category":  {
+                         "id":  "option",
+                         "name":  "Option"
+                     },
+        "subcategory":  {
+                            "id":  "option-option-volatility",
+                            "name":  "Option Volatility"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  0.5476,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "split_event_amount_value",
+        "description":  "Cash dividend amount per share in dollars",
+        "dataset":  {
+                        "id":  "option1",
+                        "name":  "Options Volatility Surfaces Data"
+                    },
+        "category":  {
+                         "id":  "option",
+                         "name":  "Option"
+                     },
+        "subcategory":  {
+                            "id":  "option-option-volatility",
+                            "name":  "Option Volatility"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  0.5476,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "split_event_cause_code",
+        "description":  "Integer code indicating event type: 0=split, 1=irregular cash dividend, 2=stock dividend",
+        "dataset":  {
+                        "id":  "option1",
+                        "name":  "Options Volatility Surfaces Data"
+                    },
+        "category":  {
+                         "id":  "option",
+                         "name":  "Option"
+                     },
+        "subcategory":  {
+                            "id":  "option-option-volatility",
+                            "name":  "Option Volatility"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  0.5476,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    }
+]

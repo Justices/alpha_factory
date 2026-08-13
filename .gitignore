@@ -52,8 +52,6 @@ Thumbs.db
 .claude
 __pycache__
 runs/*
-data/fields/*
-data/imports/*
 !data/README.md
 **/*/.gitkeep
 .brain.json

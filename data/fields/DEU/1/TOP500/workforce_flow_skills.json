@@ -1,0 +1,322 @@
+﻿[
+    {
+        "id":  "adjusted_employee_headcount",
+        "description":  "Scaled count measure used in delta panels (unitless or scaled)",
+        "dataset":  {
+                        "id":  "workforce_flow_skills",
+                        "name":  "Global Workforce Flow and Skills Analytics"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-employee-data",
+                            "name":  "Employee Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "employee_headcount_2",
+        "description":  "Count measure for the record slice (unit = count)",
+        "dataset":  {
+                        "id":  "workforce_flow_skills",
+                        "name":  "Global Workforce Flow and Skills Analytics"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-employee-data",
+                            "name":  "Employee Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "employee_inflow_count_2",
+        "description":  "Monthly inflow count (hires/additions during the month)",
+        "dataset":  {
+                        "id":  "workforce_flow_skills",
+                        "name":  "Global Workforce Flow and Skills Analytics"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-employee-data",
+                            "name":  "Employee Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "employee_outflow_count_2",
+        "description":  "Monthly outflow count (departures during the month)",
+        "dataset":  {
+                        "id":  "workforce_flow_skills",
+                        "name":  "Global Workforce Flow and Skills Analytics"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-employee-data",
+                            "name":  "Employee Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "employee_prestige_score_2",
+        "description":  "Prestige score for the role/entity (scaled metric)",
+        "dataset":  {
+                        "id":  "workforce_flow_skills",
+                        "name":  "Global Workforce Flow and Skills Analytics"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-employee-data",
+                            "name":  "Employee Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "position_seniority_level_2",
+        "description":  "Seniority level of the position, from 1 (most junior) to 4 (most senior)",
+        "dataset":  {
+                        "id":  "workforce_flow_skills",
+                        "name":  "Global Workforce Flow and Skills Analytics"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-employee-data",
+                            "name":  "Employee Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "total_salary_amount_2",
+        "description":  "Expected total salary for employees in the specified position at that date",
+        "dataset":  {
+                        "id":  "workforce_flow_skills",
+                        "name":  "Global Workforce Flow and Skills Analytics"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-employee-data",
+                            "name":  "Employee Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "unreliable_user_count_2",
+        "description":  "Count of flagged bad user records",
+        "dataset":  {
+                        "id":  "workforce_flow_skills",
+                        "name":  "Global Workforce Flow and Skills Analytics"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-employee-data",
+                            "name":  "Employee Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "unreliable_user_inflow_2",
+        "description":  "Monthly inflow count of records flagged as bad users (data quality indicator)",
+        "dataset":  {
+                        "id":  "workforce_flow_skills",
+                        "name":  "Global Workforce Flow and Skills Analytics"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-employee-data",
+                            "name":  "Employee Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "unreliable_user_outflow_2",
+        "description":  "Monthly outflow count of records flagged as bad users (data quality indicator)",
+        "dataset":  {
+                        "id":  "workforce_flow_skills",
+                        "name":  "Global Workforce Flow and Skills Analytics"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-employee-data",
+                            "name":  "Employee Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    }
+]

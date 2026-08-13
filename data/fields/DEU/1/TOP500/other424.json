@@ -1,0 +1,98 @@
+﻿[
+    {
+        "id":  "dividend_growth_factor_score",
+        "description":  "GRID signal: predicted likelihood or strength of imminent dividend increase (range [0,1]), based on Wolfe\u0027s ML model",
+        "dataset":  {
+                        "id":  "other424",
+                        "name":  "Dividend prediction model"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-dividend-models",
+                            "name":  "Dividend Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "oth424_divyld",
+        "description":  "Dividend yield of the company (method of calculation unspecified)",
+        "dataset":  {
+                        "id":  "other424",
+                        "name":  "Dividend prediction model"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-dividend-models",
+                            "name":  "Dividend Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  0.3751,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "oth424_mktcap",
+        "description":  "Market capitalization of the company (currency/unit unspecified; treat as relative size)",
+        "dataset":  {
+                        "id":  "other424",
+                        "name":  "Dividend prediction model"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-dividend-models",
+                            "name":  "Dividend Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    }
+]

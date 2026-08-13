@@ -1,0 +1,642 @@
+﻿[
+    {
+        "id":  "credit_risk_coverage_score_d1",
+        "description":  "Numeric score for coverage factors (e.g., ability to cover interest/debt); higher indicates better coverage",
+        "dataset":  {
+                        "id":  "model36",
+                        "name":  "SmartRatios Model"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-risk-based-models",
+                            "name":  "Risk Based Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.696,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "credit_risk_growth_score_d1",
+        "description":  "Numeric score for growth-related factors affecting credit health; higher indicates stronger growth profile",
+        "dataset":  {
+                        "id":  "model36",
+                        "name":  "SmartRatios Model"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-risk-based-models",
+                            "name":  "Risk Based Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.6972,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "credit_risk_leverage_score_d1",
+        "description":  "Percentile score reflecting leverage factors in credit risk assessment (daily version).",
+        "dataset":  {
+                        "id":  "model36",
+                        "name":  "SmartRatios Model"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-risk-based-models",
+                            "name":  "Risk Based Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.6987,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "credit_risk_liquidity_score_d1",
+        "description":  "Numeric score for liquidity-related factors; higher indicates stronger liquidity",
+        "dataset":  {
+                        "id":  "model36",
+                        "name":  "SmartRatios Model"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-risk-based-models",
+                            "name":  "Risk Based Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.6981,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "credit_risk_profitability_score_d1",
+        "description":  "Numeric score for profitability-related factors; higher indicates better profitability",
+        "dataset":  {
+                        "id":  "model36",
+                        "name":  "SmartRatios Model"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-risk-based-models",
+                            "name":  "Risk Based Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.6987,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "default_risk_country_percentile_d1_2",
+        "description":  "Float percentile rank (0–100) of the company’s financial health within its country peer group; higher indicates better credit quality",
+        "dataset":  {
+                        "id":  "model36",
+                        "name":  "SmartRatios Model"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-risk-based-models",
+                            "name":  "Risk Based Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.6987,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "default_risk_global_percentile_d1_2",
+        "description":  "Float percentile rank (0–100) of financial health globally; higher indicates better credit quality",
+        "dataset":  {
+                        "id":  "model36",
+                        "name":  "SmartRatios Model"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-risk-based-models",
+                            "name":  "Risk Based Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.6987,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "default_risk_industry_percentile_d1_2",
+        "description":  "Float percentile rank (0–100) within the company’s industry; higher indicates better credit quality",
+        "dataset":  {
+                        "id":  "model36",
+                        "name":  "SmartRatios Model"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-risk-based-models",
+                            "name":  "Risk Based Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.6935,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "default_risk_region_percentile_d1_2",
+        "description":  "Float percentile rank (0–100) of financial health within the region; higher indicates better credit quality",
+        "dataset":  {
+                        "id":  "model36",
+                        "name":  "SmartRatios Model"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-risk-based-models",
+                            "name":  "Risk Based Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.6987,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "default_risk_sector_percentile_d1_2",
+        "description":  "Float percentile rank (0–100) within the company’s sector; higher indicates better credit quality",
+        "dataset":  {
+                        "id":  "model36",
+                        "name":  "SmartRatios Model"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-risk-based-models",
+                            "name":  "Risk Based Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.6973,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "star_sr_country_rank_d1",
+        "description":  "Percentile rank (1–100) within the company’s country of its 1‑year default probability; higher means lower default risk",
+        "dataset":  {
+                        "id":  "model36",
+                        "name":  "SmartRatios Model"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-risk-based-models",
+                            "name":  "Risk Based Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  1,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "star_sr_coverage_d1",
+        "description":  "Percentile rank (1–100) reflecting only the coverage factors; higher indicates better credit quality",
+        "dataset":  {
+                        "id":  "model36",
+                        "name":  "SmartRatios Model"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-risk-based-models",
+                            "name":  "Risk Based Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  1,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "star_sr_global_rank_d1",
+        "description":  "Global percentile rank (1–100) of the company’s 1‑year default probability from SmartRatios; higher means lower default risk",
+        "dataset":  {
+                        "id":  "model36",
+                        "name":  "SmartRatios Model"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-risk-based-models",
+                            "name":  "Risk Based Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  1,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "star_sr_growth_d1",
+        "description":  "Percentile rank (1–100) reflecting only the growth and stability factors; higher indicates better credit quality",
+        "dataset":  {
+                        "id":  "model36",
+                        "name":  "SmartRatios Model"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-risk-based-models",
+                            "name":  "Risk Based Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  1,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "star_sr_industr_rank_d1",
+        "description":  "Percentile rank (1–100) within the same region and industry of the company’s 1‑year default probability; higher means lower default risk",
+        "dataset":  {
+                        "id":  "model36",
+                        "name":  "SmartRatios Model"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-risk-based-models",
+                            "name":  "Risk Based Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  1,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "star_sr_leverage_d1",
+        "description":  "Percentile rank (1–100) reflecting only the leverage factors; higher indicates better credit quality",
+        "dataset":  {
+                        "id":  "model36",
+                        "name":  "SmartRatios Model"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-risk-based-models",
+                            "name":  "Risk Based Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  1,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "star_sr_liquidity_d1",
+        "description":  "Percentile rank (1–100) reflecting only the liquidity factors; higher indicates better credit quality",
+        "dataset":  {
+                        "id":  "model36",
+                        "name":  "SmartRatios Model"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-risk-based-models",
+                            "name":  "Risk Based Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  1,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "star_sr_profitability_d1",
+        "description":  "Percentile rank (1–100) reflecting only the profitability factors in the SmartRatios Credit Risk Model; higher indicates better credit quality",
+        "dataset":  {
+                        "id":  "model36",
+                        "name":  "SmartRatios Model"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-risk-based-models",
+                            "name":  "Risk Based Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  1,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "star_sr_region_rank_d1",
+        "description":  "Regional percentile rank (1–100) of the company’s 1‑year default probability; higher means lower default risk",
+        "dataset":  {
+                        "id":  "model36",
+                        "name":  "SmartRatios Model"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-risk-based-models",
+                            "name":  "Risk Based Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  1,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "star_sr_sector_rank_d1",
+        "description":  "Percentile rank (1–100) within the same region and sector of the company’s 1‑year default probability; higher means lower default risk",
+        "dataset":  {
+                        "id":  "model36",
+                        "name":  "SmartRatios Model"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-risk-based-models",
+                            "name":  "Risk Based Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  1,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    }
+]

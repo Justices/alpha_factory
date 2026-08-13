@@ -1,0 +1,194 @@
+﻿[
+    {
+        "id":  "entity_employee_count",
+        "description":  "Number of employees in the entity (e.g., company, index, person)",
+        "dataset":  {
+                        "id":  "socialmedia12",
+                        "name":  "Sentiment Data for Equity"
+                    },
+        "category":  {
+                         "id":  "socialmedia",
+                         "name":  "Social Media"
+                     },
+        "subcategory":  {
+                            "id":  "socialmedia-social-media",
+                            "name":  "Social Media"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  0.5474,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "entity_profile_summary",
+        "description":  "Description of the company from snapshot data",
+        "dataset":  {
+                        "id":  "socialmedia12",
+                        "name":  "Sentiment Data for Equity"
+                    },
+        "category":  {
+                         "id":  "socialmedia",
+                         "name":  "Social Media"
+                     },
+        "subcategory":  {
+                            "id":  "socialmedia-social-media",
+                            "name":  "Social Media"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  0.5474,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "entity_sector_name",
+        "description":  "Business sector or industry classification for the entity",
+        "dataset":  {
+                        "id":  "socialmedia12",
+                        "name":  "Sentiment Data for Equity"
+                    },
+        "category":  {
+                         "id":  "socialmedia",
+                         "name":  "Social Media"
+                     },
+        "subcategory":  {
+                            "id":  "socialmedia-social-media",
+                            "name":  "Social Media"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  0.5474,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "entity_total_revenue",
+        "description":  "Revenue of the company",
+        "dataset":  {
+                        "id":  "socialmedia12",
+                        "name":  "Sentiment Data for Equity"
+                    },
+        "category":  {
+                         "id":  "socialmedia",
+                         "name":  "Social Media"
+                     },
+        "subcategory":  {
+                            "id":  "socialmedia-social-media",
+                            "name":  "Social Media"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  0.5474,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "scl12_buzz",
+        "description":  "relative sentiment volume",
+        "dataset":  {
+                        "id":  "socialmedia12",
+                        "name":  "Sentiment Data for Equity"
+                    },
+        "category":  {
+                         "id":  "socialmedia",
+                         "name":  "Social Media"
+                     },
+        "subcategory":  {
+                            "id":  "socialmedia-social-media",
+                            "name":  "Social Media"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "scl12_sentiment",
+        "description":  "sentiment",
+        "dataset":  {
+                        "id":  "socialmedia12",
+                        "name":  "Sentiment Data for Equity"
+                    },
+        "category":  {
+                         "id":  "socialmedia",
+                         "name":  "Social Media"
+                     },
+        "subcategory":  {
+                            "id":  "socialmedia-social-media",
+                            "name":  "Social Media"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    }
+]

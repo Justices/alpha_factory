@@ -1,0 +1,66 @@
+﻿[
+    {
+        "id":  "mdl144_predict",
+        "description":  "Raw output score from the StarPerformer (wolfe_star) deep learning model for each stock",
+        "dataset":  {
+                        "id":  "model144",
+                        "name":  "Stock Selection DL model"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-technical-models",
+                            "name":  "Technical Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.4147,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl144_score",
+        "description":  "The post-processed and normalized model score designed for systematic alpha generation, usually clipped to [0,1]",
+        "dataset":  {
+                        "id":  "model144",
+                        "name":  "Stock Selection DL model"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-technical-models",
+                            "name":  "Technical Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.4147,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    }
+]

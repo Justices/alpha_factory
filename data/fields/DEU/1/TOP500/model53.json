@@ -1,0 +1,706 @@
+﻿[
+    {
+        "id":  "annualized_pd_10_year_jc7",
+        "description":  "Annualized probability of default over a 10-year horizon using JC7 model.",
+        "dataset":  {
+                        "id":  "model53",
+                        "name":  "Creditworthiness Risk Measure Model"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-risk-based-models",
+                            "name":  "Risk Based Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.8734,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "annualized_pd_1_month_jc7",
+        "description":  "Annualized probability of default over a 1-month horizon using JC7 model.",
+        "dataset":  {
+                        "id":  "model53",
+                        "name":  "Creditworthiness Risk Measure Model"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-risk-based-models",
+                            "name":  "Risk Based Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.8734,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "annualized_pd_1_year_jc7",
+        "description":  "Annualized probability of default over a 1-year horizon using JC7 model.",
+        "dataset":  {
+                        "id":  "model53",
+                        "name":  "Creditworthiness Risk Measure Model"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-risk-based-models",
+                            "name":  "Risk Based Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.8734,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "annualized_pd_2_year_jc7",
+        "description":  "Annualized probability of default over a 2-year horizon using JC7 model.",
+        "dataset":  {
+                        "id":  "model53",
+                        "name":  "Creditworthiness Risk Measure Model"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-risk-based-models",
+                            "name":  "Risk Based Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.8734,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "annualized_pd_3_month_jc7",
+        "description":  "Annualized probability of default over a 3-month horizon using JC7 model.",
+        "dataset":  {
+                        "id":  "model53",
+                        "name":  "Creditworthiness Risk Measure Model"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-risk-based-models",
+                            "name":  "Risk Based Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.8734,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "annualized_pd_3_year_jc7",
+        "description":  "Annualized probability of default over a 3-year horizon using JC7 model.",
+        "dataset":  {
+                        "id":  "model53",
+                        "name":  "Creditworthiness Risk Measure Model"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-risk-based-models",
+                            "name":  "Risk Based Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.8734,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "annualized_pd_4_year_jc7",
+        "description":  "Annualized probability of default over a 4-year horizon using JC7 model.",
+        "dataset":  {
+                        "id":  "model53",
+                        "name":  "Creditworthiness Risk Measure Model"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-risk-based-models",
+                            "name":  "Risk Based Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.8734,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "annualized_pd_5_year_jc7",
+        "description":  "Annualized probability of default over a 5-year horizon using JC7 model.",
+        "dataset":  {
+                        "id":  "model53",
+                        "name":  "Creditworthiness Risk Measure Model"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-risk-based-models",
+                            "name":  "Risk Based Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.8734,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "annualized_pd_6_month_jc7",
+        "description":  "Annualized probability of default over a 6-month horizon using JC7 model.",
+        "dataset":  {
+                        "id":  "model53",
+                        "name":  "Creditworthiness Risk Measure Model"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-risk-based-models",
+                            "name":  "Risk Based Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.8734,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "annualized_pd_7_year_jc7",
+        "description":  "Annualized probability of default over a 7-year horizon using JC7 model.",
+        "dataset":  {
+                        "id":  "model53",
+                        "name":  "Creditworthiness Risk Measure Model"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-risk-based-models",
+                            "name":  "Risk Based Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.8734,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "data_observation_date_4",
+        "description":  "Date when the data observation was recorded.",
+        "dataset":  {
+                        "id":  "model53",
+                        "name":  "Creditworthiness Risk Measure Model"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-risk-based-models",
+                            "name":  "Risk Based Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "SYMBOL",
+        "dateCoverage":  1,
+        "coverage":  1,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl53_implied_spreads",
+        "description":  "Model-implied credit spread level for the issuer on the given date, typically expressed in basis points",
+        "dataset":  {
+                        "id":  "model53",
+                        "name":  "Creditworthiness Risk Measure Model"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-risk-based-models",
+                            "name":  "Risk Based Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.916,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl53_ms5_10year",
+        "description":  "Annualized default probability at the 10-year horizon from Kamakura’s Merton structural model v5 (MS5), reported in percent",
+        "dataset":  {
+                        "id":  "model53",
+                        "name":  "Creditworthiness Risk Measure Model"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-risk-based-models",
+                            "name":  "Risk Based Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.9259,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl53_ms5_1month",
+        "description":  "Annualized default probability at the 1-month horizon from Kamakura’s Merton structural model v5 (MS5), reported in percent",
+        "dataset":  {
+                        "id":  "model53",
+                        "name":  "Creditworthiness Risk Measure Model"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-risk-based-models",
+                            "name":  "Risk Based Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.9259,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl53_ms5_1year",
+        "description":  "Annualized default probability at the 1-year horizon from Kamakura’s Merton structural model v5 (MS5), reported in percent",
+        "dataset":  {
+                        "id":  "model53",
+                        "name":  "Creditworthiness Risk Measure Model"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-risk-based-models",
+                            "name":  "Risk Based Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.9259,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl53_ms5_2year",
+        "description":  "Annualized default probability at the 2-year horizon from Kamakura’s Merton structural model v5 (MS5), reported in percent",
+        "dataset":  {
+                        "id":  "model53",
+                        "name":  "Creditworthiness Risk Measure Model"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-risk-based-models",
+                            "name":  "Risk Based Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.9259,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl53_ms5_3month",
+        "description":  "Annualized default probability at the 3-month horizon from Kamakura’s Merton structural model v5 (MS5), reported in percent",
+        "dataset":  {
+                        "id":  "model53",
+                        "name":  "Creditworthiness Risk Measure Model"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-risk-based-models",
+                            "name":  "Risk Based Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.9259,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl53_ms5_3year",
+        "description":  "Annualized default probability at the 3-year horizon from Kamakura’s Merton structural model v5 (MS5), reported in percent",
+        "dataset":  {
+                        "id":  "model53",
+                        "name":  "Creditworthiness Risk Measure Model"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-risk-based-models",
+                            "name":  "Risk Based Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.9259,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl53_ms5_4year",
+        "description":  "Annualized default probability at the 4-year horizon from Kamakura’s Merton structural model v5 (MS5), reported in percent",
+        "dataset":  {
+                        "id":  "model53",
+                        "name":  "Creditworthiness Risk Measure Model"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-risk-based-models",
+                            "name":  "Risk Based Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.9259,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl53_ms5_5year",
+        "description":  "Annualized default probability at the 5-year horizon from Kamakura’s Merton structural model v5 (MS5), reported in percent",
+        "dataset":  {
+                        "id":  "model53",
+                        "name":  "Creditworthiness Risk Measure Model"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-risk-based-models",
+                            "name":  "Risk Based Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.9259,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl53_ms5_6month",
+        "description":  "Annualized default probability at the 6-month horizon from Kamakura’s Merton structural model v5 (MS5), reported in percent",
+        "dataset":  {
+                        "id":  "model53",
+                        "name":  "Creditworthiness Risk Measure Model"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-risk-based-models",
+                            "name":  "Risk Based Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.9259,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl53_ms5_7year",
+        "description":  "Annualized default probability at the 7-year horizon from Kamakura’s Merton structural model v5 (MS5), reported in percent",
+        "dataset":  {
+                        "id":  "model53",
+                        "name":  "Creditworthiness Risk Measure Model"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-risk-based-models",
+                            "name":  "Risk Based Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.9259,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    }
+]

@@ -1,0 +1,2 @@
+﻿"alphaCount","category","coverage","dataset","dateCoverage","dateCreated","delay","description","id","pyramidMultiplier","region","subcategory","themes","type","universe","userCount"
+"0","{""id"":""pv"",""name"":""Price Volume""}","0","{""id"":""pv113"",""name"":""Economic MacroIndicator Data""}","1","2026-07-01","1","Reported value of the economic indicator for that series and release/revision","pv113_value","2","GBR","{""id"":""pv-relationship"",""name"":""Relationship""}","[]","MATRIX","TOP700","0"

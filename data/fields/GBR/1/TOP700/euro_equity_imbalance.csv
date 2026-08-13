@@ -1,0 +1,21 @@
+﻿"alphaCount","category","coverage","dataset","dateCoverage","dateCreated","delay","description","id","pyramidMultiplier","region","subcategory","themes","type","universe","userCount"
+"0","{""id"":""other"",""name"":""Other""}","0.1568","{""id"":""euro_equity_imbalance"",""name"":""European Equity Trading Imbalance Indicators""}","1","2026-07-01","1","Compute for each participant the sign of its net
+underlying data on each bucket created with
+quantile method, then sum over buckets for each
+participants, and lastly sum over participants of the
+same account type.","bucketed_net_order_imbalance_quantile","2","GBR","{""id"":""other-event-data"",""name"":""Event Data""}","[]","VECTOR","TOP700","0"
+"0","{""id"":""other"",""name"":""Other""}","0.1568","{""id"":""euro_equity_imbalance"",""name"":""European Equity Trading Imbalance Indicators""}","1","2026-07-01","1","Compute for each participant the sign of its net
+underlying data on each bucket created with
+uniform method, then sum over buckets for each
+participants, and lastly sum over participants of
+the same account type.","bucketed_net_order_imbalance_uniform","2","GBR","{""id"":""other-event-data"",""name"":""Event Data""}","[]","VECTOR","TOP700","0"
+"0","{""id"":""other"",""name"":""Other""}","0.1568","{""id"":""euro_equity_imbalance"",""name"":""European Equity Trading Imbalance Indicators""}","1","2026-07-01","1","Compute for each participant the sign of its net
+underlying data on each bucket created with
+quantile method, then sum over buckets for each
+participants, and lastly sum signs over participants
+of the same account type.","bucketed_sign_imbalance_quantile","2","GBR","{""id"":""other-event-data"",""name"":""Event Data""}","[]","VECTOR","TOP700","0"
+"0","{""id"":""other"",""name"":""Other""}","0.1568","{""id"":""euro_equity_imbalance"",""name"":""European Equity Trading Imbalance Indicators""}","1","2026-07-01","1","Compute for each participant the sign of its net
+underlying data on each bucket created with
+uniform method, then sum over buckets for each
+participants, and lastly sum signs over participants
+of the same account type.","bucketed_sign_imbalance_uniform","2","GBR","{""id"":""other-event-data"",""name"":""Event Data""}","[]","VECTOR","TOP700","0"

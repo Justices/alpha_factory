@@ -1,0 +1,1346 @@
+﻿[
+    {
+        "id":  "fnd89_best11_d1_asset_double_history",
+        "description":  "Indicator (0/1) that the company’s assets have at some point doubled in its history, signaling asset volatility",
+        "dataset":  {
+                        "id":  "fundamental89",
+                        "name":  "Accrual based Earnings Model"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-data",
+                            "name":  "Fundamental Data"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "fnd89_best11_d1_asset_half_history",
+        "description":  "Indicator (0/1) that the company’s assets have at some point halved in its history, signaling asset volatility",
+        "dataset":  {
+                        "id":  "fundamental89",
+                        "name":  "Accrual based Earnings Model"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-data",
+                            "name":  "Fundamental Data"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "fnd89_best11_d1_length",
+        "description":  "Number of available accruals ratio observations used in the historical/rolling window for these statistics",
+        "dataset":  {
+                        "id":  "fundamental89",
+                        "name":  "Accrual based Earnings Model"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-data",
+                            "name":  "Fundamental Data"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "fnd89_best21_d1_asset_double_history",
+        "description":  "Indicator (1/0) that the company’s total assets have at some point doubled relative to a prior level in its observable history, signaling asset volatility",
+        "dataset":  {
+                        "id":  "fundamental89",
+                        "name":  "Accrual based Earnings Model"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-data",
+                            "name":  "Fundamental Data"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "fnd89_best21_d1_asset_half_history",
+        "description":  "Indicator (1/0) that the company’s total assets have at some point halved relative to a prior level in its observable history, signaling asset volatility",
+        "dataset":  {
+                        "id":  "fundamental89",
+                        "name":  "Accrual based Earnings Model"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-data",
+                            "name":  "Fundamental Data"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "fnd89_best21_d1_length",
+        "description":  "Number of available accrual ratio observations used in the historical statistics at this date",
+        "dataset":  {
+                        "id":  "fundamental89",
+                        "name":  "Accrual based Earnings Model"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-data",
+                            "name":  "Fundamental Data"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "fnd89_csjonesallmajor13_d1_asset_double_history",
+        "description":  "0/1 indicator that the company’s total assets have at some point at least doubled in its available history, used as an asset-volatility diagnostic",
+        "dataset":  {
+                        "id":  "fundamental89",
+                        "name":  "Accrual based Earnings Model"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-data",
+                            "name":  "Fundamental Data"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "fnd89_csjonesallmajor13_d1_asset_half_history",
+        "description":  "0/1 indicator that the company’s total assets have at some point at least halved in its available history, used as an asset-volatility diagnostic",
+        "dataset":  {
+                        "id":  "fundamental89",
+                        "name":  "Accrual based Earnings Model"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-data",
+                            "name":  "Fundamental Data"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "fnd89_csjonesallmajor13_d1_length",
+        "description":  "Number of historical accruals-ratio observations used in the descriptive statistics at this date",
+        "dataset":  {
+                        "id":  "fundamental89",
+                        "name":  "Accrual based Earnings Model"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-data",
+                            "name":  "Fundamental Data"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "fnd89_csjonesallother11_d1_asset_double_history",
+        "description":  "Indicator (1/0) whether the company’s assets have doubled at any point in its history, used as an asset volatility diagnostic",
+        "dataset":  {
+                        "id":  "fundamental89",
+                        "name":  "Accrual based Earnings Model"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-data",
+                            "name":  "Fundamental Data"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "fnd89_csjonesallother11_d1_asset_half_history",
+        "description":  "Indicator (1/0) whether the company’s assets have halved at any point in its history, used as an asset volatility diagnostic",
+        "dataset":  {
+                        "id":  "fundamental89",
+                        "name":  "Accrual based Earnings Model"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-data",
+                            "name":  "Fundamental Data"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "fnd89_csjonesallother11_d1_length",
+        "description":  "Number of accruals ratio observations available in the historical window used for the descriptive statistics",
+        "dataset":  {
+                        "id":  "fundamental89",
+                        "name":  "Accrual based Earnings Model"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-data",
+                            "name":  "Fundamental Data"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "fnd89_csjonesindustrymajor13_d1_asset_double_history",
+        "description":  "Indicator (1/0) that the company’s assets have doubled at some point in its history, used as an asset volatility diagnostic",
+        "dataset":  {
+                        "id":  "fundamental89",
+                        "name":  "Accrual based Earnings Model"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-data",
+                            "name":  "Fundamental Data"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "fnd89_csjonesindustrymajor13_d1_asset_half_history",
+        "description":  "Indicator (1/0) that the company’s assets have halved at some point in its history, used as an asset volatility diagnostic",
+        "dataset":  {
+                        "id":  "fundamental89",
+                        "name":  "Accrual based Earnings Model"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-data",
+                            "name":  "Fundamental Data"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "fnd89_csjonesindustrymajor13_d1_length",
+        "description":  "Number of available accrual ratio observations in the historical window used for the descriptive statistics",
+        "dataset":  {
+                        "id":  "fundamental89",
+                        "name":  "Accrual based Earnings Model"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-data",
+                            "name":  "Fundamental Data"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "fnd89_csjonesindustryother11_d1_asset_double_history",
+        "description":  "Indicator 1 or 0 showing whether the company’s total assets have doubled at any point in its history, as a volatility flag",
+        "dataset":  {
+                        "id":  "fundamental89",
+                        "name":  "Accrual based Earnings Model"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-data",
+                            "name":  "Fundamental Data"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "fnd89_csjonesindustryother11_d1_asset_half_history",
+        "description":  "Indicator 1 or 0 showing whether the company’s total assets have halved at any point in its history, as a volatility flag",
+        "dataset":  {
+                        "id":  "fundamental89",
+                        "name":  "Accrual based Earnings Model"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-data",
+                            "name":  "Fundamental Data"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "fnd89_csjonesindustryother11_d1_length",
+        "description":  "Count of accrual ratio observations available in the historical window used for the descriptive statistics",
+        "dataset":  {
+                        "id":  "fundamental89",
+                        "name":  "Accrual based Earnings Model"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-data",
+                            "name":  "Fundamental Data"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "fnd89_fixed1313_d1_asset_double_history",
+        "description":  "0/1 indicator whether the company’s assets have ever doubled in its history, indicating asset volatility",
+        "dataset":  {
+                        "id":  "fundamental89",
+                        "name":  "Accrual based Earnings Model"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-data",
+                            "name":  "Fundamental Data"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "fnd89_fixed1313_d1_asset_half_history",
+        "description":  "0/1 indicator whether the company’s assets have ever halved in its history, indicating asset volatility",
+        "dataset":  {
+                        "id":  "fundamental89",
+                        "name":  "Accrual based Earnings Model"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-data",
+                            "name":  "Fundamental Data"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "fnd89_fixed1313_d1_length",
+        "description":  "Number of available accruals ratio observations in the historical window (sample size)",
+        "dataset":  {
+                        "id":  "fundamental89",
+                        "name":  "Accrual based Earnings Model"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-data",
+                            "name":  "Fundamental Data"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "fnd89_fixed1513_d1_asset_double_history",
+        "description":  "Indicator (0/1) whether the company’s assets have doubled at any point in its history, as a volatility diagnostic",
+        "dataset":  {
+                        "id":  "fundamental89",
+                        "name":  "Accrual based Earnings Model"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-data",
+                            "name":  "Fundamental Data"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "fnd89_fixed1513_d1_asset_half_history",
+        "description":  "Indicator (0/1) whether the company’s assets have halved at any point in its history, as a volatility diagnostic",
+        "dataset":  {
+                        "id":  "fundamental89",
+                        "name":  "Accrual based Earnings Model"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-data",
+                            "name":  "Fundamental Data"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "fnd89_fixed1513_d1_length",
+        "description":  "Number of available accruals-ratio observations used at this date",
+        "dataset":  {
+                        "id":  "fundamental89",
+                        "name":  "Accrual based Earnings Model"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-data",
+                            "name":  "Fundamental Data"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "fnd89_jonesmajor13_d1_asset_double_history",
+        "description":  "Indicator (1/0) that the company’s assets have doubled at some point in its history, as a volatility diagnostic",
+        "dataset":  {
+                        "id":  "fundamental89",
+                        "name":  "Accrual based Earnings Model"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-data",
+                            "name":  "Fundamental Data"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "fnd89_jonesmajor13_d1_asset_half_history",
+        "description":  "Indicator (1/0) that the company’s assets have halved at some point in its history, as a volatility diagnostic",
+        "dataset":  {
+                        "id":  "fundamental89",
+                        "name":  "Accrual based Earnings Model"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-data",
+                            "name":  "Fundamental Data"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "fnd89_jonesmajor13_d1_length",
+        "description":  "Number of historical periods available for the accrual ratio used to compute these descriptive statistics",
+        "dataset":  {
+                        "id":  "fundamental89",
+                        "name":  "Accrual based Earnings Model"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-data",
+                            "name":  "Fundamental Data"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "fnd89_jonesmajor31_d1_asset_double_history",
+        "description":  "Indicator (1/0) whether the company’s total assets have doubled at any point in its available history, used as an asset-volatility diagnostic",
+        "dataset":  {
+                        "id":  "fundamental89",
+                        "name":  "Accrual based Earnings Model"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-data",
+                            "name":  "Fundamental Data"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "fnd89_jonesmajor31_d1_asset_half_history",
+        "description":  "Indicator (1/0) whether the company’s total assets have halved at any point in its available history, used as an asset-volatility diagnostic",
+        "dataset":  {
+                        "id":  "fundamental89",
+                        "name":  "Accrual based Earnings Model"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-data",
+                            "name":  "Fundamental Data"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "fnd89_jonesmajor31_d1_length",
+        "description":  "Number of historical accruals-ratio observations available and used to compute the descriptive statistics at this date",
+        "dataset":  {
+                        "id":  "fundamental89",
+                        "name":  "Accrual based Earnings Model"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-data",
+                            "name":  "Fundamental Data"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "fnd89_jonesmajor32_d1_asset_double_history",
+        "description":  "0 or 1 indicator whether the company’s assets have ever doubled in its history, as a proxy for asset volatility",
+        "dataset":  {
+                        "id":  "fundamental89",
+                        "name":  "Accrual based Earnings Model"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-data",
+                            "name":  "Fundamental Data"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "fnd89_jonesmajor32_d1_asset_half_history",
+        "description":  "0 or 1 indicator whether the company’s assets have ever halved in its history, as a proxy for asset volatility",
+        "dataset":  {
+                        "id":  "fundamental89",
+                        "name":  "Accrual based Earnings Model"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-data",
+                            "name":  "Fundamental Data"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "fnd89_jonesmajor32_d1_length",
+        "description":  "Count of available accruals ratio observations used in the historical window/statistics at this date",
+        "dataset":  {
+                        "id":  "fundamental89",
+                        "name":  "Accrual based Earnings Model"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-data",
+                            "name":  "Fundamental Data"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "fnd89_jonesother11_d1_asset_double_history",
+        "description":  "Indicator (1/0) whether the company’s assets have ever doubled in its history (asset volatility diagnostic)",
+        "dataset":  {
+                        "id":  "fundamental89",
+                        "name":  "Accrual based Earnings Model"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-data",
+                            "name":  "Fundamental Data"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "fnd89_jonesother11_d1_asset_half_history",
+        "description":  "Indicator (1/0) whether the company’s assets have ever halved in its history (asset volatility diagnostic)",
+        "dataset":  {
+                        "id":  "fundamental89",
+                        "name":  "Accrual based Earnings Model"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-data",
+                            "name":  "Fundamental Data"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "fnd89_jonesother11_d1_length",
+        "description":  "Number of historical observations used to compute the descriptive statistics for the accrual ratio at this date",
+        "dataset":  {
+                        "id":  "fundamental89",
+                        "name":  "Accrual based Earnings Model"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-data",
+                            "name":  "Fundamental Data"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "fnd89_jonesother14_d1_asset_double_history",
+        "description":  "Indicator (0/1) that the company’s assets have at some point doubled over its available history; used as an asset volatility diagnostic",
+        "dataset":  {
+                        "id":  "fundamental89",
+                        "name":  "Accrual based Earnings Model"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-data",
+                            "name":  "Fundamental Data"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "fnd89_jonesother14_d1_asset_half_history",
+        "description":  "Indicator (0/1) that the company’s assets have at some point halved over its available history; used as an asset volatility diagnostic",
+        "dataset":  {
+                        "id":  "fundamental89",
+                        "name":  "Accrual based Earnings Model"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-data",
+                            "name":  "Fundamental Data"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "fnd89_jonesother14_d1_length",
+        "description":  "Number of historical observations available for the accruals ratio",
+        "dataset":  {
+                        "id":  "fundamental89",
+                        "name":  "Accrual based Earnings Model"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-data",
+                            "name":  "Fundamental Data"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "fnd89_jonesother15_d1_asset_double_history",
+        "description":  "Indicator (1/0) that the company’s assets have doubled at some point in its history, as an asset volatility diagnostic",
+        "dataset":  {
+                        "id":  "fundamental89",
+                        "name":  "Accrual based Earnings Model"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-data",
+                            "name":  "Fundamental Data"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "fnd89_jonesother15_d1_asset_half_history",
+        "description":  "Indicator (1/0) that the company’s assets have halved at some point in its history, as an asset volatility diagnostic",
+        "dataset":  {
+                        "id":  "fundamental89",
+                        "name":  "Accrual based Earnings Model"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-data",
+                            "name":  "Fundamental Data"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "fnd89_jonesother15_d1_length",
+        "description":  "Number of available accrual ratio observations used in the historical calculation",
+        "dataset":  {
+                        "id":  "fundamental89",
+                        "name":  "Accrual based Earnings Model"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-data",
+                            "name":  "Fundamental Data"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    }
+]

@@ -1,0 +1,2082 @@
+﻿[
+    {
+        "id":  "airline_fuel_consumption_per_asm",
+        "description":  "An airline\u0027s fuel consumption per available seat mile (ASM), a measure of fuel efficiency.",
+        "dataset":  {
+                        "id":  "alpha_factor_lib",
+                        "name":  "Equity Alpha Factor Library"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-data",
+                            "name":  "Fundamental Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  0.9715,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "airline_total_profit_per_asm",
+        "description":  "An airline\u0027s total profit divided by its total Available Seat Miles (ASM), measuring profitability per unit of capacity.",
+        "dataset":  {
+                        "id":  "alpha_factor_lib",
+                        "name":  "Equity Alpha Factor Library"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-data",
+                            "name":  "Fundamental Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  0.9715,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "average_age_of_aircraft",
+        "description":  "The average age in years of an airline\u0027s fleet, indicating operational efficiency and future capital expenditure needs.",
+        "dataset":  {
+                        "id":  "alpha_factor_lib",
+                        "name":  "Equity Alpha Factor Library"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-data",
+                            "name":  "Fundamental Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  0.9715,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "backlog_homes_value_growth",
+        "description":  "The growth rate in the total value of a homebuilder\u0027s backlog, representing homes under contract but not yet delivered.",
+        "dataset":  {
+                        "id":  "alpha_factor_lib",
+                        "name":  "Equity Alpha Factor Library"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-data",
+                            "name":  "Fundamental Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  0.9715,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "bank_modified_texas_ratio_1y_change",
+        "description":  "The one-year change in a bank\u0027s Modified Texas Ratio, a measure of credit stress comparing non-performing assets to tangible equity and loan loss reserves.",
+        "dataset":  {
+                        "id":  "alpha_factor_lib",
+                        "name":  "Equity Alpha Factor Library"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-data",
+                            "name":  "Fundamental Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  0.503,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "bank_risk_weighted_assets",
+        "description":  "A bank\u0027s total assets adjusted for their associated credit risk, used in determining regulatory capital requirements.",
+        "dataset":  {
+                        "id":  "alpha_factor_lib",
+                        "name":  "Equity Alpha Factor Library"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-data",
+                            "name":  "Fundamental Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  0.9715,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "bank_savings_money_market_deposit_share",
+        "description":  "The percentage of a bank\u0027s total deposits that are held in savings and money market accounts, indicating deposit base stability.",
+        "dataset":  {
+                        "id":  "alpha_factor_lib",
+                        "name":  "Equity Alpha Factor Library"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-data",
+                            "name":  "Fundamental Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  0.9715,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "bank_tier1_capital_ratio",
+        "description":  "A bank\u0027s core equity capital as a percentage of its total risk-weighted assets; a primary measure of financial strength.",
+        "dataset":  {
+                        "id":  "alpha_factor_lib",
+                        "name":  "Equity Alpha Factor Library"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-data",
+                            "name":  "Fundamental Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  0.9715,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "bank_total_expense_to_average_assets_three_year_change",
+        "description":  "The three-year change in a bank\u0027s ratio of total expenses to average assets, a measure of long-term efficiency trends.",
+        "dataset":  {
+                        "id":  "alpha_factor_lib",
+                        "name":  "Equity Alpha Factor Library"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-data",
+                            "name":  "Fundamental Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  0.9715,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "broadband_subscribers_one_year_growth",
+        "description":  "The one-year growth rate in the number of a telecommunications company\u0027s broadband internet subscribers.",
+        "dataset":  {
+                        "id":  "alpha_factor_lib",
+                        "name":  "Equity Alpha Factor Library"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-data",
+                            "name":  "Fundamental Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  0.9715,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "change_dcf_implied_market_cap",
+        "description":  "The period-over-period change in the market capitalization implied by a Discounted Cash Flow (DCF) valuation model.",
+        "dataset":  {
+                        "id":  "alpha_factor_lib",
+                        "name":  "Equity Alpha Factor Library"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-data",
+                            "name":  "Fundamental Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  0.9715,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "change_free_cash_flow_to_market_cap",
+        "description":  "A valuation momentum metric representing the change in the ratio of free cash flow to market capitalization over a period.",
+        "dataset":  {
+                        "id":  "alpha_factor_lib",
+                        "name":  "Equity Alpha Factor Library"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-data",
+                            "name":  "Fundamental Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  0.9715,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "change_free_cash_flow_to_total_assets",
+        "description":  "The period-over-period change in the ratio of a company\u0027s free cash flow to its total assets.",
+        "dataset":  {
+                        "id":  "alpha_factor_lib",
+                        "name":  "Equity Alpha Factor Library"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-data",
+                            "name":  "Fundamental Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  0.9715,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "construction_in_progress_revenue_1y_growth",
+        "description":  "The one-year growth in revenue recognized from ongoing construction projects, relevant for engineering and construction firms.",
+        "dataset":  {
+                        "id":  "alpha_factor_lib",
+                        "name":  "Equity Alpha Factor Library"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-data",
+                            "name":  "Fundamental Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  0.9715,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "estimated_mine_life_years",
+        "description":  "A mining industry metric representing the estimated number of years a mine can operate based on its current proven reserves and production rate.",
+        "dataset":  {
+                        "id":  "alpha_factor_lib",
+                        "name":  "Equity Alpha Factor Library"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-data",
+                            "name":  "Fundamental Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  0.9715,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "expected_reserve_development_change_consensus",
+        "description":  "The change in the consensus analyst expectation for the future development and revision of an energy company\u0027s reserves.",
+        "dataset":  {
+                        "id":  "alpha_factor_lib",
+                        "name":  "Equity Alpha Factor Library"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-data",
+                            "name":  "Fundamental Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  0.9715,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "facility_count_growth",
+        "description":  "The growth rate in the number of a company\u0027s operational facilities, such as stores, branches, or plants.",
+        "dataset":  {
+                        "id":  "alpha_factor_lib",
+                        "name":  "Equity Alpha Factor Library"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-data",
+                            "name":  "Fundamental Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  0.9715,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "free_cash_flow_per_share_change",
+        "description":  "The period-over-period change in a company\u0027s free cash flow on a per-share basis.",
+        "dataset":  {
+                        "id":  "alpha_factor_lib",
+                        "name":  "Equity Alpha Factor Library"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-data",
+                            "name":  "Fundamental Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  0.9715,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "free_cash_flow_to_market_cap",
+        "description":  "A valuation ratio comparing a company\u0027s trailing twelve-month free cash flow to its market capitalization, synonymous with free cash flow yield.",
+        "dataset":  {
+                        "id":  "alpha_factor_lib",
+                        "name":  "Equity Alpha Factor Library"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-data",
+                            "name":  "Fundamental Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  0.9715,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "fundamental_core_eps",
+        "description":  "A company\u0027s earnings per share (EPS) from its primary business operations, adjusted to exclude non-recurring or unusual items.",
+        "dataset":  {
+                        "id":  "alpha_factor_lib",
+                        "name":  "Equity Alpha Factor Library"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-data",
+                            "name":  "Fundamental Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  0.5895,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "fundamental_dcf_market_cap",
+        "description":  "The market capitalization of a company as implied by a fundamental Discounted Cash Flow (DCF) valuation model.",
+        "dataset":  {
+                        "id":  "alpha_factor_lib",
+                        "name":  "Equity Alpha Factor Library"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-data",
+                            "name":  "Fundamental Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  0.9715,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "fundamental_one_year_unweighted_profit_growth",
+        "description":  "The one-year growth in a company\u0027s profit, calculated using a proprietary unweighted fundamental methodology.",
+        "dataset":  {
+                        "id":  "alpha_factor_lib",
+                        "name":  "Equity Alpha Factor Library"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-data",
+                            "name":  "Fundamental Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  0.9715,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "fundamental_reit_interest_coverage_ratio",
+        "description":  "For Real Estate Investment Trusts (REITs), the ratio of operating income to interest expense, measuring the ability to service debt.",
+        "dataset":  {
+                        "id":  "alpha_factor_lib",
+                        "name":  "Equity Alpha Factor Library"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-data",
+                            "name":  "Fundamental Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  0.9715,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "fundamental_retention_ratio",
+        "description":  "The proportion of earnings retained in the business rather than paid out as dividends, calculated as 1 minus the dividend payout ratio.",
+        "dataset":  {
+                        "id":  "alpha_factor_lib",
+                        "name":  "Equity Alpha Factor Library"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-data",
+                            "name":  "Fundamental Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  0.9715,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "homebuilders_gross_margin",
+        "description":  "The gross profit margin for companies primarily engaged in the homebuilding industry.",
+        "dataset":  {
+                        "id":  "alpha_factor_lib",
+                        "name":  "Equity Alpha Factor Library"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-data",
+                            "name":  "Fundamental Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  0.9715,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "hospital_surgeries_growth",
+        "description":  "The growth rate in the total number of surgeries performed by a hospital or healthcare provider.",
+        "dataset":  {
+                        "id":  "alpha_factor_lib",
+                        "name":  "Equity Alpha Factor Library"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-data",
+                            "name":  "Fundamental Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  0.9715,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "house_sales_revenue_1yr_growth",
+        "description":  "The one-year growth in revenue generated from house sales, a key top-line growth metric for homebuilders.",
+        "dataset":  {
+                        "id":  "alpha_factor_lib",
+                        "name":  "Equity Alpha Factor Library"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-data",
+                            "name":  "Fundamental Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  0.9715,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "industry_one_year_growth_net_profit_estimate",
+        "description":  "The one-year growth rate of the consensus net profit estimate for a given industry.",
+        "dataset":  {
+                        "id":  "alpha_factor_lib",
+                        "name":  "Equity Alpha Factor Library"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-data",
+                            "name":  "Fundamental Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  0.9715,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "insurance_claims_ratio",
+        "description":  "An insurance company\u0027s ratio of incurred claims and loss adjustment expenses to earned premiums.",
+        "dataset":  {
+                        "id":  "alpha_factor_lib",
+                        "name":  "Equity Alpha Factor Library"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-data",
+                            "name":  "Fundamental Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  0.9715,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "insurance_combined_ratio",
+        "description":  "A measure of an insurer\u0027s underwriting profitability, calculated as the sum of incurred losses and expenses divided by earned premiums.",
+        "dataset":  {
+                        "id":  "alpha_factor_lib",
+                        "name":  "Equity Alpha Factor Library"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-data",
+                            "name":  "Fundamental Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  0.9715,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "insurance_expense_ratio",
+        "description":  "An insurance industry efficiency metric calculated by dividing underwriting and acquisition expenses by net premiums written.",
+        "dataset":  {
+                        "id":  "alpha_factor_lib",
+                        "name":  "Equity Alpha Factor Library"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-data",
+                            "name":  "Fundamental Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  0.9715,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "insurance_net_premiums_written_to_net_assets_ratio",
+        "description":  "An insurer\u0027s ratio of net premiums written to its net assets, measuring leverage and underwriting risk.",
+        "dataset":  {
+                        "id":  "alpha_factor_lib",
+                        "name":  "Equity Alpha Factor Library"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-data",
+                            "name":  "Fundamental Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  0.9715,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "insurance_underwriting_margin",
+        "description":  "An insurance metric representing the profitability of underwriting activities, calculated as underwriting income divided by premiums earned.",
+        "dataset":  {
+                        "id":  "alpha_factor_lib",
+                        "name":  "Equity Alpha Factor Library"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-data",
+                            "name":  "Fundamental Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  0.9715,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "licensed_hospital_beds_growth",
+        "description":  "The growth rate in the number of licensed beds for a hospital operator, indicating capacity expansion or reduction.",
+        "dataset":  {
+                        "id":  "alpha_factor_lib",
+                        "name":  "Equity Alpha Factor Library"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-data",
+                            "name":  "Fundamental Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  0.9715,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "loan_loss_provisions_to_total_equity_reserves_ratio",
+        "description":  "A financial ratio comparing a bank\u0027s loan loss provisions to its total equity reserves, gauging its buffer against potential loan defaults.",
+        "dataset":  {
+                        "id":  "alpha_factor_lib",
+                        "name":  "Equity Alpha Factor Library"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-data",
+                            "name":  "Fundamental Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  0.9715,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "oil_and_gas_reserves_per_share_growth",
+        "description":  "The growth in a company\u0027s oil and gas reserves on a per-share basis, indicating changes in asset value attributable to each share.",
+        "dataset":  {
+                        "id":  "alpha_factor_lib",
+                        "name":  "Equity Alpha Factor Library"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-data",
+                            "name":  "Fundamental Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  0.9715,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "oil_and_gas_reserve_replacement_ratio",
+        "description":  "A ratio measuring the amount of new oil and gas reserves a company adds to its portfolio relative to the amount it extracts.",
+        "dataset":  {
+                        "id":  "alpha_factor_lib",
+                        "name":  "Equity Alpha Factor Library"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-data",
+                            "name":  "Fundamental Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  0.9715,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "oil_gas_reserves_total_cost_change",
+        "description":  "The change in the total cost associated with an energy company\u0027s oil and gas reserves.",
+        "dataset":  {
+                        "id":  "alpha_factor_lib",
+                        "name":  "Equity Alpha Factor Library"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-data",
+                            "name":  "Fundamental Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  0.9715,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "one_year_admissions_change",
+        "description":  "The one-year change in the number of patient admissions for a hospital or healthcare provider.",
+        "dataset":  {
+                        "id":  "alpha_factor_lib",
+                        "name":  "Equity Alpha Factor Library"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-data",
+                            "name":  "Fundamental Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  0.9715,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "one_year_change_nonaccrual_loans_to_assets_ratio",
+        "description":  "The one-year change in a bank\u0027s ratio of non-accruing loans to total assets, serving as an indicator of changing asset quality.",
+        "dataset":  {
+                        "id":  "alpha_factor_lib",
+                        "name":  "Equity Alpha Factor Library"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-data",
+                            "name":  "Fundamental Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  0.9715,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "one_year_growth_home_revenue_to_investment_ratio",
+        "description":  "The one-year growth in a homebuilder\u0027s ratio of housing revenue to total investment, indicating changing capital efficiency.",
+        "dataset":  {
+                        "id":  "alpha_factor_lib",
+                        "name":  "Equity Alpha Factor Library"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-data",
+                            "name":  "Fundamental Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  0.9715,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "one_year_growth_in_patent_applications",
+        "description":  "The one-year growth rate in the number of new patent applications filed by a company, a leading indicator of R\u0026D activity.",
+        "dataset":  {
+                        "id":  "alpha_factor_lib",
+                        "name":  "Equity Alpha Factor Library"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-data",
+                            "name":  "Fundamental Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  0.9715,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "one_year_growth_num_products_in_phase_3",
+        "description":  "For healthcare firms, the one-year growth in the number of drug candidates in Phase 3 clinical trials, a key pipeline indicator.",
+        "dataset":  {
+                        "id":  "alpha_factor_lib",
+                        "name":  "Equity Alpha Factor Library"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-data",
+                            "name":  "Fundamental Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  0.9715,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "one_year_growth_rpc",
+        "description":  "The one-year growth in Revenue Per Customer (or Client), a key unit economic metric in industries like telecom or software.",
+        "dataset":  {
+                        "id":  "alpha_factor_lib",
+                        "name":  "Equity Alpha Factor Library"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-data",
+                            "name":  "Fundamental Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  0.9715,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "one_year_growth_wireless_subscribers",
+        "description":  "The one-year growth rate in the number of wireless subscribers for a telecommunications company.",
+        "dataset":  {
+                        "id":  "alpha_factor_lib",
+                        "name":  "Equity Alpha Factor Library"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-data",
+                            "name":  "Fundamental Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  0.9715,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "operating_expense_per_available_seat_mile",
+        "description":  "A key airline industry cost metric, also known as CASM, that measures operating expenses per unit of passenger carrying capacity.",
+        "dataset":  {
+                        "id":  "alpha_factor_lib",
+                        "name":  "Equity Alpha Factor Library"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-data",
+                            "name":  "Fundamental Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  0.9715,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "passenger_load_factor",
+        "description":  "An airline metric representing the percentage of available seating capacity that has been filled with paying passengers.",
+        "dataset":  {
+                        "id":  "alpha_factor_lib",
+                        "name":  "Equity Alpha Factor Library"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-data",
+                            "name":  "Fundamental Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  0.9715,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "patent_count_1y_growth",
+        "description":  "The one-year growth rate in the number of patents held by a company, indicating the pace of innovation.",
+        "dataset":  {
+                        "id":  "alpha_factor_lib",
+                        "name":  "Equity Alpha Factor Library"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-data",
+                            "name":  "Fundamental Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  0.9715,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "patent_count_to_market_cap",
+        "description":  "A valuation metric representing the ratio of a company\u0027s total number of patents to its market capitalization.",
+        "dataset":  {
+                        "id":  "alpha_factor_lib",
+                        "name":  "Equity Alpha Factor Library"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-data",
+                            "name":  "Fundamental Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  0.9715,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "price_residual_to_market_cap",
+        "description":  "A technical or model-based signal representing the residual component of a stock\u0027s price from a valuation model, normalized by market capitalization.",
+        "dataset":  {
+                        "id":  "alpha_factor_lib",
+                        "name":  "Equity Alpha Factor Library"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-data",
+                            "name":  "Fundamental Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  0.9715,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "price_to_pre_provision_net_revenue_per_share",
+        "description":  "A valuation ratio for financial institutions that compares the stock price to its pre-provision net revenue (PPNR) on a per-share basis.",
+        "dataset":  {
+                        "id":  "alpha_factor_lib",
+                        "name":  "Equity Alpha Factor Library"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-data",
+                            "name":  "Fundamental Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  0.9715,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "production_growth",
+        "description":  "The growth rate of a company\u0027s physical production output, such as barrels of oil equivalent for energy firms or ounces of metal for mining firms.",
+        "dataset":  {
+                        "id":  "alpha_factor_lib",
+                        "name":  "Equity Alpha Factor Library"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-data",
+                            "name":  "Fundamental Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  0.9715,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "production_to_market_cap",
+        "description":  "A valuation ratio for energy or mining companies comparing physical production volume (e.g., barrels of oil) to market capitalization.",
+        "dataset":  {
+                        "id":  "alpha_factor_lib",
+                        "name":  "Equity Alpha Factor Library"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-data",
+                            "name":  "Fundamental Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  0.9715,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "proved_reserves_to_market_cap_ratio",
+        "description":  "An energy sector valuation metric that represents the ratio of an energy company\u0027s proved oil and gas reserves to its market capitalization.",
+        "dataset":  {
+                        "id":  "alpha_factor_lib",
+                        "name":  "Equity Alpha Factor Library"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-data",
+                            "name":  "Fundamental Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  0.9715,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "reserves_change_to_market_cap_ratio",
+        "description":  "The change in an energy company\u0027s proved reserves scaled by its market capitalization, indicating the value of reserve changes.",
+        "dataset":  {
+                        "id":  "alpha_factor_lib",
+                        "name":  "Equity Alpha Factor Library"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-data",
+                            "name":  "Fundamental Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  0.9715,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "reserve_acquisition_yield",
+        "description":  "A measure of the return generated from capital spent on acquiring new energy reserves.",
+        "dataset":  {
+                        "id":  "alpha_factor_lib",
+                        "name":  "Equity Alpha Factor Library"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-data",
+                            "name":  "Fundamental Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  0.9715,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "reserve_exhaustion_rate",
+        "description":  "A metric for resource companies (energy, mining) indicating the rate at which reserves are being depleted, typically production divided by total reserves.",
+        "dataset":  {
+                        "id":  "alpha_factor_lib",
+                        "name":  "Equity Alpha Factor Library"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-data",
+                            "name":  "Fundamental Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  0.9715,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "reserve_exhaustion_rate_change",
+        "description":  "The change in the rate at which an energy company\u0027s proved reserves are being depleted, indicating the sustainability of its production levels.",
+        "dataset":  {
+                        "id":  "alpha_factor_lib",
+                        "name":  "Equity Alpha Factor Library"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-data",
+                            "name":  "Fundamental Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  0.9715,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "reserve_growth",
+        "description":  "The growth rate of an energy company\u0027s proved reserves, indicating its ability to replace production.",
+        "dataset":  {
+                        "id":  "alpha_factor_lib",
+                        "name":  "Equity Alpha Factor Library"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-data",
+                            "name":  "Fundamental Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  0.9715,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "revenue_passenger_miles_1y_growth",
+        "description":  "The one-year growth in an airline\u0027s total miles traveled by paying passengers (RPM), a key measure of air traffic demand.",
+        "dataset":  {
+                        "id":  "alpha_factor_lib",
+                        "name":  "Equity Alpha Factor Library"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-data",
+                            "name":  "Fundamental Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  0.9715,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "telecom_1yr_growth_net_subscriber_additions",
+        "description":  "The one-year growth rate in the net number of subscribers added by a telecommunications company.",
+        "dataset":  {
+                        "id":  "alpha_factor_lib",
+                        "name":  "Equity Alpha Factor Library"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-data",
+                            "name":  "Fundamental Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  0.9715,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "three_year_change_operating_income_per_tier1_equity",
+        "description":  "A banking performance metric measuring the three-year change in operating income normalized by the bank\u0027s core Tier 1 equity capital.",
+        "dataset":  {
+                        "id":  "alpha_factor_lib",
+                        "name":  "Equity Alpha Factor Library"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-data",
+                            "name":  "Fundamental Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  0.9715,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "total_investments_1y_growth",
+        "description":  "The one-year growth rate of a company\u0027s total investments as reported on its balance sheet.",
+        "dataset":  {
+                        "id":  "alpha_factor_lib",
+                        "name":  "Equity Alpha Factor Library"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-data",
+                            "name":  "Fundamental Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  0.9715,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "total_revenue_per_facility",
+        "description":  "The average total revenue generated per operational facility, often used for healthcare, retail, or REITs.",
+        "dataset":  {
+                        "id":  "alpha_factor_lib",
+                        "name":  "Equity Alpha Factor Library"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-data",
+                            "name":  "Fundamental Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  0.9715,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "wireless_penetration_rate",
+        "description":  "The percentage of a telecom company\u0027s target market that has subscribed to its wireless services.",
+        "dataset":  {
+                        "id":  "alpha_factor_lib",
+                        "name":  "Equity Alpha Factor Library"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-data",
+                            "name":  "Fundamental Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  0.9425,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    }
+]

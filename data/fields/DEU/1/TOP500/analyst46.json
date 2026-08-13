@@ -1,0 +1,162 @@
+﻿[
+    {
+        "id":  "anl46_alphadecay",
+        "description":  "A component value measuring the impact of idea age (i.e., how recent or stale the contributing ideas are) on the signal",
+        "dataset":  {
+                        "id":  "analyst46",
+                        "name":  "Analyst Investment insight Data"
+                    },
+        "category":  {
+                         "id":  "analyst",
+                         "name":  "Analyst"
+                     },
+        "subcategory":  {
+                            "id":  "analyst-crowdsourced-estimates",
+                            "name":  "Crowdsourced Estimates"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "anl46_experts",
+        "description":  "A component showing the contribution from the historical performance of analysts who submitted ideas for the stock; higher values indicate more credible input",
+        "dataset":  {
+                        "id":  "analyst46",
+                        "name":  "Analyst Investment insight Data"
+                    },
+        "category":  {
+                         "id":  "analyst",
+                         "name":  "Analyst"
+                     },
+        "subcategory":  {
+                            "id":  "analyst-crowdsourced-estimates",
+                            "name":  "Crowdsourced Estimates"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "anl46_indicator",
+        "description":  "Cross-sectional ranking score from 1 to 10 for the stock within the region on a given day, with 10 being most bullish and 1 most bearish",
+        "dataset":  {
+                        "id":  "analyst46",
+                        "name":  "Analyst Investment insight Data"
+                    },
+        "category":  {
+                         "id":  "analyst",
+                         "name":  "Analyst"
+                     },
+        "subcategory":  {
+                            "id":  "analyst-crowdsourced-estimates",
+                            "name":  "Crowdsourced Estimates"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "anl46_performancepercentile",
+        "description":  "A percentile rank (1–100) showing how well the Indicator signal has historically predicted price movement for the stock over the past 12 months in backtesting",
+        "dataset":  {
+                        "id":  "analyst46",
+                        "name":  "Analyst Investment insight Data"
+                    },
+        "category":  {
+                         "id":  "analyst",
+                         "name":  "Analyst"
+                     },
+        "subcategory":  {
+                            "id":  "analyst-crowdsourced-estimates",
+                            "name":  "Crowdsourced Estimates"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  0.6703,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "anl46_sentiment",
+        "description":  "A composite score representing aggregated sell-side idea sentiment for the stock, combining decay, contributor skill, proximity to earnings, and idea volume/direction information",
+        "dataset":  {
+                        "id":  "analyst46",
+                        "name":  "Analyst Investment insight Data"
+                    },
+        "category":  {
+                         "id":  "analyst",
+                         "name":  "Analyst"
+                     },
+        "subcategory":  {
+                            "id":  "analyst-crowdsourced-estimates",
+                            "name":  "Crowdsourced Estimates"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    }
+]

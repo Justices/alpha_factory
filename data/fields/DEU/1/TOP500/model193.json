@@ -1,0 +1,3138 @@
+﻿[
+    {
+        "id":  "altman_z_score",
+        "description":  "A corporate bankruptcy risk score where higher values indicate better financial health. Data is provided as an integer rank or standardized score.",
+        "dataset":  {
+                        "id":  "model193",
+                        "name":  "European CDS Risk Factors"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-volatility-models",
+                            "name":  "Volatility Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "baltic_dry_index",
+        "description":  "A measure of sensitivity to the Baltic Dry Index, which tracks global shipping costs for raw materials. Data is provided as an integer rank or standardized score.",
+        "dataset":  {
+                        "id":  "model193",
+                        "name":  "European CDS Risk Factors"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-volatility-models",
+                            "name":  "Volatility Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "cash_balance",
+        "description":  "A measure of a company\u0027s total cash and cash equivalents, often ranked or standardized cross-sectionally. Data is provided as an integer rank or standardized score.",
+        "dataset":  {
+                        "id":  "model193",
+                        "name":  "European CDS Risk Factors"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-volatility-models",
+                            "name":  "Volatility Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "cash_burn_rate",
+        "description":  "The rate at which a company uses its cash reserves to finance overhead before generating positive cash flow from operations. Data is provided as an integer rank or standardized score.",
+        "dataset":  {
+                        "id":  "model193",
+                        "name":  "European CDS Risk Factors"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-volatility-models",
+                            "name":  "Volatility Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "cash_flow_leverage",
+        "description":  "A leverage ratio measuring total debt relative to operating cash flow, indicating debt servicing capacity. Data is provided as an integer rank or standardized score.",
+        "dataset":  {
+                        "id":  "model193",
+                        "name":  "European CDS Risk Factors"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-volatility-models",
+                            "name":  "Volatility Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "cash_ratio",
+        "description":  "A liquidity ratio that measures a company\u0027s ability to cover its short-term liabilities with only cash and cash equivalents. Data is provided as an integer rank or standardized score.",
+        "dataset":  {
+                        "id":  "model193",
+                        "name":  "European CDS Risk Factors"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-volatility-models",
+                            "name":  "Volatility Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "cds_distress_metric",
+        "description":  "A distress metric derived from Credit Default Swap (CDS) data, used to signal credit risk. Data is provided as an integer rank or standardized score.",
+        "dataset":  {
+                        "id":  "model193",
+                        "name":  "European CDS Risk Factors"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-volatility-models",
+                            "name":  "Volatility Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "cds_gn_volatility_5w_avg",
+        "description":  "The 5-week average volatility of the gross notional value of outstanding CDS contracts for a reference entity. Data is provided as an integer rank or standardized score.",
+        "dataset":  {
+                        "id":  "model193",
+                        "name":  "European CDS Risk Factors"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-volatility-models",
+                            "name":  "Volatility Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "cds_gross_notional_1m_growth",
+        "description":  "The 1-month growth rate in the gross notional value of outstanding CDS contracts for a reference entity. Data is provided as an integer rank or standardized score.",
+        "dataset":  {
+                        "id":  "model193",
+                        "name":  "European CDS Risk Factors"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-volatility-models",
+                            "name":  "Volatility Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "cds_gross_notional_1y_growth",
+        "description":  "The 1-year growth rate in the gross notional value of outstanding CDS contracts for a reference entity. Data is provided as an integer rank or standardized score.",
+        "dataset":  {
+                        "id":  "model193",
+                        "name":  "European CDS Risk Factors"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-volatility-models",
+                            "name":  "Volatility Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "cds_gross_notional_debt",
+        "description":  "The gross notional value of outstanding Credit Default Swap (CDS) contracts referencing an entity\u0027s debt. Data is provided as an integer rank or standardized score.",
+        "dataset":  {
+                        "id":  "model193",
+                        "name":  "European CDS Risk Factors"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-volatility-models",
+                            "name":  "Volatility Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "cds_gross_notional_volatility_5w_change",
+        "description":  "The change in the 5-week volatility of the gross notional value of outstanding CDS contracts. Data is provided as an integer rank or standardized score.",
+        "dataset":  {
+                        "id":  "model193",
+                        "name":  "European CDS Risk Factors"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-volatility-models",
+                            "name":  "Volatility Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "cds_spread_beta",
+        "description":  "The beta of an entity\u0027s CDS spread relative to a CDS index, indicating its sensitivity to systematic credit market movements. Data is provided as an integer rank or standardized score.",
+        "dataset":  {
+                        "id":  "model193",
+                        "name":  "European CDS Risk Factors"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-volatility-models",
+                            "name":  "Volatility Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "chg_ebitda_to_debt",
+        "description":  "The change in the EBITDA to debt ratio over a specified period, signaling shifts in a company\u0027s leverage. This corresponds to the EBITDADebtChg field in the documentation.",
+        "dataset":  {
+                        "id":  "model193",
+                        "name":  "European CDS Risk Factors"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-volatility-models",
+                            "name":  "Volatility Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "current_ratio",
+        "description":  "A liquidity ratio measuring a company\u0027s ability to pay short-term obligations with its current assets. Data is provided as an integer rank or standardized score.",
+        "dataset":  {
+                        "id":  "model193",
+                        "name":  "European CDS Risk Factors"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-volatility-models",
+                            "name":  "Volatility Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "debt_demand_supply",
+        "description":  "A crowding indicator representing the relative demand versus supply for an entity\u0027s debt. This corresponds to the Dmd_Supply field in the documentation.",
+        "dataset":  {
+                        "id":  "model193",
+                        "name":  "European CDS Risk Factors"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-volatility-models",
+                            "name":  "Volatility Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "ebitda_to_debt_ratio",
+        "description":  "A leverage ratio of a company\u0027s Earnings Before Interest, Taxes, Depreciation, and Amortization (EBITDA) to its total debt. This corresponds to the EBITDADebt field in the documentation.",
+        "dataset":  {
+                        "id":  "model193",
+                        "name":  "European CDS Risk Factors"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-volatility-models",
+                            "name":  "Volatility Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl193_2adpmoc_sdc",
+        "description":  "Observed PD minus fair value PD predicted by a proprietary model using Comprehensive Debt to Total Assets with sector, credit rating, and regional controls",
+        "dataset":  {
+                        "id":  "model193",
+                        "name":  "European CDS Risk Factors"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-volatility-models",
+                            "name":  "Volatility Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl193_2vd_adpmoc_sdc",
+        "description":  "Observed PD minus fair value PD predicted by a proprietary model using Comprehensive Debt to Total Assets (deep value specification)",
+        "dataset":  {
+                        "id":  "model193",
+                        "name":  "European CDS Risk Factors"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-volatility-models",
+                            "name":  "Volatility Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl193_2vd_voctni_sdc",
+        "description":  "Observed PD minus fair value PD predicted by a proprietary model using Interest Coverage (deep value specification)",
+        "dataset":  {
+                        "id":  "model193",
+                        "name":  "European CDS Risk Factors"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-volatility-models",
+                            "name":  "Volatility Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl193_2voctni_sdc",
+        "description":  "Difference between observed probability of default and model fair value predicted using an Interest Coverage–based model with sector, credit rating, and regional controls",
+        "dataset":  {
+                        "id":  "model193",
+                        "name":  "European CDS Risk Factors"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-volatility-models",
+                            "name":  "Volatility Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl193_ad",
+        "description":  "Most recently reported total debt divided by total assets",
+        "dataset":  {
+                        "id":  "model193",
+                        "name":  "European CDS Risk Factors"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-volatility-models",
+                            "name":  "Volatility Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl193_adpmoc",
+        "description":  "Comprehensive debt to total assets: sum of long-term debt, short-term debt, underfunded pensions, operating lease expense, and preferred stock divided by total assets",
+        "dataset":  {
+                        "id":  "model193",
+                        "name":  "European CDS Risk Factors"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-volatility-models",
+                            "name":  "Volatility Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl193_aoer",
+        "description":  "Most recent quarter retained earnings divided by most recent quarter total assets (retained earnings over assets)",
+        "dataset":  {
+                        "id":  "model193",
+                        "name":  "European CDS Risk Factors"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-volatility-models",
+                            "name":  "Volatility Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl193_aor",
+        "description":  "Trailing 12-month income before extraordinary items divided by average total assets over the same period",
+        "dataset":  {
+                        "id":  "model193",
+                        "name":  "European CDS Risk Factors"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-volatility-models",
+                            "name":  "Volatility Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl193_booklev",
+        "description":  "Most recently reported quarterly total assets divided by book equity",
+        "dataset":  {
+                        "id":  "model193",
+                        "name":  "European CDS Risk Factors"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-volatility-models",
+                            "name":  "Volatility Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl193_cds_1mvol",
+        "description":  "Standard deviation of daily 5-year CDS spread changes over the trailing one month",
+        "dataset":  {
+                        "id":  "model193",
+                        "name":  "European CDS Risk Factors"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-volatility-models",
+                            "name":  "Volatility Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl193_cds_1ybeta",
+        "description":  "Sensitivity of daily CDS spread changes to those of the average company in the Markit CDX North America IG index (higher sensitivity ranks higher)",
+        "dataset":  {
+                        "id":  "model193",
+                        "name":  "European CDS Risk Factors"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-volatility-models",
+                            "name":  "Volatility Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl193_cds_canbeta",
+        "description":  "Sensitivity of daily CDS spread changes to those of the Canada sovereign CDS (higher sensitivity ranks higher)",
+        "dataset":  {
+                        "id":  "model193",
+                        "name":  "European CDS Risk Factors"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-volatility-models",
+                            "name":  "Volatility Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl193_cds_eurusd",
+        "description":  "Ranked sensitivity of daily CDS spread changes to daily EUR/USD exchange-rate changes; higher rank indicates stronger sensitivity",
+        "dataset":  {
+                        "id":  "model193",
+                        "name":  "European CDS Risk Factors"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-volatility-models",
+                            "name":  "Volatility Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl193_cds_frabeta",
+        "description":  "Sensitivity of daily CDS spread changes to those of the France sovereign CDS (higher sensitivity ranks higher)",
+        "dataset":  {
+                        "id":  "model193",
+                        "name":  "European CDS Risk Factors"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-volatility-models",
+                            "name":  "Volatility Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl193_cds_gerbeta",
+        "description":  "Ranked sensitivity (beta) of a name’s daily CDS spread changes to changes in Germany sovereign CDS spreads; higher rank indicates higher sensitivity",
+        "dataset":  {
+                        "id":  "model193",
+                        "name":  "European CDS Risk Factors"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-volatility-models",
+                            "name":  "Volatility Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl193_cds_itabeta",
+        "description":  "Ranked sensitivity (beta) of a name’s daily CDS spread changes to changes in Italy sovereign CDS spreads; higher rank indicates higher sensitivity",
+        "dataset":  {
+                        "id":  "model193",
+                        "name":  "European CDS Risk Factors"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-volatility-models",
+                            "name":  "Volatility Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl193_cds_japbeta",
+        "description":  "Ranked sensitivity (beta) of a name’s daily CDS spread changes to changes in Japan sovereign CDS spreads; higher rank indicates higher sensitivity",
+        "dataset":  {
+                        "id":  "model193",
+                        "name":  "European CDS Risk Factors"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-volatility-models",
+                            "name":  "Volatility Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl193_cds_oilprice",
+        "description":  "Sensitivity of daily CDS spread changes to daily oil price changes (higher sensitivity ranks higher)",
+        "dataset":  {
+                        "id":  "model193",
+                        "name":  "European CDS Risk Factors"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-volatility-models",
+                            "name":  "Volatility Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl193_cds_porbeta",
+        "description":  "Sensitivity of daily CDS spread changes to those of the Portugal sovereign CDS (higher sensitivity ranks higher)",
+        "dataset":  {
+                        "id":  "model193",
+                        "name":  "European CDS Risk Factors"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-volatility-models",
+                            "name":  "Volatility Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl193_cds_probdefault1y",
+        "description":  "Probability of default implied by the 1-year CDS spread",
+        "dataset":  {
+                        "id":  "model193",
+                        "name":  "European CDS Risk Factors"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-volatility-models",
+                            "name":  "Volatility Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl193_cds_probdefault5y",
+        "description":  "Probability of default implied by the 5-year CDS spread",
+        "dataset":  {
+                        "id":  "model193",
+                        "name":  "European CDS Risk Factors"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-volatility-models",
+                            "name":  "Volatility Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl193_cds_ps_rank1m",
+        "description":  "Difference between the 1-month Active Return equity factor rank and the 1-month Change in PD (5Y) rank",
+        "dataset":  {
+                        "id":  "model193",
+                        "name":  "European CDS Risk Factors"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-volatility-models",
+                            "name":  "Volatility Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl193_cds_ps_rank5d",
+        "description":  "Difference between the 5-day Industry Relative Return equity factor rank and the 5-day Change in Probability of Default (5Y) rank",
+        "dataset":  {
+                        "id":  "model193",
+                        "name":  "European CDS Risk Factors"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-volatility-models",
+                            "name":  "Volatility Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl193_cds_ps_reg3",
+        "description":  "Proprietary model residual linking equity price to CDS spread, adjusted by the strength of the cross-asset relationship",
+        "dataset":  {
+                        "id":  "model193",
+                        "name":  "European CDS Risk Factors"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-volatility-models",
+                            "name":  "Volatility Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl193_cds_spabeta",
+        "description":  "Ranked sensitivity (beta) of a name’s daily CDS spread changes to changes in Spain sovereign CDS spreads; higher rank indicates higher sensitivity",
+        "dataset":  {
+                        "id":  "model193",
+                        "name":  "European CDS Risk Factors"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-volatility-models",
+                            "name":  "Volatility Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl193_cds_ukbeta",
+        "description":  "Ranked sensitivity (beta) of a name’s daily CDS spread changes to changes in United Kingdom sovereign CDS spreads; higher rank indicates higher sensitivity",
+        "dataset":  {
+                        "id":  "model193",
+                        "name":  "European CDS Risk Factors"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-volatility-models",
+                            "name":  "Volatility Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl193_cds_usbeta",
+        "description":  "Ranked sensitivity (beta) of a name’s daily CDS spread changes to changes in United States sovereign CDS spreads; higher rank indicates higher sensitivity",
+        "dataset":  {
+                        "id":  "model193",
+                        "name":  "European CDS Risk Factors"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-volatility-models",
+                            "name":  "Volatility Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl193_chg12mtotdebt",
+        "description":  "12-month relative change in total debt, where total debt = long-term debt + short-term debt",
+        "dataset":  {
+                        "id":  "model193",
+                        "name":  "European CDS Risk Factors"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-volatility-models",
+                            "name":  "Volatility Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl193_chg3ycfast",
+        "description":  "Trailing 12-month operating cash flow minus the comparable value from 12 quarters ago, scaled by average total assets over the same period",
+        "dataset":  {
+                        "id":  "model193",
+                        "name":  "European CDS Risk Factors"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-volatility-models",
+                            "name":  "Volatility Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl193_chgshare",
+        "description":  "Percent change in shares outstanding compared to one year ago",
+        "dataset":  {
+                        "id":  "model193",
+                        "name":  "European CDS Risk Factors"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-volatility-models",
+                            "name":  "Volatility Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl193_dcc",
+        "description":  "Quarterly cash flow from operations minus cash dividends, divided by current interest-bearing debt",
+        "dataset":  {
+                        "id":  "model193",
+                        "name":  "European CDS Risk Factors"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-volatility-models",
+                            "name":  "Volatility Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl193_div5yg",
+        "description":  "Five-year growth in dividends",
+        "dataset":  {
+                        "id":  "model193",
+                        "name":  "European CDS Risk Factors"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-volatility-models",
+                            "name":  "Volatility Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl193_dtsm1_rd",
+        "description":  "Standard deviation of the stock’s daily total returns over the trailing one month",
+        "dataset":  {
+                        "id":  "model193",
+                        "name":  "European CDS Risk Factors"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-volatility-models",
+                            "name":  "Volatility Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl193_dtsm1_rd_sdc",
+        "description":  "Observed PD minus fair value PD predicted by a proprietary model using the 1-month realized stock return volatility factor with sector, credit rating, and regional controls",
+        "dataset":  {
+                        "id":  "model193",
+                        "name":  "European CDS Risk Factors"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-volatility-models",
+                            "name":  "Volatility Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl193_earnshortfall",
+        "description":  "Difference between reported accounting earnings and free cash flow, scaled by average assets",
+        "dataset":  {
+                        "id":  "model193",
+                        "name":  "European CDS Risk Factors"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-volatility-models",
+                            "name":  "Volatility Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl193_ebitdaev",
+        "description":  "Trailing 12-month EBITDA divided by enterprise value (EV = equity market value + long-term debt + short-term debt + preferred stock + minority interest − cash)",
+        "dataset":  {
+                        "id":  "model193",
+                        "name":  "European CDS Risk Factors"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-volatility-models",
+                            "name":  "Volatility Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl193_ed",
+        "description":  "Total long-term debt divided by total book equity",
+        "dataset":  {
+                        "id":  "model193",
+                        "name":  "European CDS Risk Factors"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-volatility-models",
+                            "name":  "Volatility Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl193_fcghc",
+        "description":  "TTM cash flow minus comparable TTM cash flow from 4 quarters ago, scaled by average total assets",
+        "dataset":  {
+                        "id":  "model193",
+                        "name":  "European CDS Risk Factors"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-volatility-models",
+                            "name":  "Volatility Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl193_fc_fqsurstd",
+        "description":  "Most recent quarterly earnings surprise scaled by the standard deviation of analyst forecasts",
+        "dataset":  {
+                        "id":  "model193",
+                        "name":  "European CDS Risk Factors"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-volatility-models",
+                            "name":  "Volatility Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl193_fc_numrevy1",
+        "description":  "Weighted average of FY1 analyst upward minus downward revisions in a month divided by total revisions",
+        "dataset":  {
+                        "id":  "model193",
+                        "name":  "European CDS Risk Factors"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-volatility-models",
+                            "name":  "Volatility Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl193_gear",
+        "description":  "Long-term debt divided by total assets minus current liabilities",
+        "dataset":  {
+                        "id":  "model193",
+                        "name":  "European CDS Risk Factors"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-volatility-models",
+                            "name":  "Volatility Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl193_gtl",
+        "description":  "Consensus long-term growth forecast, representing expected annual growth in operating earnings over the next business cycle",
+        "dataset":  {
+                        "id":  "model193",
+                        "name":  "European CDS Risk Factors"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-volatility-models",
+                            "name":  "Volatility Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl193_indrelcroe_",
+        "description":  "Lagged quarterly ROE relative to industry average standardized by industry standard deviation",
+        "dataset":  {
+                        "id":  "model193",
+                        "name":  "European CDS Risk Factors"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-volatility-models",
+                            "name":  "Volatility Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl193_indrelrtn4w_",
+        "description":  "Four-week stock return relative to industry average standardized by industry standard deviation",
+        "dataset":  {
+                        "id":  "model193",
+                        "name":  "European CDS Risk Factors"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-volatility-models",
+                            "name":  "Volatility Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl193_indrelrtn5d_",
+        "description":  "Five-day stock return relative to industry average standardized by industry standard deviation",
+        "dataset":  {
+                        "id":  "model193",
+                        "name":  "European CDS Risk Factors"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-volatility-models",
+                            "name":  "Volatility Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl193_mrspe_cf",
+        "description":  "3-month change in the median FY1 consensus earnings forecast, scaled by the current mean earnings estimate",
+        "dataset":  {
+                        "id":  "model193",
+                        "name":  "European CDS Risk Factors"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-volatility-models",
+                            "name":  "Volatility Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl193_netdebt",
+        "description":  "Net debt divided by net debt plus preferred stock plus common stock; net debt = long-term debt + short-term debt - cash and equivalents (most recent quarter)",
+        "dataset":  {
+                        "id":  "model193",
+                        "name":  "European CDS Risk Factors"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-volatility-models",
+                            "name":  "Volatility Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl193_nopatmargin",
+        "description":  "NOPAT margin = (Net income + Interest expense*(1 - effective tax rate)) / Net sales, using trailing 12 months; effective tax rate = TTM income taxes / TTM income before taxes",
+        "dataset":  {
+                        "id":  "model193",
+                        "name":  "European CDS Risk Factors"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-volatility-models",
+                            "name":  "Volatility Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl193_ollev",
+        "description":  "1 minus [(short-term debt + long-term debt + common equity + preferred equity - cash) / (total assets - cash)] in the current quarter",
+        "dataset":  {
+                        "id":  "model193",
+                        "name":  "European CDS Risk Factors"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-volatility-models",
+                            "name":  "Volatility Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl193_opincltd",
+        "description":  "Difference between the year-over-year percent change in operating income and the year-over-year percent change in long-term debt",
+        "dataset":  {
+                        "id":  "model193",
+                        "name":  "European CDS Risk Factors"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-volatility-models",
+                            "name":  "Volatility Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl193_oplev",
+        "description":  "Percent change in trailing 12-month operating income from the prior quarter divided by the percent change in trailing 12-month sales from the prior quarter",
+        "dataset":  {
+                        "id":  "model193",
+                        "name":  "European CDS Risk Factors"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-volatility-models",
+                            "name":  "Volatility Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl193_ox_sdc",
+        "description":  "Ranked sensitivity of daily CDS spread changes to daily returns of the Markit iTraxx Crossover index; higher rank indicates stronger sensitivity",
+        "dataset":  {
+                        "id":  "model193",
+                        "name":  "European CDS Risk Factors"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-volatility-models",
+                            "name":  "Volatility Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl193_pu",
+        "description":  "Unexpected profitability: realized profitability minus the expected level estimated by a regression model",
+        "dataset":  {
+                        "id":  "model193",
+                        "name":  "European CDS Risk Factors"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-volatility-models",
+                            "name":  "Volatility Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl193_ratrev6m",
+        "description":  "Six-month average of the monthly change in the average analyst recommendation",
+        "dataset":  {
+                        "id":  "model193",
+                        "name":  "European CDS Risk Factors"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-volatility-models",
+                            "name":  "Volatility Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl193_reinrate",
+        "description":  "Retention (reinvestment) rate: (TTM EPS before extraordinary items - TTM dividends per share by ex-date) divided by average book equity per share over the same period",
+        "dataset":  {
+                        "id":  "model193",
+                        "name":  "European CDS Risk Factors"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-volatility-models",
+                            "name":  "Volatility Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl193_rev3my2std",
+        "description":  "Change in the mean analyst earnings estimate for fiscal year 2 from three months ago to now, scaled by the forecast standard deviation as of three months ago",
+        "dataset":  {
+                        "id":  "model193",
+                        "name":  "European CDS Risk Factors"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-volatility-models",
+                            "name":  "Volatility Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl193_roic",
+        "description":  "(Trailing 12-month net income + interest expense) divided by average invested capital (common equity + long-term debt + minority interest + preferred stock)",
+        "dataset":  {
+                        "id":  "model193",
+                        "name":  "European CDS Risk Factors"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-volatility-models",
+                            "name":  "Volatility Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl193_rp",
+        "description":  "Latest reported quarterly operating income divided by total assets lagged by 12 months",
+        "dataset":  {
+                        "id":  "model193",
+                        "name":  "European CDS Risk Factors"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-volatility-models",
+                            "name":  "Volatility Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl193_spe1yfvc_cf",
+        "description":  "Standard deviation of analyst EPS estimates for fiscal year 1 divided by the mean consensus forecast",
+        "dataset":  {
+                        "id":  "model193",
+                        "name":  "European CDS Risk Factors"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-volatility-models",
+                            "name":  "Volatility Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl193_stockrating",
+        "description":  "Consensus analyst recommendation for the company",
+        "dataset":  {
+                        "id":  "model193",
+                        "name":  "European CDS Risk Factors"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-volatility-models",
+                            "name":  "Volatility Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl193_totalcov",
+        "description":  "(Cash flow from operations + interest paid + tax paid) divided by (interest + principal paid)",
+        "dataset":  {
+                        "id":  "model193",
+                        "name":  "European CDS Risk Factors"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-volatility-models",
+                            "name":  "Volatility Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl193_tqe_sdc",
+        "description":  "Ranked sensitivity of the daily CDS spread to daily equity price changes; higher rank indicates stronger sensitivity",
+        "dataset":  {
+                        "id":  "model193",
+                        "name":  "European CDS Risk Factors"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-volatility-models",
+                            "name":  "Volatility Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl193_visiratio",
+        "description":  "Most recent daily trading volume divided by the average daily trading volume over the previous 50 trading days",
+        "dataset":  {
+                        "id":  "model193",
+                        "name":  "European CDS Risk Factors"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-volatility-models",
+                            "name":  "Volatility Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl193_voctni",
+        "description":  "Most recent quarterly operating income before depreciation divided by quarterly long-term debt interest expense",
+        "dataset":  {
+                        "id":  "model193",
+                        "name":  "European CDS Risk Factors"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-volatility-models",
+                            "name":  "Volatility Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl193_xiv_sdc",
+        "description":  "Sensitivity of daily CDS spread changes to daily changes in market volatility (VIX) (higher sensitivity ranks higher)",
+        "dataset":  {
+                        "id":  "model193",
+                        "name":  "European CDS Risk Factors"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-volatility-models",
+                            "name":  "Volatility Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl193_y1dpghcd1_sdc",
+        "description":  "One-day change in the CDS-implied 1-year probability of default (from t-1 to t)",
+        "dataset":  {
+                        "id":  "model193",
+                        "name":  "European CDS Risk Factors"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-volatility-models",
+                            "name":  "Volatility Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl193_y1dpghcd5_sdc",
+        "description":  "Change in the 1-year CDS-implied probability of default from date t-5 to date t",
+        "dataset":  {
+                        "id":  "model193",
+                        "name":  "European CDS Risk Factors"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-volatility-models",
+                            "name":  "Volatility Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl193_y1dpghcm1_sdc",
+        "description":  "Change in the 1-year CDS-implied probability of default from month t-1 to month t",
+        "dataset":  {
+                        "id":  "model193",
+                        "name":  "European CDS Risk Factors"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-volatility-models",
+                            "name":  "Volatility Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl193_y5dpghcd1_sdc",
+        "description":  "Change in the 5-year CDS-implied probability of default from date t-1 to date t",
+        "dataset":  {
+                        "id":  "model193",
+                        "name":  "European CDS Risk Factors"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-volatility-models",
+                            "name":  "Volatility Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl193_y5dpghcd5_sdc",
+        "description":  "Change in the CDS-implied 5-year probability of default from date t-5 to date t",
+        "dataset":  {
+                        "id":  "model193",
+                        "name":  "European CDS Risk Factors"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-volatility-models",
+                            "name":  "Volatility Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl193_y5dpghcm1_sdc",
+        "description":  "Change in the 5-year CDS-implied probability of default from month t-1 to month t",
+        "dataset":  {
+                        "id":  "model193",
+                        "name":  "European CDS Risk Factors"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-volatility-models",
+                            "name":  "Volatility Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl193_yoychgda",
+        "description":  "Year-over-year change in total liabilities as a percentage of total assets (most recent quarter vs. same quarter a year ago)",
+        "dataset":  {
+                        "id":  "model193",
+                        "name":  "European CDS Risk Factors"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-volatility-models",
+                            "name":  "Volatility Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "net_cash_flow_per_share",
+        "description":  "A company\u0027s net cash flow divided by the number of its outstanding shares, indicating financial strength per share. Data is provided as an integer rank or standardized score.",
+        "dataset":  {
+                        "id":  "model193",
+                        "name":  "European CDS Risk Factors"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-volatility-models",
+                            "name":  "Volatility Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "ohlson_score",
+        "description":  "A probabilistic model score that assesses the likelihood of a company going bankrupt within two years. Data is provided as an integer rank or standardized score.",
+        "dataset":  {
+                        "id":  "model193",
+                        "name":  "European CDS Risk Factors"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-volatility-models",
+                            "name":  "Volatility Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "operating_cash_flow_ratio",
+        "description":  "A ratio measuring how well current liabilities are covered by the cash flow generated from a company\u0027s operations. Data is provided as an integer rank or standardized score.",
+        "dataset":  {
+                        "id":  "model193",
+                        "name":  "European CDS Risk Factors"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-volatility-models",
+                            "name":  "Volatility Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "other_dm",
+        "description":  "A general distress metric (DM), likely derived from fundamental or market-based signals. Data is provided as an integer rank or standardized score.",
+        "dataset":  {
+                        "id":  "model193",
+                        "name":  "European CDS Risk Factors"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-volatility-models",
+                            "name":  "Volatility Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "quick_ratio",
+        "description":  "A liquidity ratio (acid-test) measuring a company\u0027s ability to meet short-term obligations with its most liquid assets. Data is provided as an integer rank or standardized score.",
+        "dataset":  {
+                        "id":  "model193",
+                        "name":  "European CDS Risk Factors"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-volatility-models",
+                            "name":  "Volatility Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "short_interest_days_to_cover",
+        "description":  "A crowding indicator representing the ratio of shorted shares to average daily trading volume, also known as Days to Cover. Data is provided as an integer rank or standardized score.",
+        "dataset":  {
+                        "id":  "model193",
+                        "name":  "European CDS Risk Factors"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-volatility-models",
+                            "name":  "Volatility Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "short_interest_ratio",
+        "description":  "A crowding indicator representing the ratio of shares sold short, used for monitoring short interest levels. This corresponds to the Sht_Int field in the documentation.",
+        "dataset":  {
+                        "id":  "model193",
+                        "name":  "European CDS Risk Factors"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-volatility-models",
+                            "name":  "Volatility Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "stock_borrow_fee",
+        "description":  "The cost to borrow a stock for short-selling purposes, serving as a crowding indicator. Corresponds to the `Benchmark_fee` field.",
+        "dataset":  {
+                        "id":  "model193",
+                        "name":  "European CDS Risk Factors"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-volatility-models",
+                            "name":  "Volatility Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "yoy_change_current_ratio",
+        "description":  "The year-over-year change in a company\u0027s current ratio, reflecting trends in its short-term liquidity. Data is provided as an integer rank or standardized score.",
+        "dataset":  {
+                        "id":  "model193",
+                        "name":  "European CDS Risk Factors"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-volatility-models",
+                            "name":  "Volatility Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    }
+]

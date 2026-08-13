@@ -1,0 +1,258 @@
+﻿[
+    {
+        "id":  "idiosyncratic_return_eue_daily",
+        "description":  "Specfific return",
+        "dataset":  {
+                        "id":  "other532",
+                        "name":  "Specific Returns"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-dividend-models",
+                            "name":  "Dividend Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  0.733,
+        "coverage":  0.7484,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "idiosyncratic_return_eue_monthly",
+        "description":  "Realized idiosyncratic (stock-specific) return unexplained by Barra factors, expressed as a decimal fraction",
+        "dataset":  {
+                        "id":  "other532",
+                        "name":  "Specific Returns"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-dividend-models",
+                            "name":  "Dividend Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  0.7166,
+        "coverage":  0.7413,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "idiosyncratic_return_eult_daily",
+        "description":  "Realized idiosyncratic (stock-specific) return for the security on that date, expressed as a decimal fraction and excluding systematic factor effects",
+        "dataset":  {
+                        "id":  "other532",
+                        "name":  "Specific Returns"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-dividend-models",
+                            "name":  "Dividend Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  0.733,
+        "coverage":  0.7484,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "idiosyncratic_return_eult_monthly",
+        "description":  "Specific return",
+        "dataset":  {
+                        "id":  "other532",
+                        "name":  "Specific Returns"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-dividend-models",
+                            "name":  "Dividend Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  0.7166,
+        "coverage":  0.7413,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "oth532_emerging_daily_specificreturn",
+        "description":  "Realized idiosyncratic stock return (residual from Barra risk model) expressed as a decimal fraction",
+        "dataset":  {
+                        "id":  "other532",
+                        "name":  "Specific Returns"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-dividend-models",
+                            "name":  "Dividend Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  0.733,
+        "coverage":  0.9714,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "oth532_emerging_monthly_specificreturn",
+        "description":  "Stock-specific (idiosyncratic) return residual from the Barra risk model for the period, expressed as a decimal fraction (e.g., 0.01 = 1%)",
+        "dataset":  {
+                        "id":  "other532",
+                        "name":  "Specific Returns"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-dividend-models",
+                            "name":  "Dividend Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  0.7125,
+        "coverage":  0.9643,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "oth532_global_daily_specificreturn",
+        "description":  "Realized stock-specific return (idiosyncratic residual from the Barra risk model), expressed as a decimal fraction",
+        "dataset":  {
+                        "id":  "other532",
+                        "name":  "Specific Returns"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-dividend-models",
+                            "name":  "Dividend Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  0.733,
+        "coverage":  0.9714,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "oth532_global_monthly_specificreturn",
+        "description":  "Realized idiosyncratic (stock-specific) return for the security for the month, residual from the Barra factor model; expressed as a decimal fraction (e.g., 0.01 = 1%)",
+        "dataset":  {
+                        "id":  "other532",
+                        "name":  "Specific Returns"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-dividend-models",
+                            "name":  "Dividend Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  0.7166,
+        "coverage":  0.9636,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    }
+]

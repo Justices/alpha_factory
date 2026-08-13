@@ -1,0 +1,354 @@
+﻿[
+    {
+        "id":  "aggregate_equity_value_all_owners",
+        "description":  "Aggregate dollar value of shares of the security held by all owners, with duplication between child and parent owners removed",
+        "dataset":  {
+                        "id":  "institutions6",
+                        "name":  "Institutions and Beneficial Stake Ownership"
+                    },
+        "category":  {
+                         "id":  "institutions",
+                         "name":  "Institutions"
+                     },
+        "subcategory":  {
+                            "id":  "institutions-ownership-models",
+                            "name":  "Ownership Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  1,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "aggregate_equity_value_institutions",
+        "description":  "Aggregate dollar value of shares of the security currently held by all institutional investors at the reporting date",
+        "dataset":  {
+                        "id":  "institutions6",
+                        "name":  "Institutions and Beneficial Stake Ownership"
+                    },
+        "category":  {
+                         "id":  "institutions",
+                         "name":  "Institutions"
+                     },
+        "subcategory":  {
+                            "id":  "institutions-ownership-models",
+                            "name":  "Ownership Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  1,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "aggregate_share_count_all_owners",
+        "description":  "Aggregate number of shares of the security held by all owners, with duplication between child and parent owners removed",
+        "dataset":  {
+                        "id":  "institutions6",
+                        "name":  "Institutions and Beneficial Stake Ownership"
+                    },
+        "category":  {
+                         "id":  "institutions",
+                         "name":  "Institutions"
+                     },
+        "subcategory":  {
+                            "id":  "institutions-ownership-models",
+                            "name":  "Ownership Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  1,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "aggregate_share_count_institutions",
+        "description":  "Total number of shares of the security currently held by all institutional investors at the reporting date",
+        "dataset":  {
+                        "id":  "institutions6",
+                        "name":  "Institutions and Beneficial Stake Ownership"
+                    },
+        "category":  {
+                         "id":  "institutions",
+                         "name":  "Institutions"
+                     },
+        "subcategory":  {
+                            "id":  "institutions-ownership-models",
+                            "name":  "Ownership Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  1,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "count_institutional_buyers_security",
+        "description":  "Number of institutional investors who purchased shares of the security during the reporting period",
+        "dataset":  {
+                        "id":  "institutions6",
+                        "name":  "Institutions and Beneficial Stake Ownership"
+                    },
+        "category":  {
+                         "id":  "institutions",
+                         "name":  "Institutions"
+                     },
+        "subcategory":  {
+                            "id":  "institutions-ownership-models",
+                            "name":  "Ownership Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  1,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "count_institutional_holders_security",
+        "description":  "Number of institutional investors currently holding shares (with holdings greater than zero) for the security at the reporting date",
+        "dataset":  {
+                        "id":  "institutions6",
+                        "name":  "Institutions and Beneficial Stake Ownership"
+                    },
+        "category":  {
+                         "id":  "institutions",
+                         "name":  "Institutions"
+                     },
+        "subcategory":  {
+                            "id":  "institutions-ownership-models",
+                            "name":  "Ownership Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  1,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "count_institutional_sellers_security",
+        "description":  "Number of institutional investors who sold shares of the security during the reporting period",
+        "dataset":  {
+                        "id":  "institutions6",
+                        "name":  "Institutions and Beneficial Stake Ownership"
+                    },
+        "category":  {
+                         "id":  "institutions",
+                         "name":  "Institutions"
+                     },
+        "subcategory":  {
+                            "id":  "institutions-ownership-models",
+                            "name":  "Ownership Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  1,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "market_value_institutional_shares_acquired",
+        "description":  "Aggregate dollar value of shares of the security purchased by institutional investors during the reporting period",
+        "dataset":  {
+                        "id":  "institutions6",
+                        "name":  "Institutions and Beneficial Stake Ownership"
+                    },
+        "category":  {
+                         "id":  "institutions",
+                         "name":  "Institutions"
+                     },
+        "subcategory":  {
+                            "id":  "institutions-ownership-models",
+                            "name":  "Ownership Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  1,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "market_value_institutional_shares_disposed",
+        "description":  "Aggregate dollar value of shares of the security sold by institutional investors during the reporting period",
+        "dataset":  {
+                        "id":  "institutions6",
+                        "name":  "Institutions and Beneficial Stake Ownership"
+                    },
+        "category":  {
+                         "id":  "institutions",
+                         "name":  "Institutions"
+                     },
+        "subcategory":  {
+                            "id":  "institutions-ownership-models",
+                            "name":  "Ownership Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  1,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "quantity_institutional_shares_acquired",
+        "description":  "Total number of shares of the security purchased by institutional investors during the reporting period",
+        "dataset":  {
+                        "id":  "institutions6",
+                        "name":  "Institutions and Beneficial Stake Ownership"
+                    },
+        "category":  {
+                         "id":  "institutions",
+                         "name":  "Institutions"
+                     },
+        "subcategory":  {
+                            "id":  "institutions-ownership-models",
+                            "name":  "Ownership Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  1,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "quantity_institutional_shares_disposed",
+        "description":  "Total number of shares of the security sold by institutional investors during the reporting period",
+        "dataset":  {
+                        "id":  "institutions6",
+                        "name":  "Institutions and Beneficial Stake Ownership"
+                    },
+        "category":  {
+                         "id":  "institutions",
+                         "name":  "Institutions"
+                     },
+        "subcategory":  {
+                            "id":  "institutions-ownership-models",
+                            "name":  "Ownership Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  1,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    }
+]

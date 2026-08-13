@@ -1,0 +1,770 @@
+﻿[
+    {
+        "id":  "inst25_activity",
+        "description":  "Activity score (0–100) showing how actively a security is traded (number of trades) relative to other securities",
+        "dataset":  {
+                        "id":  "institutions25",
+                        "name":  "Fund Short Selling Data"
+                    },
+        "category":  {
+                         "id":  "institutions",
+                         "name":  "Institutions"
+                     },
+        "subcategory":  {
+                            "id":  "institutions-ownership-models",
+                            "name":  "Ownership Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "inst25_age",
+        "description":  "A ranking from 0 to 100 representing how old the short positions in a security are compared to all others, based on average short trade duration (higher score = older positions)",
+        "dataset":  {
+                        "id":  "institutions25",
+                        "name":  "Fund Short Selling Data"
+                    },
+        "category":  {
+                         "id":  "institutions",
+                         "name":  "Institutions"
+                     },
+        "subcategory":  {
+                            "id":  "institutions-ownership-models",
+                            "name":  "Ownership Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "inst25_concentration",
+        "description":  "Sum of the top three largest short positions as a percentage of shares outstanding for the security on the position date",
+        "dataset":  {
+                        "id":  "institutions25",
+                        "name":  "Fund Short Selling Data"
+                    },
+        "category":  {
+                         "id":  "institutions",
+                         "name":  "Institutions"
+                     },
+        "subcategory":  {
+                            "id":  "institutions-ownership-models",
+                            "name":  "Ownership Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "inst25_crowding",
+        "description":  "Crowdedness score (0–100) indicating the extent to which the security is held short by many managers—higher means more crowded",
+        "dataset":  {
+                        "id":  "institutions25",
+                        "name":  "Fund Short Selling Data"
+                    },
+        "category":  {
+                         "id":  "institutions",
+                         "name":  "Institutions"
+                     },
+        "subcategory":  {
+                            "id":  "institutions-ownership-models",
+                            "name":  "Ownership Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "inst25_entry_position",
+        "description":  "The size of the manager’s short position in a security (as % of shares outstanding) at the time they opened the position",
+        "dataset":  {
+                        "id":  "institutions25",
+                        "name":  "Fund Short Selling Data"
+                    },
+        "category":  {
+                         "id":  "institutions",
+                         "name":  "Institutions"
+                     },
+        "subcategory":  {
+                            "id":  "institutions-ownership-models",
+                            "name":  "Ownership Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "inst25_is_open",
+        "description":  "Indicates whether the position is still open (1=open, 0=closed)",
+        "dataset":  {
+                        "id":  "institutions25",
+                        "name":  "Fund Short Selling Data"
+                    },
+        "category":  {
+                         "id":  "institutions",
+                         "name":  "Institutions"
+                     },
+        "subcategory":  {
+                            "id":  "institutions-ownership-models",
+                            "name":  "Ownership Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "inst25_manager_avg_trade_length",
+        "description":  "Average duration (weekdays) of all closed short positions held by the manager on the given position date",
+        "dataset":  {
+                        "id":  "institutions25",
+                        "name":  "Fund Short Selling Data"
+                    },
+        "category":  {
+                         "id":  "institutions",
+                         "name":  "Institutions"
+                     },
+        "subcategory":  {
+                            "id":  "institutions-ownership-models",
+                            "name":  "Ownership Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "inst25_manager_count",
+        "description":  "Number of open short positions (distinct managers) for the security on the position date",
+        "dataset":  {
+                        "id":  "institutions25",
+                        "name":  "Fund Short Selling Data"
+                    },
+        "category":  {
+                         "id":  "institutions",
+                         "name":  "Institutions"
+                     },
+        "subcategory":  {
+                            "id":  "institutions-ownership-models",
+                            "name":  "Ownership Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "inst25_manager_position_count",
+        "description":  "Number of short positions in the manager’s portfolio on a given date",
+        "dataset":  {
+                        "id":  "institutions25",
+                        "name":  "Fund Short Selling Data"
+                    },
+        "category":  {
+                         "id":  "institutions",
+                         "name":  "Institutions"
+                     },
+        "subcategory":  {
+                            "id":  "institutions-ownership-models",
+                            "name":  "Ownership Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "inst25_position",
+        "description":  "Manager\u0027s current reported short position in the security, expressed as % of total shares outstanding",
+        "dataset":  {
+                        "id":  "institutions25",
+                        "name":  "Fund Short Selling Data"
+                    },
+        "category":  {
+                         "id":  "institutions",
+                         "name":  "Institutions"
+                     },
+        "subcategory":  {
+                            "id":  "institutions-ownership-models",
+                            "name":  "Ownership Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "inst25_position_change",
+        "description":  "The change in the manager’s short position in the security (as % of shares outstanding) since the previous Position Date",
+        "dataset":  {
+                        "id":  "institutions25",
+                        "name":  "Fund Short Selling Data"
+                    },
+        "category":  {
+                         "id":  "institutions",
+                         "name":  "Institutions"
+                     },
+        "subcategory":  {
+                            "id":  "institutions-ownership-models",
+                            "name":  "Ownership Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "inst25_security_avg_trade_length",
+        "description":  "Average duration (in days) of all open short positions in the security as of the position date",
+        "dataset":  {
+                        "id":  "institutions25",
+                        "name":  "Fund Short Selling Data"
+                    },
+        "category":  {
+                         "id":  "institutions",
+                         "name":  "Institutions"
+                     },
+        "subcategory":  {
+                            "id":  "institutions-ownership-models",
+                            "name":  "Ownership Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "inst25_security_cover_count",
+        "description":  "Number of cover (i.e., short covering) transactions for the security on the specific position date",
+        "dataset":  {
+                        "id":  "institutions25",
+                        "name":  "Fund Short Selling Data"
+                    },
+        "category":  {
+                         "id":  "institutions",
+                         "name":  "Institutions"
+                     },
+        "subcategory":  {
+                            "id":  "institutions-ownership-models",
+                            "name":  "Ownership Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "inst25_security_short_count",
+        "description":  "Number of short sale transactions for the security on the specific position date",
+        "dataset":  {
+                        "id":  "institutions25",
+                        "name":  "Fund Short Selling Data"
+                    },
+        "category":  {
+                         "id":  "institutions",
+                         "name":  "Institutions"
+                     },
+        "subcategory":  {
+                            "id":  "institutions-ownership-models",
+                            "name":  "Ownership Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "inst25_security_trade_count",
+        "description":  "Number of transactions in the security on the given position date",
+        "dataset":  {
+                        "id":  "institutions25",
+                        "name":  "Fund Short Selling Data"
+                    },
+        "category":  {
+                         "id":  "institutions",
+                         "name":  "Institutions"
+                     },
+        "subcategory":  {
+                            "id":  "institutions-ownership-models",
+                            "name":  "Ownership Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "inst25_security_trade_count_1mo",
+        "description":  "Number of transactions in the security over the past month",
+        "dataset":  {
+                        "id":  "institutions25",
+                        "name":  "Fund Short Selling Data"
+                    },
+        "category":  {
+                         "id":  "institutions",
+                         "name":  "Institutions"
+                     },
+        "subcategory":  {
+                            "id":  "institutions-ownership-models",
+                            "name":  "Ownership Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "inst25_security_trade_count_1wk",
+        "description":  "Count of all transactions in the security over the past week",
+        "dataset":  {
+                        "id":  "institutions25",
+                        "name":  "Fund Short Selling Data"
+                    },
+        "category":  {
+                         "id":  "institutions",
+                         "name":  "Institutions"
+                     },
+        "subcategory":  {
+                            "id":  "institutions-ownership-models",
+                            "name":  "Ownership Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "inst25_security_trade_count_1yr",
+        "description":  "Total number of trade transactions for the security over the past year",
+        "dataset":  {
+                        "id":  "institutions25",
+                        "name":  "Fund Short Selling Data"
+                    },
+        "category":  {
+                         "id":  "institutions",
+                         "name":  "Institutions"
+                     },
+        "subcategory":  {
+                            "id":  "institutions-ownership-models",
+                            "name":  "Ownership Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "inst25_security_trade_count_2yr",
+        "description":  "The total number of recorded transactions for the security over the last 2 years up to the position date",
+        "dataset":  {
+                        "id":  "institutions25",
+                        "name":  "Fund Short Selling Data"
+                    },
+        "category":  {
+                         "id":  "institutions",
+                         "name":  "Institutions"
+                     },
+        "subcategory":  {
+                            "id":  "institutions-ownership-models",
+                            "name":  "Ownership Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "inst25_security_trade_count_3mo",
+        "description":  "Total number of trade transactions for the security over the past three months",
+        "dataset":  {
+                        "id":  "institutions25",
+                        "name":  "Fund Short Selling Data"
+                    },
+        "category":  {
+                         "id":  "institutions",
+                         "name":  "Institutions"
+                     },
+        "subcategory":  {
+                            "id":  "institutions-ownership-models",
+                            "name":  "Ownership Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "inst25_security_trade_count_3yr",
+        "description":  "Number of transactions for the security over the past 3 years",
+        "dataset":  {
+                        "id":  "institutions25",
+                        "name":  "Fund Short Selling Data"
+                    },
+        "category":  {
+                         "id":  "institutions",
+                         "name":  "Institutions"
+                     },
+        "subcategory":  {
+                            "id":  "institutions-ownership-models",
+                            "name":  "Ownership Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "inst25_sentiment",
+        "description":  "A score (0-100) indicating how heavily shorted the security is relative to all securities, based on total short interest",
+        "dataset":  {
+                        "id":  "institutions25",
+                        "name":  "Fund Short Selling Data"
+                    },
+        "category":  {
+                         "id":  "institutions",
+                         "name":  "Institutions"
+                     },
+        "subcategory":  {
+                            "id":  "institutions-ownership-models",
+                            "name":  "Ownership Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "inst25_total_short_interest",
+        "description":  "Total short interest in the security as a percentage of shares outstanding, summed across all managers for that date",
+        "dataset":  {
+                        "id":  "institutions25",
+                        "name":  "Fund Short Selling Data"
+                    },
+        "category":  {
+                         "id":  "institutions",
+                         "name":  "Institutions"
+                     },
+        "subcategory":  {
+                            "id":  "institutions-ownership-models",
+                            "name":  "Ownership Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "inst25_trade_length",
+        "description":  "Number of weekdays since the position\u0027s entry date (trade duration)",
+        "dataset":  {
+                        "id":  "institutions25",
+                        "name":  "Fund Short Selling Data"
+                    },
+        "category":  {
+                         "id":  "institutions",
+                         "name":  "Institutions"
+                     },
+        "subcategory":  {
+                            "id":  "institutions-ownership-models",
+                            "name":  "Ownership Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    }
+]

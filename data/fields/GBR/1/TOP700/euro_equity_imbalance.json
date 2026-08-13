@@ -1,0 +1,130 @@
+﻿[
+    {
+        "id":  "bucketed_net_order_imbalance_quantile",
+        "description":  "Compute for each participant the sign of its net\r\nunderlying data on each bucket created with\r\nquantile method, then sum over buckets for each\r\nparticipants, and lastly sum over participants of the\r\nsame account type.",
+        "dataset":  {
+                        "id":  "euro_equity_imbalance",
+                        "name":  "European Equity Trading Imbalance Indicators"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-event-data",
+                            "name":  "Event Data"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0.1568,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "bucketed_net_order_imbalance_uniform",
+        "description":  "Compute for each participant the sign of its net\r\nunderlying data on each bucket created with\r\nuniform method, then sum over buckets for each\r\nparticipants, and lastly sum over participants of\r\nthe same account type.",
+        "dataset":  {
+                        "id":  "euro_equity_imbalance",
+                        "name":  "European Equity Trading Imbalance Indicators"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-event-data",
+                            "name":  "Event Data"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0.1568,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "bucketed_sign_imbalance_quantile",
+        "description":  "Compute for each participant the sign of its net\r\nunderlying data on each bucket created with\r\nquantile method, then sum over buckets for each\r\nparticipants, and lastly sum signs over participants\r\nof the same account type.",
+        "dataset":  {
+                        "id":  "euro_equity_imbalance",
+                        "name":  "European Equity Trading Imbalance Indicators"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-event-data",
+                            "name":  "Event Data"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0.1568,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "bucketed_sign_imbalance_uniform",
+        "description":  "Compute for each participant the sign of its net\r\nunderlying data on each bucket created with\r\nuniform method, then sum over buckets for each\r\nparticipants, and lastly sum signs over participants\r\nof the same account type.",
+        "dataset":  {
+                        "id":  "euro_equity_imbalance",
+                        "name":  "European Equity Trading Imbalance Indicators"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-event-data",
+                            "name":  "Event Data"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0.1568,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    }
+]

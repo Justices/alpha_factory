@@ -1,0 +1,226 @@
+﻿[
+    {
+        "id":  "inst1_holdings",
+        "description":  "The total number of shares or equity units held by the insider after the reported transaction is executed",
+        "dataset":  {
+                        "id":  "institutions1",
+                        "name":  "Insider Trading for Europe"
+                    },
+        "category":  {
+                         "id":  "institutions",
+                         "name":  "Institutions"
+                     },
+        "subcategory":  {
+                            "id":  "institutions-ownership-models",
+                            "name":  "Ownership Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0.3118,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "inst1_price",
+        "description":  "Price per share/unit at which the transaction was executed; if a range is involved, this is the minimum price",
+        "dataset":  {
+                        "id":  "institutions1",
+                        "name":  "Insider Trading for Europe"
+                    },
+        "category":  {
+                         "id":  "institutions",
+                         "name":  "Institutions"
+                     },
+        "subcategory":  {
+                            "id":  "institutions-ownership-models",
+                            "name":  "Ownership Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0.3118,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "inst1_shares",
+        "description":  "The total number of shares or equity units covered by the transaction",
+        "dataset":  {
+                        "id":  "institutions1",
+                        "name":  "Insider Trading for Europe"
+                    },
+        "category":  {
+                         "id":  "institutions",
+                         "name":  "Institutions"
+                     },
+        "subcategory":  {
+                            "id":  "institutions-ownership-models",
+                            "name":  "Ownership Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0.3118,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "inst1_tradesignificance",
+        "description":  "A numerical score (1 to 3) indicating the importance or potential market impact of the trade, with 1 as low and 3 as high significance",
+        "dataset":  {
+                        "id":  "institutions1",
+                        "name":  "Insider Trading for Europe"
+                    },
+        "category":  {
+                         "id":  "institutions",
+                         "name":  "Institutions"
+                     },
+        "subcategory":  {
+                            "id":  "institutions-ownership-models",
+                            "name":  "Ownership Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0.3118,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "inst1_value",
+        "description":  "Total monetary value of the transaction in its original currency (i.e., price times number of shares traded)",
+        "dataset":  {
+                        "id":  "institutions1",
+                        "name":  "Insider Trading for Europe"
+                    },
+        "category":  {
+                         "id":  "institutions",
+                         "name":  "Institutions"
+                     },
+        "subcategory":  {
+                            "id":  "institutions-ownership-models",
+                            "name":  "Ownership Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0.3118,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "inst1_valueeur",
+        "description":  "Total value of the transaction converted to Euro currency, for comparability across markets",
+        "dataset":  {
+                        "id":  "institutions1",
+                        "name":  "Insider Trading for Europe"
+                    },
+        "category":  {
+                         "id":  "institutions",
+                         "name":  "Institutions"
+                     },
+        "subcategory":  {
+                            "id":  "institutions-ownership-models",
+                            "name":  "Ownership Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0.3118,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "transaction_currency_code_2",
+        "description":  "Three-digit ISO code indicating the national currency in which the transaction occurred (e.g., EUR, USD, GBP)",
+        "dataset":  {
+                        "id":  "institutions1",
+                        "name":  "Insider Trading for Europe"
+                    },
+        "category":  {
+                         "id":  "institutions",
+                         "name":  "Institutions"
+                     },
+        "subcategory":  {
+                            "id":  "institutions-ownership-models",
+                            "name":  "Ownership Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0.3118,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    }
+]

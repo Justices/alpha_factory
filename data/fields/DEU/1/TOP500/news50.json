@@ -1,0 +1,1186 @@
+﻿[
+    {
+        "id":  "mws50_acb",
+        "description":  "Score representing sentiment according to the corporate actions classifier",
+        "dataset":  {
+                        "id":  "news50",
+                        "name":  "Web News Analytics Data"
+                    },
+        "category":  {
+                         "id":  "news",
+                         "name":  "News"
+                     },
+        "subcategory":  {
+                            "id":  "news-news-sentiment",
+                            "name":  "News Sentiment"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0.7644,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mws50_aes",
+        "description":  "Score from 0 to 100 measuring the ratio of positive to total non-neutral events over a rolling 91-day window within the package, based on ESS\u003e50 as positive and ESS\u003c50 as negative",
+        "dataset":  {
+                        "id":  "news50",
+                        "name":  "Web News Analytics Data"
+                    },
+        "category":  {
+                         "id":  "news",
+                         "name":  "News"
+                     },
+        "subcategory":  {
+                            "id":  "news-news-sentiment",
+                            "name":  "News Sentiment"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0.7644,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mws50_bam",
+        "description":  "Score representing sentiment according to the mergers and acquisitions classifier",
+        "dataset":  {
+                        "id":  "news50",
+                        "name":  "Web News Analytics Data"
+                    },
+        "category":  {
+                         "id":  "news",
+                         "name":  "News"
+                     },
+        "subcategory":  {
+                            "id":  "news-news-sentiment",
+                            "name":  "News Sentiment"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0.7644,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mws50_bee",
+        "description":  "Earnings evaluations sentiment score from the BEE classifier",
+        "dataset":  {
+                        "id":  "news50",
+                        "name":  "Web News Analytics Data"
+                    },
+        "category":  {
+                         "id":  "news",
+                         "name":  "News"
+                     },
+        "subcategory":  {
+                            "id":  "news-news-sentiment",
+                            "name":  "News Sentiment"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0.7644,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mws50_ber",
+        "description":  "Earnings releases sentiment score from the BER classifier specialized in earnings release news",
+        "dataset":  {
+                        "id":  "news50",
+                        "name":  "Web News Analytics Data"
+                    },
+        "category":  {
+                         "id":  "news",
+                         "name":  "News"
+                     },
+        "subcategory":  {
+                            "id":  "news-news-sentiment",
+                            "name":  "News Sentiment"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0.7644,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mws50_category",
+        "description":  "Unique tag identifying the type and property of an entity-specific news event",
+        "dataset":  {
+                        "id":  "news50",
+                        "name":  "Web News Analytics Data"
+                    },
+        "category":  {
+                         "id":  "news",
+                         "name":  "News"
+                     },
+        "subcategory":  {
+                            "id":  "news-news-sentiment",
+                            "name":  "News Sentiment"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0.7644,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mws50_country_code",
+        "description":  "Two-character ISO-3166 country code associated with the entity (companies by incorporation, currencies by central bank; commodities may be XX)",
+        "dataset":  {
+                        "id":  "news50",
+                        "name":  "Web News Analytics Data"
+                    },
+        "category":  {
+                         "id":  "news",
+                         "name":  "News"
+                     },
+        "subcategory":  {
+                            "id":  "news-news-sentiment",
+                            "name":  "News Sentiment"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0.7644,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mws50_ens",
+        "description":  "Event Novelty Score (0–100) indicating how new the story is within a 24-hour window for this package",
+        "dataset":  {
+                        "id":  "news50",
+                        "name":  "Web News Analytics Data"
+                    },
+        "category":  {
+                         "id":  "news",
+                         "name":  "News"
+                     },
+        "subcategory":  {
+                            "id":  "news-news-sentiment",
+                            "name":  "News Sentiment"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0.7644,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mws50_ens_elapsed",
+        "description":  "Milliseconds elapsed between the first story and the current story within the event novelty chain for this package (first story = 0)",
+        "dataset":  {
+                        "id":  "news50",
+                        "name":  "Web News Analytics Data"
+                    },
+        "category":  {
+                         "id":  "news",
+                         "name":  "News"
+                     },
+        "subcategory":  {
+                            "id":  "news-news-sentiment",
+                            "name":  "News Sentiment"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0.7644,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mws50_ens_key",
+        "description":  "Event novelty key an alphanumeric identifier linking similar stories about the same event for the same entities corresponding to the first story in the sequence",
+        "dataset":  {
+                        "id":  "news50",
+                        "name":  "Web News Analytics Data"
+                    },
+        "category":  {
+                         "id":  "news",
+                         "name":  "News"
+                     },
+        "subcategory":  {
+                            "id":  "news-news-sentiment",
+                            "name":  "News Sentiment"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0.7644,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mws50_ens_similarity_gap",
+        "description":  "Number of days since a similar story was detected in this RPNA edition, from 0.00000 to 100.00000 where 100.00000 means 100+ days and 0.00000 means an identical timestamp",
+        "dataset":  {
+                        "id":  "news50",
+                        "name":  "Web News Analytics Data"
+                    },
+        "category":  {
+                         "id":  "news",
+                         "name":  "News"
+                     },
+        "subcategory":  {
+                            "id":  "news-news-sentiment",
+                            "name":  "News Sentiment"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  0.5758,
+        "coverage":  0.7644,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mws50_ess",
+        "description":  "Granular sentiment score from 0 to 100 for the entity in the story; higher values indicate more positive short-term financial/economic sentiment and values below 50 indicate negative sentiment, derived from expert-labeled patterns",
+        "dataset":  {
+                        "id":  "news50",
+                        "name":  "Web News Analytics Data"
+                    },
+        "category":  {
+                         "id":  "news",
+                         "name":  "News"
+                     },
+        "subcategory":  {
+                            "id":  "news-news-sentiment",
+                            "name":  "News Sentiment"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0.7644,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mws50_evaluation_method",
+        "description":  "Evaluation period used to measure change in an event, e.g., YOY, QOQ, MOM",
+        "dataset":  {
+                        "id":  "news50",
+                        "name":  "Web News Analytics Data"
+                    },
+        "category":  {
+                         "id":  "news",
+                         "name":  "News"
+                     },
+        "subcategory":  {
+                            "id":  "news-news-sentiment",
+                            "name":  "News Sentiment"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  0.5758,
+        "coverage":  0.7644,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mws50_ghc_lna",
+        "description":  "Score representing changes in analyst recommendations",
+        "dataset":  {
+                        "id":  "news50",
+                        "name":  "Web News Analytics Data"
+                    },
+        "category":  {
+                         "id":  "news",
+                         "name":  "News"
+                     },
+        "subcategory":  {
+                            "id":  "news-news-sentiment",
+                            "name":  "News Sentiment"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0.7644,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mws50_group",
+        "description":  "Second-highest taxonomy level grouping related events in the RavenPack Event Taxonomy",
+        "dataset":  {
+                        "id":  "news50",
+                        "name":  "Web News Analytics Data"
+                    },
+        "category":  {
+                         "id":  "news",
+                         "name":  "News"
+                     },
+        "subcategory":  {
+                            "id":  "news-news-sentiment",
+                            "name":  "News Sentiment"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0.7644,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mws50_g_ens",
+        "description":  "Global event novelty score from 0 to 100 indicating how new the story is within a 24 hour window across providers",
+        "dataset":  {
+                        "id":  "news50",
+                        "name":  "Web News Analytics Data"
+                    },
+        "category":  {
+                         "id":  "news",
+                         "name":  "News"
+                     },
+        "subcategory":  {
+                            "id":  "news-news-sentiment",
+                            "name":  "News Sentiment"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0.7644,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mws50_g_ens_elapsed",
+        "description":  "Milliseconds elapsed between the first and current story in the global event novelty chain across all news providers",
+        "dataset":  {
+                        "id":  "news50",
+                        "name":  "Web News Analytics Data"
+                    },
+        "category":  {
+                         "id":  "news",
+                         "name":  "News"
+                     },
+        "subcategory":  {
+                            "id":  "news-news-sentiment",
+                            "name":  "News Sentiment"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0.7644,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mws50_g_ens_key",
+        "description":  "Global event novelty key linking similar categorized events for the same entities across all providers; equals the RP_STORY_ID of the first story in the chain",
+        "dataset":  {
+                        "id":  "news50",
+                        "name":  "Web News Analytics Data"
+                    },
+        "category":  {
+                         "id":  "news",
+                         "name":  "News"
+                     },
+        "subcategory":  {
+                            "id":  "news-news-sentiment",
+                            "name":  "News Sentiment"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0.7644,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mws50_g_ens_similarity_gap",
+        "description":  "Number of days since a similar story was detected across all product editions",
+        "dataset":  {
+                        "id":  "news50",
+                        "name":  "Web News Analytics Data"
+                    },
+        "category":  {
+                         "id":  "news",
+                         "name":  "News"
+                     },
+        "subcategory":  {
+                            "id":  "news-news-sentiment",
+                            "name":  "News Sentiment"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  0.5758,
+        "coverage":  0.7644,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mws50_maturity",
+        "description":  "Named maturity attribute for debt-related events indicating tenor (e.g., 2-DAY, 4-WK, 9-MTH, 1-Q, 40-YR)",
+        "dataset":  {
+                        "id":  "news50",
+                        "name":  "Web News Analytics Data"
+                    },
+        "category":  {
+                         "id":  "news",
+                         "name":  "News"
+                     },
+        "subcategory":  {
+                            "id":  "news-news-sentiment",
+                            "name":  "News Sentiment"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  0.5758,
+        "coverage":  0.7644,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mws50_news_type",
+        "description":  "Code classifying the type of news story or document (e.g., news, press release), per module codebook",
+        "dataset":  {
+                        "id":  "news50",
+                        "name":  "Web News Analytics Data"
+                    },
+        "category":  {
+                         "id":  "news",
+                         "name":  "News"
+                     },
+        "subcategory":  {
+                            "id":  "news-news-sentiment",
+                            "name":  "News Sentiment"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0.7644,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mws50_nip",
+        "description":  "News Impact Projections score (0–100) estimating market impact over the following two hours, conditional on time of arrival",
+        "dataset":  {
+                        "id":  "news50",
+                        "name":  "Web News Analytics Data"
+                    },
+        "category":  {
+                         "id":  "news",
+                         "name":  "News"
+                     },
+        "subcategory":  {
+                            "id":  "news-news-sentiment",
+                            "name":  "News Sentiment"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0.7644,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mws50_position_name",
+        "description":  "The position or title held by an individual within the entity involved in the event",
+        "dataset":  {
+                        "id":  "news50",
+                        "name":  "Web News Analytics Data"
+                    },
+        "category":  {
+                         "id":  "news",
+                         "name":  "News"
+                     },
+        "subcategory":  {
+                            "id":  "news-news-sentiment",
+                            "name":  "News Sentiment"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  0.5758,
+        "coverage":  0.7644,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mws50_product_key",
+        "description":  "Identifier of the subscription package containing the record",
+        "dataset":  {
+                        "id":  "news50",
+                        "name":  "Web News Analytics Data"
+                    },
+        "category":  {
+                         "id":  "news",
+                         "name":  "News"
+                     },
+        "subcategory":  {
+                            "id":  "news-news-sentiment",
+                            "name":  "News Sentiment"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0.7644,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mws50_property",
+        "description":  "Label for the event property such as an entity role or extracted attribute from the matched event type",
+        "dataset":  {
+                        "id":  "news50",
+                        "name":  "Web News Analytics Data"
+                    },
+        "category":  {
+                         "id":  "news",
+                         "name":  "News"
+                     },
+        "subcategory":  {
+                            "id":  "news-news-sentiment",
+                            "name":  "News Sentiment"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0.7644,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mws50_qcm",
+        "description":  "Multi-classifier for equities sentiment score combining outputs from BMQ, BEE, BCA, and ANL-CHG, applied to the most relevant companies mentioned in a story",
+        "dataset":  {
+                        "id":  "news50",
+                        "name":  "Web News Analytics Data"
+                    },
+        "category":  {
+                         "id":  "news",
+                         "name":  "News"
+                     },
+        "subcategory":  {
+                            "id":  "news-news-sentiment",
+                            "name":  "News Sentiment"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0.7644,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mws50_qep",
+        "description":  "PEQ classifier score for global equities sentiment based on words/phrases in the article",
+        "dataset":  {
+                        "id":  "news50",
+                        "name":  "Web News Analytics Data"
+                    },
+        "category":  {
+                         "id":  "news",
+                         "name":  "News"
+                     },
+        "subcategory":  {
+                            "id":  "news-news-sentiment",
+                            "name":  "News Sentiment"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0.7644,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mws50_qmb",
+        "description":  "Editorials \u0026 Commentary classifier score for the story (equities package)",
+        "dataset":  {
+                        "id":  "news50",
+                        "name":  "Web News Analytics Data"
+                    },
+        "category":  {
+                         "id":  "news",
+                         "name":  "News"
+                     },
+        "subcategory":  {
+                            "id":  "news-news-sentiment",
+                            "name":  "News Sentiment"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0.7644,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mws50_relevance",
+        "description":  "Score from 0 to 100 indicating how strongly the entity is related to the news story, with 100 meaning the entity plays a key role",
+        "dataset":  {
+                        "id":  "news50",
+                        "name":  "Web News Analytics Data"
+                    },
+        "category":  {
+                         "id":  "news",
+                         "name":  "News"
+                     },
+        "subcategory":  {
+                            "id":  "news-news-sentiment",
+                            "name":  "News Sentiment"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0.7644,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mws50_rp_story_event_count",
+        "description":  "Total number of entity records (events) published by RavenPack for the given news story",
+        "dataset":  {
+                        "id":  "news50",
+                        "name":  "Web News Analytics Data"
+                    },
+        "category":  {
+                         "id":  "news",
+                         "name":  "News"
+                     },
+        "subcategory":  {
+                            "id":  "news-news-sentiment",
+                            "name":  "News Sentiment"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0.7644,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mws50_rp_story_event_index",
+        "description":  "Ordinal position of the entity record within a story, less than or equal to RP_STORY_EVENT_COUNT",
+        "dataset":  {
+                        "id":  "news50",
+                        "name":  "Web News Analytics Data"
+                    },
+        "category":  {
+                         "id":  "news",
+                         "name":  "News"
+                     },
+        "subcategory":  {
+                            "id":  "news-news-sentiment",
+                            "name":  "News Sentiment"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0.7644,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mws50_ssc",
+        "description":  "Composite sentiment score from 0 to 100 representing overall story sentiment",
+        "dataset":  {
+                        "id":  "news50",
+                        "name":  "Web News Analytics Data"
+                    },
+        "category":  {
+                         "id":  "news",
+                         "name":  "News"
+                     },
+        "subcategory":  {
+                            "id":  "news-news-sentiment",
+                            "name":  "News Sentiment"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0.7644,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mws50_sub_type",
+        "description":  "Subdivision label of a particular class of events",
+        "dataset":  {
+                        "id":  "news50",
+                        "name":  "Web News Analytics Data"
+                    },
+        "category":  {
+                         "id":  "news",
+                         "name":  "News"
+                     },
+        "subcategory":  {
+                            "id":  "news-news-sentiment",
+                            "name":  "News Sentiment"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0.7644,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mws50_time",
+        "description":  "Time component of the record timestamp",
+        "dataset":  {
+                        "id":  "news50",
+                        "name":  "Web News Analytics Data"
+                    },
+        "category":  {
+                         "id":  "news",
+                         "name":  "News"
+                     },
+        "subcategory":  {
+                            "id":  "news-news-sentiment",
+                            "name":  "News Sentiment"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0.7644,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mws50_topic",
+        "description":  "The subject or theme of the event; the highest level in the RavenPack Event Taxonomy",
+        "dataset":  {
+                        "id":  "news50",
+                        "name":  "Web News Analytics Data"
+                    },
+        "category":  {
+                         "id":  "news",
+                         "name":  "News"
+                     },
+        "subcategory":  {
+                            "id":  "news-news-sentiment",
+                            "name":  "News Sentiment"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0.7644,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mws50_type",
+        "description":  "Event class whose members share similar characteristics in the RavenPack taxonomy",
+        "dataset":  {
+                        "id":  "news50",
+                        "name":  "Web News Analytics Data"
+                    },
+        "category":  {
+                         "id":  "news",
+                         "name":  "News"
+                     },
+        "subcategory":  {
+                            "id":  "news-news-sentiment",
+                            "name":  "News Sentiment"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0.7644,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mws50_vea",
+        "description":  "Aggregate Event Volume over the past 91 days for an entity, counting non-neutral events (ESS ≠ 50) from qualifying news that received an ESS score, signaling volume of highly relevant news",
+        "dataset":  {
+                        "id":  "news50",
+                        "name":  "Web News Analytics Data"
+                    },
+        "category":  {
+                         "id":  "news",
+                         "name":  "News"
+                     },
+        "subcategory":  {
+                            "id":  "news-news-sentiment",
+                            "name":  "News Sentiment"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0.7644,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    }
+]

@@ -1,0 +1,226 @@
+﻿[
+    {
+        "id":  "five_day_sentiment_score_change",
+        "description":  "5-day change in sentiment z-score (today minus 5 trading days ago of sent_volume_z)",
+        "dataset":  {
+                        "id":  "london_sentiment",
+                        "name":  "London Stock Sentiment Signals"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-sentiment",
+                            "name":  "Sentiment"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  0.8365,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "normalized_sentiment_volume_score",
+        "description":  "20-day z-score of sent_volume ((current minus 20D mean) divided by 20D std)",
+        "dataset":  {
+                        "id":  "london_sentiment",
+                        "name":  "London Stock Sentiment Signals"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-sentiment",
+                            "name":  "Sentiment"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  0.8365,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "one_day_sentiment_score_change",
+        "description":  "1-day change in sentiment z-score (today minus prior day of sent_volume_z)",
+        "dataset":  {
+                        "id":  "london_sentiment",
+                        "name":  "London Stock Sentiment Signals"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-sentiment",
+                            "name":  "Sentiment"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  0.8365,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "relative_tweet_volume_stddev",
+        "description":  "20-day coefficient of variation of tweet volume (std divided by mean), indicating activity burstiness",
+        "dataset":  {
+                        "id":  "london_sentiment",
+                        "name":  "London Stock Sentiment Signals"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-sentiment",
+                            "name":  "Sentiment"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  0.8365,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "sentiment_volume_adjusted_score",
+        "description":  "Daily volume-adjusted social sentiment score derived from relevant tweets",
+        "dataset":  {
+                        "id":  "london_sentiment",
+                        "name":  "London Stock Sentiment Signals"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-sentiment",
+                            "name":  "Sentiment"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  0.8365,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "sentiment_volume_score_stddev",
+        "description":  "20-day rolling standard deviation of sent_volume",
+        "dataset":  {
+                        "id":  "london_sentiment",
+                        "name":  "London Stock Sentiment Signals"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-sentiment",
+                            "name":  "Sentiment"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  0.8365,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "twenty_day_avg_sentiment_volume_score",
+        "description":  "20-day rolling mean of sent_volume",
+        "dataset":  {
+                        "id":  "london_sentiment",
+                        "name":  "London Stock Sentiment Signals"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-sentiment",
+                            "name":  "Sentiment"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  0.8365,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    }
+]

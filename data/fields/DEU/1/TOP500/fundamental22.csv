@@ -1,0 +1,2 @@
+﻿"alphaCount","category","coverage","dataset","dateCoverage","dateCreated","delay","description","id","pyramidMultiplier","region","subcategory","themes","type","universe","userCount"
+"0","{""id"":""fundamental"",""name"":""Fundamental""}","0.69","{""id"":""fundamental22"",""name"":""Environmental and Social Governance Data""}","1","2026-07-01","1","Numerical value of the specific ESG KPI for the given entity and date","fnd22_value","2","DEU","{""id"":""fundamental-fundamental-models"",""name"":""Fundamental Models""}","[]","VECTOR","TOP500","0"

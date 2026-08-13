@@ -1,0 +1,418 @@
+﻿[
+    {
+        "id":  "avg_days_job_posting_active",
+        "description":  "average length of time the job posts have been active",
+        "dataset":  {
+                        "id":  "macro27",
+                        "name":  "Job records from job posting"
+                    },
+        "category":  {
+                         "id":  "macro",
+                         "name":  "Macro"
+                     },
+        "subcategory":  {
+                            "id":  "macro-macroeconomic-activities",
+                            "name":  "Macroeconomic Activities"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "avg_days_job_posting_closed",
+        "description":  "average length of time the deleted jobs were posted before removal",
+        "dataset":  {
+                        "id":  "macro27",
+                        "name":  "Job records from job posting"
+                    },
+        "category":  {
+                         "id":  "macro",
+                         "name":  "Macro"
+                     },
+        "subcategory":  {
+                            "id":  "macro-macroeconomic-activities",
+                            "name":  "Macroeconomic Activities"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "is_job_repost_flag",
+        "description":  "Indicator if the job is a repost (1) or original (0)",
+        "dataset":  {
+                        "id":  "macro27",
+                        "name":  "Job records from job posting"
+                    },
+        "category":  {
+                         "id":  "macro",
+                         "name":  "Macro"
+                     },
+        "subcategory":  {
+                            "id":  "macro-macroeconomic-activities",
+                            "name":  "Macroeconomic Activities"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mcr27_company_jobsactive",
+        "description":  "Number of currently active job postings for the company",
+        "dataset":  {
+                        "id":  "macro27",
+                        "name":  "Job records from job posting"
+                    },
+        "category":  {
+                         "id":  "macro",
+                         "name":  "Macro"
+                     },
+        "subcategory":  {
+                            "id":  "macro-macroeconomic-activities",
+                            "name":  "Macroeconomic Activities"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  0.793,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mcr27_company_jobscreated",
+        "description":  "Number of job postings created for the company",
+        "dataset":  {
+                        "id":  "macro27",
+                        "name":  "Job records from job posting"
+                    },
+        "category":  {
+                         "id":  "macro",
+                         "name":  "Macro"
+                     },
+        "subcategory":  {
+                            "id":  "macro-macroeconomic-activities",
+                            "name":  "Macroeconomic Activities"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  0.793,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mcr27_company_jobsremoved",
+        "description":  "Number of job postings removed/deleted for the company",
+        "dataset":  {
+                        "id":  "macro27",
+                        "name":  "Job records from job posting"
+                    },
+        "category":  {
+                         "id":  "macro",
+                         "name":  "Macro"
+                     },
+        "subcategory":  {
+                            "id":  "macro-macroeconomic-activities",
+                            "name":  "Macroeconomic Activities"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  0.793,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mcr27_country",
+        "description":  "country",
+        "dataset":  {
+                        "id":  "macro27",
+                        "name":  "Job records from job posting"
+                    },
+        "category":  {
+                         "id":  "macro",
+                         "name":  "Macro"
+                     },
+        "subcategory":  {
+                            "id":  "macro-macroeconomic-activities",
+                            "name":  "Macroeconomic Activities"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  0.793,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mcr27_zip",
+        "description":  "Postal/ZIP code for the job location",
+        "dataset":  {
+                        "id":  "macro27",
+                        "name":  "Job records from job posting"
+                    },
+        "category":  {
+                         "id":  "macro",
+                         "name":  "Macro"
+                     },
+        "subcategory":  {
+                            "id":  "macro-macroeconomic-activities",
+                            "name":  "Macroeconomic Activities"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  0.793,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mean_days_job_active",
+        "description":  "Average time job posts have been active, in days",
+        "dataset":  {
+                        "id":  "macro27",
+                        "name":  "Job records from job posting"
+                    },
+        "category":  {
+                         "id":  "macro",
+                         "name":  "Macro"
+                     },
+        "subcategory":  {
+                            "id":  "macro-macroeconomic-activities",
+                            "name":  "Macroeconomic Activities"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  0.2582,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mean_days_job_closed",
+        "description":  "Average number of days the company’s removed jobs had been posted before deletion",
+        "dataset":  {
+                        "id":  "macro27",
+                        "name":  "Job records from job posting"
+                    },
+        "category":  {
+                         "id":  "macro",
+                         "name":  "Macro"
+                     },
+        "subcategory":  {
+                            "id":  "macro-macroeconomic-activities",
+                            "name":  "Macroeconomic Activities"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  0.2582,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "num_jobs_active",
+        "description":  "Number of active job postings",
+        "dataset":  {
+                        "id":  "macro27",
+                        "name":  "Job records from job posting"
+                    },
+        "category":  {
+                         "id":  "macro",
+                         "name":  "Macro"
+                     },
+        "subcategory":  {
+                            "id":  "macro-macroeconomic-activities",
+                            "name":  "Macroeconomic Activities"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "num_jobs_created",
+        "description":  "Number of job postings created",
+        "dataset":  {
+                        "id":  "macro27",
+                        "name":  "Job records from job posting"
+                    },
+        "category":  {
+                         "id":  "macro",
+                         "name":  "Macro"
+                     },
+        "subcategory":  {
+                            "id":  "macro-macroeconomic-activities",
+                            "name":  "Macroeconomic Activities"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "num_jobs_removed",
+        "description":  "Number of job postings removed/deleted",
+        "dataset":  {
+                        "id":  "macro27",
+                        "name":  "Job records from job posting"
+                    },
+        "category":  {
+                         "id":  "macro",
+                         "name":  "Macro"
+                     },
+        "subcategory":  {
+                            "id":  "macro-macroeconomic-activities",
+                            "name":  "Macroeconomic Activities"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    }
+]

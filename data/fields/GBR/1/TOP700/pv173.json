@@ -1,0 +1,2594 @@
+﻿[
+    {
+        "id":  "data_entry_date_10",
+        "description":  "The date associated with the data point.",
+        "dataset":  {
+                        "id":  "pv173",
+                        "name":  "Corporate Bond Pricing Data"
+                    },
+        "category":  {
+                         "id":  "pv",
+                         "name":  "Price Volume"
+                     },
+        "subcategory":  {
+                            "id":  "pv-price-volume",
+                            "name":  "Price Volume"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "SYMBOL",
+        "dateCoverage":  0.9077,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "observation_date_11",
+        "description":  "The date on which the data was recorded or is applicable.",
+        "dataset":  {
+                        "id":  "pv173",
+                        "name":  "Corporate Bond Pricing Data"
+                    },
+        "category":  {
+                         "id":  "pv",
+                         "name":  "Price Volume"
+                     },
+        "subcategory":  {
+                            "id":  "pv-price-volume",
+                            "name":  "Price Volume"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "SYMBOL",
+        "dateCoverage":  0.9077,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "pv173_ranks_bondreturn20deqwt",
+        "description":  "Cross-sectional rank across the USA Markit BLE universe (D0) of the issuer’s equally weighted 20-day bond return",
+        "dataset":  {
+                        "id":  "pv173",
+                        "name":  "Corporate Bond Pricing Data"
+                    },
+        "category":  {
+                         "id":  "pv",
+                         "name":  "Price Volume"
+                     },
+        "subcategory":  {
+                            "id":  "pv-price-volume",
+                            "name":  "Price Volume"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  0.9003,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "pv173_ranks_eqbddivrgbdrtn120d",
+        "description":  "Cross-sectional rank (ASI, D0) of the 120-day divergence between equity and issuer bond returns",
+        "dataset":  {
+                        "id":  "pv173",
+                        "name":  "Corporate Bond Pricing Data"
+                    },
+        "category":  {
+                         "id":  "pv",
+                         "name":  "Price Volume"
+                     },
+        "subcategory":  {
+                            "id":  "pv-price-volume",
+                            "name":  "Price Volume"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  0.8825,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "pv173_ranks_eqbddivrgsprd5y120d",
+        "description":  "Cross-sectional rank (ASI, D0) of the 120-day divergence between equity performance and the change in 5-year z-spread",
+        "dataset":  {
+                        "id":  "pv173",
+                        "name":  "Corporate Bond Pricing Data"
+                    },
+        "category":  {
+                         "id":  "pv",
+                         "name":  "Price Volume"
+                     },
+        "subcategory":  {
+                            "id":  "pv-price-volume",
+                            "name":  "Price Volume"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  0.8825,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "pv173_ranks_eqbddivrgsprd5y120dsbst",
+        "description":  "Cross-sectional rank (ASI, D0) of the substituted 120-day equity–bond divergence based on 5-year z-spread change",
+        "dataset":  {
+                        "id":  "pv173",
+                        "name":  "Corporate Bond Pricing Data"
+                    },
+        "category":  {
+                         "id":  "pv",
+                         "name":  "Price Volume"
+                     },
+        "subcategory":  {
+                            "id":  "pv-price-volume",
+                            "name":  "Price Volume"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  0.8825,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "pv173_ranks_mt5yzspread",
+        "description":  "Cross-sectional rank (ASI, D0) of the issuer’s 5-year z-spread level from the bond curve",
+        "dataset":  {
+                        "id":  "pv173",
+                        "name":  "Corporate Bond Pricing Data"
+                    },
+        "category":  {
+                         "id":  "pv",
+                         "name":  "Price Volume"
+                     },
+        "subcategory":  {
+                            "id":  "pv-price-volume",
+                            "name":  "Price Volume"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  0.9077,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "pv173_ranks_mt5yzspreadchg60d",
+        "description":  "Cross-sectional rank (ASI, D0) of the 60-day change in the 5-year z-spread",
+        "dataset":  {
+                        "id":  "pv173",
+                        "name":  "Corporate Bond Pricing Data"
+                    },
+        "category":  {
+                         "id":  "pv",
+                         "name":  "Price Volume"
+                     },
+        "subcategory":  {
+                            "id":  "pv-price-volume",
+                            "name":  "Price Volume"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  0.8847,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "pv173_ranks_mt5yzspreadchg60dsbst",
+        "description":  "Cross-sectional rank (ASI, D0) of the substituted 60-day change in the 5-year z-spread",
+        "dataset":  {
+                        "id":  "pv173",
+                        "name":  "Corporate Bond Pricing Data"
+                    },
+        "category":  {
+                         "id":  "pv",
+                         "name":  "Price Volume"
+                     },
+        "subcategory":  {
+                            "id":  "pv-price-volume",
+                            "name":  "Price Volume"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  0.8847,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "pv173_ranks_mt5yzspreadchgstd20d",
+        "description":  "Cross-sectional rank (ASI, D0) of the 20-day standard deviation of changes in the 5-year z-spread",
+        "dataset":  {
+                        "id":  "pv173",
+                        "name":  "Corporate Bond Pricing Data"
+                    },
+        "category":  {
+                         "id":  "pv",
+                         "name":  "Price Volume"
+                     },
+        "subcategory":  {
+                            "id":  "pv-price-volume",
+                            "name":  "Price Volume"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  0.9039,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "pv173_ranks_mt5yzspreadchgstd20dsbst",
+        "description":  "It is defined as the 20-day standard deviation of changeIn 5-year mid z-spreadIn the bond z-spread curve",
+        "dataset":  {
+                        "id":  "pv173",
+                        "name":  "Corporate Bond Pricing Data"
+                    },
+        "category":  {
+                         "id":  "pv",
+                         "name":  "Price Volume"
+                     },
+        "subcategory":  {
+                            "id":  "pv-price-volume",
+                            "name":  "Price Volume"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  0.9039,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "pv173_ranks_mt5yzspreadindrel",
+        "description":  "It is defined as theIndustry relative 5-year mid z-spreadIn the bond z-spread curve.",
+        "dataset":  {
+                        "id":  "pv173",
+                        "name":  "Corporate Bond Pricing Data"
+                    },
+        "category":  {
+                         "id":  "pv",
+                         "name":  "Price Volume"
+                     },
+        "subcategory":  {
+                            "id":  "pv-price-volume",
+                            "name":  "Price Volume"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  0.9077,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "pv173_ranks_mt5yzspreadindrelsbst",
+        "description":  "It is defined as theIndustry relative 5-year mid z-spreadIn the bond z-spread curve",
+        "dataset":  {
+                        "id":  "pv173",
+                        "name":  "Corporate Bond Pricing Data"
+                    },
+        "category":  {
+                         "id":  "pv",
+                         "name":  "Price Volume"
+                     },
+        "subcategory":  {
+                            "id":  "pv-price-volume",
+                            "name":  "Price Volume"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  0.9077,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "pv173_ranks_mt5yzspreadsbst",
+        "description":  "Cross-sectional rank (ASI, D0) of the substituted 5-year z-spread level (bond-level aggregation when curve nodes are missing)",
+        "dataset":  {
+                        "id":  "pv173",
+                        "name":  "Corporate Bond Pricing Data"
+                    },
+        "category":  {
+                         "id":  "pv",
+                         "name":  "Price Volume"
+                     },
+        "subcategory":  {
+                            "id":  "pv-price-volume",
+                            "name":  "Price Volume"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  0.9077,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "pv173_ranks_mt5yzspreadzscore60d",
+        "description":  "Cross-sectional rank (ASI, D0) of the 60-day z-score of the issuer’s 5-year z-spread",
+        "dataset":  {
+                        "id":  "pv173",
+                        "name":  "Corporate Bond Pricing Data"
+                    },
+        "category":  {
+                         "id":  "pv",
+                         "name":  "Price Volume"
+                     },
+        "subcategory":  {
+                            "id":  "pv-price-volume",
+                            "name":  "Price Volume"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  0.8965,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "pv173_ranks_mt5yzspreadzscore60dsbst",
+        "description":  "Cross-sectional rank across the USA Markit BLE universe (D0) of the 60-day z-score of the issuer 5-year Z-spread, using substituted/imputed values when curve nodes are missing",
+        "dataset":  {
+                        "id":  "pv173",
+                        "name":  "Corporate Bond Pricing Data"
+                    },
+        "category":  {
+                         "id":  "pv",
+                         "name":  "Price Volume"
+                     },
+        "subcategory":  {
+                            "id":  "pv-price-volume",
+                            "name":  "Price Volume"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  0.8965,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "pv173_ranks_reltermspreadtransfema120d",
+        "description":  "Cross-sectional rank of the 120-day EMA of the transformed relative term spread",
+        "dataset":  {
+                        "id":  "pv173",
+                        "name":  "Corporate Bond Pricing Data"
+                    },
+        "category":  {
+                         "id":  "pv",
+                         "name":  "Price Volume"
+                     },
+        "subcategory":  {
+                            "id":  "pv-price-volume",
+                            "name":  "Price Volume"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  0.885,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "pv173_ranks_reltermspreadtransfema120dsbst",
+        "description":  "It is defined as the 120-day exponential average of transformed relative term spread",
+        "dataset":  {
+                        "id":  "pv173",
+                        "name":  "Corporate Bond Pricing Data"
+                    },
+        "category":  {
+                         "id":  "pv",
+                         "name":  "Price Volume"
+                     },
+        "subcategory":  {
+                            "id":  "pv-price-volume",
+                            "name":  "Price Volume"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  0.885,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "pv173_ranks_shift60dchg60d",
+        "description":  "Cross-sectional rank (ASI, D0) of the 60-day change in Shift (PCA level component)",
+        "dataset":  {
+                        "id":  "pv173",
+                        "name":  "Corporate Bond Pricing Data"
+                    },
+        "category":  {
+                         "id":  "pv",
+                         "name":  "Price Volume"
+                     },
+        "subcategory":  {
+                            "id":  "pv-price-volume",
+                            "name":  "Price Volume"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  0.8675,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "pv173_ranks_shift60dlast",
+        "description":  "Cross-sectional rank (ASI, D0) of the last value of Shift (PCA level) over 60 days",
+        "dataset":  {
+                        "id":  "pv173",
+                        "name":  "Corporate Bond Pricing Data"
+                    },
+        "category":  {
+                         "id":  "pv",
+                         "name":  "Price Volume"
+                     },
+        "subcategory":  {
+                            "id":  "pv-price-volume",
+                            "name":  "Price Volume"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  0.8905,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "pv173_ranks_shift60dstd60d",
+        "description":  "Cross-sectional rank of the 60-day standard deviation of the Shift (PCA level) factor",
+        "dataset":  {
+                        "id":  "pv173",
+                        "name":  "Corporate Bond Pricing Data"
+                    },
+        "category":  {
+                         "id":  "pv",
+                         "name":  "Price Volume"
+                     },
+        "subcategory":  {
+                            "id":  "pv-price-volume",
+                            "name":  "Price Volume"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  0.8792,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "pv173_ranks_shift60dzscore60d",
+        "description":  "Cross-sectional rank (ASI, D0) of the 60-day z-score of Shift (PCA parallel level component)",
+        "dataset":  {
+                        "id":  "pv173",
+                        "name":  "Corporate Bond Pricing Data"
+                    },
+        "category":  {
+                         "id":  "pv",
+                         "name":  "Price Volume"
+                     },
+        "subcategory":  {
+                            "id":  "pv-price-volume",
+                            "name":  "Price Volume"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  0.8792,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "pv173_ranks_tilt5y1ydiff60dema60d",
+        "description":  "It is defined as the 60-day exponential average of the difference of factor loading of the second principal component for the 5-year z-spread and 1-year z-spread",
+        "dataset":  {
+                        "id":  "pv173",
+                        "name":  "Corporate Bond Pricing Data"
+                    },
+        "category":  {
+                         "id":  "pv",
+                         "name":  "Price Volume"
+                     },
+        "subcategory":  {
+                            "id":  "pv-price-volume",
+                            "name":  "Price Volume"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  0.8792,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "pv173_ranks_tilt60dchg60d",
+        "description":  "Cross-sectional rank (China, D0) of the 60-day change in the Tilt (PCA slope factor)",
+        "dataset":  {
+                        "id":  "pv173",
+                        "name":  "Corporate Bond Pricing Data"
+                    },
+        "category":  {
+                         "id":  "pv",
+                         "name":  "Price Volume"
+                     },
+        "subcategory":  {
+                            "id":  "pv-price-volume",
+                            "name":  "Price Volume"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  0.8675,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "pv173_ranks_tilt60dema60d",
+        "description":  "Cross-sectional rank (China, D0) of the 60-day EMA of the Tilt (PCA slope factor)",
+        "dataset":  {
+                        "id":  "pv173",
+                        "name":  "Corporate Bond Pricing Data"
+                    },
+        "category":  {
+                         "id":  "pv",
+                         "name":  "Price Volume"
+                     },
+        "subcategory":  {
+                            "id":  "pv-price-volume",
+                            "name":  "Price Volume"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  0.8792,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "pv173_ranks_tilt6m1yavg60dlast",
+        "description":  "It is defined as the average factor loading of the second principal component for the 6-month and 1-year z-spread",
+        "dataset":  {
+                        "id":  "pv173",
+                        "name":  "Corporate Bond Pricing Data"
+                    },
+        "category":  {
+                         "id":  "pv",
+                         "name":  "Price Volume"
+                     },
+        "subcategory":  {
+                            "id":  "pv-price-volume",
+                            "name":  "Price Volume"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  0.8905,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "pv173_ranks_twist120dlast",
+        "description":  "It is defined as the average factor loading of the third principal component for the z-spread between 6 months and 40 years",
+        "dataset":  {
+                        "id":  "pv173",
+                        "name":  "Corporate Bond Pricing Data"
+                    },
+        "category":  {
+                         "id":  "pv",
+                         "name":  "Price Volume"
+                     },
+        "subcategory":  {
+                            "id":  "pv-price-volume",
+                            "name":  "Price Volume"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  0.8732,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "pv173_ranks_twist6m1yavg120dema120d",
+        "description":  "Cross-sectional rank of the 120-day EMA of the average Twist at 6M and 1Y curve nodes",
+        "dataset":  {
+                        "id":  "pv173",
+                        "name":  "Corporate Bond Pricing Data"
+                    },
+        "category":  {
+                         "id":  "pv",
+                         "name":  "Price Volume"
+                     },
+        "subcategory":  {
+                            "id":  "pv-price-volume",
+                            "name":  "Price Volume"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  0.8505,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "pv173_rawratios_bondreturn20deqwt",
+        "description":  "Equally weighted 20-day bond return for the issuer’s bond universe, reported as a raw value on D1",
+        "dataset":  {
+                        "id":  "pv173",
+                        "name":  "Corporate Bond Pricing Data"
+                    },
+        "category":  {
+                         "id":  "pv",
+                         "name":  "Price Volume"
+                     },
+        "subcategory":  {
+                            "id":  "pv-price-volume",
+                            "name":  "Price Volume"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  0.9003,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "pv173_rawratios_eqbddivrgbdrtn120d",
+        "description":  "Equity–bond divergence based on issuer bond returns over 120 trading days",
+        "dataset":  {
+                        "id":  "pv173",
+                        "name":  "Corporate Bond Pricing Data"
+                    },
+        "category":  {
+                         "id":  "pv",
+                         "name":  "Price Volume"
+                     },
+        "subcategory":  {
+                            "id":  "pv-price-volume",
+                            "name":  "Price Volume"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  0.8825,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "pv173_rawratios_eqbddivrgsprd5y120d",
+        "description":  "120-day divergence between equity performance and the issuer’s 5-year z-spread changes",
+        "dataset":  {
+                        "id":  "pv173",
+                        "name":  "Corporate Bond Pricing Data"
+                    },
+        "category":  {
+                         "id":  "pv",
+                         "name":  "Price Volume"
+                     },
+        "subcategory":  {
+                            "id":  "pv-price-volume",
+                            "name":  "Price Volume"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  0.8825,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "pv173_rawratios_eqbddivrgsprd5y120dsbst",
+        "description":  "Substituted/imputed equity–bond divergence at 5Y over 120 days",
+        "dataset":  {
+                        "id":  "pv173",
+                        "name":  "Corporate Bond Pricing Data"
+                    },
+        "category":  {
+                         "id":  "pv",
+                         "name":  "Price Volume"
+                     },
+        "subcategory":  {
+                            "id":  "pv-price-volume",
+                            "name":  "Price Volume"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  0.8825,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "pv173_rawratios_mt5yzspread",
+        "description":  "Issuer curve 5-year Z-spread level",
+        "dataset":  {
+                        "id":  "pv173",
+                        "name":  "Corporate Bond Pricing Data"
+                    },
+        "category":  {
+                         "id":  "pv",
+                         "name":  "Price Volume"
+                     },
+        "subcategory":  {
+                            "id":  "pv-price-volume",
+                            "name":  "Price Volume"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  0.9077,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "pv173_rawratios_mt5yzspreadchg60d",
+        "description":  "Change in the issuer 5-year Z-spread over the past 60 days",
+        "dataset":  {
+                        "id":  "pv173",
+                        "name":  "Corporate Bond Pricing Data"
+                    },
+        "category":  {
+                         "id":  "pv",
+                         "name":  "Price Volume"
+                     },
+        "subcategory":  {
+                            "id":  "pv-price-volume",
+                            "name":  "Price Volume"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  0.8847,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "pv173_rawratios_mt5yzspreadchg60dsbst",
+        "description":  "Smoothed/substituted 60-day change in the MT5Y Z-spread",
+        "dataset":  {
+                        "id":  "pv173",
+                        "name":  "Corporate Bond Pricing Data"
+                    },
+        "category":  {
+                         "id":  "pv",
+                         "name":  "Price Volume"
+                     },
+        "subcategory":  {
+                            "id":  "pv-price-volume",
+                            "name":  "Price Volume"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  0.8847,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "pv173_rawratios_mt5yzspreadchgstd20d",
+        "description":  "20-day standard deviation of changes in the issuer 5-year Z-spread",
+        "dataset":  {
+                        "id":  "pv173",
+                        "name":  "Corporate Bond Pricing Data"
+                    },
+        "category":  {
+                         "id":  "pv",
+                         "name":  "Price Volume"
+                     },
+        "subcategory":  {
+                            "id":  "pv-price-volume",
+                            "name":  "Price Volume"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  0.9039,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "pv173_rawratios_mt5yzspreadchgstd20dsbst",
+        "description":  "Smoothed/substituted standard deviation of MT5YZSpread change over 20 days",
+        "dataset":  {
+                        "id":  "pv173",
+                        "name":  "Corporate Bond Pricing Data"
+                    },
+        "category":  {
+                         "id":  "pv",
+                         "name":  "Price Volume"
+                     },
+        "subcategory":  {
+                            "id":  "pv-price-volume",
+                            "name":  "Price Volume"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  0.9039,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "pv173_rawratios_mt5yzspreadindrel",
+        "description":  "Industry-relative level of the issuer 5-year Z-spread",
+        "dataset":  {
+                        "id":  "pv173",
+                        "name":  "Corporate Bond Pricing Data"
+                    },
+        "category":  {
+                         "id":  "pv",
+                         "name":  "Price Volume"
+                     },
+        "subcategory":  {
+                            "id":  "pv-price-volume",
+                            "name":  "Price Volume"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  0.9077,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "pv173_rawratios_mt5yzspreadindrelsbst",
+        "description":  "Smoothed/substituted industry-relative MT 5Y Z-spread",
+        "dataset":  {
+                        "id":  "pv173",
+                        "name":  "Corporate Bond Pricing Data"
+                    },
+        "category":  {
+                         "id":  "pv",
+                         "name":  "Price Volume"
+                     },
+        "subcategory":  {
+                            "id":  "pv-price-volume",
+                            "name":  "Price Volume"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  0.9077,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "pv173_rawratios_mt5yzspreadsbst",
+        "description":  "Substituted composite version of the issuer 5-year Z-spread level",
+        "dataset":  {
+                        "id":  "pv173",
+                        "name":  "Corporate Bond Pricing Data"
+                    },
+        "category":  {
+                         "id":  "pv",
+                         "name":  "Price Volume"
+                     },
+        "subcategory":  {
+                            "id":  "pv-price-volume",
+                            "name":  "Price Volume"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  0.9077,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "pv173_rawratios_mt5yzspreadzscore60d",
+        "description":  "60-day z-score of the issuer 5-year Z-spread",
+        "dataset":  {
+                        "id":  "pv173",
+                        "name":  "Corporate Bond Pricing Data"
+                    },
+        "category":  {
+                         "id":  "pv",
+                         "name":  "Price Volume"
+                     },
+        "subcategory":  {
+                            "id":  "pv-price-volume",
+                            "name":  "Price Volume"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  0.8965,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "pv173_rawratios_mt5yzspreadzscore60dsbst",
+        "description":  "Smoothed/substituted 60-day z-score of the MT5Y Z-spread",
+        "dataset":  {
+                        "id":  "pv173",
+                        "name":  "Corporate Bond Pricing Data"
+                    },
+        "category":  {
+                         "id":  "pv",
+                         "name":  "Price Volume"
+                     },
+        "subcategory":  {
+                            "id":  "pv-price-volume",
+                            "name":  "Price Volume"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  0.8965,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "pv173_rawratios_reltermspreadtransfema120d",
+        "description":  "Transformed relative term spread, smoothed with a 120-day EMA",
+        "dataset":  {
+                        "id":  "pv173",
+                        "name":  "Corporate Bond Pricing Data"
+                    },
+        "category":  {
+                         "id":  "pv",
+                         "name":  "Price Volume"
+                     },
+        "subcategory":  {
+                            "id":  "pv-price-volume",
+                            "name":  "Price Volume"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  0.885,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "pv173_rawratios_reltermspreadtransfema120dsbst",
+        "description":  "Substituted and smoothed version of the 120-day EMA of the transformed relative term spread",
+        "dataset":  {
+                        "id":  "pv173",
+                        "name":  "Corporate Bond Pricing Data"
+                    },
+        "category":  {
+                         "id":  "pv",
+                         "name":  "Price Volume"
+                     },
+        "subcategory":  {
+                            "id":  "pv-price-volume",
+                            "name":  "Price Volume"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  0.885,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "pv173_rawratios_shift60dchg60d",
+        "description":  "60-day change in the shift (PCA level) factor",
+        "dataset":  {
+                        "id":  "pv173",
+                        "name":  "Corporate Bond Pricing Data"
+                    },
+        "category":  {
+                         "id":  "pv",
+                         "name":  "Price Volume"
+                     },
+        "subcategory":  {
+                            "id":  "pv-price-volume",
+                            "name":  "Price Volume"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  0.8675,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "pv173_rawratios_shift60dlast",
+        "description":  "Most recent value of the Shift (level) factor over a 60-day window",
+        "dataset":  {
+                        "id":  "pv173",
+                        "name":  "Corporate Bond Pricing Data"
+                    },
+        "category":  {
+                         "id":  "pv",
+                         "name":  "Price Volume"
+                     },
+        "subcategory":  {
+                            "id":  "pv-price-volume",
+                            "name":  "Price Volume"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  0.8905,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "pv173_rawratios_shift60dstd60d",
+        "description":  "Standard deviation over the last 60 days of the shift (PCA level) factor",
+        "dataset":  {
+                        "id":  "pv173",
+                        "name":  "Corporate Bond Pricing Data"
+                    },
+        "category":  {
+                         "id":  "pv",
+                         "name":  "Price Volume"
+                     },
+        "subcategory":  {
+                            "id":  "pv-price-volume",
+                            "name":  "Price Volume"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  0.8792,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "pv173_rawratios_shift60dzscore60d",
+        "description":  "60-day z-score of the shift (PCA level) factor",
+        "dataset":  {
+                        "id":  "pv173",
+                        "name":  "Corporate Bond Pricing Data"
+                    },
+        "category":  {
+                         "id":  "pv",
+                         "name":  "Price Volume"
+                     },
+        "subcategory":  {
+                            "id":  "pv-price-volume",
+                            "name":  "Price Volume"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  0.8792,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "pv173_rawratios_tilt5y1ydiff60dema60d",
+        "description":  "EMA(60D) of the difference in Tilt between 5-year and 1-year nodes",
+        "dataset":  {
+                        "id":  "pv173",
+                        "name":  "Corporate Bond Pricing Data"
+                    },
+        "category":  {
+                         "id":  "pv",
+                         "name":  "Price Volume"
+                     },
+        "subcategory":  {
+                            "id":  "pv-price-volume",
+                            "name":  "Price Volume"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  0.8792,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "pv173_rawratios_tilt60dchg60d",
+        "description":  "60-day change in the tilt (PCA slope) factor",
+        "dataset":  {
+                        "id":  "pv173",
+                        "name":  "Corporate Bond Pricing Data"
+                    },
+        "category":  {
+                         "id":  "pv",
+                         "name":  "Price Volume"
+                     },
+        "subcategory":  {
+                            "id":  "pv-price-volume",
+                            "name":  "Price Volume"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  0.8675,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "pv173_rawratios_tilt60dema60d",
+        "description":  "60-day EMA of the tilt (PCA slope) factor",
+        "dataset":  {
+                        "id":  "pv173",
+                        "name":  "Corporate Bond Pricing Data"
+                    },
+        "category":  {
+                         "id":  "pv",
+                         "name":  "Price Volume"
+                     },
+        "subcategory":  {
+                            "id":  "pv-price-volume",
+                            "name":  "Price Volume"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  0.8792,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "pv173_rawratios_tilt6m1yavg60dlast",
+        "description":  "Last value of the 60-day moving average of the tilt (PCA slope) across the 6M and 1Y curve nodes",
+        "dataset":  {
+                        "id":  "pv173",
+                        "name":  "Corporate Bond Pricing Data"
+                    },
+        "category":  {
+                         "id":  "pv",
+                         "name":  "Price Volume"
+                     },
+        "subcategory":  {
+                            "id":  "pv-price-volume",
+                            "name":  "Price Volume"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  0.8905,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "pv173_rawratios_twist120dlast",
+        "description":  "Most recent value of the Twist (curvature) factor over a 120-day window",
+        "dataset":  {
+                        "id":  "pv173",
+                        "name":  "Corporate Bond Pricing Data"
+                    },
+        "category":  {
+                         "id":  "pv",
+                         "name":  "Price Volume"
+                     },
+        "subcategory":  {
+                            "id":  "pv-price-volume",
+                            "name":  "Price Volume"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  0.8732,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "pv173_rawratios_twist6m1yavg120dema120d",
+        "description":  "120-day EMA of the average twist (PCA curvature) across the 6M and 1Y curve nodes",
+        "dataset":  {
+                        "id":  "pv173",
+                        "name":  "Corporate Bond Pricing Data"
+                    },
+        "category":  {
+                         "id":  "pv",
+                         "name":  "Price Volume"
+                     },
+        "subcategory":  {
+                            "id":  "pv-price-volume",
+                            "name":  "Price Volume"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  0.8505,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "pv173_zscores_bondreturn20deqwt",
+        "description":  "It is defined as the equally weighted single bond return over last 20 days with the filter of the bonds that mature between 3 years and 7 years.",
+        "dataset":  {
+                        "id":  "pv173",
+                        "name":  "Corporate Bond Pricing Data"
+                    },
+        "category":  {
+                         "id":  "pv",
+                         "name":  "Price Volume"
+                     },
+        "subcategory":  {
+                            "id":  "pv-price-volume",
+                            "name":  "Price Volume"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  0.9003,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "pv173_zscores_eqbddivrgbdrtn120d",
+        "description":  "120-day divergence between equity return and issuer bond return",
+        "dataset":  {
+                        "id":  "pv173",
+                        "name":  "Corporate Bond Pricing Data"
+                    },
+        "category":  {
+                         "id":  "pv",
+                         "name":  "Price Volume"
+                     },
+        "subcategory":  {
+                            "id":  "pv-price-volume",
+                            "name":  "Price Volume"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  0.8825,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "pv173_zscores_eqbddivrgsprd5y120d",
+        "description":  "Equity–bond divergence using changes in the 5-year Z-spread over the past 120 days",
+        "dataset":  {
+                        "id":  "pv173",
+                        "name":  "Corporate Bond Pricing Data"
+                    },
+        "category":  {
+                         "id":  "pv",
+                         "name":  "Price Volume"
+                     },
+        "subcategory":  {
+                            "id":  "pv-price-volume",
+                            "name":  "Price Volume"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  0.8825,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "pv173_zscores_eqbddivrgsprd5y120dsbst",
+        "description":  "Substituted/imputed 120-day equity–bond divergence versus 5Y spread change",
+        "dataset":  {
+                        "id":  "pv173",
+                        "name":  "Corporate Bond Pricing Data"
+                    },
+        "category":  {
+                         "id":  "pv",
+                         "name":  "Price Volume"
+                     },
+        "subcategory":  {
+                            "id":  "pv-price-volume",
+                            "name":  "Price Volume"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  0.8825,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "pv173_zscores_mt5yzspread",
+        "description":  "Level of the issuer’s 5-year Z-spread from the bond curve",
+        "dataset":  {
+                        "id":  "pv173",
+                        "name":  "Corporate Bond Pricing Data"
+                    },
+        "category":  {
+                         "id":  "pv",
+                         "name":  "Price Volume"
+                     },
+        "subcategory":  {
+                            "id":  "pv-price-volume",
+                            "name":  "Price Volume"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  0.9077,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "pv173_zscores_mt5yzspreadchg60d",
+        "description":  "60-day change in the 5-year z-spread",
+        "dataset":  {
+                        "id":  "pv173",
+                        "name":  "Corporate Bond Pricing Data"
+                    },
+        "category":  {
+                         "id":  "pv",
+                         "name":  "Price Volume"
+                     },
+        "subcategory":  {
+                            "id":  "pv-price-volume",
+                            "name":  "Price Volume"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  0.8847,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "pv173_zscores_mt5yzspreadchg60dsbst",
+        "description":  "Smoothed/substituted 60‑day change in the 5‑year Z‑spread",
+        "dataset":  {
+                        "id":  "pv173",
+                        "name":  "Corporate Bond Pricing Data"
+                    },
+        "category":  {
+                         "id":  "pv",
+                         "name":  "Price Volume"
+                     },
+        "subcategory":  {
+                            "id":  "pv-price-volume",
+                            "name":  "Price Volume"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  0.8847,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "pv173_zscores_mt5yzspreadchgstd20d",
+        "description":  "Standard deviation of 20-day changes in the 5-year z-spread",
+        "dataset":  {
+                        "id":  "pv173",
+                        "name":  "Corporate Bond Pricing Data"
+                    },
+        "category":  {
+                         "id":  "pv",
+                         "name":  "Price Volume"
+                     },
+        "subcategory":  {
+                            "id":  "pv-price-volume",
+                            "name":  "Price Volume"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  0.9039,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "pv173_zscores_mt5yzspreadchgstd20dsbst",
+        "description":  "Substituted/smoothed 20-day standard deviation of 5Y Z-spread changes",
+        "dataset":  {
+                        "id":  "pv173",
+                        "name":  "Corporate Bond Pricing Data"
+                    },
+        "category":  {
+                         "id":  "pv",
+                         "name":  "Price Volume"
+                     },
+        "subcategory":  {
+                            "id":  "pv-price-volume",
+                            "name":  "Price Volume"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  0.9039,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "pv173_zscores_mt5yzspreadindrel",
+        "description":  "Industry‑relative level of the 5‑year Z‑spread",
+        "dataset":  {
+                        "id":  "pv173",
+                        "name":  "Corporate Bond Pricing Data"
+                    },
+        "category":  {
+                         "id":  "pv",
+                         "name":  "Price Volume"
+                     },
+        "subcategory":  {
+                            "id":  "pv-price-volume",
+                            "name":  "Price Volume"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  0.9077,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "pv173_zscores_mt5yzspreadindrelsbst",
+        "description":  "Substituted/smoothed industry-relative 5Y Z-spread",
+        "dataset":  {
+                        "id":  "pv173",
+                        "name":  "Corporate Bond Pricing Data"
+                    },
+        "category":  {
+                         "id":  "pv",
+                         "name":  "Price Volume"
+                     },
+        "subcategory":  {
+                            "id":  "pv-price-volume",
+                            "name":  "Price Volume"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  0.9077,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "pv173_zscores_mt5yzspreadsbst",
+        "description":  "Substituted/composite 5-year z-spread level based on bond-level aggregation",
+        "dataset":  {
+                        "id":  "pv173",
+                        "name":  "Corporate Bond Pricing Data"
+                    },
+        "category":  {
+                         "id":  "pv",
+                         "name":  "Price Volume"
+                     },
+        "subcategory":  {
+                            "id":  "pv-price-volume",
+                            "name":  "Price Volume"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  0.9077,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "pv173_zscores_mt5yzspreadzscore60d",
+        "description":  "60‑day z‑score of the 5‑year Z‑spread",
+        "dataset":  {
+                        "id":  "pv173",
+                        "name":  "Corporate Bond Pricing Data"
+                    },
+        "category":  {
+                         "id":  "pv",
+                         "name":  "Price Volume"
+                     },
+        "subcategory":  {
+                            "id":  "pv-price-volume",
+                            "name":  "Price Volume"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  0.8965,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "pv173_zscores_mt5yzspreadzscore60dsbst",
+        "description":  "60‑day z‑score of the substituted 5‑year Z‑spread from the issuer curve (provider composite)",
+        "dataset":  {
+                        "id":  "pv173",
+                        "name":  "Corporate Bond Pricing Data"
+                    },
+        "category":  {
+                         "id":  "pv",
+                         "name":  "Price Volume"
+                     },
+        "subcategory":  {
+                            "id":  "pv-price-volume",
+                            "name":  "Price Volume"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  0.8965,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "pv173_zscores_reltermspreadtransfema120d",
+        "description":  "120-day EMA of the transformed relative term spread",
+        "dataset":  {
+                        "id":  "pv173",
+                        "name":  "Corporate Bond Pricing Data"
+                    },
+        "category":  {
+                         "id":  "pv",
+                         "name":  "Price Volume"
+                     },
+        "subcategory":  {
+                            "id":  "pv-price-volume",
+                            "name":  "Price Volume"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  0.885,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "pv173_zscores_reltermspreadtransfema120dsbst",
+        "description":  "It is defined as the 120-day exponential average of transformed relative term spread",
+        "dataset":  {
+                        "id":  "pv173",
+                        "name":  "Corporate Bond Pricing Data"
+                    },
+        "category":  {
+                         "id":  "pv",
+                         "name":  "Price Volume"
+                     },
+        "subcategory":  {
+                            "id":  "pv-price-volume",
+                            "name":  "Price Volume"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  0.885,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "pv173_zscores_shift60dchg60d",
+        "description":  "60-day change in the shift (level) component",
+        "dataset":  {
+                        "id":  "pv173",
+                        "name":  "Corporate Bond Pricing Data"
+                    },
+        "category":  {
+                         "id":  "pv",
+                         "name":  "Price Volume"
+                     },
+        "subcategory":  {
+                            "id":  "pv-price-volume",
+                            "name":  "Price Volume"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  0.8675,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "pv173_zscores_shift60dlast",
+        "description":  "Most recent value of the shift (level) component measured over 60 days",
+        "dataset":  {
+                        "id":  "pv173",
+                        "name":  "Corporate Bond Pricing Data"
+                    },
+        "category":  {
+                         "id":  "pv",
+                         "name":  "Price Volume"
+                     },
+        "subcategory":  {
+                            "id":  "pv-price-volume",
+                            "name":  "Price Volume"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  0.8905,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "pv173_zscores_shift60dstd60d",
+        "description":  "60‑day rolling standard deviation of the “Shift” (PCA level) component",
+        "dataset":  {
+                        "id":  "pv173",
+                        "name":  "Corporate Bond Pricing Data"
+                    },
+        "category":  {
+                         "id":  "pv",
+                         "name":  "Price Volume"
+                     },
+        "subcategory":  {
+                            "id":  "pv-price-volume",
+                            "name":  "Price Volume"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  0.8792,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "pv173_zscores_shift60dzscore60d",
+        "description":  "60‑day z‑score of the “Shift” (PCA level) component",
+        "dataset":  {
+                        "id":  "pv173",
+                        "name":  "Corporate Bond Pricing Data"
+                    },
+        "category":  {
+                         "id":  "pv",
+                         "name":  "Price Volume"
+                     },
+        "subcategory":  {
+                            "id":  "pv-price-volume",
+                            "name":  "Price Volume"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  0.8792,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "pv173_zscores_tilt5y1ydiff60dema60d",
+        "description":  "Difference between 5Y and 1Y tilt, smoothed with a 60-day exponential moving average",
+        "dataset":  {
+                        "id":  "pv173",
+                        "name":  "Corporate Bond Pricing Data"
+                    },
+        "category":  {
+                         "id":  "pv",
+                         "name":  "Price Volume"
+                     },
+        "subcategory":  {
+                            "id":  "pv-price-volume",
+                            "name":  "Price Volume"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  0.8792,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "pv173_zscores_tilt60dchg60d",
+        "description":  "60‑day change in the “Tilt” (PCA slope) component",
+        "dataset":  {
+                        "id":  "pv173",
+                        "name":  "Corporate Bond Pricing Data"
+                    },
+        "category":  {
+                         "id":  "pv",
+                         "name":  "Price Volume"
+                     },
+        "subcategory":  {
+                            "id":  "pv-price-volume",
+                            "name":  "Price Volume"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  0.8675,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "pv173_zscores_tilt60dema60d",
+        "description":  "60‑day EMA of the “Tilt” (PCA slope) component",
+        "dataset":  {
+                        "id":  "pv173",
+                        "name":  "Corporate Bond Pricing Data"
+                    },
+        "category":  {
+                         "id":  "pv",
+                         "name":  "Price Volume"
+                     },
+        "subcategory":  {
+                            "id":  "pv-price-volume",
+                            "name":  "Price Volume"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  0.8792,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "pv173_zscores_tilt6m1yavg60dlast",
+        "description":  "It is defined as the average factor loading of the second principal component for the 6-month and 1-year z-spread",
+        "dataset":  {
+                        "id":  "pv173",
+                        "name":  "Corporate Bond Pricing Data"
+                    },
+        "category":  {
+                         "id":  "pv",
+                         "name":  "Price Volume"
+                     },
+        "subcategory":  {
+                            "id":  "pv-price-volume",
+                            "name":  "Price Volume"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  0.8905,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "pv173_zscores_twist120dlast",
+        "description":  "Most recent value of the 120‑day “Twist” (PCA curvature) component",
+        "dataset":  {
+                        "id":  "pv173",
+                        "name":  "Corporate Bond Pricing Data"
+                    },
+        "category":  {
+                         "id":  "pv",
+                         "name":  "Price Volume"
+                     },
+        "subcategory":  {
+                            "id":  "pv-price-volume",
+                            "name":  "Price Volume"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  0.8732,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "pv173_zscores_twist6m1yavg120dema120d",
+        "description":  "120‑day EMA of the average “Twist” (PCA curvature) at 6‑month and 1‑year nodes",
+        "dataset":  {
+                        "id":  "pv173",
+                        "name":  "Corporate Bond Pricing Data"
+                    },
+        "category":  {
+                         "id":  "pv",
+                         "name":  "Price Volume"
+                     },
+        "subcategory":  {
+                            "id":  "pv-price-volume",
+                            "name":  "Price Volume"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  0.8505,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "recorded_date_2",
+        "description":  "The calendar date corresponding to the data entry.",
+        "dataset":  {
+                        "id":  "pv173",
+                        "name":  "Corporate Bond Pricing Data"
+                    },
+        "category":  {
+                         "id":  "pv",
+                         "name":  "Price Volume"
+                     },
+        "subcategory":  {
+                            "id":  "pv-price-volume",
+                            "name":  "Price Volume"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "SYMBOL",
+        "dateCoverage":  0.9077,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    }
+]

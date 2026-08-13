@@ -1,0 +1,1090 @@
+﻿[
+    {
+        "id":  "avg_buy_shares",
+        "description":  "Mean shares bought by all directors",
+        "dataset":  {
+                        "id":  "insider_agg_matrix",
+                        "name":  "Smart Insider Transaction Aggregates"
+                    },
+        "category":  {
+                         "id":  "insiders",
+                         "name":  "Insiders"
+                     },
+        "subcategory":  {
+                            "id":  "insiders-insider-data",
+                            "name":  "Insider Data"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.5937,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "avg_secondary_buy_shares",
+        "description":  "Mean shares bought directly by directors",
+        "dataset":  {
+                        "id":  "insider_agg_matrix",
+                        "name":  "Smart Insider Transaction Aggregates"
+                    },
+        "category":  {
+                         "id":  "insiders",
+                         "name":  "Insiders"
+                     },
+        "subcategory":  {
+                            "id":  "insiders-insider-data",
+                            "name":  "Insider Data"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.5937,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "avg_secondary_sell_shares",
+        "description":  "Mean shares sold directly by directors",
+        "dataset":  {
+                        "id":  "insider_agg_matrix",
+                        "name":  "Smart Insider Transaction Aggregates"
+                    },
+        "category":  {
+                         "id":  "insiders",
+                         "name":  "Insiders"
+                     },
+        "subcategory":  {
+                            "id":  "insiders-insider-data",
+                            "name":  "Insider Data"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.5937,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "avg_secondary_top_buy_shares",
+        "description":  "Mean shares bought directly by executives",
+        "dataset":  {
+                        "id":  "insider_agg_matrix",
+                        "name":  "Smart Insider Transaction Aggregates"
+                    },
+        "category":  {
+                         "id":  "insiders",
+                         "name":  "Insiders"
+                     },
+        "subcategory":  {
+                            "id":  "insiders-insider-data",
+                            "name":  "Insider Data"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.5937,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "avg_secondary_top_sell_shares",
+        "description":  "Mean shares sold directly by executives",
+        "dataset":  {
+                        "id":  "insider_agg_matrix",
+                        "name":  "Smart Insider Transaction Aggregates"
+                    },
+        "category":  {
+                         "id":  "insiders",
+                         "name":  "Insiders"
+                     },
+        "subcategory":  {
+                            "id":  "insiders-insider-data",
+                            "name":  "Insider Data"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.5937,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "avg_sell_shares",
+        "description":  "Mean shares sold by all directors",
+        "dataset":  {
+                        "id":  "insider_agg_matrix",
+                        "name":  "Smart Insider Transaction Aggregates"
+                    },
+        "category":  {
+                         "id":  "insiders",
+                         "name":  "Insiders"
+                     },
+        "subcategory":  {
+                            "id":  "insiders-insider-data",
+                            "name":  "Insider Data"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.5937,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "avg_top_buy_shares",
+        "description":  "Mean shares bought by all executives",
+        "dataset":  {
+                        "id":  "insider_agg_matrix",
+                        "name":  "Smart Insider Transaction Aggregates"
+                    },
+        "category":  {
+                         "id":  "insiders",
+                         "name":  "Insiders"
+                     },
+        "subcategory":  {
+                            "id":  "insiders-insider-data",
+                            "name":  "Insider Data"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.5937,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "avg_top_sell_shares",
+        "description":  "Mean shares sold by all executives",
+        "dataset":  {
+                        "id":  "insider_agg_matrix",
+                        "name":  "Smart Insider Transaction Aggregates"
+                    },
+        "category":  {
+                         "id":  "insiders",
+                         "name":  "Insiders"
+                     },
+        "subcategory":  {
+                            "id":  "insiders-insider-data",
+                            "name":  "Insider Data"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.5937,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "directional_indicator",
+        "description":  "A metric indicating the overall direction or bias of insider activity.",
+        "dataset":  {
+                        "id":  "insider_agg_matrix",
+                        "name":  "Smart Insider Transaction Aggregates"
+                    },
+        "category":  {
+                         "id":  "insiders",
+                         "name":  "Insiders"
+                     },
+        "subcategory":  {
+                            "id":  "insiders-insider-data",
+                            "name":  "Insider Data"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  1,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "directional_indicator_2",
+        "description":  "A metric indicating the overall direction or bias of enhanced insider activity.",
+        "dataset":  {
+                        "id":  "insider_agg_matrix",
+                        "name":  "Smart Insider Transaction Aggregates"
+                    },
+        "category":  {
+                         "id":  "insiders",
+                         "name":  "Insiders"
+                     },
+        "subcategory":  {
+                            "id":  "insiders-insider-data",
+                            "name":  "Insider Data"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  1,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "directional_significant_value_1",
+        "description":  "Highest value among directional significant insider transactions.",
+        "dataset":  {
+                        "id":  "insider_agg_matrix",
+                        "name":  "Smart Insider Transaction Aggregates"
+                    },
+        "category":  {
+                         "id":  "insiders",
+                         "name":  "Insiders"
+                     },
+        "subcategory":  {
+                            "id":  "insiders-insider-data",
+                            "name":  "Insider Data"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.5935,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "directional_significant_value_2",
+        "description":  "Second highest value among directional significant insider transactions.",
+        "dataset":  {
+                        "id":  "insider_agg_matrix",
+                        "name":  "Smart Insider Transaction Aggregates"
+                    },
+        "category":  {
+                         "id":  "insiders",
+                         "name":  "Insiders"
+                     },
+        "subcategory":  {
+                            "id":  "insiders-insider-data",
+                            "name":  "Insider Data"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.5935,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "directional_significant_value_3",
+        "description":  "Third highest value among directional significant insider transactions.",
+        "dataset":  {
+                        "id":  "insider_agg_matrix",
+                        "name":  "Smart Insider Transaction Aggregates"
+                    },
+        "category":  {
+                         "id":  "insiders",
+                         "name":  "Insiders"
+                     },
+        "subcategory":  {
+                            "id":  "insiders-insider-data",
+                            "name":  "Insider Data"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.5935,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "directional_significant_value_4",
+        "description":  "Fourth highest value among directional significant insider transactions.",
+        "dataset":  {
+                        "id":  "insider_agg_matrix",
+                        "name":  "Smart Insider Transaction Aggregates"
+                    },
+        "category":  {
+                         "id":  "insiders",
+                         "name":  "Insiders"
+                     },
+        "subcategory":  {
+                            "id":  "insiders-insider-data",
+                            "name":  "Insider Data"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.5935,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "significant_value_1",
+        "description":  "Value of the most significant insider transaction.",
+        "dataset":  {
+                        "id":  "insider_agg_matrix",
+                        "name":  "Smart Insider Transaction Aggregates"
+                    },
+        "category":  {
+                         "id":  "insiders",
+                         "name":  "Insiders"
+                     },
+        "subcategory":  {
+                            "id":  "insiders-insider-data",
+                            "name":  "Insider Data"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.5935,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "significant_value_2",
+        "description":  "Value of the second most significant insider transaction.",
+        "dataset":  {
+                        "id":  "insider_agg_matrix",
+                        "name":  "Smart Insider Transaction Aggregates"
+                    },
+        "category":  {
+                         "id":  "insiders",
+                         "name":  "Insiders"
+                     },
+        "subcategory":  {
+                            "id":  "insiders-insider-data",
+                            "name":  "Insider Data"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.5935,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "significant_value_3",
+        "description":  "Value of the third most significant insider transaction.",
+        "dataset":  {
+                        "id":  "insider_agg_matrix",
+                        "name":  "Smart Insider Transaction Aggregates"
+                    },
+        "category":  {
+                         "id":  "insiders",
+                         "name":  "Insiders"
+                     },
+        "subcategory":  {
+                            "id":  "insiders-insider-data",
+                            "name":  "Insider Data"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.5935,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "significant_value_4",
+        "description":  "Value of the fourth most significant insider transaction.",
+        "dataset":  {
+                        "id":  "insider_agg_matrix",
+                        "name":  "Smart Insider Transaction Aggregates"
+                    },
+        "category":  {
+                         "id":  "insiders",
+                         "name":  "Insiders"
+                     },
+        "subcategory":  {
+                            "id":  "insiders-insider-data",
+                            "name":  "Insider Data"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.5935,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "top_directional_significant_value_1",
+        "description":  "Highest value among top directional significant insider transactions.",
+        "dataset":  {
+                        "id":  "insider_agg_matrix",
+                        "name":  "Smart Insider Transaction Aggregates"
+                    },
+        "category":  {
+                         "id":  "insiders",
+                         "name":  "Insiders"
+                     },
+        "subcategory":  {
+                            "id":  "insiders-insider-data",
+                            "name":  "Insider Data"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.5935,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "top_directional_significant_value_2",
+        "description":  "Second highest value among top directional significant insider transactions.",
+        "dataset":  {
+                        "id":  "insider_agg_matrix",
+                        "name":  "Smart Insider Transaction Aggregates"
+                    },
+        "category":  {
+                         "id":  "insiders",
+                         "name":  "Insiders"
+                     },
+        "subcategory":  {
+                            "id":  "insiders-insider-data",
+                            "name":  "Insider Data"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.5935,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "top_directional_significant_value_3",
+        "description":  "Third highest value among top directional significant insider transactions.",
+        "dataset":  {
+                        "id":  "insider_agg_matrix",
+                        "name":  "Smart Insider Transaction Aggregates"
+                    },
+        "category":  {
+                         "id":  "insiders",
+                         "name":  "Insiders"
+                     },
+        "subcategory":  {
+                            "id":  "insiders-insider-data",
+                            "name":  "Insider Data"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.5935,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "top_directional_significant_value_4",
+        "description":  "Fourth highest value among top directional significant insider transactions.",
+        "dataset":  {
+                        "id":  "insider_agg_matrix",
+                        "name":  "Smart Insider Transaction Aggregates"
+                    },
+        "category":  {
+                         "id":  "insiders",
+                         "name":  "Insiders"
+                     },
+        "subcategory":  {
+                            "id":  "insiders-insider-data",
+                            "name":  "Insider Data"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.5935,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "top_significant_value_1",
+        "description":  "Highest value among top significant insider transactions.",
+        "dataset":  {
+                        "id":  "insider_agg_matrix",
+                        "name":  "Smart Insider Transaction Aggregates"
+                    },
+        "category":  {
+                         "id":  "insiders",
+                         "name":  "Insiders"
+                     },
+        "subcategory":  {
+                            "id":  "insiders-insider-data",
+                            "name":  "Insider Data"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.5935,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "top_significant_value_2",
+        "description":  "Second highest value among top significant insider transactions.",
+        "dataset":  {
+                        "id":  "insider_agg_matrix",
+                        "name":  "Smart Insider Transaction Aggregates"
+                    },
+        "category":  {
+                         "id":  "insiders",
+                         "name":  "Insiders"
+                     },
+        "subcategory":  {
+                            "id":  "insiders-insider-data",
+                            "name":  "Insider Data"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.5935,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "top_significant_value_3",
+        "description":  "Third highest value among top significant insider transactions.",
+        "dataset":  {
+                        "id":  "insider_agg_matrix",
+                        "name":  "Smart Insider Transaction Aggregates"
+                    },
+        "category":  {
+                         "id":  "insiders",
+                         "name":  "Insiders"
+                     },
+        "subcategory":  {
+                            "id":  "insiders-insider-data",
+                            "name":  "Insider Data"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.5935,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "top_significant_value_4",
+        "description":  "Fourth highest value among top significant insider transactions.",
+        "dataset":  {
+                        "id":  "insider_agg_matrix",
+                        "name":  "Smart Insider Transaction Aggregates"
+                    },
+        "category":  {
+                         "id":  "insiders",
+                         "name":  "Insiders"
+                     },
+        "subcategory":  {
+                            "id":  "insiders-insider-data",
+                            "name":  "Insider Data"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.5935,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "total_buy_shares",
+        "description":  "Sum shares bought by all directors",
+        "dataset":  {
+                        "id":  "insider_agg_matrix",
+                        "name":  "Smart Insider Transaction Aggregates"
+                    },
+        "category":  {
+                         "id":  "insiders",
+                         "name":  "Insiders"
+                     },
+        "subcategory":  {
+                            "id":  "insiders-insider-data",
+                            "name":  "Insider Data"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.5937,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "total_secondary_buy_shares",
+        "description":  "Sum shares bought directly by directors",
+        "dataset":  {
+                        "id":  "insider_agg_matrix",
+                        "name":  "Smart Insider Transaction Aggregates"
+                    },
+        "category":  {
+                         "id":  "insiders",
+                         "name":  "Insiders"
+                     },
+        "subcategory":  {
+                            "id":  "insiders-insider-data",
+                            "name":  "Insider Data"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.5937,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "total_secondary_sell_shares",
+        "description":  "Sum shares sold directly by directors",
+        "dataset":  {
+                        "id":  "insider_agg_matrix",
+                        "name":  "Smart Insider Transaction Aggregates"
+                    },
+        "category":  {
+                         "id":  "insiders",
+                         "name":  "Insiders"
+                     },
+        "subcategory":  {
+                            "id":  "insiders-insider-data",
+                            "name":  "Insider Data"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.5937,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "total_secondary_top_buy_shares",
+        "description":  "Sum shares bought directly by executives",
+        "dataset":  {
+                        "id":  "insider_agg_matrix",
+                        "name":  "Smart Insider Transaction Aggregates"
+                    },
+        "category":  {
+                         "id":  "insiders",
+                         "name":  "Insiders"
+                     },
+        "subcategory":  {
+                            "id":  "insiders-insider-data",
+                            "name":  "Insider Data"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.5937,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "total_secondary_top_sell_shares",
+        "description":  "Sum shares sold directly by executives",
+        "dataset":  {
+                        "id":  "insider_agg_matrix",
+                        "name":  "Smart Insider Transaction Aggregates"
+                    },
+        "category":  {
+                         "id":  "insiders",
+                         "name":  "Insiders"
+                     },
+        "subcategory":  {
+                            "id":  "insiders-insider-data",
+                            "name":  "Insider Data"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.5937,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "total_sell_shares",
+        "description":  "Sum shares sold by all directors",
+        "dataset":  {
+                        "id":  "insider_agg_matrix",
+                        "name":  "Smart Insider Transaction Aggregates"
+                    },
+        "category":  {
+                         "id":  "insiders",
+                         "name":  "Insiders"
+                     },
+        "subcategory":  {
+                            "id":  "insiders-insider-data",
+                            "name":  "Insider Data"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.5937,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "total_top_buy_shares",
+        "description":  "Sum shares bought by all executives",
+        "dataset":  {
+                        "id":  "insider_agg_matrix",
+                        "name":  "Smart Insider Transaction Aggregates"
+                    },
+        "category":  {
+                         "id":  "insiders",
+                         "name":  "Insiders"
+                     },
+        "subcategory":  {
+                            "id":  "insiders-insider-data",
+                            "name":  "Insider Data"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.5937,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "total_top_sell_shares",
+        "description":  "Sum shares sold by all executives",
+        "dataset":  {
+                        "id":  "insider_agg_matrix",
+                        "name":  "Smart Insider Transaction Aggregates"
+                    },
+        "category":  {
+                         "id":  "insiders",
+                         "name":  "Insiders"
+                     },
+        "subcategory":  {
+                            "id":  "insiders-insider-data",
+                            "name":  "Insider Data"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.5937,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    }
+]

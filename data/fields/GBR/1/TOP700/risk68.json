@@ -1,0 +1,162 @@
+﻿[
+    {
+        "id":  "rsk68_beta",
+        "description":  "Unitless stock beta for a European asset relative to the regional liquidity-weighted market_return, typically estimated over a long rolling window (e.g., ~504 trading days)",
+        "dataset":  {
+                        "id":  "risk68",
+                        "name":  "Forecast Data"
+                    },
+        "category":  {
+                         "id":  "risk",
+                         "name":  "Risk"
+                     },
+        "subcategory":  {
+                            "id":  "risk-risk-models",
+                            "name":  "Risk Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "rsk68_residual_return",
+        "description":  "Idiosyncratic 1-day return for a European asset unexplained by the market factor, computed as actual return minus beta times market_return, expressed in decimal",
+        "dataset":  {
+                        "id":  "risk68",
+                        "name":  "Forecast Data"
+                    },
+        "category":  {
+                         "id":  "risk",
+                         "name":  "Risk"
+                     },
+        "subcategory":  {
+                            "id":  "risk-risk-models",
+                            "name":  "Risk Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "rsk68_weight_dadv",
+        "description":  "Simple moving average dollar average daily trading volume for European instruments, used as a liquidity weight (dollar units)",
+        "dataset":  {
+                        "id":  "risk68",
+                        "name":  "Forecast Data"
+                    },
+        "category":  {
+                         "id":  "risk",
+                         "name":  "Risk"
+                     },
+        "subcategory":  {
+                            "id":  "risk-risk-models",
+                            "name":  "Risk Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "rsk68_weight_edadv",
+        "description":  "Exponentially decayed dollar average daily trading volume for European instruments, used as a liquidity weight (dollar units)",
+        "dataset":  {
+                        "id":  "risk68",
+                        "name":  "Forecast Data"
+                    },
+        "category":  {
+                         "id":  "risk",
+                         "name":  "Risk"
+                     },
+        "subcategory":  {
+                            "id":  "risk-risk-models",
+                            "name":  "Risk Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "rsk68_weight_volatility_short",
+        "description":  "Short-term volatility estimate for European instruments, expressed in decimal terms",
+        "dataset":  {
+                        "id":  "risk68",
+                        "name":  "Forecast Data"
+                    },
+        "category":  {
+                         "id":  "risk",
+                         "name":  "Risk"
+                     },
+        "subcategory":  {
+                            "id":  "risk-risk-models",
+                            "name":  "Risk Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    }
+]

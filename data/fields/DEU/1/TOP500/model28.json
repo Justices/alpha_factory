@@ -1,0 +1,802 @@
+﻿[
+    {
+        "id":  "mdl28_sm_structural_credit_structural_asset_drift_pct",
+        "description":  "Annualized rate of change (percentage drift) in the market value of the firm’s assets",
+        "dataset":  {
+                        "id":  "model28",
+                        "name":  "Structural Credit Risk Model"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-risk-based-models",
+                            "name":  "Risk Based Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.684,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl28_sm_structural_credit_structural_asset_volatility_pct",
+        "description":  "Annualized volatility (percentage) of the market value of the firm’s assets",
+        "dataset":  {
+                        "id":  "model28",
+                        "name":  "Structural Credit Risk Model"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-risk-based-models",
+                            "name":  "Risk Based Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.6843,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl28_sm_structural_credit_structural_country_rank",
+        "description":  "Percentile rank (1-100) of a company\u0027s 1-year default probability within the country; higher scores indicate lower risk of default",
+        "dataset":  {
+                        "id":  "model28",
+                        "name":  "Structural Credit Risk Model"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-risk-based-models",
+                            "name":  "Risk Based Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  1,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl28_sm_structural_credit_structural_country_rank_float",
+        "description":  "Percentile rank (1-100, floating-point) of a company\u0027s 1-year default probability within the same country; higher means less risk",
+        "dataset":  {
+                        "id":  "model28",
+                        "name":  "Structural Credit Risk Model"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-risk-based-models",
+                            "name":  "Risk Based Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.6838,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl28_sm_structural_credit_structural_distance_to_default",
+        "description":  "Number of standard deviations by which the firm\u0027s estimated asset value exceeds the default threshold; higher numbers mean lower risk of default",
+        "dataset":  {
+                        "id":  "model28",
+                        "name":  "Structural Credit Risk Model"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-risk-based-models",
+                            "name":  "Risk Based Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.6838,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl28_sm_structural_credit_structural_global_rank",
+        "description":  "Percentile rank (1-100) of a company\u0027s 1-year default probability among all global firms; higher scores mean less risk of default",
+        "dataset":  {
+                        "id":  "model28",
+                        "name":  "Structural Credit Risk Model"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-risk-based-models",
+                            "name":  "Risk Based Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  1,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl28_sm_structural_credit_structural_global_rank_float",
+        "description":  "Percentile rank (1-100, floating-point) of a company\u0027s 1-year default probability among all global firms; higher means less risk",
+        "dataset":  {
+                        "id":  "model28",
+                        "name":  "Structural Credit Risk Model"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-risk-based-models",
+                            "name":  "Risk Based Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.6838,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl28_sm_structural_credit_structural_industry_rank",
+        "description":  "Percentile rank (1-100) of a company\u0027s 1-year default probability among firms in the same region and industry; higher values mean lower risk of default",
+        "dataset":  {
+                        "id":  "model28",
+                        "name":  "Structural Credit Risk Model"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-risk-based-models",
+                            "name":  "Risk Based Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  1,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl28_sm_structural_credit_structural_industry_rank_float",
+        "description":  "Industry-relative percentile rank (1-100, floating) of 1-year default probability; higher is less risk",
+        "dataset":  {
+                        "id":  "model28",
+                        "name":  "Structural Credit Risk Model"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-risk-based-models",
+                            "name":  "Risk Based Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.6807,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl28_sm_structural_credit_structural_pd_pct",
+        "description":  "Estimated 1-year probability of default expressed as a percentage for the company",
+        "dataset":  {
+                        "id":  "model28",
+                        "name":  "Structural Credit Risk Model"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-risk-based-models",
+                            "name":  "Risk Based Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.6838,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl28_sm_structural_credit_structural_region_rank",
+        "description":  "Percentile rank (1-100) of a company\u0027s 1-year default probability among firms in the same region; higher values mean lower risk of default",
+        "dataset":  {
+                        "id":  "model28",
+                        "name":  "Structural Credit Risk Model"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-risk-based-models",
+                            "name":  "Risk Based Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  1,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl28_sm_structural_credit_structural_region_rank_float",
+        "description":  "Percentile rank (1-100, floating-point) of a company\u0027s 1-year default probability among regional firms; higher means less risk",
+        "dataset":  {
+                        "id":  "model28",
+                        "name":  "Structural Credit Risk Model"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-risk-based-models",
+                            "name":  "Risk Based Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.6838,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl28_sm_structural_credit_structural_sector_rank",
+        "description":  "Percentile rank (1-100) of a company\u0027s 1-year default probability among firms in the same region and sector; higher means less risk of default",
+        "dataset":  {
+                        "id":  "model28",
+                        "name":  "Structural Credit Risk Model"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-risk-based-models",
+                            "name":  "Risk Based Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  1,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl28_sm_structural_credit_structural_sector_rank_float",
+        "description":  "Sector-relative percentile rank (1-100, floating) of 1-year default probability; higher is less risk",
+        "dataset":  {
+                        "id":  "model28",
+                        "name":  "Structural Credit Risk Model"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-risk-based-models",
+                            "name":  "Risk Based Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.6835,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl28_sm_structural_multiple_credit_structural_asset_drift_percent",
+        "description":  "Expected annualized percent change (drift) in asset value under the structural credit risk model",
+        "dataset":  {
+                        "id":  "model28",
+                        "name":  "Structural Credit Risk Model"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-risk-based-models",
+                            "name":  "Risk Based Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.684,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl28_sm_structural_multiple_credit_structural_asset_volatility_percent",
+        "description":  "Annualized asset value volatility percentage as estimated by the structural credit risk model",
+        "dataset":  {
+                        "id":  "model28",
+                        "name":  "Structural Credit Risk Model"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-risk-based-models",
+                            "name":  "Risk Based Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.6842,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl28_sm_structural_multiple_credit_structural_country_rank",
+        "description":  "Percentile rank (1-100) of the firm\u0027s default probability among companies in the same country, higher value means lower risk",
+        "dataset":  {
+                        "id":  "model28",
+                        "name":  "Structural Credit Risk Model"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-risk-based-models",
+                            "name":  "Risk Based Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  1,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl28_sm_structural_multiple_credit_structural_distance_to_default",
+        "description":  "Number of standard deviations between the market value of the firm\u0027s assets and its estimated default point",
+        "dataset":  {
+                        "id":  "model28",
+                        "name":  "Structural Credit Risk Model"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-risk-based-models",
+                            "name":  "Risk Based Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.6838,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl28_sm_structural_multiple_credit_structural_global_rank",
+        "description":  "Global percentile rank (1-100) of firm\u0027s default probability among all companies worldwide, higher means lower risk",
+        "dataset":  {
+                        "id":  "model28",
+                        "name":  "Structural Credit Risk Model"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-risk-based-models",
+                            "name":  "Risk Based Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  1,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl28_sm_structural_multiple_credit_structural_industry_rank_",
+        "description":  "Percentile rank (1-100) of firm\u0027s default probability among companies in the same industry group, higher means lower risk",
+        "dataset":  {
+                        "id":  "model28",
+                        "name":  "Structural Credit Risk Model"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-risk-based-models",
+                            "name":  "Risk Based Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  1,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl28_sm_structural_multiple_credit_structural_leverage",
+        "description":  "Ratio of the default point to the market value of the firm\u0027s assets, lower values indicate lower default risk",
+        "dataset":  {
+                        "id":  "model28",
+                        "name":  "Structural Credit Risk Model"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-risk-based-models",
+                            "name":  "Risk Based Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.687,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl28_sm_structural_multiple_credit_structural_pd_percent",
+        "description":  "Estimated forward 1-year probability of default, expressed as a percentage, from StarMine model",
+        "dataset":  {
+                        "id":  "model28",
+                        "name":  "Structural Credit Risk Model"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-risk-based-models",
+                            "name":  "Risk Based Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.6838,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl28_sm_structural_multiple_credit_structural_region_rank",
+        "description":  "Percentile rank (1-100) of firm\u0027s default probability among companies in the same region, higher means lower risk",
+        "dataset":  {
+                        "id":  "model28",
+                        "name":  "Structural Credit Risk Model"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-risk-based-models",
+                            "name":  "Risk Based Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  1,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl28_sm_structural_multiple_credit_structural_sector_rank",
+        "description":  "Percentile rank (1-100) of firm\u0027s default probability among companies in the same sector and region, higher means safer",
+        "dataset":  {
+                        "id":  "model28",
+                        "name":  "Structural Credit Risk Model"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-risk-based-models",
+                            "name":  "Risk Based Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  1,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl28_sm_structural__credit_structural_leverage",
+        "description":  "Ratio of the estimated default threshold to the firm\u0027s asset value, representing financial leverage; higher means more risk",
+        "dataset":  {
+                        "id":  "model28",
+                        "name":  "Structural Credit Risk Model"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-risk-based-models",
+                            "name":  "Risk Based Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.687,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    }
+]

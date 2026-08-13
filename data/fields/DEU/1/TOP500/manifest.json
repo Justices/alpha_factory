@@ -1,0 +1,14 @@
+﻿{
+    "sourceFile":  "datafields_DEU_1_TOP500.csv",
+    "region":  "DEU",
+    "delay":  1,
+    "universe":  "TOP500",
+    "datasetCount":  178,
+    "fieldCount":  22499,
+    "typeCounts":  {
+                       "MATRIX":  14104,
+                       "VECTOR":  6761,
+                       "GROUP":  1515,
+                       "SYMBOL":  119
+                   }
+}

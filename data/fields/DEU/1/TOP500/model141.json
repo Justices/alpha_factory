@@ -1,0 +1,194 @@
+﻿[
+    {
+        "id":  "mdl141_mktcap",
+        "description":  "The market capitalization of the company, typically float-adjusted; represents total equity market value",
+        "dataset":  {
+                        "id":  "model141",
+                        "name":  "Interest Rate Sensitivity Measures"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-risk-based-models",
+                            "name":  "Risk Based Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl141_qes_fleir_escore",
+        "description":  "Modeled elasticity: percentage change in intrinsic stock value (return) per 1% change in the discount rate, using the FLEIR (forward-looking DCF-based) exposure framework",
+        "dataset":  {
+                        "id":  "model141",
+                        "name":  "Interest Rate Sensitivity Measures"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-risk-based-models",
+                            "name":  "Risk Based Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl141_qes_fleir_irr",
+        "description":  "Implied cost of equity (required rate of return) for the stock, estimated using a discounted cash flow or dividend discount model within the FLEIR framework",
+        "dataset":  {
+                        "id":  "model141",
+                        "name":  "Interest Rate Sensitivity Measures"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-risk-based-models",
+                            "name":  "Risk Based Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl141_qes_fleir_score",
+        "description":  "Modeled percentage change in intrinsic stock value (from DCF) when the discount rate is increased by 25 basis points, representing fundamental interest rate sensitivity",
+        "dataset":  {
+                        "id":  "model141",
+                        "name":  "Interest Rate Sensitivity Measures"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-risk-based-models",
+                            "name":  "Risk Based Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl141_qes_macrobeta3_wti_tr",
+        "description":  "Beta of stock returns to oil price returns (specifically, West Texas Intermediate crude), representing sensitivity to oil as a macro factor",
+        "dataset":  {
+                        "id":  "model141",
+                        "name":  "Interest Rate Sensitivity Measures"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-risk-based-models",
+                            "name":  "Risk Based Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl141_qes_sinc_neut",
+        "description":  "Stock return sensitivity to \"purified\" changes in breakeven inflation rates, i.e. the portion of inflation risk orthogonal to changes in 10Y Treasury yields",
+        "dataset":  {
+                        "id":  "model141",
+                        "name":  "Interest Rate Sensitivity Measures"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-risk-based-models",
+                            "name":  "Risk Based Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    }
+]

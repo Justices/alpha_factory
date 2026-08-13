@@ -426,6 +426,20 @@ def test_alpha_machine_prepare_super_command_is_available():
     assert 'add_parser("poll-super"' in source
 
 
+def test_package_exports_alpha_source_helpers():
+    """Every public Alpha-source helper named in __all__ is available at package level."""
+    import alpha_operator_framework as framework
+
+    expected = {
+        "get_alphas_from_workflow_result",
+        "load_alphas_from_file",
+        "fetch_user_alphas",
+        "fetch_alpha_by_ids",
+        "get_and_filter_alphas",
+    }
+    assert expected <= set(dir(framework))
+
+
 def test_fields():
     """测试字段处理."""
     print("测试字段处理...")
@@ -753,6 +767,7 @@ def run_all_tests():
         test_alpha_machine_uses_durable_data_database_by_default()
         test_alpha_machine_poll_command_is_available()
         test_alpha_machine_prepare_super_command_is_available()
+        test_package_exports_alpha_source_helpers()
         test_fields()
         test_economic_rules_filter_invalid_first_order_operators()
         test_local_field_files()

@@ -42,7 +42,6 @@ htmlcov/
 runs/*.json
 runs/*.db
 !runs/.gitkeep
-data/*.db
 
 # OS
 .DS_Store

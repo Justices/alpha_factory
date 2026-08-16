@@ -219,6 +219,54 @@ def first_order_task_factory(
     return tasks
 
 
+def raw_first_order_task_factory(
+    field_ids: Iterable[str],
+    ops_set: Sequence[str] | None = None,
+    *,
+    decay: float = 6.0,
+) -> List[Task]:
+    """裸字段一阶: 直接对原始字段id应用一阶算子 (rank(close), ts_rank(close,22)...).
+
+    与 ``first_order_task_factory`` 的区别在 ``expression_origin="first_order_raw"``,
+    供 density/deepen 与预处理一阶(first_order)区分。fields_per_alpha=1,
+    base_fields=(字段id,)。
+
+    Args:
+        field_ids: 原始字段id列表 (如 ["close", "volume"])
+        ops_set: 一阶算子集合, 缺省 basic_ops + ts_ops
+        decay: 衰减
+
+    Returns:
+        Task列表, 每个字段×算子一个任务
+
+    Example:
+        >>> tasks = raw_first_order_task_factory(["close"])
+        >>> any(t.expression == "rank(close)" for t in tasks)
+        True
+    """
+    from alpha_operator_framework.operators import first_order_factory
+
+    tasks: List[Task] = []
+    for field_id in field_ids:
+        expressions = first_order_factory([field_id], ops_set)
+        for idx, expression in enumerate(expressions):
+            tasks.append(Task(
+                expression=expression,
+                template_index=idx,
+                family="unary",
+                fields_per_alpha=1,
+                expression_origin="first_order_raw",
+                decay=decay,
+                base_fields=(field_id,),
+                meta={
+                    "label": "first_order_operator",
+                    "stage": "first_order",
+                    "source_freq": "unknown",
+                },
+            ))
+    return tasks
+
+
 def economic_first_order_task_factory(
     field_specs: Iterable,
     *,
@@ -392,6 +440,7 @@ __all__ = [
     # 工厂函数
     "unary_factory",
     "first_order_task_factory",
+    "raw_first_order_task_factory",
     "economic_first_order_task_factory",
     "binary_factory",
     "ternary_factory",

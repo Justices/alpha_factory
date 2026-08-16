@@ -26,22 +26,31 @@ from alpha_operator_framework import (
     # 算子
     basic_ops, ts_ops, group_ops, vec_ops, extended_ops,
     ts_factory, first_order_factory,
+    extract_first_operator,
     # 模板族
     UNARY_TEMPLATES, BINARY_TEMPLATES, TERNARY_TEMPLATES,
-    unary_factory, binary_factory, ternary_factory, first_order_task_factory,
+    unary_factory, binary_factory, ternary_factory, quaternary_factory,
+    first_order_task_factory,
+    raw_first_order_task_factory,
     Task,
     # 字段
-    FieldSpec, SampleSpec,
-    preprocess_field, sample_scalar_expressions, load_local_field_specs,
+    FieldSpec, ScalarField, SampleSpec,
+    preprocess_field, sample_scalar_expressions, sample_scalar_field_pairs, load_local_field_specs,
     find_positive_negative_pairs, find_cap_pairs, semantic_pair_task_factory,
+    # 模板类库
+    Template, TemplateStrategyConfig,
+    template_creation_strategy, build_family_template_rows, import_knowledge_base_templates,
     # 密度
     SignalGate, compute_density, top_templates,
     # 剪枝
-    classify_field, extract_field_ids,
+    classify_field, extract_field_ids, extract_fields,
     semantic_prune_fields, SemanticPruneConfig,
     field_topk_prune, FieldTopKConfig,
+    # 评价
+    count_failed_gates,
 )
-from alpha_operator_framework.database import AlphaDatabase
+from alpha_operator_framework.database import AlphaDatabase, AlphaDetail, WF_STAGES
+from alpha_operator_framework.database.repository import submission_wf_stage
 from alpha_operator_framework.economic_rules import allowed_first_order_ops
 from alpha_operator_framework.local_fields import (
     default_fields_directory, default_dataset_file, load_local_field_directory,
@@ -174,6 +183,454 @@ def test_expression_origin_migrates_legacy_database():
             "SELECT expression_origin FROM alpha_expressions WHERE expression = ?", (legacy_task.expression,)
         ).fetchone()
         assert row["expression_origin"] == "first_order"
+        db.close()
+
+
+def test_expression_pipeline_columns_migrate_legacy_database():
+    """Opening a legacy database adds backtest pipeline columns with correct defaults."""
+    with tempfile.TemporaryDirectory() as tmp:
+        db_path = Path(tmp) / "legacy.db"
+        conn = sqlite3.connect(db_path)
+        conn.executescript("""
+            CREATE TABLE alpha_expressions (
+                id INTEGER PRIMARY KEY AUTOINCREMENT,
+                expression_sha TEXT NOT NULL UNIQUE,
+                expression TEXT NOT NULL,
+                expression_origin TEXT NOT NULL DEFAULT '',
+                settings TEXT NOT NULL,
+                created_at TEXT NOT NULL,
+                updated_at TEXT NOT NULL
+            );
+            CREATE TABLE alpha_details (
+                id INTEGER PRIMARY KEY AUTOINCREMENT,
+                alpha_id TEXT NOT NULL UNIQUE, expression_sha TEXT NOT NULL,
+                alpha_sha TEXT NOT NULL DEFAULT '', expression TEXT NOT NULL,
+                region TEXT, universe TEXT, delay INTEGER DEFAULT 1, decay REAL DEFAULT 0,
+                neutralization TEXT, truncation REAL DEFAULT 0, sharpe REAL DEFAULT 0,
+                fitness REAL DEFAULT 0, turnover REAL DEFAULT 0, margin REAL DEFAULT 0,
+                pnl REAL DEFAULT 0, returns REAL DEFAULT 0, drawdown REAL DEFAULT 0,
+                long_count INTEGER DEFAULT 0, short_count INTEGER DEFAULT 0,
+                grade TEXT, stage_platform TEXT, status_platform TEXT,
+                sc_result TEXT, sc_value REAL, pc_result TEXT, pc_value REAL, checks_json TEXT,
+                created_at TEXT NOT NULL, updated_at TEXT NOT NULL
+            );
+            INSERT INTO alpha_expressions (expression_sha, expression, settings, created_at, updated_at)
+            VALUES ('legacy-sha', 'ts_delta(close, 252)', '{}', 't0', 't0');
+        """)
+        conn.commit()
+        conn.close()
+
+        db = AlphaDatabase(db_path)
+        expr_cols = {r["name"] for r in db._get_connection().execute(
+            "PRAGMA table_info(alpha_expressions)")}
+        detail_cols = {r["name"] for r in db._get_connection().execute(
+            "PRAGMA table_info(alpha_details)")}
+        assert {"batch_id", "fields", "status", "first_operator"} <= expr_cols
+        assert {"ra_failed", "ppa_failed"} <= detail_cols
+        row = db._get_connection().execute(
+            "SELECT status, fields, first_operator, batch_id FROM alpha_expressions WHERE expression_sha='legacy-sha'"
+        ).fetchone()
+        assert row["status"] == "pending"
+        assert row["fields"] == "[]"
+        assert row["first_operator"] == ""
+        assert row["batch_id"] is None
+        db.close()
+
+
+def test_wf_stage_defaults_to_pending_validation():
+    """New alpha_details rows default to wf_stage='pending_validation'."""
+    with tempfile.TemporaryDirectory() as tmp:
+        db = AlphaDatabase(Path(tmp) / "research.db")
+        db.save_result_with_checks("a1", {"sharpe": 1.5, "checks": []}, {"region": "GBR"})
+        rows = db.query_alphas(wf_stage="pending_validation", limit=5)
+        assert [d.alpha_id for d in rows] == ["a1"]
+        assert rows[0].wf_stage == "pending_validation"
+        db.close()
+
+
+def test_wf_stage_upsert_preserves_existing_stage():
+    """Re-saving a result must not overwrite an already-advanced wf_stage."""
+    with tempfile.TemporaryDirectory() as tmp:
+        db = AlphaDatabase(Path(tmp) / "research.db")
+        db.save_result_with_checks("a1", {"sharpe": 1.5, "checks": []}, {"region": "GBR"})
+        db.update_wf_stage("a1", "validated")
+        db.save_result_with_checks("a1", {"sharpe": 1.8, "checks": []}, {"region": "GBR"})
+        row = db.query_alphas(limit=5)[0]
+        assert row.wf_stage == "validated"
+        assert row.sharpe == 1.8  # upsert 更新了指标, 但没打回阶段
+        db.close()
+
+
+def test_update_wf_stage_validates_values():
+    """update_wf_stage rejects unknown stages with ValueError."""
+    with tempfile.TemporaryDirectory() as tmp:
+        db = AlphaDatabase(Path(tmp) / "research.db")
+        db.save_result_with_checks("a1", {"sharpe": 1.5, "checks": []}, {"region": "GBR"})
+        db.update_wf_stage("a1", "validated")  # 合法
+        try:
+            db.update_wf_stage("a1", "bogus")
+            assert False, "expected ValueError"
+        except ValueError:
+            pass
+        db.close()
+
+
+def test_mark_alpha_submitted_and_failed():
+    """mark_alpha_submitted / mark_alpha_failed set the expected wf_stage."""
+    with tempfile.TemporaryDirectory() as tmp:
+        db = AlphaDatabase(Path(tmp) / "research.db")
+        db.save_result_with_checks("a1", {"sharpe": 1.5, "checks": []}, {"region": "GBR"})
+        db.save_result_with_checks("a2", {"sharpe": 1.6, "checks": []}, {"region": "GBR"})
+        db.mark_alpha_submitted("a1")
+        db.mark_alpha_failed("a2")
+        by_id = {d.alpha_id: d.wf_stage for d in db.query_alphas(limit=5)}
+        assert by_id["a1"] == "submitted"
+        assert by_id["a2"] == "failed"
+        db.close()
+
+
+def test_submission_wf_stage_mapping():
+    """SC/PC both PASS/WARNING (or missing) → validated, otherwise needs_optimization."""
+    assert submission_wf_stage("PASS", "PASS") == "validated"
+    assert submission_wf_stage("WARNING", "PASS") == "validated"
+    assert submission_wf_stage(None, None) == "validated"
+    assert submission_wf_stage("FAIL", "PASS") == "needs_optimization"
+    assert submission_wf_stage("PASS", "ERROR") == "needs_optimization"
+
+
+def test_cmd_submit_sc_pc_scenario():
+    """SC/PC judgement (as in cmd_submit) drives validated vs needs_optimization."""
+    with tempfile.TemporaryDirectory() as tmp:
+        db = AlphaDatabase(Path(tmp) / "research.db")
+        # 通过: SC=PASS PC=PASS
+        db.save_result_with_checks(
+            "a_ok", {"sharpe": 1.6, "checks": [
+                {"name": "SELF_CORRELATION", "result": "PASS", "value": 0.4},
+                {"name": "PROD_CORRELATION", "result": "PASS", "value": 0.5},
+            ]}, {"region": "GBR"})
+        db.update_wf_stage("a_ok", submission_wf_stage("PASS", "PASS"))
+        # 不通过: SC=FAIL
+        db.save_result_with_checks(
+            "a_bad", {"sharpe": 1.6, "checks": [
+                {"name": "SELF_CORRELATION", "result": "FAIL", "value": 0.8},
+                {"name": "PROD_CORRELATION", "result": "PASS", "value": 0.5},
+            ]}, {"region": "GBR"})
+        db.update_wf_stage("a_bad", submission_wf_stage("FAIL", "PASS"))
+        by_id = {d.alpha_id: d.wf_stage for d in db.query_alphas(limit=5)}
+        assert by_id["a_ok"] == "validated"
+        assert by_id["a_bad"] == "needs_optimization"
+        db.close()
+
+
+def test_query_alphas_filters_by_wf_stage():
+    """query_alphas(wf_stage=...) filters by the system-internal stage column."""
+    with tempfile.TemporaryDirectory() as tmp:
+        db = AlphaDatabase(Path(tmp) / "research.db")
+        db.save_result_with_checks("a1", {"sharpe": 1.5, "checks": []}, {"region": "GBR"})
+        db.save_result_with_checks("a2", {"sharpe": 1.6, "checks": []}, {"region": "GBR"})
+        db.update_wf_stage("a2", "validated")
+        validated = db.query_alphas(wf_stage="validated", limit=5)
+        pending = db.query_alphas(wf_stage="pending_validation", limit=5)
+        assert [d.alpha_id for d in validated] == ["a2"]
+        assert [d.alpha_id for d in pending] == ["a1"]
+        db.close()
+
+
+def test_wf_stage_column_migrates_legacy_database():
+    """Opening a legacy alpha_details (no wf_stage) adds the column with correct default."""
+    with tempfile.TemporaryDirectory() as tmp:
+        db_path = Path(tmp) / "legacy.db"
+        conn = sqlite3.connect(db_path)
+        conn.executescript("""
+            CREATE TABLE alpha_details (
+                id INTEGER PRIMARY KEY AUTOINCREMENT,
+                alpha_id TEXT NOT NULL UNIQUE, expression_sha TEXT NOT NULL,
+                alpha_sha TEXT NOT NULL DEFAULT '', expression TEXT NOT NULL,
+                region TEXT, universe TEXT, delay INTEGER DEFAULT 1, decay REAL DEFAULT 0,
+                neutralization TEXT, truncation REAL DEFAULT 0, sharpe REAL DEFAULT 0,
+                fitness REAL DEFAULT 0, turnover REAL DEFAULT 0, margin REAL DEFAULT 0,
+                pnl REAL DEFAULT 0, returns REAL DEFAULT 0, drawdown REAL DEFAULT 0,
+                long_count INTEGER DEFAULT 0, short_count INTEGER DEFAULT 0,
+                grade TEXT, stage_platform TEXT, status_platform TEXT,
+                sc_result TEXT, sc_value REAL, pc_result TEXT, pc_value REAL, checks_json TEXT,
+                created_at TEXT NOT NULL, updated_at TEXT NOT NULL
+            );
+            INSERT INTO alpha_details (alpha_id, expression_sha, expression, created_at, updated_at)
+            VALUES ('legacy', 's1', 'rank(close)', 't0', 't0');
+        """)
+        conn.commit()
+        conn.close()
+
+        db = AlphaDatabase(db_path)
+        cols = {r["name"] for r in db._get_connection().execute(
+            "PRAGMA table_info(alpha_details)")}
+        assert "wf_stage" in cols
+        row = db._get_connection().execute(
+            "SELECT wf_stage FROM alpha_details WHERE alpha_id='legacy'").fetchone()
+        assert row["wf_stage"] == "pending_validation"
+        db.close()
+
+
+def test_raw_first_order_task_factory():
+    """raw_first_order_task_factory applies operators to raw field ids with first_order_raw origin."""
+    tasks = raw_first_order_task_factory(["close"])
+    expressions = {t.expression for t in tasks}
+    assert "rank(close)" in expressions
+    assert "ts_rank(close, 22)" in expressions
+    assert all(t.expression_origin == "first_order_raw" for t in tasks)
+    assert all(t.fields_per_alpha == 1 for t in tasks)
+
+
+def test_raw_first_order_separates_from_preprocessed_in_density():
+    """density distinguishes first_order_raw from preprocessed first_order."""
+    rows = compute_density([
+        {"family": "unary", "template_index": 3, "expression_origin": "first_order"},
+        {"family": "unary", "template_index": 3, "expression_origin": "first_order_raw"},
+    ])
+    origins = {row.expression_origin for row in rows}
+    assert "first_order" in origins
+    assert "first_order_raw" in origins
+
+
+def test_template_library_seed_and_query():
+    """template_library seeds 4-family templates idempotently and supports filtering."""
+    with tempfile.TemporaryDirectory() as tmp:
+        db = AlphaDatabase(Path(tmp) / "research.db")
+        tpls = db.list_templates()
+        assert len(tpls) == 30
+        assert len(db.list_templates(families=("unary",))) == 10
+        assert len(db.list_templates(families=("binary",))) == 8
+        assert len(db.list_templates(families=("ternary",))) == 7
+        assert len(db.list_templates(families=("quaternary",))) == 5
+        names = [t.name for t in tpls]
+        assert len(set(names)) == len(names)  # name 唯一
+        assert all(t.active == 1 for t in tpls)
+        db.seed_template_library()  # 幂等
+        assert len(db.list_templates()) == 30
+        db.close()
+
+
+def test_template_creation_strategy_matches_factories():
+    """Strategy output must be byte-identical to the four family factories (default config)."""
+    rows = build_family_template_rows()
+    fields = [
+        ScalarField(expr=f"winsorize(ts_backfill({f},120),std=4)", category="pv", field_id=f)
+        for f in ("close", "volume", "open")
+    ]
+    cfg = TemplateStrategyConfig()
+    for family, factory in (("unary", unary_factory), ("binary", binary_factory),
+                            ("ternary", ternary_factory)):
+        s = template_creation_strategy([r for r in rows if r.family == family], fields, [], cfg)
+        f = factory([x.expr for x in fields])
+        s_set = {(t.expression, t.template_index, t.expression_origin,
+                  t.base_fields, t.fields_per_alpha) for t in s}
+        f_set = {(t.expression, t.template_index, t.expression_origin,
+                  t.base_fields, t.fields_per_alpha) for t in f}
+        assert s_set == f_set, family
+    s = template_creation_strategy([r for r in rows if r.family == "quaternary"],
+                                   fields, ["sector", "industry"], cfg)
+    f = quaternary_factory([x.expr for x in fields], ["sector", "industry"])
+    s_set = {(t.expression, t.template_index, t.expression_origin,
+              t.base_fields, t.meta.get("group")) for t in s}
+    f_set = {(t.expression, t.template_index, t.expression_origin,
+              t.base_fields, t.meta.get("group")) for t in f}
+    assert s_set == f_set, "quaternary"
+
+
+def test_template_creation_strategy_filters_by_category():
+    """Strategy filters scalar fields by template categories (empty=ALL)."""
+    from dataclasses import replace
+    rows = build_family_template_rows()
+    pv_tpl = replace(rows[0], categories=["pv"])
+    fields = [
+        ScalarField(expr="winsorize(ts_backfill(close,120),std=4)", category="pv", field_id="close"),
+        ScalarField(expr="winsorize(ts_backfill(eps,120),std=4)", category="fundamental", field_id="eps"),
+    ]
+    s = template_creation_strategy([pv_tpl], fields, [], TemplateStrategyConfig())
+    assert len(s) == 1 and "close" in s[0].expression and "eps" not in s[0].expression
+    s_all = template_creation_strategy(rows[:1], fields, [], TemplateStrategyConfig())
+    assert len(s_all) == 2  # categories 空=ALL
+
+
+def test_template_creation_strategy_fixed_and_group_slots():
+    """Fixed templates emit once; group slots expand over provided group fields."""
+    from dataclasses import replace
+    rows = build_family_template_rows()
+    fixed = replace(rows[0], template_type="fixed",
+                    expression_template="rank(close) - rank(volume)")
+    tasks = template_creation_strategy([fixed], [], [], TemplateStrategyConfig())
+    assert len(tasks) == 1
+    assert tasks[0].expression == "rank(close) - rank(volume)"
+    # quaternary: group 槽展开
+    fields = [ScalarField(expr=f"winsorize(ts_backfill({f},120),std=4)", category="pv", field_id=f)
+              for f in ("close", "volume", "open")]
+    qua = [r for r in rows if r.family == "quaternary"]
+    tasks = template_creation_strategy(qua, fields, ["sector", "industry"], TemplateStrategyConfig())
+    assert any("sector" in t.expression for t in tasks)
+    assert any("industry" in t.expression for t in tasks)
+
+
+def test_template_library_knowledge_base_import():
+    """import_knowledge_base_templates parses knowledge-base JSONL into Template rows."""
+    kb = Path("/Users/liujiaping/ai/quant/knowledge_base/alpha_templates")
+    if not (kb / "placeholder_alpha_templates.jsonl").is_file():
+        return  # 知识库目录不存在时跳过
+    ph = import_knowledge_base_templates(kb / "placeholder_alpha_templates.jsonl", source_type="placeholder")
+    assert len(ph) == 11
+    assert ph[0].name.startswith("kb_placeholder_")
+    assert ph[0].template_type == "placeholder"
+    assert ph[0].expression_template  # 非空
+    f101 = import_knowledge_base_templates(kb / "101_formulaic_alphas.jsonl", source_type="formulaic")
+    assert len(f101) == 101
+    assert all(t.template_type == "fixed" for t in f101)
+
+
+def test_template_library_seed_knowledge_base():
+    """seed_template_library(include_knowledge_base=True) writes >30 rows idempotently."""
+    kb = Path("/Users/liujiaping/ai/quant/knowledge_base/alpha_templates")
+    if not (kb / "placeholder_alpha_templates.jsonl").is_file():
+        return
+    with tempfile.TemporaryDirectory() as tmp:
+        db = AlphaDatabase(Path(tmp) / "research.db")
+        db.seed_template_library(include_knowledge_base=True, knowledge_base_dir=kb)
+        total = len(db.list_templates())
+        assert total > 30
+        db.seed_template_library(include_knowledge_base=True, knowledge_base_dir=kb)
+        assert len(db.list_templates()) == total  # 幂等
+        db.close()
+
+
+def test_category_pipeline():
+    """Platform category is carried through FieldSpec, local_fields, and datafields."""
+    with tempfile.TemporaryDirectory() as tmp:
+        db = AlphaDatabase(Path(tmp) / "research.db")
+        # upsert_datafield 带嵌套 category dict
+        db.upsert_datafield({"id": "close", "region": "GBR", "delay": 1, "universe": "TOP700",
+                             "dataset": {"id": "pv1", "name": "PV"}, "type": "MATRIX",
+                             "category": {"id": "pv", "name": "PV"}})
+        f = db.get_datafields(region="GBR")[0]
+        assert f.category == "pv"
+        # alpha_machine.field_from_dict 嵌套 dict
+        from alpha_machine import field_from_dict
+        spec = field_from_dict({"id": "close", "category": {"id": "model", "name": "Model"}})
+        assert spec.category == "model"
+        db.close()
+
+
+def test_survey_template_library_hook():
+    """run_survey_with_fields dry-run with use_template_library produces tasks."""
+    import asyncio
+    from alpha_operator_framework.ai_workflow import SurveyConfig, run_survey_with_fields
+    field_specs = [
+        FieldSpec(id="close", dataset_id="pv1", type="MATRIX", coverage=0.9, user_count=3, category="pv"),
+        FieldSpec(id="volume", dataset_id="pv1", type="MATRIX", coverage=0.8, user_count=5, category="pv"),
+    ]
+    config = SurveyConfig(region="GBR", universe="TOP700", delay=1, field_ids=["close", "volume"],
+                          include_semantic_pairs=False, include_binary=True)
+    with tempfile.TemporaryDirectory() as tmp:
+        result = asyncio.run(run_survey_with_fields(
+            field_specs, config, Path(tmp), execute=False))
+        assert result.success
+
+
+def test_extract_first_operator():
+    """The first operator is the leftmost function-call name for every expression family."""
+    cases = {
+        "group_neutralize(ts_rank(rank(close)/rank(volume), 10), industry)": "group_neutralize",
+        "ts_delta(close, 252)/ts_delay(close, 252)": "ts_delta",
+        "reverse(ts_rank(ts_zscore(close, 500), 500))": "reverse",
+        "rank(winsorize(ts_backfill(close, 120), std=4))": "rank",
+        "vector_neut(vec_avg(close), vec_avg(open))": "vector_neut",
+        "if_else(vec_avg(close) > vec_avg(open), vec_avg(close), vec_avg(open))": "if_else",
+        "ts_corr(close, volume, 22) * ts_delay(close, 1)": "ts_corr",
+        "": "__none__",
+    }
+    for expression, expected in cases.items():
+        assert extract_first_operator(expression) == expected, expression
+
+
+def test_stratified_sampling_by_first_operator():
+    """sample_catalog_expressions covers multiple first operators (proportional by default)."""
+    with tempfile.TemporaryDirectory() as tmp:
+        db = AlphaDatabase(Path(tmp) / "research.db")
+        expressions = (
+            ["rank(winsorize(ts_backfill(close, 120), std=4))"] * 6
+            + ["ts_rank(close, 22)"] * 6
+            + ["ts_delta(close, 252)/ts_delay(close, 252)"] * 4
+        )
+        sampled = db.sample_catalog_expressions(expressions, limit=8, seed=1)
+        assert len(sampled) == 8
+        covered = {extract_first_operator(e) for e in sampled}
+        assert covered >= {"rank", "ts_rank", "ts_delta"}
+        db.close()
+
+
+def test_save_result_with_checks_writes_ra_ppa():
+    """save_result_with_checks persists RA/PPA failure counts matching count_failed_gates."""
+    with tempfile.TemporaryDirectory() as tmp:
+        db = AlphaDatabase(Path(tmp) / "research.db")
+        checks = [
+            {"name": "LOW_SHARPE", "result": "FAIL", "value": 0.5},
+            {"name": "LOW_TURNOVER", "result": "FAIL", "value": 0.01},
+            {"name": "HIGH_TURNOVER", "result": "PASS", "value": 0.1},
+            {"name": "PROD_CORRELATION", "result": "FAIL", "value": 0.8},
+            {"name": "LOW_FITNESS", "result": "WARNING", "value": 1.1},
+        ]
+        is_block = {"sharpe": 1.2, "fitness": 1.1, "checks": checks,
+                    "selfCorrelation": 0.5, "prodCorrelation": 0.8}
+        db.save_result_with_checks("alpha_x", is_block, {"region": "GBR", "universe": "TOP700", "delay": 1})
+        detail = db.query_alphas(limit=1)[0]
+        gate = count_failed_gates(checks)
+        assert detail.ra_failed == gate.failed_ra
+        assert detail.ppa_failed == gate.failed_ppa
+        assert detail.ra_failed >= 1 and detail.ppa_failed >= 1
+        db.close()
+
+
+def test_datafields_upsert_aggregates_universes():
+    """Same field upserted under different universes aggregates into one row."""
+    with tempfile.TemporaryDirectory() as tmp:
+        db = AlphaDatabase(Path(tmp) / "research.db")
+        db.upsert_datafield(
+            {"id": "close", "dataset": {"id": "pv1", "name": "PV"}, "region": "GBR",
+             "delay": 1, "universe": "TOP700", "type": "MATRIX",
+             "coverage": 0.9, "userCount": 3, "alphaCount": 10, "description": "close"},
+            expression_shas=["s1"],
+        )
+        db.upsert_datafield(
+            {"id": "close", "dataset": {"id": "pv1", "name": "PV"}, "region": "GBR",
+             "delay": 1, "universe": "TOP3000", "type": "MATRIX",
+             "coverage": 0.95, "userCount": 5, "alphaCount": 12, "description": "close"},
+            expression_shas=["s2"],
+        )
+        fields = db.get_datafields(region="GBR")
+        assert len(fields) == 1
+        f = fields[0]
+        assert f.universes == ["TOP3000", "TOP700"]
+        assert set(f.expression_shas) == {"s1", "s2"}
+        assert f.coverage == 0.95  # last write wins
+        db.close()
+
+
+def test_missing_datafield_candidates():
+    """Fields used by alphas but absent from datafields are ingestion candidates."""
+    with tempfile.TemporaryDirectory() as tmp:
+        db = AlphaDatabase(Path(tmp) / "research.db")
+
+        class FakeTask:
+            expression = "rank(winsorize(ts_backfill(close, 120), std=4))"
+            family = "first_order"
+            template_index = 0
+            fields_per_alpha = 1
+            base_fields = ("close",)
+            meta = {}
+            expression_origin = "first_order"
+
+        db.catalog_tasks([FakeTask()], stage="first_order")
+        assert "close" in db.missing_datafield_candidates(region="GBR", delay=1)
+        db.upsert_datafield({"id": "close", "region": "GBR", "delay": 1, "universe": "TOP700",
+                             "dataset": {"id": "pv1", "name": "PV"}, "type": "MATRIX"})
+        assert "close" not in db.missing_datafield_candidates(region="GBR", delay=1)
         db.close()
 
 
@@ -332,6 +789,10 @@ def test_database_package_has_models_repository_and_schema_files():
     assert (database_dir / "schema" / "001_initial.sql").is_file()
     assert (database_dir / "schema" / "002_expression_origin.sql").is_file()
     assert (database_dir / "schema" / "003_simulation_batches.sql").is_file()
+    assert (database_dir / "schema" / "004_super_alpha.sql").is_file()
+    assert (database_dir / "schema" / "005_datafields_and_expression_pipeline.sql").is_file()
+    assert (database_dir / "schema" / "006_alpha_wf_stage.sql").is_file()
+    assert (database_dir / "schema" / "007_template_library.sql").is_file()
     assert (database_dir / "schema" / "latest_schema.sql").is_file()
 
 
@@ -353,6 +814,8 @@ def test_latest_schema_initializes_current_database():
                 "alpha_expressions",
                 "alpha_details",
                 "alpha_checks",
+                "datafields",
+                "template_library",
                 "simulation_batches",
                 "simulation_results",
                 "super_alpha_candidates",
@@ -366,11 +829,20 @@ def test_latest_schema_initializes_current_database():
             detail_columns = {row[1] for row in connection.execute("PRAGMA table_info(alpha_details)")}
             result_columns = {row[1] for row in connection.execute("PRAGMA table_info(simulation_results)")}
             assert {"expression_origin"} <= expression_columns
+            assert {"batch_id", "fields", "status", "first_operator"} <= expression_columns
             assert {"alpha_sha"} <= detail_columns
+            assert {"ra_failed", "ppa_failed"} <= detail_columns
+            assert {"wf_stage"} <= detail_columns
             assert {"alpha_sha", "platform_child_url"} <= result_columns
             assert {"simulation_type"} <= {
                 row[1] for row in connection.execute("PRAGMA table_info(simulation_batches)")
             }
+            datafield_columns = {row[1] for row in connection.execute("PRAGMA table_info(datafields)")}
+            assert {"field_id", "dataset_id", "description", "type", "region", "delay",
+                    "universes_json", "category"} <= datafield_columns
+            template_columns = {row[1] for row in connection.execute("PRAGMA table_info(template_library)")}
+            assert {"name", "family", "template_type", "expression_template", "categories_json",
+                    "field_types_json"} <= template_columns
         finally:
             connection.close()
 
@@ -756,6 +1228,30 @@ def run_all_tests():
         test_expression_origin_catalog()
         test_density_separates_same_index_by_expression_origin()
         test_expression_origin_migrates_legacy_database()
+        test_expression_pipeline_columns_migrate_legacy_database()
+        test_wf_stage_defaults_to_pending_validation()
+        test_wf_stage_upsert_preserves_existing_stage()
+        test_update_wf_stage_validates_values()
+        test_mark_alpha_submitted_and_failed()
+        test_submission_wf_stage_mapping()
+        test_cmd_submit_sc_pc_scenario()
+        test_query_alphas_filters_by_wf_stage()
+        test_wf_stage_column_migrates_legacy_database()
+        test_raw_first_order_task_factory()
+        test_raw_first_order_separates_from_preprocessed_in_density()
+        test_template_library_seed_and_query()
+        test_template_creation_strategy_matches_factories()
+        test_template_creation_strategy_filters_by_category()
+        test_template_creation_strategy_fixed_and_group_slots()
+        test_template_library_knowledge_base_import()
+        test_template_library_seed_knowledge_base()
+        test_category_pipeline()
+        test_survey_template_library_hook()
+        test_extract_first_operator()
+        test_stratified_sampling_by_first_operator()
+        test_save_result_with_checks_writes_ra_ppa()
+        test_datafields_upsert_aggregates_universes()
+        test_missing_datafield_candidates()
         test_database_creates_missing_parent_directory()
         test_simulation_batch_database_lifecycle()
         test_simulation_tracker_submits_once_and_polls_children()

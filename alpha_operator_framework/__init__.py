@@ -25,6 +25,7 @@ from .families import (
     Task,
     unary_factory,
     first_order_task_factory,
+    raw_first_order_task_factory,
     economic_first_order_task_factory,
     binary_factory,
     ternary_factory,
@@ -43,14 +44,18 @@ from .operators import (
     group_factory,
     first_order_factory,
     second_order_factory,  # 新增: 二阶group工厂
+    # 操作符提取
+    extract_first_operator,
 )
 
 from .fields import (
     FieldSpec,
+    ScalarField,
     SampleSpec,
     preprocess_field,
     sample_field_specs,
     sample_scalar_expressions,
+    sample_scalar_field_pairs,
 )
 
 from .local_fields import (
@@ -129,12 +134,28 @@ from .database import (
     AlphaDatabase,
     AlphaExpression,
     AlphaDetail,
+    DataField,
+)
+
+from .datafield_ingest import (
+    ingest_random_datafield,
+    pick_missing_field,
+)
+
+from .template_library import (
+    Template,
+    TemplateStrategyConfig,
+    template_creation_strategy,
+    build_family_template_rows,
+    import_knowledge_base_templates,
+    seed_template_library,
 )
 
 from .pruning import (
     # 工具
     classify_field,
     extract_field_ids,
+    extract_fields,
     # 1. 语义剪枝
     SemanticPruneConfig,
     semantic_prune_fields,
@@ -179,6 +200,7 @@ __all__ = [
     "Task",
     "unary_factory",
     "first_order_task_factory",
+    "raw_first_order_task_factory",
     "binary_factory",
     "ternary_factory",
     "quaternary_factory",
@@ -192,12 +214,15 @@ __all__ = [
     "group_factory",
     "first_order_factory",
     "second_order_factory",
+    "extract_first_operator",
     # Fields
     "FieldSpec",
+    "ScalarField",
     "SampleSpec",
     "preprocess_field",
     "sample_field_specs",
     "sample_scalar_expressions",
+    "sample_scalar_field_pairs",
     "read_local_field_rows",
     "load_local_field_specs",
     "find_positive_negative_pairs",
@@ -250,9 +275,21 @@ __all__ = [
     "AlphaDatabase",
     "AlphaExpression",
     "AlphaDetail",
+    "DataField",
+    # Datafield ingest
+    "ingest_random_datafield",
+    "pick_missing_field",
+    # Template library
+    "Template",
+    "TemplateStrategyConfig",
+    "template_creation_strategy",
+    "build_family_template_rows",
+    "import_knowledge_base_templates",
+    "seed_template_library",
     # Pruning
     "classify_field",
     "extract_field_ids",
+    "extract_fields",
     "SemanticPruneConfig",
     "semantic_prune_fields",
     "FieldTopKConfig",

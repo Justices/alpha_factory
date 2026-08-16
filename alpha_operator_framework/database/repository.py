@@ -15,10 +15,11 @@ import json
 import hashlib
 from pathlib import Path
 from datetime import datetime
-from typing import List, Dict, Any, Optional, Tuple
+from typing import List, Dict, Any, Optional, Tuple, Sequence
 from dataclasses import asdict
 
-from .models import AlphaDetail, AlphaExpression
+from .models import AlphaDetail, AlphaExpression, DataField, Template, WF_STAGES
+from ..evaluation import count_failed_gates
 
 
 # ---------------------------------------------------------------------------
@@ -76,6 +77,13 @@ def _extract_pc_sc(is_block: Dict, checks: List[Dict]) -> Tuple:
     return sc_value, pc_value, sc_result, pc_result
 
 
+def submission_wf_stage(sc_result: Optional[str], pc_result: Optional[str]) -> str:
+    """SC/PC 判定 → 系统内阶段: 均 PASS/WARNING(或缺失) → 'validated', 否则 → 'needs_optimization'."""
+    def _ok(r: Optional[str]) -> bool:
+        return r is None or r in ("PASS", "WARNING")
+    return "validated" if _ok(sc_result) and _ok(pc_result) else "needs_optimization"
+
+
 def persist_workflow_row(
     db: "AlphaDatabase",
     row: Dict[str, Any],
@@ -93,8 +101,8 @@ def persist_workflow_row(
         db: AlphaDatabase 实例
         row: 工作流结果行 (形如 {"alpha_id":..., "expression":..., "is":..., "settings":...})
         settings: 回测设置 (会被行内自带 settings 覆盖)
-        stage: 阶段 (survey/deepen/submit)
-        status: 状态 (pending/kept/rejected/ready/optimize)
+        stage: legacy 参数 (当前不写库)
+        status: legacy 参数 (当前不写库); wf_stage 由 save_result_with_checks 默认 + update_wf_stage/mark_alpha_submitted/mark_alpha_failed 管理
 
     Returns:
         alpha_id; 跳过(无id/无表达式)时返回 None
@@ -153,6 +161,10 @@ class AlphaDatabase:
             expression TEXT NOT NULL,
             expression_origin TEXT NOT NULL DEFAULT '',
             settings TEXT NOT NULL,
+            batch_id INTEGER,
+            fields TEXT NOT NULL DEFAULT '[]',
+            status TEXT NOT NULL DEFAULT 'pending' CHECK(status IN ('pending','completed','failed','pruned')),
+            first_operator TEXT NOT NULL DEFAULT '',
             created_at TEXT NOT NULL,
             updated_at TEXT NOT NULL
         )
@@ -191,12 +203,19 @@ class AlphaDatabase:
             stage_platform TEXT,
             status_platform TEXT,
 
+            -- 系统内工作流阶段 (pending_validation/validated/submitted/failed/needs_optimization)
+            wf_stage TEXT NOT NULL DEFAULT 'pending_validation',
+
             -- 提交检查指标
             sc_result TEXT,
             sc_value REAL,
             pc_result TEXT,
             pc_value REAL,
             checks_json TEXT,
+
+            -- RA/PPA 失败检查项计数 (参考 WebDataScope failedNumRA/failedNumPPA)
+            ra_failed INTEGER NOT NULL DEFAULT 0,
+            ppa_failed INTEGER NOT NULL DEFAULT 0,
 
             -- 时间戳
             created_at TEXT NOT NULL,
@@ -216,6 +235,60 @@ class AlphaDatabase:
             created_at TEXT NOT NULL,
             updated_at TEXT NOT NULL,
             PRIMARY KEY (alpha_id, check_name)
+        )
+        """)
+
+        # 有信号的数据字段表 (仅收录被 alpha 用到的字段; universe 聚合为 JSON 数组)
+        cursor.execute("""
+        CREATE TABLE IF NOT EXISTS datafields (
+            field_id TEXT NOT NULL,
+            dataset_id TEXT NOT NULL DEFAULT '',
+            dataset_name TEXT NOT NULL DEFAULT '',
+            description TEXT NOT NULL DEFAULT '',
+            type TEXT NOT NULL DEFAULT 'MATRIX',
+            region TEXT NOT NULL,
+            delay INTEGER NOT NULL DEFAULT 1,
+            universes_json TEXT NOT NULL DEFAULT '[]',
+            coverage REAL DEFAULT 0.0,
+            user_count INTEGER DEFAULT 0,
+            alpha_count INTEGER DEFAULT 0,
+            category TEXT NOT NULL DEFAULT '',
+            expression_shas_json TEXT NOT NULL DEFAULT '[]',
+            last_fetched_at TEXT,
+            created_at TEXT NOT NULL,
+            updated_at TEXT NOT NULL,
+            PRIMARY KEY (field_id, dataset_id, region, delay)
+        )
+        """)
+
+        # 模板类库表 (对齐 knowledge_base/alpha_templates JSONL schema)
+        cursor.execute("""
+        CREATE TABLE IF NOT EXISTS template_library (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            name TEXT NOT NULL UNIQUE,
+            title TEXT NOT NULL DEFAULT '',
+            family TEXT NOT NULL DEFAULT '',
+            template_type TEXT NOT NULL DEFAULT 'placeholder',
+            expression_template TEXT NOT NULL,
+            template_index INTEGER NOT NULL DEFAULT 0,
+            fields_per_alpha INTEGER NOT NULL DEFAULT 0,
+            expression_origin TEXT NOT NULL DEFAULT '',
+            field_types_json TEXT NOT NULL DEFAULT '[]',
+            categories_json TEXT NOT NULL DEFAULT '[]',
+            dataset_families_json TEXT NOT NULL DEFAULT '[]',
+            placeholders_json TEXT NOT NULL DEFAULT '{}',
+            group_slots_json TEXT NOT NULL DEFAULT '[]',
+            slot_count INTEGER NOT NULL DEFAULT 0,
+            description TEXT NOT NULL DEFAULT '',
+            rationale TEXT NOT NULL DEFAULT '',
+            example_expression TEXT NOT NULL DEFAULT '',
+            settings_hint_json TEXT NOT NULL DEFAULT '{}',
+            field_candidates_json TEXT NOT NULL DEFAULT '{}',
+            operators_used_json TEXT NOT NULL DEFAULT '[]',
+            source_json TEXT NOT NULL DEFAULT '{}',
+            active INTEGER NOT NULL DEFAULT 1,
+            created_at TEXT NOT NULL,
+            updated_at TEXT NOT NULL
         )
         """)
 
@@ -356,6 +429,12 @@ class AlphaDatabase:
         expression_columns = {r["name"] for r in cursor.execute("PRAGMA table_info(alpha_expressions)")}
         if "expression_origin" not in expression_columns:
             cursor.execute("ALTER TABLE alpha_expressions ADD COLUMN expression_origin TEXT NOT NULL DEFAULT ''")
+        for col, decl in (("batch_id", "INTEGER"),
+                          ("fields", "TEXT NOT NULL DEFAULT '[]'"),
+                          ("status", "TEXT NOT NULL DEFAULT 'pending'"),
+                          ("first_operator", "TEXT NOT NULL DEFAULT ''")):
+            if col not in expression_columns:
+                cursor.execute(f"ALTER TABLE alpha_expressions ADD COLUMN {col} {decl}")
 
         existing = {r["name"] for r in cursor.execute("PRAGMA table_info(alpha_details)")}
         for col, decl in (("sc_result", "TEXT"), ("sc_value", "REAL"),
@@ -364,6 +443,12 @@ class AlphaDatabase:
                 cursor.execute(f"ALTER TABLE alpha_details ADD COLUMN {col} {decl}")
         if "alpha_sha" not in existing:
             cursor.execute("ALTER TABLE alpha_details ADD COLUMN alpha_sha TEXT NOT NULL DEFAULT ''")
+        if "ra_failed" not in existing:
+            cursor.execute("ALTER TABLE alpha_details ADD COLUMN ra_failed INTEGER NOT NULL DEFAULT 0")
+        if "ppa_failed" not in existing:
+            cursor.execute("ALTER TABLE alpha_details ADD COLUMN ppa_failed INTEGER NOT NULL DEFAULT 0")
+        if "wf_stage" not in existing:
+            cursor.execute("ALTER TABLE alpha_details ADD COLUMN wf_stage TEXT NOT NULL DEFAULT 'pending_validation'")
         simulation_result_columns = {r["name"] for r in cursor.execute("PRAGMA table_info(simulation_results)")}
         if "alpha_sha" not in simulation_result_columns:
             cursor.execute("ALTER TABLE simulation_results ADD COLUMN alpha_sha TEXT NOT NULL DEFAULT ''")
@@ -372,6 +457,9 @@ class AlphaDatabase:
         simulation_batch_columns = {r["name"] for r in cursor.execute("PRAGMA table_info(simulation_batches)")}
         if "simulation_type" not in simulation_batch_columns:
             cursor.execute("ALTER TABLE simulation_batches ADD COLUMN simulation_type TEXT NOT NULL DEFAULT 'REGULAR'")
+        datafield_columns = {r["name"] for r in cursor.execute("PRAGMA table_info(datafields)")}
+        if "category" not in datafield_columns:
+            cursor.execute("ALTER TABLE datafields ADD COLUMN category TEXT NOT NULL DEFAULT ''")
 
         # 创建索引
         cursor.execute("CREATE INDEX IF NOT EXISTS idx_expr_sha ON alpha_expressions(expression_sha)")
@@ -379,6 +467,7 @@ class AlphaDatabase:
         cursor.execute("CREATE INDEX IF NOT EXISTS idx_detail_sharpe ON alpha_details(sharpe)")
         cursor.execute("CREATE INDEX IF NOT EXISTS idx_detail_fitness ON alpha_details(fitness)")
         cursor.execute("CREATE INDEX IF NOT EXISTS idx_detail_stage ON alpha_details(stage_platform)")
+        cursor.execute("CREATE INDEX IF NOT EXISTS idx_detail_wf_stage ON alpha_details(wf_stage)")
         cursor.execute("CREATE INDEX IF NOT EXISTS idx_checks_alpha ON alpha_checks(alpha_id)")
         cursor.execute("CREATE INDEX IF NOT EXISTS idx_checks_name ON alpha_checks(check_name)")
         cursor.execute("CREATE INDEX IF NOT EXISTS idx_sim_batch_status ON simulation_batches(status)")
@@ -395,7 +484,21 @@ class AlphaDatabase:
         cursor.execute("CREATE INDEX IF NOT EXISTS idx_sub_cand_submitted ON alpha_submission_candidates(is_submitted)")
         cursor.execute("CREATE INDEX IF NOT EXISTS idx_sub_cand_sharpe ON alpha_submission_candidates(sharpe)")
 
+        # datafields / alpha_expressions 新列索引
+        cursor.execute("CREATE INDEX IF NOT EXISTS idx_datafields_region ON datafields(region)")
+        cursor.execute("CREATE INDEX IF NOT EXISTS idx_datafields_dataset ON datafields(dataset_id)")
+        cursor.execute("CREATE INDEX IF NOT EXISTS idx_datafields_type ON datafields(type)")
+        cursor.execute("CREATE INDEX IF NOT EXISTS idx_expr_batch ON alpha_expressions(batch_id)")
+        cursor.execute("CREATE INDEX IF NOT EXISTS idx_expr_status ON alpha_expressions(status)")
+
+        # template_library 索引
+        cursor.execute("CREATE INDEX IF NOT EXISTS idx_tpl_family ON template_library(family)")
+        cursor.execute("CREATE INDEX IF NOT EXISTS idx_tpl_active ON template_library(active)")
+
         conn.commit()
+
+        # 幂等种子: 4 族模板入模板库 (懒加载, 避循环依赖)
+        self.seed_template_library()
 
     @staticmethod
     def _timestamp() -> str:
@@ -427,6 +530,12 @@ class AlphaDatabase:
                 (batch_id, sequence_no, self.compute_sha(expression), self.compute_alpha_sha(expression, settings), expression,
                  self._json(task), float(task.get("decay", settings.get("decay", 0.0))), now, now),
             )
+        # 回填 alpha_expressions: 本批次涉及的所有表达式标记待回测并关联批次
+        conn.execute(
+            """UPDATE alpha_expressions SET batch_id=?, status='pending', updated_at=?
+               WHERE expression_sha IN (SELECT expression_sha FROM simulation_results WHERE batch_id=?)""",
+            (batch_id, now, batch_id),
+        )
         conn.commit()
         return batch_id
 
@@ -462,6 +571,16 @@ class AlphaDatabase:
             (status, alpha_id, child_url, self._json(result) if result is not None else None, error_message,
              terminal, now, now, batch_id, sequence_no),
         )
+        # terminal 时回写 alpha_expressions 回测状态 (completed 优先; pruned 不可被覆盖)
+        if terminal:
+            target = "completed" if status == "completed" else "failed"
+            self._get_connection().execute(
+                """UPDATE alpha_expressions SET status=?, updated_at=?
+                   WHERE expression_sha=(SELECT expression_sha FROM simulation_results
+                                         WHERE batch_id=? AND sequence_no=?)
+                     AND status NOT IN ('completed', 'pruned')""",
+                (target, now, batch_id, sequence_no),
+            )
         self._refresh_simulation_batch(batch_id)
         self._get_connection().commit()
 
@@ -479,6 +598,18 @@ class AlphaDatabase:
             completed_at=CASE WHEN ?='completed' THEN ? ELSE completed_at END, updated_at=? WHERE id=?""",
             (status, completed, failed, status, now, now, batch_id),
         )
+
+    def mark_expressions_pruned(self, expression_shas: List[str]) -> None:
+        """把表达式标记为"被剪枝条"(pruned); 已完成的回测结果保留, 不被覆盖。"""
+        now = self._timestamp()
+        conn = self._get_connection()
+        for sha in expression_shas:
+            conn.execute(
+                """UPDATE alpha_expressions SET status='pruned', updated_at=?
+                   WHERE expression_sha=? AND status != 'completed'""",
+                (now, sha),
+            )
+        conn.commit()
 
     def get_simulation_batch(self, batch_id: int) -> Optional[Dict[str, Any]]:
         row = self._get_connection().execute("SELECT * FROM simulation_batches WHERE id=?", (batch_id,)).fetchone()
@@ -552,39 +683,57 @@ class AlphaDatabase:
         canonical = json.dumps(settings, ensure_ascii=False, sort_keys=True, separators=(",", ":"), default=str)
         return hashlib.sha256(f"{expression}\n{canonical}".encode("utf-8")).hexdigest()
 
-    def insert_expression(self, expression: str, settings: Dict, *, expression_origin: str = "") -> int:
+    def insert_expression(self, expression: str, settings: Dict, *, expression_origin: str = "",
+                          batch_id: Optional[int] = None, fields: Optional[List[str]] = None,
+                          status: str = "pending", first_operator: Optional[str] = None) -> int:
         """插入alpha表达式(去重).
 
         Args:
             expression: alpha表达式
             settings: 回测设置字典
+            expression_origin: 生成来源 (unary_template/first_order/semantic_pair等)
+            batch_id: 回测批次id (关联 simulation_batches)
+            fields: 表达式用到的字段清单; 缺省时从表达式提取
+            status: 回测状态 (pending/completed/failed/pruned)
+            first_operator: 第一个操作符; 缺省时从表达式提取
 
         Returns:
             表达式ID (如果已存在返回已有ID)
         """
+        from ..operators import extract_first_operator
+        from ..pruning import extract_fields
+
         conn = self._get_connection()
         cursor = conn.cursor()
 
         expression_sha = self.compute_sha(expression)
         settings_json = json.dumps(settings)
+        fields_json = self._json(sorted(set(fields if fields is not None else extract_fields(expression))))
+        first_operator = first_operator if first_operator is not None else extract_first_operator(expression)
         now = datetime.now().isoformat()
 
         try:
             cursor.execute("""
                 INSERT INTO alpha_expressions
-                    (expression_sha, expression, expression_origin, settings, created_at, updated_at)
-                VALUES (?, ?, ?, ?, ?, ?)
-            """, (expression_sha, expression, expression_origin, settings_json, now, now))
+                    (expression_sha, expression, expression_origin, settings,
+                     batch_id, fields, status, first_operator, created_at, updated_at)
+                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+            """, (expression_sha, expression, expression_origin, settings_json,
+                  batch_id, fields_json, status, first_operator, now, now))
             conn.commit()
             return cursor.lastrowid
         except sqlite3.IntegrityError:
-            if expression_origin:
-                cursor.execute("""
-                    UPDATE alpha_expressions
-                    SET expression_origin = ?, updated_at = ?
-                    WHERE expression_sha = ? AND expression_origin = ''
-                """, (expression_origin, now, expression_sha))
-                conn.commit()
+            # 已存在: 回填 origin(空才填) + batch_id(取最新) + fields(合并) + first_operator(空才填)
+            cursor.execute("""
+                UPDATE alpha_expressions
+                SET expression_origin = CASE WHEN expression_origin = '' THEN ? ELSE expression_origin END,
+                    batch_id = COALESCE(?, batch_id),
+                    fields = ?,
+                    first_operator = CASE WHEN first_operator = '' THEN ? ELSE first_operator END,
+                    updated_at = ?
+                WHERE expression_sha = ?
+            """, (expression_origin, batch_id, fields_json, first_operator, now, expression_sha))
+            conn.commit()
             # 已存在,返回已有ID
             cursor.execute("SELECT id FROM alpha_expressions WHERE expression_sha = ?", (expression_sha,))
             row = cursor.fetchone()
@@ -605,6 +754,10 @@ class AlphaDatabase:
                 expression=row['expression'],
                 expression_origin=row['expression_origin'],
                 settings=row['settings'],
+                batch_id=row['batch_id'],
+                fields=row['fields'],
+                status=row['status'],
+                first_operator=row['first_operator'],
                 created_at=row['created_at'],
                 updated_at=row['updated_at']
             )
@@ -622,8 +775,16 @@ class AlphaDatabase:
         metadata: Optional[Dict] = None,
         status: str = "generated",
         expression_origin: str = "",
+        batch_id: Optional[int] = None,
+        backtest_status: str = "pending",
     ) -> int:
-        """把候选表达式写入现有 alpha_expressions 表，重复表达式幂等处理。"""
+        """把候选表达式写入现有 alpha_expressions 表，重复表达式幂等处理。
+
+        Args:
+            status: settings.status (生成阶段标记, 存 settings JSON)
+            batch_id: 回测批次id (新列)
+            backtest_status: 回测状态 (新列, pending/completed/failed/pruned)
+        """
         settings = {
             "stage": stage,
             "family": family,
@@ -633,10 +794,17 @@ class AlphaDatabase:
             "metadata": metadata or {},
             "status": status,
         }
-        return self.insert_expression(expression, settings, expression_origin=expression_origin)
+        return self.insert_expression(
+            expression, settings,
+            expression_origin=expression_origin,
+            batch_id=batch_id,
+            fields=list(base_fields) if base_fields else None,
+            status=backtest_status,
+        )
 
     def catalog_tasks(
-        self, tasks: List[Any], *, stage: str = "first_order", settings: Optional[Dict] = None
+        self, tasks: List[Any], *, stage: str = "first_order", settings: Optional[Dict] = None,
+        batch_id: Optional[int] = None
     ) -> int:
         """批量登记 Task 到现有 alpha_expressions 表。"""
         count = 0
@@ -650,18 +818,74 @@ class AlphaDatabase:
                 base_fields=list(task.base_fields),
                 metadata=task.meta,
                 expression_origin=task.expression_origin,
+                batch_id=batch_id,
             )
             count += 1
         return count
 
     def sample_catalog_expressions(
-        self, expressions: List[str], *, limit: int = 80, seed: Optional[int] = 42
+        self, expressions: List[str], *, limit: int = 80, seed: Optional[int] = 42,
+        distribution: str = "proportional", per_group: int = 0
     ) -> List[str]:
-        """从本次已写入 alpha_expressions 的表达式中随机抽样。"""
+        """按 first_operator 分层随机抽样(替换原纯随机 shuffle).
+
+        表达式按第一个操作符分组, 组内 seeded shuffle 后抽取, 保证回测样本
+        覆盖不同操作符。可选三种分配方式:
+          - proportional: 每组按表达式数量占比分配 limit
+          - uniform:      每组均分 limit
+          - per_group:    每组固定 per_group 个
+        未填满时从剩余表达式补齐。
+
+        Args:
+            expressions: 候选表达式列表
+            limit: 抽样上限 (<=0 表示全量)
+            seed: 随机种子
+            distribution: 分配方式
+            per_group: distribution="per_group" 时每组抽取数量
+
+        Returns:
+            抽样后的表达式列表
+        """
         import random
-        selected = list(expressions)
-        random.Random(seed).shuffle(selected)
-        return selected if limit <= 0 else selected[:limit]
+        from ..operators import extract_first_operator
+
+        if not expressions or limit <= 0:
+            return list(expressions)
+
+        groups: Dict[str, List[str]] = {}
+        for expr in expressions:
+            groups.setdefault(extract_first_operator(expr), []).append(expr)
+
+        sizes = {op: len(v) for op, v in groups.items()}
+        if distribution == "uniform":
+            per = max(1, limit // max(len(sizes), 1))
+            alloc = {op: min(per, sz) for op, sz in sizes.items()}
+        elif distribution == "per_group":
+            alloc = {op: min(max(per_group, 0), sz) for op, sz in sizes.items()}
+        else:  # proportional
+            total = sum(sizes.values())
+            alloc = {op: (limit * sz) // total for op, sz in sizes.items()}
+            for op in alloc:
+                alloc[op] = min(alloc[op], sizes[op])
+            remaining = limit - sum(alloc.values())
+            for op in sorted(sizes, key=lambda o: (-sizes[o], o)):
+                if remaining <= 0:
+                    break
+                add = min(remaining, sizes[op] - alloc[op])
+                alloc[op] += add
+                remaining -= add
+
+        rng = random.Random(seed)
+        out: List[str] = []
+        for op in sorted(alloc):
+            pool = list(groups[op])
+            rng.shuffle(pool)
+            out.extend(pool[: alloc[op]])
+        if len(out) < limit:  # uniform/per_group 未填满时补齐
+            rest = [e for e in expressions if e not in out]
+            rng.shuffle(rest)
+            out.extend(rest[: limit - len(out)])
+        return out
 
     # ---------------------------------------------------------------------------
     # Alpha详情操作
@@ -693,6 +917,25 @@ class AlphaDatabase:
         )
         conn.commit()
 
+    def update_wf_stage(self, alpha_id: str, wf_stage: str) -> None:
+        """更新 alpha_details 中的系统内阶段 (wf_stage). 非法值抛 ValueError."""
+        if wf_stage not in WF_STAGES:
+            raise ValueError(f"unknown wf_stage: {wf_stage!r} (expected one of {WF_STAGES})")
+        conn = self._get_connection()
+        conn.execute(
+            "UPDATE alpha_details SET wf_stage = ?, updated_at = ? WHERE alpha_id = ?",
+            (wf_stage, datetime.now().isoformat(), alpha_id),
+        )
+        conn.commit()
+
+    def mark_alpha_submitted(self, alpha_id: str) -> None:
+        """标记已提交 (wf_stage='submitted'). 供后续 submit_alpha 接线 / 人工调用."""
+        self.update_wf_stage(alpha_id, "submitted")
+
+    def mark_alpha_failed(self, alpha_id: str) -> None:
+        """标记回测/校验失败 (wf_stage='failed'). 供后续失败校验接线使用."""
+        self.update_wf_stage(alpha_id, "failed")
+
     def _upsert_detail(self, cursor: sqlite3.Cursor, detail: AlphaDetail, now: str) -> None:
         """内部: 插入或更新alpha详情 (upsert, 不提交).
 
@@ -705,9 +948,9 @@ class AlphaDatabase:
                 region, universe, delay, decay, neutralization, truncation,
                 sharpe, fitness, turnover, margin, pnl, returns, drawdown, long_count, short_count,
                 grade, stage_platform, status_platform,
-                sc_result, sc_value, pc_result, pc_value, checks_json,
+                sc_result, sc_value, pc_result, pc_value, checks_json, ra_failed, ppa_failed,
                 created_at, updated_at
-            ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+            ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
             ON CONFLICT(alpha_id) DO UPDATE SET
                 expression_sha=excluded.expression_sha,
                 alpha_sha=excluded.alpha_sha,
@@ -735,6 +978,8 @@ class AlphaDatabase:
                 pc_result=excluded.pc_result,
                 pc_value=excluded.pc_value,
                 checks_json=excluded.checks_json,
+                ra_failed=excluded.ra_failed,
+                ppa_failed=excluded.ppa_failed,
                 updated_at=excluded.updated_at
         """, (
             detail.alpha_id, detail.expression_sha, detail.alpha_sha, detail.expression,
@@ -743,6 +988,7 @@ class AlphaDatabase:
             detail.long_count, detail.short_count,
             detail.grade, detail.stage_platform, detail.status_platform,
             detail.sc_result, detail.sc_value, detail.pc_result, detail.pc_value, detail.checks_json,
+            detail.ra_failed, detail.ppa_failed,
             now, now
         ))
 
@@ -755,10 +1001,17 @@ class AlphaDatabase:
         region: Optional[str] = None,
         stage_platform: Optional[str] = None,
         status: Optional[str] = None,
+        wf_stage: Optional[str] = None,
         limit: int = 100,
         offset: int = 0
     ) -> List[AlphaDetail]:
-        """查询alphas (支持分页)."""
+        """查询alphas (支持分页).
+
+        Args:
+            status: 平台状态 (过滤 status_platform 列, 如 UNSUBMITTED/SUBMITTED)
+            stage_platform: 平台阶段 (IS/OS)
+            wf_stage: 系统内阶段 (pending_validation/validated/submitted/failed/needs_optimization)
+        """
         conn = self._get_connection()
         cursor = conn.cursor()
 
@@ -784,8 +1037,11 @@ class AlphaDatabase:
             conditions.append("stage_platform = ?")
             params.append(stage_platform)
         if status:
-            conditions.append("status = ?")
+            conditions.append("status_platform = ?")
             params.append(status)
+        if wf_stage:
+            conditions.append("wf_stage = ?")
+            params.append(wf_stage)
 
         where_clause = " AND ".join(conditions) if conditions else "1=1"
 
@@ -827,11 +1083,14 @@ class AlphaDatabase:
             grade=row['grade'],
             stage_platform=row['stage_platform'],
             status_platform=row['status_platform'],
+            wf_stage=row['wf_stage'],
             sc_result=row['sc_result'] or "",
             sc_value=row['sc_value'],
             pc_result=row['pc_result'] or "",
             pc_value=row['pc_value'],
             checks_json=row['checks_json'] or "",
+            ra_failed=row['ra_failed'] or 0,
+            ppa_failed=row['ppa_failed'] or 0,
             created_at=row['created_at'],
             updated_at=row['updated_at']
         )
@@ -963,6 +1222,8 @@ class AlphaDatabase:
             alpha_id: 平台alpha_id
             is_dict_or_result: is块或完整结果行
             settings_dict: 回测设置 (可选; 结果行自带 settings 时优先)
+
+        注: 本方法不写 wf_stage; 新行默认 pending_validation, 已存在行保留原阶段。
         """
         conn = self._get_connection()
         cursor = conn.cursor()
@@ -990,6 +1251,9 @@ class AlphaDatabase:
 
         # 2. PC/SC 提取
         sc_value, pc_value, sc_result, pc_result = _extract_pc_sc(is_block, checks)
+
+        # 2b. RA/PPA 失败计数 (复用 evaluation.count_failed_gates, 与 WebDataScope failedNumRA/failedNumPPA 一致)
+        gate = count_failed_gates(checks)
 
         # 3. 构造详情
         detail = AlphaDetail(
@@ -1020,6 +1284,8 @@ class AlphaDatabase:
             pc_result=pc_result,
             pc_value=pc_value,
             checks_json=json.dumps(checks, ensure_ascii=False) if checks else None,
+            ra_failed=gate.failed_ra,
+            ppa_failed=gate.failed_ppa,
         )
 
         # 4. 单事务写入
@@ -1064,6 +1330,7 @@ class AlphaDatabase:
                 # PC/SC + checks
                 checks = is_result.get('checks') or []
                 sc_value, pc_value, sc_result, pc_result = _extract_pc_sc(is_result, checks)
+                gate = count_failed_gates(checks)
 
                 # 构建详情
                 detail = AlphaDetail(
@@ -1092,7 +1359,9 @@ class AlphaDatabase:
                     sc_value=sc_value,
                     pc_result=pc_result,
                     pc_value=pc_value,
-                    checks_json=json.dumps(checks, ensure_ascii=False) if checks else None
+                    checks_json=json.dumps(checks, ensure_ascii=False) if checks else None,
+                    ra_failed=gate.failed_ra,
+                    ppa_failed=gate.failed_ppa,
                 )
 
                 self.insert_alpha_detail(detail)
@@ -1114,10 +1383,252 @@ class AlphaDatabase:
             self.conn.close()
             self.conn = None
 
+    # ---------------------------------------------------------------------------
+    # Datafields 操作 (有信号的数据字段表)
+    # ---------------------------------------------------------------------------
+
+    def upsert_datafield(self, row: Dict[str, Any], *, expression_shas: Optional[List[str]] = None) -> Optional[str]:
+        """把平台原始 datafield 行 upsert 进 datafields 表.
+
+        同一 (field_id, dataset_id, region, delay) 的行合并 universes 与 expression_shas。
+
+        Args:
+            row: fetch_datafields 返回的原始行 (含 id/dataset{id,name}/region/delay/universe/
+                 type/coverage/userCount/alphaCount)
+            expression_shas: 使用该字段的 alpha 表达式 sha (合并累加)
+
+        Returns:
+            field_id; 缺 id 返回 None
+        """
+        field_id = str(row.get("id") or "")
+        if not field_id:
+            return None
+        dataset = row.get("dataset") or {}
+        dataset_id = str(dataset.get("id") or row.get("dataset_id") or "")
+        dataset_name = str(dataset.get("name") or "")
+        region = str(row.get("region") or "")
+        delay = int(row.get("delay") or 1)
+        universe = str(row.get("universe") or "")
+        # 平台 category: 兼容嵌套 dict {id,...} 与字符串
+        cat = row.get("category") or ""
+        category = str(cat.get("id") or "") if isinstance(cat, dict) else str(cat or "")
+        now = self._timestamp()
+        conn = self._get_connection()
+        existing = conn.execute(
+            "SELECT universes_json, expression_shas_json FROM datafields "
+            "WHERE field_id=? AND dataset_id=? AND region=? AND delay=?",
+            (field_id, dataset_id, region, delay),
+        ).fetchone()
+        universes = set(json.loads(existing["universes_json"])) if existing else set()
+        if universe:
+            universes.add(universe)
+        shas = set(json.loads(existing["expression_shas_json"])) if existing else set()
+        shas.update(expression_shas or [])
+        conn.execute("""
+            INSERT INTO datafields (field_id, dataset_id, dataset_name, description, type, region, delay,
+                universes_json, coverage, user_count, alpha_count, category, expression_shas_json,
+                last_fetched_at, created_at, updated_at)
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+            ON CONFLICT(field_id, dataset_id, region, delay) DO UPDATE SET
+                dataset_name=excluded.dataset_name,
+                description=excluded.description,
+                type=excluded.type,
+                universes_json=excluded.universes_json,
+                coverage=excluded.coverage,
+                user_count=excluded.user_count,
+                alpha_count=excluded.alpha_count,
+                category=excluded.category,
+                expression_shas_json=excluded.expression_shas_json,
+                last_fetched_at=excluded.last_fetched_at,
+                updated_at=excluded.updated_at
+        """, (
+            field_id, dataset_id, dataset_name, str(row.get("description") or ""),
+            str(row.get("type") or "MATRIX").upper(), region, delay,
+            self._json(sorted(universes)), _num(row, "coverage") or 0.0,
+            int(_num(row, "userCount") or 0), int(_num(row, "alphaCount") or 0),
+            category, self._json(sorted(shas)), now, now, now,
+        ))
+        conn.commit()
+        return field_id
+
+    def upsert_datafields(self, rows: List[Dict[str, Any]], *,
+                          expression_shas: Optional[List[str]] = None) -> int:
+        """批量 upsert datafield 行."""
+        count = 0
+        for row in rows or []:
+            if self.upsert_datafield(row, expression_shas=expression_shas):
+                count += 1
+        return count
+
+    def get_datafields(self, *, region: Optional[str] = None, dataset_id: str = "",
+                       limit: int = 200) -> List[DataField]:
+        """查询 datafields 表 (支持 region/dataset_id 过滤)."""
+        sql = "SELECT * FROM datafields"
+        params: List[Any] = []
+        conds = []
+        if region:
+            conds.append("region = ?")
+            params.append(region)
+        if dataset_id:
+            conds.append("dataset_id = ?")
+            params.append(dataset_id)
+        if conds:
+            sql += " WHERE " + " AND ".join(conds)
+        sql += " ORDER BY field_id LIMIT ?"
+        params.append(limit)
+        rows = self._get_connection().execute(sql, params).fetchall()
+        out: List[DataField] = []
+        for r in rows:
+            out.append(DataField(
+                field_id=r["field_id"], dataset_id=r["dataset_id"], dataset_name=r["dataset_name"],
+                description=r["description"], type=r["type"], region=r["region"], delay=r["delay"],
+                universes=json.loads(r["universes_json"] or "[]"), coverage=r["coverage"],
+                user_count=r["user_count"], alpha_count=r["alpha_count"], category=r["category"] or "",
+                expression_shas=json.loads(r["expression_shas_json"] or "[]"),
+                last_fetched_at=r["last_fetched_at"], created_at=r["created_at"], updated_at=r["updated_at"],
+            ))
+        return out
+
+    def missing_datafield_candidates(self, *, region: Optional[str] = None,
+                                     delay: Optional[int] = None, limit: int = 200) -> List[str]:
+        """返回已被 alpha 使用、但 datafields 表中缺失的字段id池 (增量采集候选).
+
+        Args:
+            region: 过滤已采集字段的 region (可选)
+            delay: 过滤已采集字段的 delay (可选)
+            limit: 返回上限
+        """
+        rows = self._get_connection().execute(
+            "SELECT fields FROM alpha_expressions WHERE fields IS NOT NULL AND fields != '[]'"
+        ).fetchall()
+        used: set[str] = set()
+        for r in rows:
+            try:
+                used.update(json.loads(r["fields"]))
+            except (json.JSONDecodeError, TypeError):
+                pass
+        if region is not None and delay is not None:
+            have = {r["field_id"] for r in self._get_connection().execute(
+                "SELECT DISTINCT field_id FROM datafields WHERE region=? AND delay=?", (region, delay))}
+        else:
+            have = {r["field_id"] for r in self._get_connection().execute(
+                "SELECT DISTINCT field_id FROM datafields")}
+        return sorted(used - have)[:limit]
+
+    # ---------------------------------------------------------------------------
+    # Template 类库操作
+    # ---------------------------------------------------------------------------
+
+    def upsert_templates(self, templates: Sequence[Template], *, overwrite: bool = False) -> int:
+        """批量 upsert template_library.
+
+        overwrite=False 时 ON CONFLICT(name) DO NOTHING (保留用户编辑, 只填缺失);
+        overwrite=True 时 DO UPDATE 全字段。
+        """
+        now = self._timestamp()
+        conn = self._get_connection()
+        count = 0
+        for tpl in templates:
+            conflict = "DO UPDATE SET " + ", ".join(
+                f"{c}=excluded.{c}" for c in (
+                    "title", "family", "template_type", "expression_template", "template_index",
+                    "fields_per_alpha", "expression_origin", "field_types_json", "categories_json",
+                    "dataset_families_json", "placeholders_json", "group_slots_json", "slot_count",
+                    "description", "rationale", "example_expression", "settings_hint_json",
+                    "field_candidates_json", "operators_used_json", "source_json", "updated_at"))
+            if not overwrite:
+                conflict = "DO NOTHING"
+            cursor = conn.execute(f"""
+                INSERT INTO template_library (
+                    name, title, family, template_type, expression_template, template_index,
+                    fields_per_alpha, expression_origin, field_types_json, categories_json,
+                    dataset_families_json, placeholders_json, group_slots_json, slot_count,
+                    description, rationale, example_expression, settings_hint_json,
+                    field_candidates_json, operators_used_json, source_json, active,
+                    created_at, updated_at)
+                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+                ON CONFLICT(name) {conflict}
+            """, (
+                tpl.name, tpl.title, tpl.family, tpl.template_type, tpl.expression_template,
+                tpl.template_index, tpl.fields_per_alpha, tpl.expression_origin,
+                self._json(tpl.field_types), self._json(tpl.categories), self._json(tpl.dataset_families),
+                self._json(tpl.placeholders), self._json(tpl.group_slots), tpl.slot_count,
+                tpl.description, tpl.rationale, tpl.example_expression, self._json(tpl.settings_hint),
+                self._json(tpl.field_candidates), self._json(tpl.operators_used), self._json(tpl.source),
+                tpl.active, now, now))
+            count += 1
+        conn.commit()
+        return count
+
+    @staticmethod
+    def _row_to_template(row: sqlite3.Row) -> Template:
+        return Template(
+            id=row["id"], name=row["name"], title=row["title"], family=row["family"],
+            template_type=row["template_type"], expression_template=row["expression_template"],
+            template_index=row["template_index"], fields_per_alpha=row["fields_per_alpha"],
+            expression_origin=row["expression_origin"],
+            field_types=json.loads(row["field_types_json"] or "[]"),
+            categories=json.loads(row["categories_json"] or "[]"),
+            dataset_families=json.loads(row["dataset_families_json"] or "[]"),
+            placeholders=json.loads(row["placeholders_json"] or "{}"),
+            group_slots=json.loads(row["group_slots_json"] or "[]"),
+            slot_count=row["slot_count"], description=row["description"], rationale=row["rationale"],
+            example_expression=row["example_expression"],
+            settings_hint=json.loads(row["settings_hint_json"] or "{}"),
+            field_candidates=json.loads(row["field_candidates_json"] or "{}"),
+            operators_used=json.loads(row["operators_used_json"] or "[]"),
+            source=json.loads(row["source_json"] or "{}"),
+            active=row["active"], created_at=row["created_at"], updated_at=row["updated_at"],
+        )
+
+    def list_templates(self, *, active_only: bool = True,
+                       families: Optional[Sequence[str]] = None,
+                       categories: Optional[Sequence[str]] = None,
+                       template_type: Optional[str] = None,
+                       names: Optional[Sequence[str]] = None) -> List[Template]:
+        """查询模板库.
+
+        Args:
+            active_only: 只返回 active=1
+            families: 按 family 过滤 (如 ("unary", "binary"))
+            categories: 按 category 过滤; 语义=返回 categories 为空(=ALL)或与入参有交集的模板
+            template_type: placeholder/fixed 过滤
+            names: 按 name 过滤
+        """
+        sql = "SELECT * FROM template_library WHERE 1=1"
+        params: List[Any] = []
+        if active_only:
+            sql += " AND active=1"
+        if families:
+            sql += " AND family IN ({})".format(",".join("?" * len(families)))
+            params.extend(families)
+        if template_type:
+            sql += " AND template_type=?"
+            params.append(template_type)
+        if names:
+            sql += " AND name IN ({})".format(",".join("?" * len(names)))
+            params.extend(names)
+        rows = self._get_connection().execute(sql + " ORDER BY family, template_index, name", params).fetchall()
+        out = [self._row_to_template(r) for r in rows]
+        if categories:
+            want = set(categories)
+            out = [t for t in out if not t.categories or (want & set(t.categories))]
+        return out
+
+    def seed_template_library(self, *, force: bool = False,
+                              include_knowledge_base: bool = False,
+                              knowledge_base_dir: Optional[str | Path] = None) -> int:
+        """幂等写入 4 族模板种子 (可选含知识库模板)."""
+        from ..template_library import seed_template_library as _seed
+        return _seed(self, force=force, include_knowledge_base=include_knowledge_base,
+                     knowledge_base_dir=knowledge_base_dir)
+
 
 __all__ = [
     "AlphaDatabase",
     "AlphaExpression",
     "AlphaDetail",
+    "DataField",
+    "Template",
     "persist_workflow_row",
 ]

@@ -29,6 +29,7 @@ RUNS = ROOT / "runs"
 
 # 数据库 (无外部依赖, 可直接导入)
 from alpha_operator_framework.database import AlphaDatabase, persist_workflow_row
+from alpha_operator_framework.database.repository import submission_wf_stage
 
 # 延迟导入 (避免循环依赖)
 # 实际使用时需要:
@@ -218,17 +219,19 @@ def cmd_survey(args) -> None:
             dataset_id=args.dataset, search=args.search, data_type=args.type,
             page_delay=page_delay
         ))
-        field_specs = [
-            fields.FieldSpec(
+        field_specs = []
+        for r in field_rows:
+            cat = r.get("category") or ""
+            category = str(cat.get("id") or "") if isinstance(cat, dict) else str(cat or "")
+            field_specs.append(fields.FieldSpec(
                 id=r["id"],
                 dataset_id=r.get("dataset", {}).get("id", ""),
                 type=r.get("type", "MATRIX"),
                 coverage=r.get("coverage", 0.0),
                 user_count=r.get("userCount", 0),
-                alpha_count=r.get("alphaCount", 0)
-            )
-            for r in field_rows
-        ]
+                alpha_count=r.get("alphaCount", 0),
+                category=category,
+            ))
         print(f"  平台字段接口 → {len(field_specs)} 个匹配字段")
 
     # 1.5 基于数据包预筛数据集 (可选)
@@ -266,90 +269,50 @@ def cmd_survey(args) -> None:
         winsorize_std=args.winsorize_std,
         all_combinations=getattr(args, "all_combinations", True),
     )
-    selected_fields = fields.sample_field_specs(field_specs, spec)
-    from alpha_operator_framework.paired_bases import (
-        discover_pair_specs, paired_base_task_factory, paired_field_ids, paired_group_first_order_task_factory,
-        parse_pair_specs,
-    )
-    automatic_pair_specs = discover_pair_specs(field_specs)
-    explicit_pair_specs = parse_pair_specs(getattr(args, "pairs", []))
-    pair_specs = []
-    seen_pair_specs = set()
-    for pair_spec in automatic_pair_specs + explicit_pair_specs:
-        key = (pair_spec.kind, pair_spec.left, pair_spec.right, pair_spec.denominator)
-        if key not in seen_pair_specs:
-            seen_pair_specs.add(key)
-            pair_specs.append(pair_spec)
-    grouped_field_ids = paired_field_ids(pair_specs)
-    ordinary_fields = [field for field in field_specs if field.id not in grouped_field_ids]
-    ordinary_selected_fields = [field for field in selected_fields if field.id not in grouped_field_ids]
-    scalars = fields.sample_scalar_expressions(ordinary_fields, spec)
+
+    # 2. 字段采样
+    ordinary_fields = field_specs  # 新策略系统不需要paired分组
+    scalar_pairs = fields.sample_scalar_field_pairs(ordinary_fields, spec)
+    scalars = [sf.expr for sf in scalar_pairs]
     pairs = fields.sample_pair_combinations(ordinary_fields, spec)
     triples = fields.sample_triple_combinations(ordinary_fields, spec)
 
-    # 3. 构造任务
-    tasks: List = []
-    unary_tasks: List = []
-    unary_template_tasks: List = []
-    first_order_tasks: List = []
-    semantic_pair_tasks: List = []
-    paired_base_tasks: List = []
-    paired_first_order_tasks: List = []
-    if args.unary:
-        # 调查阶段先展开一阶算子，形成表达式后统一进入回测。
-        unary_template_tasks = families.unary_factory(scalars)
-        first_order_tasks = families.economic_first_order_task_factory(
-            ordinary_selected_fields,
-            backfill=args.backfill,
-            winsorize_std=args.winsorize_std,
-            vector_ops=spec.vector_ops,
-        )
-        unary_tasks = unary_template_tasks + first_order_tasks
-        tasks.extend(unary_tasks)
-    if pair_specs:
-        paired_base_tasks = paired_base_task_factory(
-            pair_specs, field_specs,
-            backfill=args.backfill, winsorize_std=args.winsorize_std,
-            vector_ops=spec.vector_ops,
-        )
-        tasks.extend(paired_base_tasks)
-        if args.unary:
-            paired_first_order_tasks = paired_group_first_order_task_factory(paired_base_tasks)
-            tasks.extend(paired_first_order_tasks)
-    if getattr(args, "semantic_pairs", True):
-        from alpha_operator_framework.semantic_pairs import semantic_pair_task_factory
-        semantic_pair_tasks = semantic_pair_task_factory(
-            selected_fields,
-            backfill=args.backfill,
-            winsorize_std=args.winsorize_std,
-        )
-        tasks.extend(semantic_pair_tasks)
-    if args.binary:
-        max_pairs = None if getattr(args, "all_combinations", True) else len(pairs)
-        tasks.extend(families.binary_factory(scalars, max_pairs=max_pairs))
-    if args.ternary:
-        max_triples = None if getattr(args, "all_combinations", True) else len(triples)
-        tasks.extend(families.ternary_factory(scalars, max_triples=max_triples))
-    if args.quaternary and args.groups:
-        tasks.extend(families.quaternary_factory(
-            scalars, args.groups,
-            max_quadruples=None if getattr(args, "all_combinations", True) else len(pairs)
-        ))
-
-    print(f"  构造任务 {len(tasks)} 个 "
-          f"(unary={args.unary} binary={args.binary} ternary={args.ternary} quaternary={args.quaternary})")
-
-    # 4. 一阶表达式全量入目录，再随机抽样回测。
+    # 3. 构造任务 (支持多种策略: multi_stage/template/test/multivariate)
+    from alpha_operator_framework.creation_strategy import create_strategy, CompositeStrategy, CompositeConfig
     catalog_db = AlphaDatabase(RUNS / "alpha_research.db")
-    catalog_count = catalog_db.catalog_tasks(unary_tasks, stage="first_order")
-    catalog_count += catalog_db.catalog_tasks(semantic_pair_tasks, stage="semantic_pair")
-    paired_tasks = paired_base_tasks + paired_first_order_tasks
-    catalog_count += catalog_db.catalog_tasks(paired_tasks, stage="paired_base")
-    other_tasks = [
-        t for t in tasks
-        if t not in unary_tasks and t not in semantic_pair_tasks and t not in paired_tasks
-    ]
-    catalog_count += catalog_db.catalog_tasks(other_tasks, stage="survey")
+
+    # 策略选择 (CLI参数 --strategy)
+    strategy_type = getattr(args, "strategy", "template")  # 默认模板策略
+
+    if strategy_type == "composite":
+        # 组合策略: multi_stage + template
+        strategies = [
+            create_strategy("multi_stage", {"decay": getattr(args, "decay", 6.0)}),
+            create_strategy("template", {
+                "all_combinations": getattr(args, "all_combinations", True),
+                "sample_n": args.sample,
+                "decay": getattr(args, "decay", 6.0),
+                "template_categories": tuple(getattr(args, "template_categories", []) or ()),
+            }),
+        ]
+        strategy = CompositeStrategy(strategies, CompositeConfig(mode="parallel"))
+    else:
+        # 单策略
+        strategy = create_strategy(strategy_type, {
+            "all_combinations": getattr(args, "all_combinations", True),
+            "sample_n": args.sample,
+            "decay": getattr(args, "decay", 6.0),
+            "template_categories": tuple(getattr(args, "template_categories", []) or ()),
+            "test_operators": tuple(getattr(args, "test_operators", []) or ("rank", "quantile")),
+        })
+
+    # 执行策略生成任务
+    tasks = strategy.generate_tasks(scalar_pairs, args.groups or [], templates=catalog_db.list_templates())
+
+    print(f"  构造任务 {len(tasks)} 个 (strategy={strategy_type})")
+
+    # 4. 任务入目录，按策略类型分阶段记录
+    catalog_count = catalog_db.catalog_tasks(tasks, stage=strategy_type)
     sampled_expressions = catalog_db.sample_catalog_expressions(
         [task.expression for task in tasks],
         limit=getattr(args, "backtest_sample", 80),
@@ -501,6 +464,7 @@ def cmd_deepen(args) -> None:
         seed=args.seed
     )
     scalars = fields.sample_scalar_expressions(field_specs, spec)
+    selected_fields = fields.sample_field_specs(field_specs, spec)  # 用于 first_order_raw 重建
 
     # 4. 构造任务
     tasks: List = []
@@ -512,6 +476,13 @@ def cmd_deepen(args) -> None:
             if origin == "first_order":
                 tasks.extend(
                     task for task in families.first_order_task_factory(scalars)
+                    if task.template_index == idx
+                )
+                continue
+            if origin == "first_order_raw":
+                tasks.extend(
+                    task for task in families.raw_first_order_task_factory(
+                        [f.id for f in selected_fields])
                     if task.template_index == idx
                 )
                 continue
@@ -690,7 +661,11 @@ def cmd_submit(args) -> None:
             pc_ok = pc is None or pc.get("result") in ("PASS", "WARNING")
 
             status = "ready" if (sc_ok and pc_ok) else "optimize"
-            db.update_alpha_status(alpha_id, status)
+            db.update_alpha_status(alpha_id, status)  # 保留原 status_platform 行为 (兼容)
+            db.update_wf_stage(alpha_id, submission_wf_stage(
+                sc.get("result") if sc else None,
+                pc.get("result") if pc else None,
+            ))
 
             print(f"  {alpha_id}: SC={sc.get('result') if sc else 'n/a'}"
                   f"  PC={pc.get('result') if pc else 'n/a'}  → {status}")
@@ -754,16 +729,13 @@ def cmd_run_all(args) -> None:
         batch_size=args.batch_size,
         neutralization=args.neutralization,
         sample=args.survey_sample,
-        unary=args.unary,
-        binary=args.binary,
-        ternary=args.ternary,
-        quaternary=args.quaternary,
+        strategy=getattr(args, "strategy", "template"),  # 新策略参数
+        template_categories=args.template_categories,
+        test_operators=getattr(args, "test_operators", ["rank", "quantile"]),
         groups=args.groups,
         fields_file=args.fields_file,
         field_source=args.field_source,
         fields_file_type=args.fields_file_type,
-        semantic_pairs=args.semantic_pairs,
-        pairs=args.pairs,
         backtest_sample=args.backtest_sample,
         top_n=args.top_n,
         prune_fields=args.prune_fields,
@@ -902,7 +874,24 @@ def build_parser() -> argparse.ArgumentParser:
     run_all.add_argument("--survey-sample", type=int, default=80, help="Survey阶段字段池样本数")
     run_all.add_argument("--backtest-sample", type=int, default=0,
                          help="从一阶表达式目录随机抽样回测数量(<=0=全部)")
-    run_all.add_argument("--unary", action="store_true", default=True)
+
+    # 策略相关参数
+    run_all.add_argument("--strategy", choices=["multi_stage", "template", "test", "multivariate", "composite"],
+                         default="template", help="任务生成策略类型")
+    run_all.add_argument("--template-categories", nargs="*", default=None,
+                         help="限制使用的模板/字段 category (如 pv analyst; 默认全匹配)")
+    run_all.add_argument("--test-operators", nargs="*", default=["rank", "quantile"],
+                         help="测试策略使用的算子 (rank quantile winsorize)")
+
+    # 兼容旧参数 (deprecated)
+    run_all.add_argument("--unary", action="store_true", default=True,
+                         help="[DEPRECATED] 策略系统自动处理")
+    run_all.add_argument("--raw-first-order", action="store_false", default=True,
+                         help="[DEPRECATED] 策略系统自动处理")
+    run_all.add_argument("--template-library", action="store_true", default=True,
+                         help="[DEPRECATED] 使用 --strategy template")
+    run_all.add_argument("--no-template-library", action="store_false", dest="template_library",
+                         help="[DEPRECATED] 使用 --strategy multi_stage")
     run_all.add_argument("--binary", action="store_true", default=True)
     run_all.add_argument("--ternary", action="store_true", default=False)
     run_all.add_argument("--quaternary", action="store_true", default=False)
@@ -952,11 +941,29 @@ def build_parser() -> argparse.ArgumentParser:
                         help="从一阶表达式目录随机抽样回测数量(<=0=全部)")
     survey.add_argument("--all-combinations", action="store_true", default=True,
                         help="第一阶段计算已选字段的全部二元/三元/四元组合(默认开启)")
-    survey.add_argument("--unary", action="store_true", default=True)
+    # --- 策略相关参数 ---
+    survey.add_argument("--strategy", choices=["multi_stage", "template", "test", "multivariate", "composite"],
+                         default="template", help="任务生成策略类型")
+    survey.add_argument("--template-categories", nargs="*", default=None,
+                         help="限制使用的模板/字段 category (如 pv analyst; 默认全匹配)")
+    survey.add_argument("--test-operators", nargs="*", default=["rank", "quantile"],
+                         help="测试策略使用的算子 (rank quantile winsorize)")
+
+    # --- 兼容旧参数 (deprecated) ---
+    survey.add_argument("--template-library", action="store_true", default=True,
+                         help="[DEPRECATED] 使用 --strategy template")
+    survey.add_argument("--no-template-library", action="store_false", dest="template_library",
+                         help="[DEPRECATED] 使用 --strategy multi_stage")
+    survey.add_argument("--unary", action="store_true", default=True,
+                         help="[DEPRECATED] 策略系统自动处理")
+    survey.add_argument("--raw-first-order", action="store_false", default=True,
+                         help="[DEPRECATED] 策略系统自动处理")
     survey.add_argument("--binary", action="store_true", default=False,
-                        help="信号筛选后再启用二元分支")
-    survey.add_argument("--ternary", action="store_true", default=False)
-    survey.add_argument("--quaternary", action="store_true", default=False)
+                         help="[DEPRECATED] 策略系统自动处理")
+    survey.add_argument("--ternary", action="store_true", default=False,
+                         help="[DEPRECATED] 策略系统自动处理")
+    survey.add_argument("--quaternary", action="store_true", default=False,
+                         help="[DEPRECATED] 策略系统自动处理")
     survey.add_argument("--groups", nargs="*", default=None, help="GROUP字段列表")
     survey.add_argument("--top-n", type=int, default=3)
     survey.add_argument("--tasks-out", default="survey_tasks.json")

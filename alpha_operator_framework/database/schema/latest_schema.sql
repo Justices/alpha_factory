@@ -1,18 +1,44 @@
--- Fresh SQLite schema snapshot. Version 004. Existing databases use 001--004 migrations.
+-- Fresh SQLite schema snapshot. Version 007. Existing databases use 001--007 migrations.
 CREATE TABLE IF NOT EXISTS schema_version (version TEXT PRIMARY KEY, applied_at TEXT NOT NULL);
 CREATE TABLE IF NOT EXISTS alpha_expressions (
  id INTEGER PRIMARY KEY AUTOINCREMENT, expression_sha TEXT NOT NULL UNIQUE, expression TEXT NOT NULL,
- expression_origin TEXT NOT NULL DEFAULT '', settings TEXT NOT NULL, created_at TEXT NOT NULL, updated_at TEXT NOT NULL);
+ expression_origin TEXT NOT NULL DEFAULT '', settings TEXT NOT NULL, batch_id INTEGER,
+ fields TEXT NOT NULL DEFAULT '[]', status TEXT NOT NULL DEFAULT 'pending' CHECK(status IN ('pending','completed','failed','pruned')),
+ first_operator TEXT NOT NULL DEFAULT '', created_at TEXT NOT NULL, updated_at TEXT NOT NULL);
 CREATE TABLE IF NOT EXISTS alpha_details (
  id INTEGER PRIMARY KEY AUTOINCREMENT, alpha_id TEXT NOT NULL UNIQUE, expression_sha TEXT NOT NULL,
  alpha_sha TEXT NOT NULL DEFAULT '', expression TEXT NOT NULL, region TEXT, universe TEXT, delay INTEGER DEFAULT 1,
  decay REAL DEFAULT 0, neutralization TEXT, truncation REAL DEFAULT 0, sharpe REAL DEFAULT 0, fitness REAL DEFAULT 0,
  turnover REAL DEFAULT 0, margin REAL DEFAULT 0, pnl REAL DEFAULT 0, returns REAL DEFAULT 0, drawdown REAL DEFAULT 0,
  long_count INTEGER DEFAULT 0, short_count INTEGER DEFAULT 0, grade TEXT, stage_platform TEXT, status_platform TEXT,
- sc_result TEXT, sc_value REAL, pc_result TEXT, pc_value REAL, checks_json TEXT, created_at TEXT NOT NULL, updated_at TEXT NOT NULL);
+ wf_stage TEXT NOT NULL DEFAULT 'pending_validation',
+ sc_result TEXT, sc_value REAL, pc_result TEXT, pc_value REAL, checks_json TEXT,
+ ra_failed INTEGER NOT NULL DEFAULT 0, ppa_failed INTEGER NOT NULL DEFAULT 0,
+ created_at TEXT NOT NULL, updated_at TEXT NOT NULL);
 CREATE TABLE IF NOT EXISTS alpha_checks (
  alpha_id TEXT NOT NULL, check_name TEXT NOT NULL, result TEXT, "limit" REAL, value REAL, extra_json TEXT,
  created_at TEXT NOT NULL, updated_at TEXT NOT NULL, PRIMARY KEY(alpha_id, check_name));
+CREATE TABLE IF NOT EXISTS template_library (
+ id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT NOT NULL UNIQUE, title TEXT NOT NULL DEFAULT '',
+ family TEXT NOT NULL DEFAULT '', template_type TEXT NOT NULL DEFAULT 'placeholder',
+ expression_template TEXT NOT NULL, template_index INTEGER NOT NULL DEFAULT 0,
+ fields_per_alpha INTEGER NOT NULL DEFAULT 0, expression_origin TEXT NOT NULL DEFAULT '',
+ field_types_json TEXT NOT NULL DEFAULT '[]', categories_json TEXT NOT NULL DEFAULT '[]',
+ dataset_families_json TEXT NOT NULL DEFAULT '[]', placeholders_json TEXT NOT NULL DEFAULT '{}',
+ group_slots_json TEXT NOT NULL DEFAULT '[]', slot_count INTEGER NOT NULL DEFAULT 0,
+ description TEXT NOT NULL DEFAULT '', rationale TEXT NOT NULL DEFAULT '',
+ example_expression TEXT NOT NULL DEFAULT '', settings_hint_json TEXT NOT NULL DEFAULT '{}',
+ field_candidates_json TEXT NOT NULL DEFAULT '{}', operators_used_json TEXT NOT NULL DEFAULT '[]',
+ source_json TEXT NOT NULL DEFAULT '{}', active INTEGER NOT NULL DEFAULT 1,
+ created_at TEXT NOT NULL, updated_at TEXT NOT NULL);
+CREATE TABLE IF NOT EXISTS datafields (
+ field_id TEXT NOT NULL, dataset_id TEXT NOT NULL DEFAULT '', dataset_name TEXT NOT NULL DEFAULT '',
+ description TEXT NOT NULL DEFAULT '', type TEXT NOT NULL DEFAULT 'MATRIX', region TEXT NOT NULL,
+ delay INTEGER NOT NULL DEFAULT 1, universes_json TEXT NOT NULL DEFAULT '[]', coverage REAL DEFAULT 0.0,
+ user_count INTEGER DEFAULT 0, alpha_count INTEGER DEFAULT 0, category TEXT NOT NULL DEFAULT '',
+ expression_shas_json TEXT NOT NULL DEFAULT '[]',
+ last_fetched_at TEXT, created_at TEXT NOT NULL, updated_at TEXT NOT NULL,
+ PRIMARY KEY (field_id, dataset_id, region, delay));
 CREATE TABLE IF NOT EXISTS simulation_batches (
  id INTEGER PRIMARY KEY AUTOINCREMENT, platform_batch_id TEXT UNIQUE, platform_location TEXT,
  simulation_type TEXT NOT NULL DEFAULT 'REGULAR', status TEXT NOT NULL DEFAULT 'created', settings_json TEXT NOT NULL,
@@ -44,6 +70,7 @@ CREATE INDEX IF NOT EXISTS idx_detail_sha ON alpha_details(expression_sha);
 CREATE INDEX IF NOT EXISTS idx_detail_sharpe ON alpha_details(sharpe);
 CREATE INDEX IF NOT EXISTS idx_detail_fitness ON alpha_details(fitness);
 CREATE INDEX IF NOT EXISTS idx_detail_stage ON alpha_details(stage_platform);
+CREATE INDEX IF NOT EXISTS idx_detail_wf_stage ON alpha_details(wf_stage);
 CREATE INDEX IF NOT EXISTS idx_checks_alpha ON alpha_checks(alpha_id);
 CREATE INDEX IF NOT EXISTS idx_checks_name ON alpha_checks(check_name);
 CREATE INDEX IF NOT EXISTS idx_sim_batch_status ON simulation_batches(status);
@@ -57,3 +84,10 @@ CREATE INDEX IF NOT EXISTS idx_opt_queue_priority ON alpha_optimization_queue(pr
 CREATE INDEX IF NOT EXISTS idx_sub_cand_alpha ON alpha_submission_candidates(alpha_id);
 CREATE INDEX IF NOT EXISTS idx_sub_cand_submitted ON alpha_submission_candidates(is_submitted);
 CREATE INDEX IF NOT EXISTS idx_sub_cand_sharpe ON alpha_submission_candidates(sharpe);
+CREATE INDEX IF NOT EXISTS idx_datafields_region ON datafields(region);
+CREATE INDEX IF NOT EXISTS idx_datafields_dataset ON datafields(dataset_id);
+CREATE INDEX IF NOT EXISTS idx_datafields_type ON datafields(type);
+CREATE INDEX IF NOT EXISTS idx_expr_batch ON alpha_expressions(batch_id);
+CREATE INDEX IF NOT EXISTS idx_expr_status ON alpha_expressions(status);
+CREATE INDEX IF NOT EXISTS idx_tpl_family ON template_library(family);
+CREATE INDEX IF NOT EXISTS idx_tpl_active ON template_library(active);

@@ -10,6 +10,7 @@
 """
 
 from typing import Sequence, List, Tuple
+import re
 
 # ---------------------------------------------------------------------------
 # 算子常量
@@ -28,7 +29,7 @@ ts_ops = [
 # 分组算子 (来自 machine_lib group_factory)
 group_ops = ["group_neutralize", "group_rank", "group_zscore"]
 
-# 向量归约算子 (将 VECTOR 数据字段转换为标量表达式)
+# 向量归约算子 (将 VECTOR 数据字段转换为标量表达式)quantile
 # 顺序与 BRAIN 当前 Vector 分类保持一致，并兼容已有 vec_avg/vec_sum 默认行为。
 vec_ops = [
     "vec_avg",
@@ -280,6 +281,41 @@ def process_datafields(fields_df, vec_ops: Sequence[str] = None) -> List[str]:
     return [f"winsorize(ts_backfill({f}, 120), std=4)" for f in datafields]
 
 
+# ---------------------------------------------------------------------------
+# 操作符提取
+# ---------------------------------------------------------------------------
+
+_FIRST_OP_RE = re.compile(r"([A-Za-z_][A-Za-z0-9_]*)\s*\(")
+
+
+def extract_first_operator(expression: str) -> str:
+    """返回表达式最左侧函数调用名(第一个操作符).
+
+    用于按操作符分组的分层随机抽样: 同一操作符的表达式归为一组。
+
+    Args:
+        expression: alpha表达式, 如 "group_neutralize(ts_rank(close,10),industry)"
+
+    Returns:
+        最左侧函数名; 无函数调用时退化为最左侧标识符; 两者皆无返回 "__none__"
+
+    Example:
+        >>> extract_first_operator("group_neutralize(ts_rank(close,10),industry)")
+        'group_neutralize'
+        >>> extract_first_operator("ts_delta(close,252)/ts_delay(close,252)")
+        'ts_delta'
+        >>> extract_first_operator("")
+        '__none__'
+    """
+    if not expression:
+        return "__none__"
+    m = _FIRST_OP_RE.search(expression)
+    if m:
+        return m.group(1)
+    m2 = re.search(r"[A-Za-z_][A-Za-z0-9_]*", expression)
+    return m2.group(0) if m2 else "__none__"
+
+
 __all__ = [
     # 算子常量
     "basic_ops",
@@ -297,4 +333,5 @@ __all__ = [
     "uses_access_limited_op",
     "get_vec_fields",
     "process_datafields",
+    "extract_first_operator",
 ]

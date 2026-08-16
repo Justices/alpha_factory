@@ -17,7 +17,7 @@ import json
 import random
 from dataclasses import dataclass, field
 from pathlib import Path
-from typing import List, Dict, Any, Optional, Sequence
+from typing import List, Dict, Any, Optional, Sequence, Tuple
 from datetime import datetime
 
 # 项目模块
@@ -81,6 +81,10 @@ class SurveyConfig:
 
     # 模板选择
     include_unary: bool = True
+    include_raw_first_order: bool = True   # 额外生成裸字段一阶 (rank(close) 等)
+    use_template_library: bool = True      # 基于模板类库生成 4 族模板任务
+    template_families: Optional[Tuple[str, ...]] = None  # 模板类库启用族 (None=4 族)
+    template_categories: Optional[Tuple[str, ...]] = None  # category 过滤 (None=全匹配)
     include_binary: bool = False       # 信号筛选后再走二元分支
     include_ternary: bool = False
     include_quaternary: bool = False
@@ -412,6 +416,11 @@ async def run_survey_with_fields(
         if config.include_unary:
             # 调查阶段先展开一阶算子，形成可直接回测的表达式。
             unary_tasks = families.first_order_task_factory(scalars, decay=config.decay)
+            # 裸字段一阶 (可选, 默认开启): 直接作用于原始字段id, 与预处理一阶并存
+            if config.include_raw_first_order:
+                raw_tasks = families.raw_first_order_task_factory(
+                    [f.id for f in selected], decay=config.decay)
+                unary_tasks.extend(raw_tasks)
             tasks.extend(unary_tasks)
 
         if config.include_semantic_pairs:
@@ -422,26 +431,39 @@ async def run_survey_with_fields(
             )
             tasks.extend(semantic_pair_tasks)
 
-        if config.include_binary:
-            if config.all_combinations:
-                # 第一阶段计算所有二元组合，不再按 sample_n 截断。
-                max_pairs = None
-            else:
-                max_pairs = config.sample_n
-            tasks.extend(families.binary_factory(scalars, max_pairs=max_pairs))
-
-        if config.include_ternary:
-            if config.all_combinations:
-                # 第一阶段计算所有三元组合，不再按 sample_n 截断。
-                max_triples = None
-            else:
-                max_triples = config.sample_n
-            tasks.extend(families.ternary_factory(scalars, max_triples=max_triples))
-
-        if config.include_quaternary and config.group_fields:
-            tasks.extend(families.quaternary_factory(
-                scalars, config.group_fields, max_quadruples=None
-            ))
+        # 模板类库策略 (binary/ternary/quaternary); use_template_library=False 回退旧 factory
+        if config.use_template_library:
+            from .database import AlphaDatabase
+            from .template_library import TemplateStrategyConfig, template_creation_strategy
+            scalar_pairs = [
+                fields.ScalarField(expr=e, category=f.category, field_id=f.id)
+                for f in selected for e in fields.preprocess_field(f)
+            ]
+            tpl_db = AlphaDatabase(output_dir / "alpha_research.db")
+            tpl_cfg = TemplateStrategyConfig(
+                families=config.template_families or ("binary", "ternary", "quaternary"),
+                all_combinations=config.all_combinations,
+                sample_n=config.sample_n,
+                decay=config.decay,
+                template_categories=config.template_categories or (),
+            )
+            for fam in ("binary", "ternary", "quaternary"):
+                if getattr(config, f"include_{fam}"):
+                    tpls = tpl_db.list_templates(families=(fam,))
+                    tasks.extend(template_creation_strategy(
+                        tpls, scalar_pairs, config.group_fields or [], tpl_cfg))
+            tpl_db.close()
+        else:
+            if config.include_binary:
+                max_pairs = None if config.all_combinations else config.sample_n
+                tasks.extend(families.binary_factory(scalars, max_pairs=max_pairs))
+            if config.include_ternary:
+                max_triples = None if config.all_combinations else config.sample_n
+                tasks.extend(families.ternary_factory(scalars, max_triples=max_triples))
+            if config.include_quaternary and config.group_fields:
+                tasks.extend(families.quaternary_factory(
+                    scalars, config.group_fields, max_quadruples=None
+                ))
 
         # 3. 一阶表达式全量入目录，再随机抽样回测。
         from .database import AlphaDatabase

@@ -57,6 +57,19 @@ def _as_int(value: Any, default: int = 0) -> int:
         return default
 
 
+def extract_category(row: dict) -> str:
+    """从平台字段原始行提取 category id (兼容嵌套 dict 与 CSV JSON 字符串)."""
+    cat = row.get("category")
+    if isinstance(cat, dict):
+        return str(cat.get("id") or "")
+    if isinstance(cat, str) and cat.strip():
+        parsed = _as_dict(cat)
+        if parsed.get("id"):
+            return str(parsed["id"])
+        return cat
+    return str(cat or "")
+
+
 def read_local_field_rows(path: str | Path) -> List[dict]:
     """读取本地 CSV 或 JSON 数组，返回原始字段对象列表。"""
     file_path = Path(path)
@@ -144,6 +157,7 @@ def load_local_field_specs(
             frequency=str(row.get("frequency") or ""),
             signedness=str(row.get("signedness") or ""),
             scale=str(row.get("scale") or ""),
+            category=extract_category(row),
         ))
     return selected
 
@@ -170,5 +184,5 @@ def load_local_field_directory(
 
 __all__ = [
     "default_dataset_file", "default_fields_directory", "read_local_field_rows", "load_local_field_directory",
-    "load_local_field_specs",
+    "load_local_field_specs", "extract_category",
 ]

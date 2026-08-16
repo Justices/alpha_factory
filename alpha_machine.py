@@ -48,12 +48,16 @@ class QualityGate:
 
 
 def field_from_dict(row: dict[str, Any]) -> FieldSpec:
+    # category 兼容嵌套 dict {"id":...} 与字符串 (平台原始行 category 是嵌套对象)
+    cat = row.get("category") or row.get("category_name") or ""
+    if isinstance(cat, dict):
+        cat = str(cat.get("id") or "")
     return FieldSpec(
         id=str(row["id"]), dataset_id=str(row.get("dataset_id") or row.get("dataset", {}).get("id") or ""),
         type=str(row.get("type") or "MATRIX").upper(), coverage=float(row.get("coverage") or 0),
         user_count=int(row.get("userCount") or row.get("user_count") or 0),
         alpha_count=int(row.get("alphaCount") or row.get("alpha_count") or 0),
-        category=str(row.get("category") or row.get("category_name") or ""),
+        category=str(cat),
         description=str(row.get("description") or ""),
     )
 

@@ -26,6 +26,15 @@ import re
 from dataclasses import dataclass, field
 from typing import Any, Iterable, Sequence, Tuple
 
+from .operators import (
+    ACCESS_LIMITED_OPS,
+    basic_ops,
+    extended_ops,
+    group_ops,
+    ts_ops,
+    vec_ops,
+)
+
 # ---------------------------------------------------------------------------
 # 通用工具 — 与 alpha_machine._metric 同语义 (顶层优先, is 子键兜底)
 # ---------------------------------------------------------------------------
@@ -177,6 +186,35 @@ def extract_field_ids(expression: str) -> frozenset[str]:
     """
     matched = frozenset(_FIELD_RE.findall(expression or ""))
     return matched if matched else frozenset(_NO_FIELD)
+
+
+# 已知算子/关键词黑名单, 用于全标识符扫描时的剔除
+_KNOWN_OPS = frozenset(
+    set(basic_ops) | set(ts_ops) | set(group_ops) | set(vec_ops) | set(extended_ops)
+    | set(ACCESS_LIMITED_OPS)
+    | {"winsorize", "ts_backfill", "densify", "bucket", "s_log_1p", "ts_step",
+       "std", "limit_volume", "rettype", "weight", "range", "if_else"}
+)
+
+
+def extract_fields(expression: str) -> list[str]:
+    """提取表达式用到的底层字段id列表(排序去重).
+
+    优先用 ``extract_field_ids`` (ts_backfill 包裹形态); 解析不到时退化为
+    全标识符扫描并剔除已知算子/关键词。对 ``ts_delta(close,252)/ts_delay(close,252)``
+    这类无包裹表达式也能正确返回字段清单。
+
+    Args:
+        expression: alpha表达式
+
+    Returns:
+        字段id排序去重列表; 空表达式返回 []
+    """
+    matched = extract_field_ids(expression)
+    if matched != frozenset(_NO_FIELD):
+        return sorted(matched)
+    tokens = re.findall(r"[A-Za-z_][A-Za-z0-9_]*", expression or "")
+    return sorted(set(tokens) - _KNOWN_OPS)
 
 
 @dataclass(frozen=True)
@@ -584,6 +622,7 @@ __all__ = [
     # 工具
     "classify_field",
     "extract_field_ids",
+    "extract_fields",
     # 1. 语义剪枝
     "SemanticPruneConfig",
     "semantic_prune_fields",

@@ -44,6 +44,16 @@ class FieldSpec:
     frequency: str = ""              # daily / monthly / quarterly
     signedness: str = ""             # signed / nonnegative / positive
     scale: str = ""                  # level / ratio / bounded / categorical
+    category: str = ""               # 平台字段分类 (analyst/pv/model/fundamental...)
+
+
+@dataclass(frozen=True)
+class ScalarField:
+    """预处理后的标量表达式 + 来源字段元数据 (供模板创建策略按 category 匹配)."""
+
+    expr: str          # 预处理后的标量表达式 (如 winsorize(ts_backfill(close,120),std=4))
+    category: str      # 来源 FieldSpec.category (可能 "")
+    field_id: str      # 来源 FieldSpec.id
 
 
 # ---------------------------------------------------------------------------
@@ -198,6 +208,35 @@ def sample_scalar_expressions(
     return out
 
 
+def sample_scalar_field_pairs(
+    fields: Sequence[FieldSpec],
+    spec: SampleSpec = SampleSpec(),
+) -> List[ScalarField]:
+    """字段池采样 → 预处理标量表达式 + 来源字段元数据.
+
+    与 ``sample_scalar_expressions`` 完全同 seed 同输出(expr 序列一致), 但额外保留
+    来源 FieldSpec 的 category/id, 供模板创建策略按模板 category 匹配字段。
+
+    Args:
+        fields: 字段规格列表
+        spec: 采样规格
+
+    Returns:
+        ScalarField 列表 (expr/category/field_id)
+    """
+    selected_fields = sample_field_specs(fields, spec)
+    out: List[ScalarField] = []
+    for spec_field in selected_fields:
+        for expr in preprocess_field(
+            spec_field,
+            backfill=spec.backfill,
+            winsorize_std=spec.winsorize_std,
+            vector_ops=spec.vector_ops,
+        ):
+            out.append(ScalarField(expr=expr, category=spec_field.category, field_id=spec_field.id))
+    return out
+
+
 def sample_field_specs(
     fields: Sequence[FieldSpec],
     spec: SampleSpec = SampleSpec(),
@@ -285,11 +324,13 @@ def sample_triple_combinations(
 
 __all__ = [
     "FieldSpec",
+    "ScalarField",
     "SampleSpec",
     "preprocess_field",
     "candidate_scalars",
     "sample_field_specs",
     "sample_scalar_expressions",
+    "sample_scalar_field_pairs",
     "sample_pair_combinations",
     "sample_triple_combinations",
 ]

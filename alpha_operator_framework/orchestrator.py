@@ -54,7 +54,7 @@ def _survey_settings(args) -> dict:
 
 def _persist_rows(results: list, settings: dict, stage: str, status: str = "pending") -> int:
     """把结果行批量持久化到数据库, 返回写入条数."""
-    db = AlphaDatabase(RUNS / "alpha_research.db")
+    db = AlphaDatabase()  # 使用默认路径 data/alpha_research.db
     try:
         n = 0
         for row in results:
@@ -99,6 +99,92 @@ def _semantic_prune(field_specs: list, keep_per_category: int) -> list:
         print(f"  语义剪枝: 字段池 {len(field_specs)} → {len(kept)} "
               f"(每类留 {keep_per_category}, 剪掉 {len(pruned)})")
     return kept
+
+
+def _convert_rows_to_specs(field_rows: list) -> list:
+    """将平台字段行转换为 FieldSpec 列表."""
+    from alpha_operator_framework import fields
+    field_specs = []
+    for r in field_rows:
+        cat = r.get("category") or ""
+        category = str(cat.get("id") or "") if isinstance(cat, dict) else str(cat or "")
+        field_specs.append(fields.FieldSpec(
+            id=r["id"],
+            dataset_id=r.get("dataset", {}).get("id", "") if isinstance(r.get("dataset"), dict) else r.get("dataset_id", ""),
+            type=r.get("type", "MATRIX"),
+            coverage=r.get("coverage", 0.0),
+            user_count=r.get("userCount", 0),
+            alpha_count=r.get("alphaCount", 0),
+            category=category,
+            description=r.get("description", ""),
+        ))
+    return field_specs
+
+
+def _fetch_field_specs_from_cache(
+    region: str, universe: str, delay: int,
+    dataset_id: str = "", search: str = "", data_type: str = "",
+    force_refresh: bool = False, page_delay: float = 0.5
+) -> list:
+    """从缓存获取字段（本地优先，平台兜底）."""
+    from alpha_operator_framework.cache import get_datafields
+    field_rows = get_datafields(
+        region=region,
+        universe=universe,
+        delay=delay,
+        dataset_id=dataset_id,
+        search=search,
+        data_type=data_type,
+        force_refresh=force_refresh,
+        page_delay=page_delay,
+    )
+    return _convert_rows_to_specs(field_rows)
+
+
+def _fetch_field_specs_auto(args, fields_file_type: str, root: Path) -> list:
+    """自动模式：本地文件优先，平台缓存兜底."""
+    from alpha_operator_framework.local_fields import (
+        default_dataset_file, default_fields_directory, load_local_field_directory, load_local_field_specs,
+    )
+    from alpha_operator_framework import fields
+
+    # 1. 尝试本地文件
+    local_dir = default_fields_directory(root, args.region, args.delay, args.universe)
+    field_specs = []
+
+    if args.dataset:
+        types = (fields_file_type,) if fields_file_type in ("csv", "json") else ("json", "csv")
+        candidates = [
+            default_dataset_file(root, args.region, args.delay, args.universe, args.dataset, kind)
+            for kind in types
+        ]
+        local_file = next((path for path in candidates if path.is_file()), None)
+        if local_file:
+            field_specs = load_local_field_specs(
+                local_file, file_type=local_file.suffix[1:], region=args.region, universe=args.universe,
+                delay=args.delay, dataset_id=args.dataset, search=args.search, data_type=args.type,
+            )
+    else:
+        if local_dir.is_dir():
+            field_specs = load_local_field_directory(
+                local_dir, file_type=fields_file_type, region=args.region, universe=args.universe,
+                delay=args.delay, dataset_id=args.dataset, search=args.search, data_type=args.type,
+            )
+
+    if field_specs:
+        print(f"  本地字段目录 → {local_dir} ({len(field_specs)} 个匹配字段)")
+        return field_specs
+
+    # 2. 本地无数据，使用缓存（平台兜底）
+    force_refresh = getattr(args, "force_refresh", False)
+    page_delay = getattr(args, "page_delay", 0.5)
+    field_specs = _fetch_field_specs_from_cache(
+        args.region, args.universe, args.delay,
+        dataset_id=args.dataset, search=args.search, data_type=args.type,
+        force_refresh=force_refresh, page_delay=page_delay
+    )
+    print(f"  缓存字段（平台兜底）→ {len(field_specs)} 个匹配字段")
+    return field_specs
 
 
 def write_tasks(tasks: list, path: Path, settings: dict) -> Path:
@@ -164,6 +250,8 @@ def cmd_survey(args) -> None:
     fields_file = getattr(args, "fields_file", None)
     field_source = getattr(args, "field_source", "auto")
     fields_file_type = getattr(args, "fields_file_type", "auto")
+    force_refresh = getattr(args, "force_refresh", False)
+
     if fields_file and field_source == "platform":
         raise ValueError("--fields-file 与 --field-source platform 不能同时使用")
     if fields_file:
@@ -181,7 +269,16 @@ def cmd_survey(args) -> None:
             data_type=args.type,
         )
         print(f"  本地字段{'目录' if field_path.is_dir() else '文件'} → {field_path} ({len(field_specs)} 个匹配字段)")
-    elif field_source != "platform":
+    elif field_source == "platform":
+        # 直接从平台获取（使用缓存）
+        field_specs = _fetch_field_specs_from_cache(
+            args.region, args.universe, args.delay,
+            dataset_id=args.dataset, search=args.search, data_type=args.type,
+            force_refresh=force_refresh
+        )
+        print(f"  平台字段（缓存）→ {len(field_specs)} 个匹配字段")
+    elif field_source == "local":
+        # 仅本地
         from alpha_operator_framework.local_fields import (
             default_dataset_file, default_fields_directory, load_local_field_directory, load_local_field_specs,
         )
@@ -197,42 +294,19 @@ def cmd_survey(args) -> None:
                 local_file, file_type=local_file.suffix[1:], region=args.region, universe=args.universe,
                 delay=args.delay, dataset_id=args.dataset, search=args.search, data_type=args.type,
             ) if local_file else []
-            local_dir = local_file or candidates[0]
         else:
             field_specs = load_local_field_directory(
                 local_dir, file_type=fields_file_type, region=args.region, universe=args.universe,
                 delay=args.delay, dataset_id=args.dataset, search=args.search, data_type=args.type,
             ) if local_dir.is_dir() else []
-        if field_specs:
-            print(f"  默认本地字段目录 → {local_dir} ({len(field_specs)} 个匹配字段)")
-        elif field_source == "local":
+        if not field_specs:
             raise FileNotFoundError(f"本地字段目录不存在或无匹配字段: {local_dir}")
+        print(f"  本地字段目录 → {local_dir} ({len(field_specs)} 个匹配字段)")
     else:
-        field_specs = []
-    if not field_specs:
-        if field_source == "local":
-            raise FileNotFoundError("未找到可用本地字段")
-        import alpha_machine
-        page_delay = getattr(args, 'page_delay', 0.5)
-        field_rows = asyncio.run(alpha_machine.fetch_datafields(
-            args.region, args.universe, args.delay,
-            dataset_id=args.dataset, search=args.search, data_type=args.type,
-            page_delay=page_delay
-        ))
-        field_specs = []
-        for r in field_rows:
-            cat = r.get("category") or ""
-            category = str(cat.get("id") or "") if isinstance(cat, dict) else str(cat or "")
-            field_specs.append(fields.FieldSpec(
-                id=r["id"],
-                dataset_id=r.get("dataset", {}).get("id", ""),
-                type=r.get("type", "MATRIX"),
-                coverage=r.get("coverage", 0.0),
-                user_count=r.get("userCount", 0),
-                alpha_count=r.get("alphaCount", 0),
-                category=category,
-            ))
-        print(f"  平台字段接口 → {len(field_specs)} 个匹配字段")
+        # auto: 本地缓存优先，平台兜底
+        field_specs = _fetch_field_specs_auto(
+            args, fields_file_type, ROOT
+        )
 
     # 1.5 基于数据包预筛数据集 (可选)
     use_datapack = getattr(args, 'use_datapack', None)
@@ -279,7 +353,7 @@ def cmd_survey(args) -> None:
 
     # 3. 构造任务 (支持多种策略: multi_stage/template/test/multivariate)
     from alpha_operator_framework.creation_strategy import create_strategy, CompositeStrategy, CompositeConfig
-    catalog_db = AlphaDatabase(RUNS / "alpha_research.db")
+    catalog_db = AlphaDatabase()  # 使用默认路径 data/alpha_research.db
 
     # 策略选择 (CLI参数 --strategy)
     strategy_type = getattr(args, "strategy", "template")  # 默认模板策略
@@ -298,13 +372,16 @@ def cmd_survey(args) -> None:
         strategy = CompositeStrategy(strategies, CompositeConfig(mode="parallel"))
     else:
         # 单策略
-        strategy = create_strategy(strategy_type, {
+        config_dict = {
             "all_combinations": getattr(args, "all_combinations", True),
             "sample_n": args.sample,
             "decay": getattr(args, "decay", 6.0),
             "template_categories": tuple(getattr(args, "template_categories", []) or ()),
-            "test_operators": tuple(getattr(args, "test_operators", []) or ("rank", "quantile")),
-        })
+        }
+        # test_operators 仅适用于 test 策略
+        if strategy_type == "test":
+            config_dict["test_operators"] = tuple(getattr(args, "test_operators", []) or ("rank", "quantile"))
+        strategy = create_strategy(strategy_type, config_dict)
 
     # 执行策略生成任务
     tasks = strategy.generate_tasks(scalar_pairs, args.groups or [], templates=catalog_db.list_templates())
@@ -313,10 +390,13 @@ def cmd_survey(args) -> None:
 
     # 4. 任务入目录，按策略类型分阶段记录
     catalog_count = catalog_db.catalog_tasks(tasks, stage=strategy_type)
+    is_glb = args.region.upper() == "GLB"
     sampled_expressions = catalog_db.sample_catalog_expressions(
         [task.expression for task in tasks],
         limit=getattr(args, "backtest_sample", 80),
         seed=args.seed,
+        base_fields_list=[list(task.base_fields) if task.base_fields else [] for task in tasks],
+        is_glb=is_glb,
     )
     sampled_set = set(sampled_expressions)
     sampled_tasks = [t for t in tasks if t.expression in sampled_set]
@@ -341,7 +421,7 @@ def cmd_survey(args) -> None:
         print("  [DRY RUN] 未模拟。加 --execute 消耗回测额度")
         return
 
-    # 6. 模拟
+    # 6. 模拟 (顺序执行批次，等待每批完成后再继续)
     import alpha_machine
     results = asyncio.run(alpha_machine.simulate(
         [t.to_sim_dict() for t in sampled_tasks],
@@ -351,7 +431,10 @@ def cmd_survey(args) -> None:
             delay=args.delay,
             batch_size=args.batch_size,
             neutralization=args.neutralization
-        )
+        ),
+        wait_for_completion=True,
+        poll_interval=getattr(args, "poll_interval", 5.0),
+        max_wait=getattr(args, "max_wait", 600.0),
     ))
 
     # 7. 回填元数据
@@ -373,7 +456,7 @@ def cmd_survey(args) -> None:
 
     # 8.5 持久化到数据库 (survey)
     n = _persist_rows(results, _survey_settings(args), stage="survey", status="pending")
-    print(f"  db ← {n} 条 survey 结果 ({RUNS / 'alpha_research.db'})")
+    print(f"  db ← {n} 条 survey 结果 (data/alpha_research.db)")
 
     # 9. 计算密度
     from alpha_operator_framework.density import compute_density, write_report, top_templates
@@ -512,11 +595,14 @@ def cmd_deepen(args) -> None:
         print("  [DRY RUN] 未模拟。加 --execute 消耗回测额度")
         return
 
-    # 6. 模拟
+    # 6. 模拟 (顺序执行批次，等待每批完成后再继续)
     import alpha_machine
     results = asyncio.run(alpha_machine.simulate(
         [t.to_sim_dict() for t in tasks],
-        _ns(region=args.region, universe=args.universe, delay=args.delay)
+        _ns(region=args.region, universe=args.universe, delay=args.delay),
+        wait_for_completion=True,
+        poll_interval=getattr(args, "poll_interval", 5.0),
+        max_wait=getattr(args, "max_wait", 600.0),
     ))
 
     # 7. 质量门筛选
@@ -556,7 +642,7 @@ def cmd_deepen(args) -> None:
     settings = _survey_settings(args)
     n_kept = _persist_rows(kept, settings, stage="deepen", status="kept")
     n_rejected = _persist_rows(rejected, settings, stage="deepen", status="rejected")
-    print(f"  db ← {n_kept} kept + {n_rejected} rejected ({RUNS / 'alpha_research.db'})")
+    print(f"  db ← {n_kept} kept + {n_rejected} rejected (data/alpha_research.db)")
 
 
 # ---------------------------------------------------------------------------
@@ -644,7 +730,7 @@ def cmd_submit(args) -> None:
         return
 
     # 数据库: 刷新 checks 并判断 SC/PC 是否通过 (本地读操作, dry-run 也可执行)
-    db = AlphaDatabase(RUNS / "alpha_research.db")
+    db = AlphaDatabase()  # 使用默认路径 data/alpha_research.db
     try:
         for row in kept:
             alpha_id = row.get("alpha_id")
@@ -680,7 +766,7 @@ def cmd_submit(args) -> None:
     # 触发check
     print(f"\n  触发 trigger_submission_checks for {len(alpha_ids)} 个 alpha (仅 check, 不自动 submit)...")
     # TODO: 调用 trigger_submission_checks.py
-    # subprocess.run([str(TRIGGER_CHECK), "--db", str(RUNS / "alpha_research.db")] + alpha_ids)
+    # subprocess.run([str(TRIGGER_CHECK), "--db", "data/alpha_research.db"] + alpha_ids)
 
 
 def cmd_run_all(args) -> None:
@@ -846,6 +932,10 @@ def build_parser() -> argparse.ArgumentParser:
                        help="字段来源：auto=本地目录优先后平台，local=仅本地，platform=仅平台")
         p.add_argument("--fields-file-type", choices=["auto", "csv", "json"], default="auto",
                        help="本地目录读取的文件类型；指定 --fields-file 时也用于声明预期格式")
+        p.add_argument("--force-refresh", action="store_true",
+                       help="强制刷新缓存，重新从平台获取数据")
+        p.add_argument("--page-delay", type=float, default=0.5,
+                       help="平台翻页间隔(秒)，防429")
         p.add_argument("--min-coverage", type=float, default=0.0)
         p.add_argument("--seed", type=int, default=42)
         p.add_argument("--backfill", type=int, default=120)
@@ -859,6 +949,10 @@ def build_parser() -> argparse.ArgumentParser:
         p.add_argument("--prune-fields", type=int, default=0,
                        help="语义剪枝: 每语义类保留字段代表数(0=关)")
         p.add_argument("--execute", action="store_true", help="实际消耗额度(默认dry-run)")
+        p.add_argument("--poll-interval", type=float, default=5.0,
+                       help="批次轮询间隔(秒)")
+        p.add_argument("--max-wait", type=float, default=600.0,
+                       help="每批次最大等待时间(秒)")
 
         if simulate_default:
             p.add_argument("--batch-size", type=int, default=8)
@@ -919,8 +1013,6 @@ def build_parser() -> argparse.ArgumentParser:
                          help="拉取已提交alpha数量用于SC计算 (默认100)")
     run_all.add_argument("--prune-corr", action="store_true",
                          help="提交前做相关性剪枝(拉PnL去重, 只读不耗额度)")
-    run_all.add_argument("--page-delay", type=float, default=0.5,
-                         help="翻页请求间隔秒数 (默认0.5s, 防止429限流)")
     run_all.add_argument("--use-datapack", default="runs/WebData_20260219_V0.10.9.zip",
                          help="使用本地数据包预筛数据集 (默认: runs/WebData_20260219_V0.10.9.zip)")
     run_all.add_argument("--datapack-dataset-mode", default="sweet_spot",
@@ -969,8 +1061,6 @@ def build_parser() -> argparse.ArgumentParser:
     survey.add_argument("--tasks-out", default="survey_tasks.json")
     survey.add_argument("--results-out", default="survey_results.json")
     survey.add_argument("--density-out", default="survey_density.json")
-    survey.add_argument("--page-delay", type=float, default=0.5,
-                        help="翻页请求间隔秒数 (默认0.5s, 防止429限流)")
     survey.add_argument("--use-datapack", default=None,
                         help="使用本地数据包预筛数据集 (如: runs/WebData_20260219_V0.10.9.zip)")
     survey.add_argument("--datapack-dataset-mode", default="sweet_spot",
@@ -995,8 +1085,6 @@ def build_parser() -> argparse.ArgumentParser:
     deepen.add_argument("--kept-out", default="deepen_kept.json")
     deepen.add_argument("--prune-per-field", type=int, default=0,
                         help="同字段top-k剪枝: 每字段保留alpha数(0=关)")
-    deepen.add_argument("--page-delay", type=float, default=0.5,
-                        help="翻页请求间隔秒数 (默认0.5s, 防止429限流)")
     deepen.set_defaults(func=cmd_deepen)
 
     # submit子命令

@@ -269,8 +269,22 @@ async def fetch_datafields(region: str, universe: str, delay: int, dataset_id: s
     return rows
 
 
-async def simulate(tasks: Sequence[dict[str, Any]], args: argparse.Namespace) -> list[dict[str, Any]]:
-    """Submit durable batches and return their persisted identities without waiting."""
+async def simulate(tasks: Sequence[dict[str, Any]], args: argparse.Namespace,
+                    wait_for_completion: bool = False,
+                    poll_interval: float = 5.0,
+                    max_wait: float = 600.0) -> list[dict[str, Any]]:
+    """Submit durable batches and optionally wait for completion.
+
+    Args:
+        tasks: List of {expression, decay} dicts
+        args: Namespace with region/universe/delay/batch_size etc.
+        wait_for_completion: If True, poll each batch until complete before next
+        poll_interval: Seconds between polls when waiting
+        max_wait: Maximum seconds to wait per batch
+
+    Returns:
+        List of result dicts (with alpha_id/sharpe/fitness if waited)
+    """
     from alpha_operator_framework.database import AlphaDatabase
     from alpha_operator_framework.simulation_tracker import SimulationTracker
     from cnhkmcp.untracked.platform_functions import brain_client
@@ -278,6 +292,7 @@ async def simulate(tasks: Sequence[dict[str, Any]], args: argparse.Namespace) ->
     results: list[dict[str, Any]] = []
     by_decay: dict[float, list[dict[str, Any]]] = {}
     for task in tasks: by_decay.setdefault(float(task["decay"]), []).append(task)
+
     for decay, items in by_decay.items():
         for start in range(0, len(items), args.batch_size):
             batch = items[start:start + args.batch_size]
@@ -316,11 +331,51 @@ async def simulate(tasks: Sequence[dict[str, Any]], args: argparse.Namespace) ->
 
                 tracker = SimulationTracker(db, submit=submit, fetch=fetch, detail=detail)
                 batch_id = tracker.submit(batch, settings)
-                results.append({"simulation_batch_id": batch_id, "status": "submitted",
-                                "requested_count": len(batch)})
+
+                if wait_for_completion:
+                    # 等待批次完成
+                    batch_result = await _wait_for_batch(
+                        tracker, batch_id, db,
+                        poll_interval=poll_interval,
+                        max_wait=max_wait
+                    )
+                    results.extend(batch_result)
+                else:
+                    results.append({"simulation_batch_id": batch_id, "status": "submitted",
+                                    "requested_count": len(batch)})
             finally:
                 db.close()
     return results
+
+
+async def _wait_for_batch(tracker, batch_id: int, db,
+                          poll_interval: float = 5.0,
+                          max_wait: float = 600.0) -> list[dict[str, Any]]:
+    """轮询等待批次完成，返回结果列表."""
+    import asyncio
+    import time
+
+    start_time = time.time()
+    while True:
+        elapsed = time.time() - start_time
+        if elapsed > max_wait:
+            # 超时，返回当前状态
+            batch = tracker.poll(batch_id)
+            return db.get_simulation_results(batch_id) or [{"batch_id": batch_id, "status": "timeout"}]
+
+        batch = tracker.poll(batch_id)
+        status = batch.get("status", "") if batch else ""
+
+        if status in ("COMPLETED", "DONE", "completed"):
+            # 批次完成，返回结果
+            results = db.get_simulation_results(batch_id)
+            return results if results else [{"batch_id": batch_id, "status": "completed", "alpha_count": 0}]
+
+        if status in ("FAILED", "ERROR", "failed", "error"):
+            return [{"batch_id": batch_id, "status": "failed"}]
+
+        # 未完成，等待后继续轮询
+        await asyncio.sleep(poll_interval)
 
 
 async def poll_simulation_batch(batch_id: int, database: Path = DEFAULT_DATABASE_PATH) -> dict[str, Any]:

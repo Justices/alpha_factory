@@ -13,6 +13,7 @@
 import sqlite3
 import json
 import hashlib
+import random
 from pathlib import Path
 from datetime import datetime
 from typing import List, Dict, Any, Optional, Tuple, Sequence
@@ -130,13 +131,16 @@ def persist_workflow_row(
 class AlphaDatabase:
     """Alpha数据库管理器."""
 
-    def __init__(self, db_path: str = "alpha_research.db"):
+    # 默认数据库路径: 项目根目录/data/alpha_research.db
+    DEFAULT_DB_PATH = Path(__file__).resolve().parents[2] / "data" / "alpha_research.db"
+
+    def __init__(self, db_path: Optional[str] = None):
         """初始化数据库.
 
         Args:
-            db_path: 数据库文件路径
+            db_path: 数据库文件路径，默认使用 data/alpha_research.db
         """
-        self.db_path = Path(db_path)
+        self.db_path = Path(db_path) if db_path else self.DEFAULT_DB_PATH
         self.db_path.parent.mkdir(parents=True, exist_ok=True)
         self.conn = None
         self._init_database()
@@ -825,23 +829,36 @@ class AlphaDatabase:
 
     def sample_catalog_expressions(
         self, expressions: List[str], *, limit: int = 80, seed: Optional[int] = 42,
-        distribution: str = "proportional", per_group: int = 0
+        distribution: str = "proportional", per_group: int = 0,
+        batch_ids: Optional[List[int]] = None,
+        base_fields_list: Optional[List[List[str]]] = None,
+        max_per_batch: int = 8,
+        max_per_batch_glb: int = 4,
+        is_glb: bool = False
     ) -> List[str]:
-        """按 first_operator 分层随机抽样(替换原纯随机 shuffle).
+        """分层随机抽样: 批次 → 字段/表达式 → 随机选定.
 
-        表达式按第一个操作符分组, 组内 seeded shuffle 后抽取, 保证回测样本
-        覆盖不同操作符。可选三种分配方式:
-          - proportional: 每组按表达式数量占比分配 limit
-          - uniform:      每组均分 limit
-          - per_group:    每组固定 per_group 个
-        未填满时从剩余表达式补齐。
+        抽样策略:
+          1. 先按批次(batch_id)分组，保证每个批次有代表性
+          2. 批次内按字段组合(base_fields)分组，保证字段多样性
+          3. 字段组内按表达式分组(或直接随机)
+          4. 最终从每组随机选定，填满 limit
+
+        批次回测上限:
+          - 普通地区: 每批最多 max_per_batch (默认8)
+          - GLB: 每批最多 max_per_batch_glb (默认4)
 
         Args:
             expressions: 候选表达式列表
             limit: 抽样上限 (<=0 表示全量)
             seed: 随机种子
-            distribution: 分配方式
+            distribution: 批次内分配方式 (proportional/uniform/per_group)
             per_group: distribution="per_group" 时每组抽取数量
+            batch_ids: 对应每个表达式的批次ID列表(可选)
+            base_fields_list: 对应每个表达式的字段列表(可选)
+            max_per_batch: 普通地区每批回测上限
+            max_per_batch_glb: GLB每批回测上限
+            is_glb: 是否为GLB地区
 
         Returns:
             抽样后的表达式列表
@@ -852,10 +869,123 @@ class AlphaDatabase:
         if not expressions or limit <= 0:
             return list(expressions)
 
-        groups: Dict[str, List[str]] = {}
-        for expr in expressions:
-            groups.setdefault(extract_first_operator(expr), []).append(expr)
+        rng = random.Random(seed)
+        batch_cap = max_per_batch_glb if is_glb else max_per_batch
 
+        # 无批次/字段信息时，退化为按 first_operator 分组
+        if not batch_ids and not base_fields_list:
+            groups: Dict[str, List[str]] = {}
+            for expr in expressions:
+                groups.setdefault(extract_first_operator(expr), []).append(expr)
+            return self._sample_from_groups(groups, limit, distribution, per_group, rng)
+
+        # 构建索引: expression → (batch_id, base_fields)
+        expr_meta: Dict[str, Tuple[Optional[int], Tuple[str, ...]]] = {}
+        for i, expr in enumerate(expressions):
+            bid = batch_ids[i] if batch_ids and i < len(batch_ids) else None
+            fields = tuple(sorted(base_fields_list[i])) if base_fields_list and i < len(base_fields_list) else ()
+            expr_meta[expr] = (bid, fields)
+
+        # 第一层: 按批次分组
+        by_batch: Dict[Optional[int], List[str]] = {}
+        for expr in expressions:
+            bid = expr_meta[expr][0]
+            by_batch.setdefault(bid, []).append(expr)
+
+        # 每个批次分配的配额 (受 batch_cap 限制)
+        n_batches = len(by_batch)
+        batch_alloc: Dict[Optional[int], int] = {}
+        if distribution == "uniform":
+            per_batch = max(1, limit // max(n_batches, 1))
+            for bid in by_batch:
+                batch_alloc[bid] = min(per_batch, len(by_batch[bid]), batch_cap)
+        else:  # proportional
+            total = len(expressions)
+            for bid, items in by_batch.items():
+                batch_alloc[bid] = min((limit * len(items)) // max(total, 1), len(items), batch_cap)
+
+        # 填满 limit (但不超过 batch_cap)
+        allocated = sum(batch_alloc.values())
+        if allocated < limit:
+            remaining = limit - allocated
+            for bid in sorted(by_batch, key=lambda b: -len(by_batch.get(b, []))):
+                if remaining <= 0:
+                    break
+                current = batch_alloc.get(bid, 0)
+                add = min(remaining, len(by_batch[bid]) - current, batch_cap - current)
+                if add > 0:
+                    batch_alloc[bid] = current + add
+                    remaining -= add
+
+        # 第二层: 批次内按字段组合分组
+        out: List[str] = []
+        for bid, batch_exprs in by_batch.items():
+            batch_limit = batch_alloc.get(bid, 0)
+            if batch_limit <= 0:
+                continue
+
+            # 按字段组合分组
+            by_fields: Dict[Tuple[str, ...], List[str]] = {}
+            for expr in batch_exprs:
+                fields_key = expr_meta[expr][1]
+                by_fields.setdefault(fields_key, []).append(expr)
+
+            # 字段组内分配配额
+            n_fields_groups = len(by_fields)
+            if n_fields_groups == 0:
+                continue
+
+            fields_alloc: Dict[Tuple[str, ...], int] = {}
+            if distribution == "uniform":
+                per_fg = max(1, batch_limit // max(n_fields_groups, 1))
+                for fk in by_fields:
+                    fields_alloc[fk] = min(per_fg, len(by_fields[fk]))
+            else:
+                batch_total = len(batch_exprs)
+                for fk, items in by_fields.items():
+                    fields_alloc[fk] = min((batch_limit * len(items)) // max(batch_total, 1), len(items))
+
+            # 填满批次配额
+            allocated_fg = sum(fields_alloc.values())
+            if allocated_fg < batch_limit:
+                remaining = batch_limit - allocated_fg
+                for fk in sorted(by_fields, key=lambda f: -len(by_fields.get(f, []))):
+                    if remaining <= 0:
+                        break
+                    add = min(remaining, len(by_fields[fk]) - fields_alloc.get(fk, 0))
+                    fields_alloc[fk] = fields_alloc.get(fk, 0) + add
+                    remaining -= add
+
+            # 第三层: 字段组内随机选取
+            for fk in sorted(fields_alloc):
+                pool = list(by_fields[fk])
+                rng.shuffle(pool)
+                out.extend(pool[: fields_alloc[fk]])
+
+        # 未填满时从剩余表达式补齐 (注意不超过 batch_cap)
+        if len(out) < limit:
+            rest = [e for e in expressions if e not in out]
+            rng.shuffle(rest)
+            # 按批次计数，确保不超过 batch_cap
+            batch_counts: Dict[Optional[int], int] = {}
+            for e in out:
+                bid = expr_meta[e][0]
+                batch_counts[bid] = batch_counts.get(bid, 0) + 1
+            for e in rest:
+                if len(out) >= limit:
+                    break
+                bid = expr_meta[e][0]
+                if batch_counts.get(bid, 0) < batch_cap:
+                    out.append(e)
+                    batch_counts[bid] = batch_counts.get(bid, 0) + 1
+
+        return out
+
+    def _sample_from_groups(
+        self, groups: Dict[str, List[str]], limit: int,
+        distribution: str, per_group: int, rng: random.Random
+    ) -> List[str]:
+        """从分组中抽样(原逻辑,供无批次信息时使用)."""
         sizes = {op: len(v) for op, v in groups.items()}
         if distribution == "uniform":
             per = max(1, limit // max(len(sizes), 1))
@@ -875,14 +1005,13 @@ class AlphaDatabase:
                 alloc[op] += add
                 remaining -= add
 
-        rng = random.Random(seed)
         out: List[str] = []
         for op in sorted(alloc):
             pool = list(groups[op])
             rng.shuffle(pool)
             out.extend(pool[: alloc[op]])
-        if len(out) < limit:  # uniform/per_group 未填满时补齐
-            rest = [e for e in expressions if e not in out]
+        if len(out) < limit:
+            rest = [e for e in groups.get("__all__", []) if e not in out]
             rng.shuffle(rest)
             out.extend(rest[: limit - len(out)])
         return out

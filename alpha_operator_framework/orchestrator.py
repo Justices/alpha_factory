@@ -54,7 +54,7 @@ def _survey_settings(args) -> dict:
 
 def _persist_rows(results: list, settings: dict, stage: str, status: str = "pending") -> int:
     """把结果行批量持久化到数据库, 返回写入条数."""
-    db = AlphaDatabase(RUNS / "alpha_research.db")
+    db = AlphaDatabase()  # 使用默认路径 data/alpha_research.db
     try:
         n = 0
         for row in results:
@@ -279,7 +279,7 @@ def cmd_survey(args) -> None:
 
     # 3. 构造任务 (支持多种策略: multi_stage/template/test/multivariate)
     from alpha_operator_framework.creation_strategy import create_strategy, CompositeStrategy, CompositeConfig
-    catalog_db = AlphaDatabase(RUNS / "alpha_research.db")
+    catalog_db = AlphaDatabase()  # 使用默认路径 data/alpha_research.db
 
     # 策略选择 (CLI参数 --strategy)
     strategy_type = getattr(args, "strategy", "template")  # 默认模板策略
@@ -313,10 +313,13 @@ def cmd_survey(args) -> None:
 
     # 4. 任务入目录，按策略类型分阶段记录
     catalog_count = catalog_db.catalog_tasks(tasks, stage=strategy_type)
+    is_glb = args.region.upper() == "GLB"
     sampled_expressions = catalog_db.sample_catalog_expressions(
         [task.expression for task in tasks],
         limit=getattr(args, "backtest_sample", 80),
         seed=args.seed,
+        base_fields_list=[list(task.base_fields) if task.base_fields else [] for task in tasks],
+        is_glb=is_glb,
     )
     sampled_set = set(sampled_expressions)
     sampled_tasks = [t for t in tasks if t.expression in sampled_set]
@@ -341,7 +344,7 @@ def cmd_survey(args) -> None:
         print("  [DRY RUN] 未模拟。加 --execute 消耗回测额度")
         return
 
-    # 6. 模拟
+    # 6. 模拟 (顺序执行批次，等待每批完成后再继续)
     import alpha_machine
     results = asyncio.run(alpha_machine.simulate(
         [t.to_sim_dict() for t in sampled_tasks],
@@ -351,7 +354,10 @@ def cmd_survey(args) -> None:
             delay=args.delay,
             batch_size=args.batch_size,
             neutralization=args.neutralization
-        )
+        ),
+        wait_for_completion=True,
+        poll_interval=getattr(args, "poll_interval", 5.0),
+        max_wait=getattr(args, "max_wait", 600.0),
     ))
 
     # 7. 回填元数据
@@ -373,7 +379,7 @@ def cmd_survey(args) -> None:
 
     # 8.5 持久化到数据库 (survey)
     n = _persist_rows(results, _survey_settings(args), stage="survey", status="pending")
-    print(f"  db ← {n} 条 survey 结果 ({RUNS / 'alpha_research.db'})")
+    print(f"  db ← {n} 条 survey 结果 (data/alpha_research.db)")
 
     # 9. 计算密度
     from alpha_operator_framework.density import compute_density, write_report, top_templates
@@ -512,11 +518,14 @@ def cmd_deepen(args) -> None:
         print("  [DRY RUN] 未模拟。加 --execute 消耗回测额度")
         return
 
-    # 6. 模拟
+    # 6. 模拟 (顺序执行批次，等待每批完成后再继续)
     import alpha_machine
     results = asyncio.run(alpha_machine.simulate(
         [t.to_sim_dict() for t in tasks],
-        _ns(region=args.region, universe=args.universe, delay=args.delay)
+        _ns(region=args.region, universe=args.universe, delay=args.delay),
+        wait_for_completion=True,
+        poll_interval=getattr(args, "poll_interval", 5.0),
+        max_wait=getattr(args, "max_wait", 600.0),
     ))
 
     # 7. 质量门筛选
@@ -556,7 +565,7 @@ def cmd_deepen(args) -> None:
     settings = _survey_settings(args)
     n_kept = _persist_rows(kept, settings, stage="deepen", status="kept")
     n_rejected = _persist_rows(rejected, settings, stage="deepen", status="rejected")
-    print(f"  db ← {n_kept} kept + {n_rejected} rejected ({RUNS / 'alpha_research.db'})")
+    print(f"  db ← {n_kept} kept + {n_rejected} rejected (data/alpha_research.db)")
 
 
 # ---------------------------------------------------------------------------
@@ -644,7 +653,7 @@ def cmd_submit(args) -> None:
         return
 
     # 数据库: 刷新 checks 并判断 SC/PC 是否通过 (本地读操作, dry-run 也可执行)
-    db = AlphaDatabase(RUNS / "alpha_research.db")
+    db = AlphaDatabase()  # 使用默认路径 data/alpha_research.db
     try:
         for row in kept:
             alpha_id = row.get("alpha_id")
@@ -680,7 +689,7 @@ def cmd_submit(args) -> None:
     # 触发check
     print(f"\n  触发 trigger_submission_checks for {len(alpha_ids)} 个 alpha (仅 check, 不自动 submit)...")
     # TODO: 调用 trigger_submission_checks.py
-    # subprocess.run([str(TRIGGER_CHECK), "--db", str(RUNS / "alpha_research.db")] + alpha_ids)
+    # subprocess.run([str(TRIGGER_CHECK), "--db", "data/alpha_research.db"] + alpha_ids)
 
 
 def cmd_run_all(args) -> None:
@@ -859,6 +868,10 @@ def build_parser() -> argparse.ArgumentParser:
         p.add_argument("--prune-fields", type=int, default=0,
                        help="语义剪枝: 每语义类保留字段代表数(0=关)")
         p.add_argument("--execute", action="store_true", help="实际消耗额度(默认dry-run)")
+        p.add_argument("--poll-interval", type=float, default=5.0,
+                       help="批次轮询间隔(秒)")
+        p.add_argument("--max-wait", type=float, default=600.0,
+                       help="每批次最大等待时间(秒)")
 
         if simulate_default:
             p.add_argument("--batch-size", type=int, default=8)

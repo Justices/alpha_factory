@@ -6,8 +6,8 @@ from pathlib import Path
 # 添加项目根目录到路径
 sys.path.insert(0, str(Path(__file__).parent.parent))
 
-from alpha_operator_framework.creation_strategy import create_strategy
-from alpha_operator_framework.fields import ScalarField
+from alpha_operator_framework.generation.creation_strategy import create_strategy
+from alpha_operator_framework.domain.fields import ScalarField
 
 
 def test_new_strategy_system():

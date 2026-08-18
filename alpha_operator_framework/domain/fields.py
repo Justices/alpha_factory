@@ -18,7 +18,7 @@ from dataclasses import dataclass
 from itertools import combinations
 from typing import Sequence, List, Tuple
 
-from .operators import vec_ops
+from alpha_operator_framework.domain.operators import vec_ops
 
 
 DEFAULT_VEC_OPS = tuple(vec_ops)

@@ -1,0 +1,1325 @@
+[
+  {
+    "id": "bearish_sentiment_probability",
+    "description": "Probability that the comment expresses a short or negative sentiment (range 0 to 1)",
+    "dataset": {
+      "id": "cn_stock_sentiment",
+      "name": "China Stock Social Sentiment Scores"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-aiml-data",
+      "name": "AI/ML Data"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.6279,
+    "coverage": 0.7114,
+    "userCount": 5,
+    "alphaCount": 7,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "bearish_sentiment_probability_2",
+    "description": "Probability that the post expresses bearish/short sentiment",
+    "dataset": {
+      "id": "cn_stock_sentiment",
+      "name": "China Stock Social Sentiment Scores"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-aiml-data",
+      "name": "AI/ML Data"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.6279,
+    "coverage": 0.7101,
+    "userCount": 1,
+    "alphaCount": 1,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "bullish_sentiment_probability",
+    "description": "Probability that the comment expresses a long or positive sentiment (range 0 to 1)",
+    "dataset": {
+      "id": "cn_stock_sentiment",
+      "name": "China Stock Social Sentiment Scores"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-aiml-data",
+      "name": "AI/ML Data"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.6279,
+    "coverage": 0.7114,
+    "userCount": 5,
+    "alphaCount": 8,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "bullish_sentiment_probability_2",
+    "description": "Probability the post expresses a long/positive sentiment",
+    "dataset": {
+      "id": "cn_stock_sentiment",
+      "name": "China Stock Social Sentiment Scores"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-aiml-data",
+      "name": "AI/ML Data"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.6279,
+    "coverage": 0.7101,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "chinese_word_total",
+    "description": "Count of Chinese characters in the comment text",
+    "dataset": {
+      "id": "cn_stock_sentiment",
+      "name": "China Stock Social Sentiment Scores"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-aiml-data",
+      "name": "AI/ML Data"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.6279,
+    "coverage": 0.7114,
+    "userCount": 1,
+    "alphaCount": 1,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "chinese_word_total_2",
+    "description": "Count of Chinese characters in the post content",
+    "dataset": {
+      "id": "cn_stock_sentiment",
+      "name": "China Stock Social Sentiment Scores"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-aiml-data",
+      "name": "AI/ML Data"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.6279,
+    "coverage": 0.7101,
+    "userCount": 2,
+    "alphaCount": 3,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "effective_word_total",
+    "description": "Number of tokens in the comment after removing emoticons",
+    "dataset": {
+      "id": "cn_stock_sentiment",
+      "name": "China Stock Social Sentiment Scores"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-aiml-data",
+      "name": "AI/ML Data"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.6279,
+    "coverage": 0.7114,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "effective_word_total_2",
+    "description": "Number of effective tokens after removing emoticons",
+    "dataset": {
+      "id": "cn_stock_sentiment",
+      "name": "China Stock Social Sentiment Scores"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-aiml-data",
+      "name": "AI/ML Data"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.6279,
+    "coverage": 0.7101,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "headline_body_relation_type",
+    "description": "Whether title is part of body: 0=title not in body, 1=title included; affects TotalWordCount",
+    "dataset": {
+      "id": "cn_stock_sentiment",
+      "name": "China Stock Social Sentiment Scores"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-aiml-data",
+      "name": "AI/ML Data"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.6279,
+    "coverage": 0.7101,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "headline_word_count",
+    "description": "Number of tokens in the title",
+    "dataset": {
+      "id": "cn_stock_sentiment",
+      "name": "China Stock Social Sentiment Scores"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-aiml-data",
+      "name": "AI/ML Data"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.6279,
+    "coverage": 0.7101,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "industry_classification_level2",
+    "description": "Matched SWS industry level2 list (A for direct mapping, B for mentioning its sub industry)",
+    "dataset": {
+      "id": "cn_stock_sentiment",
+      "name": "China Stock Social Sentiment Scores"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-aiml-data",
+      "name": "AI/ML Data"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.6279,
+    "coverage": 0.7114,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "industry_classification_level2_2",
+    "description": "Matched SWS industry level2 list (A for direct mapping, B for mentioning its sub industry)",
+    "dataset": {
+      "id": "cn_stock_sentiment",
+      "name": "China Stock Social Sentiment Scores"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-aiml-data",
+      "name": "AI/ML Data"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.6279,
+    "coverage": 0.7101,
+    "userCount": 1,
+    "alphaCount": 1,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "industry_term_quantity",
+    "description": "Mentioned industry raw information word count",
+    "dataset": {
+      "id": "cn_stock_sentiment",
+      "name": "China Stock Social Sentiment Scores"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-aiml-data",
+      "name": "AI/ML Data"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.6279,
+    "coverage": 0.7114,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "industry_term_quantity_2",
+    "description": "Count of raw industry mentions extracted from the text",
+    "dataset": {
+      "id": "cn_stock_sentiment",
+      "name": "China Stock Social Sentiment Scores"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-aiml-data",
+      "name": "AI/ML Data"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.6279,
+    "coverage": 0.7101,
+    "userCount": 1,
+    "alphaCount": 1,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "industry_terms_list",
+    "description": "Mentioned industry raw information",
+    "dataset": {
+      "id": "cn_stock_sentiment",
+      "name": "China Stock Social Sentiment Scores"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-aiml-data",
+      "name": "AI/ML Data"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.6279,
+    "coverage": 0.7114,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "industry_terms_list_2",
+    "description": "Raw industry names or phrases mentioned in the post",
+    "dataset": {
+      "id": "cn_stock_sentiment",
+      "name": "China Stock Social Sentiment Scores"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-aiml-data",
+      "name": "AI/ML Data"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.6279,
+    "coverage": 0.7101,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "irrelevant_sentiment_probability",
+    "description": "Probability that the comment is irrelevant to sentiment (range 0 to 1)",
+    "dataset": {
+      "id": "cn_stock_sentiment",
+      "name": "China Stock Social Sentiment Scores"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-aiml-data",
+      "name": "AI/ML Data"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.6279,
+    "coverage": 0.7114,
+    "userCount": 1,
+    "alphaCount": 1,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "irrelevant_sentiment_probability_2",
+    "description": "Probability that the post is irrelevant",
+    "dataset": {
+      "id": "cn_stock_sentiment",
+      "name": "China Stock Social Sentiment Scores"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-aiml-data",
+      "name": "AI/ML Data"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.6279,
+    "coverage": 0.7101,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "main_text_word_count",
+    "description": "Total number of tokens in the comment body",
+    "dataset": {
+      "id": "cn_stock_sentiment",
+      "name": "China Stock Social Sentiment Scores"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-aiml-data",
+      "name": "AI/ML Data"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.6279,
+    "coverage": 0.7114,
+    "userCount": 1,
+    "alphaCount": 1,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "main_text_word_count_2",
+    "description": "Number of tokens in the body content",
+    "dataset": {
+      "id": "cn_stock_sentiment",
+      "name": "China Stock Social Sentiment Scores"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-aiml-data",
+      "name": "AI/ML Data"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.6279,
+    "coverage": 0.7101,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "mentioned_stock_names",
+    "description": "List of A-share company names mentioned in the comment",
+    "dataset": {
+      "id": "cn_stock_sentiment",
+      "name": "China Stock Social Sentiment Scores"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-aiml-data",
+      "name": "AI/ML Data"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.6279,
+    "coverage": 0.7114,
+    "userCount": 1,
+    "alphaCount": 1,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "mentioned_stock_names_2",
+    "description": "List of mentioned A-share company names",
+    "dataset": {
+      "id": "cn_stock_sentiment",
+      "name": "China Stock Social Sentiment Scores"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-aiml-data",
+      "name": "AI/ML Data"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.6279,
+    "coverage": 0.7101,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "negative_emoji_count",
+    "description": "Count of negative emoticons in the comment",
+    "dataset": {
+      "id": "cn_stock_sentiment",
+      "name": "China Stock Social Sentiment Scores"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-aiml-data",
+      "name": "AI/ML Data"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.6279,
+    "coverage": 0.7114,
+    "userCount": 1,
+    "alphaCount": 1,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "negative_emoji_count_2",
+    "description": "Count of negative emoticons in the content",
+    "dataset": {
+      "id": "cn_stock_sentiment",
+      "name": "China Stock Social Sentiment Scores"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-aiml-data",
+      "name": "AI/ML Data"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.6279,
+    "coverage": 0.7101,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "neutral_emoji_quantity",
+    "description": "Count of neutral emoticons in the comment",
+    "dataset": {
+      "id": "cn_stock_sentiment",
+      "name": "China Stock Social Sentiment Scores"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-aiml-data",
+      "name": "AI/ML Data"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.6279,
+    "coverage": 0.7114,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "neutral_emoji_quantity_2",
+    "description": "Count of neutral emoticons in the content",
+    "dataset": {
+      "id": "cn_stock_sentiment",
+      "name": "China Stock Social Sentiment Scores"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-aiml-data",
+      "name": "AI/ML Data"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.6279,
+    "coverage": 0.7101,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "neutral_sentiment_probability",
+    "description": "Model-estimated probability that the comment is neutral",
+    "dataset": {
+      "id": "cn_stock_sentiment",
+      "name": "China Stock Social Sentiment Scores"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-aiml-data",
+      "name": "AI/ML Data"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.6279,
+    "coverage": 0.7114,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "neutral_sentiment_probability_2",
+    "description": "Probability the post is neutral",
+    "dataset": {
+      "id": "cn_stock_sentiment",
+      "name": "China Stock Social Sentiment Scores"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-aiml-data",
+      "name": "AI/ML Data"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.6279,
+    "coverage": 0.7101,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "non_chinese_word_count",
+    "description": "Count of non-Chinese, non-punctuation characters such as digits, Latin letters, and symbols",
+    "dataset": {
+      "id": "cn_stock_sentiment",
+      "name": "China Stock Social Sentiment Scores"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-aiml-data",
+      "name": "AI/ML Data"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.6279,
+    "coverage": 0.7114,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "non_chinese_word_count_2",
+    "description": "Count of non-Chinese, non-punctuation characters (numbers, letters, symbols) in the content",
+    "dataset": {
+      "id": "cn_stock_sentiment",
+      "name": "China Stock Social Sentiment Scores"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-aiml-data",
+      "name": "AI/ML Data"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.6279,
+    "coverage": 0.7101,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "other_company_names_mentioned",
+    "description": "List of non–A-share company names mentioned (unlisted or overseas-listed)",
+    "dataset": {
+      "id": "cn_stock_sentiment",
+      "name": "China Stock Social Sentiment Scores"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-aiml-data",
+      "name": "AI/ML Data"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.6279,
+    "coverage": 0.7114,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "other_company_names_mentioned_2",
+    "description": "Mentioned Non A share stock name list (unlisted or listed oversea)",
+    "dataset": {
+      "id": "cn_stock_sentiment",
+      "name": "China Stock Social Sentiment Scores"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-aiml-data",
+      "name": "AI/ML Data"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.6279,
+    "coverage": 0.7101,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "overall_word_count",
+    "description": "Total tokens: if TitleValueType=0, equals BodyWordCount; if 1, equals BodyWordCount+TitleWordCount",
+    "dataset": {
+      "id": "cn_stock_sentiment",
+      "name": "China Stock Social Sentiment Scores"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-aiml-data",
+      "name": "AI/ML Data"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.6279,
+    "coverage": 0.7101,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "positive_emoji_quantity",
+    "description": "Number of positive emoticons in the comment content",
+    "dataset": {
+      "id": "cn_stock_sentiment",
+      "name": "China Stock Social Sentiment Scores"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-aiml-data",
+      "name": "AI/ML Data"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.6279,
+    "coverage": 0.7114,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "positive_emoji_quantity_2",
+    "description": "Count of positive emoticons in the content",
+    "dataset": {
+      "id": "cn_stock_sentiment",
+      "name": "China Stock Social Sentiment Scores"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-aiml-data",
+      "name": "AI/ML Data"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.6279,
+    "coverage": 0.7101,
+    "userCount": 1,
+    "alphaCount": 1,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "punctuation_mark_count",
+    "description": "Count of punctuation characters and spaces in the comment",
+    "dataset": {
+      "id": "cn_stock_sentiment",
+      "name": "China Stock Social Sentiment Scores"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-aiml-data",
+      "name": "AI/ML Data"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.6279,
+    "coverage": 0.7114,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "punctuation_mark_count_2",
+    "description": "Count of punctuation marks and spaces",
+    "dataset": {
+      "id": "cn_stock_sentiment",
+      "name": "China Stock Social Sentiment Scores"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-aiml-data",
+      "name": "AI/ML Data"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.6279,
+    "coverage": 0.7101,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "qa_session_indicator",
+    "description": "Flag for director/secretary Q&A post: 0=no, 1=yes",
+    "dataset": {
+      "id": "cn_stock_sentiment",
+      "name": "China Stock Social Sentiment Scores"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-aiml-data",
+      "name": "AI/ML Data"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.6279,
+    "coverage": 0.7101,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "redistribution_status_tag",
+    "description": "Flag indicating redistributed content (e.g., Q&A, exchange message, news, broker report, company announcement): 0=no, 1=yes",
+    "dataset": {
+      "id": "cn_stock_sentiment",
+      "name": "China Stock Social Sentiment Scores"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-aiml-data",
+      "name": "AI/ML Data"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.6279,
+    "coverage": 0.7101,
+    "userCount": 1,
+    "alphaCount": 1,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "referenced_stock_codes",
+    "description": "List of A-share stock codes mentioned in the comment",
+    "dataset": {
+      "id": "cn_stock_sentiment",
+      "name": "China Stock Social Sentiment Scores"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-aiml-data",
+      "name": "AI/ML Data"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.6279,
+    "coverage": 0.7114,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "referenced_stock_codes_2",
+    "description": "List of mentioned China A-share stock codes in the post",
+    "dataset": {
+      "id": "cn_stock_sentiment",
+      "name": "China Stock Social Sentiment Scores"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-aiml-data",
+      "name": "AI/ML Data"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.6279,
+    "coverage": 0.7101,
+    "userCount": 1,
+    "alphaCount": 1,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "sentence_total_count",
+    "description": "Number of sentences in the comment body",
+    "dataset": {
+      "id": "cn_stock_sentiment",
+      "name": "China Stock Social Sentiment Scores"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-aiml-data",
+      "name": "AI/ML Data"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.6279,
+    "coverage": 0.7114,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "sentence_total_count_2",
+    "description": "Number of sentences in the body",
+    "dataset": {
+      "id": "cn_stock_sentiment",
+      "name": "China Stock Social Sentiment Scores"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-aiml-data",
+      "name": "AI/ML Data"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.6279,
+    "coverage": 0.7101,
+    "userCount": 1,
+    "alphaCount": 1,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "sentiment_numeric_label",
+    "description": "Discrete sentiment class for the comment: 1 long, 0 neutral or irrelevant, -1 short",
+    "dataset": {
+      "id": "cn_stock_sentiment",
+      "name": "China Stock Social Sentiment Scores"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-aiml-data",
+      "name": "AI/ML Data"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.6279,
+    "coverage": 0.7114,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "sentiment_numeric_label_2",
+    "description": "Multi-class sentiment label for the post: 1=long/bullish, 0=neutral or irrelevant, -1=short/bearish",
+    "dataset": {
+      "id": "cn_stock_sentiment",
+      "name": "China Stock Social Sentiment Scores"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-aiml-data",
+      "name": "AI/ML Data"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.6279,
+    "coverage": 0.7101,
+    "userCount": 2,
+    "alphaCount": 2,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "stock_mention_count",
+    "description": "Number of A-share companies mentioned in the comment",
+    "dataset": {
+      "id": "cn_stock_sentiment",
+      "name": "China Stock Social Sentiment Scores"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-aiml-data",
+      "name": "AI/ML Data"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.6279,
+    "coverage": 0.7114,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "stock_mention_count_2",
+    "description": "Number of A-share companies mentioned in the post",
+    "dataset": {
+      "id": "cn_stock_sentiment",
+      "name": "China Stock Social Sentiment Scores"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-aiml-data",
+      "name": "AI/ML Data"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.6279,
+    "coverage": 0.7101,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "total_emoji_count",
+    "description": "Total number of emoticons in the comment content",
+    "dataset": {
+      "id": "cn_stock_sentiment",
+      "name": "China Stock Social Sentiment Scores"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-aiml-data",
+      "name": "AI/ML Data"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.6279,
+    "coverage": 0.7114,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "total_emoji_count_2",
+    "description": "Total number of emoticons in the content",
+    "dataset": {
+      "id": "cn_stock_sentiment",
+      "name": "China Stock Social Sentiment Scores"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-aiml-data",
+      "name": "AI/ML Data"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.6279,
+    "coverage": 0.7101,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  }
+]

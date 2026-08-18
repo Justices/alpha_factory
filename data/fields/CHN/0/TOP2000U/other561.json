@@ -1,0 +1,3620 @@
+[
+  {
+    "id": "oth561_basic_stat_buy_portfolio_num",
+    "description": "Number of portfolios that buy the stock on that day",
+    "dataset": {
+      "id": "other561",
+      "name": "Retail trading activities from Virtual Portfolios"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-etf-models",
+      "name": "ETF Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "MATRIX",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9967,
+    "userCount": 15,
+    "alphaCount": 16,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2023-11-01"
+  },
+  {
+    "id": "oth561_basic_stat_buy_rebalancing_num",
+    "description": "Number of rebalancing actions that buy the stock on that day",
+    "dataset": {
+      "id": "other561",
+      "name": "Retail trading activities from Virtual Portfolios"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-etf-models",
+      "name": "ETF Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "MATRIX",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9967,
+    "userCount": 5,
+    "alphaCount": 5,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2023-11-01"
+  },
+  {
+    "id": "oth561_basic_stat_buy_rebalancing_price_avg",
+    "description": "Average execution price of rebalancing trades that buy the stock on that day (CNY)",
+    "dataset": {
+      "id": "other561",
+      "name": "Retail trading activities from Virtual Portfolios"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-etf-models",
+      "name": "ETF Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "MATRIX",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9967,
+    "userCount": 2,
+    "alphaCount": 2,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2023-11-01"
+  },
+  {
+    "id": "oth561_basic_stat_buy_rebalancing_price_median",
+    "description": "Median execution price of rebalancing trades that buy the stock on that day (CNY)",
+    "dataset": {
+      "id": "other561",
+      "name": "Retail trading activities from Virtual Portfolios"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-etf-models",
+      "name": "ETF Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "MATRIX",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9967,
+    "userCount": 2,
+    "alphaCount": 2,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2023-11-01"
+  },
+  {
+    "id": "oth561_basic_stat_buy_rebalancing_share",
+    "description": "Total shares bought via rebalancing actions for the stock on that day",
+    "dataset": {
+      "id": "other561",
+      "name": "Retail trading activities from Virtual Portfolios"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-etf-models",
+      "name": "ETF Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "MATRIX",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9967,
+    "userCount": 1,
+    "alphaCount": 1,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2023-11-01"
+  },
+  {
+    "id": "oth561_basic_stat_buy_rebalancing_value",
+    "description": "Total market value of rebalancing actions that buy the stock on that day (CNY)",
+    "dataset": {
+      "id": "other561",
+      "name": "Retail trading activities from Virtual Portfolios"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-etf-models",
+      "name": "ETF Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "MATRIX",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9967,
+    "userCount": 5,
+    "alphaCount": 5,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2023-11-01"
+  },
+  {
+    "id": "oth561_basic_stat_buy_rebalancing_weight",
+    "description": "Total portfolio weight flow from buy rebalancing actions for the stock (percent terms)",
+    "dataset": {
+      "id": "other561",
+      "name": "Retail trading activities from Virtual Portfolios"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-etf-models",
+      "name": "ETF Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "MATRIX",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9967,
+    "userCount": 1,
+    "alphaCount": 1,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2023-11-01"
+  },
+  {
+    "id": "oth561_basic_stat_buy_user_num",
+    "description": "Number of distinct users who buy the stock on that day",
+    "dataset": {
+      "id": "other561",
+      "name": "Retail trading activities from Virtual Portfolios"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-etf-models",
+      "name": "ETF Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "MATRIX",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9967,
+    "userCount": 3,
+    "alphaCount": 3,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2023-11-01"
+  },
+  {
+    "id": "oth561_basic_stat_first_buy_user_num",
+    "description": "Number of users who buy the stock for the first time on that day",
+    "dataset": {
+      "id": "other561",
+      "name": "Retail trading activities from Virtual Portfolios"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-etf-models",
+      "name": "ETF Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "MATRIX",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9967,
+    "userCount": 5,
+    "alphaCount": 5,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2023-11-01"
+  },
+  {
+    "id": "oth561_basic_stat_net_buy_portfolio_num",
+    "description": "Number of portfolios whose net activity is buying the stock on that day",
+    "dataset": {
+      "id": "other561",
+      "name": "Retail trading activities from Virtual Portfolios"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-etf-models",
+      "name": "ETF Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "MATRIX",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9967,
+    "userCount": 6,
+    "alphaCount": 9,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2023-11-01"
+  },
+  {
+    "id": "oth561_basic_stat_net_buy_user_num",
+    "description": "Number of distinct users whose net activity is buying the stock on that day",
+    "dataset": {
+      "id": "other561",
+      "name": "Retail trading activities from Virtual Portfolios"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-etf-models",
+      "name": "ETF Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "MATRIX",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9967,
+    "userCount": 4,
+    "alphaCount": 6,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2023-11-01"
+  },
+  {
+    "id": "oth561_basic_stat_net_sell_portfolio_num",
+    "description": "Number of portfolios whose net activity is selling the stock on that day",
+    "dataset": {
+      "id": "other561",
+      "name": "Retail trading activities from Virtual Portfolios"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-etf-models",
+      "name": "ETF Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "MATRIX",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9967,
+    "userCount": 3,
+    "alphaCount": 3,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2023-11-01"
+  },
+  {
+    "id": "oth561_basic_stat_net_sell_user_num",
+    "description": "Number of distinct users whose net activity is selling the stock on that day",
+    "dataset": {
+      "id": "other561",
+      "name": "Retail trading activities from Virtual Portfolios"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-etf-models",
+      "name": "ETF Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "MATRIX",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9967,
+    "userCount": 2,
+    "alphaCount": 3,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2023-11-01"
+  },
+  {
+    "id": "oth561_basic_stat_sell_portfolio_num",
+    "description": "Number of portfolios that sell the stock on that day",
+    "dataset": {
+      "id": "other561",
+      "name": "Retail trading activities from Virtual Portfolios"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-etf-models",
+      "name": "ETF Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "MATRIX",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9967,
+    "userCount": 2,
+    "alphaCount": 2,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2023-11-01"
+  },
+  {
+    "id": "oth561_basic_stat_sell_rebalancing_num",
+    "description": "Number of rebalancing actions that sell the stock on that day",
+    "dataset": {
+      "id": "other561",
+      "name": "Retail trading activities from Virtual Portfolios"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-etf-models",
+      "name": "ETF Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "MATRIX",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9967,
+    "userCount": 3,
+    "alphaCount": 3,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2023-11-01"
+  },
+  {
+    "id": "oth561_basic_stat_sell_rebalancing_price_avg",
+    "description": "Average execution price of rebalancing trades that sell the stock on that day (CNY)",
+    "dataset": {
+      "id": "other561",
+      "name": "Retail trading activities from Virtual Portfolios"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-etf-models",
+      "name": "ETF Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "MATRIX",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9967,
+    "userCount": 1,
+    "alphaCount": 1,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2023-11-01"
+  },
+  {
+    "id": "oth561_basic_stat_sell_rebalancing_price_median",
+    "description": "Median execution price of rebalancing trades that sell the stock on that day (CNY)",
+    "dataset": {
+      "id": "other561",
+      "name": "Retail trading activities from Virtual Portfolios"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-etf-models",
+      "name": "ETF Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "MATRIX",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9967,
+    "userCount": 1,
+    "alphaCount": 1,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2023-11-01"
+  },
+  {
+    "id": "oth561_basic_stat_sell_rebalancing_share",
+    "description": "Total shares sold via rebalancing actions for the stock on that day",
+    "dataset": {
+      "id": "other561",
+      "name": "Retail trading activities from Virtual Portfolios"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-etf-models",
+      "name": "ETF Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "MATRIX",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9967,
+    "userCount": 1,
+    "alphaCount": 1,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2023-11-01"
+  },
+  {
+    "id": "oth561_basic_stat_sell_rebalancing_value",
+    "description": "Total market value of rebalancing actions that sell the stock on that day (CNY)",
+    "dataset": {
+      "id": "other561",
+      "name": "Retail trading activities from Virtual Portfolios"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-etf-models",
+      "name": "ETF Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "MATRIX",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9967,
+    "userCount": 2,
+    "alphaCount": 2,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2023-11-01"
+  },
+  {
+    "id": "oth561_basic_stat_sell_rebalancing_weight",
+    "description": "Total weight of of rebalancing actions that sell the stock",
+    "dataset": {
+      "id": "other561",
+      "name": "Retail trading activities from Virtual Portfolios"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-etf-models",
+      "name": "ETF Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "MATRIX",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9967,
+    "userCount": 1,
+    "alphaCount": 1,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2023-11-01"
+  },
+  {
+    "id": "oth561_basic_stat_sell_user_num",
+    "description": "Number of unique users who sold the stock on that day",
+    "dataset": {
+      "id": "other561",
+      "name": "Retail trading activities from Virtual Portfolios"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-etf-models",
+      "name": "ETF Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "MATRIX",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9967,
+    "userCount": 2,
+    "alphaCount": 2,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2023-11-01"
+  },
+  {
+    "id": "oth561_basic_stat_total_active_portfolio_num",
+    "description": "Total number of portfolios that are active in trading (buy or sell) the stock on that day",
+    "dataset": {
+      "id": "other561",
+      "name": "Retail trading activities from Virtual Portfolios"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-etf-models",
+      "name": "ETF Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "MATRIX",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9967,
+    "userCount": 6,
+    "alphaCount": 6,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2023-11-01"
+  },
+  {
+    "id": "oth561_basic_stat_total_active_user_num",
+    "description": "Total number of distinct users active in trading (buy or sell) the stock on that day",
+    "dataset": {
+      "id": "other561",
+      "name": "Retail trading activities from Virtual Portfolios"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-etf-models",
+      "name": "ETF Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "MATRIX",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9967,
+    "userCount": 3,
+    "alphaCount": 3,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2023-11-01"
+  },
+  {
+    "id": "oth561_basic_stat_total_rebalancing_num",
+    "description": "Total number of rebalancing actions (buy or sell) for the stock on that day",
+    "dataset": {
+      "id": "other561",
+      "name": "Retail trading activities from Virtual Portfolios"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-etf-models",
+      "name": "ETF Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "MATRIX",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9967,
+    "userCount": 2,
+    "alphaCount": 2,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2023-11-01"
+  },
+  {
+    "id": "oth561_basic_stat_total_rebalancing_share",
+    "description": "Total shares traded via rebalancing actions (buy and sell) for the stock on that day",
+    "dataset": {
+      "id": "other561",
+      "name": "Retail trading activities from Virtual Portfolios"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-etf-models",
+      "name": "ETF Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "MATRIX",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9967,
+    "userCount": 2,
+    "alphaCount": 2,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2023-11-01"
+  },
+  {
+    "id": "oth561_basic_stat_total_rebalancing_value",
+    "description": "Total market value of all rebalancing trades (buy and sell) for the stock on that day (CNY)",
+    "dataset": {
+      "id": "other561",
+      "name": "Retail trading activities from Virtual Portfolios"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-etf-models",
+      "name": "ETF Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "MATRIX",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9967,
+    "userCount": 1,
+    "alphaCount": 1,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2023-11-01"
+  },
+  {
+    "id": "oth561_user_experience_division_buy_portfolio_num",
+    "description": "Number of portfolios in this cohort that executed buy actions for the stock that day",
+    "dataset": {
+      "id": "other561",
+      "name": "Retail trading activities from Virtual Portfolios"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-etf-models",
+      "name": "ETF Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9967,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2023-11-01"
+  },
+  {
+    "id": "oth561_user_experience_division_buy_rebalancing_num",
+    "description": "Count of buy rebalancing events for the stock within this cohort that day",
+    "dataset": {
+      "id": "other561",
+      "name": "Retail trading activities from Virtual Portfolios"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-etf-models",
+      "name": "ETF Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9967,
+    "userCount": 1,
+    "alphaCount": 1,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2023-11-01"
+  },
+  {
+    "id": "oth561_user_experience_division_buy_rebalancing_price_avg",
+    "description": "Average execution price of buy rebalancing trades within this cohort",
+    "dataset": {
+      "id": "other561",
+      "name": "Retail trading activities from Virtual Portfolios"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-etf-models",
+      "name": "ETF Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9967,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2023-11-01"
+  },
+  {
+    "id": "oth561_user_experience_division_buy_rebalancing_price_median",
+    "description": "Median execution price of buy rebalancing trades within this cohort",
+    "dataset": {
+      "id": "other561",
+      "name": "Retail trading activities from Virtual Portfolios"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-etf-models",
+      "name": "ETF Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9967,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2023-11-01"
+  },
+  {
+    "id": "oth561_user_experience_division_buy_rebalancing_share",
+    "description": "Total shares bought via rebalancing within this cohort that day",
+    "dataset": {
+      "id": "other561",
+      "name": "Retail trading activities from Virtual Portfolios"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-etf-models",
+      "name": "ETF Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9967,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2023-11-01"
+  },
+  {
+    "id": "oth561_user_experience_division_buy_rebalancing_value",
+    "description": "Total monetary value (CNY) of buy rebalancing trades within this cohort",
+    "dataset": {
+      "id": "other561",
+      "name": "Retail trading activities from Virtual Portfolios"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-etf-models",
+      "name": "ETF Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9967,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2023-11-01"
+  },
+  {
+    "id": "oth561_user_experience_division_buy_rebalancing_weight",
+    "description": "Sum of portfolio weight percentages from buy rebalancing within this cohort (collected separately from shares)",
+    "dataset": {
+      "id": "other561",
+      "name": "Retail trading activities from Virtual Portfolios"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-etf-models",
+      "name": "ETF Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9967,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2023-11-01"
+  },
+  {
+    "id": "oth561_user_experience_division_buy_user_num",
+    "description": "Number of distinct users in this cohort who bought the stock that day",
+    "dataset": {
+      "id": "other561",
+      "name": "Retail trading activities from Virtual Portfolios"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-etf-models",
+      "name": "ETF Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9967,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2023-11-01"
+  },
+  {
+    "id": "oth561_user_experience_division_first_buy_user_num",
+    "description": "Number of users in this cohort buying the stock for the first time",
+    "dataset": {
+      "id": "other561",
+      "name": "Retail trading activities from Virtual Portfolios"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-etf-models",
+      "name": "ETF Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9967,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2023-11-01"
+  },
+  {
+    "id": "oth561_user_experience_division_net_buy_portfolio_num",
+    "description": "Number of portfolios in this cohort that were net buyers of the stock that day",
+    "dataset": {
+      "id": "other561",
+      "name": "Retail trading activities from Virtual Portfolios"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-etf-models",
+      "name": "ETF Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9967,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2023-11-01"
+  },
+  {
+    "id": "oth561_user_experience_division_net_buy_user_num",
+    "description": "Number of users in this cohort who were net buyers of the stock that day",
+    "dataset": {
+      "id": "other561",
+      "name": "Retail trading activities from Virtual Portfolios"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-etf-models",
+      "name": "ETF Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9967,
+    "userCount": 2,
+    "alphaCount": 2,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2023-11-01"
+  },
+  {
+    "id": "oth561_user_experience_division_net_sell_portfolio_num",
+    "description": "Number of portfolios in this cohort that were net sellers of the stock that day",
+    "dataset": {
+      "id": "other561",
+      "name": "Retail trading activities from Virtual Portfolios"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-etf-models",
+      "name": "ETF Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9967,
+    "userCount": 1,
+    "alphaCount": 1,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2023-11-01"
+  },
+  {
+    "id": "oth561_user_experience_division_net_sell_user_num",
+    "description": "Number of users in this cohort who were net sellers of the stock that day",
+    "dataset": {
+      "id": "other561",
+      "name": "Retail trading activities from Virtual Portfolios"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-etf-models",
+      "name": "ETF Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9967,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2023-11-01"
+  },
+  {
+    "id": "oth561_user_experience_division_sell_portfolio_num",
+    "description": "Number of portfolios in this cohort that executed sell actions for the stock that day",
+    "dataset": {
+      "id": "other561",
+      "name": "Retail trading activities from Virtual Portfolios"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-etf-models",
+      "name": "ETF Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9967,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2023-11-01"
+  },
+  {
+    "id": "oth561_user_experience_division_sell_rebalancing_num",
+    "description": "Count of sell rebalancing events for the stock within this cohort that day",
+    "dataset": {
+      "id": "other561",
+      "name": "Retail trading activities from Virtual Portfolios"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-etf-models",
+      "name": "ETF Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9967,
+    "userCount": 1,
+    "alphaCount": 1,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2023-11-01"
+  },
+  {
+    "id": "oth561_user_experience_division_sell_rebalancing_price_avg",
+    "description": "Average execution price of sell rebalancing trades within this cohort",
+    "dataset": {
+      "id": "other561",
+      "name": "Retail trading activities from Virtual Portfolios"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-etf-models",
+      "name": "ETF Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9967,
+    "userCount": 1,
+    "alphaCount": 1,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2023-11-01"
+  },
+  {
+    "id": "oth561_user_experience_division_sell_rebalancing_price_median",
+    "description": "Median execution price of sell rebalancing trades within this cohort",
+    "dataset": {
+      "id": "other561",
+      "name": "Retail trading activities from Virtual Portfolios"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-etf-models",
+      "name": "ETF Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9967,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2023-11-01"
+  },
+  {
+    "id": "oth561_user_experience_division_sell_rebalancing_share",
+    "description": "Total shares sold via rebalancing within this cohort that day",
+    "dataset": {
+      "id": "other561",
+      "name": "Retail trading activities from Virtual Portfolios"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-etf-models",
+      "name": "ETF Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9967,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2023-11-01"
+  },
+  {
+    "id": "oth561_user_experience_division_sell_rebalancing_value",
+    "description": "Total monetary value (CNY) of sell rebalancing trades within this cohort",
+    "dataset": {
+      "id": "other561",
+      "name": "Retail trading activities from Virtual Portfolios"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-etf-models",
+      "name": "ETF Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9967,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2023-11-01"
+  },
+  {
+    "id": "oth561_user_experience_division_sell_rebalancing_weight",
+    "description": "Sum of portfolio weight percentages from sell rebalancing within this cohort",
+    "dataset": {
+      "id": "other561",
+      "name": "Retail trading activities from Virtual Portfolios"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-etf-models",
+      "name": "ETF Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9967,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2023-11-01"
+  },
+  {
+    "id": "oth561_user_experience_division_sell_user_num",
+    "description": "Number of distinct users in this cohort who sold the stock that day",
+    "dataset": {
+      "id": "other561",
+      "name": "Retail trading activities from Virtual Portfolios"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-etf-models",
+      "name": "ETF Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9967,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2023-11-01"
+  },
+  {
+    "id": "oth561_user_experience_division_total_active_portfolio_num",
+    "description": "Total portfolios in this cohort that traded (buy or sell) the stock that day",
+    "dataset": {
+      "id": "other561",
+      "name": "Retail trading activities from Virtual Portfolios"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-etf-models",
+      "name": "ETF Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9967,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2023-11-01"
+  },
+  {
+    "id": "oth561_user_experience_division_total_active_user_num",
+    "description": "Total users in this cohort that traded (buy or sell) the stock that day",
+    "dataset": {
+      "id": "other561",
+      "name": "Retail trading activities from Virtual Portfolios"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-etf-models",
+      "name": "ETF Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9967,
+    "userCount": 1,
+    "alphaCount": 1,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2023-11-01"
+  },
+  {
+    "id": "oth561_user_experience_division_total_rebalancing_num",
+    "description": "Total number of rebalancing events (buy or sell) for the stock within this cohort that day",
+    "dataset": {
+      "id": "other561",
+      "name": "Retail trading activities from Virtual Portfolios"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-etf-models",
+      "name": "ETF Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9967,
+    "userCount": 1,
+    "alphaCount": 1,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2023-11-01"
+  },
+  {
+    "id": "oth561_user_experience_division_total_rebalancing_share",
+    "description": "Total shares traded via rebalancing (buy or sell) within this cohort that day",
+    "dataset": {
+      "id": "other561",
+      "name": "Retail trading activities from Virtual Portfolios"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-etf-models",
+      "name": "ETF Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9967,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2023-11-01"
+  },
+  {
+    "id": "oth561_user_experience_division_total_rebalancing_value",
+    "description": "Total market value of rebalancing actions trade(buy or sell) the stock",
+    "dataset": {
+      "id": "other561",
+      "name": "Retail trading activities from Virtual Portfolios"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-etf-models",
+      "name": "ETF Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9967,
+    "userCount": 1,
+    "alphaCount": 1,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2023-11-01"
+  },
+  {
+    "id": "oth561_user_experience_level",
+    "description": "User experience bucket by days since first rebalancing (e.g., 1=Novice <20 days; 2=Intermediate; 3=Advanced; 5=Expert)",
+    "dataset": {
+      "id": "other561",
+      "name": "Retail trading activities from Virtual Portfolios"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-etf-models",
+      "name": "ETF Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9967,
+    "userCount": 1,
+    "alphaCount": 1,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2023-11-01"
+  },
+  {
+    "id": "oth561_user_industry_division_buy_portfolio_num",
+    "description": "Number of portfolios that bought the stock on the day",
+    "dataset": {
+      "id": "other561",
+      "name": "Retail trading activities from Virtual Portfolios"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-etf-models",
+      "name": "ETF Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9967,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2023-11-01"
+  },
+  {
+    "id": "oth561_user_industry_division_buy_rebalancing_num",
+    "description": "Number of rebalancing actions that bought the stock on the day",
+    "dataset": {
+      "id": "other561",
+      "name": "Retail trading activities from Virtual Portfolios"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-etf-models",
+      "name": "ETF Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9967,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2023-11-01"
+  },
+  {
+    "id": "oth561_user_industry_division_buy_rebalancing_price_avg",
+    "description": "Average execution price of buy rebalancing trades for the stock on the day",
+    "dataset": {
+      "id": "other561",
+      "name": "Retail trading activities from Virtual Portfolios"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-etf-models",
+      "name": "ETF Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9967,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2023-11-01"
+  },
+  {
+    "id": "oth561_user_industry_division_buy_rebalancing_price_median",
+    "description": "Median execution price of buy rebalancing trades for the stock on the day",
+    "dataset": {
+      "id": "other561",
+      "name": "Retail trading activities from Virtual Portfolios"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-etf-models",
+      "name": "ETF Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9967,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2023-11-01"
+  },
+  {
+    "id": "oth561_user_industry_division_buy_rebalancing_share",
+    "description": "Total shares of rebalancing actions that buy the stock",
+    "dataset": {
+      "id": "other561",
+      "name": "Retail trading activities from Virtual Portfolios"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-etf-models",
+      "name": "ETF Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9967,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2023-11-01"
+  },
+  {
+    "id": "oth561_user_industry_division_buy_rebalancing_value",
+    "description": "Total market value of buy rebalancing actions for the stock on the day",
+    "dataset": {
+      "id": "other561",
+      "name": "Retail trading activities from Virtual Portfolios"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-etf-models",
+      "name": "ETF Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9967,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2023-11-01"
+  },
+  {
+    "id": "oth561_user_industry_division_buy_rebalancing_weight",
+    "description": "Total portfolio weight flow associated with buy rebalancing actions (percent); weight data collected separately from shares",
+    "dataset": {
+      "id": "other561",
+      "name": "Retail trading activities from Virtual Portfolios"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-etf-models",
+      "name": "ETF Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9967,
+    "userCount": 1,
+    "alphaCount": 1,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2023-11-01"
+  },
+  {
+    "id": "oth561_user_industry_division_buy_user_num",
+    "description": "Number of unique users who bought the stock on the day",
+    "dataset": {
+      "id": "other561",
+      "name": "Retail trading activities from Virtual Portfolios"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-etf-models",
+      "name": "ETF Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9967,
+    "userCount": 1,
+    "alphaCount": 1,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2023-11-01"
+  },
+  {
+    "id": "oth561_user_industry_division_first_buy_user_num",
+    "description": "Number of users who bought the stock for the first time on the day",
+    "dataset": {
+      "id": "other561",
+      "name": "Retail trading activities from Virtual Portfolios"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-etf-models",
+      "name": "ETF Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9967,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2023-11-01"
+  },
+  {
+    "id": "oth561_user_industry_division_net_buy_portfolio_num",
+    "description": "Number of portfolios that were net buyers of the stock on the day",
+    "dataset": {
+      "id": "other561",
+      "name": "Retail trading activities from Virtual Portfolios"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-etf-models",
+      "name": "ETF Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9967,
+    "userCount": 1,
+    "alphaCount": 1,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2023-11-01"
+  },
+  {
+    "id": "oth561_user_industry_division_net_buy_user_num",
+    "description": "Number of users who were net buyers of the stock on the day",
+    "dataset": {
+      "id": "other561",
+      "name": "Retail trading activities from Virtual Portfolios"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-etf-models",
+      "name": "ETF Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9967,
+    "userCount": 1,
+    "alphaCount": 1,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2023-11-01"
+  },
+  {
+    "id": "oth561_user_industry_division_net_sell_portfolio_num",
+    "description": "Number of portfolios that were net sellers of the stock on the day",
+    "dataset": {
+      "id": "other561",
+      "name": "Retail trading activities from Virtual Portfolios"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-etf-models",
+      "name": "ETF Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9967,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2023-11-01"
+  },
+  {
+    "id": "oth561_user_industry_division_net_sell_user_num",
+    "description": "Number of unique users in the industry cohort who net sold the stock on that day",
+    "dataset": {
+      "id": "other561",
+      "name": "Retail trading activities from Virtual Portfolios"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-etf-models",
+      "name": "ETF Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9967,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2023-11-01"
+  },
+  {
+    "id": "oth561_user_industry_division_sell_portfolio_num",
+    "description": "Number of portfolios that sold the stock on the day",
+    "dataset": {
+      "id": "other561",
+      "name": "Retail trading activities from Virtual Portfolios"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-etf-models",
+      "name": "ETF Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9967,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2023-11-01"
+  },
+  {
+    "id": "oth561_user_industry_division_sell_rebalancing_num",
+    "description": "Number of rebalancing actions that sold the stock on the day",
+    "dataset": {
+      "id": "other561",
+      "name": "Retail trading activities from Virtual Portfolios"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-etf-models",
+      "name": "ETF Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9967,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2023-11-01"
+  },
+  {
+    "id": "oth561_user_industry_division_sell_rebalancing_price_avg",
+    "description": "Average execution price of sell rebalancing trades for the stock on the day",
+    "dataset": {
+      "id": "other561",
+      "name": "Retail trading activities from Virtual Portfolios"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-etf-models",
+      "name": "ETF Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9967,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2023-11-01"
+  },
+  {
+    "id": "oth561_user_industry_division_sell_rebalancing_price_median",
+    "description": "Median execution price of sell rebalancing trades for the stock on the day",
+    "dataset": {
+      "id": "other561",
+      "name": "Retail trading activities from Virtual Portfolios"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-etf-models",
+      "name": "ETF Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9967,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2023-11-01"
+  },
+  {
+    "id": "oth561_user_industry_division_sell_rebalancing_share",
+    "description": "Total shares sold via rebalancing actions for the stock on the day",
+    "dataset": {
+      "id": "other561",
+      "name": "Retail trading activities from Virtual Portfolios"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-etf-models",
+      "name": "ETF Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9967,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2023-11-01"
+  },
+  {
+    "id": "oth561_user_industry_division_sell_rebalancing_value",
+    "description": "Total market value of sell rebalancing actions for the stock on the day",
+    "dataset": {
+      "id": "other561",
+      "name": "Retail trading activities from Virtual Portfolios"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-etf-models",
+      "name": "ETF Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9967,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2023-11-01"
+  },
+  {
+    "id": "oth561_user_industry_division_sell_rebalancing_weight",
+    "description": "Total portfolio weight flow associated with sell rebalancing actions (percent), collected separately from shares",
+    "dataset": {
+      "id": "other561",
+      "name": "Retail trading activities from Virtual Portfolios"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-etf-models",
+      "name": "ETF Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9967,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2023-11-01"
+  },
+  {
+    "id": "oth561_user_industry_division_sell_user_num",
+    "description": "Number of unique users who sold the stock on the day",
+    "dataset": {
+      "id": "other561",
+      "name": "Retail trading activities from Virtual Portfolios"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-etf-models",
+      "name": "ETF Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9967,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2023-11-01"
+  },
+  {
+    "id": "oth561_user_industry_division_total_active_portfolio_num",
+    "description": "Total number of active portfolios that traded (bought or sold) the stock on the day (within this user-industry cohort)",
+    "dataset": {
+      "id": "other561",
+      "name": "Retail trading activities from Virtual Portfolios"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-etf-models",
+      "name": "ETF Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9967,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2023-11-01"
+  },
+  {
+    "id": "oth561_user_industry_division_total_active_user_num",
+    "description": "Total number of unique active users who traded (bought or sold) the stock on the day",
+    "dataset": {
+      "id": "other561",
+      "name": "Retail trading activities from Virtual Portfolios"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-etf-models",
+      "name": "ETF Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9967,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2023-11-01"
+  },
+  {
+    "id": "oth561_user_industry_division_total_rebalancing_num",
+    "description": "Total number of rebalancing actions (buys and sells) for the stock on the day",
+    "dataset": {
+      "id": "other561",
+      "name": "Retail trading activities from Virtual Portfolios"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-etf-models",
+      "name": "ETF Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9967,
+    "userCount": 1,
+    "alphaCount": 1,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2023-11-01"
+  },
+  {
+    "id": "oth561_user_industry_division_total_rebalancing_share",
+    "description": "Total shares traded via all rebalancing actions (buys and sells) for the stock on the day",
+    "dataset": {
+      "id": "other561",
+      "name": "Retail trading activities from Virtual Portfolios"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-etf-models",
+      "name": "ETF Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9967,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2023-11-01"
+  },
+  {
+    "id": "oth561_user_industry_division_total_rebalancing_value",
+    "description": "Total market value of all rebalancing trades (buys and sells) for the stock on the day",
+    "dataset": {
+      "id": "other561",
+      "name": "Retail trading activities from Virtual Portfolios"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-etf-models",
+      "name": "ETF Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9967,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2023-11-01"
+  },
+  {
+    "id": "oth561_user_industry_level",
+    "description": "Cohort label indicating the user’s level of unique industries traded (bought/sold) over a 20-trading-day rolling window (e.g., 1=Low, 2=Medium, 3=High, etc.)",
+    "dataset": {
+      "id": "other561",
+      "name": "Retail trading activities from Virtual Portfolios"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-etf-models",
+      "name": "ETF Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9967,
+    "userCount": 2,
+    "alphaCount": 2,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2023-11-01"
+  },
+  {
+    "id": "oth561_user_rebalancing_division_buy_portfolio_num",
+    "description": "Number of portfolios that bought the stock that day within the user rebalancing cohort segment",
+    "dataset": {
+      "id": "other561",
+      "name": "Retail trading activities from Virtual Portfolios"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-etf-models",
+      "name": "ETF Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9967,
+    "userCount": 2,
+    "alphaCount": 2,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2023-11-01"
+  },
+  {
+    "id": "oth561_user_rebalancing_division_buy_rebalancing_num",
+    "description": "Number of rebalancing actions that buy the stock that day (within this cohort segment)",
+    "dataset": {
+      "id": "other561",
+      "name": "Retail trading activities from Virtual Portfolios"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-etf-models",
+      "name": "ETF Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9967,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2023-11-01"
+  },
+  {
+    "id": "oth561_user_rebalancing_division_buy_rebalancing_price_avg",
+    "description": "Average execution price in CNY of rebalancing actions that buy the stock that day (within this cohort segment)",
+    "dataset": {
+      "id": "other561",
+      "name": "Retail trading activities from Virtual Portfolios"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-etf-models",
+      "name": "ETF Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9967,
+    "userCount": 3,
+    "alphaCount": 3,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2023-11-01"
+  },
+  {
+    "id": "oth561_user_rebalancing_division_buy_rebalancing_price_median",
+    "description": "Median execution price of rebalancing buy trades for the stock that day within the user rebalancing cohort segment",
+    "dataset": {
+      "id": "other561",
+      "name": "Retail trading activities from Virtual Portfolios"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-etf-models",
+      "name": "ETF Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9967,
+    "userCount": 2,
+    "alphaCount": 2,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2023-11-01"
+  },
+  {
+    "id": "oth561_user_rebalancing_division_buy_rebalancing_share",
+    "description": "Total number of shares bought via rebalancing actions that day (within this cohort segment)",
+    "dataset": {
+      "id": "other561",
+      "name": "Retail trading activities from Virtual Portfolios"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-etf-models",
+      "name": "ETF Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9967,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2023-11-01"
+  },
+  {
+    "id": "oth561_user_rebalancing_division_buy_rebalancing_value",
+    "description": "Total market value in CNY of rebalancing actions that buy the stock that day (within this cohort segment)",
+    "dataset": {
+      "id": "other561",
+      "name": "Retail trading activities from Virtual Portfolios"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-etf-models",
+      "name": "ETF Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9967,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2023-11-01"
+  },
+  {
+    "id": "oth561_user_rebalancing_division_buy_rebalancing_weight",
+    "description": "Total additive portfolio weight from buy rebalancing actions that day (percentage), collected separately from share data (within this cohort segment)",
+    "dataset": {
+      "id": "other561",
+      "name": "Retail trading activities from Virtual Portfolios"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-etf-models",
+      "name": "ETF Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9967,
+    "userCount": 1,
+    "alphaCount": 1,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2023-11-01"
+  },
+  {
+    "id": "oth561_user_rebalancing_division_buy_user_num",
+    "description": "Number of users who buy the stock that day (within this cohort segment)",
+    "dataset": {
+      "id": "other561",
+      "name": "Retail trading activities from Virtual Portfolios"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-etf-models",
+      "name": "ETF Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9967,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2023-11-01"
+  },
+  {
+    "id": "oth561_user_rebalancing_division_first_buy_user_num",
+    "description": "Number of users who buy the stock for the first time that day (within this cohort segment)",
+    "dataset": {
+      "id": "other561",
+      "name": "Retail trading activities from Virtual Portfolios"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-etf-models",
+      "name": "ETF Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9967,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2023-11-01"
+  },
+  {
+    "id": "oth561_user_rebalancing_division_net_buy_portfolio_num",
+    "description": "Number of portfolios that are net buyers of the stock that day (within this cohort segment)",
+    "dataset": {
+      "id": "other561",
+      "name": "Retail trading activities from Virtual Portfolios"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-etf-models",
+      "name": "ETF Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9967,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2023-11-01"
+  },
+  {
+    "id": "oth561_user_rebalancing_division_net_buy_user_num",
+    "description": "Number of users who are net buyers of the stock that day (within this cohort segment)",
+    "dataset": {
+      "id": "other561",
+      "name": "Retail trading activities from Virtual Portfolios"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-etf-models",
+      "name": "ETF Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9967,
+    "userCount": 1,
+    "alphaCount": 1,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2023-11-01"
+  },
+  {
+    "id": "oth561_user_rebalancing_division_net_sell_portfolio_num",
+    "description": "Number of portfolios that are net sellers of the stock that day (within this cohort segment)",
+    "dataset": {
+      "id": "other561",
+      "name": "Retail trading activities from Virtual Portfolios"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-etf-models",
+      "name": "ETF Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9967,
+    "userCount": 1,
+    "alphaCount": 1,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2023-11-01"
+  },
+  {
+    "id": "oth561_user_rebalancing_division_net_sell_user_num",
+    "description": "Number of users who are net sellers of the stock that day (within this cohort segment)",
+    "dataset": {
+      "id": "other561",
+      "name": "Retail trading activities from Virtual Portfolios"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-etf-models",
+      "name": "ETF Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9967,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2023-11-01"
+  },
+  {
+    "id": "oth561_user_rebalancing_division_sell_portfolio_num",
+    "description": "Number of portfolios that sell the stock that day (within this cohort segment)",
+    "dataset": {
+      "id": "other561",
+      "name": "Retail trading activities from Virtual Portfolios"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-etf-models",
+      "name": "ETF Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9967,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2023-11-01"
+  },
+  {
+    "id": "oth561_user_rebalancing_division_sell_rebalancing_num",
+    "description": "Number of rebalancing actions that sell the stock that day (within this cohort segment)",
+    "dataset": {
+      "id": "other561",
+      "name": "Retail trading activities from Virtual Portfolios"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-etf-models",
+      "name": "ETF Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9967,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2023-11-01"
+  },
+  {
+    "id": "oth561_user_rebalancing_division_sell_rebalancing_price_avg",
+    "description": "Average execution price in CNY of rebalancing actions that sell the stock that day (within this cohort segment)",
+    "dataset": {
+      "id": "other561",
+      "name": "Retail trading activities from Virtual Portfolios"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-etf-models",
+      "name": "ETF Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9967,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2023-11-01"
+  },
+  {
+    "id": "oth561_user_rebalancing_division_sell_rebalancing_price_median",
+    "description": "Median execution price in CNY of rebalancing actions that sell the stock that day (within this cohort segment)",
+    "dataset": {
+      "id": "other561",
+      "name": "Retail trading activities from Virtual Portfolios"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-etf-models",
+      "name": "ETF Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9967,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2023-11-01"
+  },
+  {
+    "id": "oth561_user_rebalancing_division_sell_rebalancing_share",
+    "description": "Total number of shares sold via rebalancing actions that day (within this cohort segment)",
+    "dataset": {
+      "id": "other561",
+      "name": "Retail trading activities from Virtual Portfolios"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-etf-models",
+      "name": "ETF Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9967,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2023-11-01"
+  },
+  {
+    "id": "oth561_user_rebalancing_division_sell_rebalancing_value",
+    "description": "Total market value in CNY of rebalancing actions that sell the stock that day (within this cohort segment)",
+    "dataset": {
+      "id": "other561",
+      "name": "Retail trading activities from Virtual Portfolios"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-etf-models",
+      "name": "ETF Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9967,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2023-11-01"
+  },
+  {
+    "id": "oth561_user_rebalancing_division_sell_rebalancing_weight",
+    "description": "Total portfolio weight of rebalancing sell actions for the stock that day within the user rebalancing cohort segment",
+    "dataset": {
+      "id": "other561",
+      "name": "Retail trading activities from Virtual Portfolios"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-etf-models",
+      "name": "ETF Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9967,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2023-11-01"
+  },
+  {
+    "id": "oth561_user_rebalancing_division_sell_user_num",
+    "description": "Number of users who sell the stock that day (within this cohort segment)",
+    "dataset": {
+      "id": "other561",
+      "name": "Retail trading activities from Virtual Portfolios"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-etf-models",
+      "name": "ETF Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9967,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2023-11-01"
+  },
+  {
+    "id": "oth561_user_rebalancing_division_total_active_portfolio_num",
+    "description": "Total number of distinct portfolios that traded (bought or sold) the stock that day (within this cohort segment)",
+    "dataset": {
+      "id": "other561",
+      "name": "Retail trading activities from Virtual Portfolios"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-etf-models",
+      "name": "ETF Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9967,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2023-11-01"
+  },
+  {
+    "id": "oth561_user_rebalancing_division_total_active_user_num",
+    "description": "Total number of distinct users who traded (bought or sold) the stock that day (within this cohort segment)",
+    "dataset": {
+      "id": "other561",
+      "name": "Retail trading activities from Virtual Portfolios"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-etf-models",
+      "name": "ETF Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9967,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2023-11-01"
+  },
+  {
+    "id": "oth561_user_rebalancing_division_total_rebalancing_num",
+    "description": "Total number of rebalancing actions (buy and sell) that day (within this cohort segment)",
+    "dataset": {
+      "id": "other561",
+      "name": "Retail trading activities from Virtual Portfolios"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-etf-models",
+      "name": "ETF Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9967,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2023-11-01"
+  },
+  {
+    "id": "oth561_user_rebalancing_division_total_rebalancing_share",
+    "description": "Total number of shares traded in rebalancing actions (buy and sell) that day (within this cohort segment)",
+    "dataset": {
+      "id": "other561",
+      "name": "Retail trading activities from Virtual Portfolios"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-etf-models",
+      "name": "ETF Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9967,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2023-11-01"
+  },
+  {
+    "id": "oth561_user_rebalancing_division_total_rebalancing_value",
+    "description": "Total market value in CNY of all rebalancing actions (buy and sell) that day (within this cohort segment)",
+    "dataset": {
+      "id": "other561",
+      "name": "Retail trading activities from Virtual Portfolios"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-etf-models",
+      "name": "ETF Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9967,
+    "userCount": 2,
+    "alphaCount": 2,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2023-11-01"
+  },
+  {
+    "id": "oth561_user_rebalancing_level",
+    "description": "Cohort level indicating users’ rebalancing activity frequency over a 20-trading-day rolling window",
+    "dataset": {
+      "id": "other561",
+      "name": "Retail trading activities from Virtual Portfolios"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-etf-models",
+      "name": "ETF Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9967,
+    "userCount": 1,
+    "alphaCount": 1,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2023-11-01"
+  },
+  {
+    "id": "oth561_user_stock_division_buy_portfolio_num",
+    "description": "Number of distinct portfolios in this user_stock_level cohort that bought the stock that day",
+    "dataset": {
+      "id": "other561",
+      "name": "Retail trading activities from Virtual Portfolios"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-etf-models",
+      "name": "ETF Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9967,
+    "userCount": 1,
+    "alphaCount": 1,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2023-11-01"
+  },
+  {
+    "id": "oth561_user_stock_division_buy_rebalancing_num",
+    "description": "Number of buy rebalancing events for this stock by this cohort that day",
+    "dataset": {
+      "id": "other561",
+      "name": "Retail trading activities from Virtual Portfolios"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-etf-models",
+      "name": "ETF Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9967,
+    "userCount": 1,
+    "alphaCount": 1,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2023-11-01"
+  },
+  {
+    "id": "oth561_user_stock_division_buy_rebalancing_price_avg",
+    "description": "Average execution price of buy rebalancing trades by this cohort (CNY)",
+    "dataset": {
+      "id": "other561",
+      "name": "Retail trading activities from Virtual Portfolios"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-etf-models",
+      "name": "ETF Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9967,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2023-11-01"
+  },
+  {
+    "id": "oth561_user_stock_division_buy_rebalancing_price_median",
+    "description": "Median execution price of buy rebalancing trades by this cohort (CNY)",
+    "dataset": {
+      "id": "other561",
+      "name": "Retail trading activities from Virtual Portfolios"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-etf-models",
+      "name": "ETF Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9967,
+    "userCount": 1,
+    "alphaCount": 1,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2023-11-01"
+  },
+  {
+    "id": "oth561_user_stock_division_buy_rebalancing_share",
+    "description": "Total shares bought via rebalancing by this cohort that day",
+    "dataset": {
+      "id": "other561",
+      "name": "Retail trading activities from Virtual Portfolios"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-etf-models",
+      "name": "ETF Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9967,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2023-11-01"
+  },
+  {
+    "id": "oth561_user_stock_division_buy_rebalancing_value",
+    "description": "Total traded value of buy rebalancing by this cohort (CNY)",
+    "dataset": {
+      "id": "other561",
+      "name": "Retail trading activities from Virtual Portfolios"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-etf-models",
+      "name": "ETF Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9967,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2023-11-01"
+  },
+  {
+    "id": "oth561_user_stock_division_buy_rebalancing_weight",
+    "description": "Total portfolio-weight flow from buy rebalancing actions by this cohort (percent; collected separately from shares)",
+    "dataset": {
+      "id": "other561",
+      "name": "Retail trading activities from Virtual Portfolios"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-etf-models",
+      "name": "ETF Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9967,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2023-11-01"
+  },
+  {
+    "id": "oth561_user_stock_division_buy_user_num",
+    "description": "Number of distinct users in this user_stock_level cohort that bought the stock that day",
+    "dataset": {
+      "id": "other561",
+      "name": "Retail trading activities from Virtual Portfolios"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-etf-models",
+      "name": "ETF Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9967,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2023-11-01"
+  },
+  {
+    "id": "oth561_user_stock_division_first_buy_user_num",
+    "description": "Number of users in this cohort who bought the stock for the first time that day",
+    "dataset": {
+      "id": "other561",
+      "name": "Retail trading activities from Virtual Portfolios"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-etf-models",
+      "name": "ETF Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9967,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2023-11-01"
+  },
+  {
+    "id": "oth561_user_stock_division_net_buy_portfolio_num",
+    "description": "Number of portfolios in this cohort that were net buyers of the stock that day",
+    "dataset": {
+      "id": "other561",
+      "name": "Retail trading activities from Virtual Portfolios"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-etf-models",
+      "name": "ETF Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9967,
+    "userCount": 1,
+    "alphaCount": 1,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2023-11-01"
+  },
+  {
+    "id": "oth561_user_stock_division_net_buy_user_num",
+    "description": "Number of users in this cohort that were net buyers of the stock that day",
+    "dataset": {
+      "id": "other561",
+      "name": "Retail trading activities from Virtual Portfolios"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-etf-models",
+      "name": "ETF Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9967,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2023-11-01"
+  },
+  {
+    "id": "oth561_user_stock_division_net_sell_portfolio_num",
+    "description": "Number of portfolios in this cohort that were net sellers of the stock that day",
+    "dataset": {
+      "id": "other561",
+      "name": "Retail trading activities from Virtual Portfolios"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-etf-models",
+      "name": "ETF Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9967,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2023-11-01"
+  },
+  {
+    "id": "oth561_user_stock_division_net_sell_user_num",
+    "description": "Number of users in this cohort that were net sellers of the stock that day",
+    "dataset": {
+      "id": "other561",
+      "name": "Retail trading activities from Virtual Portfolios"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-etf-models",
+      "name": "ETF Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9967,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2023-11-01"
+  },
+  {
+    "id": "oth561_user_stock_division_sell_portfolio_num",
+    "description": "Number of distinct portfolios in this user_stock_level cohort that sold the stock that day",
+    "dataset": {
+      "id": "other561",
+      "name": "Retail trading activities from Virtual Portfolios"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-etf-models",
+      "name": "ETF Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9967,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2023-11-01"
+  },
+  {
+    "id": "oth561_user_stock_division_sell_rebalancing_num",
+    "description": "Number of sell rebalancing events for this stock by this cohort that day",
+    "dataset": {
+      "id": "other561",
+      "name": "Retail trading activities from Virtual Portfolios"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-etf-models",
+      "name": "ETF Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9967,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2023-11-01"
+  },
+  {
+    "id": "oth561_user_stock_division_sell_rebalancing_price_avg",
+    "description": "Average execution price of sell rebalancing trades by this cohort (CNY)",
+    "dataset": {
+      "id": "other561",
+      "name": "Retail trading activities from Virtual Portfolios"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-etf-models",
+      "name": "ETF Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9967,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2023-11-01"
+  },
+  {
+    "id": "oth561_user_stock_division_sell_rebalancing_price_median",
+    "description": "Median execution price of sell rebalancing trades by this cohort (CNY)",
+    "dataset": {
+      "id": "other561",
+      "name": "Retail trading activities from Virtual Portfolios"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-etf-models",
+      "name": "ETF Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9967,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2023-11-01"
+  },
+  {
+    "id": "oth561_user_stock_division_sell_rebalancing_share",
+    "description": "Total shares sold via rebalancing by this cohort that day",
+    "dataset": {
+      "id": "other561",
+      "name": "Retail trading activities from Virtual Portfolios"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-etf-models",
+      "name": "ETF Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9967,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2023-11-01"
+  },
+  {
+    "id": "oth561_user_stock_division_sell_rebalancing_value",
+    "description": "Total traded value of sell rebalancing by this cohort (CNY)",
+    "dataset": {
+      "id": "other561",
+      "name": "Retail trading activities from Virtual Portfolios"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-etf-models",
+      "name": "ETF Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9967,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2023-11-01"
+  },
+  {
+    "id": "oth561_user_stock_division_sell_rebalancing_weight",
+    "description": "Total portfolio-weight flow from sell rebalancing actions by this cohort (percent)",
+    "dataset": {
+      "id": "other561",
+      "name": "Retail trading activities from Virtual Portfolios"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-etf-models",
+      "name": "ETF Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9967,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2023-11-01"
+  },
+  {
+    "id": "oth561_user_stock_division_sell_user_num",
+    "description": "Number of distinct users in this user_stock_level cohort that sold the stock that day",
+    "dataset": {
+      "id": "other561",
+      "name": "Retail trading activities from Virtual Portfolios"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-etf-models",
+      "name": "ETF Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9967,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2023-11-01"
+  },
+  {
+    "id": "oth561_user_stock_division_total_active_portfolio_num",
+    "description": "Total number of distinct portfolios in this cohort that bought or sold the stock that day",
+    "dataset": {
+      "id": "other561",
+      "name": "Retail trading activities from Virtual Portfolios"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-etf-models",
+      "name": "ETF Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9967,
+    "userCount": 1,
+    "alphaCount": 1,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2023-11-01"
+  },
+  {
+    "id": "oth561_user_stock_division_total_active_user_num",
+    "description": "Total number of distinct users in this cohort that bought or sold the stock that day",
+    "dataset": {
+      "id": "other561",
+      "name": "Retail trading activities from Virtual Portfolios"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-etf-models",
+      "name": "ETF Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9967,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2023-11-01"
+  },
+  {
+    "id": "oth561_user_stock_division_total_rebalancing_num",
+    "description": "Total number of rebalancing actions (buy or sell) on the stock by this cohort that day",
+    "dataset": {
+      "id": "other561",
+      "name": "Retail trading activities from Virtual Portfolios"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-etf-models",
+      "name": "ETF Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9967,
+    "userCount": 1,
+    "alphaCount": 1,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2023-11-01"
+  },
+  {
+    "id": "oth561_user_stock_division_total_rebalancing_share",
+    "description": "Total shares traded (buy plus sell) via rebalancing by this cohort that day",
+    "dataset": {
+      "id": "other561",
+      "name": "Retail trading activities from Virtual Portfolios"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-etf-models",
+      "name": "ETF Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9967,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2023-11-01"
+  },
+  {
+    "id": "oth561_user_stock_division_total_rebalancing_value",
+    "description": "Total market value of rebalancing actions trade(buy or sell) the stock",
+    "dataset": {
+      "id": "other561",
+      "name": "Retail trading activities from Virtual Portfolios"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-etf-models",
+      "name": "ETF Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9967,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2023-11-01"
+  },
+  {
+    "id": "oth561_user_stock_level",
+    "description": "The level of user bought/selled unique stocks number (20 trading days rolling window",
+    "dataset": {
+      "id": "other561",
+      "name": "Retail trading activities from Virtual Portfolios"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-etf-models",
+      "name": "ETF Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9967,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2023-11-01"
+  }
+]

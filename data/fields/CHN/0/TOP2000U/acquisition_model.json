@@ -1,0 +1,407 @@
+[
+  {
+    "id": "country_percentile_acquisition_likelihood",
+    "description": "Percentile score of M&A target likelihood within the company’s headquarters country (100 = highest, 1 = lowest)",
+    "dataset": {
+      "id": "acquisition_model",
+      "name": "Corporate Acquisition Likelihood Model"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-aiml-data",
+      "name": "AI/ML Data"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9966,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "global_company_size_percentile_rank",
+    "description": "Percentile rank of the size component versus all companies globally; 100 = most favorable on size dimension",
+    "dataset": {
+      "id": "acquisition_model",
+      "name": "Corporate Acquisition Likelihood Model"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-aiml-data",
+      "name": "AI/ML Data"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9966,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "global_credit_quality_percentile_rank",
+    "description": "Percentile rank of the model’s credit-based component versus all companies globally; 100 = strongest, 1 = weakest",
+    "dataset": {
+      "id": "acquisition_model",
+      "name": "Corporate Acquisition Likelihood Model"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-aiml-data",
+      "name": "AI/ML Data"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9966,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "global_fundamental_factor_percentile_rank",
+    "description": "Percentile rank of the fundamentals component versus all companies globally; 100 = strongest, 1 = weakest",
+    "dataset": {
+      "id": "acquisition_model",
+      "name": "Corporate Acquisition Likelihood Model"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-aiml-data",
+      "name": "AI/ML Data"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9966,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "global_percentile_acquisition_likelihood",
+    "description": "Percentile score from the M&A Target Model versus all companies globally; 100 = highest target likelihood, 1 = lowest",
+    "dataset": {
+      "id": "acquisition_model",
+      "name": "Corporate Acquisition Likelihood Model"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-aiml-data",
+      "name": "AI/ML Data"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9966,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "global_text_factor_percentile_rank",
+    "description": "Global percentile rank based on text/news-driven factors in the M&A Target model (100 = highest, 1 = lowest)",
+    "dataset": {
+      "id": "acquisition_model",
+      "name": "Corporate Acquisition Likelihood Model"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-aiml-data",
+      "name": "AI/ML Data"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9966,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "global_valuation_percentile_rank",
+    "description": "Percentile rank of the valuation component versus all companies globally; 100 = most favorable, 1 = least",
+    "dataset": {
+      "id": "acquisition_model",
+      "name": "Corporate Acquisition Likelihood Model"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-aiml-data",
+      "name": "AI/ML Data"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9966,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "industry_percentile_acquisition_likelihood",
+    "description": "Percentile score from the M&A Target Model comparing the company to peers in the same Region+Industry; 100 = highest target likelihood, 1 = lowest",
+    "dataset": {
+      "id": "acquisition_model",
+      "name": "Corporate Acquisition Likelihood Model"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-aiml-data",
+      "name": "AI/ML Data"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9966,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "region_company_size_percentile_rank",
+    "description": "Percentile rank for the Size component within the M&A Target region set (100 = highest/largest, 1 = lowest)",
+    "dataset": {
+      "id": "acquisition_model",
+      "name": "Corporate Acquisition Likelihood Model"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-aiml-data",
+      "name": "AI/ML Data"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9966,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "region_credit_quality_percentile_rank",
+    "description": "Percentile rank (1–100) of credit-based factors within the region peer set; higher values indicate stronger credit profile",
+    "dataset": {
+      "id": "acquisition_model",
+      "name": "Corporate Acquisition Likelihood Model"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-aiml-data",
+      "name": "AI/ML Data"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9966,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "region_fundamental_factor_percentile_rank",
+    "description": "Percentile rank of the fundamentals component versus companies in the same M&A region; 100 = strongest, 1 = weakest",
+    "dataset": {
+      "id": "acquisition_model",
+      "name": "Corporate Acquisition Likelihood Model"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-aiml-data",
+      "name": "AI/ML Data"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9966,
+    "userCount": 1,
+    "alphaCount": 1,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "region_percentile_acquisition_likelihood",
+    "description": "Percentile score from the M&A Target Model versus companies in the same M&A region set; 100 = highest target likelihood, 1 = lowest",
+    "dataset": {
+      "id": "acquisition_model",
+      "name": "Corporate Acquisition Likelihood Model"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-aiml-data",
+      "name": "AI/ML Data"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9966,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "region_text_factor_percentile_rank",
+    "description": "Percentile rank (1–100) of the model’s text/news factors for the company relative to peers in the same M&A Target region; higher values indicate stronger text-based signals",
+    "dataset": {
+      "id": "acquisition_model",
+      "name": "Corporate Acquisition Likelihood Model"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-aiml-data",
+      "name": "AI/ML Data"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9966,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "region_valuation_percentile_rank",
+    "description": "Percentile rank of the valuation component versus companies in the same M&A region; 100 = most favorable, 1 = least",
+    "dataset": {
+      "id": "acquisition_model",
+      "name": "Corporate Acquisition Likelihood Model"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-aiml-data",
+      "name": "AI/ML Data"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9966,
+    "userCount": 1,
+    "alphaCount": 1,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "sector_percentile_acquisition_likelihood",
+    "description": "Percentile score of M&A target likelihood within the Region+Sector peer group (100 = highest, 1 = lowest)",
+    "dataset": {
+      "id": "acquisition_model",
+      "name": "Corporate Acquisition Likelihood Model"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-aiml-data",
+      "name": "AI/ML Data"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9966,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  }
+]

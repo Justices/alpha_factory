@@ -13,8 +13,8 @@ from dataclasses import dataclass, replace
 import re
 from typing import Iterable, Sequence
 
-from .families import Task, first_order_task_factory, unary_factory
-from .fields import DEFAULT_VEC_OPS, FieldSpec
+from alpha_operator_framework.domain.families import Task, first_order_task_factory, unary_factory
+from alpha_operator_framework.domain.fields import DEFAULT_VEC_OPS, FieldSpec
 
 
 _PAIR_KINDS = {"ratio", "difference", "spread", "net_revision"}

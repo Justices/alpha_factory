@@ -26,7 +26,7 @@ import re
 from dataclasses import dataclass, field
 from typing import Any, Iterable, Sequence, Tuple
 
-from .operators import (
+from alpha_operator_framework.domain.operators import (
     ACCESS_LIMITED_OPS,
     basic_ops,
     extended_ops,

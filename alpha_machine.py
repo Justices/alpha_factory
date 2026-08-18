@@ -82,7 +82,7 @@ def database_path(args: argparse.Namespace) -> Path:
 
 def prepare_super_candidates(database: Any, settings: dict[str, Any], *, max_candidates: int = 6) -> list[dict[str, Any]]:
     """Build and persist bounded SUPER hypotheses from regular alpha_details records."""
-    from alpha_operator_framework.super_alpha import SuperAlphaConfig, build_super_candidates
+    from alpha_operator_framework.generation.super_alpha import SuperAlphaConfig, build_super_candidates
 
     rows = [dict(row) for row in database._get_connection().execute(
         "SELECT alpha_id, expression, sharpe, fitness, turnover, sc_value, pc_value FROM alpha_details"
@@ -228,8 +228,8 @@ def filter_alpha_results(rows: Iterable[dict[str, Any]], gate: QualityGate = Qua
     return kept, rejected
 
 
-async def fetch_datafields(region: str, universe: str, delay: int, dataset_id: str = "", search: str = "", data_type: str = "", page_delay: float = 0.5) -> list[dict[str, Any]]:
-    """获取数据字段列表 (带翻页延迟防 429).
+async def fetch_datafields(region: str, universe: str, delay: int, dataset_id: str = "", search: str = "", data_type: str = "", page_delay: float = 0.5, max_retries: int = 5) -> list[dict[str, Any]]:
+    """获取数据字段列表 (带翻页延迟 + 429 退避重试, 防限流).
 
     Args:
         region: 区域
@@ -239,6 +239,7 @@ async def fetch_datafields(region: str, universe: str, delay: int, dataset_id: s
         search: 搜索词
         data_type: 字段类型过滤
         page_delay: 翻页间隔秒数 (默认 0.5s, 防止 429)
+        max_retries: 遇到 429 时单页最大重试次数 (默认 5)
 
     Returns:
         字段列表
@@ -258,7 +259,14 @@ async def fetch_datafields(region: str, universe: str, delay: int, dataset_id: s
         if page_count > 0 and page_delay > 0:
             await asyncio.sleep(page_delay)
         params["offset"] = str(len(rows))
-        response = brain_client.session.get(f"{brain_client.base_url}/data-fields", params=params)
+        # 单页请求: 遇到 429 读 Retry-After 退避重试 (offset 不变), 不轻易中断全量拉取
+        response = None
+        for _ in range(max_retries + 1):
+            response = brain_client.session.get(f"{brain_client.base_url}/data-fields", params=params)
+            if response.status_code != 429:
+                break
+            retry_after = _retry_after_seconds(response, fallback=page_delay + 1.0)
+            await asyncio.sleep(retry_after)
         response.raise_for_status()
         payload = response.json()
         total = int(payload.get("count") or 0)
@@ -267,6 +275,24 @@ async def fetch_datafields(region: str, universe: str, delay: int, dataset_id: s
         rows.extend(page)
         page_count += 1
     return rows
+
+
+def _retry_after_seconds(response: Any, *, fallback: float = 1.5) -> float:
+    """从响应头读取 Retry-After (秒/HTTP-date), 取不下限值; 解析失败用 fallback."""
+    raw = (response.headers or {}).get("Retry-After")
+    if raw is None:
+        return fallback
+    try:
+        return max(float(raw), 0.0)
+    except (TypeError, ValueError):
+        try:
+            from email.utils import parsedate_to_datetime
+            from datetime import datetime, timezone
+            dt = parsedate_to_datetime(raw)
+            wait = (dt - datetime.now(timezone.utc)).total_seconds()
+            return max(wait, 0.0)
+        except Exception:
+            return fallback
 
 
 async def simulate(tasks: Sequence[dict[str, Any]], args: argparse.Namespace,
@@ -286,7 +312,7 @@ async def simulate(tasks: Sequence[dict[str, Any]], args: argparse.Namespace,
         List of result dicts (with alpha_id/sharpe/fitness if waited)
     """
     from alpha_operator_framework.database import AlphaDatabase
-    from alpha_operator_framework.simulation_tracker import SimulationTracker
+    from alpha_operator_framework.platform.simulation_tracker import SimulationTracker
     from cnhkmcp.untracked.platform_functions import brain_client
     await brain_client.ensure_authenticated()
     results: list[dict[str, Any]] = []
@@ -381,7 +407,7 @@ async def _wait_for_batch(tracker, batch_id: int, db,
 async def poll_simulation_batch(batch_id: int, database: Path = DEFAULT_DATABASE_PATH) -> dict[str, Any]:
     """Poll one persisted platform batch without submitting a new simulation."""
     from alpha_operator_framework.database import AlphaDatabase
-    from alpha_operator_framework.simulation_tracker import SimulationTracker
+    from alpha_operator_framework.platform.simulation_tracker import SimulationTracker
     from cnhkmcp.untracked.platform_functions import brain_client
 
     await brain_client.ensure_authenticated()
@@ -407,8 +433,8 @@ async def poll_simulation_batch(batch_id: int, database: Path = DEFAULT_DATABASE
 async def simulate_super(candidates: Sequence[dict[str, Any]], args: argparse.Namespace) -> list[dict[str, Any]]:
     """Submit each durable SUPER hypothesis once; polling is a separate command."""
     from alpha_operator_framework.database import AlphaDatabase
-    from alpha_operator_framework.simulation_tracker import SimulationTracker
-    from alpha_operator_framework.super_alpha import super_simulation_payload
+    from alpha_operator_framework.platform.simulation_tracker import SimulationTracker
+    from alpha_operator_framework.generation.super_alpha import super_simulation_payload
     from cnhkmcp.untracked.platform_functions import brain_client
 
     await brain_client.ensure_authenticated()

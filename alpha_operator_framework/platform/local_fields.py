@@ -14,7 +14,7 @@ import json
 from pathlib import Path
 from typing import Any, Iterable, List, Optional
 
-from .fields import FieldSpec
+from alpha_operator_framework.domain.fields import FieldSpec
 
 
 def default_fields_directory(project_root: str | Path, region: str, delay: int, universe: str) -> Path:

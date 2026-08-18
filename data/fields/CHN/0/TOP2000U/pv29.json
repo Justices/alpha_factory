@@ -1,0 +1,262 @@
+[
+  {
+    "id": "sta1_top2000c10",
+    "description": "For each stock and date, this field assigns a cluster label (from 1 to 10, or -1/10000 for unclassified) representing membership in one of ten statistical industry groups based on quantitative co-movement patterns, recalculated regularly for the Asia Top 2000 stock universe",
+    "dataset": {
+      "id": "pv29",
+      "name": "Derived Industry Classification"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "GROUP",
+    "coverage": 1.0,
+    "userCount": 17,
+    "alphaCount": 107,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2022-07-01"
+  },
+  {
+    "id": "sta1_top2000c2",
+    "description": "For each stock and date, this field assigns a cluster label (from 1 to 2, or -1/10000 for unclassified) representing membership in one of two statistical industry groups, defined by data-driven stock return co-movement, for the Asia Top 2000 stock universe",
+    "dataset": {
+      "id": "pv29",
+      "name": "Derived Industry Classification"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "GROUP",
+    "coverage": 1.0,
+    "userCount": 13,
+    "alphaCount": 38,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2022-07-01"
+  },
+  {
+    "id": "sta1_top2000c20",
+    "description": "For each stock and date, this field assigns a cluster label (from 1 to 20, or -1/10000 for unclassified) representing membership in one of twenty statistical industry groups based on quantitative clustering of stock return patterns for the Asia Top 2000 stock universe",
+    "dataset": {
+      "id": "pv29",
+      "name": "Derived Industry Classification"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "GROUP",
+    "coverage": 1.0,
+    "userCount": 14,
+    "alphaCount": 65,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2022-07-01"
+  },
+  {
+    "id": "sta1_top2000c30",
+    "description": "For each stock and date, this field assigns a cluster label (from 1 to 30, or -1/10000 for unclassified) representing membership in one of thirty statistical industry groups determined by data-driven clustering of stock co-movement for the Asia Top 2000 stock universe",
+    "dataset": {
+      "id": "pv29",
+      "name": "Derived Industry Classification"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "GROUP",
+    "coverage": 1.0,
+    "userCount": 19,
+    "alphaCount": 25,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2022-07-01"
+  },
+  {
+    "id": "sta1_top2000c5",
+    "description": "For each stock and date, this field assigns a cluster label (from 1 to 5, or -1/10000 for unclassified) representing membership in one of five statistical industry groups produced via quantitative clustering of returns for the Asia Top 2000 stock universe",
+    "dataset": {
+      "id": "pv29",
+      "name": "Derived Industry Classification"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "GROUP",
+    "coverage": 1.0,
+    "userCount": 17,
+    "alphaCount": 89,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2022-07-01"
+  },
+  {
+    "id": "sta1_top3000c10",
+    "description": "The cluster label (from 1 to 10) assigned to each stock in the ATOP3000 universe on each date, representing its statistical industry group based on co-movement of returns",
+    "dataset": {
+      "id": "pv29",
+      "name": "Derived Industry Classification"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "GROUP",
+    "coverage": 1.0,
+    "userCount": 21,
+    "alphaCount": 75,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2022-07-01"
+  },
+  {
+    "id": "sta1_top3000c2",
+    "description": "The cluster label (from 1 to 2) assigned to each stock in the ATOP3000 universe on each date, representing its statistical industry group based on co-movement of returns",
+    "dataset": {
+      "id": "pv29",
+      "name": "Derived Industry Classification"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "GROUP",
+    "coverage": 1.0,
+    "userCount": 17,
+    "alphaCount": 34,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2022-07-01"
+  },
+  {
+    "id": "sta1_top3000c20",
+    "description": "The cluster label (from 1 to 20) assigned to each stock in the ATOP3000 universe on each date, representing its statistical industry group based on co-movement of returns",
+    "dataset": {
+      "id": "pv29",
+      "name": "Derived Industry Classification"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "GROUP",
+    "coverage": 1.0,
+    "userCount": 18,
+    "alphaCount": 43,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2022-07-01"
+  },
+  {
+    "id": "sta1_top3000c30",
+    "description": "The cluster label (from 1 to 30) assigned to each stock in the ATOP3000 universe on each date, representing its statistical industry group based on co-movement of returns",
+    "dataset": {
+      "id": "pv29",
+      "name": "Derived Industry Classification"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "GROUP",
+    "coverage": 1.0,
+    "userCount": 18,
+    "alphaCount": 44,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2022-07-01"
+  },
+  {
+    "id": "sta1_top3000c5",
+    "description": "The cluster label (from 1 to 5) assigned to each stock in the ATOP3000 universe on each date, representing its statistical industry group based on co-movement of returns",
+    "dataset": {
+      "id": "pv29",
+      "name": "Derived Industry Classification"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "GROUP",
+    "coverage": 1.0,
+    "userCount": 20,
+    "alphaCount": 81,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2022-07-01"
+  }
+]

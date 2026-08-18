@@ -51,19 +51,19 @@ from alpha_operator_framework import (
 )
 from alpha_operator_framework.database import AlphaDatabase, AlphaDetail, WF_STAGES
 from alpha_operator_framework.database.repository import submission_wf_stage
-from alpha_operator_framework.economic_rules import allowed_first_order_ops
-from alpha_operator_framework.local_fields import (
+from alpha_operator_framework.domain.economic_rules import allowed_first_order_ops
+from alpha_operator_framework.platform.local_fields import (
     default_fields_directory, default_dataset_file, load_local_field_directory,
 )
 from alpha_machine import write_json
 from alpha_machine import main as alpha_machine_main
-from alpha_operator_framework.simulation_tracker import SimulationTracker
-from alpha_operator_framework.super_alpha import (
+from alpha_operator_framework.platform.simulation_tracker import SimulationTracker
+from alpha_operator_framework.generation.super_alpha import (
     SuperAlphaConfig,
     build_super_candidates,
     super_simulation_payload,
 )
-from alpha_operator_framework.paired_bases import (
+from alpha_operator_framework.domain.paired_bases import (
     discover_pair_specs, paired_field_ids, parse_pair_spec, paired_base_task_factory,
     paired_group_first_order_task_factory,
 )
@@ -821,6 +821,7 @@ def test_latest_schema_initializes_current_database():
                 "super_alpha_candidates",
                 "alpha_optimization_queue",
                 "alpha_submission_candidates",
+                "field_signal_stats",
             } <= tables
 
             expression_columns = {

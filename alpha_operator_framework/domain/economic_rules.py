@@ -2,8 +2,8 @@
 
 from __future__ import annotations
 
-from .fields import FieldSpec
-from .operators import basic_ops, ts_ops
+from alpha_operator_framework.domain.fields import FieldSpec
+from alpha_operator_framework.domain.operators import basic_ops, ts_ops
 
 
 def infer_economic_type(field: FieldSpec) -> str:

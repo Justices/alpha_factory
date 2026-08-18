@@ -6,8 +6,8 @@ from abc import ABC, abstractmethod
 from dataclasses import dataclass
 from typing import List, Optional, Sequence
 
-from ..families import Task
-from ..fields import ScalarField
+from alpha_operator_framework.domain.families import Task
+from alpha_operator_framework.domain.fields import ScalarField
 
 
 @dataclass

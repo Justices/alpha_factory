@@ -13,9 +13,9 @@ from dataclasses import dataclass
 from typing import Optional, Sequence, Tuple
 
 from .base import CreationStrategy, StrategyConfig
-from ..database.models import Template
-from ..families import Task
-from ..fields import ScalarField
+from alpha_operator_framework.database.models import Template
+from alpha_operator_framework.domain.families import Task
+from alpha_operator_framework.domain.fields import ScalarField
 
 
 @dataclass
@@ -47,7 +47,7 @@ class TemplateStrategy(CreationStrategy):
         **kwargs
     ) -> List[Task]:
         """从模板库生成任务."""
-        from ..template_library import template_creation_strategy
+        from alpha_operator_framework.generation.template_library import template_creation_strategy
 
         # 获取模板列表
         templates = self.config.templates or kwargs.get("templates", [])

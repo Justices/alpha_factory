@@ -21,12 +21,12 @@ from typing import List, Dict, Any, Optional, Sequence, Tuple
 from datetime import datetime
 
 # 项目模块
-from . import families
-from . import fields
-from . import density
-from . import operators
-from . import optimize  # 新增
-from .database import AlphaDatabase, persist_workflow_row
+from alpha_operator_framework.domain import families
+from alpha_operator_framework.domain import fields
+from alpha_operator_framework.domain import density
+from alpha_operator_framework.domain import operators
+from alpha_operator_framework.domain import optimize  # 新增
+from alpha_operator_framework.database import AlphaDatabase, persist_workflow_row
 
 
 # ---------------------------------------------------------------------------
@@ -197,7 +197,7 @@ def build_signal_branches(
         ]
 
     if config.include_second_order:
-        from .operators import second_order_factory
+        from alpha_operator_framework.domain.operators import second_order_factory
         branches["second_order"] = [
             {
                 "expression": expression,
@@ -424,7 +424,7 @@ async def run_survey_with_fields(
             tasks.extend(unary_tasks)
 
         if config.include_semantic_pairs:
-            from .semantic_pairs import semantic_pair_task_factory
+            from alpha_operator_framework.domain.semantic_pairs import semantic_pair_task_factory
             semantic_pair_tasks = semantic_pair_task_factory(
                 selected,
                 decay=config.decay,
@@ -433,23 +433,27 @@ async def run_survey_with_fields(
 
         # 模板类库策略 (binary/ternary/quaternary); use_template_library=False 回退旧 factory
         if config.use_template_library:
-            from .database import AlphaDatabase
-            from .template_library import TemplateStrategyConfig, template_creation_strategy
+            from alpha_operator_framework.database import AlphaDatabase
+            from alpha_operator_framework.generation.template_library import TemplateStrategyConfig, template_creation_strategy
             scalar_pairs = [
                 fields.ScalarField(expr=e, category=f.category, field_id=f.id)
                 for f in selected for e in fields.preprocess_field(f)
             ]
             tpl_db = AlphaDatabase(output_dir / "alpha_research.db")
+            families_to_use = config.template_families or ("binary", "ternary", "quaternary")
             tpl_cfg = TemplateStrategyConfig(
-                families=config.template_families or ("binary", "ternary", "quaternary"),
+                families=families_to_use,
                 all_combinations=config.all_combinations,
                 sample_n=config.sample_n,
                 decay=config.decay,
                 template_categories=config.template_categories or (),
             )
-            for fam in ("binary", "ternary", "quaternary"):
-                if getattr(config, f"include_{fam}"):
-                    tpls = tpl_db.list_templates(families=(fam,))
+            for fam in families_to_use:
+                # binary/ternary/quaternary 受 include_* 开关控制; distilled 等附加族默认启用
+                if fam in ("binary", "ternary", "quaternary") and not getattr(config, f"include_{fam}"):
+                    continue
+                tpls = tpl_db.list_templates(families=(fam,))
+                if tpls:
                     tasks.extend(template_creation_strategy(
                         tpls, scalar_pairs, config.group_fields or [], tpl_cfg))
             tpl_db.close()
@@ -466,7 +470,7 @@ async def run_survey_with_fields(
                 ))
 
         # 3. 一阶表达式全量入目录，再随机抽样回测。
-        from .database import AlphaDatabase
+        from alpha_operator_framework.database import AlphaDatabase
         catalog_db = AlphaDatabase(output_dir / "alpha_research.db")
         catalog_count = catalog_db.catalog_tasks(unary_tasks, stage="first_order")
         catalog_count += catalog_db.catalog_tasks(semantic_pair_tasks, stage="semantic_pair")
@@ -524,7 +528,7 @@ async def run_survey_with_fields(
 
             # 5.1 持久化到数据库 (survey)
             try:
-                from .database import AlphaDatabase, persist_workflow_row
+                from alpha_operator_framework.database import AlphaDatabase, persist_workflow_row
 
                 db = AlphaDatabase(output_dir / "alpha_research.db")
                 settings = {
@@ -609,6 +613,7 @@ async def run_full_workflow(
     sample_n: int = 80,
     top_n: int = 3,
     min_sharpe: float = 1.2,
+    template_families: Optional[Tuple[str, ...]] = None,
     execute: bool = False
 ) -> Dict[str, WorkflowResult]:
     """完整三段工作流(供AI单次调用).
@@ -648,12 +653,13 @@ async def run_full_workflow(
         dataset_id=dataset_id,
         field_ids=field_ids,
         sample_n=sample_n,
-        top_n_templates=top_n
+        top_n_templates=top_n,
+        template_families=template_families,
     )
 
     # 本地字段文件优先；其次使用调用方提供的字段；最后才查询平台。
     if fields_file is not None:
-        from .local_fields import load_local_field_specs
+        from alpha_operator_framework.platform.local_fields import load_local_field_specs
         field_specs = load_local_field_specs(
             fields_file,
             region=region,
@@ -663,9 +669,10 @@ async def run_full_workflow(
         )
 
     if field_specs is None:
+        # 本地缓存优先 → 平台兜底 (含分页+节流+429退避), 避免全量实时拉取触发限流
         try:
-            import alpha_machine
-            field_rows = await alpha_machine.fetch_datafields(
+            from alpha_operator_framework.cache.datafields import aget_datafields
+            field_rows = await aget_datafields(
                 region, universe, delay, dataset_id=dataset_id
             )
             field_specs = [
@@ -782,189 +789,6 @@ async def _run_deepen_from_survey(
         success=False,
         stage="deepen",
         message="Deepen阶段待实现"
-    )
-
-
-# ---------------------------------------------------------------------------
-# Alpha筛选与优化API
-# ---------------------------------------------------------------------------
-
-def filter_alphas_for_optimization(
-    alphas: Sequence[Dict[str, Any]],
-    alpha_ids: Optional[List[str]] = None,
-    min_sharpe: Optional[float] = None,
-    max_sharpe: Optional[float] = None,
-    min_fitness: Optional[float] = None,
-    max_fitness: Optional[float] = None,
-    min_turnover: Optional[float] = None,
-    max_turnover: Optional[float] = None,
-    limit: Optional[int] = None
-) -> List[Dict[str, Any]]:
-    """筛选需要优化的alpha.
-
-    支持两种筛选方式:
-      1. 精确指定: alpha_ids参数
-      2. 条件筛选: min_sharpe等指标范围
-
-    Args:
-        alphas: alpha结果列表(来自deepen或平台查询)
-        alpha_ids: 指定alpha_id列表(精确模式)
-        min_sharpe: 最小Sharpe
-        max_sharpe: 最大Sharpe(用于筛选边缘alpha)
-        min_fitness: 最小Fitness
-        max_fitness: 最大Fitness
-        min_turnover: 最小Turnover
-        max_turnover: 最大Turnover
-        limit: 限制数量
-
-    Returns:
-        筛选后的alpha列表
-
-    Example:
-        >>> # 方式1: 指定alpha_id
-        >>> filtered = filter_alphas_for_optimization(
-        ...     alphas,
-        ...     alpha_ids=["a1", "a2", "a3"]
-        ... )
-
-        >>> # 方式2: 按条件筛选
-        >>> filtered = filter_alphas_for_optimization(
-        ...     alphas,
-        ...     min_sharpe=1.58,
-        ...     min_fitness=1.0,
-        ...     min_turnover=0.03
-        ... )
-
-        >>> # 方式3: 筛选边缘alpha
-        >>> filtered = filter_alphas_for_optimization(
-        ...     alphas,
-        ...     min_sharpe=1.2,
-        ...     max_sharpe=1.8,
-        ...     limit=20
-        ... )
-    """
-    from .optimize import AlphaFilter, filter_alphas
-
-    config = AlphaFilter(
-        alpha_ids=alpha_ids,
-        min_sharpe=min_sharpe,
-        max_sharpe=max_sharpe,
-        min_fitness=min_fitness,
-        max_fitness=max_fitness,
-        min_turnover=min_turnover,
-        max_turnover=max_turnover,
-        limit=limit
-    )
-
-    return filter_alphas(alphas, config)
-
-
-def filter_high_quality_alphas(
-    alphas: Sequence[Dict[str, Any]],
-    min_sharpe: float = 1.58,
-    min_fitness: float = 1.0,
-    min_turnover: float = 0.03,
-    limit: Optional[int] = None
-) -> List[Dict[str, Any]]:
-    """筛选高质量alpha(便捷函数).
-
-    使用标准质量门:
-      - sharpe ≥ 1.58
-      - fitness ≥ 1.0
-      - turnover ≥ 0.03
-
-    Args:
-        alphas: alpha结果列表
-        min_sharpe: 最小Sharpe(默认1.58)
-        min_fitness: 最小Fitness(默认1.0)
-        min_turnover: 最小Turnover(默认0.03)
-        limit: 限制数量
-
-    Returns:
-        高质量alpha列表
-
-    Example:
-        >>> high_quality = filter_high_quality_alphas(
-        ...     alphas,
-        ...     min_sharpe=1.58,
-        ...     limit=50
-        ... )
-    """
-    from .optimize import filter_by_quality
-    return filter_by_quality(alphas, min_sharpe, min_fitness, min_turnover, limit)
-
-
-def filter_marginal_alphas(
-    alphas: Sequence[Dict[str, Any]],
-    sharpe_range: tuple = (1.2, 1.8),
-    fitness_range: tuple = (0.7, 1.5),
-    turnover_range: tuple = (0.01, 0.1),
-    limit: Optional[int] = None
-) -> List[Dict[str, Any]]:
-    """筛选边缘alpha(有优化潜力).
-
-    边缘alpha特征:
-      - Sharpe在1.2-1.8之间(接近提交线,有提升空间)
-      - Fitness在0.7-1.5之间
-      - Turnover适中
-
-    Args:
-        alphas: alpha结果列表
-        sharpe_range: Sharpe范围(默认1.2-1.8)
-        fitness_range: Fitness范围(默认0.7-1.5)
-        turnover_range: Turnover范围(默认0.01-0.1)
-        limit: 限制数量
-
-    Returns:
-        边缘alpha列表
-
-    Example:
-        >>> # 找出Sharpe在1.2-1.8之间的alpha进行优化
-        >>> marginal = filter_marginal_alphas(
-        ...     alphas,
-        ...     sharpe_range=(1.2, 1.8),
-        ...     limit=20
-        ... )
-    """
-    from .optimize import filter_marginal
-    return filter_marginal(alphas, sharpe_range, fitness_range, turnover_range, limit)
-
-
-def filter_ready_for_submission(
-    alphas: Sequence[Dict[str, Any]],
-    min_sharpe: float = 1.58,
-    min_fitness: float = 1.0,
-    min_turnover: float = 0.01,
-    max_turnover: float = 0.7,
-    min_long_short_sum: int = 100,
-    limit: Optional[int] = None
-) -> List[Dict[str, Any]]:
-    """筛选可提交的alpha(便捷函数).
-
-    使用提交质量门:
-      - sharpe ≥ 1.58
-      - fitness ≥ 1.0
-      - 0.01 ≤ turnover ≤ 0.7
-      - long + short ≥ 100
-
-    Args:
-        alphas: alpha结果列表
-        min_sharpe: 最小Sharpe(默认1.58)
-        min_fitness: 最小Fitness(默认1.0)
-        min_turnover: 最小Turnover(默认0.01)
-        max_turnover: 最大Turnover(默认0.7)
-        min_long_short_sum: 最小long+short数量(默认100)
-        limit: 限制数量
-
-    Returns:
-        可提交的alpha列表
-
-    Example:
-        >>> ready = filter_ready_for_submission(alphas, limit=50)
-    """
-    from .optimize import filter_for_submission
-    return filter_for_submission(
-        alphas, min_sharpe, min_fitness, min_turnover, max_turnover, min_long_short_sum, limit
     )
 
 

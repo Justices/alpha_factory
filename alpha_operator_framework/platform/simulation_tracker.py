@@ -4,7 +4,7 @@ from __future__ import annotations
 
 from typing import Any, Callable, Sequence
 
-from .database import AlphaDatabase, persist_workflow_row
+from alpha_operator_framework.database import AlphaDatabase, persist_workflow_row
 
 
 Submit = Callable[[list[dict[str, Any]]], str]

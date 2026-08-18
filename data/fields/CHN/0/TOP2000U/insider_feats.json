@@ -1,0 +1,3188 @@
+[
+  {
+    "id": "buy_sell_ratio_all_10d_filled",
+    "description": "Ratio of purchases to sales for all insiders over 10 days, with missing data filled.",
+    "dataset": {
+      "id": "insider_feats",
+      "name": "Global Insider Transaction Features"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-event-data",
+      "name": "Event Data"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.5808,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "buy_sell_ratio_all_20d_filled",
+    "description": "Ratio of purchases to sales for all insiders over 20 days, with missing data filled.",
+    "dataset": {
+      "id": "insider_feats",
+      "name": "Global Insider Transaction Features"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-event-data",
+      "name": "Event Data"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.5808,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "buy_sell_ratio_all_250d_filled",
+    "description": "Ratio of purchases to sales for all insiders over 250 days, with missing data filled.",
+    "dataset": {
+      "id": "insider_feats",
+      "name": "Global Insider Transaction Features"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-event-data",
+      "name": "Event Data"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.5808,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "buy_sell_ratio_all_5d_filled",
+    "description": "Ratio of purchases to sales for all insiders over 5 days, with missing data filled.",
+    "dataset": {
+      "id": "insider_feats",
+      "name": "Global Insider Transaction Features"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-event-data",
+      "name": "Event Data"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.5808,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "buy_sell_ratio_all_60d_filled",
+    "description": "Ratio of purchases to sales for all insiders over 60 days, with missing data filled.",
+    "dataset": {
+      "id": "insider_feats",
+      "name": "Global Insider Transaction Features"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-event-data",
+      "name": "Event Data"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.5808,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "buy_sell_ratio_top20_20d_filled_2",
+    "description": "Ratio of purchases to sales for the top 20 insiders over 20 days, with missing data filled (alternate calculation).",
+    "dataset": {
+      "id": "insider_feats",
+      "name": "Global Insider Transaction Features"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-event-data",
+      "name": "Event Data"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.5808,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "buy_sell_ratio_top20_250d_filled",
+    "description": "Ratio of purchases to sales for the top 20 insiders over 250 days, with missing data filled.",
+    "dataset": {
+      "id": "insider_feats",
+      "name": "Global Insider Transaction Features"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-event-data",
+      "name": "Event Data"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.5808,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "buy_sell_ratio_top20_5d_filled",
+    "description": "Ratio of purchases to sales for the top 20 insiders over 5 days, with missing data filled.",
+    "dataset": {
+      "id": "insider_feats",
+      "name": "Global Insider Transaction Features"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-event-data",
+      "name": "Event Data"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.5808,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "buy_sell_ratio_top20_60d_filled",
+    "description": "Ratio of purchases to sales for the top 20 insiders over 60 days, with missing data filled.",
+    "dataset": {
+      "id": "insider_feats",
+      "name": "Global Insider Transaction Features"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-event-data",
+      "name": "Event Data"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.5808,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "buy_sell_ratio_top5_20d_filled",
+    "description": "Ratio of purchases to sales for the top 5 insiders over 20 days, with missing data filled.",
+    "dataset": {
+      "id": "insider_feats",
+      "name": "Global Insider Transaction Features"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-event-data",
+      "name": "Event Data"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.5808,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "buy_sell_ratio_top5_250d_filled",
+    "description": "Ratio of purchases to sales for the top 5 insiders over 250 days, with missing data filled.",
+    "dataset": {
+      "id": "insider_feats",
+      "name": "Global Insider Transaction Features"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-event-data",
+      "name": "Event Data"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.5808,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "buy_sell_ratio_top5_60d_filled",
+    "description": "Ratio of purchases to sales for the top 5 insiders over 60 days, with missing data filled.",
+    "dataset": {
+      "id": "insider_feats",
+      "name": "Global Insider Transaction Features"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-event-data",
+      "name": "Event Data"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.5808,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "buy_sell_tx_count_ratio_all_10d",
+    "description": "Ratio of purchase to sale transaction counts for all insiders over 10 days.",
+    "dataset": {
+      "id": "insider_feats",
+      "name": "Global Insider Transaction Features"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-event-data",
+      "name": "Event Data"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.5808,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "buy_sell_tx_count_ratio_all_20d",
+    "description": "Ratio of purchase to sale transaction counts for all insiders over 20 days.",
+    "dataset": {
+      "id": "insider_feats",
+      "name": "Global Insider Transaction Features"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-event-data",
+      "name": "Event Data"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.5808,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "buy_sell_tx_count_ratio_all_20d_filled",
+    "description": "Ratio of purchase to sale transaction counts for all insiders over 20 days, with missing data filled.",
+    "dataset": {
+      "id": "insider_feats",
+      "name": "Global Insider Transaction Features"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-event-data",
+      "name": "Event Data"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.5808,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "buy_sell_tx_count_ratio_all_250d",
+    "description": "Ratio of purchase to sale transaction counts for all insiders over 250 days.",
+    "dataset": {
+      "id": "insider_feats",
+      "name": "Global Insider Transaction Features"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-event-data",
+      "name": "Event Data"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.5808,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "buy_sell_tx_count_ratio_all_250d_filled",
+    "description": "Ratio of purchase to sale transaction counts for all insiders over 250 days, with missing data filled.",
+    "dataset": {
+      "id": "insider_feats",
+      "name": "Global Insider Transaction Features"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-event-data",
+      "name": "Event Data"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.5808,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "buy_sell_tx_count_ratio_all_5d_filled",
+    "description": "Ratio of purchase to sale transaction counts for all insiders over 5 days, with missing data filled.",
+    "dataset": {
+      "id": "insider_feats",
+      "name": "Global Insider Transaction Features"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-event-data",
+      "name": "Event Data"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.5808,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "buy_sell_tx_count_ratio_all_60d_filled",
+    "description": "Ratio of purchase to sale transaction counts for all insiders over 60 days, with missing data filled.",
+    "dataset": {
+      "id": "insider_feats",
+      "name": "Global Insider Transaction Features"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-event-data",
+      "name": "Event Data"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.5808,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "buy_sell_tx_count_ratio_top20_10d",
+    "description": "Ratio of purchase to sale transaction counts for the top 20 insiders over 10 days.",
+    "dataset": {
+      "id": "insider_feats",
+      "name": "Global Insider Transaction Features"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-event-data",
+      "name": "Event Data"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.5808,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "buy_sell_tx_count_ratio_top20_10d_filled",
+    "description": "Ratio of purchase to sale transaction counts for the top 20 insiders over 10 days, with missing data filled.",
+    "dataset": {
+      "id": "insider_feats",
+      "name": "Global Insider Transaction Features"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-event-data",
+      "name": "Event Data"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.5808,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "buy_sell_tx_count_ratio_top20_20d",
+    "description": "Ratio of purchase to sale transaction counts for the top 20 insiders over 20 days.",
+    "dataset": {
+      "id": "insider_feats",
+      "name": "Global Insider Transaction Features"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-event-data",
+      "name": "Event Data"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.5808,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "buy_sell_tx_count_ratio_top20_250d",
+    "description": "Ratio of purchase to sale transaction counts for the top 20 insiders over 250 days.",
+    "dataset": {
+      "id": "insider_feats",
+      "name": "Global Insider Transaction Features"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-event-data",
+      "name": "Event Data"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.5808,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "buy_sell_tx_count_ratio_top20_250d_filled",
+    "description": "Ratio of purchase to sale transaction counts for the top 20 insiders over 250 days, with missing data filled.",
+    "dataset": {
+      "id": "insider_feats",
+      "name": "Global Insider Transaction Features"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-event-data",
+      "name": "Event Data"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.5808,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "buy_sell_tx_count_ratio_top20_5d",
+    "description": "Ratio of purchase to sale transaction counts for the top 20 insiders over 5 days.",
+    "dataset": {
+      "id": "insider_feats",
+      "name": "Global Insider Transaction Features"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-event-data",
+      "name": "Event Data"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.5808,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "buy_sell_tx_count_ratio_top20_5d_filled",
+    "description": "Ratio of purchase to sale transaction counts for the top 20 insiders over 5 days, with missing data filled.",
+    "dataset": {
+      "id": "insider_feats",
+      "name": "Global Insider Transaction Features"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-event-data",
+      "name": "Event Data"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.5808,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "buy_sell_tx_count_ratio_top20_60d",
+    "description": "Ratio of purchase to sale transaction counts for the top 20 insiders over 60 days.",
+    "dataset": {
+      "id": "insider_feats",
+      "name": "Global Insider Transaction Features"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-event-data",
+      "name": "Event Data"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.5808,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "buy_sell_tx_count_ratio_top5_10d",
+    "description": "Ratio of purchase to sale transaction counts for the top 5 insiders over 10 days.",
+    "dataset": {
+      "id": "insider_feats",
+      "name": "Global Insider Transaction Features"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-event-data",
+      "name": "Event Data"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.5808,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "buy_sell_tx_count_ratio_top5_20d",
+    "description": "Ratio of purchase to sale transaction counts for the top 5 insiders over 20 days.",
+    "dataset": {
+      "id": "insider_feats",
+      "name": "Global Insider Transaction Features"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-event-data",
+      "name": "Event Data"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.5808,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "buy_sell_tx_count_ratio_top5_250d",
+    "description": "Ratio of purchase to sale transaction counts for the top 5 insiders over 250 days.",
+    "dataset": {
+      "id": "insider_feats",
+      "name": "Global Insider Transaction Features"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-event-data",
+      "name": "Event Data"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.5808,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "buy_sell_tx_count_ratio_top5_250d_filled",
+    "description": "Ratio of purchase to sale transaction counts for the top 5 insiders over 250 days, with missing data filled.",
+    "dataset": {
+      "id": "insider_feats",
+      "name": "Global Insider Transaction Features"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-event-data",
+      "name": "Event Data"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.5808,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "buy_sell_tx_count_ratio_top5_5d",
+    "description": "Ratio of purchase to sale transaction counts for the top 5 insiders over 5 days.",
+    "dataset": {
+      "id": "insider_feats",
+      "name": "Global Insider Transaction Features"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-event-data",
+      "name": "Event Data"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.5808,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "buy_sell_tx_count_ratio_top5_5d_filled",
+    "description": "Ratio of purchase to sale transaction counts for the top 5 insiders over 5 days, with missing data filled.",
+    "dataset": {
+      "id": "insider_feats",
+      "name": "Global Insider Transaction Features"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-event-data",
+      "name": "Event Data"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.5808,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "buy_sell_tx_count_ratio_top5_60d",
+    "description": "Ratio of purchase to sale transaction counts for the top 5 insiders over 60 days.",
+    "dataset": {
+      "id": "insider_feats",
+      "name": "Global Insider Transaction Features"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-event-data",
+      "name": "Event Data"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.5808,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "buy_sell_tx_count_ratio_top5_60d_filled",
+    "description": "Ratio of purchase to sale transaction counts for the top 5 insiders over 60 days, with missing data filled.",
+    "dataset": {
+      "id": "insider_feats",
+      "name": "Global Insider Transaction Features"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-event-data",
+      "name": "Event Data"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.5808,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "buy_to_sell_ratio_10d",
+    "description": "Ratio of insider purchases to sales for all insiders over the last 10 days.",
+    "dataset": {
+      "id": "insider_feats",
+      "name": "Global Insider Transaction Features"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-event-data",
+      "name": "Event Data"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.5808,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "buy_to_sell_ratio_all_20d",
+    "description": "Ratio of insider purchases to sales for all insiders over the last 20 days.",
+    "dataset": {
+      "id": "insider_feats",
+      "name": "Global Insider Transaction Features"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-event-data",
+      "name": "Event Data"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.5808,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "buy_to_sell_ratio_all_250d",
+    "description": "Ratio of insider purchases to sales for all insiders over the last 250 days.",
+    "dataset": {
+      "id": "insider_feats",
+      "name": "Global Insider Transaction Features"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-event-data",
+      "name": "Event Data"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.5808,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "buy_to_sell_ratio_all_60d",
+    "description": "Ratio of insider purchases to sales for all insiders over the last 60 days.",
+    "dataset": {
+      "id": "insider_feats",
+      "name": "Global Insider Transaction Features"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-event-data",
+      "name": "Event Data"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.5808,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "buy_to_sell_ratio_top20_10d",
+    "description": "Ratio of purchases to sales for the top 20 insiders over the past 10 days.",
+    "dataset": {
+      "id": "insider_feats",
+      "name": "Global Insider Transaction Features"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-event-data",
+      "name": "Event Data"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.5808,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "buy_to_sell_ratio_top20_20d",
+    "description": "Ratio of purchases to sales for the top 20 insiders over the past 20 days.",
+    "dataset": {
+      "id": "insider_feats",
+      "name": "Global Insider Transaction Features"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-event-data",
+      "name": "Event Data"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.5808,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "buy_to_sell_ratio_top20_5d",
+    "description": "Ratio of purchases to sales for the top 20 insiders over the past 5 days.",
+    "dataset": {
+      "id": "insider_feats",
+      "name": "Global Insider Transaction Features"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-event-data",
+      "name": "Event Data"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.5808,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "buy_to_sell_ratio_top20_60d",
+    "description": "Ratio of purchases to sales for the top 20 insiders over the past 60 days.",
+    "dataset": {
+      "id": "insider_feats",
+      "name": "Global Insider Transaction Features"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-event-data",
+      "name": "Event Data"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.5808,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "buy_to_sell_ratio_top5_10d",
+    "description": "Ratio of purchases to sales for the top 5 insiders over the past 10 days.",
+    "dataset": {
+      "id": "insider_feats",
+      "name": "Global Insider Transaction Features"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-event-data",
+      "name": "Event Data"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.5808,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "buy_to_sell_ratio_top5_20d",
+    "description": "Ratio of purchases to sales for the top 5 insiders over the past 20 days.",
+    "dataset": {
+      "id": "insider_feats",
+      "name": "Global Insider Transaction Features"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-event-data",
+      "name": "Event Data"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.5808,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "buy_to_sell_ratio_top5_250d",
+    "description": "Ratio of purchases to sales for the top 5 insiders over the past 250 days.",
+    "dataset": {
+      "id": "insider_feats",
+      "name": "Global Insider Transaction Features"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-event-data",
+      "name": "Event Data"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.5808,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "buy_to_sell_ratio_top5_5d",
+    "description": "Ratio of purchases to sales for the top 5 insiders over the past 5 days.",
+    "dataset": {
+      "id": "insider_feats",
+      "name": "Global Insider Transaction Features"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-event-data",
+      "name": "Event Data"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.5808,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "buy_to_sell_ratio_top5_60d",
+    "description": "Ratio of purchases to sales for the top 5 insiders over the past 60 days.",
+    "dataset": {
+      "id": "insider_feats",
+      "name": "Global Insider Transaction Features"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-event-data",
+      "name": "Event Data"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.5808,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "buy_to_sell_txn_ratio_lookback_10_filled",
+    "description": "Ratio of purchase to sale transactions by all insiders over 10 days, with missing data filled.",
+    "dataset": {
+      "id": "insider_feats",
+      "name": "Global Insider Transaction Features"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-event-data",
+      "name": "Event Data"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.5808,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "buy_to_sell_volume_ratio_lookback_5",
+    "description": "Ratio of shares purchased to sold by all insiders over a 5-day period.",
+    "dataset": {
+      "id": "insider_feats",
+      "name": "Global Insider Transaction Features"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-event-data",
+      "name": "Event Data"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.5808,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "insider_buy_to_sell_transaction_ratio_lookback_60",
+    "description": "Ratio of insider purchase to sale transactions over a 60-day period.",
+    "dataset": {
+      "id": "insider_feats",
+      "name": "Global Insider Transaction Features"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-event-data",
+      "name": "Event Data"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.5808,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "top20_buy_to_sell_txn_ratio_lookback_20_filled",
+    "description": "Ratio of purchase to sale transactions by top 20 insiders over 20 days, with missing data filled.",
+    "dataset": {
+      "id": "insider_feats",
+      "name": "Global Insider Transaction Features"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-event-data",
+      "name": "Event Data"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.5808,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "top20_buy_to_sell_txn_ratio_lookback_60_filled",
+    "description": "Ratio of purchase to sale transactions by top 20 insiders over 60 days, with missing data filled.",
+    "dataset": {
+      "id": "insider_feats",
+      "name": "Global Insider Transaction Features"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-event-data",
+      "name": "Event Data"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.5808,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "top20_buy_to_sell_volume_ratio_lookback_10_filled",
+    "description": "Ratio of shares purchased to sold by top 20 insiders over 10 days, with missing data filled.",
+    "dataset": {
+      "id": "insider_feats",
+      "name": "Global Insider Transaction Features"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-event-data",
+      "name": "Event Data"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.5808,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "top20_buy_to_sell_volume_ratio_lookback_250",
+    "description": "Ratio of shares purchased to sold by top 20 insiders over a 250-day period.",
+    "dataset": {
+      "id": "insider_feats",
+      "name": "Global Insider Transaction Features"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-event-data",
+      "name": "Event Data"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.5808,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "top20_buy_tx_count_10d",
+    "description": "Number of purchase transactions by the top 20 insiders over the last 10 days.",
+    "dataset": {
+      "id": "insider_feats",
+      "name": "Global Insider Transaction Features"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-event-data",
+      "name": "Event Data"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.5808,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "top20_buy_tx_count_10d_2",
+    "description": "Number of purchase transactions by the top 20 insiders over the last 10 days (alternate calculation).",
+    "dataset": {
+      "id": "insider_feats",
+      "name": "Global Insider Transaction Features"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-event-data",
+      "name": "Event Data"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.5808,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "top20_buy_tx_count_20d",
+    "description": "Number of purchase transactions by the top 20 insiders over the last 20 days.",
+    "dataset": {
+      "id": "insider_feats",
+      "name": "Global Insider Transaction Features"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-event-data",
+      "name": "Event Data"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.5808,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "top20_buy_tx_count_20d_2",
+    "description": "Number of purchase transactions by the top 20 insiders over the last 20 days (alternate calculation).",
+    "dataset": {
+      "id": "insider_feats",
+      "name": "Global Insider Transaction Features"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-event-data",
+      "name": "Event Data"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.5808,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "top20_buy_tx_count_250d",
+    "description": "Number of purchase transactions by the top 20 insiders over the last 250 days.",
+    "dataset": {
+      "id": "insider_feats",
+      "name": "Global Insider Transaction Features"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-event-data",
+      "name": "Event Data"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.5808,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "top20_buy_tx_count_250d_2",
+    "description": "Number of purchase transactions by the top 20 insiders over the last 250 days (alternate calculation).",
+    "dataset": {
+      "id": "insider_feats",
+      "name": "Global Insider Transaction Features"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-event-data",
+      "name": "Event Data"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.5808,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "top20_buy_tx_count_5d",
+    "description": "Number of purchase transactions by the top 20 insiders over the last 5 days.",
+    "dataset": {
+      "id": "insider_feats",
+      "name": "Global Insider Transaction Features"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-event-data",
+      "name": "Event Data"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.5808,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "top20_buy_tx_count_5d_2",
+    "description": "Number of purchase transactions by the top 20 insiders over the last 5 days (alternate calculation).",
+    "dataset": {
+      "id": "insider_feats",
+      "name": "Global Insider Transaction Features"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-event-data",
+      "name": "Event Data"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.5808,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "top20_buy_tx_count_60d",
+    "description": "Number of purchase transactions by the top 20 insiders over the last 60 days.",
+    "dataset": {
+      "id": "insider_feats",
+      "name": "Global Insider Transaction Features"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-event-data",
+      "name": "Event Data"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.5808,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "top20_buy_tx_count_60d_2",
+    "description": "Number of purchase transactions by the top 20 insiders over the last 60 days (alternate calculation).",
+    "dataset": {
+      "id": "insider_feats",
+      "name": "Global Insider Transaction Features"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-event-data",
+      "name": "Event Data"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.5808,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "top20_insider_sale_count_60d",
+    "description": "Number of sale transactions by the top 20 insiders over the last 60 days.",
+    "dataset": {
+      "id": "insider_feats",
+      "name": "Global Insider Transaction Features"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-event-data",
+      "name": "Event Data"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.5808,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "top20_sale_tx_count_10d",
+    "description": "Number of sale transactions by the top 20 insiders over the last 10 days.",
+    "dataset": {
+      "id": "insider_feats",
+      "name": "Global Insider Transaction Features"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-event-data",
+      "name": "Event Data"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.5808,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "top20_sale_tx_count_10d_2",
+    "description": "Number of sale transactions by the top 20 insiders over the last 10 days (alternate calculation).",
+    "dataset": {
+      "id": "insider_feats",
+      "name": "Global Insider Transaction Features"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-event-data",
+      "name": "Event Data"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.5808,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "top20_sale_tx_count_20d",
+    "description": "Number of sale transactions by the top 20 insiders over the last 20 days.",
+    "dataset": {
+      "id": "insider_feats",
+      "name": "Global Insider Transaction Features"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-event-data",
+      "name": "Event Data"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.5808,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "top20_sale_tx_count_20d_2",
+    "description": "Number of sale transactions by the top 20 insiders over the last 20 days (alternate calculation).",
+    "dataset": {
+      "id": "insider_feats",
+      "name": "Global Insider Transaction Features"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-event-data",
+      "name": "Event Data"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.5808,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "top20_sale_tx_count_250d",
+    "description": "Number of sale transactions by the top 20 insiders over the last 250 days.",
+    "dataset": {
+      "id": "insider_feats",
+      "name": "Global Insider Transaction Features"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-event-data",
+      "name": "Event Data"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.5808,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "top20_sale_tx_count_250d_2",
+    "description": "Number of sale transactions by the top 20 insiders over the last 250 days (alternate calculation).",
+    "dataset": {
+      "id": "insider_feats",
+      "name": "Global Insider Transaction Features"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-event-data",
+      "name": "Event Data"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.5808,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "top20_sale_tx_count_5d",
+    "description": "Number of sale transactions by the top 20 insiders over the last 5 days.",
+    "dataset": {
+      "id": "insider_feats",
+      "name": "Global Insider Transaction Features"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-event-data",
+      "name": "Event Data"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.5808,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "top20_sale_tx_count_5d_2",
+    "description": "Number of sale transactions by the top 20 insiders over the last 5 days (alternate calculation).",
+    "dataset": {
+      "id": "insider_feats",
+      "name": "Global Insider Transaction Features"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-event-data",
+      "name": "Event Data"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.5808,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "top20_sale_tx_count_60d",
+    "description": "Number of sale transactions by the top 20 insiders over the last 60 days.",
+    "dataset": {
+      "id": "insider_feats",
+      "name": "Global Insider Transaction Features"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-event-data",
+      "name": "Event Data"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.5808,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "top5_buy_to_sell_txn_ratio_lookback_10_filled",
+    "description": "Ratio of purchase to sale transactions by top 5 insiders over 10 days, with missing data filled.",
+    "dataset": {
+      "id": "insider_feats",
+      "name": "Global Insider Transaction Features"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-event-data",
+      "name": "Event Data"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.5808,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "top5_buy_to_sell_txn_ratio_lookback_20_filled",
+    "description": "Ratio of purchase to sale transactions by top 5 insiders over 20 days, with missing data filled.",
+    "dataset": {
+      "id": "insider_feats",
+      "name": "Global Insider Transaction Features"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-event-data",
+      "name": "Event Data"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.5808,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "top5_buy_to_sell_volume_ratio_lookback_5_filled",
+    "description": "Ratio of shares purchased to sold by top 5 insiders over 5 days, with missing data filled.",
+    "dataset": {
+      "id": "insider_feats",
+      "name": "Global Insider Transaction Features"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-event-data",
+      "name": "Event Data"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.5808,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "top5_buy_tx_count_10d",
+    "description": "Number of purchase transactions by the top 5 insiders over the last 10 days.",
+    "dataset": {
+      "id": "insider_feats",
+      "name": "Global Insider Transaction Features"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-event-data",
+      "name": "Event Data"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.5808,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "top5_buy_tx_count_10d_2",
+    "description": "Number of purchase transactions by the top 5 insiders over the last 10 days (alternate calculation).",
+    "dataset": {
+      "id": "insider_feats",
+      "name": "Global Insider Transaction Features"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-event-data",
+      "name": "Event Data"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.5808,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "top5_buy_tx_count_20d",
+    "description": "Number of purchase transactions by the top 5 insiders over the last 20 days.",
+    "dataset": {
+      "id": "insider_feats",
+      "name": "Global Insider Transaction Features"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-event-data",
+      "name": "Event Data"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.5808,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "top5_buy_tx_count_20d_2",
+    "description": "Number of purchase transactions by the top 5 insiders over the last 20 days (alternate calculation).",
+    "dataset": {
+      "id": "insider_feats",
+      "name": "Global Insider Transaction Features"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-event-data",
+      "name": "Event Data"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.5808,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "top5_buy_tx_count_250d",
+    "description": "Number of purchase transactions by the top 5 insiders over the last 250 days.",
+    "dataset": {
+      "id": "insider_feats",
+      "name": "Global Insider Transaction Features"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-event-data",
+      "name": "Event Data"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.5808,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "top5_buy_tx_count_5d",
+    "description": "Number of purchase transactions by the top 5 insiders over the last 5 days.",
+    "dataset": {
+      "id": "insider_feats",
+      "name": "Global Insider Transaction Features"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-event-data",
+      "name": "Event Data"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.5808,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "top5_buy_tx_count_5d_2",
+    "description": "Number of purchase transactions by the top 5 insiders over the last 5 days (alternate calculation).",
+    "dataset": {
+      "id": "insider_feats",
+      "name": "Global Insider Transaction Features"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-event-data",
+      "name": "Event Data"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.5808,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "top5_buy_tx_count_60d",
+    "description": "Number of purchase transactions by the top 5 insiders over the last 60 days.",
+    "dataset": {
+      "id": "insider_feats",
+      "name": "Global Insider Transaction Features"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-event-data",
+      "name": "Event Data"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.5808,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "top5_buy_tx_count_60d_2",
+    "description": "Number of purchase transactions by the top 5 insiders over the last 60 days (alternate calculation).",
+    "dataset": {
+      "id": "insider_feats",
+      "name": "Global Insider Transaction Features"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-event-data",
+      "name": "Event Data"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.5808,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "top5_insider_buy_count_250d",
+    "description": "Number of purchase transactions by the top 5 insiders over the last 250 days.",
+    "dataset": {
+      "id": "insider_feats",
+      "name": "Global Insider Transaction Features"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-event-data",
+      "name": "Event Data"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.5808,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "top5_insider_sale_transaction_count_lookback_20",
+    "description": "Number of sale transactions by top 5 insiders over a 20-day period.",
+    "dataset": {
+      "id": "insider_feats",
+      "name": "Global Insider Transaction Features"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-event-data",
+      "name": "Event Data"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.5808,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "top5_insider_sale_transaction_count_lookback_250",
+    "description": "Number of sale transactions by top 5 insiders over a 250-day period.",
+    "dataset": {
+      "id": "insider_feats",
+      "name": "Global Insider Transaction Features"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-event-data",
+      "name": "Event Data"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.5808,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "top5_insider_sale_transaction_count_lookback_60",
+    "description": "Number of sale transactions by top 5 insiders over a 60-day period.",
+    "dataset": {
+      "id": "insider_feats",
+      "name": "Global Insider Transaction Features"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-event-data",
+      "name": "Event Data"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.5808,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "top5_insider_sale_volume_lookback_250",
+    "description": "Total shares sold by top 5 insiders over a 250-day period.",
+    "dataset": {
+      "id": "insider_feats",
+      "name": "Global Insider Transaction Features"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-event-data",
+      "name": "Event Data"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.5808,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "top5_sale_tx_count_10d",
+    "description": "Number of sale transactions by the top 5 insiders over the last 10 days.",
+    "dataset": {
+      "id": "insider_feats",
+      "name": "Global Insider Transaction Features"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-event-data",
+      "name": "Event Data"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.5808,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "top5_sale_tx_count_10d_2",
+    "description": "Number of sale transactions by the top 5 insiders over the last 10 days (alternate calculation).",
+    "dataset": {
+      "id": "insider_feats",
+      "name": "Global Insider Transaction Features"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-event-data",
+      "name": "Event Data"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.5808,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "top5_sale_tx_count_20d",
+    "description": "Number of sale transactions by the top 5 insiders over the last 20 days.",
+    "dataset": {
+      "id": "insider_feats",
+      "name": "Global Insider Transaction Features"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-event-data",
+      "name": "Event Data"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.5808,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "top5_sale_tx_count_5d",
+    "description": "Number of sale transactions by the top 5 insiders over the last 5 days.",
+    "dataset": {
+      "id": "insider_feats",
+      "name": "Global Insider Transaction Features"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-event-data",
+      "name": "Event Data"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.5808,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "top5_sale_tx_count_5d_2",
+    "description": "Number of sale transactions by the top 5 insiders over the last 5 days (alternate calculation).",
+    "dataset": {
+      "id": "insider_feats",
+      "name": "Global Insider Transaction Features"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-event-data",
+      "name": "Event Data"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.5808,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "top5_sale_tx_count_60d",
+    "description": "Number of sale transactions by the top 5 insiders over the last 60 days.",
+    "dataset": {
+      "id": "insider_feats",
+      "name": "Global Insider Transaction Features"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-event-data",
+      "name": "Event Data"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.5808,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "total_buy_tx_count_10d",
+    "description": "Total number of insider purchase transactions over the past 10 days.",
+    "dataset": {
+      "id": "insider_feats",
+      "name": "Global Insider Transaction Features"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-event-data",
+      "name": "Event Data"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.5808,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "total_buy_tx_count_20d_2",
+    "description": "Total number of insider purchase transactions over the past 20 days (alternate calculation).",
+    "dataset": {
+      "id": "insider_feats",
+      "name": "Global Insider Transaction Features"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-event-data",
+      "name": "Event Data"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.5808,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "total_buy_tx_count_250d",
+    "description": "Total number of insider purchase transactions over the past 250 days.",
+    "dataset": {
+      "id": "insider_feats",
+      "name": "Global Insider Transaction Features"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-event-data",
+      "name": "Event Data"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.5808,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "total_buy_tx_count_250d_2",
+    "description": "Total number of insider purchase transactions over the past 250 days (alternate calculation).",
+    "dataset": {
+      "id": "insider_feats",
+      "name": "Global Insider Transaction Features"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-event-data",
+      "name": "Event Data"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.5808,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "total_buy_tx_count_5d",
+    "description": "Total number of insider purchase transactions over the past 5 days.",
+    "dataset": {
+      "id": "insider_feats",
+      "name": "Global Insider Transaction Features"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-event-data",
+      "name": "Event Data"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.5808,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "total_buy_tx_count_5d_2",
+    "description": "Total number of insider purchase transactions over the past 5 days (alternate calculation).",
+    "dataset": {
+      "id": "insider_feats",
+      "name": "Global Insider Transaction Features"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-event-data",
+      "name": "Event Data"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.5808,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "total_buy_tx_count_60d",
+    "description": "Total number of insider purchase transactions over the past 60 days.",
+    "dataset": {
+      "id": "insider_feats",
+      "name": "Global Insider Transaction Features"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-event-data",
+      "name": "Event Data"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.5808,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "total_insider_buy_count_20d",
+    "description": "Total number of insider purchase transactions over the past 20 days.",
+    "dataset": {
+      "id": "insider_feats",
+      "name": "Global Insider Transaction Features"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-event-data",
+      "name": "Event Data"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.5808,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "total_insider_purchase_count_lookback_10",
+    "description": "Total number of insider purchase transactions over a 10-day period.",
+    "dataset": {
+      "id": "insider_feats",
+      "name": "Global Insider Transaction Features"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-event-data",
+      "name": "Event Data"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.5808,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "total_insider_purchase_count_lookback_60",
+    "description": "Total number of insider purchase transactions over a 60-day period.",
+    "dataset": {
+      "id": "insider_feats",
+      "name": "Global Insider Transaction Features"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-event-data",
+      "name": "Event Data"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.5808,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "total_insider_sale_count_20d",
+    "description": "Total number of insider sale transactions over the past 20 days.",
+    "dataset": {
+      "id": "insider_feats",
+      "name": "Global Insider Transaction Features"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-event-data",
+      "name": "Event Data"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.5808,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "total_insider_sale_transaction_count_lookback_5",
+    "description": "Total number of insider sale transactions over a 5-day period.",
+    "dataset": {
+      "id": "insider_feats",
+      "name": "Global Insider Transaction Features"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-event-data",
+      "name": "Event Data"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.5808,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "total_insider_sale_transaction_count_lookback_60",
+    "description": "Total number of insider sale transactions over a 60-day period.",
+    "dataset": {
+      "id": "insider_feats",
+      "name": "Global Insider Transaction Features"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-event-data",
+      "name": "Event Data"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.5808,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "total_insider_sale_volume_lookback_10",
+    "description": "Total shares sold by all insiders over a 10-day period.",
+    "dataset": {
+      "id": "insider_feats",
+      "name": "Global Insider Transaction Features"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-event-data",
+      "name": "Event Data"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.5808,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "total_insider_sale_volume_lookback_20",
+    "description": "Total shares sold by all insiders over a 20-day period.",
+    "dataset": {
+      "id": "insider_feats",
+      "name": "Global Insider Transaction Features"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-event-data",
+      "name": "Event Data"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.5808,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "total_sale_tx_count_10d",
+    "description": "Total number of insider sale transactions over the past 10 days.",
+    "dataset": {
+      "id": "insider_feats",
+      "name": "Global Insider Transaction Features"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-event-data",
+      "name": "Event Data"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.5808,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "total_sale_tx_count_250d",
+    "description": "Total number of insider sale transactions over the past 250 days.",
+    "dataset": {
+      "id": "insider_feats",
+      "name": "Global Insider Transaction Features"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-event-data",
+      "name": "Event Data"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.5808,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "total_sale_tx_count_250d_2",
+    "description": "Total number of insider sale transactions over the past 250 days (alternate calculation).",
+    "dataset": {
+      "id": "insider_feats",
+      "name": "Global Insider Transaction Features"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-event-data",
+      "name": "Event Data"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.5808,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "total_sale_tx_count_5d",
+    "description": "Total number of insider sale transactions over the past 5 days.",
+    "dataset": {
+      "id": "insider_feats",
+      "name": "Global Insider Transaction Features"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-event-data",
+      "name": "Event Data"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.5808,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "total_sale_tx_count_60d",
+    "description": "Total number of insider sale transactions over the past 60 days.",
+    "dataset": {
+      "id": "insider_feats",
+      "name": "Global Insider Transaction Features"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-event-data",
+      "name": "Event Data"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.5808,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  }
+]

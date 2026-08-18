@@ -443,6 +443,78 @@ def summarize_filtered(
     }
 
 
+def filter_alphas_for_optimization(
+    alphas: Sequence[Dict[str, Any]],
+    alpha_ids: Optional[List[str]] = None,
+    min_sharpe: Optional[float] = None,
+    max_sharpe: Optional[float] = None,
+    min_fitness: Optional[float] = None,
+    max_fitness: Optional[float] = None,
+    min_turnover: Optional[float] = None,
+    max_turnover: Optional[float] = None,
+    limit: Optional[int] = None
+) -> List[Dict[str, Any]]:
+    """筛选需要优化的 alpha (精确指定 id 或按指标范围).
+
+    Args:
+        alphas: alpha 结果列表 (来自 deepen 或平台查询)
+        alpha_ids: 指定 alpha_id 列表 (精确模式)
+        min_sharpe/max_sharpe/min_fitness/max_fitness/min_turnover/max_turnover: 指标范围
+        limit: 限制数量
+
+    Returns:
+        筛选后的 alpha 列表
+    """
+    config = AlphaFilter(
+        alpha_ids=alpha_ids,
+        min_sharpe=min_sharpe,
+        max_sharpe=max_sharpe,
+        min_fitness=min_fitness,
+        max_fitness=max_fitness,
+        min_turnover=min_turnover,
+        max_turnover=max_turnover,
+        limit=limit,
+    )
+    return filter_alphas(alphas, config)
+
+
+def filter_high_quality_alphas(
+    alphas: Sequence[Dict[str, Any]],
+    min_sharpe: float = 1.58,
+    min_fitness: float = 1.0,
+    min_turnover: float = 0.03,
+    limit: Optional[int] = None
+) -> List[Dict[str, Any]]:
+    """筛选高质量 alpha (便捷函数): sharpe≥1.58, fitness≥1.0, turnover≥0.03."""
+    return filter_by_quality(alphas, min_sharpe, min_fitness, min_turnover, limit)
+
+
+def filter_marginal_alphas(
+    alphas: Sequence[Dict[str, Any]],
+    sharpe_range: tuple = (1.2, 1.8),
+    fitness_range: tuple = (0.7, 1.5),
+    turnover_range: tuple = (0.01, 0.1),
+    limit: Optional[int] = None
+) -> List[Dict[str, Any]]:
+    """筛选边缘 alpha (有优化潜力), 便捷函数."""
+    return filter_marginal(alphas, sharpe_range, fitness_range, turnover_range, limit)
+
+
+def filter_ready_for_submission(
+    alphas: Sequence[Dict[str, Any]],
+    min_sharpe: float = 1.58,
+    min_fitness: float = 1.0,
+    min_turnover: float = 0.01,
+    max_turnover: float = 0.7,
+    min_long_short_sum: int = 100,
+    limit: Optional[int] = None
+) -> List[Dict[str, Any]]:
+    """筛选可提交的 alpha (便捷函数), 使用提交质量门."""
+    return filter_for_submission(
+        alphas, min_sharpe, min_fitness, min_turnover, max_turnover, min_long_short_sum, limit
+    )
+
+
 __all__ = [
     "AlphaFilter",
     "OptimizeConfig",
@@ -452,4 +524,8 @@ __all__ = [
     "filter_marginal",
     "filter_for_submission",
     "summarize_filtered",
+    "filter_alphas_for_optimization",
+    "filter_high_quality_alphas",
+    "filter_marginal_alphas",
+    "filter_ready_for_submission",
 ]

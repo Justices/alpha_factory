@@ -10,8 +10,8 @@ from __future__ import annotations
 import re
 from typing import Dict, Iterable, List, Sequence, Tuple
 
-from .families import Task
-from .fields import DEFAULT_VEC_OPS, FieldSpec, preprocess_field
+from alpha_operator_framework.domain.families import Task
+from alpha_operator_framework.domain.fields import DEFAULT_VEC_OPS, FieldSpec, preprocess_field
 
 
 _POLARITY = re.compile(r"(?<![a-z0-9])(?:positive|negative)(?![a-z0-9])")

@@ -20,7 +20,7 @@ from typing import List, Dict, Any, Optional, Tuple, Sequence
 from dataclasses import asdict
 
 from .models import AlphaDetail, AlphaExpression, DataField, Template, WF_STAGES
-from ..evaluation import count_failed_gates
+from alpha_operator_framework.domain.evaluation import count_failed_gates
 
 
 # ---------------------------------------------------------------------------
@@ -152,6 +152,12 @@ class AlphaDatabase:
             self.conn.row_factory = sqlite3.Row
         return self.conn
 
+    def close(self) -> None:
+        """显式关闭底层连接 (释放文件句柄, 供测试/短生命周期场景使用)."""
+        if self.conn is not None:
+            self.conn.close()
+            self.conn = None
+
     def _init_database(self):
         """初始化数据库表结构."""
         conn = self._get_connection()
@@ -262,6 +268,29 @@ class AlphaDatabase:
             created_at TEXT NOT NULL,
             updated_at TEXT NOT NULL,
             PRIMARY KEY (field_id, dataset_id, region, delay)
+        )
+        """)
+
+        # 字段级信号统计表 (研究闭环 P0 — 第6步沉淀回流到第1步)
+        cursor.execute("""
+        CREATE TABLE IF NOT EXISTS field_signal_stats (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            field_id TEXT NOT NULL,
+            dataset_id TEXT NOT NULL DEFAULT '',
+            region TEXT NOT NULL,
+            universe TEXT NOT NULL DEFAULT '',
+            delay INTEGER NOT NULL DEFAULT 1,
+            round INTEGER NOT NULL DEFAULT 0,
+            trials INTEGER NOT NULL DEFAULT 0,
+            signal_count INTEGER NOT NULL DEFAULT 0,
+            hit_rate REAL NOT NULL DEFAULT 0.0,
+            avg_sharpe REAL NOT NULL DEFAULT 0.0,
+            max_sharpe REAL NOT NULL DEFAULT 0.0,
+            min_sharpe REAL NOT NULL DEFAULT 0.0,
+            avg_fitness REAL NOT NULL DEFAULT 0.0,
+            created_at TEXT NOT NULL,
+            updated_at TEXT NOT NULL,
+            UNIQUE(field_id, dataset_id, region, universe, delay, round)
         )
         """)
 
@@ -499,6 +528,10 @@ class AlphaDatabase:
         cursor.execute("CREATE INDEX IF NOT EXISTS idx_tpl_family ON template_library(family)")
         cursor.execute("CREATE INDEX IF NOT EXISTS idx_tpl_active ON template_library(active)")
 
+        # field_signal_stats 索引
+        cursor.execute("CREATE INDEX IF NOT EXISTS idx_field_signal_hit ON field_signal_stats(region, round, hit_rate DESC)")
+        cursor.execute("CREATE INDEX IF NOT EXISTS idx_field_signal_field ON field_signal_stats(field_id, dataset_id)")
+
         conn.commit()
 
         # 幂等种子: 4 族模板入模板库 (懒加载, 避循环依赖)
@@ -704,8 +737,8 @@ class AlphaDatabase:
         Returns:
             表达式ID (如果已存在返回已有ID)
         """
-        from ..operators import extract_first_operator
-        from ..pruning import extract_fields
+        from alpha_operator_framework.domain.operators import extract_first_operator
+        from alpha_operator_framework.domain.pruning import extract_fields
 
         conn = self._get_connection()
         cursor = conn.cursor()
@@ -864,7 +897,7 @@ class AlphaDatabase:
             抽样后的表达式列表
         """
         import random
-        from ..operators import extract_first_operator
+        from alpha_operator_framework.domain.operators import extract_first_operator
 
         if not expressions or limit <= 0:
             return list(expressions)
@@ -1589,6 +1622,112 @@ class AlphaDatabase:
                 count += 1
         return count
 
+    def upsert_field_signal_stats(self, rows: List[Dict[str, Any]], *,
+                                  accumulate: bool = False) -> int:
+        """批量 upsert 字段级信号统计行 (研究闭环 P0 沉淀, 第6步回流第1步).
+
+        Args:
+            rows: 每行含 field_id/dataset_id/region/universe/delay/round 及
+                  trials/signal_count/hit_rate/avg_sharpe/max_sharpe/min_sharpe/avg_fitness
+            accumulate: True 时累加到已有值 (trials/signal_count 相加, max_sharpe 取更大,
+                  min_sharpe 取更小, hit_rate 重算), 供多轮累积沉淀; 默认覆盖
+
+        Returns:
+            写入行数
+        """
+        now = self._timestamp()
+        conn = self._get_connection()
+        count = 0
+        for row in rows or []:
+            field_id = str(row.get("field_id") or "")
+            if not field_id:
+                continue
+            key = (
+                field_id, str(row.get("dataset_id") or ""), str(row.get("region") or ""),
+                str(row.get("universe") or ""), int(row.get("delay") or 1),
+                int(row.get("round") or 0),
+            )
+            trials = int(row.get("trials") or 0)
+            signal_count = int(row.get("signal_count") or 0)
+            hit_rate = _num(row, "hit_rate") or 0.0
+            avg_sharpe = _num(row, "avg_sharpe") or 0.0
+            max_sharpe = _num(row, "max_sharpe") or 0.0
+            min_sharpe = _num(row, "min_sharpe") or 0.0
+            avg_fitness = _num(row, "avg_fitness") or 0.0
+
+            if accumulate:
+                existing = conn.execute(
+                    "SELECT trials, signal_count, max_sharpe, min_sharpe FROM field_signal_stats "
+                    "WHERE field_id=? AND dataset_id=? AND region=? AND universe=? AND delay=? AND round=?",
+                    key,
+                ).fetchone()
+                if existing:
+                    trials += int(existing["trials"] or 0)
+                    signal_count += int(existing["signal_count"] or 0)
+                    max_sharpe = max(max_sharpe, float(existing["max_sharpe"] or 0.0))
+                    min_sharpe = min(min_sharpe, float(existing["min_sharpe"] or 0.0))
+                hit_rate = (signal_count / trials) if trials else 0.0
+
+            conn.execute("""
+                INSERT INTO field_signal_stats (field_id, dataset_id, region, universe, delay, round,
+                    trials, signal_count, hit_rate, avg_sharpe, max_sharpe, min_sharpe, avg_fitness,
+                    created_at, updated_at)
+                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+                ON CONFLICT(field_id, dataset_id, region, universe, delay, round) DO UPDATE SET
+                    trials=excluded.trials,
+                    signal_count=excluded.signal_count,
+                    hit_rate=excluded.hit_rate,
+                    avg_sharpe=excluded.avg_sharpe,
+                    max_sharpe=excluded.max_sharpe,
+                    min_sharpe=excluded.min_sharpe,
+                    avg_fitness=excluded.avg_fitness,
+                    updated_at=excluded.updated_at
+            """, (
+                field_id, key[1], key[2], key[3], key[4], key[5],
+                trials, signal_count, hit_rate, avg_sharpe, max_sharpe, min_sharpe, avg_fitness,
+                now, now,
+            ))
+            count += 1
+        conn.commit()
+        return count
+
+    def get_field_signal_stats(self, *, region: Optional[str] = None,
+                               universe: Optional[str] = None,
+                               delay: Optional[int] = None,
+                               round_n: Optional[int] = None,
+                               min_trials: int = 1,
+                               limit: int = 200) -> List[Dict[str, Any]]:
+        """查询字段级信号统计, 按 hit_rate 降序 (下一轮加权采样候选).
+
+        Args:
+            region: 区域过滤 (可选)
+            universe: 股票池过滤 (可选)
+            delay: 延迟过滤 (可选)
+            round_n: 轮次过滤 (可选)
+            min_trials: 最小回测次数 (过滤噪声)
+            limit: 返回上限
+        """
+        sql = "SELECT * FROM field_signal_stats"
+        conds = ["trials >= ?"]
+        params: List[Any] = [min_trials]
+        if region:
+            conds.append("region = ?")
+            params.append(region)
+        if universe:
+            conds.append("universe = ?")
+            params.append(universe)
+        if delay is not None:
+            conds.append("delay = ?")
+            params.append(int(delay))
+        if round_n is not None:
+            conds.append("round = ?")
+            params.append(int(round_n))
+        sql += " WHERE " + " AND ".join(conds)
+        sql += " ORDER BY hit_rate DESC, signal_count DESC LIMIT ?"
+        params.append(limit)
+        rows = self._get_connection().execute(sql, params).fetchall()
+        return [dict(r) for r in rows]
+
     def get_datafields(self, *, region: Optional[str] = None, dataset_id: str = "",
                        limit: int = 200) -> List[DataField]:
         """查询 datafields 表 (支持 region/dataset_id 过滤)."""
@@ -1748,7 +1887,7 @@ class AlphaDatabase:
                               include_knowledge_base: bool = False,
                               knowledge_base_dir: Optional[str | Path] = None) -> int:
         """幂等写入 4 族模板种子 (可选含知识库模板)."""
-        from ..template_library import seed_template_library as _seed
+        from alpha_operator_framework.generation.template_library import seed_template_library as _seed
         return _seed(self, force=force, include_knowledge_base=include_knowledge_base,
                      knowledge_base_dir=knowledge_base_dir)
 

@@ -481,7 +481,7 @@ async def get_and_filter_alphas(
         pass
     elif any([min_sharpe, max_sharpe, min_fitness, max_fitness, min_turnover, max_turnover]):
         # 应用筛选
-        from .ai_workflow import filter_alphas_for_optimization
+        from alpha_operator_framework.domain.optimize import filter_alphas_for_optimization
         alphas = filter_alphas_for_optimization(
             alphas,
             alpha_ids=alpha_ids if source != "platform" else None,  # 平台已精确查询

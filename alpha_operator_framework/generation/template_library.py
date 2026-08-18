@@ -22,7 +22,7 @@ from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Any, Dict, Iterable, List, Optional, Sequence, Tuple
 
-from .families import (
+from alpha_operator_framework.domain.families import (
     BINARY_TEMPLATES,
     QUATERNARY_TEMPLATES,
     TERNARY_TEMPLATES,
@@ -30,8 +30,8 @@ from .families import (
     Task,
     _render,
 )
-from .fields import ScalarField
-from .database.models import Template
+from alpha_operator_framework.domain.fields import ScalarField
+from alpha_operator_framework.database.models import Template
 
 
 # ---------------------------------------------------------------------------

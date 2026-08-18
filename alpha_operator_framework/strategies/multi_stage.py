@@ -16,9 +16,9 @@ from dataclasses import dataclass
 from typing import List, Optional, Sequence, Tuple
 
 from .base import CreationStrategy, StrategyConfig
-from ..database.models import Template
-from ..families import Task
-from ..fields import ScalarField
+from alpha_operator_framework.database.models import Template
+from alpha_operator_framework.domain.families import Task
+from alpha_operator_framework.domain.fields import ScalarField
 
 
 @dataclass
@@ -52,7 +52,7 @@ class MultiStageStrategy(CreationStrategy):
         **kwargs
     ) -> List[Task]:
         """生成多阶任务."""
-        from ..families import unary_factory, first_order_task_factory
+        from alpha_operator_framework.domain.families import unary_factory, first_order_task_factory
 
         tasks: List[Task] = []
 

@@ -1,0 +1,83 @@
+[
+  {
+    "id": "shrt5_limit_down_price",
+    "description": "Exchange-determined daily minimum price for the security; 0.01 means no limit",
+    "dataset": {
+      "id": "shortinterest5",
+      "name": "Daily Price Limit Data"
+    },
+    "category": {
+      "id": "shortinterest",
+      "name": "Short Interest"
+    },
+    "subcategory": {
+      "id": "shortinterest-short-sale-models",
+      "name": "Short Sale Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "MATRIX",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9995,
+    "userCount": 26,
+    "alphaCount": 63,
+    "pyramidMultiplier": 1.2,
+    "themes": [],
+    "dateCreated": "2022-09-01"
+  },
+  {
+    "id": "shrt5_limit_up_price",
+    "description": "Exchange-determined daily maximum price for the security; 99999.999 means no limit",
+    "dataset": {
+      "id": "shortinterest5",
+      "name": "Daily Price Limit Data"
+    },
+    "category": {
+      "id": "shortinterest",
+      "name": "Short Interest"
+    },
+    "subcategory": {
+      "id": "shortinterest-short-sale-models",
+      "name": "Short Sale Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "MATRIX",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9995,
+    "userCount": 22,
+    "alphaCount": 101,
+    "pyramidMultiplier": 1.2,
+    "themes": [],
+    "dateCreated": "2022-09-01"
+  },
+  {
+    "id": "shrt5_security_id_int",
+    "description": "Integer-form security code used for linking with the SECURITY_ID in other modules",
+    "dataset": {
+      "id": "shortinterest5",
+      "name": "Daily Price Limit Data"
+    },
+    "category": {
+      "id": "shortinterest",
+      "name": "Short Interest"
+    },
+    "subcategory": {
+      "id": "shortinterest-short-sale-models",
+      "name": "Short Sale Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "MATRIX",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9995,
+    "userCount": 20,
+    "alphaCount": 50,
+    "pyramidMultiplier": 1.2,
+    "themes": [],
+    "dateCreated": "2022-09-01"
+  }
+]

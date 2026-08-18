@@ -92,7 +92,7 @@ def _semantic_prune(field_specs: list, keep_per_category: int) -> list:
     """
     if keep_per_category <= 0:
         return field_specs
-    from alpha_operator_framework.pruning import semantic_prune_fields, SemanticPruneConfig
+    from alpha_operator_framework.domain.pruning import semantic_prune_fields, SemanticPruneConfig
     kept, pruned = semantic_prune_fields(
         field_specs, SemanticPruneConfig(keep_per_category=keep_per_category))
     if pruned:
@@ -143,7 +143,7 @@ def _fetch_field_specs_from_cache(
 
 def _fetch_field_specs_auto(args, fields_file_type: str, root: Path) -> list:
     """自动模式：本地文件优先，平台缓存兜底."""
-    from alpha_operator_framework.local_fields import (
+    from alpha_operator_framework.platform.local_fields import (
         default_dataset_file, default_fields_directory, load_local_field_directory, load_local_field_specs,
     )
     from alpha_operator_framework import fields
@@ -255,7 +255,7 @@ def cmd_survey(args) -> None:
     if fields_file and field_source == "platform":
         raise ValueError("--fields-file 与 --field-source platform 不能同时使用")
     if fields_file:
-        from alpha_operator_framework.local_fields import load_local_field_directory, load_local_field_specs
+        from alpha_operator_framework.platform.local_fields import load_local_field_directory, load_local_field_specs
         field_path = Path(fields_file)
         loader = load_local_field_directory if field_path.is_dir() else load_local_field_specs
         field_specs = loader(
@@ -279,7 +279,7 @@ def cmd_survey(args) -> None:
         print(f"  平台字段（缓存）→ {len(field_specs)} 个匹配字段")
     elif field_source == "local":
         # 仅本地
-        from alpha_operator_framework.local_fields import (
+        from alpha_operator_framework.platform.local_fields import (
             default_dataset_file, default_fields_directory, load_local_field_directory, load_local_field_specs,
         )
         local_dir = default_fields_directory(ROOT, args.region, args.delay, args.universe)
@@ -311,7 +311,7 @@ def cmd_survey(args) -> None:
     # 1.5 基于数据包预筛数据集 (可选)
     use_datapack = getattr(args, 'use_datapack', None)
     if use_datapack:
-        from alpha_operator_framework.evaluation import (
+        from alpha_operator_framework.domain.evaluation import (
             extract_datapack_stats, filter_datasets_by_datapack
         )
         print(f"  [数据包预筛] 从 {use_datapack} 提取质量统计...")
@@ -352,7 +352,7 @@ def cmd_survey(args) -> None:
     triples = fields.sample_triple_combinations(ordinary_fields, spec)
 
     # 3. 构造任务 (支持多种策略: multi_stage/template/test/multivariate)
-    from alpha_operator_framework.creation_strategy import create_strategy, CompositeStrategy, CompositeConfig
+    from alpha_operator_framework.generation.creation_strategy import create_strategy, CompositeStrategy, CompositeConfig
     catalog_db = AlphaDatabase()  # 使用默认路径 data/alpha_research.db
 
     # 策略选择 (CLI参数 --strategy)
@@ -459,8 +459,8 @@ def cmd_survey(args) -> None:
     print(f"  db ← {n} 条 survey 结果 (data/alpha_research.db)")
 
     # 9. 计算密度
-    from alpha_operator_framework.density import compute_density, write_report, top_templates
-    from alpha_operator_framework.operators import ACCESS_LIMITED_OPS
+    from alpha_operator_framework.domain.density import compute_density, write_report, top_templates
+    from alpha_operator_framework.domain.operators import ACCESS_LIMITED_OPS
 
     rows = compute_density(results, access_limited_ops=ACCESS_LIMITED_OPS)
     report_path = RUNS / args.density_out
@@ -496,7 +496,7 @@ def cmd_deepen(args) -> None:
             --density-out runs/cold_survey_density.json \\
             --sample 400 --execute
     """
-    from alpha_operator_framework.density import read_report, top_templates
+    from alpha_operator_framework.domain.density import read_report, top_templates
     from alpha_operator_framework import families, fields
 
     # 1. 读density报告
@@ -507,7 +507,7 @@ def cmd_deepen(args) -> None:
     # 2. 发现字段：本地文件优先；未提供文件时才请求平台。
     fields_file = getattr(args, "fields_file", None)
     if fields_file:
-        from alpha_operator_framework.local_fields import load_local_field_specs
+        from alpha_operator_framework.platform.local_fields import load_local_field_specs
         field_specs = load_local_field_specs(
             fields_file,
             region=args.region,
@@ -614,7 +614,7 @@ def cmd_deepen(args) -> None:
 
     # 7.5 同字段top-k剪枝 (可选, 防一字段垄断候选)
     if getattr(args, "prune_per_field", 0) > 0:
-        from alpha_operator_framework.pruning import field_topk_prune, FieldTopKConfig
+        from alpha_operator_framework.domain.pruning import field_topk_prune, FieldTopKConfig
         kept, pruned = field_topk_prune(
             kept, FieldTopKConfig(keep_per_field=args.prune_per_field))
         if pruned:
@@ -671,7 +671,7 @@ def cmd_submit(args) -> None:
 
     # 相关性剪枝 (可选, 拉PnL只读去重, 不耗额度; 默认关)
     if getattr(args, "prune_corr", False):
-        from alpha_operator_framework.pruning import correlation_prune
+        from alpha_operator_framework.domain.pruning import correlation_prune
         kept, pruned = asyncio.run(correlation_prune(kept))
         print(f"  相关性剪枝: 候选 {len(kept) + len(pruned)} → {len(kept)}")
         if pruned:
@@ -683,7 +683,7 @@ def cmd_submit(args) -> None:
     # 本地 SC 预检 (可选, 在 check 前先计算本地相关性; 默认关)
     blue_list, yellow_list, green_list = [], [], []
     if getattr(args, "local_sc", False):
-        from alpha_operator_framework.pruning import local_sc_precheck, LocalCheckConfig
+        from alpha_operator_framework.domain.pruning import local_sc_precheck, LocalCheckConfig
         # 获取已提交 alpha ID 列表 (可选)
         submitted_ids = []
         if getattr(args, "os_alpha_count", 0) > 0:

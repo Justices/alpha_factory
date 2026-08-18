@@ -24,7 +24,7 @@ from alpha_operator_framework import (
     filter_ready_for_submission,
 )
 
-from alpha_operator_framework.optimize import (
+from alpha_operator_framework.domain.optimize import (
     AlphaFilter,
     OptimizeConfig,
     summarize_filtered,
@@ -263,7 +263,7 @@ def example_combined_filtering():
     print("\n场景: 优化EUR市场sharpe在1.3-1.7之间的alpha")
 
     # 方法1: 使用AlphaFilter配置类
-    from alpha_operator_framework.optimize import AlphaFilter, filter_alphas
+    from alpha_operator_framework.domain.optimize import AlphaFilter, filter_alphas
 
     config = AlphaFilter(
         region="EUR",

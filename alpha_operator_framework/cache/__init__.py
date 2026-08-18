@@ -34,7 +34,7 @@ from .config import (
 from .base import DataCache
 from .pyramids import PyramidCache, get_pyramids
 from .universes import UniverseCache, get_universes
-from .datafields import DataFieldCache, get_datafields
+from .datafields import DataFieldCache, get_datafields, aget_datafields, get_datafields_by_region, get_dataset_ids
 from .operators import OperatorCache, get_operators, get_flat_operators
 
 
@@ -59,6 +59,9 @@ __all__ = [
     "get_pyramids",
     "get_universes",
     "get_datafields",
+    "aget_datafields",
+    "get_datafields_by_region",
+    "get_dataset_ids",
     "get_operators",
     "get_flat_operators",
 ]

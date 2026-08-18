@@ -11,7 +11,7 @@
 此文件保持向后兼容，从 strategies/ 导入所有符号。
 """
 
-from .strategies import (
+from alpha_operator_framework.strategies import (
     # 基类
     CreationStrategy,
     StrategyConfig,

@@ -1,0 +1,110 @@
+[
+  {
+    "id": "dilution_adjustment_ratio_5",
+    "description": "Adjustment factor used to scale shares or per-share values for dilution under the applicable regime",
+    "dataset": {
+      "id": "analyst_base_ref",
+      "name": "Analyst Estimates Base Reference"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "MATRIX",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9375,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "last_close_price_5",
+    "description": "Point-in-time corporate-action-adjusted price of the security used for analytics and per-share calculations",
+    "dataset": {
+      "id": "analyst_base_ref",
+      "name": "Analyst Estimates Base Reference"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "MATRIX",
+    "dateCoverage": 0.9507,
+    "coverage": 0.937,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "split_adjustment_factor_2",
+    "description": "Split adjustment ratio applied on the splDate",
+    "dataset": {
+      "id": "analyst_base_ref",
+      "name": "Analyst Estimates Base Reference"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "MATRIX",
+    "dateCoverage": 0.9507,
+    "coverage": 0.6661,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "total_shares_issued_5",
+    "description": "Point-in-time number of shares outstanding, without forward/backfill adjustments",
+    "dataset": {
+      "id": "analyst_base_ref",
+      "name": "Analyst Estimates Base Reference"
+    },
+    "category": {
+      "id": "analyst",
+      "name": "Analyst"
+    },
+    "subcategory": {
+      "id": "analyst-analyst-estimates",
+      "name": "Analyst Estimates"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "MATRIX",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9367,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  }
+]

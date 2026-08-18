@@ -91,3 +91,12 @@ CREATE INDEX IF NOT EXISTS idx_expr_batch ON alpha_expressions(batch_id);
 CREATE INDEX IF NOT EXISTS idx_expr_status ON alpha_expressions(status);
 CREATE INDEX IF NOT EXISTS idx_tpl_family ON template_library(family);
 CREATE INDEX IF NOT EXISTS idx_tpl_active ON template_library(active);
+CREATE TABLE IF NOT EXISTS field_signal_stats (
+ id INTEGER PRIMARY KEY AUTOINCREMENT, field_id TEXT NOT NULL, dataset_id TEXT NOT NULL DEFAULT '',
+ region TEXT NOT NULL, universe TEXT NOT NULL DEFAULT '', delay INTEGER NOT NULL DEFAULT 1,
+ round INTEGER NOT NULL DEFAULT 0, trials INTEGER NOT NULL DEFAULT 0, signal_count INTEGER NOT NULL DEFAULT 0,
+ hit_rate REAL NOT NULL DEFAULT 0, avg_sharpe REAL NOT NULL DEFAULT 0, max_sharpe REAL NOT NULL DEFAULT 0,
+ min_sharpe REAL NOT NULL DEFAULT 0, avg_fitness REAL NOT NULL DEFAULT 0, created_at TEXT NOT NULL,
+ updated_at TEXT NOT NULL, UNIQUE(field_id, dataset_id, region, universe, delay, round));
+CREATE INDEX IF NOT EXISTS idx_field_signal_hit ON field_signal_stats(region, round, hit_rate DESC);
+CREATE INDEX IF NOT EXISTS idx_field_signal_field ON field_signal_stats(field_id, dataset_id);

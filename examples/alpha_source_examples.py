@@ -22,7 +22,7 @@ from alpha_operator_framework import (
     filter_high_quality_alphas,
 )
 
-from alpha_operator_framework.alpha_source import (
+from alpha_operator_framework.platform.alpha_source import (
     get_alphas_from_workflow_result,
     load_alphas_from_file,
     fetch_user_alphas,

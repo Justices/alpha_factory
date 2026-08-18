@@ -1,0 +1,7805 @@
+[
+  {
+    "id": "accounting_forensics_factor",
+    "description": "Analysis of accounts for signs of financial trouble or strength.",
+    "dataset": {
+      "id": "ai_equity_alpha",
+      "name": "AI Equity Alpha Forecasts"
+    },
+    "category": {
+      "id": "model",
+      "name": "Model"
+    },
+    "subcategory": {
+      "id": "model-mlai-models",
+      "name": "ML/AI Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9824,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  },
+  {
+    "id": "accounting_forensics_factor_2",
+    "description": "Alternative analysis of accounts for signs of financial trouble or strength.",
+    "dataset": {
+      "id": "ai_equity_alpha",
+      "name": "AI Equity Alpha Forecasts"
+    },
+    "category": {
+      "id": "model",
+      "name": "Model"
+    },
+    "subcategory": {
+      "id": "model-mlai-models",
+      "name": "ML/AI Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9824,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  },
+  {
+    "id": "accounting_forensics_factor_3",
+    "description": "Analysis of accounts for signs of financial trouble or strength.",
+    "dataset": {
+      "id": "ai_equity_alpha",
+      "name": "AI Equity Alpha Forecasts"
+    },
+    "category": {
+      "id": "model",
+      "name": "Model"
+    },
+    "subcategory": {
+      "id": "model-mlai-models",
+      "name": "ML/AI Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9824,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  },
+  {
+    "id": "accruals_analysis_factor",
+    "description": "Accounting-based measure reflecting accruals contribution to financial analysis.",
+    "dataset": {
+      "id": "ai_equity_alpha",
+      "name": "AI Equity Alpha Forecasts"
+    },
+    "category": {
+      "id": "model",
+      "name": "Model"
+    },
+    "subcategory": {
+      "id": "model-mlai-models",
+      "name": "ML/AI Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9824,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  },
+  {
+    "id": "accruals_contribution_score",
+    "description": "Score indicating the contribution of accruals to financial analysis.",
+    "dataset": {
+      "id": "ai_equity_alpha",
+      "name": "AI Equity Alpha Forecasts"
+    },
+    "category": {
+      "id": "model",
+      "name": "Model"
+    },
+    "subcategory": {
+      "id": "model-mlai-models",
+      "name": "ML/AI Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9824,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  },
+  {
+    "id": "alpha_excess_return_forecast",
+    "description": "Forecast of excess return relative to a benchmark.",
+    "dataset": {
+      "id": "ai_equity_alpha",
+      "name": "AI Equity Alpha Forecasts"
+    },
+    "category": {
+      "id": "model",
+      "name": "Model"
+    },
+    "subcategory": {
+      "id": "model-mlai-models",
+      "name": "ML/AI Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9824,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  },
+  {
+    "id": "alpha_score",
+    "description": "Numeric score indicating relative forecasted return for a security.",
+    "dataset": {
+      "id": "ai_equity_alpha",
+      "name": "AI Equity Alpha Forecasts"
+    },
+    "category": {
+      "id": "model",
+      "name": "Model"
+    },
+    "subcategory": {
+      "id": "model-mlai-models",
+      "name": "ML/AI Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9824,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  },
+  {
+    "id": "analyst_coverage_breadth_metric",
+    "description": "Breadth of analyst coverage for the security.",
+    "dataset": {
+      "id": "ai_equity_alpha",
+      "name": "AI Equity Alpha Forecasts"
+    },
+    "category": {
+      "id": "model",
+      "name": "Model"
+    },
+    "subcategory": {
+      "id": "model-mlai-models",
+      "name": "ML/AI Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9824,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  },
+  {
+    "id": "analyst_coverage_density_metric",
+    "description": "Extent of analyst coverage for the security.",
+    "dataset": {
+      "id": "ai_equity_alpha",
+      "name": "AI Equity Alpha Forecasts"
+    },
+    "category": {
+      "id": "model",
+      "name": "Model"
+    },
+    "subcategory": {
+      "id": "model-mlai-models",
+      "name": "ML/AI Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9824,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  },
+  {
+    "id": "analyst_earnings_revision_frequency",
+    "description": "Frequency of analyst earnings forecast revisions.",
+    "dataset": {
+      "id": "ai_equity_alpha",
+      "name": "AI Equity Alpha Forecasts"
+    },
+    "category": {
+      "id": "model",
+      "name": "Model"
+    },
+    "subcategory": {
+      "id": "model-mlai-models",
+      "name": "ML/AI Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9824,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  },
+  {
+    "id": "analyst_earnings_revision_intensity",
+    "description": "Intensity of recent analyst earnings forecast revisions.",
+    "dataset": {
+      "id": "ai_equity_alpha",
+      "name": "AI Equity Alpha Forecasts"
+    },
+    "category": {
+      "id": "model",
+      "name": "Model"
+    },
+    "subcategory": {
+      "id": "model-mlai-models",
+      "name": "ML/AI Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9824,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  },
+  {
+    "id": "analyst_forecast_revision_factor",
+    "description": "Model capturing changes in analyst forecasts or recommendations.",
+    "dataset": {
+      "id": "ai_equity_alpha",
+      "name": "AI Equity Alpha Forecasts"
+    },
+    "category": {
+      "id": "model",
+      "name": "Model"
+    },
+    "subcategory": {
+      "id": "model-mlai-models",
+      "name": "ML/AI Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9824,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  },
+  {
+    "id": "analyst_forecast_revision_factor_2",
+    "description": "Metric capturing changes in analyst forecasts or recommendations.",
+    "dataset": {
+      "id": "ai_equity_alpha",
+      "name": "AI Equity Alpha Forecasts"
+    },
+    "category": {
+      "id": "model",
+      "name": "Model"
+    },
+    "subcategory": {
+      "id": "model-mlai-models",
+      "name": "ML/AI Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9824,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  },
+  {
+    "id": "analyst_opinion_metric",
+    "description": "Factor reflecting analyst opinions or perspectives.",
+    "dataset": {
+      "id": "ai_equity_alpha",
+      "name": "AI Equity Alpha Forecasts"
+    },
+    "category": {
+      "id": "model",
+      "name": "Model"
+    },
+    "subcategory": {
+      "id": "model-mlai-models",
+      "name": "ML/AI Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9824,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  },
+  {
+    "id": "analyst_opinion_metric_2",
+    "description": "Factor reflecting analyst opinions or perspectives.",
+    "dataset": {
+      "id": "ai_equity_alpha",
+      "name": "AI Equity Alpha Forecasts"
+    },
+    "category": {
+      "id": "model",
+      "name": "Model"
+    },
+    "subcategory": {
+      "id": "model-mlai-models",
+      "name": "ML/AI Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9824,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  },
+  {
+    "id": "analyst_recommendation_consensus",
+    "description": "Consensus level among analyst recommendations.",
+    "dataset": {
+      "id": "ai_equity_alpha",
+      "name": "AI Equity Alpha Forecasts"
+    },
+    "category": {
+      "id": "model",
+      "name": "Model"
+    },
+    "subcategory": {
+      "id": "model-mlai-models",
+      "name": "ML/AI Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9824,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  },
+  {
+    "id": "analyst_recommendation_consensus_2",
+    "description": "Alternative measure of analyst recommendation consensus.",
+    "dataset": {
+      "id": "ai_equity_alpha",
+      "name": "AI Equity Alpha Forecasts"
+    },
+    "category": {
+      "id": "model",
+      "name": "Model"
+    },
+    "subcategory": {
+      "id": "model-mlai-models",
+      "name": "ML/AI Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9824,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  },
+  {
+    "id": "analyst_sentiment_consistency_score",
+    "description": "Consistency of analyst sentiment over time.",
+    "dataset": {
+      "id": "ai_equity_alpha",
+      "name": "AI Equity Alpha Forecasts"
+    },
+    "category": {
+      "id": "model",
+      "name": "Model"
+    },
+    "subcategory": {
+      "id": "model-mlai-models",
+      "name": "ML/AI Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9824,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  },
+  {
+    "id": "analyst_sentiment_consistency_score_2",
+    "description": "Alternative measure of analyst sentiment consistency.",
+    "dataset": {
+      "id": "ai_equity_alpha",
+      "name": "AI Equity Alpha Forecasts"
+    },
+    "category": {
+      "id": "model",
+      "name": "Model"
+    },
+    "subcategory": {
+      "id": "model-mlai-models",
+      "name": "ML/AI Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9824,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  },
+  {
+    "id": "analyst_sentiment_shift_score",
+    "description": "Recent changes in analyst sentiment or recommendations.",
+    "dataset": {
+      "id": "ai_equity_alpha",
+      "name": "AI Equity Alpha Forecasts"
+    },
+    "category": {
+      "id": "model",
+      "name": "Model"
+    },
+    "subcategory": {
+      "id": "model-mlai-models",
+      "name": "ML/AI Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9824,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  },
+  {
+    "id": "analyst_sentiment_shift_score_2",
+    "description": "Alternative measure of analyst sentiment shift.",
+    "dataset": {
+      "id": "ai_equity_alpha",
+      "name": "AI Equity Alpha Forecasts"
+    },
+    "category": {
+      "id": "model",
+      "name": "Model"
+    },
+    "subcategory": {
+      "id": "model-mlai-models",
+      "name": "ML/AI Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9824,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  },
+  {
+    "id": "analyst_target_price_deviation",
+    "description": "Deviation of analyst target price from current price.",
+    "dataset": {
+      "id": "ai_equity_alpha",
+      "name": "AI Equity Alpha Forecasts"
+    },
+    "category": {
+      "id": "model",
+      "name": "Model"
+    },
+    "subcategory": {
+      "id": "model-mlai-models",
+      "name": "ML/AI Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9824,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  },
+  {
+    "id": "asset_impairment_frequency_metric",
+    "description": "Frequency of asset write-downs or impairments.",
+    "dataset": {
+      "id": "ai_equity_alpha",
+      "name": "AI Equity Alpha Forecasts"
+    },
+    "category": {
+      "id": "model",
+      "name": "Model"
+    },
+    "subcategory": {
+      "id": "model-mlai-models",
+      "name": "ML/AI Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9824,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  },
+  {
+    "id": "asset_impairment_frequency_metric_2",
+    "description": "Alternative measure of asset impairment frequency.",
+    "dataset": {
+      "id": "ai_equity_alpha",
+      "name": "AI Equity Alpha Forecasts"
+    },
+    "category": {
+      "id": "model",
+      "name": "Model"
+    },
+    "subcategory": {
+      "id": "model-mlai-models",
+      "name": "ML/AI Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9824,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  },
+  {
+    "id": "asset_impairment_probability",
+    "description": "Likelihood that a company's assets will be written down due to impairment risk.",
+    "dataset": {
+      "id": "ai_equity_alpha",
+      "name": "AI Equity Alpha Forecasts"
+    },
+    "category": {
+      "id": "model",
+      "name": "Model"
+    },
+    "subcategory": {
+      "id": "model-mlai-models",
+      "name": "ML/AI Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9824,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  },
+  {
+    "id": "asset_impairment_probability_2",
+    "description": "Probability of asset value reduction due to impairment.",
+    "dataset": {
+      "id": "ai_equity_alpha",
+      "name": "AI Equity Alpha Forecasts"
+    },
+    "category": {
+      "id": "model",
+      "name": "Model"
+    },
+    "subcategory": {
+      "id": "model-mlai-models",
+      "name": "ML/AI Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9824,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  },
+  {
+    "id": "asset_impairment_risk",
+    "description": "Risk of asset value reduction due to impairment or write-downs.",
+    "dataset": {
+      "id": "ai_equity_alpha",
+      "name": "AI Equity Alpha Forecasts"
+    },
+    "category": {
+      "id": "model",
+      "name": "Model"
+    },
+    "subcategory": {
+      "id": "model-mlai-models",
+      "name": "ML/AI Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9824,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  },
+  {
+    "id": "asset_liquidity_score",
+    "description": "Score indicating how easily assets can be converted to cash.",
+    "dataset": {
+      "id": "ai_equity_alpha",
+      "name": "AI Equity Alpha Forecasts"
+    },
+    "category": {
+      "id": "model",
+      "name": "Model"
+    },
+    "subcategory": {
+      "id": "model-mlai-models",
+      "name": "ML/AI Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9824,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  },
+  {
+    "id": "asset_liquidity_score_2",
+    "description": "Alternative measure of asset liquidity.",
+    "dataset": {
+      "id": "ai_equity_alpha",
+      "name": "AI Equity Alpha Forecasts"
+    },
+    "category": {
+      "id": "model",
+      "name": "Model"
+    },
+    "subcategory": {
+      "id": "model-mlai-models",
+      "name": "ML/AI Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9824,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  },
+  {
+    "id": "asset_replacement_cost_factor",
+    "description": "Estimated cost to replace the company's assets.",
+    "dataset": {
+      "id": "ai_equity_alpha",
+      "name": "AI Equity Alpha Forecasts"
+    },
+    "category": {
+      "id": "model",
+      "name": "Model"
+    },
+    "subcategory": {
+      "id": "model-mlai-models",
+      "name": "ML/AI Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9824,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  },
+  {
+    "id": "asset_replacement_cost_factor_2",
+    "description": "Alternative estimate of the cost to replace company assets.",
+    "dataset": {
+      "id": "ai_equity_alpha",
+      "name": "AI Equity Alpha Forecasts"
+    },
+    "category": {
+      "id": "model",
+      "name": "Model"
+    },
+    "subcategory": {
+      "id": "model-mlai-models",
+      "name": "ML/AI Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9824,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  },
+  {
+    "id": "asset_replacement_cost_factor_3",
+    "description": "Third estimate of the cost to replace company assets.",
+    "dataset": {
+      "id": "ai_equity_alpha",
+      "name": "AI Equity Alpha Forecasts"
+    },
+    "category": {
+      "id": "model",
+      "name": "Model"
+    },
+    "subcategory": {
+      "id": "model-mlai-models",
+      "name": "ML/AI Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9824,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  },
+  {
+    "id": "asset_turnover_ratio_metric",
+    "description": "Ratio indicating efficiency in using assets to generate revenue.",
+    "dataset": {
+      "id": "ai_equity_alpha",
+      "name": "AI Equity Alpha Forecasts"
+    },
+    "category": {
+      "id": "model",
+      "name": "Model"
+    },
+    "subcategory": {
+      "id": "model-mlai-models",
+      "name": "ML/AI Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9824,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  },
+  {
+    "id": "asset_utilization_efficiency_score",
+    "description": "Efficiency in utilizing assets to generate returns.",
+    "dataset": {
+      "id": "ai_equity_alpha",
+      "name": "AI Equity Alpha Forecasts"
+    },
+    "category": {
+      "id": "model",
+      "name": "Model"
+    },
+    "subcategory": {
+      "id": "model-mlai-models",
+      "name": "ML/AI Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9824,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  },
+  {
+    "id": "asset_utilization_efficiency_score_2",
+    "description": "Alternative measure of asset utilization efficiency.",
+    "dataset": {
+      "id": "ai_equity_alpha",
+      "name": "AI Equity Alpha Forecasts"
+    },
+    "category": {
+      "id": "model",
+      "name": "Model"
+    },
+    "subcategory": {
+      "id": "model-mlai-models",
+      "name": "ML/AI Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9824,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  },
+  {
+    "id": "asset_utilization_efficiency_score_3",
+    "description": "Third measure of asset utilization efficiency.",
+    "dataset": {
+      "id": "ai_equity_alpha",
+      "name": "AI Equity Alpha Forecasts"
+    },
+    "category": {
+      "id": "model",
+      "name": "Model"
+    },
+    "subcategory": {
+      "id": "model-mlai-models",
+      "name": "ML/AI Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9824,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  },
+  {
+    "id": "balance_sheet_trend_metric",
+    "description": "Model analyzing trends and changes in balance sheet items.",
+    "dataset": {
+      "id": "ai_equity_alpha",
+      "name": "AI Equity Alpha Forecasts"
+    },
+    "category": {
+      "id": "model",
+      "name": "Model"
+    },
+    "subcategory": {
+      "id": "model-mlai-models",
+      "name": "ML/AI Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9824,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  },
+  {
+    "id": "balance_sheet_trend_metric_2",
+    "description": "Model analyzing trends and changes in balance sheet items.",
+    "dataset": {
+      "id": "ai_equity_alpha",
+      "name": "AI Equity Alpha Forecasts"
+    },
+    "category": {
+      "id": "model",
+      "name": "Model"
+    },
+    "subcategory": {
+      "id": "model-mlai-models",
+      "name": "ML/AI Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9824,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  },
+  {
+    "id": "business_model_clarity_score",
+    "description": "Certainty or uncertainty surrounding a company's business model.",
+    "dataset": {
+      "id": "ai_equity_alpha",
+      "name": "AI Equity Alpha Forecasts"
+    },
+    "category": {
+      "id": "model",
+      "name": "Model"
+    },
+    "subcategory": {
+      "id": "model-mlai-models",
+      "name": "ML/AI Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9824,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  },
+  {
+    "id": "business_model_clarity_score_2",
+    "description": "Alternative certainty or uncertainty score for business model.",
+    "dataset": {
+      "id": "ai_equity_alpha",
+      "name": "AI Equity Alpha Forecasts"
+    },
+    "category": {
+      "id": "model",
+      "name": "Model"
+    },
+    "subcategory": {
+      "id": "model-mlai-models",
+      "name": "ML/AI Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9824,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  },
+  {
+    "id": "business_model_clarity_score_3",
+    "description": "Score indicating the certainty or uncertainty of a company's business model.",
+    "dataset": {
+      "id": "ai_equity_alpha",
+      "name": "AI Equity Alpha Forecasts"
+    },
+    "category": {
+      "id": "model",
+      "name": "Model"
+    },
+    "subcategory": {
+      "id": "model-mlai-models",
+      "name": "ML/AI Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9824,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  },
+  {
+    "id": "business_model_transparency_factor",
+    "description": "Degree of transparency in the company's business model.",
+    "dataset": {
+      "id": "ai_equity_alpha",
+      "name": "AI Equity Alpha Forecasts"
+    },
+    "category": {
+      "id": "model",
+      "name": "Model"
+    },
+    "subcategory": {
+      "id": "model-mlai-models",
+      "name": "ML/AI Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9824,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  },
+  {
+    "id": "business_model_volatility_score",
+    "description": "Volatility in the company's business model or operations.",
+    "dataset": {
+      "id": "ai_equity_alpha",
+      "name": "AI Equity Alpha Forecasts"
+    },
+    "category": {
+      "id": "model",
+      "name": "Model"
+    },
+    "subcategory": {
+      "id": "model-mlai-models",
+      "name": "ML/AI Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9824,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  },
+  {
+    "id": "buzz_intensity_score",
+    "description": "Measure of the level of market or media attention for a security.",
+    "dataset": {
+      "id": "ai_equity_alpha",
+      "name": "AI Equity Alpha Forecasts"
+    },
+    "category": {
+      "id": "model",
+      "name": "Model"
+    },
+    "subcategory": {
+      "id": "model-mlai-models",
+      "name": "ML/AI Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9824,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  },
+  {
+    "id": "buzz_intensity_score_2",
+    "description": "Measure of the level of market or media attention for a security.",
+    "dataset": {
+      "id": "ai_equity_alpha",
+      "name": "AI Equity Alpha Forecasts"
+    },
+    "category": {
+      "id": "model",
+      "name": "Model"
+    },
+    "subcategory": {
+      "id": "model-mlai-models",
+      "name": "ML/AI Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9824,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  },
+  {
+    "id": "buzz_trend_metric",
+    "description": "Measure of changes in market or media attention over time.",
+    "dataset": {
+      "id": "ai_equity_alpha",
+      "name": "AI Equity Alpha Forecasts"
+    },
+    "category": {
+      "id": "model",
+      "name": "Model"
+    },
+    "subcategory": {
+      "id": "model-mlai-models",
+      "name": "ML/AI Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9824,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  },
+  {
+    "id": "cash_conversion_efficiency_score",
+    "description": "Efficiency of converting earnings into cash flow.",
+    "dataset": {
+      "id": "ai_equity_alpha",
+      "name": "AI Equity Alpha Forecasts"
+    },
+    "category": {
+      "id": "model",
+      "name": "Model"
+    },
+    "subcategory": {
+      "id": "model-mlai-models",
+      "name": "ML/AI Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9824,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  },
+  {
+    "id": "cash_conversion_efficiency_score_2",
+    "description": "Alternative measure of cash conversion efficiency.",
+    "dataset": {
+      "id": "ai_equity_alpha",
+      "name": "AI Equity Alpha Forecasts"
+    },
+    "category": {
+      "id": "model",
+      "name": "Model"
+    },
+    "subcategory": {
+      "id": "model-mlai-models",
+      "name": "ML/AI Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9824,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  },
+  {
+    "id": "cashflow_trend_analysis",
+    "description": "Model analyzing trends and changes in cash flow statements.",
+    "dataset": {
+      "id": "ai_equity_alpha",
+      "name": "AI Equity Alpha Forecasts"
+    },
+    "category": {
+      "id": "model",
+      "name": "Model"
+    },
+    "subcategory": {
+      "id": "model-mlai-models",
+      "name": "ML/AI Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9824,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  },
+  {
+    "id": "cashflow_trend_analysis_2",
+    "description": "Model analyzing trends and changes in cash flow statements.",
+    "dataset": {
+      "id": "ai_equity_alpha",
+      "name": "AI Equity Alpha Forecasts"
+    },
+    "category": {
+      "id": "model",
+      "name": "Model"
+    },
+    "subcategory": {
+      "id": "model-mlai-models",
+      "name": "ML/AI Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9824,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  },
+  {
+    "id": "combined_technical_indicators",
+    "description": "Aggregated technical indicators for momentum and mean reversion.",
+    "dataset": {
+      "id": "ai_equity_alpha",
+      "name": "AI Equity Alpha Forecasts"
+    },
+    "category": {
+      "id": "model",
+      "name": "Model"
+    },
+    "subcategory": {
+      "id": "model-mlai-models",
+      "name": "ML/AI Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9824,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  },
+  {
+    "id": "combined_technical_indicators_2",
+    "description": "Alternative aggregated technical indicators for momentum and reversion.",
+    "dataset": {
+      "id": "ai_equity_alpha",
+      "name": "AI Equity Alpha Forecasts"
+    },
+    "category": {
+      "id": "model",
+      "name": "Model"
+    },
+    "subcategory": {
+      "id": "model-mlai-models",
+      "name": "ML/AI Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9824,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  },
+  {
+    "id": "combined_technical_indicators_3",
+    "description": "Third aggregated technical indicators for momentum and reversion.",
+    "dataset": {
+      "id": "ai_equity_alpha",
+      "name": "AI Equity Alpha Forecasts"
+    },
+    "category": {
+      "id": "model",
+      "name": "Model"
+    },
+    "subcategory": {
+      "id": "model-mlai-models",
+      "name": "ML/AI Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9824,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  },
+  {
+    "id": "company_physics_model_2",
+    "description": "Mathematical model of shareholder returns using financial and technical properties.",
+    "dataset": {
+      "id": "ai_equity_alpha",
+      "name": "AI Equity Alpha Forecasts"
+    },
+    "category": {
+      "id": "model",
+      "name": "Model"
+    },
+    "subcategory": {
+      "id": "model-mlai-models",
+      "name": "ML/AI Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9824,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  },
+  {
+    "id": "company_size_factor",
+    "description": "Factor representing the scale or market capitalization of a company.",
+    "dataset": {
+      "id": "ai_equity_alpha",
+      "name": "AI Equity Alpha Forecasts"
+    },
+    "category": {
+      "id": "model",
+      "name": "Model"
+    },
+    "subcategory": {
+      "id": "model-mlai-models",
+      "name": "ML/AI Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9824,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  },
+  {
+    "id": "company_size_factor_2",
+    "description": "Alternative factor representing company scale or market capitalization.",
+    "dataset": {
+      "id": "ai_equity_alpha",
+      "name": "AI Equity Alpha Forecasts"
+    },
+    "category": {
+      "id": "model",
+      "name": "Model"
+    },
+    "subcategory": {
+      "id": "model-mlai-models",
+      "name": "ML/AI Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9824,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  },
+  {
+    "id": "company_size_factor_3",
+    "description": "Third factor representing company scale or market capitalization.",
+    "dataset": {
+      "id": "ai_equity_alpha",
+      "name": "AI Equity Alpha Forecasts"
+    },
+    "category": {
+      "id": "model",
+      "name": "Model"
+    },
+    "subcategory": {
+      "id": "model-mlai-models",
+      "name": "ML/AI Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9824,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  },
+  {
+    "id": "company_size_factor_4",
+    "description": "Factor representing the scale or market capitalization of a company.",
+    "dataset": {
+      "id": "ai_equity_alpha",
+      "name": "AI Equity Alpha Forecasts"
+    },
+    "category": {
+      "id": "model",
+      "name": "Model"
+    },
+    "subcategory": {
+      "id": "model-mlai-models",
+      "name": "ML/AI Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9824,
+    "userCount": 1,
+    "alphaCount": 1,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  },
+  {
+    "id": "company_size_factor_5",
+    "description": "Factor representing the scale or market capitalization of a company.",
+    "dataset": {
+      "id": "ai_equity_alpha",
+      "name": "AI Equity Alpha Forecasts"
+    },
+    "category": {
+      "id": "model",
+      "name": "Model"
+    },
+    "subcategory": {
+      "id": "model-mlai-models",
+      "name": "ML/AI Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9824,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  },
+  {
+    "id": "competitive_advantage_indicator",
+    "description": "Indicator of a company's ability to maintain profits due to competitive advantage.",
+    "dataset": {
+      "id": "ai_equity_alpha",
+      "name": "AI Equity Alpha Forecasts"
+    },
+    "category": {
+      "id": "model",
+      "name": "Model"
+    },
+    "subcategory": {
+      "id": "model-mlai-models",
+      "name": "ML/AI Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9824,
+    "userCount": 1,
+    "alphaCount": 1,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  },
+  {
+    "id": "competitive_advantage_model",
+    "description": "Model analyzing the sustainability of a company's competitive advantage.",
+    "dataset": {
+      "id": "ai_equity_alpha",
+      "name": "AI Equity Alpha Forecasts"
+    },
+    "category": {
+      "id": "model",
+      "name": "Model"
+    },
+    "subcategory": {
+      "id": "model-mlai-models",
+      "name": "ML/AI Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9824,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  },
+  {
+    "id": "competitive_advantage_model_2",
+    "description": "Model analyzing the sustainability of competitive advantage.",
+    "dataset": {
+      "id": "ai_equity_alpha",
+      "name": "AI Equity Alpha Forecasts"
+    },
+    "category": {
+      "id": "model",
+      "name": "Model"
+    },
+    "subcategory": {
+      "id": "model-mlai-models",
+      "name": "ML/AI Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9824,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  },
+  {
+    "id": "competitive_advantage_score",
+    "description": "Indicator of a company's ability to maintain profits over competitors.",
+    "dataset": {
+      "id": "ai_equity_alpha",
+      "name": "AI Equity Alpha Forecasts"
+    },
+    "category": {
+      "id": "model",
+      "name": "Model"
+    },
+    "subcategory": {
+      "id": "model-mlai-models",
+      "name": "ML/AI Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9824,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  },
+  {
+    "id": "correlation_risk_factor",
+    "description": "Model assessing the risk from correlated movements in assets.",
+    "dataset": {
+      "id": "ai_equity_alpha",
+      "name": "AI Equity Alpha Forecasts"
+    },
+    "category": {
+      "id": "model",
+      "name": "Model"
+    },
+    "subcategory": {
+      "id": "model-mlai-models",
+      "name": "ML/AI Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9824,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  },
+  {
+    "id": "correlation_risk_factor_2",
+    "description": "Alternative model assessing risk from correlated asset movements.",
+    "dataset": {
+      "id": "ai_equity_alpha",
+      "name": "AI Equity Alpha Forecasts"
+    },
+    "category": {
+      "id": "model",
+      "name": "Model"
+    },
+    "subcategory": {
+      "id": "model-mlai-models",
+      "name": "ML/AI Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9824,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  },
+  {
+    "id": "correlation_risk_factor_3",
+    "description": "Third model assessing risk from correlated asset movements.",
+    "dataset": {
+      "id": "ai_equity_alpha",
+      "name": "AI Equity Alpha Forecasts"
+    },
+    "category": {
+      "id": "model",
+      "name": "Model"
+    },
+    "subcategory": {
+      "id": "model-mlai-models",
+      "name": "ML/AI Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9824,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  },
+  {
+    "id": "correlation_risk_factor_4",
+    "description": "Factor assessing risk from correlated movements in assets.",
+    "dataset": {
+      "id": "ai_equity_alpha",
+      "name": "AI Equity Alpha Forecasts"
+    },
+    "category": {
+      "id": "model",
+      "name": "Model"
+    },
+    "subcategory": {
+      "id": "model-mlai-models",
+      "name": "ML/AI Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9824,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  },
+  {
+    "id": "correlation_risk_factor_5",
+    "description": "Factor assessing risk from correlated movements in assets.",
+    "dataset": {
+      "id": "ai_equity_alpha",
+      "name": "AI Equity Alpha Forecasts"
+    },
+    "category": {
+      "id": "model",
+      "name": "Model"
+    },
+    "subcategory": {
+      "id": "model-mlai-models",
+      "name": "ML/AI Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9824,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  },
+  {
+    "id": "creditworthiness_assessment_factor",
+    "description": "Model output assessing the risk of default or creditworthiness.",
+    "dataset": {
+      "id": "ai_equity_alpha",
+      "name": "AI Equity Alpha Forecasts"
+    },
+    "category": {
+      "id": "model",
+      "name": "Model"
+    },
+    "subcategory": {
+      "id": "model-mlai-models",
+      "name": "ML/AI Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9824,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  },
+  {
+    "id": "creditworthiness_assessment_factor_2",
+    "description": "Model assessing the risk of default or creditworthiness.",
+    "dataset": {
+      "id": "ai_equity_alpha",
+      "name": "AI Equity Alpha Forecasts"
+    },
+    "category": {
+      "id": "model",
+      "name": "Model"
+    },
+    "subcategory": {
+      "id": "model-mlai-models",
+      "name": "ML/AI Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9824,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  },
+  {
+    "id": "debt_coverage_ratio_metric",
+    "description": "Ratio indicating the ability to cover debt obligations.",
+    "dataset": {
+      "id": "ai_equity_alpha",
+      "name": "AI Equity Alpha Forecasts"
+    },
+    "category": {
+      "id": "model",
+      "name": "Model"
+    },
+    "subcategory": {
+      "id": "model-mlai-models",
+      "name": "ML/AI Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9824,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  },
+  {
+    "id": "debt_servicing_capacity_score",
+    "description": "Score reflecting the company's ability to service its debt.",
+    "dataset": {
+      "id": "ai_equity_alpha",
+      "name": "AI Equity Alpha Forecasts"
+    },
+    "category": {
+      "id": "model",
+      "name": "Model"
+    },
+    "subcategory": {
+      "id": "model-mlai-models",
+      "name": "ML/AI Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9824,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  },
+  {
+    "id": "debt_to_equity_ratio_factor",
+    "description": "Ratio of total debt to shareholders' equity.",
+    "dataset": {
+      "id": "ai_equity_alpha",
+      "name": "AI Equity Alpha Forecasts"
+    },
+    "category": {
+      "id": "model",
+      "name": "Model"
+    },
+    "subcategory": {
+      "id": "model-mlai-models",
+      "name": "ML/AI Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9824,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  },
+  {
+    "id": "dividend_consistency_factor",
+    "description": "Consistency of dividend payments over time.",
+    "dataset": {
+      "id": "ai_equity_alpha",
+      "name": "AI Equity Alpha Forecasts"
+    },
+    "category": {
+      "id": "model",
+      "name": "Model"
+    },
+    "subcategory": {
+      "id": "model-mlai-models",
+      "name": "ML/AI Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9824,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  },
+  {
+    "id": "dividend_consistency_factor_2",
+    "description": "Alternative measure of dividend consistency.",
+    "dataset": {
+      "id": "ai_equity_alpha",
+      "name": "AI Equity Alpha Forecasts"
+    },
+    "category": {
+      "id": "model",
+      "name": "Model"
+    },
+    "subcategory": {
+      "id": "model-mlai-models",
+      "name": "ML/AI Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9824,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  },
+  {
+    "id": "dividend_growth_rate_factor",
+    "description": "Rate of growth in dividend payments.",
+    "dataset": {
+      "id": "ai_equity_alpha",
+      "name": "AI Equity Alpha Forecasts"
+    },
+    "category": {
+      "id": "model",
+      "name": "Model"
+    },
+    "subcategory": {
+      "id": "model-mlai-models",
+      "name": "ML/AI Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9824,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  },
+  {
+    "id": "dividend_payout_ratio_metric",
+    "description": "Proportion of earnings paid out as dividends.",
+    "dataset": {
+      "id": "ai_equity_alpha",
+      "name": "AI Equity Alpha Forecasts"
+    },
+    "category": {
+      "id": "model",
+      "name": "Model"
+    },
+    "subcategory": {
+      "id": "model-mlai-models",
+      "name": "ML/AI Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9824,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  },
+  {
+    "id": "dividend_policy_analysis",
+    "description": "Analysis of dividend payments and company dividend policies.",
+    "dataset": {
+      "id": "ai_equity_alpha",
+      "name": "AI Equity Alpha Forecasts"
+    },
+    "category": {
+      "id": "model",
+      "name": "Model"
+    },
+    "subcategory": {
+      "id": "model-mlai-models",
+      "name": "ML/AI Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9824,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  },
+  {
+    "id": "dividend_policy_analysis_2",
+    "description": "Alternative analysis of dividend payments and company policies.",
+    "dataset": {
+      "id": "ai_equity_alpha",
+      "name": "AI Equity Alpha Forecasts"
+    },
+    "category": {
+      "id": "model",
+      "name": "Model"
+    },
+    "subcategory": {
+      "id": "model-mlai-models",
+      "name": "ML/AI Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9824,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  },
+  {
+    "id": "dividend_policy_analysis_3",
+    "description": "Third analysis of dividend payments and company policies.",
+    "dataset": {
+      "id": "ai_equity_alpha",
+      "name": "AI Equity Alpha Forecasts"
+    },
+    "category": {
+      "id": "model",
+      "name": "Model"
+    },
+    "subcategory": {
+      "id": "model-mlai-models",
+      "name": "ML/AI Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9824,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  },
+  {
+    "id": "dividend_policy_analysis_4",
+    "description": "Analysis of dividend payments and company dividend policies.",
+    "dataset": {
+      "id": "ai_equity_alpha",
+      "name": "AI Equity Alpha Forecasts"
+    },
+    "category": {
+      "id": "model",
+      "name": "Model"
+    },
+    "subcategory": {
+      "id": "model-mlai-models",
+      "name": "ML/AI Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9824,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  },
+  {
+    "id": "dividend_policy_analysis_5",
+    "description": "Analysis of dividend payments and company dividend policies.",
+    "dataset": {
+      "id": "ai_equity_alpha",
+      "name": "AI Equity Alpha Forecasts"
+    },
+    "category": {
+      "id": "model",
+      "name": "Model"
+    },
+    "subcategory": {
+      "id": "model-mlai-models",
+      "name": "ML/AI Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9824,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  },
+  {
+    "id": "dividend_policy_stability_score",
+    "description": "Stability and predictability of the company's dividend policy.",
+    "dataset": {
+      "id": "ai_equity_alpha",
+      "name": "AI Equity Alpha Forecasts"
+    },
+    "category": {
+      "id": "model",
+      "name": "Model"
+    },
+    "subcategory": {
+      "id": "model-mlai-models",
+      "name": "ML/AI Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9824,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  },
+  {
+    "id": "dividend_yield_stability_metric",
+    "description": "Stability of dividend yield over time.",
+    "dataset": {
+      "id": "ai_equity_alpha",
+      "name": "AI Equity Alpha Forecasts"
+    },
+    "category": {
+      "id": "model",
+      "name": "Model"
+    },
+    "subcategory": {
+      "id": "model-mlai-models",
+      "name": "ML/AI Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9824,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  },
+  {
+    "id": "dividend_yield_stability_metric_2",
+    "description": "Alternative measure of dividend yield stability.",
+    "dataset": {
+      "id": "ai_equity_alpha",
+      "name": "AI Equity Alpha Forecasts"
+    },
+    "category": {
+      "id": "model",
+      "name": "Model"
+    },
+    "subcategory": {
+      "id": "model-mlai-models",
+      "name": "ML/AI Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9824,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  },
+  {
+    "id": "earnings_growth_rate_analysis",
+    "description": "Analysis of earnings growth rates and their sustainability.",
+    "dataset": {
+      "id": "ai_equity_alpha",
+      "name": "AI Equity Alpha Forecasts"
+    },
+    "category": {
+      "id": "model",
+      "name": "Model"
+    },
+    "subcategory": {
+      "id": "model-mlai-models",
+      "name": "ML/AI Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9824,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  },
+  {
+    "id": "earnings_growth_rate_analysis_2",
+    "description": "Alternative analysis of earnings growth rates and sustainability.",
+    "dataset": {
+      "id": "ai_equity_alpha",
+      "name": "AI Equity Alpha Forecasts"
+    },
+    "category": {
+      "id": "model",
+      "name": "Model"
+    },
+    "subcategory": {
+      "id": "model-mlai-models",
+      "name": "ML/AI Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9824,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  },
+  {
+    "id": "earnings_growth_rate_analysis_3",
+    "description": "Analysis of earnings growth rates and their sustainability.",
+    "dataset": {
+      "id": "ai_equity_alpha",
+      "name": "AI Equity Alpha Forecasts"
+    },
+    "category": {
+      "id": "model",
+      "name": "Model"
+    },
+    "subcategory": {
+      "id": "model-mlai-models",
+      "name": "ML/AI Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9824,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  },
+  {
+    "id": "earnings_per_share_growth_metric",
+    "description": "Growth rate of earnings per share.",
+    "dataset": {
+      "id": "ai_equity_alpha",
+      "name": "AI Equity Alpha Forecasts"
+    },
+    "category": {
+      "id": "model",
+      "name": "Model"
+    },
+    "subcategory": {
+      "id": "model-mlai-models",
+      "name": "ML/AI Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9824,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  },
+  {
+    "id": "earnings_per_share_growth_metric_2",
+    "description": "Alternative measure of earnings per share growth.",
+    "dataset": {
+      "id": "ai_equity_alpha",
+      "name": "AI Equity Alpha Forecasts"
+    },
+    "category": {
+      "id": "model",
+      "name": "Model"
+    },
+    "subcategory": {
+      "id": "model-mlai-models",
+      "name": "ML/AI Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9824,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  },
+  {
+    "id": "earnings_per_share_growth_metric_3",
+    "description": "Third measure of earnings per share growth.",
+    "dataset": {
+      "id": "ai_equity_alpha",
+      "name": "AI Equity Alpha Forecasts"
+    },
+    "category": {
+      "id": "model",
+      "name": "Model"
+    },
+    "subcategory": {
+      "id": "model-mlai-models",
+      "name": "ML/AI Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9824,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  },
+  {
+    "id": "earnings_quality_score_10",
+    "description": "Assessment of the reliability and sustainability of reported earnings.",
+    "dataset": {
+      "id": "ai_equity_alpha",
+      "name": "AI Equity Alpha Forecasts"
+    },
+    "category": {
+      "id": "model",
+      "name": "Model"
+    },
+    "subcategory": {
+      "id": "model-mlai-models",
+      "name": "ML/AI Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9824,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  },
+  {
+    "id": "earnings_quality_score_9",
+    "description": "Assessment of the reliability and sustainability of reported earnings.",
+    "dataset": {
+      "id": "ai_equity_alpha",
+      "name": "AI Equity Alpha Forecasts"
+    },
+    "category": {
+      "id": "model",
+      "name": "Model"
+    },
+    "subcategory": {
+      "id": "model-mlai-models",
+      "name": "ML/AI Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9824,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  },
+  {
+    "id": "earnings_surprise_frequency_score",
+    "description": "Frequency of earnings results differing from expectations.",
+    "dataset": {
+      "id": "ai_equity_alpha",
+      "name": "AI Equity Alpha Forecasts"
+    },
+    "category": {
+      "id": "model",
+      "name": "Model"
+    },
+    "subcategory": {
+      "id": "model-mlai-models",
+      "name": "ML/AI Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9824,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  },
+  {
+    "id": "earnings_surprise_frequency_score_2",
+    "description": "Alternative measure of earnings surprise frequency.",
+    "dataset": {
+      "id": "ai_equity_alpha",
+      "name": "AI Equity Alpha Forecasts"
+    },
+    "category": {
+      "id": "model",
+      "name": "Model"
+    },
+    "subcategory": {
+      "id": "model-mlai-models",
+      "name": "ML/AI Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9824,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  },
+  {
+    "id": "earnings_surprise_magnitude_score",
+    "description": "Magnitude of earnings surprises relative to expectations.",
+    "dataset": {
+      "id": "ai_equity_alpha",
+      "name": "AI Equity Alpha Forecasts"
+    },
+    "category": {
+      "id": "model",
+      "name": "Model"
+    },
+    "subcategory": {
+      "id": "model-mlai-models",
+      "name": "ML/AI Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9824,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  },
+  {
+    "id": "feature_agreement_indicator",
+    "description": "Indicator if the field relates to a data agreement.",
+    "dataset": {
+      "id": "ai_equity_alpha",
+      "name": "AI Equity Alpha Forecasts"
+    },
+    "category": {
+      "id": "model",
+      "name": "Model"
+    },
+    "subcategory": {
+      "id": "model-mlai-models",
+      "name": "ML/AI Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9824,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  },
+  {
+    "id": "feature_cao_indicator",
+    "description": "Indicator if the field relates to a chief administrative officer.",
+    "dataset": {
+      "id": "ai_equity_alpha",
+      "name": "AI Equity Alpha Forecasts"
+    },
+    "category": {
+      "id": "model",
+      "name": "Model"
+    },
+    "subcategory": {
+      "id": "model-mlai-models",
+      "name": "ML/AI Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9824,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  },
+  {
+    "id": "feature_category_label",
+    "description": "Label indicating the grouping of features by analytical purpose.",
+    "dataset": {
+      "id": "ai_equity_alpha",
+      "name": "AI Equity Alpha Forecasts"
+    },
+    "category": {
+      "id": "model",
+      "name": "Model"
+    },
+    "subcategory": {
+      "id": "model-mlai-models",
+      "name": "ML/AI Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9824,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  },
+  {
+    "id": "feature_claim_indicator",
+    "description": "Indicator if the field relates to a legal claim.",
+    "dataset": {
+      "id": "ai_equity_alpha",
+      "name": "AI Equity Alpha Forecasts"
+    },
+    "category": {
+      "id": "model",
+      "name": "Model"
+    },
+    "subcategory": {
+      "id": "model-mlai-models",
+      "name": "ML/AI Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9824,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  },
+  {
+    "id": "feature_column_indicator",
+    "description": "Indicator if the field is a column in the data table.",
+    "dataset": {
+      "id": "ai_equity_alpha",
+      "name": "AI Equity Alpha Forecasts"
+    },
+    "category": {
+      "id": "model",
+      "name": "Model"
+    },
+    "subcategory": {
+      "id": "model-mlai-models",
+      "name": "ML/AI Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9824,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  },
+  {
+    "id": "feature_column_name",
+    "description": "Name of the column in the data table for the feature.",
+    "dataset": {
+      "id": "ai_equity_alpha",
+      "name": "AI Equity Alpha Forecasts"
+    },
+    "category": {
+      "id": "model",
+      "name": "Model"
+    },
+    "subcategory": {
+      "id": "model-mlai-models",
+      "name": "ML/AI Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9824,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  },
+  {
+    "id": "feature_coo_indicator",
+    "description": "Indicator if the field relates to a chief operating officer.",
+    "dataset": {
+      "id": "ai_equity_alpha",
+      "name": "AI Equity Alpha Forecasts"
+    },
+    "category": {
+      "id": "model",
+      "name": "Model"
+    },
+    "subcategory": {
+      "id": "model-mlai-models",
+      "name": "ML/AI Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9824,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  },
+  {
+    "id": "feature_data_type",
+    "description": "Data type of the feature, such as float or text.",
+    "dataset": {
+      "id": "ai_equity_alpha",
+      "name": "AI Equity Alpha Forecasts"
+    },
+    "category": {
+      "id": "model",
+      "name": "Model"
+    },
+    "subcategory": {
+      "id": "model-mlai-models",
+      "name": "ML/AI Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9824,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  },
+  {
+    "id": "feature_description_text",
+    "description": "Textual description explaining the feature or factor.",
+    "dataset": {
+      "id": "ai_equity_alpha",
+      "name": "AI Equity Alpha Forecasts"
+    },
+    "category": {
+      "id": "model",
+      "name": "Model"
+    },
+    "subcategory": {
+      "id": "model-mlai-models",
+      "name": "ML/AI Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9824,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  },
+  {
+    "id": "feature_dispute_indicator",
+    "description": "Indicator if the field relates to a legal dispute.",
+    "dataset": {
+      "id": "ai_equity_alpha",
+      "name": "AI Equity Alpha Forecasts"
+    },
+    "category": {
+      "id": "model",
+      "name": "Model"
+    },
+    "subcategory": {
+      "id": "model-mlai-models",
+      "name": "ML/AI Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9824,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  },
+  {
+    "id": "feature_example_indicator",
+    "description": "Indicator if the field is a sample value for the feature.",
+    "dataset": {
+      "id": "ai_equity_alpha",
+      "name": "AI Equity Alpha Forecasts"
+    },
+    "category": {
+      "id": "model",
+      "name": "Model"
+    },
+    "subcategory": {
+      "id": "model-mlai-models",
+      "name": "ML/AI Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9824,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  },
+  {
+    "id": "feature_example_value",
+    "description": "Sample value for the feature or factor.",
+    "dataset": {
+      "id": "ai_equity_alpha",
+      "name": "AI Equity Alpha Forecasts"
+    },
+    "category": {
+      "id": "model",
+      "name": "Model"
+    },
+    "subcategory": {
+      "id": "model-mlai-models",
+      "name": "ML/AI Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9824,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  },
+  {
+    "id": "feature_float_indicator",
+    "description": "Indicator if the feature is a float data type.",
+    "dataset": {
+      "id": "ai_equity_alpha",
+      "name": "AI Equity Alpha Forecasts"
+    },
+    "category": {
+      "id": "model",
+      "name": "Model"
+    },
+    "subcategory": {
+      "id": "model-mlai-models",
+      "name": "ML/AI Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9824,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  },
+  {
+    "id": "feature_general_counsel_indicator",
+    "description": "Indicator if the field relates to a general counsel.",
+    "dataset": {
+      "id": "ai_equity_alpha",
+      "name": "AI Equity Alpha Forecasts"
+    },
+    "category": {
+      "id": "model",
+      "name": "Model"
+    },
+    "subcategory": {
+      "id": "model-mlai-models",
+      "name": "ML/AI Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9824,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  },
+  {
+    "id": "feature_london_england_indicator",
+    "description": "Indicator if the field relates to London, England.",
+    "dataset": {
+      "id": "ai_equity_alpha",
+      "name": "AI Equity Alpha Forecasts"
+    },
+    "category": {
+      "id": "model",
+      "name": "Model"
+    },
+    "subcategory": {
+      "id": "model-mlai-models",
+      "name": "ML/AI Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9824,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  },
+  {
+    "id": "feature_losses_indicator",
+    "description": "Indicator if the field relates to legal losses.",
+    "dataset": {
+      "id": "ai_equity_alpha",
+      "name": "AI Equity Alpha Forecasts"
+    },
+    "category": {
+      "id": "model",
+      "name": "Model"
+    },
+    "subcategory": {
+      "id": "model-mlai-models",
+      "name": "ML/AI Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9824,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  },
+  {
+    "id": "feature_name_label",
+    "description": "Name or label of the feature or factor.",
+    "dataset": {
+      "id": "ai_equity_alpha",
+      "name": "AI Equity Alpha Forecasts"
+    },
+    "category": {
+      "id": "model",
+      "name": "Model"
+    },
+    "subcategory": {
+      "id": "model-mlai-models",
+      "name": "ML/AI Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9824,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  },
+  {
+    "id": "feature_nan_indicator",
+    "description": "Indicator for missing or undefined data in the feature.",
+    "dataset": {
+      "id": "ai_equity_alpha",
+      "name": "AI Equity Alpha Forecasts"
+    },
+    "category": {
+      "id": "model",
+      "name": "Model"
+    },
+    "subcategory": {
+      "id": "model-mlai-models",
+      "name": "ML/AI Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9824,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  },
+  {
+    "id": "feature_plus_x_innovation_hub_indicator",
+    "description": "Indicator if the field relates to Plus X Innovation Hub.",
+    "dataset": {
+      "id": "ai_equity_alpha",
+      "name": "AI Equity Alpha Forecasts"
+    },
+    "category": {
+      "id": "model",
+      "name": "Model"
+    },
+    "subcategory": {
+      "id": "model-mlai-models",
+      "name": "ML/AI Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9824,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  },
+  {
+    "id": "feature_string_indicator",
+    "description": "Indicator if the feature is a string data type.",
+    "dataset": {
+      "id": "ai_equity_alpha",
+      "name": "AI Equity Alpha Forecasts"
+    },
+    "category": {
+      "id": "model",
+      "name": "Model"
+    },
+    "subcategory": {
+      "id": "model-mlai-models",
+      "name": "ML/AI Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9824,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  },
+  {
+    "id": "feature_subcategory_label",
+    "description": "Label indicating the sub-grouping of features for detailed analysis.",
+    "dataset": {
+      "id": "ai_equity_alpha",
+      "name": "AI Equity Alpha Forecasts"
+    },
+    "category": {
+      "id": "model",
+      "name": "Model"
+    },
+    "subcategory": {
+      "id": "model-mlai-models",
+      "name": "ML/AI Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9824,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  },
+  {
+    "id": "feature_subscriber_parties_indicator",
+    "description": "Indicator if the field relates to subscriber parties.",
+    "dataset": {
+      "id": "ai_equity_alpha",
+      "name": "AI Equity Alpha Forecasts"
+    },
+    "category": {
+      "id": "model",
+      "name": "Model"
+    },
+    "subcategory": {
+      "id": "model-mlai-models",
+      "name": "ML/AI Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9824,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  },
+  {
+    "id": "feature_text_indicator",
+    "description": "Indicator if the feature is a text data type.",
+    "dataset": {
+      "id": "ai_equity_alpha",
+      "name": "AI Equity Alpha Forecasts"
+    },
+    "category": {
+      "id": "model",
+      "name": "Model"
+    },
+    "subcategory": {
+      "id": "model-mlai-models",
+      "name": "ML/AI Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9824,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  },
+  {
+    "id": "feature_worldquant_llc_indicator",
+    "description": "Indicator if the field relates to WorldQuant, LLC.",
+    "dataset": {
+      "id": "ai_equity_alpha",
+      "name": "AI Equity Alpha Forecasts"
+    },
+    "category": {
+      "id": "model",
+      "name": "Model"
+    },
+    "subcategory": {
+      "id": "model-mlai-models",
+      "name": "ML/AI Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9824,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  },
+  {
+    "id": "financial_change_trend_analysis",
+    "description": "Analysis of trends across all financial statements.",
+    "dataset": {
+      "id": "ai_equity_alpha",
+      "name": "AI Equity Alpha Forecasts"
+    },
+    "category": {
+      "id": "model",
+      "name": "Model"
+    },
+    "subcategory": {
+      "id": "model-mlai-models",
+      "name": "ML/AI Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9824,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  },
+  {
+    "id": "financial_statement_volatility_factor",
+    "description": "Measure of variability in key financial statement items.",
+    "dataset": {
+      "id": "ai_equity_alpha",
+      "name": "AI Equity Alpha Forecasts"
+    },
+    "category": {
+      "id": "model",
+      "name": "Model"
+    },
+    "subcategory": {
+      "id": "model-mlai-models",
+      "name": "ML/AI Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9824,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  },
+  {
+    "id": "financial_statement_volatility_factor_2",
+    "description": "Alternative measure of financial statement volatility.",
+    "dataset": {
+      "id": "ai_equity_alpha",
+      "name": "AI Equity Alpha Forecasts"
+    },
+    "category": {
+      "id": "model",
+      "name": "Model"
+    },
+    "subcategory": {
+      "id": "model-mlai-models",
+      "name": "ML/AI Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9824,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  },
+  {
+    "id": "financial_yield_analysis",
+    "description": "Analysis of financial yields such as dividend or earnings yield.",
+    "dataset": {
+      "id": "ai_equity_alpha",
+      "name": "AI Equity Alpha Forecasts"
+    },
+    "category": {
+      "id": "model",
+      "name": "Model"
+    },
+    "subcategory": {
+      "id": "model-mlai-models",
+      "name": "ML/AI Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9824,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  },
+  {
+    "id": "financial_yield_analysis_2",
+    "description": "Alternative analysis of financial yields such as dividend or earnings yield.",
+    "dataset": {
+      "id": "ai_equity_alpha",
+      "name": "AI Equity Alpha Forecasts"
+    },
+    "category": {
+      "id": "model",
+      "name": "Model"
+    },
+    "subcategory": {
+      "id": "model-mlai-models",
+      "name": "ML/AI Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9824,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  },
+  {
+    "id": "financial_yield_analysis_3",
+    "description": "Analysis of financial yields such as dividend or earnings yield.",
+    "dataset": {
+      "id": "ai_equity_alpha",
+      "name": "AI Equity Alpha Forecasts"
+    },
+    "category": {
+      "id": "model",
+      "name": "Model"
+    },
+    "subcategory": {
+      "id": "model-mlai-models",
+      "name": "ML/AI Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9824,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  },
+  {
+    "id": "financing_structure_analysis",
+    "description": "Analysis of a company's financing activities and capital structure.",
+    "dataset": {
+      "id": "ai_equity_alpha",
+      "name": "AI Equity Alpha Forecasts"
+    },
+    "category": {
+      "id": "model",
+      "name": "Model"
+    },
+    "subcategory": {
+      "id": "model-mlai-models",
+      "name": "ML/AI Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9824,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  },
+  {
+    "id": "financing_structure_analysis_2",
+    "description": "Alternative analysis of company financing activities and structure.",
+    "dataset": {
+      "id": "ai_equity_alpha",
+      "name": "AI Equity Alpha Forecasts"
+    },
+    "category": {
+      "id": "model",
+      "name": "Model"
+    },
+    "subcategory": {
+      "id": "model-mlai-models",
+      "name": "ML/AI Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9824,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  },
+  {
+    "id": "financing_structure_analysis_3",
+    "description": "Third analysis of company financing activities and structure.",
+    "dataset": {
+      "id": "ai_equity_alpha",
+      "name": "AI Equity Alpha Forecasts"
+    },
+    "category": {
+      "id": "model",
+      "name": "Model"
+    },
+    "subcategory": {
+      "id": "model-mlai-models",
+      "name": "ML/AI Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9824,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  },
+  {
+    "id": "financing_structure_analysis_4",
+    "description": "Analysis of a company's financing activities and capital structure.",
+    "dataset": {
+      "id": "ai_equity_alpha",
+      "name": "AI Equity Alpha Forecasts"
+    },
+    "category": {
+      "id": "model",
+      "name": "Model"
+    },
+    "subcategory": {
+      "id": "model-mlai-models",
+      "name": "ML/AI Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9824,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  },
+  {
+    "id": "financing_structure_analysis_5",
+    "description": "Analysis of a company's financing activities and capital structure.",
+    "dataset": {
+      "id": "ai_equity_alpha",
+      "name": "AI Equity Alpha Forecasts"
+    },
+    "category": {
+      "id": "model",
+      "name": "Model"
+    },
+    "subcategory": {
+      "id": "model-mlai-models",
+      "name": "ML/AI Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9824,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  },
+  {
+    "id": "forecast_accuracy_variance_score",
+    "description": "Variance in the accuracy of analyst or model forecasts.",
+    "dataset": {
+      "id": "ai_equity_alpha",
+      "name": "AI Equity Alpha Forecasts"
+    },
+    "category": {
+      "id": "model",
+      "name": "Model"
+    },
+    "subcategory": {
+      "id": "model-mlai-models",
+      "name": "ML/AI Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9824,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  },
+  {
+    "id": "forecast_dispersion_metric",
+    "description": "Dispersion among analyst or model forecasts.",
+    "dataset": {
+      "id": "ai_equity_alpha",
+      "name": "AI Equity Alpha Forecasts"
+    },
+    "category": {
+      "id": "model",
+      "name": "Model"
+    },
+    "subcategory": {
+      "id": "model-mlai-models",
+      "name": "ML/AI Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9824,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  },
+  {
+    "id": "forecast_dispersion_metric_2",
+    "description": "Alternative measure of forecast dispersion.",
+    "dataset": {
+      "id": "ai_equity_alpha",
+      "name": "AI Equity Alpha Forecasts"
+    },
+    "category": {
+      "id": "model",
+      "name": "Model"
+    },
+    "subcategory": {
+      "id": "model-mlai-models",
+      "name": "ML/AI Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9824,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  },
+  {
+    "id": "forecast_error_magnitude_metric",
+    "description": "Magnitude of errors in earnings or revenue forecasts.",
+    "dataset": {
+      "id": "ai_equity_alpha",
+      "name": "AI Equity Alpha Forecasts"
+    },
+    "category": {
+      "id": "model",
+      "name": "Model"
+    },
+    "subcategory": {
+      "id": "model-mlai-models",
+      "name": "ML/AI Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9824,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  },
+  {
+    "id": "forecast_error_magnitude_metric_2",
+    "description": "Alternative measure of forecast error magnitude.",
+    "dataset": {
+      "id": "ai_equity_alpha",
+      "name": "AI Equity Alpha Forecasts"
+    },
+    "category": {
+      "id": "model",
+      "name": "Model"
+    },
+    "subcategory": {
+      "id": "model-mlai-models",
+      "name": "ML/AI Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9824,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  },
+  {
+    "id": "forecast_error_magnitude_metric_3",
+    "description": "Third measure of forecast error magnitude.",
+    "dataset": {
+      "id": "ai_equity_alpha",
+      "name": "AI Equity Alpha Forecasts"
+    },
+    "category": {
+      "id": "model",
+      "name": "Model"
+    },
+    "subcategory": {
+      "id": "model-mlai-models",
+      "name": "ML/AI Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9824,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  },
+  {
+    "id": "forecast_value_accuracy_metric",
+    "description": "Metric evaluating the value and accuracy of forecasts.",
+    "dataset": {
+      "id": "ai_equity_alpha",
+      "name": "AI Equity Alpha Forecasts"
+    },
+    "category": {
+      "id": "model",
+      "name": "Model"
+    },
+    "subcategory": {
+      "id": "model-mlai-models",
+      "name": "ML/AI Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9824,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  },
+  {
+    "id": "forecast_value_accuracy_metric_2",
+    "description": "Metric evaluating the accuracy and value of forecasts.",
+    "dataset": {
+      "id": "ai_equity_alpha",
+      "name": "AI Equity Alpha Forecasts"
+    },
+    "category": {
+      "id": "model",
+      "name": "Model"
+    },
+    "subcategory": {
+      "id": "model-mlai-models",
+      "name": "ML/AI Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9824,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  },
+  {
+    "id": "forecast_value_accuracy_metric_3",
+    "description": "Metric evaluating the value and accuracy of forecasts.",
+    "dataset": {
+      "id": "ai_equity_alpha",
+      "name": "AI Equity Alpha Forecasts"
+    },
+    "category": {
+      "id": "model",
+      "name": "Model"
+    },
+    "subcategory": {
+      "id": "model-mlai-models",
+      "name": "ML/AI Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9824,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  },
+  {
+    "id": "forecast_yield_metric",
+    "description": "Analysis of expected future yields for a security.",
+    "dataset": {
+      "id": "ai_equity_alpha",
+      "name": "AI Equity Alpha Forecasts"
+    },
+    "category": {
+      "id": "model",
+      "name": "Model"
+    },
+    "subcategory": {
+      "id": "model-mlai-models",
+      "name": "ML/AI Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9824,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  },
+  {
+    "id": "forecast_yield_metric_2",
+    "description": "Alternative analysis of expected future yields for a security.",
+    "dataset": {
+      "id": "ai_equity_alpha",
+      "name": "AI Equity Alpha Forecasts"
+    },
+    "category": {
+      "id": "model",
+      "name": "Model"
+    },
+    "subcategory": {
+      "id": "model-mlai-models",
+      "name": "ML/AI Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9824,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  },
+  {
+    "id": "forecast_yield_metric_3",
+    "description": "Analysis of expected future yields for a security.",
+    "dataset": {
+      "id": "ai_equity_alpha",
+      "name": "AI Equity Alpha Forecasts"
+    },
+    "category": {
+      "id": "model",
+      "name": "Model"
+    },
+    "subcategory": {
+      "id": "model-mlai-models",
+      "name": "ML/AI Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9824,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  },
+  {
+    "id": "free_cashflow_margin_factor",
+    "description": "Free cash flow as a percentage of revenue.",
+    "dataset": {
+      "id": "ai_equity_alpha",
+      "name": "AI Equity Alpha Forecasts"
+    },
+    "category": {
+      "id": "model",
+      "name": "Model"
+    },
+    "subcategory": {
+      "id": "model-mlai-models",
+      "name": "ML/AI Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9824,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  },
+  {
+    "id": "free_cashflow_yield_metric",
+    "description": "Free cash flow as a percentage of market capitalization.",
+    "dataset": {
+      "id": "ai_equity_alpha",
+      "name": "AI Equity Alpha Forecasts"
+    },
+    "category": {
+      "id": "model",
+      "name": "Model"
+    },
+    "subcategory": {
+      "id": "model-mlai-models",
+      "name": "ML/AI Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9824,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  },
+  {
+    "id": "fund_flow_prediction_metric",
+    "description": "Model predicting the movement of funds into or out of securities.",
+    "dataset": {
+      "id": "ai_equity_alpha",
+      "name": "AI Equity Alpha Forecasts"
+    },
+    "category": {
+      "id": "model",
+      "name": "Model"
+    },
+    "subcategory": {
+      "id": "model-mlai-models",
+      "name": "ML/AI Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9824,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  },
+  {
+    "id": "fund_flow_prediction_metric_2",
+    "description": "Alternative model predicting fund movements into or out of securities.",
+    "dataset": {
+      "id": "ai_equity_alpha",
+      "name": "AI Equity Alpha Forecasts"
+    },
+    "category": {
+      "id": "model",
+      "name": "Model"
+    },
+    "subcategory": {
+      "id": "model-mlai-models",
+      "name": "ML/AI Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9824,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  },
+  {
+    "id": "fund_flow_prediction_metric_3",
+    "description": "Third model predicting fund movements into or out of securities.",
+    "dataset": {
+      "id": "ai_equity_alpha",
+      "name": "AI Equity Alpha Forecasts"
+    },
+    "category": {
+      "id": "model",
+      "name": "Model"
+    },
+    "subcategory": {
+      "id": "model-mlai-models",
+      "name": "ML/AI Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9824,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  },
+  {
+    "id": "fund_flow_prediction_metric_4",
+    "description": "Model predicting the movement of funds into or out of securities.",
+    "dataset": {
+      "id": "ai_equity_alpha",
+      "name": "AI Equity Alpha Forecasts"
+    },
+    "category": {
+      "id": "model",
+      "name": "Model"
+    },
+    "subcategory": {
+      "id": "model-mlai-models",
+      "name": "ML/AI Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9824,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  },
+  {
+    "id": "fund_flow_prediction_metric_5",
+    "description": "Model predicting the movement of funds into or out of securities.",
+    "dataset": {
+      "id": "ai_equity_alpha",
+      "name": "AI Equity Alpha Forecasts"
+    },
+    "category": {
+      "id": "model",
+      "name": "Model"
+    },
+    "subcategory": {
+      "id": "model-mlai-models",
+      "name": "ML/AI Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9824,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  },
+  {
+    "id": "historic_earnings_surprise_score",
+    "description": "Measure of past earnings results versus expectations.",
+    "dataset": {
+      "id": "ai_equity_alpha",
+      "name": "AI Equity Alpha Forecasts"
+    },
+    "category": {
+      "id": "model",
+      "name": "Model"
+    },
+    "subcategory": {
+      "id": "model-mlai-models",
+      "name": "ML/AI Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9824,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  },
+  {
+    "id": "historic_earnings_surprise_score_2",
+    "description": "Score measuring past earnings results versus expectations.",
+    "dataset": {
+      "id": "ai_equity_alpha",
+      "name": "AI Equity Alpha Forecasts"
+    },
+    "category": {
+      "id": "model",
+      "name": "Model"
+    },
+    "subcategory": {
+      "id": "model-mlai-models",
+      "name": "ML/AI Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9824,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  },
+  {
+    "id": "historic_earnings_surprise_score_3",
+    "description": "Score measuring past earnings results versus expectations.",
+    "dataset": {
+      "id": "ai_equity_alpha",
+      "name": "AI Equity Alpha Forecasts"
+    },
+    "category": {
+      "id": "model",
+      "name": "Model"
+    },
+    "subcategory": {
+      "id": "model-mlai-models",
+      "name": "ML/AI Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9824,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  },
+  {
+    "id": "income_statement_trend_metric",
+    "description": "Model analyzing trends and changes in income statement items.",
+    "dataset": {
+      "id": "ai_equity_alpha",
+      "name": "AI Equity Alpha Forecasts"
+    },
+    "category": {
+      "id": "model",
+      "name": "Model"
+    },
+    "subcategory": {
+      "id": "model-mlai-models",
+      "name": "ML/AI Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9824,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  },
+  {
+    "id": "information_opacity_score",
+    "description": "Measure of the lack of transparency or clarity in information.",
+    "dataset": {
+      "id": "ai_equity_alpha",
+      "name": "AI Equity Alpha Forecasts"
+    },
+    "category": {
+      "id": "model",
+      "name": "Model"
+    },
+    "subcategory": {
+      "id": "model-mlai-models",
+      "name": "ML/AI Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9824,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  },
+  {
+    "id": "information_opacity_score_2",
+    "description": "Alternative measure of information transparency or clarity.",
+    "dataset": {
+      "id": "ai_equity_alpha",
+      "name": "AI Equity Alpha Forecasts"
+    },
+    "category": {
+      "id": "model",
+      "name": "Model"
+    },
+    "subcategory": {
+      "id": "model-mlai-models",
+      "name": "ML/AI Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9824,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  },
+  {
+    "id": "information_opacity_score_3",
+    "description": "Third measure of information transparency or clarity.",
+    "dataset": {
+      "id": "ai_equity_alpha",
+      "name": "AI Equity Alpha Forecasts"
+    },
+    "category": {
+      "id": "model",
+      "name": "Model"
+    },
+    "subcategory": {
+      "id": "model-mlai-models",
+      "name": "ML/AI Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9824,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  },
+  {
+    "id": "information_opacity_score_4",
+    "description": "Score measuring the lack of transparency or clarity in information.",
+    "dataset": {
+      "id": "ai_equity_alpha",
+      "name": "AI Equity Alpha Forecasts"
+    },
+    "category": {
+      "id": "model",
+      "name": "Model"
+    },
+    "subcategory": {
+      "id": "model-mlai-models",
+      "name": "ML/AI Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9824,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  },
+  {
+    "id": "information_opacity_score_5",
+    "description": "Score measuring the lack of transparency or clarity in information.",
+    "dataset": {
+      "id": "ai_equity_alpha",
+      "name": "AI Equity Alpha Forecasts"
+    },
+    "category": {
+      "id": "model",
+      "name": "Model"
+    },
+    "subcategory": {
+      "id": "model-mlai-models",
+      "name": "ML/AI Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9824,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  },
+  {
+    "id": "intrinsic_valuation_estimate",
+    "description": "Model estimating the fundamental value of a company.",
+    "dataset": {
+      "id": "ai_equity_alpha",
+      "name": "AI Equity Alpha Forecasts"
+    },
+    "category": {
+      "id": "model",
+      "name": "Model"
+    },
+    "subcategory": {
+      "id": "model-mlai-models",
+      "name": "ML/AI Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9824,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  },
+  {
+    "id": "intrinsic_valuation_estimate_2",
+    "description": "Alternative model estimating the fundamental value of a company.",
+    "dataset": {
+      "id": "ai_equity_alpha",
+      "name": "AI Equity Alpha Forecasts"
+    },
+    "category": {
+      "id": "model",
+      "name": "Model"
+    },
+    "subcategory": {
+      "id": "model-mlai-models",
+      "name": "ML/AI Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9824,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  },
+  {
+    "id": "intrinsic_valuation_estimate_3",
+    "description": "Model estimating the fundamental value of a company.",
+    "dataset": {
+      "id": "ai_equity_alpha",
+      "name": "AI Equity Alpha Forecasts"
+    },
+    "category": {
+      "id": "model",
+      "name": "Model"
+    },
+    "subcategory": {
+      "id": "model-mlai-models",
+      "name": "ML/AI Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9824,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  },
+  {
+    "id": "liquidity_buffer_indicator",
+    "description": "Indicator of the company's short-term liquidity position.",
+    "dataset": {
+      "id": "ai_equity_alpha",
+      "name": "AI Equity Alpha Forecasts"
+    },
+    "category": {
+      "id": "model",
+      "name": "Model"
+    },
+    "subcategory": {
+      "id": "model-mlai-models",
+      "name": "ML/AI Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9824,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  },
+  {
+    "id": "long_term_business_uncertainty",
+    "description": "Measure of uncertainty in a company's business model over a long horizon.",
+    "dataset": {
+      "id": "ai_equity_alpha",
+      "name": "AI Equity Alpha Forecasts"
+    },
+    "category": {
+      "id": "model",
+      "name": "Model"
+    },
+    "subcategory": {
+      "id": "model-mlai-models",
+      "name": "ML/AI Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9824,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  },
+  {
+    "id": "long_term_business_uncertainty_2",
+    "description": "Measure of uncertainty in a company's business model over a long horizon.",
+    "dataset": {
+      "id": "ai_equity_alpha",
+      "name": "AI Equity Alpha Forecasts"
+    },
+    "category": {
+      "id": "model",
+      "name": "Model"
+    },
+    "subcategory": {
+      "id": "model-mlai-models",
+      "name": "ML/AI Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9824,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  },
+  {
+    "id": "long_term_physics_model",
+    "description": "Factor modeling shareholder returns over a long period using mathematical models.",
+    "dataset": {
+      "id": "ai_equity_alpha",
+      "name": "AI Equity Alpha Forecasts"
+    },
+    "category": {
+      "id": "model",
+      "name": "Model"
+    },
+    "subcategory": {
+      "id": "model-mlai-models",
+      "name": "ML/AI Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9824,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  },
+  {
+    "id": "long_term_physics_model_2",
+    "description": "Factor modeling shareholder returns over a long period using mathematical models.",
+    "dataset": {
+      "id": "ai_equity_alpha",
+      "name": "AI Equity Alpha Forecasts"
+    },
+    "category": {
+      "id": "model",
+      "name": "Model"
+    },
+    "subcategory": {
+      "id": "model-mlai-models",
+      "name": "ML/AI Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9824,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  },
+  {
+    "id": "long_term_technical_trend_indicator",
+    "description": "Technical indicator measuring long-term price trends.",
+    "dataset": {
+      "id": "ai_equity_alpha",
+      "name": "AI Equity Alpha Forecasts"
+    },
+    "category": {
+      "id": "model",
+      "name": "Model"
+    },
+    "subcategory": {
+      "id": "model-mlai-models",
+      "name": "ML/AI Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9824,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  },
+  {
+    "id": "long_term_technical_trend_indicator_2",
+    "description": "Alternative technical indicator measuring long-term price trends.",
+    "dataset": {
+      "id": "ai_equity_alpha",
+      "name": "AI Equity Alpha Forecasts"
+    },
+    "category": {
+      "id": "model",
+      "name": "Model"
+    },
+    "subcategory": {
+      "id": "model-mlai-models",
+      "name": "ML/AI Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9824,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  },
+  {
+    "id": "long_term_technical_trend_indicator_3",
+    "description": "Third technical indicator measuring long-term price trends.",
+    "dataset": {
+      "id": "ai_equity_alpha",
+      "name": "AI Equity Alpha Forecasts"
+    },
+    "category": {
+      "id": "model",
+      "name": "Model"
+    },
+    "subcategory": {
+      "id": "model-mlai-models",
+      "name": "ML/AI Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9824,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  },
+  {
+    "id": "long_term_technical_trend_indicator_4",
+    "description": "Technical indicator measuring long-term price trends.",
+    "dataset": {
+      "id": "ai_equity_alpha",
+      "name": "AI Equity Alpha Forecasts"
+    },
+    "category": {
+      "id": "model",
+      "name": "Model"
+    },
+    "subcategory": {
+      "id": "model-mlai-models",
+      "name": "ML/AI Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9824,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  },
+  {
+    "id": "long_term_technical_valuation_model",
+    "description": "Technical valuation model focused on long-term price trends.",
+    "dataset": {
+      "id": "ai_equity_alpha",
+      "name": "AI Equity Alpha Forecasts"
+    },
+    "category": {
+      "id": "model",
+      "name": "Model"
+    },
+    "subcategory": {
+      "id": "model-mlai-models",
+      "name": "ML/AI Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9824,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  },
+  {
+    "id": "long_term_technical_valuation_model_2",
+    "description": "Alternative technical valuation model focused on long-term price trends.",
+    "dataset": {
+      "id": "ai_equity_alpha",
+      "name": "AI Equity Alpha Forecasts"
+    },
+    "category": {
+      "id": "model",
+      "name": "Model"
+    },
+    "subcategory": {
+      "id": "model-mlai-models",
+      "name": "ML/AI Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9824,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  },
+  {
+    "id": "long_term_technical_valuation_model_3",
+    "description": "Technical valuation model focused on long-term price trends.",
+    "dataset": {
+      "id": "ai_equity_alpha",
+      "name": "AI Equity Alpha Forecasts"
+    },
+    "category": {
+      "id": "model",
+      "name": "Model"
+    },
+    "subcategory": {
+      "id": "model-mlai-models",
+      "name": "ML/AI Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9824,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  },
+  {
+    "id": "market_attention_score",
+    "description": "Measure of market or media attention to a security.",
+    "dataset": {
+      "id": "ai_equity_alpha",
+      "name": "AI Equity Alpha Forecasts"
+    },
+    "category": {
+      "id": "model",
+      "name": "Model"
+    },
+    "subcategory": {
+      "id": "model-mlai-models",
+      "name": "ML/AI Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9824,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  },
+  {
+    "id": "medium_term_business_uncertainty",
+    "description": "Measure of uncertainty in a company's business model over a medium horizon.",
+    "dataset": {
+      "id": "ai_equity_alpha",
+      "name": "AI Equity Alpha Forecasts"
+    },
+    "category": {
+      "id": "model",
+      "name": "Model"
+    },
+    "subcategory": {
+      "id": "model-mlai-models",
+      "name": "ML/AI Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9824,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  },
+  {
+    "id": "medium_term_business_uncertainty_2",
+    "description": "Measure of uncertainty in a company's business model over a medium horizon.",
+    "dataset": {
+      "id": "ai_equity_alpha",
+      "name": "AI Equity Alpha Forecasts"
+    },
+    "category": {
+      "id": "model",
+      "name": "Model"
+    },
+    "subcategory": {
+      "id": "model-mlai-models",
+      "name": "ML/AI Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9824,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  },
+  {
+    "id": "medium_term_physics_model",
+    "description": "Factor modeling shareholder returns over a medium period.",
+    "dataset": {
+      "id": "ai_equity_alpha",
+      "name": "AI Equity Alpha Forecasts"
+    },
+    "category": {
+      "id": "model",
+      "name": "Model"
+    },
+    "subcategory": {
+      "id": "model-mlai-models",
+      "name": "ML/AI Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9824,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  },
+  {
+    "id": "medium_term_physics_model_2",
+    "description": "Factor modeling shareholder returns over a medium period.",
+    "dataset": {
+      "id": "ai_equity_alpha",
+      "name": "AI Equity Alpha Forecasts"
+    },
+    "category": {
+      "id": "model",
+      "name": "Model"
+    },
+    "subcategory": {
+      "id": "model-mlai-models",
+      "name": "ML/AI Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9824,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  },
+  {
+    "id": "medium_term_technical_trend_indicator",
+    "description": "Technical indicator measuring medium-term price trends.",
+    "dataset": {
+      "id": "ai_equity_alpha",
+      "name": "AI Equity Alpha Forecasts"
+    },
+    "category": {
+      "id": "model",
+      "name": "Model"
+    },
+    "subcategory": {
+      "id": "model-mlai-models",
+      "name": "ML/AI Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9824,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  },
+  {
+    "id": "medium_term_technical_trend_indicator_2",
+    "description": "Alternative technical indicator measuring medium-term price trends.",
+    "dataset": {
+      "id": "ai_equity_alpha",
+      "name": "AI Equity Alpha Forecasts"
+    },
+    "category": {
+      "id": "model",
+      "name": "Model"
+    },
+    "subcategory": {
+      "id": "model-mlai-models",
+      "name": "ML/AI Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9824,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  },
+  {
+    "id": "medium_term_technical_trend_indicator_3",
+    "description": "Third technical indicator measuring medium-term price trends.",
+    "dataset": {
+      "id": "ai_equity_alpha",
+      "name": "AI Equity Alpha Forecasts"
+    },
+    "category": {
+      "id": "model",
+      "name": "Model"
+    },
+    "subcategory": {
+      "id": "model-mlai-models",
+      "name": "ML/AI Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9824,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  },
+  {
+    "id": "medium_term_technical_trend_indicator_4",
+    "description": "Technical indicator measuring medium-term price trends.",
+    "dataset": {
+      "id": "ai_equity_alpha",
+      "name": "AI Equity Alpha Forecasts"
+    },
+    "category": {
+      "id": "model",
+      "name": "Model"
+    },
+    "subcategory": {
+      "id": "model-mlai-models",
+      "name": "ML/AI Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9824,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  },
+  {
+    "id": "medium_term_technical_valuation_model",
+    "description": "Technical valuation model focused on medium-term price trends.",
+    "dataset": {
+      "id": "ai_equity_alpha",
+      "name": "AI Equity Alpha Forecasts"
+    },
+    "category": {
+      "id": "model",
+      "name": "Model"
+    },
+    "subcategory": {
+      "id": "model-mlai-models",
+      "name": "ML/AI Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9824,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  },
+  {
+    "id": "medium_term_technical_valuation_model_2",
+    "description": "Alternative technical valuation model focused on medium-term price trends.",
+    "dataset": {
+      "id": "ai_equity_alpha",
+      "name": "AI Equity Alpha Forecasts"
+    },
+    "category": {
+      "id": "model",
+      "name": "Model"
+    },
+    "subcategory": {
+      "id": "model-mlai-models",
+      "name": "ML/AI Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9824,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  },
+  {
+    "id": "medium_term_technical_valuation_model_3",
+    "description": "Technical valuation model focused on medium-term price trends.",
+    "dataset": {
+      "id": "ai_equity_alpha",
+      "name": "AI Equity Alpha Forecasts"
+    },
+    "category": {
+      "id": "model",
+      "name": "Model"
+    },
+    "subcategory": {
+      "id": "model-mlai-models",
+      "name": "ML/AI Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9824,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  },
+  {
+    "id": "momentum_reversal_indicator",
+    "description": "Indicator of potential reversal in price momentum.",
+    "dataset": {
+      "id": "ai_equity_alpha",
+      "name": "AI Equity Alpha Forecasts"
+    },
+    "category": {
+      "id": "model",
+      "name": "Model"
+    },
+    "subcategory": {
+      "id": "model-mlai-models",
+      "name": "ML/AI Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9824,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  },
+  {
+    "id": "momentum_reversal_indicator_2",
+    "description": "Alternative indicator of momentum reversal.",
+    "dataset": {
+      "id": "ai_equity_alpha",
+      "name": "AI Equity Alpha Forecasts"
+    },
+    "category": {
+      "id": "model",
+      "name": "Model"
+    },
+    "subcategory": {
+      "id": "model-mlai-models",
+      "name": "ML/AI Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9824,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  },
+  {
+    "id": "momentum_score",
+    "description": "Score representing the tendency of an asset's price to continue moving in its current direction.",
+    "dataset": {
+      "id": "ai_equity_alpha",
+      "name": "AI Equity Alpha Forecasts"
+    },
+    "category": {
+      "id": "model",
+      "name": "Model"
+    },
+    "subcategory": {
+      "id": "model-mlai-models",
+      "name": "ML/AI Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9824,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  },
+  {
+    "id": "nlp_sentiment_alpha_factor",
+    "description": "Analysis of stock perception and performance using natural language processing.",
+    "dataset": {
+      "id": "ai_equity_alpha",
+      "name": "AI Equity Alpha Forecasts"
+    },
+    "category": {
+      "id": "model",
+      "name": "Model"
+    },
+    "subcategory": {
+      "id": "model-mlai-models",
+      "name": "ML/AI Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9824,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  },
+  {
+    "id": "nlp_sentiment_alpha_factor_2",
+    "description": "Alternative analysis of stock perception and performance using NLP.",
+    "dataset": {
+      "id": "ai_equity_alpha",
+      "name": "AI Equity Alpha Forecasts"
+    },
+    "category": {
+      "id": "model",
+      "name": "Model"
+    },
+    "subcategory": {
+      "id": "model-mlai-models",
+      "name": "ML/AI Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9824,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  },
+  {
+    "id": "nlp_sentiment_alpha_factor_3",
+    "description": "Analysis of perception and sentiment using natural language processing.",
+    "dataset": {
+      "id": "ai_equity_alpha",
+      "name": "AI Equity Alpha Forecasts"
+    },
+    "category": {
+      "id": "model",
+      "name": "Model"
+    },
+    "subcategory": {
+      "id": "model-mlai-models",
+      "name": "ML/AI Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9824,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  },
+  {
+    "id": "operating_cashflow_growth_metric",
+    "description": "Growth rate of operating cash flow.",
+    "dataset": {
+      "id": "ai_equity_alpha",
+      "name": "AI Equity Alpha Forecasts"
+    },
+    "category": {
+      "id": "model",
+      "name": "Model"
+    },
+    "subcategory": {
+      "id": "model-mlai-models",
+      "name": "ML/AI Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9824,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  },
+  {
+    "id": "operating_cashflow_growth_metric_2",
+    "description": "Alternative measure of operating cash flow growth.",
+    "dataset": {
+      "id": "ai_equity_alpha",
+      "name": "AI Equity Alpha Forecasts"
+    },
+    "category": {
+      "id": "model",
+      "name": "Model"
+    },
+    "subcategory": {
+      "id": "model-mlai-models",
+      "name": "ML/AI Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9824,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  },
+  {
+    "id": "operating_cashflow_stability_factor",
+    "description": "Stability of operating cash flows over time.",
+    "dataset": {
+      "id": "ai_equity_alpha",
+      "name": "AI Equity Alpha Forecasts"
+    },
+    "category": {
+      "id": "model",
+      "name": "Model"
+    },
+    "subcategory": {
+      "id": "model-mlai-models",
+      "name": "ML/AI Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9824,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  },
+  {
+    "id": "operating_cashflow_stability_factor_2",
+    "description": "Alternative measure of operating cash flow stability.",
+    "dataset": {
+      "id": "ai_equity_alpha",
+      "name": "AI Equity Alpha Forecasts"
+    },
+    "category": {
+      "id": "model",
+      "name": "Model"
+    },
+    "subcategory": {
+      "id": "model-mlai-models",
+      "name": "ML/AI Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9824,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  },
+  {
+    "id": "operating_cashflow_stability_factor_3",
+    "description": "Third measure of operating cash flow stability.",
+    "dataset": {
+      "id": "ai_equity_alpha",
+      "name": "AI Equity Alpha Forecasts"
+    },
+    "category": {
+      "id": "model",
+      "name": "Model"
+    },
+    "subcategory": {
+      "id": "model-mlai-models",
+      "name": "ML/AI Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9824,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  },
+  {
+    "id": "operating_cashflow_stability_factor_4",
+    "description": "Fourth measure of operating cash flow stability.",
+    "dataset": {
+      "id": "ai_equity_alpha",
+      "name": "AI Equity Alpha Forecasts"
+    },
+    "category": {
+      "id": "model",
+      "name": "Model"
+    },
+    "subcategory": {
+      "id": "model-mlai-models",
+      "name": "ML/AI Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9824,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  },
+  {
+    "id": "operating_expense_ratio_factor",
+    "description": "Ratio of operating expenses to total revenue.",
+    "dataset": {
+      "id": "ai_equity_alpha",
+      "name": "AI Equity Alpha Forecasts"
+    },
+    "category": {
+      "id": "model",
+      "name": "Model"
+    },
+    "subcategory": {
+      "id": "model-mlai-models",
+      "name": "ML/AI Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9824,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  },
+  {
+    "id": "operating_income_variability_score",
+    "description": "Variability in operating income over time.",
+    "dataset": {
+      "id": "ai_equity_alpha",
+      "name": "AI Equity Alpha Forecasts"
+    },
+    "category": {
+      "id": "model",
+      "name": "Model"
+    },
+    "subcategory": {
+      "id": "model-mlai-models",
+      "name": "ML/AI Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9824,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  },
+  {
+    "id": "operating_income_variability_score_2",
+    "description": "Alternative measure of operating income variability.",
+    "dataset": {
+      "id": "ai_equity_alpha",
+      "name": "AI Equity Alpha Forecasts"
+    },
+    "category": {
+      "id": "model",
+      "name": "Model"
+    },
+    "subcategory": {
+      "id": "model-mlai-models",
+      "name": "ML/AI Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9824,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  },
+  {
+    "id": "operating_leverage_factor",
+    "description": "Degree to which operating income is affected by changes in sales.",
+    "dataset": {
+      "id": "ai_equity_alpha",
+      "name": "AI Equity Alpha Forecasts"
+    },
+    "category": {
+      "id": "model",
+      "name": "Model"
+    },
+    "subcategory": {
+      "id": "model-mlai-models",
+      "name": "ML/AI Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9824,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  },
+  {
+    "id": "operating_leverage_factor_2",
+    "description": "Alternative measure of operating leverage.",
+    "dataset": {
+      "id": "ai_equity_alpha",
+      "name": "AI Equity Alpha Forecasts"
+    },
+    "category": {
+      "id": "model",
+      "name": "Model"
+    },
+    "subcategory": {
+      "id": "model-mlai-models",
+      "name": "ML/AI Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9824,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  },
+  {
+    "id": "operating_leverage_factor_3",
+    "description": "Third measure of operating leverage.",
+    "dataset": {
+      "id": "ai_equity_alpha",
+      "name": "AI Equity Alpha Forecasts"
+    },
+    "category": {
+      "id": "model",
+      "name": "Model"
+    },
+    "subcategory": {
+      "id": "model-mlai-models",
+      "name": "ML/AI Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9824,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  },
+  {
+    "id": "operating_margin_trend_score",
+    "description": "Trend in operating margin over recent periods.",
+    "dataset": {
+      "id": "ai_equity_alpha",
+      "name": "AI Equity Alpha Forecasts"
+    },
+    "category": {
+      "id": "model",
+      "name": "Model"
+    },
+    "subcategory": {
+      "id": "model-mlai-models",
+      "name": "ML/AI Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9824,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  },
+  {
+    "id": "operating_profit_margin_factor",
+    "description": "Operating profit as a percentage of revenue.",
+    "dataset": {
+      "id": "ai_equity_alpha",
+      "name": "AI Equity Alpha Forecasts"
+    },
+    "category": {
+      "id": "model",
+      "name": "Model"
+    },
+    "subcategory": {
+      "id": "model-mlai-models",
+      "name": "ML/AI Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9824,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  },
+  {
+    "id": "operating_profit_margin_factor_2",
+    "description": "Alternative measure of operating profit margin.",
+    "dataset": {
+      "id": "ai_equity_alpha",
+      "name": "AI Equity Alpha Forecasts"
+    },
+    "category": {
+      "id": "model",
+      "name": "Model"
+    },
+    "subcategory": {
+      "id": "model-mlai-models",
+      "name": "ML/AI Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9824,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  },
+  {
+    "id": "operating_profit_margin_factor_3",
+    "description": "Third measure of operating profit margin.",
+    "dataset": {
+      "id": "ai_equity_alpha",
+      "name": "AI Equity Alpha Forecasts"
+    },
+    "category": {
+      "id": "model",
+      "name": "Model"
+    },
+    "subcategory": {
+      "id": "model-mlai-models",
+      "name": "ML/AI Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9824,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  },
+  {
+    "id": "operational_efficiency_metric",
+    "description": "Measure of how effectively a company utilizes its resources.",
+    "dataset": {
+      "id": "ai_equity_alpha",
+      "name": "AI Equity Alpha Forecasts"
+    },
+    "category": {
+      "id": "model",
+      "name": "Model"
+    },
+    "subcategory": {
+      "id": "model-mlai-models",
+      "name": "ML/AI Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9824,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  },
+  {
+    "id": "operational_efficiency_metric_2",
+    "description": "Model analyzing operational efficiency.",
+    "dataset": {
+      "id": "ai_equity_alpha",
+      "name": "AI Equity Alpha Forecasts"
+    },
+    "category": {
+      "id": "model",
+      "name": "Model"
+    },
+    "subcategory": {
+      "id": "model-mlai-models",
+      "name": "ML/AI Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9824,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  },
+  {
+    "id": "operational_efficiency_model",
+    "description": "Model analyzing operational efficiency of a company.",
+    "dataset": {
+      "id": "ai_equity_alpha",
+      "name": "AI Equity Alpha Forecasts"
+    },
+    "category": {
+      "id": "model",
+      "name": "Model"
+    },
+    "subcategory": {
+      "id": "model-mlai-models",
+      "name": "ML/AI Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9824,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  },
+  {
+    "id": "operational_efficiency_score",
+    "description": "Score measuring how effectively a company uses its resources.",
+    "dataset": {
+      "id": "ai_equity_alpha",
+      "name": "AI Equity Alpha Forecasts"
+    },
+    "category": {
+      "id": "model",
+      "name": "Model"
+    },
+    "subcategory": {
+      "id": "model-mlai-models",
+      "name": "ML/AI Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9824,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  },
+  {
+    "id": "perception_trend_metric",
+    "description": "Measure of changes in market or analyst perception over time.",
+    "dataset": {
+      "id": "ai_equity_alpha",
+      "name": "AI Equity Alpha Forecasts"
+    },
+    "category": {
+      "id": "model",
+      "name": "Model"
+    },
+    "subcategory": {
+      "id": "model-mlai-models",
+      "name": "ML/AI Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9824,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  },
+  {
+    "id": "predicted_earnings_surprise",
+    "description": "Model output predicting future earnings surprises.",
+    "dataset": {
+      "id": "ai_equity_alpha",
+      "name": "AI Equity Alpha Forecasts"
+    },
+    "category": {
+      "id": "model",
+      "name": "Model"
+    },
+    "subcategory": {
+      "id": "model-mlai-models",
+      "name": "ML/AI Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9824,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  },
+  {
+    "id": "predicted_earnings_surprise_2",
+    "description": "Model output predicting future earnings surprises.",
+    "dataset": {
+      "id": "ai_equity_alpha",
+      "name": "AI Equity Alpha Forecasts"
+    },
+    "category": {
+      "id": "model",
+      "name": "Model"
+    },
+    "subcategory": {
+      "id": "model-mlai-models",
+      "name": "ML/AI Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9824,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  },
+  {
+    "id": "predicted_earnings_surprise_3",
+    "description": "Model output predicting future earnings surprises.",
+    "dataset": {
+      "id": "ai_equity_alpha",
+      "name": "AI Equity Alpha Forecasts"
+    },
+    "category": {
+      "id": "model",
+      "name": "Model"
+    },
+    "subcategory": {
+      "id": "model-mlai-models",
+      "name": "ML/AI Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9824,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  },
+  {
+    "id": "present_physics_model",
+    "description": "Factor modeling current shareholder returns using mathematical models.",
+    "dataset": {
+      "id": "ai_equity_alpha",
+      "name": "AI Equity Alpha Forecasts"
+    },
+    "category": {
+      "id": "model",
+      "name": "Model"
+    },
+    "subcategory": {
+      "id": "model-mlai-models",
+      "name": "ML/AI Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9824,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  },
+  {
+    "id": "present_physics_model_2",
+    "description": "Factor modeling current shareholder returns.",
+    "dataset": {
+      "id": "ai_equity_alpha",
+      "name": "AI Equity Alpha Forecasts"
+    },
+    "category": {
+      "id": "model",
+      "name": "Model"
+    },
+    "subcategory": {
+      "id": "model-mlai-models",
+      "name": "ML/AI Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9824,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  },
+  {
+    "id": "price_momentum_reversal_indicator",
+    "description": "Indicator of reversal in recent price momentum.",
+    "dataset": {
+      "id": "ai_equity_alpha",
+      "name": "AI Equity Alpha Forecasts"
+    },
+    "category": {
+      "id": "model",
+      "name": "Model"
+    },
+    "subcategory": {
+      "id": "model-mlai-models",
+      "name": "ML/AI Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9824,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  },
+  {
+    "id": "price_momentum_strength_metric",
+    "description": "Strength of recent price momentum for the security.",
+    "dataset": {
+      "id": "ai_equity_alpha",
+      "name": "AI Equity Alpha Forecasts"
+    },
+    "category": {
+      "id": "model",
+      "name": "Model"
+    },
+    "subcategory": {
+      "id": "model-mlai-models",
+      "name": "ML/AI Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9824,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  },
+  {
+    "id": "price_to_book_ratio_metric",
+    "description": "Ratio of market price to book value per share.",
+    "dataset": {
+      "id": "ai_equity_alpha",
+      "name": "AI Equity Alpha Forecasts"
+    },
+    "category": {
+      "id": "model",
+      "name": "Model"
+    },
+    "subcategory": {
+      "id": "model-mlai-models",
+      "name": "ML/AI Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9824,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  },
+  {
+    "id": "price_to_book_ratio_metric_2",
+    "description": "Alternative measure of price to book value ratio.",
+    "dataset": {
+      "id": "ai_equity_alpha",
+      "name": "AI Equity Alpha Forecasts"
+    },
+    "category": {
+      "id": "model",
+      "name": "Model"
+    },
+    "subcategory": {
+      "id": "model-mlai-models",
+      "name": "ML/AI Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9824,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  },
+  {
+    "id": "price_to_cashflow_ratio_metric",
+    "description": "Ratio of share price to cash flow per share.",
+    "dataset": {
+      "id": "ai_equity_alpha",
+      "name": "AI Equity Alpha Forecasts"
+    },
+    "category": {
+      "id": "model",
+      "name": "Model"
+    },
+    "subcategory": {
+      "id": "model-mlai-models",
+      "name": "ML/AI Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9824,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  },
+  {
+    "id": "price_to_cashflow_ratio_metric_2",
+    "description": "Alternative measure of price to cash flow ratio.",
+    "dataset": {
+      "id": "ai_equity_alpha",
+      "name": "AI Equity Alpha Forecasts"
+    },
+    "category": {
+      "id": "model",
+      "name": "Model"
+    },
+    "subcategory": {
+      "id": "model-mlai-models",
+      "name": "ML/AI Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9824,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  },
+  {
+    "id": "price_to_cashflow_ratio_metric_3",
+    "description": "Third measure of price to cash flow ratio.",
+    "dataset": {
+      "id": "ai_equity_alpha",
+      "name": "AI Equity Alpha Forecasts"
+    },
+    "category": {
+      "id": "model",
+      "name": "Model"
+    },
+    "subcategory": {
+      "id": "model-mlai-models",
+      "name": "ML/AI Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9824,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  },
+  {
+    "id": "price_to_earnings_ratio_factor",
+    "description": "Ratio of share price to earnings per share.",
+    "dataset": {
+      "id": "ai_equity_alpha",
+      "name": "AI Equity Alpha Forecasts"
+    },
+    "category": {
+      "id": "model",
+      "name": "Model"
+    },
+    "subcategory": {
+      "id": "model-mlai-models",
+      "name": "ML/AI Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9824,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  },
+  {
+    "id": "price_to_free_cashflow_ratio",
+    "description": "Ratio of share price to free cash flow per share.",
+    "dataset": {
+      "id": "ai_equity_alpha",
+      "name": "AI Equity Alpha Forecasts"
+    },
+    "category": {
+      "id": "model",
+      "name": "Model"
+    },
+    "subcategory": {
+      "id": "model-mlai-models",
+      "name": "ML/AI Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9824,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  },
+  {
+    "id": "price_to_free_cashflow_ratio_2",
+    "description": "Alternative measure of price to free cash flow ratio.",
+    "dataset": {
+      "id": "ai_equity_alpha",
+      "name": "AI Equity Alpha Forecasts"
+    },
+    "category": {
+      "id": "model",
+      "name": "Model"
+    },
+    "subcategory": {
+      "id": "model-mlai-models",
+      "name": "ML/AI Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9824,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  },
+  {
+    "id": "price_to_operating_cashflow_ratio",
+    "description": "Ratio of share price to operating cash flow per share.",
+    "dataset": {
+      "id": "ai_equity_alpha",
+      "name": "AI Equity Alpha Forecasts"
+    },
+    "category": {
+      "id": "model",
+      "name": "Model"
+    },
+    "subcategory": {
+      "id": "model-mlai-models",
+      "name": "ML/AI Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9824,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  },
+  {
+    "id": "price_to_operating_cashflow_ratio_2",
+    "description": "Alternative measure of price to operating cash flow ratio.",
+    "dataset": {
+      "id": "ai_equity_alpha",
+      "name": "AI Equity Alpha Forecasts"
+    },
+    "category": {
+      "id": "model",
+      "name": "Model"
+    },
+    "subcategory": {
+      "id": "model-mlai-models",
+      "name": "ML/AI Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9824,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  },
+  {
+    "id": "price_to_sales_ratio_metric",
+    "description": "Ratio of share price to sales per share.",
+    "dataset": {
+      "id": "ai_equity_alpha",
+      "name": "AI Equity Alpha Forecasts"
+    },
+    "category": {
+      "id": "model",
+      "name": "Model"
+    },
+    "subcategory": {
+      "id": "model-mlai-models",
+      "name": "ML/AI Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9824,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  },
+  {
+    "id": "price_to_sales_ratio_metric_2",
+    "description": "Alternative measure of price to sales ratio.",
+    "dataset": {
+      "id": "ai_equity_alpha",
+      "name": "AI Equity Alpha Forecasts"
+    },
+    "category": {
+      "id": "model",
+      "name": "Model"
+    },
+    "subcategory": {
+      "id": "model-mlai-models",
+      "name": "ML/AI Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9824,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  },
+  {
+    "id": "price_to_sales_ratio_metric_3",
+    "description": "Third measure of price to sales ratio.",
+    "dataset": {
+      "id": "ai_equity_alpha",
+      "name": "AI Equity Alpha Forecasts"
+    },
+    "category": {
+      "id": "model",
+      "name": "Model"
+    },
+    "subcategory": {
+      "id": "model-mlai-models",
+      "name": "ML/AI Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9824,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  },
+  {
+    "id": "profit_margin_stability_score",
+    "description": "Stability of profit margins over time.",
+    "dataset": {
+      "id": "ai_equity_alpha",
+      "name": "AI Equity Alpha Forecasts"
+    },
+    "category": {
+      "id": "model",
+      "name": "Model"
+    },
+    "subcategory": {
+      "id": "model-mlai-models",
+      "name": "ML/AI Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9824,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  },
+  {
+    "id": "profit_margin_stability_score_2",
+    "description": "Alternative measure of profit margin stability.",
+    "dataset": {
+      "id": "ai_equity_alpha",
+      "name": "AI Equity Alpha Forecasts"
+    },
+    "category": {
+      "id": "model",
+      "name": "Model"
+    },
+    "subcategory": {
+      "id": "model-mlai-models",
+      "name": "ML/AI Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9824,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  },
+  {
+    "id": "profitability_consistency_factor",
+    "description": "Consistency of profitability across periods.",
+    "dataset": {
+      "id": "ai_equity_alpha",
+      "name": "AI Equity Alpha Forecasts"
+    },
+    "category": {
+      "id": "model",
+      "name": "Model"
+    },
+    "subcategory": {
+      "id": "model-mlai-models",
+      "name": "ML/AI Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9824,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  },
+  {
+    "id": "profitability_consistency_factor_2",
+    "description": "Alternative measure of profitability consistency.",
+    "dataset": {
+      "id": "ai_equity_alpha",
+      "name": "AI Equity Alpha Forecasts"
+    },
+    "category": {
+      "id": "model",
+      "name": "Model"
+    },
+    "subcategory": {
+      "id": "model-mlai-models",
+      "name": "ML/AI Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9824,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  },
+  {
+    "id": "profitability_consistency_factor_3",
+    "description": "Third measure of profitability consistency.",
+    "dataset": {
+      "id": "ai_equity_alpha",
+      "name": "AI Equity Alpha Forecasts"
+    },
+    "category": {
+      "id": "model",
+      "name": "Model"
+    },
+    "subcategory": {
+      "id": "model-mlai-models",
+      "name": "ML/AI Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9824,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  },
+  {
+    "id": "pure_alpha_generation_metric",
+    "description": "Model designed to generate returns independent of market direction.",
+    "dataset": {
+      "id": "ai_equity_alpha",
+      "name": "AI Equity Alpha Forecasts"
+    },
+    "category": {
+      "id": "model",
+      "name": "Model"
+    },
+    "subcategory": {
+      "id": "model-mlai-models",
+      "name": "ML/AI Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9824,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  },
+  {
+    "id": "pure_alpha_generation_metric_2",
+    "description": "Alternative model for generating returns independent of market direction.",
+    "dataset": {
+      "id": "ai_equity_alpha",
+      "name": "AI Equity Alpha Forecasts"
+    },
+    "category": {
+      "id": "model",
+      "name": "Model"
+    },
+    "subcategory": {
+      "id": "model-mlai-models",
+      "name": "ML/AI Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9824,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  },
+  {
+    "id": "pure_alpha_generation_metric_3",
+    "description": "Third model for generating returns independent of market direction.",
+    "dataset": {
+      "id": "ai_equity_alpha",
+      "name": "AI Equity Alpha Forecasts"
+    },
+    "category": {
+      "id": "model",
+      "name": "Model"
+    },
+    "subcategory": {
+      "id": "model-mlai-models",
+      "name": "ML/AI Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9824,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  },
+  {
+    "id": "pure_alpha_generation_metric_4",
+    "description": "Metric designed to generate returns independent of market direction.",
+    "dataset": {
+      "id": "ai_equity_alpha",
+      "name": "AI Equity Alpha Forecasts"
+    },
+    "category": {
+      "id": "model",
+      "name": "Model"
+    },
+    "subcategory": {
+      "id": "model-mlai-models",
+      "name": "ML/AI Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9824,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  },
+  {
+    "id": "pure_alpha_generation_metric_5",
+    "description": "Metric designed to generate returns independent of market direction.",
+    "dataset": {
+      "id": "ai_equity_alpha",
+      "name": "AI Equity Alpha Forecasts"
+    },
+    "category": {
+      "id": "model",
+      "name": "Model"
+    },
+    "subcategory": {
+      "id": "model-mlai-models",
+      "name": "ML/AI Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9824,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  },
+  {
+    "id": "recent_business_uncertainty",
+    "description": "Measure of uncertainty in a company's business model in the recent period.",
+    "dataset": {
+      "id": "ai_equity_alpha",
+      "name": "AI Equity Alpha Forecasts"
+    },
+    "category": {
+      "id": "model",
+      "name": "Model"
+    },
+    "subcategory": {
+      "id": "model-mlai-models",
+      "name": "ML/AI Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9824,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  },
+  {
+    "id": "recent_business_uncertainty_2",
+    "description": "Measure of uncertainty in a company's business model in the recent period.",
+    "dataset": {
+      "id": "ai_equity_alpha",
+      "name": "AI Equity Alpha Forecasts"
+    },
+    "category": {
+      "id": "model",
+      "name": "Model"
+    },
+    "subcategory": {
+      "id": "model-mlai-models",
+      "name": "ML/AI Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9824,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  },
+  {
+    "id": "relative_valuation_comparison",
+    "description": "Valuation based on comparison to peers or benchmarks.",
+    "dataset": {
+      "id": "ai_equity_alpha",
+      "name": "AI Equity Alpha Forecasts"
+    },
+    "category": {
+      "id": "model",
+      "name": "Model"
+    },
+    "subcategory": {
+      "id": "model-mlai-models",
+      "name": "ML/AI Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9824,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  },
+  {
+    "id": "relative_valuation_comparison_2",
+    "description": "Alternative valuation based on comparison to peers or benchmarks.",
+    "dataset": {
+      "id": "ai_equity_alpha",
+      "name": "AI Equity Alpha Forecasts"
+    },
+    "category": {
+      "id": "model",
+      "name": "Model"
+    },
+    "subcategory": {
+      "id": "model-mlai-models",
+      "name": "ML/AI Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9824,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  },
+  {
+    "id": "relative_valuation_comparison_3",
+    "description": "Valuation based on comparison to peers or benchmarks.",
+    "dataset": {
+      "id": "ai_equity_alpha",
+      "name": "AI Equity Alpha Forecasts"
+    },
+    "category": {
+      "id": "model",
+      "name": "Model"
+    },
+    "subcategory": {
+      "id": "model-mlai-models",
+      "name": "ML/AI Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9824,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  },
+  {
+    "id": "replacement_asset_value_model",
+    "description": "Model estimating the cost to replace a company's assets.",
+    "dataset": {
+      "id": "ai_equity_alpha",
+      "name": "AI Equity Alpha Forecasts"
+    },
+    "category": {
+      "id": "model",
+      "name": "Model"
+    },
+    "subcategory": {
+      "id": "model-mlai-models",
+      "name": "ML/AI Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9824,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  },
+  {
+    "id": "replacement_asset_value_model_2",
+    "description": "Alternative model estimating the cost to replace a company's assets.",
+    "dataset": {
+      "id": "ai_equity_alpha",
+      "name": "AI Equity Alpha Forecasts"
+    },
+    "category": {
+      "id": "model",
+      "name": "Model"
+    },
+    "subcategory": {
+      "id": "model-mlai-models",
+      "name": "ML/AI Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9824,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  },
+  {
+    "id": "replacement_asset_value_model_3",
+    "description": "Model estimating the cost to replace a company's assets.",
+    "dataset": {
+      "id": "ai_equity_alpha",
+      "name": "AI Equity Alpha Forecasts"
+    },
+    "category": {
+      "id": "model",
+      "name": "Model"
+    },
+    "subcategory": {
+      "id": "model-mlai-models",
+      "name": "ML/AI Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9824,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  },
+  {
+    "id": "return_on_assets_consistency_score",
+    "description": "Consistency of return on assets over time.",
+    "dataset": {
+      "id": "ai_equity_alpha",
+      "name": "AI Equity Alpha Forecasts"
+    },
+    "category": {
+      "id": "model",
+      "name": "Model"
+    },
+    "subcategory": {
+      "id": "model-mlai-models",
+      "name": "ML/AI Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9824,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  },
+  {
+    "id": "return_on_equity_trend_score",
+    "description": "Trend in return on equity over time.",
+    "dataset": {
+      "id": "ai_equity_alpha",
+      "name": "AI Equity Alpha Forecasts"
+    },
+    "category": {
+      "id": "model",
+      "name": "Model"
+    },
+    "subcategory": {
+      "id": "model-mlai-models",
+      "name": "ML/AI Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9824,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  },
+  {
+    "id": "return_on_equity_trend_score_2",
+    "description": "Alternative measure of return on equity trend.",
+    "dataset": {
+      "id": "ai_equity_alpha",
+      "name": "AI Equity Alpha Forecasts"
+    },
+    "category": {
+      "id": "model",
+      "name": "Model"
+    },
+    "subcategory": {
+      "id": "model-mlai-models",
+      "name": "ML/AI Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9824,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  },
+  {
+    "id": "revenue_growth_consistency_score",
+    "description": "Consistency of revenue growth over multiple periods.",
+    "dataset": {
+      "id": "ai_equity_alpha",
+      "name": "AI Equity Alpha Forecasts"
+    },
+    "category": {
+      "id": "model",
+      "name": "Model"
+    },
+    "subcategory": {
+      "id": "model-mlai-models",
+      "name": "ML/AI Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9824,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  },
+  {
+    "id": "revenue_growth_consistency_score_2",
+    "description": "Alternative measure of revenue growth consistency.",
+    "dataset": {
+      "id": "ai_equity_alpha",
+      "name": "AI Equity Alpha Forecasts"
+    },
+    "category": {
+      "id": "model",
+      "name": "Model"
+    },
+    "subcategory": {
+      "id": "model-mlai-models",
+      "name": "ML/AI Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9824,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  },
+  {
+    "id": "revenue_growth_consistency_score_3",
+    "description": "Third measure of revenue growth consistency.",
+    "dataset": {
+      "id": "ai_equity_alpha",
+      "name": "AI Equity Alpha Forecasts"
+    },
+    "category": {
+      "id": "model",
+      "name": "Model"
+    },
+    "subcategory": {
+      "id": "model-mlai-models",
+      "name": "ML/AI Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9824,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  },
+  {
+    "id": "reversion_score",
+    "description": "Score representing the tendency of an asset's price to revert to its mean.",
+    "dataset": {
+      "id": "ai_equity_alpha",
+      "name": "AI Equity Alpha Forecasts"
+    },
+    "category": {
+      "id": "model",
+      "name": "Model"
+    },
+    "subcategory": {
+      "id": "model-mlai-models",
+      "name": "ML/AI Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9824,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  },
+  {
+    "id": "share_buyback_activity_analysis",
+    "description": "Analysis of company share repurchase activities.",
+    "dataset": {
+      "id": "ai_equity_alpha",
+      "name": "AI Equity Alpha Forecasts"
+    },
+    "category": {
+      "id": "model",
+      "name": "Model"
+    },
+    "subcategory": {
+      "id": "model-mlai-models",
+      "name": "ML/AI Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9824,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  },
+  {
+    "id": "share_buyback_activity_analysis_2",
+    "description": "Alternative analysis of company share repurchase activities.",
+    "dataset": {
+      "id": "ai_equity_alpha",
+      "name": "AI Equity Alpha Forecasts"
+    },
+    "category": {
+      "id": "model",
+      "name": "Model"
+    },
+    "subcategory": {
+      "id": "model-mlai-models",
+      "name": "ML/AI Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9824,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  },
+  {
+    "id": "share_buyback_activity_analysis_3",
+    "description": "Third analysis of company share repurchase activities.",
+    "dataset": {
+      "id": "ai_equity_alpha",
+      "name": "AI Equity Alpha Forecasts"
+    },
+    "category": {
+      "id": "model",
+      "name": "Model"
+    },
+    "subcategory": {
+      "id": "model-mlai-models",
+      "name": "ML/AI Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9824,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  },
+  {
+    "id": "share_buyback_activity_analysis_4",
+    "description": "Analysis of company share repurchase activities.",
+    "dataset": {
+      "id": "ai_equity_alpha",
+      "name": "AI Equity Alpha Forecasts"
+    },
+    "category": {
+      "id": "model",
+      "name": "Model"
+    },
+    "subcategory": {
+      "id": "model-mlai-models",
+      "name": "ML/AI Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9824,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  },
+  {
+    "id": "share_buyback_activity_analysis_5",
+    "description": "Analysis of company share repurchase activities.",
+    "dataset": {
+      "id": "ai_equity_alpha",
+      "name": "AI Equity Alpha Forecasts"
+    },
+    "category": {
+      "id": "model",
+      "name": "Model"
+    },
+    "subcategory": {
+      "id": "model-mlai-models",
+      "name": "ML/AI Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9824,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  },
+  {
+    "id": "shareholder_treatment_metric",
+    "description": "Analysis of financing cashflow items and related metrics affecting shareholders.",
+    "dataset": {
+      "id": "ai_equity_alpha",
+      "name": "AI Equity Alpha Forecasts"
+    },
+    "category": {
+      "id": "model",
+      "name": "Model"
+    },
+    "subcategory": {
+      "id": "model-mlai-models",
+      "name": "ML/AI Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9824,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  },
+  {
+    "id": "shareholder_treatment_metric_2",
+    "description": "Alternative analysis of financing cashflow items affecting shareholders.",
+    "dataset": {
+      "id": "ai_equity_alpha",
+      "name": "AI Equity Alpha Forecasts"
+    },
+    "category": {
+      "id": "model",
+      "name": "Model"
+    },
+    "subcategory": {
+      "id": "model-mlai-models",
+      "name": "ML/AI Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9824,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  },
+  {
+    "id": "shareholder_treatment_metric_3",
+    "description": "Analysis of financing cashflow items and related shareholder metrics.",
+    "dataset": {
+      "id": "ai_equity_alpha",
+      "name": "AI Equity Alpha Forecasts"
+    },
+    "category": {
+      "id": "model",
+      "name": "Model"
+    },
+    "subcategory": {
+      "id": "model-mlai-models",
+      "name": "ML/AI Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9824,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  },
+  {
+    "id": "shareholder_yield_metric",
+    "description": "Analysis of total returns to shareholders from dividends and buybacks.",
+    "dataset": {
+      "id": "ai_equity_alpha",
+      "name": "AI Equity Alpha Forecasts"
+    },
+    "category": {
+      "id": "model",
+      "name": "Model"
+    },
+    "subcategory": {
+      "id": "model-mlai-models",
+      "name": "ML/AI Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9824,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  },
+  {
+    "id": "shareholder_yield_metric_2",
+    "description": "Alternative analysis of total returns to shareholders from dividends and buybacks.",
+    "dataset": {
+      "id": "ai_equity_alpha",
+      "name": "AI Equity Alpha Forecasts"
+    },
+    "category": {
+      "id": "model",
+      "name": "Model"
+    },
+    "subcategory": {
+      "id": "model-mlai-models",
+      "name": "ML/AI Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9824,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  },
+  {
+    "id": "shareholder_yield_metric_3",
+    "description": "Third analysis of total returns to shareholders from dividends and buybacks.",
+    "dataset": {
+      "id": "ai_equity_alpha",
+      "name": "AI Equity Alpha Forecasts"
+    },
+    "category": {
+      "id": "model",
+      "name": "Model"
+    },
+    "subcategory": {
+      "id": "model-mlai-models",
+      "name": "ML/AI Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9824,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  },
+  {
+    "id": "shareholder_yield_metric_4",
+    "description": "Analysis of total returns to shareholders from dividends and buybacks.",
+    "dataset": {
+      "id": "ai_equity_alpha",
+      "name": "AI Equity Alpha Forecasts"
+    },
+    "category": {
+      "id": "model",
+      "name": "Model"
+    },
+    "subcategory": {
+      "id": "model-mlai-models",
+      "name": "ML/AI Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9824,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  },
+  {
+    "id": "short_interest_ratio_metric_2",
+    "description": "Ratio of shares sold short to total shares outstanding.",
+    "dataset": {
+      "id": "ai_equity_alpha",
+      "name": "AI Equity Alpha Forecasts"
+    },
+    "category": {
+      "id": "model",
+      "name": "Model"
+    },
+    "subcategory": {
+      "id": "model-mlai-models",
+      "name": "ML/AI Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9824,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  },
+  {
+    "id": "short_term_physics_model",
+    "description": "Factor modeling shareholder returns over a short period.",
+    "dataset": {
+      "id": "ai_equity_alpha",
+      "name": "AI Equity Alpha Forecasts"
+    },
+    "category": {
+      "id": "model",
+      "name": "Model"
+    },
+    "subcategory": {
+      "id": "model-mlai-models",
+      "name": "ML/AI Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9824,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  },
+  {
+    "id": "short_term_physics_model_2",
+    "description": "Factor modeling shareholder returns over a short period.",
+    "dataset": {
+      "id": "ai_equity_alpha",
+      "name": "AI Equity Alpha Forecasts"
+    },
+    "category": {
+      "id": "model",
+      "name": "Model"
+    },
+    "subcategory": {
+      "id": "model-mlai-models",
+      "name": "ML/AI Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9824,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  },
+  {
+    "id": "short_term_technical_trend_indicator",
+    "description": "Technical indicator measuring short-term price trends.",
+    "dataset": {
+      "id": "ai_equity_alpha",
+      "name": "AI Equity Alpha Forecasts"
+    },
+    "category": {
+      "id": "model",
+      "name": "Model"
+    },
+    "subcategory": {
+      "id": "model-mlai-models",
+      "name": "ML/AI Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9824,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  },
+  {
+    "id": "short_term_technical_trend_indicator_2",
+    "description": "Alternative technical indicator measuring short-term price trends.",
+    "dataset": {
+      "id": "ai_equity_alpha",
+      "name": "AI Equity Alpha Forecasts"
+    },
+    "category": {
+      "id": "model",
+      "name": "Model"
+    },
+    "subcategory": {
+      "id": "model-mlai-models",
+      "name": "ML/AI Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9824,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  },
+  {
+    "id": "short_term_technical_trend_indicator_3",
+    "description": "Technical indicator measuring short-term price trends.",
+    "dataset": {
+      "id": "ai_equity_alpha",
+      "name": "AI Equity Alpha Forecasts"
+    },
+    "category": {
+      "id": "model",
+      "name": "Model"
+    },
+    "subcategory": {
+      "id": "model-mlai-models",
+      "name": "ML/AI Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9824,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  },
+  {
+    "id": "short_term_technical_valuation_model",
+    "description": "Technical valuation model focused on short-term price trends.",
+    "dataset": {
+      "id": "ai_equity_alpha",
+      "name": "AI Equity Alpha Forecasts"
+    },
+    "category": {
+      "id": "model",
+      "name": "Model"
+    },
+    "subcategory": {
+      "id": "model-mlai-models",
+      "name": "ML/AI Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9824,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  },
+  {
+    "id": "short_term_technical_valuation_model_2",
+    "description": "Alternative technical valuation model focused on short-term price trends.",
+    "dataset": {
+      "id": "ai_equity_alpha",
+      "name": "AI Equity Alpha Forecasts"
+    },
+    "category": {
+      "id": "model",
+      "name": "Model"
+    },
+    "subcategory": {
+      "id": "model-mlai-models",
+      "name": "ML/AI Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9824,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  },
+  {
+    "id": "short_term_technical_valuation_model_3",
+    "description": "Technical valuation model focused on short-term price trends.",
+    "dataset": {
+      "id": "ai_equity_alpha",
+      "name": "AI Equity Alpha Forecasts"
+    },
+    "category": {
+      "id": "model",
+      "name": "Model"
+    },
+    "subcategory": {
+      "id": "model-mlai-models",
+      "name": "ML/AI Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9824,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  },
+  {
+    "id": "technical_indicator_composite",
+    "description": "Quantitative model of momentum, reversion, and other price properties.",
+    "dataset": {
+      "id": "ai_equity_alpha",
+      "name": "AI Equity Alpha Forecasts"
+    },
+    "category": {
+      "id": "model",
+      "name": "Model"
+    },
+    "subcategory": {
+      "id": "model-mlai-models",
+      "name": "ML/AI Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9824,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  },
+  {
+    "id": "technical_indicator_composite_2",
+    "description": "Alternative quantitative model of momentum, reversion, and price properties.",
+    "dataset": {
+      "id": "ai_equity_alpha",
+      "name": "AI Equity Alpha Forecasts"
+    },
+    "category": {
+      "id": "model",
+      "name": "Model"
+    },
+    "subcategory": {
+      "id": "model-mlai-models",
+      "name": "ML/AI Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9824,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  },
+  {
+    "id": "technical_indicator_composite_3",
+    "description": "Aggregated technical indicators for momentum and reversion.",
+    "dataset": {
+      "id": "ai_equity_alpha",
+      "name": "AI Equity Alpha Forecasts"
+    },
+    "category": {
+      "id": "model",
+      "name": "Model"
+    },
+    "subcategory": {
+      "id": "model-mlai-models",
+      "name": "ML/AI Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9824,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  },
+  {
+    "id": "trend_in_buzz_score",
+    "description": "Metric indicating changes in market or media attention over time.",
+    "dataset": {
+      "id": "ai_equity_alpha",
+      "name": "AI Equity Alpha Forecasts"
+    },
+    "category": {
+      "id": "model",
+      "name": "Model"
+    },
+    "subcategory": {
+      "id": "model-mlai-models",
+      "name": "ML/AI Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9824,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  },
+  {
+    "id": "trend_in_buzz_score_2",
+    "description": "Metric indicating changes in market or media attention over time.",
+    "dataset": {
+      "id": "ai_equity_alpha",
+      "name": "AI Equity Alpha Forecasts"
+    },
+    "category": {
+      "id": "model",
+      "name": "Model"
+    },
+    "subcategory": {
+      "id": "model-mlai-models",
+      "name": "ML/AI Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9824,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  },
+  {
+    "id": "trend_in_perception_score",
+    "description": "Metric indicating changes in market or analyst perception over time.",
+    "dataset": {
+      "id": "ai_equity_alpha",
+      "name": "AI Equity Alpha Forecasts"
+    },
+    "category": {
+      "id": "model",
+      "name": "Model"
+    },
+    "subcategory": {
+      "id": "model-mlai-models",
+      "name": "ML/AI Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9824,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  },
+  {
+    "id": "trend_in_perception_score_2",
+    "description": "Metric indicating changes in market or analyst perception over time.",
+    "dataset": {
+      "id": "ai_equity_alpha",
+      "name": "AI Equity Alpha Forecasts"
+    },
+    "category": {
+      "id": "model",
+      "name": "Model"
+    },
+    "subcategory": {
+      "id": "model-mlai-models",
+      "name": "ML/AI Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9824,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  },
+  {
+    "id": "valuation_model_suite",
+    "description": "Suite of models estimating company value and forecasting changes in valuation.",
+    "dataset": {
+      "id": "ai_equity_alpha",
+      "name": "AI Equity Alpha Forecasts"
+    },
+    "category": {
+      "id": "model",
+      "name": "Model"
+    },
+    "subcategory": {
+      "id": "model-mlai-models",
+      "name": "ML/AI Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9824,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  },
+  {
+    "id": "valuation_model_suite_2",
+    "description": "Alternative suite of models estimating company value and changes.",
+    "dataset": {
+      "id": "ai_equity_alpha",
+      "name": "AI Equity Alpha Forecasts"
+    },
+    "category": {
+      "id": "model",
+      "name": "Model"
+    },
+    "subcategory": {
+      "id": "model-mlai-models",
+      "name": "ML/AI Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9824,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  },
+  {
+    "id": "volatility_of_returns_factor",
+    "description": "Volatility of recent stock returns.",
+    "dataset": {
+      "id": "ai_equity_alpha",
+      "name": "AI Equity Alpha Forecasts"
+    },
+    "category": {
+      "id": "model",
+      "name": "Model"
+    },
+    "subcategory": {
+      "id": "model-mlai-models",
+      "name": "ML/AI Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9824,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  }
+]

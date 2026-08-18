@@ -196,7 +196,7 @@ def first_order_task_factory(
     ``Task``，使表达式可以直接进入 survey 回测和密度统计。
     ``template_index`` 表示同一算子在一阶算子集合中的位置，便于聚合。
     """
-    from alpha_operator_framework.operators import first_order_factory
+    from alpha_operator_framework.domain.operators import first_order_factory
 
     tasks: List[Task] = []
     for field_expr in list(scalar_fields):
@@ -244,7 +244,7 @@ def raw_first_order_task_factory(
         >>> any(t.expression == "rank(close)" for t in tasks)
         True
     """
-    from alpha_operator_framework.operators import first_order_factory
+    from alpha_operator_framework.domain.operators import first_order_factory
 
     tasks: List[Task] = []
     for field_id in field_ids:
@@ -276,8 +276,8 @@ def economic_first_order_task_factory(
     decay: float = 6.0,
 ) -> List[Task]:
     """Build first-order tasks after applying conservative field-level economic rules."""
-    from alpha_operator_framework.economic_rules import allowed_first_order_ops, infer_economic_type
-    from alpha_operator_framework.fields import preprocess_field
+    from alpha_operator_framework.domain.economic_rules import allowed_first_order_ops, infer_economic_type
+    from alpha_operator_framework.domain.fields import preprocess_field
 
     tasks: List[Task] = []
     for field in field_specs:

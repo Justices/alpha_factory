@@ -1,0 +1,164 @@
+[
+  {
+    "id": "held_shares_quantity",
+    "description": "Number of shares",
+    "dataset": {
+      "id": "china_funda_data",
+      "name": "China Equity Fundamentals Data"
+    },
+    "category": {
+      "id": "fundamental",
+      "name": "Fundamental"
+    },
+    "subcategory": {
+      "id": "fundamental-china-fundamental-data",
+      "name": "China Fundamental Data"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.3396,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "pledged_shares_amount",
+    "description": "Number of shares pledged or frozen in the announcement context",
+    "dataset": {
+      "id": "china_funda_data",
+      "name": "China Equity Fundamentals Data"
+    },
+    "category": {
+      "id": "fundamental",
+      "name": "Fundamental"
+    },
+    "subcategory": {
+      "id": "fundamental-china-fundamental-data",
+      "name": "China Fundamental Data"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.3396,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "pledged_shares_ratio",
+    "description": "Percentage of major shareholders’ holdings that are pledged cumulatively",
+    "dataset": {
+      "id": "china_funda_data",
+      "name": "China Equity Fundamentals Data"
+    },
+    "category": {
+      "id": "fundamental",
+      "name": "Fundamental"
+    },
+    "subcategory": {
+      "id": "fundamental-china-fundamental-data",
+      "name": "China Fundamental Data"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.3396,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "risk_event_rank",
+    "description": "sort",
+    "dataset": {
+      "id": "china_funda_data",
+      "name": "China Equity Fundamentals Data"
+    },
+    "category": {
+      "id": "fundamental",
+      "name": "Fundamental"
+    },
+    "subcategory": {
+      "id": "fundamental-china-fundamental-data",
+      "name": "China Fundamental Data"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.3396,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "share_reduction_count",
+    "description": "Number of reductions",
+    "dataset": {
+      "id": "china_funda_data",
+      "name": "China Equity Fundamentals Data"
+    },
+    "category": {
+      "id": "fundamental",
+      "name": "Fundamental"
+    },
+    "subcategory": {
+      "id": "fundamental-china-fundamental-data",
+      "name": "China Fundamental Data"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.3396,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "share_reduction_quantity",
+    "description": "Cumulative amount of shares reduced by major shareholders",
+    "dataset": {
+      "id": "china_funda_data",
+      "name": "China Equity Fundamentals Data"
+    },
+    "category": {
+      "id": "fundamental",
+      "name": "Fundamental"
+    },
+    "subcategory": {
+      "id": "fundamental-china-fundamental-data",
+      "name": "China Fundamental Data"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.3396,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  }
+]

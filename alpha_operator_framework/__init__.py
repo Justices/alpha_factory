@@ -17,7 +17,7 @@
 
 __version__ = "0.1.0"
 
-from .families import (
+from alpha_operator_framework.domain.families import (
     UNARY_TEMPLATES,
     BINARY_TEMPLATES,
     TERNARY_TEMPLATES,
@@ -32,7 +32,7 @@ from .families import (
     quaternary_factory,  # 新增
 )
 
-from .operators import (
+from alpha_operator_framework.domain.operators import (
     # 基础算子
     basic_ops,
     ts_ops,
@@ -48,7 +48,7 @@ from .operators import (
     extract_first_operator,
 )
 
-from .fields import (
+from alpha_operator_framework.domain.fields import (
     FieldSpec,
     ScalarField,
     SampleSpec,
@@ -58,18 +58,18 @@ from .fields import (
     sample_scalar_field_pairs,
 )
 
-from .local_fields import (
+from alpha_operator_framework.platform.local_fields import (
     read_local_field_rows,
     load_local_field_specs,
 )
 
-from .semantic_pairs import (
+from alpha_operator_framework.domain.semantic_pairs import (
     find_positive_negative_pairs,
     find_cap_pairs,
     semantic_pair_task_factory,
 )
 
-from .paired_bases import (
+from alpha_operator_framework.domain.paired_bases import (
     PairSpec,
     parse_pair_spec,
     parse_pair_specs,
@@ -81,21 +81,21 @@ from .paired_bases import (
     paired_group_first_order_task_factory,
 )
 
-from .super_alpha import (
+from alpha_operator_framework.generation.super_alpha import (
     SuperAlphaConfig,
     build_super_candidates,
     eligible_components,
     super_simulation_payload,
 )
 
-from .density import (
+from alpha_operator_framework.domain.density import (
     SignalGate,
     DensityRow,
     compute_density,
     top_templates,
 )
 
-from .ai_workflow import (
+from alpha_operator_framework.ai_workflow import (
     SurveyConfig,
     DeepenConfig,
     SignalBranchConfig,
@@ -105,13 +105,9 @@ from .ai_workflow import (
     run_signal_branches,
     run_survey_with_fields,
     run_full_workflow,
-    filter_alphas_for_optimization,
-    filter_high_quality_alphas,
-    filter_marginal_alphas,
-    filter_ready_for_submission,
 )
 
-from .optimize import (
+from alpha_operator_framework.domain.optimize import (
     AlphaFilter,
     OptimizeConfig as OptimizeFilterConfig,
     filter_alphas,
@@ -120,9 +116,13 @@ from .optimize import (
     filter_marginal,
     filter_for_submission,
     summarize_filtered,
+    filter_alphas_for_optimization,
+    filter_high_quality_alphas,
+    filter_marginal_alphas,
+    filter_ready_for_submission,
 )
 
-from .alpha_source import (
+from alpha_operator_framework.platform.alpha_source import (
     get_alphas_from_workflow_result,
     load_alphas_from_file,
     fetch_user_alphas,
@@ -130,19 +130,19 @@ from .alpha_source import (
     get_and_filter_alphas,
 )
 
-from .database import (
+from alpha_operator_framework.database import (
     AlphaDatabase,
     AlphaExpression,
     AlphaDetail,
     DataField,
 )
 
-from .datafield_ingest import (
+from alpha_operator_framework.platform.datafield_ingest import (
     ingest_random_datafield,
     pick_missing_field,
 )
 
-from .template_library import (
+from alpha_operator_framework.generation.template_library import (
     Template,
     TemplateStrategyConfig,
     template_creation_strategy,
@@ -151,7 +151,7 @@ from .template_library import (
     seed_template_library,
 )
 
-from .pruning import (
+from alpha_operator_framework.domain.pruning import (
     # 工具
     classify_field,
     extract_field_ids,
@@ -171,7 +171,7 @@ from .pruning import (
     local_sc_precheck,
 )
 
-from .evaluation import (
+from alpha_operator_framework.domain.evaluation import (
     # 常量
     RA_CHECK_NAMES,
     PPA_CHECK_NAMES,
@@ -189,6 +189,24 @@ from .evaluation import (
     extract_datapack_stats,
     filter_datasets_by_datapack,
     filter_fields_by_datapack,
+)
+
+from alpha_operator_framework.distill import (
+    FieldSignalStat,
+    aggregate_field_signals,
+    weighted_field_sample,
+    TemplateAbstraction,
+    abstract_template,
+    abstract_templates,
+    to_template,
+    distill_templates_into_library,
+)
+
+from alpha_operator_framework.loop import (
+    LoopConfig,
+    run_research_loop,
+    distill_and_plan_next,
+    distill_templates_round,
 )
 
 __all__ = [
@@ -312,4 +330,30 @@ __all__ = [
     "extract_datapack_stats",
     "filter_datasets_by_datapack",
     "filter_fields_by_datapack",
+    # Distill (研究闭环 第6步沉淀与抽象)
+    "FieldSignalStat",
+    "aggregate_field_signals",
+    "weighted_field_sample",
+    "TemplateAbstraction",
+    "abstract_template",
+    "abstract_templates",
+    "to_template",
+    "distill_templates_into_library",
+    # Loop (研究闭环编排)
+    "LoopConfig",
+    "run_research_loop",
+    "distill_and_plan_next",
+    "distill_templates_round",
 ]
+
+# 模块级 re-export (兼容 `from alpha_operator_framework import families/fields/...` 的模块引用)
+from alpha_operator_framework.domain import (
+    families, fields, density, operators, optimize, pruning, evaluation,
+    semantic_pairs, paired_bases, economic_rules,
+)
+from alpha_operator_framework.generation import (
+    template_library, super_alpha, creation_strategy,
+)
+from alpha_operator_framework.platform import (
+    local_fields, alpha_source, datafield_ingest, platform_config, simulation_tracker,
+)

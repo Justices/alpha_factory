@@ -89,6 +89,8 @@ class SurveyConfig:
     include_ternary: bool = False
     include_quaternary: bool = False
     include_semantic_pairs: bool = True
+    include_antonym_pairs: bool = True  # 自动发现相反指标配对 (bullish/bearish 等, difference 语义)
+    include_paired_bases: bool = True  # 自动发现复合配对 (net_revision/spread, 带 denominator)
     group_fields: Optional[List[str]] = None
 
     # 模拟参数
@@ -413,13 +415,18 @@ async def run_survey_with_fields(
         tasks = []
         unary_tasks = []
         semantic_pair_tasks = []
+        antonym_pair_tasks = []
+        paired_base_tasks = []
         if config.include_unary:
             # 调查阶段先展开一阶算子，形成可直接回测的表达式。
             unary_tasks = families.first_order_task_factory(scalars, decay=config.decay)
             # 裸字段一阶 (可选, 默认开启): 直接作用于原始字段id, 与预处理一阶并存
             if config.include_raw_first_order:
+                # 只对 MATRIX 字段生成裸字段一阶。VECTOR 字段不能直接 ts_delta/rank,
+                # 必须先 vec_ 归约成标量 (已由上面的 preprocess_field 处理); 若对 VECTOR
+                # 字段裸一阶, 会产生 ts_delta(vec_field, N) 这类非法表达式, 平台回测直接 ERROR。
                 raw_tasks = families.raw_first_order_task_factory(
-                    [f.id for f in selected], decay=config.decay)
+                    [f.id for f in selected if f.type != "VECTOR"], decay=config.decay)
                 unary_tasks.extend(raw_tasks)
             tasks.extend(unary_tasks)
 
@@ -430,6 +437,23 @@ async def run_survey_with_fields(
                 decay=config.decay,
             )
             tasks.extend(semantic_pair_tasks)
+
+        # 相反词配对: 自动发现同 dataset 内、名称只在相反词上不同的字段对
+        # (如 bullish/bearish、up/down), 生成 difference 基准信号。与 semantic_pairs
+        # 互补 —— 它覆盖 positive/negative 之外的相反形态。
+        if config.include_antonym_pairs:
+            from alpha_operator_framework.domain.antonyms import antonym_pair_tasks as _antonym_factory
+            antonym_pair_tasks = _antonym_factory(selected, decay=config.decay)
+            tasks.extend(antonym_pair_tasks)
+
+        # 复合配对 (net_revision / spread): 自动发现带分母的经济指标组
+        # (如 raisednum/lowerednum/num 的净上调比例, high/low/mean 的离散度),
+        # 与 antonym 的纯差值配对互补 —— 它们需要额外 denominator 归一化。
+        if config.include_paired_bases:
+            from alpha_operator_framework.domain.paired_bases import discover_pair_specs, paired_base_task_factory
+            compound_specs = discover_pair_specs(selected)
+            paired_base_tasks = paired_base_task_factory(compound_specs, selected, decay=config.decay)
+            tasks.extend(paired_base_tasks)
 
         # 模板类库策略 (binary/ternary/quaternary); use_template_library=False 回退旧 factory
         if config.use_template_library:
@@ -474,7 +498,10 @@ async def run_survey_with_fields(
         catalog_db = AlphaDatabase(output_dir / "alpha_research.db")
         catalog_count = catalog_db.catalog_tasks(unary_tasks, stage="first_order")
         catalog_count += catalog_db.catalog_tasks(semantic_pair_tasks, stage="semantic_pair")
-        other_tasks = [t for t in tasks if t not in unary_tasks and t not in semantic_pair_tasks]
+        catalog_count += catalog_db.catalog_tasks(antonym_pair_tasks, stage="antonym_pair")
+        catalog_count += catalog_db.catalog_tasks(paired_base_tasks, stage="paired_base")
+        other_tasks = [t for t in tasks if t not in unary_tasks and t not in semantic_pair_tasks
+                       and t not in antonym_pair_tasks and t not in paired_base_tasks]
         catalog_count += catalog_db.catalog_tasks(other_tasks, stage="survey")
         sampled_expressions = catalog_db.sample_catalog_expressions(
             [task.expression for task in tasks],
@@ -516,8 +543,12 @@ async def run_survey_with_fields(
 
             results = await alpha_machine.simulate(
                 sim_tasks,
-                _make_sim_config(config)
+                _make_sim_config(config),
+                wait_for_completion=True,  # 真实回测必须等待结果, 否则只有 submitted 状态、拿不到 sharpe/fitness
             )
+            # simulate(wait_for_completion=True) 返回的是 simulation_results 表行, sharpe/fitness
+            # 嵌套在 result_json.is 里; 展开到顶层, 让下游 density/distill 统一读顶层指标。
+            results = _flatten_sim_results(results)
 
             # 5. 写结果
             results_file = output_dir / f"survey_results_{config.region}_{config.dataset_id or 'all'}.json"
@@ -558,6 +589,10 @@ async def run_survey_with_fields(
                     row["family"] = t.family
                     row["template_index"] = t.template_index
                     row["fields_per_alpha"] = t.fields_per_alpha
+                    # 回填配对元数据, 供 pair_signal 沉淀识别「这条结果属于哪个配对」
+                    if t.meta and t.meta.get("pair_spec"):
+                        row["pair_spec"] = t.meta["pair_spec"]
+                        row["pair_kind"] = t.meta.get("pair_kind", "")
 
             density_rows = density.compute_density(
                 results,
@@ -614,6 +649,7 @@ async def run_full_workflow(
     top_n: int = 3,
     min_sharpe: float = 1.2,
     template_families: Optional[Tuple[str, ...]] = None,
+    backtest_sample_n: int = 80,
     execute: bool = False
 ) -> Dict[str, WorkflowResult]:
     """完整三段工作流(供AI单次调用).
@@ -655,6 +691,7 @@ async def run_full_workflow(
         sample_n=sample_n,
         top_n_templates=top_n,
         template_families=template_families,
+        backtest_sample_n=backtest_sample_n,
     )
 
     # 本地字段文件优先；其次使用调用方提供的字段；最后才查询平台。
@@ -740,6 +777,33 @@ async def run_full_workflow(
 # ---------------------------------------------------------------------------
 # 辅助函数
 # ---------------------------------------------------------------------------
+
+def _flatten_sim_results(results: list) -> list:
+    """展开 simulate 返回的 simulation_results 行: result_json.is.* → 顶层.
+
+    simulate(wait_for_completion=True) 返回的是 simulation_results 表行, sharpe/fitness/
+    pnl/longCount/shortCount 等指标嵌套在 result_json.is 里; 而 SignalGate._metric 只查
+    顶层或 is 子键, 读不到 result_json 这一层。这里把 is 统计提升到顶层, 让下游
+    density/distill 统一读顶层指标, 并把完整 alpha 详情留在 _alpha_details 备查。
+    """
+    out = []
+    for row in results or []:
+        r = dict(row)
+        rj = r.get("result_json")
+        if isinstance(rj, str):
+            try:
+                rj = json.loads(rj)
+            except Exception:
+                rj = None
+        is_block = rj.get("is") if isinstance(rj, dict) else None
+        if isinstance(is_block, dict):
+            # 顶层优先, 缺失才用 is.* 补 (不覆盖可能已存在的顶层字段)
+            for k, v in is_block.items():
+                r.setdefault(k, v)
+            r["_alpha_details"] = rj
+        out.append(r)
+    return out
+
 
 def _make_sim_config(config: SurveyConfig) -> object:
     """构造alpha_machine.simulate需要的配置对象."""

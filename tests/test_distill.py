@@ -205,3 +205,60 @@ def test_distill_templates_round_from_results():
             assert distilled[0].expression_template == "rank({a})"
         finally:
             db.close()
+
+
+# ---------------------------------------------------------------------------
+# P2: 配对信号沉淀 (pair_signals)
+# ---------------------------------------------------------------------------
+
+def test_aggregate_pair_signals():
+    from alpha_operator_framework.distill import aggregate_pair_signals
+
+    results = [
+        # 配对 A: bullish-bearish 差值, 2 次都达标
+        {"pair_spec": "difference:senti_bullish:senti_bearish", "pair_kind": "difference",
+         "expression": "senti_bullish - senti_bearish", "sharpe": 1.5, "fitness": 1.0,
+         "pnl": 5_000_000, "longCount": 60, "shortCount": 60},
+        {"pair_spec": "difference:senti_bullish:senti_bearish", "pair_kind": "difference",
+         "expression": "senti_bullish - senti_bearish", "sharpe": 1.3, "fitness": 1.0,
+         "pnl": 5_000_000, "longCount": 60, "shortCount": 60},
+        # 配对 B: 不达标
+        {"pair_spec": "difference:up:down", "pair_kind": "difference",
+         "expression": "up - down", "sharpe": 0.3, "fitness": 1.0,
+         "pnl": 5_000_000, "longCount": 60, "shortCount": 60},
+        # 非配对行 → 忽略
+        {"expression": "rank(close)", "sharpe": 1.5, "fitness": 1.0,
+         "pnl": 5_000_000, "longCount": 60, "shortCount": 60},
+    ]
+    stats = aggregate_pair_signals(results, region="GBR", universe="TOP700", round_n=0)
+    by_spec = {s.pair_spec: s for s in stats}
+
+    assert set(by_spec.keys()) == {"difference:senti_bullish:senti_bearish", "difference:up:down"}
+    a = by_spec["difference:senti_bullish:senti_bearish"]
+    assert a.trials == 2
+    assert a.signal_count == 2
+    assert a.hit_rate == 1.0
+    assert a.pair_kind == "difference"
+
+
+def test_distill_pairs_round():
+    from alpha_operator_framework.database import AlphaDatabase
+    from alpha_operator_framework.loop import LoopConfig, distill_pairs_round
+
+    with tempfile.TemporaryDirectory() as tmp:
+        db = AlphaDatabase(str(Path(tmp) / "research.db"))
+        try:
+            results = [
+                {"pair_spec": "difference:senti_bullish:senti_bearish", "pair_kind": "difference",
+                 "expression": "senti_bullish - senti_bearish", "sharpe": 1.5, "fitness": 1.0,
+                 "pnl": 5_000_000, "longCount": 60, "shortCount": 60},
+            ]
+            config = LoopConfig(distill_pairs=True, region="GBR")
+            n = distill_pairs_round(db, results=results, config=config, round_n=0)
+            assert n == 1
+            got = db.get_pair_signal_stats(region="GBR")
+            assert len(got) == 1
+            assert got[0]["pair_spec"] == "difference:senti_bullish:senti_bearish"
+            assert got[0]["signal_count"] == 1
+        finally:
+            db.close()

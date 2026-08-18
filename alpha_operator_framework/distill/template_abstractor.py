@@ -45,12 +45,17 @@ def abstract_template(expression: str, field_ids: Optional[Sequence[str]] = None
         模板骨架字符串, 如 "ts_delta({a}, 5) + rank({b})"
     """
     if field_ids is None:
+        # 按长度降序: 先替换长字段。若先替换短字段 (如 "cap"), 长字段 (如
+        # "market_cap") 里的短字段会被提前替换掉, 导致长字段名再也匹配不上。
+        # 先长后短 + lookaround 边界, 双重保险防子串误伤。
         field_ids = sorted(extract_fields(expression), key=len, reverse=True)
     else:
         field_ids = sorted((str(f) for f in field_ids), key=len, reverse=True)
     result = expression
     for i, fid in enumerate(field_ids):
         slot = "{" + _LETTERS[i] + "}"
+        # lookaround 边界 (前后不能是字母数字下划线): 保证只替换「完整字段名」,
+        # 而不是恰好相同的子串 (如字段 "close" 不会误伤 "close_adj" 的 "close")
         result = re.sub(
             r"(?<![A-Za-z0-9_])" + re.escape(str(fid)) + r"(?![A-Za-z0-9_])",
             slot,

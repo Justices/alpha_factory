@@ -256,10 +256,15 @@ async def fetch_datafields(region: str, universe: str, delay: int, dataset_id: s
     total: int | None = None
     page_count = 0
     while total is None or len(rows) < total:
+        # 翻页前先主动节流: 连续高频请求 data-fields 是触发 429 的主因,
+        # page_delay 让每页之间留出间隔, 从源头压低请求频率。
         if page_count > 0 and page_delay > 0:
             await asyncio.sleep(page_delay)
         params["offset"] = str(len(rows))
-        # 单页请求: 遇到 429 读 Retry-After 退避重试 (offset 不变), 不轻易中断全量拉取
+        # 单页请求 + 429 退避重试:
+        #   - 遇到 429 时读 Retry-After 头决定等待多久 (尊重平台限流, 不硬编码固定等待);
+        #   - 重试期间 offset 保持不变, 即「重试当前页」而不是跳过 —— 跳过会造成字段缺失;
+        #   - max_retries 兜底, 避免平台持续限流时死循环。
         response = None
         for _ in range(max_retries + 1):
             response = brain_client.session.get(f"{brain_client.base_url}/data-fields", params=params)
@@ -278,14 +283,20 @@ async def fetch_datafields(region: str, universe: str, delay: int, dataset_id: s
 
 
 def _retry_after_seconds(response: Any, *, fallback: float = 1.5) -> float:
-    """从响应头读取 Retry-After (秒/HTTP-date), 取不下限值; 解析失败用 fallback."""
+    """从响应头读取 Retry-After (秒值 / HTTP-date), 解析失败用 fallback.
+
+    Retry-After 有两种合法形态: 纯秒数 (如 "3") 或 HTTP 日期 (如
+    "Wed, 18 Aug 2026 06:00:00 GMT")。都解析, 保证 429 退避尽可能贴近平台要求。
+    """
     raw = (response.headers or {}).get("Retry-After")
     if raw is None:
         return fallback
     try:
+        # 秒值形态
         return max(float(raw), 0.0)
     except (TypeError, ValueError):
         try:
+            # HTTP-date 形态 → 换算成还需等待的秒数
             from email.utils import parsedate_to_datetime
             from datetime import datetime, timezone
             dt = parsedate_to_datetime(raw)
@@ -293,6 +304,22 @@ def _retry_after_seconds(response: Any, *, fallback: float = 1.5) -> float:
             return max(wait, 0.0)
         except Exception:
             return fallback
+
+
+def _normalize_platform_url(base_url: str, location: str) -> str:
+    """把平台返回的 location 归一化成完整 URL.
+
+    平台不同接口返回的 location 形态不一:
+      - 完整 URL          "https://api.worldquantbrain.com/simulations/xxx"
+      - 相对路径          "/simulations/xxx"
+      - 纯 token (child)  "rrvrrtE58Fcp6rDXkncY4"
+    只有完整 URL 才能直接 requests.get, 其余都要补 base_url (token 补 /simulations/ 前缀)。
+    """
+    if location.startswith(("http://", "https://")):
+        return location
+    if location.startswith("/simulations/"):
+        return f"{base_url}{location}"
+    return f"{base_url}/simulations/{location}"
 
 
 async def simulate(tasks: Sequence[dict[str, Any]], args: argparse.Namespace,
@@ -346,7 +373,8 @@ async def simulate(tasks: Sequence[dict[str, Any]], args: argparse.Namespace,
                     return location
 
                 def fetch(location):
-                    response = brain_client.session.get(location)
+                    url = _normalize_platform_url(brain_client.base_url, location)
+                    response = brain_client.session.get(url)
                     response.raise_for_status()
                     return (response.json() if response.text else {}, float(response.headers.get("Retry-After", 0)))
 
@@ -414,7 +442,8 @@ async def poll_simulation_batch(batch_id: int, database: Path = DEFAULT_DATABASE
     db = AlphaDatabase(database)
     try:
         def fetch(location):
-            response = brain_client.session.get(location)
+            url = _normalize_platform_url(brain_client.base_url, location)
+            response = brain_client.session.get(url)
             response.raise_for_status()
             return (response.json() if response.text else {}, float(response.headers.get("Retry-After", 0)))
 

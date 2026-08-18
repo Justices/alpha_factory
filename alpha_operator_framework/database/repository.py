@@ -294,6 +294,28 @@ class AlphaDatabase:
         )
         """)
 
+        # 配对级信号统计表 (研究闭环 P2 — 相反/复合配对的信号沉淀, 第6→2 回流)
+        cursor.execute("""
+        CREATE TABLE IF NOT EXISTS pair_signal_stats (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            pair_spec TEXT NOT NULL,
+            pair_kind TEXT NOT NULL DEFAULT '',
+            region TEXT NOT NULL,
+            universe TEXT NOT NULL DEFAULT '',
+            delay INTEGER NOT NULL DEFAULT 1,
+            round INTEGER NOT NULL DEFAULT 0,
+            trials INTEGER NOT NULL DEFAULT 0,
+            signal_count INTEGER NOT NULL DEFAULT 0,
+            hit_rate REAL NOT NULL DEFAULT 0.0,
+            avg_sharpe REAL NOT NULL DEFAULT 0.0,
+            max_sharpe REAL NOT NULL DEFAULT 0.0,
+            min_sharpe REAL NOT NULL DEFAULT 0.0,
+            created_at TEXT NOT NULL,
+            updated_at TEXT NOT NULL,
+            UNIQUE(pair_spec, region, universe, delay, round)
+        )
+        """)
+
         # 模板类库表 (对齐 knowledge_base/alpha_templates JSONL schema)
         cursor.execute("""
         CREATE TABLE IF NOT EXISTS template_library (
@@ -532,6 +554,10 @@ class AlphaDatabase:
         cursor.execute("CREATE INDEX IF NOT EXISTS idx_field_signal_hit ON field_signal_stats(region, round, hit_rate DESC)")
         cursor.execute("CREATE INDEX IF NOT EXISTS idx_field_signal_field ON field_signal_stats(field_id, dataset_id)")
 
+        # pair_signal_stats 索引
+        cursor.execute("CREATE INDEX IF NOT EXISTS idx_pair_signal_hit ON pair_signal_stats(region, round, hit_rate DESC)")
+        cursor.execute("CREATE INDEX IF NOT EXISTS idx_pair_signal_spec ON pair_signal_stats(pair_spec)")
+
         conn.commit()
 
         # 幂等种子: 4 族模板入模板库 (懒加载, 避循环依赖)
@@ -722,7 +748,8 @@ class AlphaDatabase:
 
     def insert_expression(self, expression: str, settings: Dict, *, expression_origin: str = "",
                           batch_id: Optional[int] = None, fields: Optional[List[str]] = None,
-                          status: str = "pending", first_operator: Optional[str] = None) -> int:
+                          status: str = "pending", first_operator: Optional[str] = None,
+                          commit: bool = True) -> int:
         """插入alpha表达式(去重).
 
         Args:
@@ -757,7 +784,8 @@ class AlphaDatabase:
                 VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
             """, (expression_sha, expression, expression_origin, settings_json,
                   batch_id, fields_json, status, first_operator, now, now))
-            conn.commit()
+            if commit:
+                conn.commit()
             return cursor.lastrowid
         except sqlite3.IntegrityError:
             # 已存在: 回填 origin(空才填) + batch_id(取最新) + fields(合并) + first_operator(空才填)
@@ -770,7 +798,8 @@ class AlphaDatabase:
                     updated_at = ?
                 WHERE expression_sha = ?
             """, (expression_origin, batch_id, fields_json, first_operator, now, expression_sha))
-            conn.commit()
+            if commit:
+                conn.commit()
             # 已存在,返回已有ID
             cursor.execute("SELECT id FROM alpha_expressions WHERE expression_sha = ?", (expression_sha,))
             row = cursor.fetchone()
@@ -814,6 +843,7 @@ class AlphaDatabase:
         expression_origin: str = "",
         batch_id: Optional[int] = None,
         backtest_status: str = "pending",
+        commit: bool = True,
     ) -> int:
         """把候选表达式写入现有 alpha_expressions 表，重复表达式幂等处理。
 
@@ -837,27 +867,41 @@ class AlphaDatabase:
             batch_id=batch_id,
             fields=list(base_fields) if base_fields else None,
             status=backtest_status,
+            commit=commit,
         )
 
     def catalog_tasks(
         self, tasks: List[Any], *, stage: str = "first_order", settings: Optional[Dict] = None,
         batch_id: Optional[int] = None
     ) -> int:
-        """批量登记 Task 到现有 alpha_expressions 表。"""
+        """批量登记 Task 到现有 alpha_expressions 表.
+
+        性能关键: 逐条 commit 会让 N 条任务产生 N 次 fsync (Windows 上数千条可卡十几分钟)。
+        这里把整批放进一个事务, 循环内 commit=False, 最后统一 commit 一次; 异常时回滚。
+        """
+        if not tasks:
+            return 0
+        conn = self._get_connection()
         count = 0
-        for task in tasks:
-            self.catalog_expression(
-                task.expression,
-                stage=stage,
-                family=task.family,
-                template_index=task.template_index,
-                fields_per_alpha=task.fields_per_alpha,
-                base_fields=list(task.base_fields),
-                metadata=task.meta,
-                expression_origin=task.expression_origin,
-                batch_id=batch_id,
-            )
-            count += 1
+        try:
+            for task in tasks:
+                self.catalog_expression(
+                    task.expression,
+                    stage=stage,
+                    family=task.family,
+                    template_index=task.template_index,
+                    fields_per_alpha=task.fields_per_alpha,
+                    base_fields=list(task.base_fields),
+                    metadata=task.meta,
+                    expression_origin=task.expression_origin,
+                    batch_id=batch_id,
+                    commit=False,
+                )
+                count += 1
+            conn.commit()
+        except Exception:
+            conn.rollback()
+            raise
         return count
 
     def sample_catalog_expressions(
@@ -1656,6 +1700,13 @@ class AlphaDatabase:
             avg_fitness = _num(row, "avg_fitness") or 0.0
 
             if accumulate:
+                # 多轮累积沉淀的语义: 不同字段累加规则不同, 需分开处理:
+                #   - trials / signal_count 是「计数」→ 直接相加 (扩大样本量)
+                #   - max_sharpe / min_sharpe 是「极值」→ 取更大 / 更小 (保持极值语义)
+                #   - hit_rate 是「派生量」→ 由累加后的 trials/signal_count 重算,
+                #     不能把两轮的 hit_rate 直接相加 (会失去分母信息)
+                #   - avg_sharpe / avg_fitness 是「均值」→ 此处简单覆盖 (上一轮的均值),
+                #     精确累积需额外保存 sum/count, 当前权衡下不做
                 existing = conn.execute(
                     "SELECT trials, signal_count, max_sharpe, min_sharpe FROM field_signal_stats "
                     "WHERE field_id=? AND dataset_id=? AND region=? AND universe=? AND delay=? AND round=?",
@@ -1719,6 +1770,92 @@ class AlphaDatabase:
         if delay is not None:
             conds.append("delay = ?")
             params.append(int(delay))
+        if round_n is not None:
+            conds.append("round = ?")
+            params.append(int(round_n))
+        sql += " WHERE " + " AND ".join(conds)
+        sql += " ORDER BY hit_rate DESC, signal_count DESC LIMIT ?"
+        params.append(limit)
+        rows = self._get_connection().execute(sql, params).fetchall()
+        return [dict(r) for r in rows]
+
+    def upsert_pair_signal_stats(self, rows: List[Dict[str, Any]], *,
+                                 accumulate: bool = True) -> int:
+        """批量 upsert 配对级信号统计行 (研究闭环 P2 沉淀).
+
+        Args:
+            rows: 每行含 pair_spec/pair_kind/region/universe/delay/round 及
+                  trials/signal_count/hit_rate/avg_sharpe/max_sharpe/min_sharpe
+            accumulate: 累加语义同 upsert_field_signal_stats (计数相加, 极值取更大/更小,
+                  hit_rate 重算); 配对沉淀默认累积
+
+        Returns:
+            写入行数
+        """
+        now = self._timestamp()
+        conn = self._get_connection()
+        count = 0
+        for row in rows or []:
+            pair_spec = str(row.get("pair_spec") or "")
+            if not pair_spec:
+                continue
+            key = (
+                pair_spec, str(row.get("region") or ""), str(row.get("universe") or ""),
+                int(row.get("delay") or 1), int(row.get("round") or 0),
+            )
+            trials = int(row.get("trials") or 0)
+            signal_count = int(row.get("signal_count") or 0)
+            hit_rate = _num(row, "hit_rate") or 0.0
+            avg_sharpe = _num(row, "avg_sharpe") or 0.0
+            max_sharpe = _num(row, "max_sharpe") or 0.0
+            min_sharpe = _num(row, "min_sharpe") or 0.0
+
+            if accumulate:
+                existing = conn.execute(
+                    "SELECT trials, signal_count, max_sharpe, min_sharpe FROM pair_signal_stats "
+                    "WHERE pair_spec=? AND region=? AND universe=? AND delay=? AND round=?",
+                    key,
+                ).fetchone()
+                if existing:
+                    trials += int(existing["trials"] or 0)
+                    signal_count += int(existing["signal_count"] or 0)
+                    max_sharpe = max(max_sharpe, float(existing["max_sharpe"] or 0.0))
+                    min_sharpe = min(min_sharpe, float(existing["min_sharpe"] or 0.0))
+                hit_rate = (signal_count / trials) if trials else 0.0
+
+            conn.execute("""
+                INSERT INTO pair_signal_stats (pair_spec, pair_kind, region, universe, delay, round,
+                    trials, signal_count, hit_rate, avg_sharpe, max_sharpe, min_sharpe,
+                    created_at, updated_at)
+                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+                ON CONFLICT(pair_spec, region, universe, delay, round) DO UPDATE SET
+                    trials=excluded.trials,
+                    signal_count=excluded.signal_count,
+                    hit_rate=excluded.hit_rate,
+                    avg_sharpe=excluded.avg_sharpe,
+                    max_sharpe=excluded.max_sharpe,
+                    min_sharpe=excluded.min_sharpe,
+                    updated_at=excluded.updated_at
+            """, (
+                pair_spec, str(row.get("pair_kind") or ""), key[1], key[2], key[3], key[4],
+                trials, signal_count, hit_rate, avg_sharpe, max_sharpe, min_sharpe,
+                now, now,
+            ))
+            count += 1
+        conn.commit()
+        return count
+
+    def get_pair_signal_stats(self, *, region: Optional[str] = None,
+                              round_n: Optional[int] = None,
+                              min_trials: int = 1,
+                              limit: int = 200) -> List[Dict[str, Any]]:
+        """查询配对级信号统计, 按 hit_rate 降序 (下一轮优先复用有信号的配对)."""
+        sql = "SELECT * FROM pair_signal_stats"
+        conds = ["trials >= ?"]
+        params: List[Any] = [min_trials]
+        if region:
+            conds.append("region = ?")
+            params.append(region)
         if round_n is not None:
             conds.append("round = ?")
             params.append(int(round_n))

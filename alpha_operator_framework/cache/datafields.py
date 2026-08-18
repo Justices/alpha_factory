@@ -202,13 +202,16 @@ class DataFieldCache(DataCache):
 
         与 get_datafields 逻辑一致, 但平台兜底用 await 而非 asyncio.run,
         避免在事件循环内二次 run 报错。
+
+        三条分支的取舍 (本地优先的核心价值 = 避免 data-fields 全量拉取触发 429):
         """
-        # 指定数据集时，直接加载/获取该数据集
+        # 分支1: 指定 dataset_id → 只加载/拉取单个数据集。
+        #   精确命中单个 {dataset}.json, 避免为了一个数据集拉全量字段 (限流主因)。
         if dataset_id:
             if not force_refresh:
                 cached = self.load_dataset(region, delay, universe, dataset_id)
                 if cached is not None:
-                    return cached
+                    return cached  # 本地命中, 零网络
             result = await self.fetch_platform(
                 region=region, universe=universe, delay=delay,
                 dataset_id=dataset_id, search=search, data_type=data_type,
@@ -216,10 +219,11 @@ class DataFieldCache(DataCache):
             )
             items = result.get("items", [])
             if items:
-                self.save_dataset(region, delay, universe, dataset_id, items)
+                self.save_dataset(region, delay, universe, dataset_id, items)  # 拉取即落盘, 下次命中
             return items
 
-        # 未指定数据集时，检查本地所有数据集
+        # 分支2: 未指定 dataset_id → 先合并本地所有数据集文件。
+        #   本地已有完整缓存 (如 GBR/TOP700) 时一次命中, 完全避开网络。
         if not force_refresh:
             all_datasets = self.load_all_datasets(region, delay, universe)
             if all_datasets is not None:
@@ -228,7 +232,8 @@ class DataFieldCache(DataCache):
                     all_fields.extend(ds_items)
                 return all_fields
 
-        # 从平台获取全量字段
+        # 分支3: 本地全 miss → 平台全量拉取 (带 429 退避), 并按数据集落盘。
+        #   落盘后下一次进入分支2, 本地优先命中, 网络只碰这一次。
         result = await self.fetch_platform(
             region=region, universe=universe, delay=delay,
             search=search, data_type=data_type, page_delay=page_delay,

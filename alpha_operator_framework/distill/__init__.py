@@ -2,6 +2,7 @@
 
 - field_signals: 字段级信号统计 (第6步 → 第1步字段选择回流)
 - template_abstractor: 模板骨架抽象 (第6步 → 第2步表达式合成回流)
+- pair_signals: 配对级信号统计 (第6步 → 第2步配对选择回流)
 """
 
 from .field_signals import (
@@ -16,6 +17,10 @@ from .template_abstractor import (
     to_template,
     distill_templates_into_library,
 )
+from .pair_signals import (
+    PairSignalStat,
+    aggregate_pair_signals,
+)
 
 __all__ = [
     "FieldSignalStat",
@@ -26,4 +31,6 @@ __all__ = [
     "abstract_templates",
     "to_template",
     "distill_templates_into_library",
+    "PairSignalStat",
+    "aggregate_pair_signals",
 ]

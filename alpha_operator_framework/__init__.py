@@ -81,6 +81,14 @@ from alpha_operator_framework.domain.paired_bases import (
     paired_group_first_order_task_factory,
 )
 
+from alpha_operator_framework.domain.antonyms import (
+    DIFFERENCE_ANTONYMS,
+    LONG_SHORT_SUFFIX,
+    discover_antonym_pairs,
+    discover_long_short_pairs,
+    antonym_pair_tasks,
+)
+
 from alpha_operator_framework.generation.super_alpha import (
     SuperAlphaConfig,
     build_super_candidates,
@@ -200,6 +208,8 @@ from alpha_operator_framework.distill import (
     abstract_templates,
     to_template,
     distill_templates_into_library,
+    PairSignalStat,
+    aggregate_pair_signals,
 )
 
 from alpha_operator_framework.loop import (
@@ -207,6 +217,7 @@ from alpha_operator_framework.loop import (
     run_research_loop,
     distill_and_plan_next,
     distill_templates_round,
+    distill_pairs_round,
 )
 
 __all__ = [
@@ -255,6 +266,12 @@ __all__ = [
     "paired_unary_task_factory",
     "paired_first_order_task_factory",
     "paired_group_first_order_task_factory",
+    # Antonyms (相反词配对发现)
+    "DIFFERENCE_ANTONYMS",
+    "LONG_SHORT_SUFFIX",
+    "discover_antonym_pairs",
+    "discover_long_short_pairs",
+    "antonym_pair_tasks",
     # Density
     "SignalGate",
     "DensityRow",
@@ -339,17 +356,20 @@ __all__ = [
     "abstract_templates",
     "to_template",
     "distill_templates_into_library",
+    "PairSignalStat",
+    "aggregate_pair_signals",
     # Loop (研究闭环编排)
     "LoopConfig",
     "run_research_loop",
     "distill_and_plan_next",
     "distill_templates_round",
+    "distill_pairs_round",
 ]
 
 # 模块级 re-export (兼容 `from alpha_operator_framework import families/fields/...` 的模块引用)
 from alpha_operator_framework.domain import (
     families, fields, density, operators, optimize, pruning, evaluation,
-    semantic_pairs, paired_bases, economic_rules,
+    semantic_pairs, paired_bases, economic_rules, antonyms,
 )
 from alpha_operator_framework.generation import (
     template_library, super_alpha, creation_strategy,

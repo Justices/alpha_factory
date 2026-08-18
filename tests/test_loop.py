@@ -22,14 +22,20 @@ def test_run_round_survey_extracts_results():
         }), encoding="utf-8")
         fake_survey = WorkflowResult(success=True, stage="survey", results_file=results_file)
 
-        async def fake_run_full_workflow(**kwargs):
-            assert kwargs["field_ids"] == ["close"]
-            assert kwargs["template_families"] == config.families
-            assert kwargs["execute"] is False
-            return {"survey": fake_survey}
+        async def fake_aget(region, universe, delay, **kwargs):
+            return [{"id": "close", "dataset": {"id": "pv1"}, "type": "MATRIX", "coverage": 0.9}]
 
-        with patch("alpha_operator_framework.ai_workflow.run_full_workflow",
-                   side_effect=fake_run_full_workflow):
+        async def fake_run_survey(field_specs, config, execute=False, **kwargs):
+            # 加权字段正确传入 survey_config
+            assert config.field_ids == ["close"]
+            assert config.template_families == LoopConfig.families
+            assert execute is False
+            return fake_survey
+
+        with patch("alpha_operator_framework.cache.datafields.aget_datafields",
+                   side_effect=fake_aget), \
+             patch("alpha_operator_framework.ai_workflow.run_survey_with_fields",
+                   side_effect=fake_run_survey):
             results = asyncio.run(_run_round_survey(config, 0, ["close"]))
         assert results == [{"expression": "rank(close)", "sharpe": 1.5}]
 
@@ -41,13 +47,18 @@ def test_run_round_survey_empty_field_ids_passes_none():
     config = LoopConfig(region="EUR", universe="TOP2500")
     fake_survey = WorkflowResult(success=True, stage="survey")
 
-    async def fake_run_full_workflow(**kwargs):
-        # 首轮空字段 → 传 None (全量采样)
-        assert kwargs["field_ids"] is None
-        return {"survey": fake_survey}
+    async def fake_aget(region, universe, delay, **kwargs):
+        return [{"id": "close", "dataset": {"id": "pv1"}, "type": "MATRIX", "coverage": 0.9}]
 
-    with patch("alpha_operator_framework.ai_workflow.run_full_workflow",
-               side_effect=fake_run_full_workflow):
+    async def fake_run_survey(field_specs, config, execute=False, **kwargs):
+        # 首轮空字段 → 传 None (全量采样)
+        assert config.field_ids is None
+        return fake_survey
+
+    with patch("alpha_operator_framework.cache.datafields.aget_datafields",
+               side_effect=fake_aget), \
+         patch("alpha_operator_framework.ai_workflow.run_survey_with_fields",
+               side_effect=fake_run_survey):
         results = asyncio.run(_run_round_survey(config, 0, []))
     assert results == []
 

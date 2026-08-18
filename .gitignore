@@ -56,3 +56,4 @@ runs/*
 .brain.json
 .brain_session.json.lock
 .codex
+.workbuddy

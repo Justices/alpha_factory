@@ -88,18 +88,17 @@ def test_domain_repositories_standalone_and_shared_connection():
         # E. TemplateRepository: 增改模板
         tpl_repo.upsert_templates([
             Template(
-                id=1,
-                name="test_unary_tpl",
+                name="test_custom_unique_tpl_01",
                 title="Test Unary",
                 family="unary",
                 template_type="placeholder",
                 expression_template="ts_delta({x}, 5)",
-                template_index=0,
+                template_index=99,
                 fields_per_alpha=1,
             )
         ])
-        templates = tpl_repo.list_templates(families=["unary"])
-        assert any(t.name == "test_unary_tpl" for t in templates)
+        templates = tpl_repo.list_templates(names=["test_custom_unique_tpl_01"])
+        assert any(t.name == "test_custom_unique_tpl_01" for t in templates)
 
         # F. QueueRepository: 优化队列
         q_id = queue_repo.enqueue_optimization("test_alpha_01", "ts_rank(close, 10)", sharpe=1.1, priority=10)

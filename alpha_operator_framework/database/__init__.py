@@ -20,6 +20,7 @@ from .models import (
     Template,
 )
 from .cleaner import CleanReport, DatabaseCleaner, clean_alpha_research_db, vacuum_database
+from .connection import DatabaseConnectionManager
 from .repositories import (
     AlphaRepository,
     DatafieldRepository,

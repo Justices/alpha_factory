@@ -115,8 +115,6 @@ class AlphaDatabase(
             metadata TEXT NOT NULL DEFAULT '{}'
         )
         """)
-        cursor.execute("CREATE INDEX IF NOT EXISTS idx_event_stream ON event_log (stream_id, global_offset)")
-        cursor.execute("CREATE INDEX IF NOT EXISTS idx_event_type ON event_log (event_type, global_offset)")
 
         # 2. trial_ledger 表
         cursor.execute("""
@@ -131,7 +129,6 @@ class AlphaDatabase(
             created_at TEXT NOT NULL
         )
         """)
-        cursor.execute("CREATE INDEX IF NOT EXISTS idx_trial_family ON trial_ledger (family)")
 
         # 3. alpha_expressions 表
         cursor.execute("""
@@ -149,9 +146,6 @@ class AlphaDatabase(
             updated_at TEXT NOT NULL
         )
         """)
-        cursor.execute("CREATE INDEX IF NOT EXISTS idx_expr_sha ON alpha_expressions (expression_sha)")
-        cursor.execute("CREATE INDEX IF NOT EXISTS idx_expr_status ON alpha_expressions (status)")
-        cursor.execute("CREATE INDEX IF NOT EXISTS idx_expr_batch_id ON alpha_expressions (batch_id)")
 
         # 4. alpha_details 表
         cursor.execute("""
@@ -161,21 +155,21 @@ class AlphaDatabase(
             expression_sha TEXT NOT NULL,
             alpha_sha TEXT NOT NULL DEFAULT '',
             expression TEXT NOT NULL,
-            region TEXT NOT NULL,
-            universe TEXT NOT NULL,
-            delay INTEGER NOT NULL,
-            decay REAL NOT NULL,
-            neutralization TEXT NOT NULL,
-            truncation REAL NOT NULL,
-            sharpe REAL NOT NULL,
-            fitness REAL NOT NULL,
-            turnover REAL NOT NULL,
-            margin REAL NOT NULL,
-            pnl REAL,
-            returns REAL,
-            drawdown REAL,
-            long_count INTEGER,
-            short_count INTEGER,
+            region TEXT,
+            universe TEXT,
+            delay INTEGER DEFAULT 1,
+            decay REAL DEFAULT 0.0,
+            neutralization TEXT,
+            truncation REAL DEFAULT 0.0,
+            sharpe REAL DEFAULT 0.0,
+            fitness REAL DEFAULT 0.0,
+            turnover REAL DEFAULT 0.0,
+            margin REAL DEFAULT 0.0,
+            pnl REAL DEFAULT 0.0,
+            returns REAL DEFAULT 0.0,
+            drawdown REAL DEFAULT 0.0,
+            long_count INTEGER DEFAULT 0,
+            short_count INTEGER DEFAULT 0,
             grade TEXT,
             stage_platform TEXT,
             status_platform TEXT,
@@ -191,9 +185,23 @@ class AlphaDatabase(
             updated_at TEXT NOT NULL
         )
         """)
-        cursor.execute("CREATE INDEX IF NOT EXISTS idx_details_alpha_id ON alpha_details (alpha_id)")
-        cursor.execute("CREATE INDEX IF NOT EXISTS idx_details_sharpe ON alpha_details (sharpe)")
-        cursor.execute("CREATE INDEX IF NOT EXISTS idx_details_wf_stage ON alpha_details (wf_stage)")
+
+        # 4b. backtest_dataset_records 表
+        cursor.execute("""
+        CREATE TABLE IF NOT EXISTS backtest_dataset_records (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            region TEXT NOT NULL,
+            universe TEXT NOT NULL,
+            delay INTEGER NOT NULL DEFAULT 1,
+            dataset_id TEXT NOT NULL DEFAULT '',
+            strategy TEXT NOT NULL,
+            expression_count INTEGER NOT NULL DEFAULT 0,
+            backtest_count INTEGER NOT NULL DEFAULT 0,
+            created_at TEXT NOT NULL,
+            updated_at TEXT NOT NULL,
+            UNIQUE(region, universe, delay, dataset_id, strategy)
+        )
+        """)
 
         # 5. alpha_checks 表
         cursor.execute("""
@@ -465,7 +473,102 @@ class AlphaDatabase(
         )
         """)
 
+        # ALTER-guard: 兼容旧版数据库迁移
+        expression_columns = {r["name"] for r in cursor.execute("PRAGMA table_info(alpha_expressions)")}
+        if "expression_origin" not in expression_columns:
+            cursor.execute("ALTER TABLE alpha_expressions ADD COLUMN expression_origin TEXT NOT NULL DEFAULT ''")
+        for col, decl in (("batch_id", "INTEGER"),
+                          ("fields", "TEXT NOT NULL DEFAULT '[]'"),
+                          ("status", "TEXT NOT NULL DEFAULT 'pending'"),
+                          ("first_operator", "TEXT NOT NULL DEFAULT ''")):
+            if col not in expression_columns:
+                cursor.execute(f"ALTER TABLE alpha_expressions ADD COLUMN {col} {decl}")
+
+        existing = {r["name"] for r in cursor.execute("PRAGMA table_info(alpha_details)")}
+        for col, decl in (("sc_result", "TEXT"), ("sc_value", "REAL"),
+                          ("pc_result", "TEXT"), ("pc_value", "REAL"), ("checks_json", "TEXT")):
+            if col not in existing:
+                cursor.execute(f"ALTER TABLE alpha_details ADD COLUMN {col} {decl}")
+        if "alpha_sha" not in existing:
+            cursor.execute("ALTER TABLE alpha_details ADD COLUMN alpha_sha TEXT NOT NULL DEFAULT ''")
+        if "ra_failed" not in existing:
+            cursor.execute("ALTER TABLE alpha_details ADD COLUMN ra_failed INTEGER NOT NULL DEFAULT 0")
+        if "ppa_failed" not in existing:
+            cursor.execute("ALTER TABLE alpha_details ADD COLUMN ppa_failed INTEGER NOT NULL DEFAULT 0")
+        if "wf_stage" not in existing:
+            cursor.execute("ALTER TABLE alpha_details ADD COLUMN wf_stage TEXT NOT NULL DEFAULT 'pending_validation'")
+
+        simulation_result_columns = {r["name"] for r in cursor.execute("PRAGMA table_info(simulation_results)")}
+        if "alpha_sha" not in simulation_result_columns:
+            cursor.execute("ALTER TABLE simulation_results ADD COLUMN alpha_sha TEXT NOT NULL DEFAULT ''")
+        if "task_json" not in simulation_result_columns:
+            cursor.execute("ALTER TABLE simulation_results ADD COLUMN task_json TEXT NOT NULL DEFAULT '{}'")
+
+        simulation_batch_columns = {r["name"] for r in cursor.execute("PRAGMA table_info(simulation_batches)")}
+        if "simulation_type" not in simulation_batch_columns:
+            cursor.execute("ALTER TABLE simulation_batches ADD COLUMN simulation_type TEXT NOT NULL DEFAULT 'REGULAR'")
+
+        datafield_columns = {r["name"] for r in cursor.execute("PRAGMA table_info(datafields)")}
+        if "category" not in datafield_columns:
+            cursor.execute("ALTER TABLE datafields ADD COLUMN category TEXT NOT NULL DEFAULT ''")
+        if "date_coverage" not in datafield_columns:
+            cursor.execute("ALTER TABLE datafields ADD COLUMN date_coverage REAL DEFAULT 0.0")
+
+        template_lib_columns = {r["name"] for r in cursor.execute("PRAGMA table_info(template_library)")}
+        if "parent_template_id" not in template_lib_columns:
+            cursor.execute("ALTER TABLE template_library ADD COLUMN parent_template_id INTEGER")
+            if "parent_template" in template_lib_columns:
+                cursor.execute("""
+                    UPDATE template_library
+                    SET parent_template_id = (SELECT t2.id FROM template_library t2
+                                              WHERE t2.name = template_library.parent_template)
+                    WHERE parent_template != '' AND parent_template IS NOT NULL
+                """)
+        if "signal_constraints_json" not in template_lib_columns:
+            cursor.execute("ALTER TABLE template_library ADD COLUMN signal_constraints_json TEXT NOT NULL DEFAULT '[]'")
+
+        # 索引创建
+        cursor.execute("CREATE INDEX IF NOT EXISTS idx_expr_sha ON alpha_expressions(expression_sha)")
+        cursor.execute("CREATE INDEX IF NOT EXISTS idx_detail_sha ON alpha_details(expression_sha)")
+        cursor.execute("CREATE INDEX IF NOT EXISTS idx_detail_sharpe ON alpha_details(sharpe)")
+        cursor.execute("CREATE INDEX IF NOT EXISTS idx_detail_fitness ON alpha_details(fitness)")
+        cursor.execute("CREATE INDEX IF NOT EXISTS idx_detail_stage ON alpha_details(stage_platform)")
+        cursor.execute("CREATE INDEX IF NOT EXISTS idx_detail_wf_stage ON alpha_details(wf_stage)")
+        cursor.execute("CREATE INDEX IF NOT EXISTS idx_checks_alpha ON alpha_checks(alpha_id)")
+        cursor.execute("CREATE INDEX IF NOT EXISTS idx_checks_name ON alpha_checks(check_name)")
+        cursor.execute("CREATE INDEX IF NOT EXISTS idx_sim_batch_status ON simulation_batches(status)")
+        cursor.execute("CREATE INDEX IF NOT EXISTS idx_sim_result_batch ON simulation_results(batch_id)")
+        cursor.execute("CREATE INDEX IF NOT EXISTS idx_sim_result_alpha ON simulation_results(alpha_id)")
+        cursor.execute("CREATE INDEX IF NOT EXISTS idx_sim_result_alpha_sha ON simulation_results(alpha_sha)")
+        cursor.execute("CREATE INDEX IF NOT EXISTS idx_super_candidate_status ON super_alpha_candidates(status)")
+
+        cursor.execute("CREATE INDEX IF NOT EXISTS idx_opt_queue_alpha ON alpha_optimization_queue(alpha_id)")
+        cursor.execute("CREATE INDEX IF NOT EXISTS idx_opt_queue_status ON alpha_optimization_queue(status)")
+        cursor.execute("CREATE INDEX IF NOT EXISTS idx_opt_queue_priority ON alpha_optimization_queue(priority)")
+        cursor.execute("CREATE INDEX IF NOT EXISTS idx_sub_cand_alpha ON alpha_submission_candidates(alpha_id)")
+        cursor.execute("CREATE INDEX IF NOT EXISTS idx_sub_cand_submitted ON alpha_submission_candidates(is_submitted)")
+        cursor.execute("CREATE INDEX IF NOT EXISTS idx_sub_cand_sharpe ON alpha_submission_candidates(sharpe)")
+
+        cursor.execute("CREATE INDEX IF NOT EXISTS idx_datafields_region ON datafields(region)")
+        cursor.execute("CREATE INDEX IF NOT EXISTS idx_datafields_dataset ON datafields(dataset_id)")
+        cursor.execute("CREATE INDEX IF NOT EXISTS idx_datafields_type ON datafields(type)")
+        cursor.execute("CREATE INDEX IF NOT EXISTS idx_expr_batch ON alpha_expressions(batch_id)")
+        cursor.execute("CREATE INDEX IF NOT EXISTS idx_expr_status ON alpha_expressions(status)")
+
+        cursor.execute("CREATE INDEX IF NOT EXISTS idx_tpl_family ON template_library(family)")
+        cursor.execute("CREATE INDEX IF NOT EXISTS idx_tpl_active ON template_library(active)")
+
+        cursor.execute("CREATE INDEX IF NOT EXISTS idx_field_signal_hit ON field_signal_stats(region, round, hit_rate DESC)")
+        cursor.execute("CREATE INDEX IF NOT EXISTS idx_field_signal_field ON field_signal_stats(field_id, dataset_id)")
+
+        cursor.execute("CREATE INDEX IF NOT EXISTS idx_pair_signal_hit ON pair_signal_stats(region, round, hit_rate DESC)")
+        cursor.execute("CREATE INDEX IF NOT EXISTS idx_pair_signal_spec ON pair_signal_stats(pair_spec)")
+
         conn.commit()
+
+        # 幂等写入 4 族模板种子
+        self.seed_template_library()
+        cursor.close()
 
 
 __all__ = [

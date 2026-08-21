@@ -116,6 +116,7 @@ class QueueRepository(BaseRepository):
             (now, task["id"]),
         )
         conn.commit()
+        task["status"] = "optimizing"
         return task
 
     def update_optimization_status(self, task_id: int, status: str) -> None:

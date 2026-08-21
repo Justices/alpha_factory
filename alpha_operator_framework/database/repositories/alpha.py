@@ -185,20 +185,23 @@ class AlphaRepository(BaseRepository):
         batch_id: Optional[int] = None
     ) -> int:
         """批量登记 Task 到 alpha_expressions 表."""
-        count = 0
+        if not tasks:
+            return 0
         conn = self._get_connection()
+        count = 0
         try:
             for task in tasks:
-                t_fields = getattr(task, "fields", None) or []
-                t_origin = getattr(task, "origin", "") or ""
+                base_flds = getattr(task, "base_fields", None) or getattr(task, "fields", None) or []
+                meta_dict = getattr(task, "meta", None) or getattr(task, "metadata", None) or {}
+                t_origin = getattr(task, "expression_origin", "") or getattr(task, "origin", "") or stage
                 self.catalog_expression(
                     task.expression,
                     stage=stage,
                     family=getattr(task, "family", "unary"),
                     template_index=getattr(task, "template_index", -1),
-                    fields_per_alpha=len(t_fields),
-                    base_fields=t_fields,
-                    metadata=getattr(task, "metadata", None),
+                    fields_per_alpha=getattr(task, "fields_per_alpha", len(base_flds)),
+                    base_fields=list(base_flds),
+                    metadata=meta_dict,
                     expression_origin=t_origin,
                     batch_id=batch_id,
                     backtest_settings=backtest_settings,
@@ -421,6 +424,85 @@ class AlphaRepository(BaseRepository):
 
         return out
 
+    def sample_catalog_expressions(
+        self, expressions: List[str], *, limit: int = 80, seed: Optional[int] = 42,
+        distribution: str = "proportional", per_group: int = 0,
+        batch_ids: Optional[List[int]] = None,
+        base_fields_list: Optional[List[List[str]]] = None,
+        max_per_batch: int = 8,
+        max_per_batch_glb: int = 4,
+        is_glb: bool = False,
+        dedup_isomorphic: bool = True,
+    ) -> List[str]:
+        """分层抽样表达式 (按批次配额 ➔ 字段组 ➔ 同构折叠)."""
+        from alpha_operator_framework.domain.operators import extract_first_operator
+
+        if not expressions or limit <= 0:
+            return list(expressions)
+
+        rng = random.Random(seed)
+        batch_cap = max_per_batch_glb if is_glb else max_per_batch
+
+        if not batch_ids and not base_fields_list:
+            groups: Dict[str, List[str]] = {}
+            for expr in expressions:
+                groups.setdefault(extract_first_operator(expr), []).append(expr)
+            return self._sample_from_groups(groups, limit, distribution, per_group, rng, dedup_isomorphic)
+
+        expr_meta: Dict[str, Tuple[Optional[int], Tuple[str, ...]]] = {}
+        for i, expr in enumerate(expressions):
+            bid = batch_ids[i] if batch_ids and i < len(batch_ids) else None
+            fields = tuple(sorted(base_fields_list[i])) if base_fields_list and i < len(base_fields_list) else ()
+            expr_meta[expr] = (bid, fields)
+
+        return self._sample_by_batches_and_fields(
+            expressions, limit, distribution, rng, expr_meta, batch_cap,
+            dedup_isomorphic=dedup_isomorphic,
+        )
+
+    def _sample_from_groups(
+        self, groups: Dict[str, List[str]], limit: int,
+        distribution: str, per_group: int, rng: random.Random,
+        dedup_isomorphic: bool = True,
+    ) -> List[str]:
+        """从分组中抽样 (按第一算子退化分组)."""
+        sizes = {op: len(v) for op, v in groups.items()}
+        if distribution == "uniform":
+            per = max(1, limit // max(len(sizes), 1))
+            alloc = {op: min(per, sz) for op, sz in sizes.items()}
+        elif distribution == "per_group":
+            alloc = {op: min(max(per_group, 0), sz) for op, sz in sizes.items()}
+        else:
+            total = sum(sizes.values())
+            alloc = {op: (limit * sz) // total for op, sz in sizes.items()}
+            for op in alloc:
+                alloc[op] = min(alloc[op], sizes[op])
+            remaining = limit - sum(alloc.values())
+            for op in sorted(sizes, key=lambda o: (-sizes[o], o)):
+                if remaining <= 0:
+                    break
+                add = min(remaining, sizes[op] - alloc[op])
+                alloc[op] += add
+                remaining -= add
+
+        out: List[str] = []
+        for op in sorted(alloc):
+            pool = list(groups[op])
+            out.extend(self._pick_with_isomorphic_dedup(pool, alloc[op], rng, dedup_isomorphic))
+        if len(out) < limit:
+            rest = [e for e in groups.get("__all__", []) if e not in out]
+            rng.shuffle(rest)
+            chosen_fps = {_isomorphic_fingerprint(e) for e in out} if dedup_isomorphic else None
+            for e in rest:
+                if len(out) >= limit:
+                    break
+                if chosen_fps is not None and _isomorphic_fingerprint(e) in chosen_fps:
+                    continue
+                out.append(e)
+                if chosen_fps is not None:
+                    chosen_fps.add(_isomorphic_fingerprint(e))
+        return out
+
     @staticmethod
     def _pick_with_isomorphic_dedup(
         pool: List[str], limit: int, rng: random.Random, dedup: bool = True
@@ -439,6 +521,7 @@ class AlphaRepository(BaseRepository):
         unique = list(reps.values())
         rng.shuffle(unique)
         return unique[:limit]
+
 
     # ---------------------------------------------------------------------------
     # Alpha 详情与 18 Checks 操作

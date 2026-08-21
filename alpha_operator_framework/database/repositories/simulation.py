@@ -133,3 +133,35 @@ class SimulationRepository(BaseRepository):
             "SELECT * FROM simulation_results WHERE batch_id=? ORDER BY sequence_no", (batch_id,)
         ).fetchall()
         return [dict(row) for row in rows]
+
+    def upsert_backtest_record(self, *, region: str, universe: str, delay: int,
+                               dataset_id: str, strategy: str,
+                               expression_count: int = 0, backtest_count: int = 0) -> None:
+        """记录已回测数据集与策略组合."""
+        now = self._timestamp()
+        conn = self._get_connection()
+        conn.execute("""
+            INSERT INTO backtest_dataset_records
+                (region, universe, delay, dataset_id, strategy,
+                 expression_count, backtest_count, created_at, updated_at)
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
+            ON CONFLICT(region, universe, delay, dataset_id, strategy) DO UPDATE SET
+                expression_count = expression_count + excluded.expression_count,
+                backtest_count = backtest_count + excluded.backtest_count,
+                updated_at = excluded.updated_at
+        """, (region, universe, delay, dataset_id, strategy,
+              expression_count, backtest_count, now, now))
+        conn.commit()
+
+    def list_backtest_record_strategies(self, *, region: str, universe: str, delay: int,
+                                        dataset_id: str) -> List[str]:
+        """查询已回测策略列表."""
+        rows = self._get_connection().execute(
+            """SELECT strategy FROM backtest_dataset_records
+               WHERE region=? AND universe=? AND delay=? AND dataset_id=?""",
+            (region, universe, delay, dataset_id),
+        ).fetchall()
+        return [r["strategy"] for r in rows]
+
+    list_backtest_records = list_backtest_record_strategies
+

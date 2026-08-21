@@ -1,0 +1,1250 @@
+﻿[
+    {
+        "id":  "option_call_iv_level_0",
+        "description":  "Implied volatility value for call options at the 0th reference point.",
+        "dataset":  {
+                        "id":  "option_chart_model",
+                        "name":  "Option Chart Image Return Prediction"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-technical-models",
+                            "name":  "Technical Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "option_call_iv_level_1",
+        "description":  "Implied volatility value for call options at the 1st reference point.",
+        "dataset":  {
+                        "id":  "option_chart_model",
+                        "name":  "Option Chart Image Return Prediction"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-technical-models",
+                            "name":  "Technical Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "option_call_iv_level_10",
+        "description":  "Implied volatility value for call options at the 10th reference point.",
+        "dataset":  {
+                        "id":  "option_chart_model",
+                        "name":  "Option Chart Image Return Prediction"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-technical-models",
+                            "name":  "Technical Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "option_call_iv_level_11",
+        "description":  "Implied volatility value for call options at the 11th reference point.",
+        "dataset":  {
+                        "id":  "option_chart_model",
+                        "name":  "Option Chart Image Return Prediction"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-technical-models",
+                            "name":  "Technical Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "option_call_iv_level_12",
+        "description":  "Implied volatility value for call options at the 12th reference point.",
+        "dataset":  {
+                        "id":  "option_chart_model",
+                        "name":  "Option Chart Image Return Prediction"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-technical-models",
+                            "name":  "Technical Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "option_call_iv_level_2",
+        "description":  "Implied volatility value for call options at the 2nd reference point.",
+        "dataset":  {
+                        "id":  "option_chart_model",
+                        "name":  "Option Chart Image Return Prediction"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-technical-models",
+                            "name":  "Technical Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "option_call_iv_level_3",
+        "description":  "Implied volatility value for call options at the 3rd reference point.",
+        "dataset":  {
+                        "id":  "option_chart_model",
+                        "name":  "Option Chart Image Return Prediction"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-technical-models",
+                            "name":  "Technical Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "option_call_iv_level_4",
+        "description":  "Implied volatility value for call options at the 4th reference point.",
+        "dataset":  {
+                        "id":  "option_chart_model",
+                        "name":  "Option Chart Image Return Prediction"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-technical-models",
+                            "name":  "Technical Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "option_call_iv_level_5",
+        "description":  "Implied volatility value for call options at the 5th reference point.",
+        "dataset":  {
+                        "id":  "option_chart_model",
+                        "name":  "Option Chart Image Return Prediction"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-technical-models",
+                            "name":  "Technical Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "option_call_iv_level_6",
+        "description":  "Implied volatility value for call options at the 6th reference point.",
+        "dataset":  {
+                        "id":  "option_chart_model",
+                        "name":  "Option Chart Image Return Prediction"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-technical-models",
+                            "name":  "Technical Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "option_call_iv_level_7",
+        "description":  "Implied volatility value for call options at the 7th reference point.",
+        "dataset":  {
+                        "id":  "option_chart_model",
+                        "name":  "Option Chart Image Return Prediction"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-technical-models",
+                            "name":  "Technical Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "option_call_iv_level_8",
+        "description":  "Implied volatility value for call options at the 8th reference point.",
+        "dataset":  {
+                        "id":  "option_chart_model",
+                        "name":  "Option Chart Image Return Prediction"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-technical-models",
+                            "name":  "Technical Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "option_call_iv_level_9",
+        "description":  "Implied volatility value for call options at the 9th reference point.",
+        "dataset":  {
+                        "id":  "option_chart_model",
+                        "name":  "Option Chart Image Return Prediction"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-technical-models",
+                            "name":  "Technical Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "option_put_iv_level_0",
+        "description":  "Implied volatility value for put options at the 0th reference point.",
+        "dataset":  {
+                        "id":  "option_chart_model",
+                        "name":  "Option Chart Image Return Prediction"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-technical-models",
+                            "name":  "Technical Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "option_put_iv_level_1",
+        "description":  "Implied volatility value for put options at the 1st reference point.",
+        "dataset":  {
+                        "id":  "option_chart_model",
+                        "name":  "Option Chart Image Return Prediction"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-technical-models",
+                            "name":  "Technical Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "option_put_iv_level_10",
+        "description":  "Implied volatility value for put options at the 10th reference point.",
+        "dataset":  {
+                        "id":  "option_chart_model",
+                        "name":  "Option Chart Image Return Prediction"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-technical-models",
+                            "name":  "Technical Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "option_put_iv_level_11",
+        "description":  "Implied volatility value for put options at the 11th reference point.",
+        "dataset":  {
+                        "id":  "option_chart_model",
+                        "name":  "Option Chart Image Return Prediction"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-technical-models",
+                            "name":  "Technical Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "option_put_iv_level_12",
+        "description":  "Implied volatility value for put options at the 12th reference point.",
+        "dataset":  {
+                        "id":  "option_chart_model",
+                        "name":  "Option Chart Image Return Prediction"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-technical-models",
+                            "name":  "Technical Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "option_put_iv_level_2",
+        "description":  "Implied volatility value for put options at the 2nd reference point.",
+        "dataset":  {
+                        "id":  "option_chart_model",
+                        "name":  "Option Chart Image Return Prediction"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-technical-models",
+                            "name":  "Technical Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "option_put_iv_level_3",
+        "description":  "Implied volatility value for put options at the 3rd reference point.",
+        "dataset":  {
+                        "id":  "option_chart_model",
+                        "name":  "Option Chart Image Return Prediction"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-technical-models",
+                            "name":  "Technical Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "option_put_iv_level_4",
+        "description":  "Implied volatility value for put options at the 4th reference point.",
+        "dataset":  {
+                        "id":  "option_chart_model",
+                        "name":  "Option Chart Image Return Prediction"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-technical-models",
+                            "name":  "Technical Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "option_put_iv_level_5",
+        "description":  "Implied volatility value for put options at the 5th reference point.",
+        "dataset":  {
+                        "id":  "option_chart_model",
+                        "name":  "Option Chart Image Return Prediction"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-technical-models",
+                            "name":  "Technical Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "option_put_iv_level_6",
+        "description":  "Implied volatility value for put options at the 6th reference point.",
+        "dataset":  {
+                        "id":  "option_chart_model",
+                        "name":  "Option Chart Image Return Prediction"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-technical-models",
+                            "name":  "Technical Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "option_put_iv_level_7",
+        "description":  "Implied volatility value for put options at the 7th reference point.",
+        "dataset":  {
+                        "id":  "option_chart_model",
+                        "name":  "Option Chart Image Return Prediction"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-technical-models",
+                            "name":  "Technical Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "option_put_iv_level_8",
+        "description":  "Implied volatility value for put options at the 8th reference point.",
+        "dataset":  {
+                        "id":  "option_chart_model",
+                        "name":  "Option Chart Image Return Prediction"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-technical-models",
+                            "name":  "Technical Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "option_put_iv_level_9",
+        "description":  "Implied volatility value for put options at the 9th reference point.",
+        "dataset":  {
+                        "id":  "option_chart_model",
+                        "name":  "Option Chart Image Return Prediction"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-technical-models",
+                            "name":  "Technical Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "put_call_parity_metric_0",
+        "description":  "Put-call parity calculation at the 0th reference point.",
+        "dataset":  {
+                        "id":  "option_chart_model",
+                        "name":  "Option Chart Image Return Prediction"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-technical-models",
+                            "name":  "Technical Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "put_call_parity_metric_1",
+        "description":  "Put-call parity calculation at the 1st reference point.",
+        "dataset":  {
+                        "id":  "option_chart_model",
+                        "name":  "Option Chart Image Return Prediction"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-technical-models",
+                            "name":  "Technical Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "put_call_parity_metric_10",
+        "description":  "Put-call parity calculation at the 10th reference point.",
+        "dataset":  {
+                        "id":  "option_chart_model",
+                        "name":  "Option Chart Image Return Prediction"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-technical-models",
+                            "name":  "Technical Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "put_call_parity_metric_11",
+        "description":  "Put-call parity calculation at the 11th reference point.",
+        "dataset":  {
+                        "id":  "option_chart_model",
+                        "name":  "Option Chart Image Return Prediction"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-technical-models",
+                            "name":  "Technical Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "put_call_parity_metric_12",
+        "description":  "Put-call parity calculation at the 12th reference point.",
+        "dataset":  {
+                        "id":  "option_chart_model",
+                        "name":  "Option Chart Image Return Prediction"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-technical-models",
+                            "name":  "Technical Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "put_call_parity_metric_2",
+        "description":  "Put-call parity calculation at the 2nd reference point.",
+        "dataset":  {
+                        "id":  "option_chart_model",
+                        "name":  "Option Chart Image Return Prediction"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-technical-models",
+                            "name":  "Technical Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "put_call_parity_metric_3",
+        "description":  "Put-call parity calculation at the 3rd reference point.",
+        "dataset":  {
+                        "id":  "option_chart_model",
+                        "name":  "Option Chart Image Return Prediction"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-technical-models",
+                            "name":  "Technical Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "put_call_parity_metric_4",
+        "description":  "Put-call parity calculation at the 4th reference point.",
+        "dataset":  {
+                        "id":  "option_chart_model",
+                        "name":  "Option Chart Image Return Prediction"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-technical-models",
+                            "name":  "Technical Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "put_call_parity_metric_5",
+        "description":  "Put-call parity calculation at the 5th reference point.",
+        "dataset":  {
+                        "id":  "option_chart_model",
+                        "name":  "Option Chart Image Return Prediction"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-technical-models",
+                            "name":  "Technical Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "put_call_parity_metric_6",
+        "description":  "Put-call parity calculation at the 6th reference point.",
+        "dataset":  {
+                        "id":  "option_chart_model",
+                        "name":  "Option Chart Image Return Prediction"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-technical-models",
+                            "name":  "Technical Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "put_call_parity_metric_7",
+        "description":  "Put-call parity calculation at the 7th reference point.",
+        "dataset":  {
+                        "id":  "option_chart_model",
+                        "name":  "Option Chart Image Return Prediction"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-technical-models",
+                            "name":  "Technical Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "put_call_parity_metric_8",
+        "description":  "Put-call parity calculation at the 8th reference point.",
+        "dataset":  {
+                        "id":  "option_chart_model",
+                        "name":  "Option Chart Image Return Prediction"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-technical-models",
+                            "name":  "Technical Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "put_call_parity_metric_9",
+        "description":  "Put-call parity calculation at the 9th reference point.",
+        "dataset":  {
+                        "id":  "option_chart_model",
+                        "name":  "Option Chart Image Return Prediction"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-technical-models",
+                            "name":  "Technical Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    }
+]

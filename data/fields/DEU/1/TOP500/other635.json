@@ -1,0 +1,98 @@
+﻿[
+    {
+        "id":  "oth635_char_count",
+        "description":  "Count of Unicode characters in decode_title, including whitespace",
+        "dataset":  {
+                        "id":  "other635",
+                        "name":  "Thomson Reuters News Analytics Equities"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-employee-data",
+                            "name":  "Employee Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "oth635_sentiment",
+        "description":  "Neural-derived sentiment score for the event/title in [-1, 1] (negative to positive, 0 neutral)",
+        "dataset":  {
+                        "id":  "other635",
+                        "name":  "Thomson Reuters News Analytics Equities"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-employee-data",
+                            "name":  "Employee Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "oth635_words_count",
+        "description":  "Number of tokens/words in the normalized title (purify_title), whitespace-separated",
+        "dataset":  {
+                        "id":  "other635",
+                        "name":  "Thomson Reuters News Analytics Equities"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-employee-data",
+                            "name":  "Employee Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    }
+]

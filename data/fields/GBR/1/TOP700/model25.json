@@ -1,0 +1,3106 @@
+﻿[
+    {
+        "id":  "accruals_component_raw_score",
+        "description":  "Raw percentile score for accruals component before normalization.",
+        "dataset":  {
+                        "id":  "model25",
+                        "name":  "Earnings Quality"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-revisions-models",
+                            "name":  "Revisions Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.6361,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "earnings_quality_raw_score",
+        "description":  "Raw region-relative percentile ranking before normalization for earnings quality.",
+        "dataset":  {
+                        "id":  "model25",
+                        "name":  "Earnings Quality"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-revisions-models",
+                            "name":  "Revisions Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.6191,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "exclusions_component_percentile",
+        "description":  "Percentile score for exclusions-based factors in the earnings quality model.",
+        "dataset":  {
+                        "id":  "model25",
+                        "name":  "Earnings Quality"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-revisions-models",
+                            "name":  "Revisions Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.6417,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "global_momentum_percentile",
+        "description":  "Global percentile ranking for price momentum score.",
+        "dataset":  {
+                        "id":  "model25",
+                        "name":  "Earnings Quality"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-revisions-models",
+                            "name":  "Revisions Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  1,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "industry_momentum_percentile_2",
+        "description":  "Percentile score for price momentum relative to industry peers.",
+        "dataset":  {
+                        "id":  "model25",
+                        "name":  "Earnings Quality"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-revisions-models",
+                            "name":  "Revisions Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  1,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "long_term_momentum_percentile",
+        "description":  "Percentile score for long-term price momentum.",
+        "dataset":  {
+                        "id":  "model25",
+                        "name":  "Earnings Quality"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-revisions-models",
+                            "name":  "Revisions Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  1,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl25_eq_cb_v4_2_1_v10",
+        "description":  "Average Traded Volume",
+        "dataset":  {
+                        "id":  "model25",
+                        "name":  "Earnings Quality"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-revisions-models",
+                            "name":  "Revisions Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.6618,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl25_eq_cb_v4_2_1_v11",
+        "description":  "Average Traded Volume (Local Currency)",
+        "dataset":  {
+                        "id":  "model25",
+                        "name":  "Earnings Quality"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-revisions-models",
+                            "name":  "Revisions Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.6618,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl25_eq_cb_v4_2_1_v12",
+        "description":  "Average Traded Volume (USD)",
+        "dataset":  {
+                        "id":  "model25",
+                        "name":  "Earnings Quality"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-revisions-models",
+                            "name":  "Revisions Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.6618,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl25_eq_cb_v4_2_1_v20",
+        "description":  "Data-Through Date (Fundamental) Current",
+        "dataset":  {
+                        "id":  "model25",
+                        "name":  "Earnings Quality"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-revisions-models",
+                            "name":  "Revisions Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.6616,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl25_eq_cb_v4_2_1_v6",
+        "description":  "Market Cap (Local Currency)",
+        "dataset":  {
+                        "id":  "model25",
+                        "name":  "Earnings Quality"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-revisions-models",
+                            "name":  "Revisions Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.6583,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl25_eq_cb_v4_2_1_v7",
+        "description":  "Market Cap (USD)",
+        "dataset":  {
+                        "id":  "model25",
+                        "name":  "Earnings Quality"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-revisions-models",
+                            "name":  "Revisions Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.6583,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl25_eq_cb_v4_2_1_v8",
+        "description":  "52-week High Price",
+        "dataset":  {
+                        "id":  "model25",
+                        "name":  "Earnings Quality"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-revisions-models",
+                            "name":  "Revisions Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.6618,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl25_eq_cb_v4_2_1_v9",
+        "description":  "52-week Low Price",
+        "dataset":  {
+                        "id":  "model25",
+                        "name":  "Earnings Quality"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-revisions-models",
+                            "name":  "Revisions Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.6618,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl25_eq_is_v4_2_1_v11",
+        "description":  "Average EBITDA growth over the past five years",
+        "dataset":  {
+                        "id":  "model25",
+                        "name":  "Earnings Quality"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-revisions-models",
+                            "name":  "Revisions Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.5802,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl25_eq_is_v4_2_1_v12",
+        "description":  "Deviation from the 5-year average EBITDA growth",
+        "dataset":  {
+                        "id":  "model25",
+                        "name":  "Earnings Quality"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-revisions-models",
+                            "name":  "Revisions Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.579,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl25_eq_is_v4_2_1_v29",
+        "description":  "Average EPS growth over the past five years",
+        "dataset":  {
+                        "id":  "model25",
+                        "name":  "Earnings Quality"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-revisions-models",
+                            "name":  "Revisions Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.5269,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl25_eq_is_v4_2_1_v30",
+        "description":  "Deviation from the 5-year average EPS growth",
+        "dataset":  {
+                        "id":  "model25",
+                        "name":  "Earnings Quality"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-revisions-models",
+                            "name":  "Revisions Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.5262,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl25_eq_is_v4_2_1_v51",
+        "description":  "Pension Expense - Last Year",
+        "dataset":  {
+                        "id":  "model25",
+                        "name":  "Earnings Quality"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-revisions-models",
+                            "name":  "Revisions Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.4596,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl25_eq_is_v4_2_1_v7",
+        "description":  "Average revenue growth over the past five years",
+        "dataset":  {
+                        "id":  "model25",
+                        "name":  "Earnings Quality"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-revisions-models",
+                            "name":  "Revisions Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.6119,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl25_eq_is_v4_2_1_v8",
+        "description":  "Deviation from the 5-year average revenue growth",
+        "dataset":  {
+                        "id":  "model25",
+                        "name":  "Earnings Quality"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-revisions-models",
+                            "name":  "Revisions Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.6103,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl25_eq_pc_v4_2_1_v10",
+        "description":  "Change Relative to Industry Benchmark (%)",
+        "dataset":  {
+                        "id":  "model25",
+                        "name":  "Earnings Quality"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-revisions-models",
+                            "name":  "Revisions Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.6598,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl25_eq_pc_v4_2_1_v11",
+        "description":  "Change Relative to Country Benchmark (%)",
+        "dataset":  {
+                        "id":  "model25",
+                        "name":  "Earnings Quality"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-revisions-models",
+                            "name":  "Revisions Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.6598,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl25_eq_pc_v4_2_1_v12",
+        "description":  "Change Relative to ASX 100 (%)",
+        "dataset":  {
+                        "id":  "model25",
+                        "name":  "Earnings Quality"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-revisions-models",
+                            "name":  "Revisions Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.6617,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl25_eq_pc_v4_2_1_v13",
+        "description":  "Change Relative to ASX 200 (%)",
+        "dataset":  {
+                        "id":  "model25",
+                        "name":  "Earnings Quality"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-revisions-models",
+                            "name":  "Revisions Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.6617,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl25_eq_pc_v4_2_1_v14",
+        "description":  "Change Relative to ASX 300 (%)",
+        "dataset":  {
+                        "id":  "model25",
+                        "name":  "Earnings Quality"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-revisions-models",
+                            "name":  "Revisions Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.6617,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl25_eq_pc_v4_2_1_v15",
+        "description":  "Change Relative to ASX All Ord (%)",
+        "dataset":  {
+                        "id":  "model25",
+                        "name":  "Earnings Quality"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-revisions-models",
+                            "name":  "Revisions Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.6617,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl25_eq_pc_v4_2_1_v16",
+        "description":  "Change Relative to CAC 40 (%)",
+        "dataset":  {
+                        "id":  "model25",
+                        "name":  "Earnings Quality"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-revisions-models",
+                            "name":  "Revisions Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.6617,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl25_eq_pc_v4_2_1_v17",
+        "description":  "Change Relative to DJ STOXX 600 (%)",
+        "dataset":  {
+                        "id":  "model25",
+                        "name":  "Earnings Quality"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-revisions-models",
+                            "name":  "Revisions Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.6617,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl25_eq_pc_v4_2_1_v18",
+        "description":  "Change Relative to FTSE 100 (%)",
+        "dataset":  {
+                        "id":  "model25",
+                        "name":  "Earnings Quality"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-revisions-models",
+                            "name":  "Revisions Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.6617,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl25_eq_pc_v4_2_1_v19",
+        "description":  "Change Relative to Hang Seng (%)",
+        "dataset":  {
+                        "id":  "model25",
+                        "name":  "Earnings Quality"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-revisions-models",
+                            "name":  "Revisions Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.6617,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl25_eq_pc_v4_2_1_v20",
+        "description":  "Change Relative to JSE All Share (%)",
+        "dataset":  {
+                        "id":  "model25",
+                        "name":  "Earnings Quality"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-revisions-models",
+                            "name":  "Revisions Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.6617,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl25_eq_pc_v4_2_1_v21",
+        "description":  "Change Relative to MSCI EAFE (%)",
+        "dataset":  {
+                        "id":  "model25",
+                        "name":  "Earnings Quality"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-revisions-models",
+                            "name":  "Revisions Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.6617,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl25_eq_pc_v4_2_1_v22",
+        "description":  "Change Relative to MSCI EMF (%)",
+        "dataset":  {
+                        "id":  "model25",
+                        "name":  "Earnings Quality"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-revisions-models",
+                            "name":  "Revisions Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.6617,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl25_eq_pc_v4_2_1_v23",
+        "description":  "Change Relative to MSCI Europe (%)",
+        "dataset":  {
+                        "id":  "model25",
+                        "name":  "Earnings Quality"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-revisions-models",
+                            "name":  "Revisions Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.6617,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl25_eq_pc_v4_2_1_v24",
+        "description":  "Change Relative to MSCI Pac ex JP (%)",
+        "dataset":  {
+                        "id":  "model25",
+                        "name":  "Earnings Quality"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-revisions-models",
+                            "name":  "Revisions Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.6617,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl25_eq_pc_v4_2_1_v25",
+        "description":  "Change Relative to MSCI World (%)",
+        "dataset":  {
+                        "id":  "model25",
+                        "name":  "Earnings Quality"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-revisions-models",
+                            "name":  "Revisions Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.6617,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl25_eq_pc_v4_2_1_v26",
+        "description":  "Change Relative to R1000 Growth (%)",
+        "dataset":  {
+                        "id":  "model25",
+                        "name":  "Earnings Quality"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-revisions-models",
+                            "name":  "Revisions Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.6617,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl25_eq_pc_v4_2_1_v27",
+        "description":  "Change Relative to R1000 Value (%)",
+        "dataset":  {
+                        "id":  "model25",
+                        "name":  "Earnings Quality"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-revisions-models",
+                            "name":  "Revisions Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.6617,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl25_eq_pc_v4_2_1_v28",
+        "description":  "Change Relative to Russell 1000 (%)",
+        "dataset":  {
+                        "id":  "model25",
+                        "name":  "Earnings Quality"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-revisions-models",
+                            "name":  "Revisions Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.6617,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl25_eq_pc_v4_2_1_v29",
+        "description":  "Change Relative to Russell 2000 (%)",
+        "dataset":  {
+                        "id":  "model25",
+                        "name":  "Earnings Quality"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-revisions-models",
+                            "name":  "Revisions Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.6617,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl25_eq_pc_v4_2_1_v30",
+        "description":  "Change Relative to Russell Midcap (%)",
+        "dataset":  {
+                        "id":  "model25",
+                        "name":  "Earnings Quality"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-revisions-models",
+                            "name":  "Revisions Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.6617,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl25_eq_pc_v4_2_1_v31",
+        "description":  "Change Relative to S\u0026P 400 (%)",
+        "dataset":  {
+                        "id":  "model25",
+                        "name":  "Earnings Quality"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-revisions-models",
+                            "name":  "Revisions Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.6617,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl25_eq_pc_v4_2_1_v32",
+        "description":  "Change Relative to S\u0026P 500 (%)",
+        "dataset":  {
+                        "id":  "model25",
+                        "name":  "Earnings Quality"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-revisions-models",
+                            "name":  "Revisions Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.6617,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl25_eq_pc_v4_2_1_v33",
+        "description":  "Change Relative to S\u0026P 600 (%)",
+        "dataset":  {
+                        "id":  "model25",
+                        "name":  "Earnings Quality"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-revisions-models",
+                            "name":  "Revisions Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.6617,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl25_eq_pc_v4_2_1_v34",
+        "description":  "Change Relative to TOPIX (%)",
+        "dataset":  {
+                        "id":  "model25",
+                        "name":  "Earnings Quality"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-revisions-models",
+                            "name":  "Revisions Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.6617,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl25_eq_pc_v4_2_1_v35",
+        "description":  "Change Relative to TSX Composite (%)",
+        "dataset":  {
+                        "id":  "model25",
+                        "name":  "Earnings Quality"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-revisions-models",
+                            "name":  "Revisions Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.6617,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl25_eq_pc_v4_2_1_v5",
+        "description":  "Price Change (%)",
+        "dataset":  {
+                        "id":  "model25",
+                        "name":  "Earnings Quality"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-revisions-models",
+                            "name":  "Revisions Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.6617,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl25_eq_pc_v4_2_1_v6",
+        "description":  "Change from 52-week High Price (ratio)",
+        "dataset":  {
+                        "id":  "model25",
+                        "name":  "Earnings Quality"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-revisions-models",
+                            "name":  "Revisions Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.6618,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl25_eq_pc_v4_2_1_v7",
+        "description":  "Change from 52-week Low Price (ratio)",
+        "dataset":  {
+                        "id":  "model25",
+                        "name":  "Earnings Quality"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-revisions-models",
+                            "name":  "Revisions Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.6618,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl25_eq_pc_v4_2_1_v8",
+        "description":  "Diff from 50-day Moving Average (%)",
+        "dataset":  {
+                        "id":  "model25",
+                        "name":  "Earnings Quality"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-revisions-models",
+                            "name":  "Revisions Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.6618,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl25_eq_pc_v4_2_1_v9",
+        "description":  "Diff from 200-day Moving Average (%)",
+        "dataset":  {
+                        "id":  "model25",
+                        "name":  "Earnings Quality"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-revisions-models",
+                            "name":  "Revisions Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.6618,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl25_eq_ro_v4_2_1_v17",
+        "description":  "Adjusted net operating asset turnover for the last fiscal year",
+        "dataset":  {
+                        "id":  "model25",
+                        "name":  "Earnings Quality"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-revisions-models",
+                            "name":  "Revisions Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.6443,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl25_eq_ro_v4_2_1_v18",
+        "description":  "Year-over-year change in adjusted net operating asset turnover",
+        "dataset":  {
+                        "id":  "model25",
+                        "name":  "Earnings Quality"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-revisions-models",
+                            "name":  "Revisions Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.6395,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl25_eq_ro_v4_2_1_v21",
+        "description":  "Return on adjusted net operating assets percentage for the last fiscal year",
+        "dataset":  {
+                        "id":  "model25",
+                        "name":  "Earnings Quality"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-revisions-models",
+                            "name":  "Revisions Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.6336,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl25_eq_ro_v4_2_1_v22",
+        "description":  "Year-over-year change in return on adjusted net operating assets percentage",
+        "dataset":  {
+                        "id":  "model25",
+                        "name":  "Earnings Quality"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-revisions-models",
+                            "name":  "Revisions Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.6267,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl25_eq_rp_v4_2_1_v13",
+        "description":  "Average Historical Operating Margin 5-Year",
+        "dataset":  {
+                        "id":  "model25",
+                        "name":  "Earnings Quality"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-revisions-models",
+                            "name":  "Revisions Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.625,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl25_eq_rp_v4_2_1_v14",
+        "description":  "Diff from Average Hist Operating Margin 5-Year",
+        "dataset":  {
+                        "id":  "model25",
+                        "name":  "Earnings Quality"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-revisions-models",
+                            "name":  "Revisions Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.6226,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl25_eq_rp_v4_2_1_v7",
+        "description":  "Average Historical Gross Margin - 5-Year",
+        "dataset":  {
+                        "id":  "model25",
+                        "name":  "Earnings Quality"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-revisions-models",
+                            "name":  "Revisions Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.5375,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl25_eq_rp_v4_2_1_v8",
+        "description":  "Diff from Average Hist Gross Margin - 5-Year",
+        "dataset":  {
+                        "id":  "model25",
+                        "name":  "Earnings Quality"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-revisions-models",
+                            "name":  "Revisions Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.5283,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl25_eq_v4_2_1_v10",
+        "description":  "Earnings Quality by Accruals - Period End Date",
+        "dataset":  {
+                        "id":  "model25",
+                        "name":  "Earnings Quality"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-revisions-models",
+                            "name":  "Revisions Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.6427,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl25_eq_v4_2_1_v12",
+        "description":  "Earnings Quality by Cash Flow",
+        "dataset":  {
+                        "id":  "model25",
+                        "name":  "Earnings Quality"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-revisions-models",
+                            "name":  "Revisions Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.6191,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl25_eq_v4_2_1_v13",
+        "description":  "Earnings Quality by Cash Flow - 1 Day Difference",
+        "dataset":  {
+                        "id":  "model25",
+                        "name":  "Earnings Quality"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-revisions-models",
+                            "name":  "Revisions Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.6189,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl25_eq_v4_2_1_v14",
+        "description":  "Earnings Quality by Cash Flow - Period End Date",
+        "dataset":  {
+                        "id":  "model25",
+                        "name":  "Earnings Quality"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-revisions-models",
+                            "name":  "Revisions Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.627,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl25_eq_v4_2_1_v16",
+        "description":  "Earnings Quality by Operating Efficiency",
+        "dataset":  {
+                        "id":  "model25",
+                        "name":  "Earnings Quality"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-revisions-models",
+                            "name":  "Revisions Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.6361,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl25_eq_v4_2_1_v17",
+        "description":  "Earnings Quality by Operating Efficiency - 1 Day Difference",
+        "dataset":  {
+                        "id":  "model25",
+                        "name":  "Earnings Quality"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-revisions-models",
+                            "name":  "Revisions Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.636,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl25_eq_v4_2_1_v18",
+        "description":  "Earnings Quality by Operating Efficiency - Period End Date",
+        "dataset":  {
+                        "id":  "model25",
+                        "name":  "Earnings Quality"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-revisions-models",
+                            "name":  "Revisions Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.6373,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl25_eq_v4_2_1_v22",
+        "description":  "Raw Earnings Quality",
+        "dataset":  {
+                        "id":  "model25",
+                        "name":  "Earnings Quality"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-revisions-models",
+                            "name":  "Revisions Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.6414,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl25_eq_v4_2_1_v6",
+        "description":  "Earnings Quality Region Rank",
+        "dataset":  {
+                        "id":  "model25",
+                        "name":  "Earnings Quality"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-revisions-models",
+                            "name":  "Revisions Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.6414,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl25_eq_v4_2_1_v7",
+        "description":  "Earnings Quality Region Rank - 1 Day Difference",
+        "dataset":  {
+                        "id":  "model25",
+                        "name":  "Earnings Quality"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-revisions-models",
+                            "name":  "Revisions Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.6413,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl25_eq_v4_2_1_v8",
+        "description":  "Earnings Quality by Accruals",
+        "dataset":  {
+                        "id":  "model25",
+                        "name":  "Earnings Quality"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-revisions-models",
+                            "name":  "Revisions Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.6417,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl25_eq_v4_2_1_v9",
+        "description":  "Earnings Quality by Accruals - 1 Day Difference",
+        "dataset":  {
+                        "id":  "model25",
+                        "name":  "Earnings Quality"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-revisions-models",
+                            "name":  "Revisions Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.6417,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl25_eq_vr_v4_2_1_v10",
+        "description":  "Year-over-year percent change in price-to-sales ratio",
+        "dataset":  {
+                        "id":  "model25",
+                        "name":  "Earnings Quality"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-revisions-models",
+                            "name":  "Revisions Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.5976,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl25_eq_vr_v4_2_1_v11",
+        "description":  "Price-to-cash-from-operations ratio",
+        "dataset":  {
+                        "id":  "model25",
+                        "name":  "Earnings Quality"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-revisions-models",
+                            "name":  "Revisions Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.5837,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl25_eq_vr_v4_2_1_v12",
+        "description":  "Price-to-free-cash-flow ratio",
+        "dataset":  {
+                        "id":  "model25",
+                        "name":  "Earnings Quality"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-revisions-models",
+                            "name":  "Revisions Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.5364,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl25_eq_vr_v4_2_1_v13",
+        "description":  "Enterprise Value (EV)",
+        "dataset":  {
+                        "id":  "model25",
+                        "name":  "Earnings Quality"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-revisions-models",
+                            "name":  "Revisions Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.6413,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl25_eq_vr_v4_2_1_v14",
+        "description":  "Enterprise value to EBITDA ratio (EV/EBITDA)",
+        "dataset":  {
+                        "id":  "model25",
+                        "name":  "Earnings Quality"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-revisions-models",
+                            "name":  "Revisions Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.6036,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl25_eq_vr_v4_2_1_v16",
+        "description":  "Enterprise value to sales ratio (EV/Sales)",
+        "dataset":  {
+                        "id":  "model25",
+                        "name":  "Earnings Quality"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-revisions-models",
+                            "name":  "Revisions Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.6335,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl25_eq_vr_v4_2_1_v17",
+        "description":  "Free cash flow yield (FCF divided by market cap), percent",
+        "dataset":  {
+                        "id":  "model25",
+                        "name":  "Earnings Quality"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-revisions-models",
+                            "name":  "Revisions Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.6335,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl25_eq_vr_v4_2_1_v18",
+        "description":  "Free cash flow to enterprise value (FCF/EV), percent",
+        "dataset":  {
+                        "id":  "model25",
+                        "name":  "Earnings Quality"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-revisions-models",
+                            "name":  "Revisions Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.62,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl25_eq_vr_v4_2_1_v19",
+        "description":  "Cash from operations to enterprise value (CFO/EV), percent",
+        "dataset":  {
+                        "id":  "model25",
+                        "name":  "Earnings Quality"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-revisions-models",
+                            "name":  "Revisions Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.6215,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl25_eq_vr_v4_2_1_v5",
+        "description":  "Price-to-book ratio (market price per share divided by book value per share)",
+        "dataset":  {
+                        "id":  "model25",
+                        "name":  "Earnings Quality"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-revisions-models",
+                            "name":  "Revisions Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.6318,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl25_eq_vr_v4_2_1_v8",
+        "description":  "Price-to-sales ratio",
+        "dataset":  {
+                        "id":  "model25",
+                        "name":  "Earnings Quality"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-revisions-models",
+                            "name":  "Revisions Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.6342,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl25_eq_vr_v4_2_1_v9",
+        "description":  "Year-over-year absolute change in price-to-sales ratio",
+        "dataset":  {
+                        "id":  "model25",
+                        "name":  "Earnings Quality"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-revisions-models",
+                            "name":  "Revisions Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.5976,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mid_term_momentum_percentile",
+        "description":  "Percentile score for mid-term price momentum.",
+        "dataset":  {
+                        "id":  "model25",
+                        "name":  "Earnings Quality"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-revisions-models",
+                            "name":  "Revisions Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  1,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "operating_efficiency_component_percentile",
+        "description":  "Percentile score for operating efficiency factors in the earnings quality model.",
+        "dataset":  {
+                        "id":  "model25",
+                        "name":  "Earnings Quality"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-revisions-models",
+                            "name":  "Revisions Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.6414,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "operating_efficiency_component_raw_score",
+        "description":  "Raw percentile score for operating efficiency component before normalization.",
+        "dataset":  {
+                        "id":  "model25",
+                        "name":  "Earnings Quality"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-revisions-models",
+                            "name":  "Revisions Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.6414,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "regional_momentum_percentile",
+        "description":  "Percentile score for price momentum relative to region.",
+        "dataset":  {
+                        "id":  "model25",
+                        "name":  "Earnings Quality"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-revisions-models",
+                            "name":  "Revisions Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  1,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "short_term_momentum_percentile",
+        "description":  "Percentile score for short-term price momentum.",
+        "dataset":  {
+                        "id":  "model25",
+                        "name":  "Earnings Quality"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-revisions-models",
+                            "name":  "Revisions Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  1,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "value_momentum_global_percentile",
+        "description":  "Global percentile ranking for value-momentum score.",
+        "dataset":  {
+                        "id":  "model25",
+                        "name":  "Earnings Quality"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-revisions-models",
+                            "name":  "Revisions Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  1,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "value_momentum_global_rank_float",
+        "description":  "Global value-momentum percentile score as a floating-point value.",
+        "dataset":  {
+                        "id":  "model25",
+                        "name":  "Earnings Quality"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-revisions-models",
+                            "name":  "Revisions Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.6092,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "value_momentum_industry_percentile",
+        "description":  "Industry-relative percentile ranking for value-momentum score.",
+        "dataset":  {
+                        "id":  "model25",
+                        "name":  "Earnings Quality"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-revisions-models",
+                            "name":  "Revisions Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  1,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "value_momentum_industry_rank_float",
+        "description":  "Industry-relative value-momentum percentile score as a floating-point value.",
+        "dataset":  {
+                        "id":  "model25",
+                        "name":  "Earnings Quality"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-revisions-models",
+                            "name":  "Revisions Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.5983,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "value_momentum_region_percentile",
+        "description":  "Region-relative percentile ranking for value-momentum score.",
+        "dataset":  {
+                        "id":  "model25",
+                        "name":  "Earnings Quality"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-revisions-models",
+                            "name":  "Revisions Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  1,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "value_momentum_region_rank_float",
+        "description":  "Region-relative value-momentum percentile score as a floating-point value.",
+        "dataset":  {
+                        "id":  "model25",
+                        "name":  "Earnings Quality"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-revisions-models",
+                            "name":  "Revisions Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.6092,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "value_momentum_sector_percentile",
+        "description":  "Sector-relative percentile ranking for value-momentum score.",
+        "dataset":  {
+                        "id":  "model25",
+                        "name":  "Earnings Quality"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-revisions-models",
+                            "name":  "Revisions Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  1,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "value_momentum_sector_rank_float",
+        "description":  "Sector-relative value-momentum percentile score as a floating-point value.",
+        "dataset":  {
+                        "id":  "model25",
+                        "name":  "Earnings Quality"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-revisions-models",
+                            "name":  "Revisions Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.6091,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    }
+]

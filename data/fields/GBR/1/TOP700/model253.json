@@ -1,0 +1,66 @@
+﻿[
+    {
+        "id":  "mdl253_mktcap",
+        "description":  "Market capitalization of the company in its local currency as of the observation date",
+        "dataset":  {
+                        "id":  "model253",
+                        "name":  "Event based sentiment and behavioral factors model"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-nlp-models",
+                            "name":  "NLP Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl253_nice",
+        "description":  "The core NICE model score, a normalized event-based sentiment signal for the company on the observation date, derived from NLP of news and social media",
+        "dataset":  {
+                        "id":  "model253",
+                        "name":  "Event based sentiment and behavioral factors model"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-nlp-models",
+                            "name":  "NLP Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    }
+]

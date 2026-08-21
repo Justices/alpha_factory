@@ -1,0 +1,98 @@
+﻿[
+    {
+        "id":  "snt7_all_languages_views",
+        "description":  "Number of views for the company’s Wikipedia page",
+        "dataset":  {
+                        "id":  "sentiment7",
+                        "name":  "Webpage Views  Data"
+                    },
+        "category":  {
+                         "id":  "sentiment",
+                         "name":  "Sentiment"
+                     },
+        "subcategory":  {
+                            "id":  "sentiment-sentiment",
+                            "name":  "Sentiment"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0.5819,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "snt7_timestamp",
+        "description":  "Content date for which the data were recorded (YYYYMMDD)",
+        "dataset":  {
+                        "id":  "sentiment7",
+                        "name":  "Webpage Views  Data"
+                    },
+        "category":  {
+                         "id":  "sentiment",
+                         "name":  "Sentiment"
+                     },
+        "subcategory":  {
+                            "id":  "sentiment-sentiment",
+                            "name":  "Sentiment"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0.5766,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "snt7_views",
+        "description":  "Daily Wikipedia page view count for the specified project and access type",
+        "dataset":  {
+                        "id":  "sentiment7",
+                        "name":  "Webpage Views  Data"
+                    },
+        "category":  {
+                         "id":  "sentiment",
+                         "name":  "Sentiment"
+                     },
+        "subcategory":  {
+                            "id":  "sentiment-sentiment",
+                            "name":  "Sentiment"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0.5766,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    }
+]

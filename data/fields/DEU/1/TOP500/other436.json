@@ -1,0 +1,98 @@
+﻿[
+    {
+        "id":  "oth436_disc",
+        "description":  "Model output: predicted probability (between 0 and 1) that the company will cut, suspend, or terminate its dividend",
+        "dataset":  {
+                        "id":  "other436",
+                        "name":  "Dividend model"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-analyst-models",
+                            "name":  "Analyst Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "oth436_divyld",
+        "description":  "Dividend yield for the company (likely annualized, may be trailing or forward; only available for updates)",
+        "dataset":  {
+                        "id":  "other436",
+                        "name":  "Dividend model"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-analyst-models",
+                            "name":  "Analyst Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  0.3751,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "oth436_mktcap",
+        "description":  "Market capitalization of the company (likely in USD or local currency, not explicitly defined)",
+        "dataset":  {
+                        "id":  "other436",
+                        "name":  "Dividend model"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-analyst-models",
+                            "name":  "Analyst Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    }
+]

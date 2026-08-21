@@ -1,0 +1,2242 @@
+﻿[
+    {
+        "id":  "analyst_recommendation_change",
+        "description":  "A ternary score (-1, 0, 1) representing an analyst recommendation change (downgrade, neutral, upgrade). This is an alias for ANL_CHG.",
+        "dataset":  {
+                        "id":  "news18",
+                        "name":  "Ravenpack News Data"
+                    },
+        "category":  {
+                         "id":  "news",
+                         "name":  "News"
+                     },
+        "subcategory":  {
+                            "id":  "news-news-sentiment",
+                            "name":  "News Sentiment"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0.7415,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "company_event_summary",
+        "description":  "A brief summary of the event as it pertains to the company.",
+        "dataset":  {
+                        "id":  "news18",
+                        "name":  "Ravenpack News Data"
+                    },
+        "category":  {
+                         "id":  "news",
+                         "name":  "News"
+                     },
+        "subcategory":  {
+                            "id":  "news-news-sentiment",
+                            "name":  "News Sentiment"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0.7149,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "company_story_headline",
+        "description":  "The headline text of the news story related to the company.",
+        "dataset":  {
+                        "id":  "news18",
+                        "name":  "Ravenpack News Data"
+                    },
+        "category":  {
+                         "id":  "news",
+                         "name":  "News"
+                     },
+        "subcategory":  {
+                            "id":  "news-news-sentiment",
+                            "name":  "News Sentiment"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0.7149,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "days_since_similar_event",
+        "description":  "The number of days (0-365) since a semantically similar event was detected, used as a novelty metric. This is an alias for EVENT_SIMILARITY_DAYS.",
+        "dataset":  {
+                        "id":  "news18",
+                        "name":  "Ravenpack News Data"
+                    },
+        "category":  {
+                         "id":  "news",
+                         "name":  "News"
+                     },
+        "subcategory":  {
+                            "id":  "news-news-sentiment",
+                            "name":  "News Sentiment"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0.7415,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "entity_country_iso_code_4",
+        "description":  "The two-letter ISO code representing the country associated with the entity.",
+        "dataset":  {
+                        "id":  "news18",
+                        "name":  "Ravenpack News Data"
+                    },
+        "category":  {
+                         "id":  "news",
+                         "name":  "News"
+                     },
+        "subcategory":  {
+                            "id":  "news-news-sentiment",
+                            "name":  "News Sentiment"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0.7149,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "event_end_date_utc",
+        "description":  "The UTC date when the event concludes.",
+        "dataset":  {
+                        "id":  "news18",
+                        "name":  "Ravenpack News Data"
+                    },
+        "category":  {
+                         "id":  "news",
+                         "name":  "News"
+                     },
+        "subcategory":  {
+                            "id":  "news-news-sentiment",
+                            "name":  "News Sentiment"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0.7149,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "event_end_time_utc",
+        "description":  "The UTC timestamp when the event concludes.",
+        "dataset":  {
+                        "id":  "news18",
+                        "name":  "Ravenpack News Data"
+                    },
+        "category":  {
+                         "id":  "news",
+                         "name":  "News"
+                     },
+        "subcategory":  {
+                            "id":  "news-news-sentiment",
+                            "name":  "News Sentiment"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0.7149,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "event_relevance_score",
+        "description":  "An integer score (0-100) indicating the relevance of a specific event within a news story. This is an alias for EVENT_RELEVANCE.",
+        "dataset":  {
+                        "id":  "news18",
+                        "name":  "Ravenpack News Data"
+                    },
+        "category":  {
+                         "id":  "news",
+                         "name":  "News"
+                     },
+        "subcategory":  {
+                            "id":  "news-news-sentiment",
+                            "name":  "News Sentiment"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0.7415,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "event_sentiment_score",
+        "description":  "An entity-specific sentiment score on a continuous scale from -1.00 (very negative) to +1.00 (very positive).",
+        "dataset":  {
+                        "id":  "news18",
+                        "name":  "Ravenpack News Data"
+                    },
+        "category":  {
+                         "id":  "news",
+                         "name":  "News"
+                     },
+        "subcategory":  {
+                            "id":  "news-news-sentiment",
+                            "name":  "News Sentiment"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0.7415,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "event_sequence_number_in_story",
+        "description":  "The order in which the event record appears within a news story.",
+        "dataset":  {
+                        "id":  "news18",
+                        "name":  "Ravenpack News Data"
+                    },
+        "category":  {
+                         "id":  "news",
+                         "name":  "News"
+                     },
+        "subcategory":  {
+                            "id":  "news-news-sentiment",
+                            "name":  "News Sentiment"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "SYMBOL",
+        "dateCoverage":  1,
+        "coverage":  0.7149,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "event_start_date_utc",
+        "description":  "The UTC date when the event begins.",
+        "dataset":  {
+                        "id":  "news18",
+                        "name":  "Ravenpack News Data"
+                    },
+        "category":  {
+                         "id":  "news",
+                         "name":  "News"
+                     },
+        "subcategory":  {
+                            "id":  "news-news-sentiment",
+                            "name":  "News Sentiment"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0.7149,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "event_start_time_utc",
+        "description":  "The UTC timestamp when the event begins.",
+        "dataset":  {
+                        "id":  "news18",
+                        "name":  "Ravenpack News Data"
+                    },
+        "category":  {
+                         "id":  "news",
+                         "name":  "News"
+                     },
+        "subcategory":  {
+                            "id":  "news-news-sentiment",
+                            "name":  "News Sentiment"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0.7149,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "multi_entity_country_iso_code",
+        "description":  "The ISO country code for each entity in a multi-entity event.",
+        "dataset":  {
+                        "id":  "news18",
+                        "name":  "Ravenpack News Data"
+                    },
+        "category":  {
+                         "id":  "news",
+                         "name":  "News"
+                     },
+        "subcategory":  {
+                            "id":  "news-news-sentiment",
+                            "name":  "News Sentiment"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0.9714,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "multi_entity_event_end_date_utc",
+        "description":  "The UTC date when a multi-entity event concludes.",
+        "dataset":  {
+                        "id":  "news18",
+                        "name":  "Ravenpack News Data"
+                    },
+        "category":  {
+                         "id":  "news",
+                         "name":  "News"
+                     },
+        "subcategory":  {
+                            "id":  "news-news-sentiment",
+                            "name":  "News Sentiment"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0.9714,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "multi_entity_event_end_time_utc",
+        "description":  "The UTC timestamp when a multi-entity event concludes.",
+        "dataset":  {
+                        "id":  "news18",
+                        "name":  "Ravenpack News Data"
+                    },
+        "category":  {
+                         "id":  "news",
+                         "name":  "News"
+                     },
+        "subcategory":  {
+                            "id":  "news-news-sentiment",
+                            "name":  "News Sentiment"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0.9714,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "multi_entity_event_sequence_number",
+        "description":  "The order in which the event record appears for multiple entities in a story.",
+        "dataset":  {
+                        "id":  "news18",
+                        "name":  "Ravenpack News Data"
+                    },
+        "category":  {
+                         "id":  "news",
+                         "name":  "News"
+                     },
+        "subcategory":  {
+                            "id":  "news-news-sentiment",
+                            "name":  "News Sentiment"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "SYMBOL",
+        "dateCoverage":  1,
+        "coverage":  0.9714,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "multi_entity_event_start_date_utc",
+        "description":  "The UTC date when an event involving multiple entities begins.",
+        "dataset":  {
+                        "id":  "news18",
+                        "name":  "Ravenpack News Data"
+                    },
+        "category":  {
+                         "id":  "news",
+                         "name":  "News"
+                     },
+        "subcategory":  {
+                            "id":  "news-news-sentiment",
+                            "name":  "News Sentiment"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0.9714,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "multi_entity_event_start_time_utc",
+        "description":  "The UTC timestamp when a multi-entity event begins.",
+        "dataset":  {
+                        "id":  "news18",
+                        "name":  "Ravenpack News Data"
+                    },
+        "category":  {
+                         "id":  "news",
+                         "name":  "News"
+                     },
+        "subcategory":  {
+                            "id":  "news-news-sentiment",
+                            "name":  "News Sentiment"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0.9714,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "multi_entity_record_date_utc",
+        "description":  "The UTC date when the record for multiple entities was created.",
+        "dataset":  {
+                        "id":  "news18",
+                        "name":  "Ravenpack News Data"
+                    },
+        "category":  {
+                         "id":  "news",
+                         "name":  "News"
+                     },
+        "subcategory":  {
+                            "id":  "news-news-sentiment",
+                            "name":  "News Sentiment"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "SYMBOL",
+        "dateCoverage":  1,
+        "coverage":  0.9714,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "multi_entity_record_time_utc",
+        "description":  "The UTC time when the record for multiple entities was created.",
+        "dataset":  {
+                        "id":  "news18",
+                        "name":  "Ravenpack News Data"
+                    },
+        "category":  {
+                         "id":  "news",
+                         "name":  "News"
+                     },
+        "subcategory":  {
+                            "id":  "news-news-sentiment",
+                            "name":  "News Sentiment"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "SYMBOL",
+        "dateCoverage":  1,
+        "coverage":  0.9714,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "multi_entity_reporting_end_date_utc",
+        "description":  "The UTC date marking the end of the reporting period for multiple entities.",
+        "dataset":  {
+                        "id":  "news18",
+                        "name":  "Ravenpack News Data"
+                    },
+        "category":  {
+                         "id":  "news",
+                         "name":  "News"
+                     },
+        "subcategory":  {
+                            "id":  "news-news-sentiment",
+                            "name":  "News Sentiment"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0.9714,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "multi_entity_reporting_end_time_utc",
+        "description":  "The UTC timestamp marking the end of the reporting period for multiple entities.",
+        "dataset":  {
+                        "id":  "news18",
+                        "name":  "Ravenpack News Data"
+                    },
+        "category":  {
+                         "id":  "news",
+                         "name":  "News"
+                     },
+        "subcategory":  {
+                            "id":  "news-news-sentiment",
+                            "name":  "News Sentiment"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0.9714,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "multi_entity_reporting_start_date_utc",
+        "description":  "The UTC date marking the start of the reporting period for multiple entities.",
+        "dataset":  {
+                        "id":  "news18",
+                        "name":  "Ravenpack News Data"
+                    },
+        "category":  {
+                         "id":  "news",
+                         "name":  "News"
+                     },
+        "subcategory":  {
+                            "id":  "news-news-sentiment",
+                            "name":  "News Sentiment"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0.9714,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "multi_entity_reporting_start_time_utc",
+        "description":  "The UTC timestamp marking the start of the reporting period for multiple entities.",
+        "dataset":  {
+                        "id":  "news18",
+                        "name":  "Ravenpack News Data"
+                    },
+        "category":  {
+                         "id":  "news",
+                         "name":  "News"
+                     },
+        "subcategory":  {
+                            "id":  "news-news-sentiment",
+                            "name":  "News Sentiment"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0.9714,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "multi_entity_story_event_count",
+        "description":  "The total number of event records for a news story involving multiple entities.",
+        "dataset":  {
+                        "id":  "news18",
+                        "name":  "Ravenpack News Data"
+                    },
+        "category":  {
+                         "id":  "news",
+                         "name":  "News"
+                     },
+        "subcategory":  {
+                            "id":  "news-news-sentiment",
+                            "name":  "News Sentiment"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0.9714,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "nws18_acb",
+        "description":  "News sentiment specializing in corporate action announcements",
+        "dataset":  {
+                        "id":  "news18",
+                        "name":  "Ravenpack News Data"
+                    },
+        "category":  {
+                         "id":  "news",
+                         "name":  "News"
+                     },
+        "subcategory":  {
+                            "id":  "news-news-sentiment",
+                            "name":  "News Sentiment"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0.7149,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "nws18_bam",
+        "description":  "Mergers and acquisitions sentiment indicator (e.g., -1 negative, 0 neutral, +1 positive)",
+        "dataset":  {
+                        "id":  "news18",
+                        "name":  "Ravenpack News Data"
+                    },
+        "category":  {
+                         "id":  "news",
+                         "name":  "News"
+                     },
+        "subcategory":  {
+                            "id":  "news-news-sentiment",
+                            "name":  "News Sentiment"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0.7149,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "nws18_bee",
+        "description":  "Earnings evaluation score indicating positive, neutral, or negative assessment (-1, 0, +1)",
+        "dataset":  {
+                        "id":  "news18",
+                        "name":  "Ravenpack News Data"
+                    },
+        "category":  {
+                         "id":  "news",
+                         "name":  "News"
+                     },
+        "subcategory":  {
+                            "id":  "news-news-sentiment",
+                            "name":  "News Sentiment"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0.7149,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "nws18_ber",
+        "description":  "Earnings Release Indicator flag for earnings release events",
+        "dataset":  {
+                        "id":  "news18",
+                        "name":  "Ravenpack News Data"
+                    },
+        "category":  {
+                         "id":  "news",
+                         "name":  "News"
+                     },
+        "subcategory":  {
+                            "id":  "news-news-sentiment",
+                            "name":  "News Sentiment"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0.7149,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "nws18_event_relevance",
+        "description":  "Integer from 0 to 100 indicating the event’s relevance within the story",
+        "dataset":  {
+                        "id":  "news18",
+                        "name":  "Ravenpack News Data"
+                    },
+        "category":  {
+                         "id":  "news",
+                         "name":  "News"
+                     },
+        "subcategory":  {
+                            "id":  "news-news-sentiment",
+                            "name":  "News Sentiment"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0.7149,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "nws18_event_similarity_days",
+        "description":  "Number of days since a similar event was last detected within the past 365 days, up to 5 decimals",
+        "dataset":  {
+                        "id":  "news18",
+                        "name":  "Ravenpack News Data"
+                    },
+        "category":  {
+                         "id":  "news",
+                         "name":  "News"
+                     },
+        "subcategory":  {
+                            "id":  "news-news-sentiment",
+                            "name":  "News Sentiment"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0.7149,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "nws18_ghc_lna",
+        "description":  "Change in analyst recommendation",
+        "dataset":  {
+                        "id":  "news18",
+                        "name":  "Ravenpack News Data"
+                    },
+        "category":  {
+                         "id":  "news",
+                         "name":  "News"
+                     },
+        "subcategory":  {
+                            "id":  "news-news-sentiment",
+                            "name":  "News Sentiment"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0.7149,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "nws18_mltpl_cmp_event_relevance",
+        "description":  "Overall event relevance score (e.g., 0–100) measuring importance of the event",
+        "dataset":  {
+                        "id":  "news18",
+                        "name":  "Ravenpack News Data"
+                    },
+        "category":  {
+                         "id":  "news",
+                         "name":  "News"
+                     },
+        "subcategory":  {
+                            "id":  "news-news-sentiment",
+                            "name":  "News Sentiment"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0.9714,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "nws18_mltpl_cmp_event_simildays",
+        "description":  "Days since a similar event was detected",
+        "dataset":  {
+                        "id":  "news18",
+                        "name":  "Ravenpack News Data"
+                    },
+        "category":  {
+                         "id":  "news",
+                         "name":  "News"
+                     },
+        "subcategory":  {
+                            "id":  "news-news-sentiment",
+                            "name":  "News Sentiment"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0.9714,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "nws18_multiple_comp_acb",
+        "description":  "News sentiment specializing in corporate action announcements",
+        "dataset":  {
+                        "id":  "news18",
+                        "name":  "Ravenpack News Data"
+                    },
+        "category":  {
+                         "id":  "news",
+                         "name":  "News"
+                     },
+        "subcategory":  {
+                            "id":  "news-news-sentiment",
+                            "name":  "News Sentiment"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0.9714,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "nws18_multiple_comp_bam",
+        "description":  "News sentiment specializing in mergers and acquisitions",
+        "dataset":  {
+                        "id":  "news18",
+                        "name":  "Ravenpack News Data"
+                    },
+        "category":  {
+                         "id":  "news",
+                         "name":  "News"
+                     },
+        "subcategory":  {
+                            "id":  "news-news-sentiment",
+                            "name":  "News Sentiment"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0.9714,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "nws18_multiple_comp_bee",
+        "description":  "Earnings evaluations score with values -1, 0, or +1",
+        "dataset":  {
+                        "id":  "news18",
+                        "name":  "Ravenpack News Data"
+                    },
+        "category":  {
+                         "id":  "news",
+                         "name":  "News"
+                     },
+        "subcategory":  {
+                            "id":  "news-news-sentiment",
+                            "name":  "News Sentiment"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0.9714,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "nws18_multiple_comp_ber",
+        "description":  "News sentiment specializing in earnings result",
+        "dataset":  {
+                        "id":  "news18",
+                        "name":  "Ravenpack News Data"
+                    },
+        "category":  {
+                         "id":  "news",
+                         "name":  "News"
+                     },
+        "subcategory":  {
+                            "id":  "news-news-sentiment",
+                            "name":  "News Sentiment"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0.9714,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "nws18_multiple_comp_ghc_lna",
+        "description":  "Change in analyst recommendation",
+        "dataset":  {
+                        "id":  "news18",
+                        "name":  "Ravenpack News Data"
+                    },
+        "category":  {
+                         "id":  "news",
+                         "name":  "News"
+                     },
+        "subcategory":  {
+                            "id":  "news-news-sentiment",
+                            "name":  "News Sentiment"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0.9714,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "nws18_multiple_comp_nip",
+        "description":  "Degree of impact of the news",
+        "dataset":  {
+                        "id":  "news18",
+                        "name":  "Ravenpack News Data"
+                    },
+        "category":  {
+                         "id":  "news",
+                         "name":  "News"
+                     },
+        "subcategory":  {
+                            "id":  "news-news-sentiment",
+                            "name":  "News Sentiment"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0.9714,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "nws18_multiple_comp_qcm",
+        "description":  "News sentiment of relevant news with high confidence",
+        "dataset":  {
+                        "id":  "news18",
+                        "name":  "Ravenpack News Data"
+                    },
+        "category":  {
+                         "id":  "news",
+                         "name":  "News"
+                     },
+        "subcategory":  {
+                            "id":  "news-news-sentiment",
+                            "name":  "News Sentiment"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0.9714,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "nws18_multiple_comp_qep",
+        "description":  "Global equities sentiment score taking values -1, 0, or +1",
+        "dataset":  {
+                        "id":  "news18",
+                        "name":  "Ravenpack News Data"
+                    },
+        "category":  {
+                         "id":  "news",
+                         "name":  "News"
+                     },
+        "subcategory":  {
+                            "id":  "news-news-sentiment",
+                            "name":  "News Sentiment"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0.9714,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "nws18_multiple_comp_qmb",
+        "description":  "News sentiment specializing in editorials on global markets",
+        "dataset":  {
+                        "id":  "news18",
+                        "name":  "Ravenpack News Data"
+                    },
+        "category":  {
+                         "id":  "news",
+                         "name":  "News"
+                     },
+        "subcategory":  {
+                            "id":  "news-news-sentiment",
+                            "name":  "News Sentiment"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0.9714,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "nws18_multiple_comp_relevance",
+        "description":  "Relevance score indicating the significance of the entity in the story (typically 0–100)",
+        "dataset":  {
+                        "id":  "news18",
+                        "name":  "Ravenpack News Data"
+                    },
+        "category":  {
+                         "id":  "news",
+                         "name":  "News"
+                     },
+        "subcategory":  {
+                            "id":  "news-news-sentiment",
+                            "name":  "News Sentiment"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0.9714,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "nws18_multiple_comp_ssc",
+        "description":  "Sentiment of the news calculated using multiple techniques",
+        "dataset":  {
+                        "id":  "news18",
+                        "name":  "Ravenpack News Data"
+                    },
+        "category":  {
+                         "id":  "news",
+                         "name":  "News"
+                     },
+        "subcategory":  {
+                            "id":  "news-news-sentiment",
+                            "name":  "News Sentiment"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0.9714,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "nws18_multiple_comp_sse",
+        "description":  "Sentiment polarity score of the event, typically from -1 (negative) to +1 (positive)",
+        "dataset":  {
+                        "id":  "news18",
+                        "name":  "Ravenpack News Data"
+                    },
+        "category":  {
+                         "id":  "news",
+                         "name":  "News"
+                     },
+        "subcategory":  {
+                            "id":  "news-news-sentiment",
+                            "name":  "News Sentiment"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0.9714,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "nws18_nip",
+        "description":  "Narrative impact score in [-1, 1] estimating the news item’s short-term market impact (e.g., next two hours)",
+        "dataset":  {
+                        "id":  "news18",
+                        "name":  "Ravenpack News Data"
+                    },
+        "category":  {
+                         "id":  "news",
+                         "name":  "News"
+                     },
+        "subcategory":  {
+                            "id":  "news-news-sentiment",
+                            "name":  "News Sentiment"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0.7149,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "nws18_qcm",
+        "description":  "News sentiment of relevant news with high confidence",
+        "dataset":  {
+                        "id":  "news18",
+                        "name":  "Ravenpack News Data"
+                    },
+        "category":  {
+                         "id":  "news",
+                         "name":  "News"
+                     },
+        "subcategory":  {
+                            "id":  "news-news-sentiment",
+                            "name":  "News Sentiment"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0.7149,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "nws18_qep",
+        "description":  "Equities sentiment polarity score derived from positive/negative words in news (typically -1, 0, +1)",
+        "dataset":  {
+                        "id":  "news18",
+                        "name":  "Ravenpack News Data"
+                    },
+        "category":  {
+                         "id":  "news",
+                         "name":  "News"
+                     },
+        "subcategory":  {
+                            "id":  "news-news-sentiment",
+                            "name":  "News Sentiment"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0.7149,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "nws18_qmb",
+        "description":  "Editorials and commentary score indicating stance or sentiment (-1, 0, +1)",
+        "dataset":  {
+                        "id":  "news18",
+                        "name":  "Ravenpack News Data"
+                    },
+        "category":  {
+                         "id":  "news",
+                         "name":  "News"
+                     },
+        "subcategory":  {
+                            "id":  "news-news-sentiment",
+                            "name":  "News Sentiment"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0.7149,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "nws18_relevance",
+        "description":  "Score from 0 to 100 indicating how strongly the entity is related to the story higher is more relevant",
+        "dataset":  {
+                        "id":  "news18",
+                        "name":  "Ravenpack News Data"
+                    },
+        "category":  {
+                         "id":  "news",
+                         "name":  "News"
+                     },
+        "subcategory":  {
+                            "id":  "news-news-sentiment",
+                            "name":  "News Sentiment"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0.7149,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "nws18_ssc",
+        "description":  "Granular sentiment score from -1.00 to +1.00 for the story, combining multiple sentiment analysis techniques",
+        "dataset":  {
+                        "id":  "news18",
+                        "name":  "Ravenpack News Data"
+                    },
+        "category":  {
+                         "id":  "news",
+                         "name":  "News"
+                     },
+        "subcategory":  {
+                            "id":  "news-news-sentiment",
+                            "name":  "News Sentiment"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0.7149,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "nws18_sse",
+        "description":  "Continuous sentiment score between -1.00 and +1.00 for the entity-event",
+        "dataset":  {
+                        "id":  "news18",
+                        "name":  "Ravenpack News Data"
+                    },
+        "category":  {
+                         "id":  "news",
+                         "name":  "News"
+                     },
+        "subcategory":  {
+                            "id":  "news-news-sentiment",
+                            "name":  "News Sentiment"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0.7149,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "record_timestamp_utc_date",
+        "description":  "The UTC date when the record was created or updated.",
+        "dataset":  {
+                        "id":  "news18",
+                        "name":  "Ravenpack News Data"
+                    },
+        "category":  {
+                         "id":  "news",
+                         "name":  "News"
+                     },
+        "subcategory":  {
+                            "id":  "news-news-sentiment",
+                            "name":  "News Sentiment"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "SYMBOL",
+        "dateCoverage":  1,
+        "coverage":  0.7149,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "record_timestamp_utc_time",
+        "description":  "The UTC time when the record was created or updated.",
+        "dataset":  {
+                        "id":  "news18",
+                        "name":  "Ravenpack News Data"
+                    },
+        "category":  {
+                         "id":  "news",
+                         "name":  "News"
+                     },
+        "subcategory":  {
+                            "id":  "news-news-sentiment",
+                            "name":  "News Sentiment"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "SYMBOL",
+        "dateCoverage":  1,
+        "coverage":  0.7149,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "reporting_period_end_date_utc",
+        "description":  "The UTC date marking the end of the reporting period for the event.",
+        "dataset":  {
+                        "id":  "news18",
+                        "name":  "Ravenpack News Data"
+                    },
+        "category":  {
+                         "id":  "news",
+                         "name":  "News"
+                     },
+        "subcategory":  {
+                            "id":  "news-news-sentiment",
+                            "name":  "News Sentiment"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0.7149,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "reporting_period_end_time_utc",
+        "description":  "The UTC timestamp marking the end of the reporting period for the event.",
+        "dataset":  {
+                        "id":  "news18",
+                        "name":  "Ravenpack News Data"
+                    },
+        "category":  {
+                         "id":  "news",
+                         "name":  "News"
+                     },
+        "subcategory":  {
+                            "id":  "news-news-sentiment",
+                            "name":  "News Sentiment"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0.7149,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "reporting_period_start_date_utc",
+        "description":  "The UTC date marking the beginning of the reporting period for the event.",
+        "dataset":  {
+                        "id":  "news18",
+                        "name":  "Ravenpack News Data"
+                    },
+        "category":  {
+                         "id":  "news",
+                         "name":  "News"
+                     },
+        "subcategory":  {
+                            "id":  "news-news-sentiment",
+                            "name":  "News Sentiment"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0.7149,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "reporting_period_start_time_utc",
+        "description":  "The UTC timestamp marking the beginning of the reporting period for the event.",
+        "dataset":  {
+                        "id":  "news18",
+                        "name":  "Ravenpack News Data"
+                    },
+        "category":  {
+                         "id":  "news",
+                         "name":  "News"
+                     },
+        "subcategory":  {
+                            "id":  "news-news-sentiment",
+                            "name":  "News Sentiment"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0.7149,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "sentiment_commentary_classifier",
+        "description":  "A ternary classifier score (-1, 0, 1) indicating sentiment from market commentary and editorials. This is an alias for BMQ.",
+        "dataset":  {
+                        "id":  "news18",
+                        "name":  "Ravenpack News Data"
+                    },
+        "category":  {
+                         "id":  "news",
+                         "name":  "News"
+                     },
+        "subcategory":  {
+                            "id":  "news-news-sentiment",
+                            "name":  "News Sentiment"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0.7415,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "sentiment_composite_score_d1",
+        "description":  "A story-level composite sentiment score (-1.00 to +1.00) based on multiple analytics, from the D1 (one-day delayed) feed. This is an alias for CSS.",
+        "dataset":  {
+                        "id":  "news18",
+                        "name":  "Ravenpack News Data"
+                    },
+        "category":  {
+                         "id":  "news",
+                         "name":  "News"
+                     },
+        "subcategory":  {
+                            "id":  "news-news-sentiment",
+                            "name":  "News Sentiment"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0.7415,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "sentiment_corporate_action_bca",
+        "description":  "A ternary classifier score (-1, 0, 1) indicating sentiment for news about corporate actions. This is an alias for BCA.",
+        "dataset":  {
+                        "id":  "news18",
+                        "name":  "Ravenpack News Data"
+                    },
+        "category":  {
+                         "id":  "news",
+                         "name":  "News"
+                     },
+        "subcategory":  {
+                            "id":  "news-news-sentiment",
+                            "name":  "News Sentiment"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0.7415,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "sentiment_earnings_classifier_d1",
+        "description":  "A ternary classifier score (-1, 0, 1) indicating sentiment for news about earnings evaluations, from the D1 (one-day delayed) feed. This is an alias for BEE.",
+        "dataset":  {
+                        "id":  "news18",
+                        "name":  "Ravenpack News Data"
+                    },
+        "category":  {
+                         "id":  "news",
+                         "name":  "News"
+                     },
+        "subcategory":  {
+                            "id":  "news-news-sentiment",
+                            "name":  "News Sentiment"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0.7415,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "sentiment_earnings_release_classifier",
+        "description":  "A ternary classifier score (-1, 0, 1) indicating sentiment for news about earnings releases. This is an alias for BER.",
+        "dataset":  {
+                        "id":  "news18",
+                        "name":  "Ravenpack News Data"
+                    },
+        "category":  {
+                         "id":  "news",
+                         "name":  "News"
+                     },
+        "subcategory":  {
+                            "id":  "news-news-sentiment",
+                            "name":  "News Sentiment"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0.7415,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "sentiment_m_and_a_classifier",
+        "description":  "A ternary classifier score (-1, 0, 1) indicating sentiment for news about mergers and acquisitions. This is an alias for BAM.",
+        "dataset":  {
+                        "id":  "news18",
+                        "name":  "Ravenpack News Data"
+                    },
+        "category":  {
+                         "id":  "news",
+                         "name":  "News"
+                     },
+        "subcategory":  {
+                            "id":  "news-news-sentiment",
+                            "name":  "News Sentiment"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0.7415,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "sentiment_news_impact_projection_d1",
+        "description":  "A score (-1.00 to +1.00) predicting the news item\u0027s impact on market volatility over the next two hours, from the D1 (one-day delayed) feed. This is an alias for NIP.",
+        "dataset":  {
+                        "id":  "news18",
+                        "name":  "Ravenpack News Data"
+                    },
+        "category":  {
+                         "id":  "news",
+                         "name":  "News"
+                     },
+        "subcategory":  {
+                            "id":  "news-news-sentiment",
+                            "name":  "News Sentiment"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0.7415,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "sentiment_peq_score_d1",
+        "description":  "A ternary classifier score (-1, 0, 1) for sentiment in articles about global equities, from the D1 (one-day delayed) feed. This is an alias for PEQ.",
+        "dataset":  {
+                        "id":  "news18",
+                        "name":  "Ravenpack News Data"
+                    },
+        "category":  {
+                         "id":  "news",
+                         "name":  "News"
+                     },
+        "subcategory":  {
+                            "id":  "news-news-sentiment",
+                            "name":  "News Sentiment"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0.7415,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "sentiment_relevance_score",
+        "description":  "An integer score (0-100) indicating how central an entity is to a news story. This is an alias for RELEVANCE.",
+        "dataset":  {
+                        "id":  "news18",
+                        "name":  "Ravenpack News Data"
+                    },
+        "category":  {
+                         "id":  "news",
+                         "name":  "News"
+                     },
+        "subcategory":  {
+                            "id":  "news-news-sentiment",
+                            "name":  "News Sentiment"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0.7415,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "story_entity_record_count_d1",
+        "description":  "The total count of entity-specific records published for a single news story, from the D1 (one-day delayed) feed. This is an alias for RP_STORY_EVENT_COUNT.",
+        "dataset":  {
+                        "id":  "news18",
+                        "name":  "Ravenpack News Data"
+                    },
+        "category":  {
+                         "id":  "news",
+                         "name":  "News"
+                     },
+        "subcategory":  {
+                            "id":  "news-news-sentiment",
+                            "name":  "News Sentiment"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0.7415,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "story_event_record_count",
+        "description":  "The total number of event records published for a news story.",
+        "dataset":  {
+                        "id":  "news18",
+                        "name":  "Ravenpack News Data"
+                    },
+        "category":  {
+                         "id":  "news",
+                         "name":  "News"
+                     },
+        "subcategory":  {
+                            "id":  "news-news-sentiment",
+                            "name":  "News Sentiment"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0.7149,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    }
+]

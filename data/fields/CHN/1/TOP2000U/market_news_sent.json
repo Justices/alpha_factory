@@ -1,0 +1,83 @@
+[
+  {
+    "id": "company_news_popularity_score",
+    "description": "Daily news attention index for the company, computed by smoothing company and market historical popularity and normalizing across all companies",
+    "dataset": {
+      "id": "market_news_sent",
+      "name": "Financial Market News Sentiment"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-event-data",
+      "name": "Event Data"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.8275,
+    "coverage": 0.9979,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "company_news_sentiment_metric",
+    "description": "Daily company sentiment index incorporating related news relevance and sentiment factors",
+    "dataset": {
+      "id": "market_news_sent",
+      "name": "Financial Market News Sentiment"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-event-data",
+      "name": "Event Data"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.8275,
+    "coverage": 0.9979,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "deduplicated_news_item_count",
+    "description": "It's not the number of news related to each company, but the total number of news that is effective after filtering the duplicate on the same day.",
+    "dataset": {
+      "id": "market_news_sent",
+      "name": "Financial Market News Sentiment"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-event-data",
+      "name": "Event Data"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.8275,
+    "coverage": 0.9979,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  }
+]

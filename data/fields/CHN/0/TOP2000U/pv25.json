@@ -1,0 +1,5726 @@
+[
+  {
+    "id": "accounts_growth_rate_index_financial",
+    "description": "Accounts receivable growth rate compared with the beginning of the year",
+    "dataset": {
+      "id": "pv25",
+      "name": "A-shares Index Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.6202,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "accounts_payable_index_financial",
+    "description": "Total accounts payable",
+    "dataset": {
+      "id": "pv25",
+      "name": "A-shares Index Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.6202,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "accounts_receivable_index_financial",
+    "description": "Total accounts receivable",
+    "dataset": {
+      "id": "pv25",
+      "name": "A-shares Index Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.6202,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "accounts_receivable_total_4",
+    "description": "Total accounts receivable",
+    "dataset": {
+      "id": "pv25",
+      "name": "A-shares Index Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.6202,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "accounts_receivable_turnover_days",
+    "description": "Accounts receivable turnover days (days outstanding)",
+    "dataset": {
+      "id": "pv25",
+      "name": "A-shares Index Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.6202,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "advance_from_customers_index_financial",
+    "description": "Total advance receipts from customers",
+    "dataset": {
+      "id": "pv25",
+      "name": "A-shares Index Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.6202,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "asset_turnover_index_financial",
+    "description": "Asset turnover ratio (operating revenue divided by average total assets)",
+    "dataset": {
+      "id": "pv25",
+      "name": "A-shares Index Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.6202,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "assets_growth_rate_index_financial",
+    "description": "Growth rate of total assets compared with the beginning of the year",
+    "dataset": {
+      "id": "pv25",
+      "name": "A-shares Index Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.6202,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "assets_liabilities_ratio_index_financial",
+    "description": "Assets and liabilities",
+    "dataset": {
+      "id": "pv25",
+      "name": "A-shares Index Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.6202,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "assets_total",
+    "description": "Total assets",
+    "dataset": {
+      "id": "pv25",
+      "name": "A-shares Index Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.6202,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "average_market_cap_ashare",
+    "description": "Average daily market capitalization over the past year, in units of 10,000 yuan",
+    "dataset": {
+      "id": "pv25",
+      "name": "A-shares Index Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "MATRIX",
+    "dateCoverage": 0.3445,
+    "coverage": 0.265,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "bonds_payable_index_financial",
+    "description": "Total bonds payable",
+    "dataset": {
+      "id": "pv25",
+      "name": "A-shares Index Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.6202,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "capital_reserve_index_financial",
+    "description": "Total capital reserve",
+    "dataset": {
+      "id": "pv25",
+      "name": "A-shares Index Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.6202,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "cash_equivalents_end_period_index_financial",
+    "description": "Ending balance of cash and cash equivalents",
+    "dataset": {
+      "id": "pv25",
+      "name": "A-shares Index Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.6202,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "cash_paid_acquisition_construction_index_financial",
+    "description": "Cash paid for acquisition and construction of fixed, intangible, and other long-term assets",
+    "dataset": {
+      "id": "pv25",
+      "name": "A-shares Index Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.6202,
+    "userCount": 1,
+    "alphaCount": 1,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "cash_paid_distribution_interest_index_financial",
+    "description": "Total cash paid for the payment of dividends",
+    "dataset": {
+      "id": "pv25",
+      "name": "A-shares Index Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.6202,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "cash_paid_employee_benefits_index_financial",
+    "description": "Total cash paid to and on behalf of employees",
+    "dataset": {
+      "id": "pv25",
+      "name": "A-shares Index Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.6202,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "cash_paid_goods_services_index_financial",
+    "description": "Total cash paid for purchase of goods",
+    "dataset": {
+      "id": "pv25",
+      "name": "A-shares Index Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.6202,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "cash_paid_investment_index_financial",
+    "description": "Total cash paid for investment",
+    "dataset": {
+      "id": "pv25",
+      "name": "A-shares Index Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.6202,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "cash_paid_investment_total_index_financial",
+    "description": "Total cash outflows from investments",
+    "dataset": {
+      "id": "pv25",
+      "name": "A-shares Index Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.6202,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "cash_prepay_borrowing_index_financial",
+    "description": "Total cash paid for debt repayment",
+    "dataset": {
+      "id": "pv25",
+      "name": "A-shares Index Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.6202,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "cash_received_borrowing_index_financial",
+    "description": "Total cash received from borrowings",
+    "dataset": {
+      "id": "pv25",
+      "name": "A-shares Index Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.6202,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "cash_received_capital_contribution_index_financial",
+    "description": "Total cash received from investors as capital contributions",
+    "dataset": {
+      "id": "pv25",
+      "name": "A-shares Index Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.6202,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "cashflow_income_ratio_index_financial",
+    "description": "Cash flow income ratio",
+    "dataset": {
+      "id": "pv25",
+      "name": "A-shares Index Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.6202,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "change_value_index_industry_eod_main",
+    "description": "Day-over-day change in index level (points), close minus previous close",
+    "dataset": {
+      "id": "pv25",
+      "name": "A-shares Index Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.5442,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "close_value_index_industry_eod_main",
+    "description": "Closing index level for the day (points)",
+    "dataset": {
+      "id": "pv25",
+      "name": "A-shares Index Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.5442,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "construction_in_progress_index_financial",
+    "description": "Total construction in progress",
+    "dataset": {
+      "id": "pv25",
+      "name": "A-shares Index Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.6202,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "current_assets_total",
+    "description": "Total current assets",
+    "dataset": {
+      "id": "pv25",
+      "name": "A-shares Index Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.6202,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "current_liabilities_total_2",
+    "description": "Total current liabilities",
+    "dataset": {
+      "id": "pv25",
+      "name": "A-shares Index Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.6202,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "current_ratio_value",
+    "description": "Current ratio (current assets divided by current liabilities)",
+    "dataset": {
+      "id": "pv25",
+      "name": "A-shares Index Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.6202,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "employee_benefits_payable_index_financial",
+    "description": "Total employee compensation payable",
+    "dataset": {
+      "id": "pv25",
+      "name": "A-shares Index Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.6202,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "extraordinary_items_total",
+    "description": "Non-recurring gains and losses",
+    "dataset": {
+      "id": "pv25",
+      "name": "A-shares Index Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.6202,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "financial_expense_total_index_financial",
+    "description": "Total financial expenses",
+    "dataset": {
+      "id": "pv25",
+      "name": "A-shares Index Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.6202,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "financial_leverage_index_financial",
+    "description": "Financial leverage",
+    "dataset": {
+      "id": "pv25",
+      "name": "A-shares Index Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.6202,
+    "userCount": 1,
+    "alphaCount": 1,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "fixed_assets_index_financial",
+    "description": "Total fixed assets",
+    "dataset": {
+      "id": "pv25",
+      "name": "A-shares Index Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.6202,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "general_admin_expense_total_index_financial",
+    "description": "Total management expenses",
+    "dataset": {
+      "id": "pv25",
+      "name": "A-shares Index Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.6202,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "gross_margin_chain_change_index_financial",
+    "description": "Single quarter: gross margin increase or decrease",
+    "dataset": {
+      "id": "pv25",
+      "name": "A-shares Index Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.6202,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "gross_margin_quarterly_change_index_financial",
+    "description": "Year-over-year change in gross profit margin for the single quarter (percentage points)",
+    "dataset": {
+      "id": "pv25",
+      "name": "A-shares Index Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.6202,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "gross_operating_netprofit_ashare",
+    "description": "Net profit growth rate expressed as a percentage",
+    "dataset": {
+      "id": "pv25",
+      "name": "A-shares Index Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "MATRIX",
+    "dateCoverage": 0.3445,
+    "coverage": 0.265,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "gross_operating_revenue_ashare",
+    "description": "Operating income/revenue growth rate expressed as a percentage",
+    "dataset": {
+      "id": "pv25",
+      "name": "A-shares Index Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "MATRIX",
+    "dateCoverage": 0.3445,
+    "coverage": 0.265,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "gross_profit_margin_index_financial",
+    "description": "Gross profit margin = gross profit divided by revenue",
+    "dataset": {
+      "id": "pv25",
+      "name": "A-shares Index Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.6202,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "grossprofit_margin_increase_decrease_index_financial",
+    "description": "Gross profit margin increased or decreased year on year",
+    "dataset": {
+      "id": "pv25",
+      "name": "A-shares Index Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.6202,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "growth_zscore_ashare",
+    "description": "Standardized Z-score representing the index’s growth factor exposure",
+    "dataset": {
+      "id": "pv25",
+      "name": "A-shares Index Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "MATRIX",
+    "dateCoverage": 0.3445,
+    "coverage": 0.265,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "high_value_index_industry_eod_main",
+    "description": "Highest index level during the trading day (points)",
+    "dataset": {
+      "id": "pv25",
+      "name": "A-shares Index Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.5442,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "impairment_loss_assets_total_index_financial",
+    "description": "Total asset impairment losses",
+    "dataset": {
+      "id": "pv25",
+      "name": "A-shares Index Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.6202,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "income_tax_total_index_financial",
+    "description": "Total income tax expense",
+    "dataset": {
+      "id": "pv25",
+      "name": "A-shares Index Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.6202,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "ingredient_count_index_financial",
+    "description": "Number of constituents in the index",
+    "dataset": {
+      "id": "pv25",
+      "name": "A-shares Index Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.6202,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "inventory_total_2",
+    "description": "Total inventory",
+    "dataset": {
+      "id": "pv25",
+      "name": "A-shares Index Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.6202,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "inventory_turnover_days",
+    "description": "Inventory turnover days (average days inventory is held; 365 divided by inventory turnover)",
+    "dataset": {
+      "id": "pv25",
+      "name": "A-shares Index Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.6202,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "inventory_turnover_growth_pct",
+    "description": "Inventory growth rate relative to the beginning of the year",
+    "dataset": {
+      "id": "pv25",
+      "name": "A-shares Index Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.6202,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "investment_real_estate_index_financial",
+    "description": "Total balance of investment real estate (investment property)",
+    "dataset": {
+      "id": "pv25",
+      "name": "A-shares Index Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.6202,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "long_term_borrowing_index_financial",
+    "description": "Total long-term borrowings",
+    "dataset": {
+      "id": "pv25",
+      "name": "A-shares Index Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.6202,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "long_term_equity_investment_index_financial",
+    "description": "Total long-term equity investments",
+    "dataset": {
+      "id": "pv25",
+      "name": "A-shares Index Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.6202,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "loss_ingredient_count_index_financial",
+    "description": "Number of constituents reporting a net loss",
+    "dataset": {
+      "id": "pv25",
+      "name": "A-shares Index Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.6202,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "low_value_index_industry_eod_main",
+    "description": "Lowest index level during the trading day (points)",
+    "dataset": {
+      "id": "pv25",
+      "name": "A-shares Index Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.5442,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "monetary_capital_index_financial",
+    "description": "Total monetary funds (cash and cash equivalents, bank deposits)",
+    "dataset": {
+      "id": "pv25",
+      "name": "A-shares Index Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.6202,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "net_after_deduction_correction_index_financial",
+    "description": "Net profit after deducting non-recurring items",
+    "dataset": {
+      "id": "pv25",
+      "name": "A-shares Index Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.6202,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "net_asset_turnover_index_financial",
+    "description": "Net asset turnover ratio (revenue divided by average net assets)",
+    "dataset": {
+      "id": "pv25",
+      "name": "A-shares Index Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.6202,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "net_assets_growth_rate_index_financial",
+    "description": "Net assets growth rate at the beginning of the year",
+    "dataset": {
+      "id": "pv25",
+      "name": "A-shares Index Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.6202,
+    "userCount": 1,
+    "alphaCount": 1,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "net_assets_total",
+    "description": "Total net assets (shareholders' equity)",
+    "dataset": {
+      "id": "pv25",
+      "name": "A-shares Index Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.6202,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "net_business_cycle_index_financial",
+    "description": "Net operating cycle",
+    "dataset": {
+      "id": "pv25",
+      "name": "A-shares Index Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.6202,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "net_cash_flows_financing_total_index_financial",
+    "description": "Net cash flows from financing activities",
+    "dataset": {
+      "id": "pv25",
+      "name": "A-shares Index Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.6202,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "net_cash_flows_investing_total_index_financial",
+    "description": "Net cash flows from investing activities",
+    "dataset": {
+      "id": "pv25",
+      "name": "A-shares Index Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.6202,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "net_cash_received_disposal_fixed_assets_index_financial",
+    "description": "Cash received from disposal of fixed assets, intangible and other long-term assets",
+    "dataset": {
+      "id": "pv25",
+      "name": "A-shares Index Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.6202,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "net_cashflow_profit_index_financial",
+    "description": "Cash flow to net profit ratio (operating cash flow divided by net profit)",
+    "dataset": {
+      "id": "pv25",
+      "name": "A-shares Index Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.6202,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "net_gain_change_fair_value_total_index_financial",
+    "description": "Total net gains/losses from changes in fair value",
+    "dataset": {
+      "id": "pv25",
+      "name": "A-shares Index Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.6202,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "net_income_growth_pct",
+    "description": "Net profit growth rate (typically year-over-year)",
+    "dataset": {
+      "id": "pv25",
+      "name": "A-shares Index Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.6202,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "net_income_growth_quarterly_pct",
+    "description": "Single-quarter net profit growth rate year-over-year",
+    "dataset": {
+      "id": "pv25",
+      "name": "A-shares Index Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.6202,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "net_income_growth_sequential_pct",
+    "description": "Single-quarter net profit growth rate quarter-over-quarter",
+    "dataset": {
+      "id": "pv25",
+      "name": "A-shares Index Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.6202,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "net_income_growth_ttm_pct",
+    "description": "Net profit growth rate based on trailing twelve months",
+    "dataset": {
+      "id": "pv25",
+      "name": "A-shares Index Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.6202,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "net_income_incl_minority_interest",
+    "description": "Net profit including minority interests",
+    "dataset": {
+      "id": "pv25",
+      "name": "A-shares Index Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.6202,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "net_income_margin_growth_excl_specials",
+    "description": "Year-over-year change (increase or decrease) in net profit margin",
+    "dataset": {
+      "id": "pv25",
+      "name": "A-shares Index Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.6202,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "net_income_margin_growth_excl_specials_quarter",
+    "description": "Single-quarter year-over-year change in net profit margin",
+    "dataset": {
+      "id": "pv25",
+      "name": "A-shares Index Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.6202,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "net_income_margin_growth_excl_specials_seq",
+    "description": "Single-quarter quarter-over-quarter change in net profit margin",
+    "dataset": {
+      "id": "pv25",
+      "name": "A-shares Index Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.6202,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "net_income_margin_growth_excl_specials_ttm",
+    "description": "Net interest rate increase and decrease (TTM)",
+    "dataset": {
+      "id": "pv25",
+      "name": "A-shares Index Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.6202,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "net_income_margin_pct",
+    "description": "Net profit margin (net profit divided by revenue)",
+    "dataset": {
+      "id": "pv25",
+      "name": "A-shares Index Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.6202,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "net_income_margin_quarterly_pct",
+    "description": "Single-quarter net profit margin",
+    "dataset": {
+      "id": "pv25",
+      "name": "A-shares Index Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.6202,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "net_income_margin_ttm_pct",
+    "description": "Net profit margin over the trailing twelve months at the index level",
+    "dataset": {
+      "id": "pv25",
+      "name": "A-shares Index Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.6202,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "net_income_total",
+    "description": "Aggregate total net profit of index constituents for the reporting period",
+    "dataset": {
+      "id": "pv25",
+      "name": "A-shares Index Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.6202,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "net_income_ttm",
+    "description": "Aggregate net profit over the trailing twelve months at the index level",
+    "dataset": {
+      "id": "pv25",
+      "name": "A-shares Index Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.6202,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "net_increase_cash_equivalents_total_index_financial",
+    "description": "Net increase in cash and cash equivalents",
+    "dataset": {
+      "id": "pv25",
+      "name": "A-shares Index Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.6202,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "net_increase_cash_equivalents_ttm_index_financial",
+    "description": "Net increase in cash and cash equivalents, trailing twelve months",
+    "dataset": {
+      "id": "pv25",
+      "name": "A-shares Index Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.6202,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "net_investment_income_total_index_financial",
+    "description": "Total net investment income",
+    "dataset": {
+      "id": "pv25",
+      "name": "A-shares Index Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.6202,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "noncurrent_assets_total",
+    "description": "Total non-current assets",
+    "dataset": {
+      "id": "pv25",
+      "name": "A-shares Index Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.6202,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "noncurrent_liabilities_due_1y",
+    "description": "Total non-current liabilities due within one year (index-level aggregate)",
+    "dataset": {
+      "id": "pv25",
+      "name": "A-shares Index Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.6202,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "noncurrent_liabilities_total",
+    "description": "Total non-current liabilities",
+    "dataset": {
+      "id": "pv25",
+      "name": "A-shares Index Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.6202,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "nonoperating_expense_total",
+    "description": "Total non-operating expenses (index-level aggregate)",
+    "dataset": {
+      "id": "pv25",
+      "name": "A-shares Index Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.6202,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "nonoperating_revenue_total",
+    "description": "Total non-operating income (index-level aggregate)",
+    "dataset": {
+      "id": "pv25",
+      "name": "A-shares Index Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.6202,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "notes_payable_total_2",
+    "description": "Total bills payable (index-level aggregate)",
+    "dataset": {
+      "id": "pv25",
+      "name": "A-shares Index Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.6202,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "notes_receivable_total_2",
+    "description": "Total bills receivable (index-level aggregate)",
+    "dataset": {
+      "id": "pv25",
+      "name": "A-shares Index Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.6202,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "open_value_index_industry_eod_main",
+    "description": "Opening index level (points)",
+    "dataset": {
+      "id": "pv25",
+      "name": "A-shares Index Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.5442,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "operating_cost_total",
+    "description": "Total operating costs (index-level aggregate)",
+    "dataset": {
+      "id": "pv25",
+      "name": "A-shares Index Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.6202,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "operating_profit_total",
+    "description": "Total operating profit (index-level aggregate)",
+    "dataset": {
+      "id": "pv25",
+      "name": "A-shares Index Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.6202,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "operating_revenue_growth_pct",
+    "description": "Year-over-year growth rate of operating income",
+    "dataset": {
+      "id": "pv25",
+      "name": "A-shares Index Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.6202,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "operating_revenue_growth_quarterly_pct",
+    "description": "Single-quarter year-over-year operating income growth rate",
+    "dataset": {
+      "id": "pv25",
+      "name": "A-shares Index Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.6202,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "operating_revenue_growth_sequential_pct",
+    "description": "Single-quarter sequential (QoQ) operating income growth rate",
+    "dataset": {
+      "id": "pv25",
+      "name": "A-shares Index Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.6202,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "operating_revenue_growth_ttm_pct",
+    "description": "Year-over-year growth rate of operating income based on TTM",
+    "dataset": {
+      "id": "pv25",
+      "name": "A-shares Index Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.6202,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "operating_revenue_total",
+    "description": "Total operating income (index-level aggregate)",
+    "dataset": {
+      "id": "pv25",
+      "name": "A-shares Index Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.6202,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "operating_revenue_ttm",
+    "description": "Operating income over the trailing twelve months (index-level aggregate)",
+    "dataset": {
+      "id": "pv25",
+      "name": "A-shares Index Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.6202,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "owners_equity_total",
+    "description": "Total owner's equity (index-level aggregate)",
+    "dataset": {
+      "id": "pv25",
+      "name": "A-shares Index Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.6202,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "paid_in_share_capital",
+    "description": "Total paid-in capital (index-level aggregate)",
+    "dataset": {
+      "id": "pv25",
+      "name": "A-shares Index Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.6202,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "pct_change_index_industry_eod_main",
+    "description": "Day-over-day percentage change in index level",
+    "dataset": {
+      "id": "pv25",
+      "name": "A-shares Index Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.5442,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "period_expense_growth_excl_specials",
+    "description": "Change in period expense ratio (typically year-over-year)",
+    "dataset": {
+      "id": "pv25",
+      "name": "A-shares Index Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.6202,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "period_expense_growth_excl_specials_quarter",
+    "description": "Single-quarter change in period expense ratio year over year",
+    "dataset": {
+      "id": "pv25",
+      "name": "A-shares Index Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.6202,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "period_expense_growth_excl_specials_seq",
+    "description": "Single-quarter change in period expense ratio versus prior quarter (QoQ)",
+    "dataset": {
+      "id": "pv25",
+      "name": "A-shares Index Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.6202,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "period_expense_ratio",
+    "description": "Period expense rate (ratio of period expenses to revenue)",
+    "dataset": {
+      "id": "pv25",
+      "name": "A-shares Index Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.6202,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "period_expense_ratio_quarterly",
+    "description": "Single-quarter period expense rate (ratio of period expenses to revenue)",
+    "dataset": {
+      "id": "pv25",
+      "name": "A-shares Index Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.6202,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "prepayments_total_2",
+    "description": "Total prepayments (balance sheet), aggregated at the index level",
+    "dataset": {
+      "id": "pv25",
+      "name": "A-shares Index Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.6202,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "prev_close_index_industry_eod_main",
+    "description": "Previous trading day’s closing index level (points)",
+    "dataset": {
+      "id": "pv25",
+      "name": "A-shares Index Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.5442,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "price_to_cashflow_operating",
+    "description": "Operating cash flow total (net cash flow from operating activities)",
+    "dataset": {
+      "id": "pv25",
+      "name": "A-shares Index Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.6202,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "price_to_cashflow_operating_growth_pct",
+    "description": "Operating cash flow growth rate (year-over-year)",
+    "dataset": {
+      "id": "pv25",
+      "name": "A-shares Index Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.6202,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "price_to_cashflow_operating_growth_ttm_pct",
+    "description": "Operating cash flow growth rate on a trailing twelve months basis",
+    "dataset": {
+      "id": "pv25",
+      "name": "A-shares Index Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.6202,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "price_to_cashflow_operating_quarterly",
+    "description": "Single quarter: operating cash flow growth rate",
+    "dataset": {
+      "id": "pv25",
+      "name": "A-shares Index Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.6202,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "price_to_cashflow_operating_seq",
+    "description": "Single quarter: operating cash flow growth rate",
+    "dataset": {
+      "id": "pv25",
+      "name": "A-shares Index Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.6202,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "price_to_cashflow_operating_ttm",
+    "description": "Operating cash flow (trailing twelve months)",
+    "dataset": {
+      "id": "pv25",
+      "name": "A-shares Index Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.6202,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "proceeds_from_bond_issuance",
+    "description": "Total cash received from issuing bonds, aggregated at the index level",
+    "dataset": {
+      "id": "pv25",
+      "name": "A-shares Index Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.6202,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "profit_margin_quarterly",
+    "description": "Single-quarter gross profit margin (gross margin for the quarter)",
+    "dataset": {
+      "id": "pv25",
+      "name": "A-shares Index Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.6202,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "pv25_1y_ep_tse",
+    "description": "Index-level estimated forward price-to-earnings ratio for the next fiscal year (Y1), aggregated from constituent forecasts as of the valuation date",
+    "dataset": {
+      "id": "pv25",
+      "name": "A-shares Index Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.8139,
+    "userCount": 9,
+    "alphaCount": 20,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2022-07-01"
+  },
+  {
+    "id": "pv25_1y_spe_tse",
+    "description": "Forecast earnings per share (Y1) yuan",
+    "dataset": {
+      "id": "pv25",
+      "name": "A-shares Index Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.8139,
+    "userCount": 4,
+    "alphaCount": 5,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2022-07-01"
+  },
+  {
+    "id": "pv25_2y_ep_tse",
+    "description": "Index-level estimated forward price-to-earnings ratio for the second forecast year (Y2), aggregated from constituent forecasts as of the valuation date",
+    "dataset": {
+      "id": "pv25",
+      "name": "A-shares Index Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.8139,
+    "userCount": 3,
+    "alphaCount": 4,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2022-07-01"
+  },
+  {
+    "id": "pv25_2y_spe_tse",
+    "description": "Forecast earnings per share (Y2) yuan",
+    "dataset": {
+      "id": "pv25",
+      "name": "A-shares Index Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.8139,
+    "userCount": 4,
+    "alphaCount": 5,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2022-07-01"
+  },
+  {
+    "id": "pv25_annualyeild",
+    "description": "Annualized rate of return",
+    "dataset": {
+      "id": "pv25",
+      "name": "A-shares Index Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.965,
+    "userCount": 5,
+    "alphaCount": 6,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2022-07-01"
+  },
+  {
+    "id": "pv25_con_num",
+    "description": "Number of constituent securities in the index on the date",
+    "dataset": {
+      "id": "pv25",
+      "name": "A-shares Index Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.8139,
+    "userCount": 3,
+    "alphaCount": 4,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2022-07-01"
+  },
+  {
+    "id": "pv25_dividend_yield",
+    "description": "Dividend yield of the index constituents (percent)",
+    "dataset": {
+      "id": "pv25",
+      "name": "A-shares Index Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.8139,
+    "userCount": 4,
+    "alphaCount": 5,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2022-07-01"
+  },
+  {
+    "id": "pv25_est_bus_inc_y1",
+    "description": "Estimated aggregate operating revenue for the current year (Y1) (yuan)",
+    "dataset": {
+      "id": "pv25",
+      "name": "A-shares Index Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.8139,
+    "userCount": 2,
+    "alphaCount": 2,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2022-07-01"
+  },
+  {
+    "id": "pv25_est_bus_inc_y2",
+    "description": "Estimated aggregate operating revenue for the next year (Y2) (yuan)",
+    "dataset": {
+      "id": "pv25",
+      "name": "A-shares Index Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.8139,
+    "userCount": 3,
+    "alphaCount": 3,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2022-07-01"
+  },
+  {
+    "id": "pv25_est_net_profit_y1",
+    "description": "Estimated aggregate net profit for the current year (Y1) (yuan)",
+    "dataset": {
+      "id": "pv25",
+      "name": "A-shares Index Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.8139,
+    "userCount": 1,
+    "alphaCount": 1,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2022-07-01"
+  },
+  {
+    "id": "pv25_est_net_profit_y2",
+    "description": "Estimated aggregate net profit for the next year (Y2) (yuan)",
+    "dataset": {
+      "id": "pv25",
+      "name": "A-shares Index Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.8139,
+    "userCount": 2,
+    "alphaCount": 2,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2022-07-01"
+  },
+  {
+    "id": "pv25_est_peg_y1",
+    "description": "Index-level estimated PEG ratio for the next year (Y1), i.e., forward P/E divided by expected earnings growth for Y1",
+    "dataset": {
+      "id": "pv25",
+      "name": "A-shares Index Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.8139,
+    "userCount": 4,
+    "alphaCount": 4,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2022-07-01"
+  },
+  {
+    "id": "pv25_est_peg_y2",
+    "description": "Index-level estimated PEG ratio for the second forecast year (Y2), i.e., forward P/E divided by expected earnings growth for Y2",
+    "dataset": {
+      "id": "pv25",
+      "name": "A-shares Index Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.8139,
+    "userCount": 3,
+    "alphaCount": 4,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2022-07-01"
+  },
+  {
+    "id": "pv25_est_yoygr_y1",
+    "description": "Estimated year-over-year operating revenue growth rate for the current year (Y1)",
+    "dataset": {
+      "id": "pv25",
+      "name": "A-shares Index Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.8139,
+    "userCount": 4,
+    "alphaCount": 4,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2022-07-01"
+  },
+  {
+    "id": "pv25_est_yoygr_y2",
+    "description": "Estimated year-over-year operating revenue growth rate for the next year (Y2)",
+    "dataset": {
+      "id": "pv25",
+      "name": "A-shares Index Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.8139,
+    "userCount": 4,
+    "alphaCount": 5,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2022-07-01"
+  },
+  {
+    "id": "pv25_est_yoyprofit_y1",
+    "description": "Estimated year-over-year net profit growth rate for the current year (Y1)",
+    "dataset": {
+      "id": "pv25",
+      "name": "A-shares Index Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.8139,
+    "userCount": 4,
+    "alphaCount": 4,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2022-07-01"
+  },
+  {
+    "id": "pv25_est_yoyprofit_y2",
+    "description": "Estimated year-over-year net profit growth rate for the next year (Y2)",
+    "dataset": {
+      "id": "pv25",
+      "name": "A-shares Index Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.8139,
+    "userCount": 4,
+    "alphaCount": 4,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2022-07-01"
+  },
+  {
+    "id": "pv25_fl_bp",
+    "description": "Price-to-book ratio based on latest financials (latest fiscal period, LF)",
+    "dataset": {
+      "id": "pv25",
+      "name": "A-shares Index Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.8139,
+    "userCount": 6,
+    "alphaCount": 10,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2022-07-01"
+  },
+  {
+    "id": "pv25_ghc_tcp_is",
+    "description": "Since the release",
+    "dataset": {
+      "id": "pv25",
+      "name": "A-shares Index Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.7692,
+    "userCount": 6,
+    "alphaCount": 18,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2022-07-01"
+  },
+  {
+    "id": "pv25_mtt_ep",
+    "description": "Price-to-earnings ratio based on trailing twelve months (TTM)",
+    "dataset": {
+      "id": "pv25",
+      "name": "A-shares Index Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.8139,
+    "userCount": 3,
+    "alphaCount": 3,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2022-07-01"
+  },
+  {
+    "id": "pv25_mtt_fcp",
+    "description": "Price-to-cash-flow ratio based on trailing twelve months (TTM)",
+    "dataset": {
+      "id": "pv25",
+      "name": "A-shares Index Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.8139,
+    "userCount": 2,
+    "alphaCount": 4,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2022-07-01"
+  },
+  {
+    "id": "pv25_mtt_sp",
+    "description": "Price-to-sales ratio based on trailing twelve months (TTM)",
+    "dataset": {
+      "id": "pv25",
+      "name": "A-shares Index Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.8139,
+    "userCount": 3,
+    "alphaCount": 3,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2022-07-01"
+  },
+  {
+    "id": "pv25_mv_float",
+    "description": "Aggregate float (circulating) market capitalization for the day (yuan)",
+    "dataset": {
+      "id": "pv25",
+      "name": "A-shares Index Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.8139,
+    "userCount": 4,
+    "alphaCount": 5,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2022-07-01"
+  },
+  {
+    "id": "pv25_mv_total",
+    "description": "Aggregate total market capitalization of constituents for the day (yuan)",
+    "dataset": {
+      "id": "pv25",
+      "name": "A-shares Index Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.8139,
+    "userCount": 2,
+    "alphaCount": 4,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2022-07-01"
+  },
+  {
+    "id": "pv25_pct_chg_recent1m",
+    "description": "Percentage change over the most recent 1 month",
+    "dataset": {
+      "id": "pv25",
+      "name": "A-shares Index Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 1.0,
+    "userCount": 3,
+    "alphaCount": 5,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2022-07-01"
+  },
+  {
+    "id": "pv25_pct_chg_recent1y",
+    "description": "Percentage change over the most recent 1 year",
+    "dataset": {
+      "id": "pv25",
+      "name": "A-shares Index Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 1.0,
+    "userCount": 5,
+    "alphaCount": 5,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2022-07-01"
+  },
+  {
+    "id": "pv25_pct_chg_recent2y",
+    "description": "Percentage change over the most recent 2 years",
+    "dataset": {
+      "id": "pv25",
+      "name": "A-shares Index Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.9955,
+    "userCount": 4,
+    "alphaCount": 4,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2022-07-01"
+  },
+  {
+    "id": "pv25_pct_chg_recent3m",
+    "description": "Percentage change over the most recent 3 months",
+    "dataset": {
+      "id": "pv25",
+      "name": "A-shares Index Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 1.0,
+    "userCount": 4,
+    "alphaCount": 4,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2022-07-01"
+  },
+  {
+    "id": "pv25_pct_chg_recent3y",
+    "description": "Percentage change over the most recent 3 years",
+    "dataset": {
+      "id": "pv25",
+      "name": "A-shares Index Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.9279,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2022-07-01"
+  },
+  {
+    "id": "pv25_pct_chg_recent4y",
+    "description": "Percentage change over the most recent 4 years",
+    "dataset": {
+      "id": "pv25",
+      "name": "A-shares Index Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.8618,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2022-07-01"
+  },
+  {
+    "id": "pv25_pct_chg_recent5y",
+    "description": "Percentage change over the most recent 5 years",
+    "dataset": {
+      "id": "pv25",
+      "name": "A-shares Index Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.7942,
+    "userCount": 4,
+    "alphaCount": 4,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2022-07-01"
+  },
+  {
+    "id": "pv25_pct_chg_recent6m",
+    "description": "Percentage change over the most recent 6 months",
+    "dataset": {
+      "id": "pv25",
+      "name": "A-shares Index Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 1.0,
+    "userCount": 5,
+    "alphaCount": 5,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2022-07-01"
+  },
+  {
+    "id": "pv25_pct_chg_recent6y",
+    "description": "Percentage change over the most recent 6 years",
+    "dataset": {
+      "id": "pv25",
+      "name": "A-shares Index Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.6875,
+    "userCount": 2,
+    "alphaCount": 2,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2022-07-01"
+  },
+  {
+    "id": "pv25_pct_chg_thismonth",
+    "description": "Ups and downs since this month",
+    "dataset": {
+      "id": "pv25",
+      "name": "A-shares Index Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 1.0,
+    "userCount": 5,
+    "alphaCount": 5,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2022-07-01"
+  },
+  {
+    "id": "pv25_pct_chg_thisquarter",
+    "description": "Ups and downs since the quarter",
+    "dataset": {
+      "id": "pv25",
+      "name": "A-shares Index Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 1.0,
+    "userCount": 2,
+    "alphaCount": 2,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2022-07-01"
+  },
+  {
+    "id": "pv25_pct_chg_thisweek",
+    "description": "This week's rise and fall",
+    "dataset": {
+      "id": "pv25",
+      "name": "A-shares Index Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 1.0,
+    "userCount": 2,
+    "alphaCount": 3,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2022-07-01"
+  },
+  {
+    "id": "pv25_pct_chg_thisyear",
+    "description": "Ups and downs since this year",
+    "dataset": {
+      "id": "pv25",
+      "name": "A-shares Index Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 1.0,
+    "userCount": 3,
+    "alphaCount": 3,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2022-07-01"
+  },
+  {
+    "id": "pv25_peg_his",
+    "description": "Historical PEG",
+    "dataset": {
+      "id": "pv25",
+      "name": "A-shares Index Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.8139,
+    "userCount": 4,
+    "alphaCount": 7,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2022-07-01"
+  },
+  {
+    "id": "pv25_ryl_ep",
+    "description": "Price-to-earnings ratio based on last fiscal year reported earnings (LYR)",
+    "dataset": {
+      "id": "pv25",
+      "name": "A-shares Index Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.8139,
+    "userCount": 4,
+    "alphaCount": 4,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2022-07-01"
+  },
+  {
+    "id": "pv25_ryl_fcp",
+    "description": "Price-to-cash-flow ratio based on last fiscal year (LYR)",
+    "dataset": {
+      "id": "pv25",
+      "name": "A-shares Index Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.8139,
+    "userCount": 3,
+    "alphaCount": 5,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2022-07-01"
+  },
+  {
+    "id": "pv25_ryl_sp",
+    "description": "Price-to-sales ratio based on last fiscal year (LYR)",
+    "dataset": {
+      "id": "pv25",
+      "name": "A-shares Index Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.8139,
+    "userCount": 3,
+    "alphaCount": 3,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2022-07-01"
+  },
+  {
+    "id": "pv25_s_dq_amount",
+    "description": "Traded value in RMB",
+    "dataset": {
+      "id": "pv25",
+      "name": "A-shares Index Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.8405,
+    "userCount": 4,
+    "alphaCount": 4,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2022-07-01"
+  },
+  {
+    "id": "pv25_s_dq_change",
+    "description": "Price change in RMB from previous close",
+    "dataset": {
+      "id": "pv25",
+      "name": "A-shares Index Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.8405,
+    "userCount": 3,
+    "alphaCount": 6,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2022-07-01"
+  },
+  {
+    "id": "pv25_s_dq_close",
+    "description": "Closing price",
+    "dataset": {
+      "id": "pv25",
+      "name": "A-shares Index Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.8405,
+    "userCount": 3,
+    "alphaCount": 3,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2022-07-01"
+  },
+  {
+    "id": "pv25_s_dq_high",
+    "description": "Highest price of the day",
+    "dataset": {
+      "id": "pv25",
+      "name": "A-shares Index Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.8405,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2022-07-01"
+  },
+  {
+    "id": "pv25_s_dq_low",
+    "description": "Lowest price of the day",
+    "dataset": {
+      "id": "pv25",
+      "name": "A-shares Index Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.8405,
+    "userCount": 2,
+    "alphaCount": 4,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2022-07-01"
+  },
+  {
+    "id": "pv25_s_dq_open",
+    "description": "Opening price",
+    "dataset": {
+      "id": "pv25",
+      "name": "A-shares Index Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.8405,
+    "userCount": 5,
+    "alphaCount": 5,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2022-07-01"
+  },
+  {
+    "id": "pv25_s_dq_pctchange",
+    "description": "Price change percentage from previous close",
+    "dataset": {
+      "id": "pv25",
+      "name": "A-shares Index Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.8405,
+    "userCount": 1,
+    "alphaCount": 1,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2022-07-01"
+  },
+  {
+    "id": "pv25_s_dq_preclose",
+    "description": "Previous trading day's closing price",
+    "dataset": {
+      "id": "pv25",
+      "name": "A-shares Index Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.8405,
+    "userCount": 2,
+    "alphaCount": 3,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2022-07-01"
+  },
+  {
+    "id": "pv25_s_dq_volume",
+    "description": "Traded volume in shares",
+    "dataset": {
+      "id": "pv25",
+      "name": "A-shares Index Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.8405,
+    "userCount": 4,
+    "alphaCount": 4,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2022-07-01"
+  },
+  {
+    "id": "pv25_sharpratio_1y",
+    "description": "1 year Sharpe ratio",
+    "dataset": {
+      "id": "pv25",
+      "name": "A-shares Index Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 1.0,
+    "userCount": 1,
+    "alphaCount": 1,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2022-07-01"
+  },
+  {
+    "id": "pv25_sharpratio_2y",
+    "description": "2-year Sharpe ratio",
+    "dataset": {
+      "id": "pv25",
+      "name": "A-shares Index Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.9955,
+    "userCount": 3,
+    "alphaCount": 4,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2022-07-01"
+  },
+  {
+    "id": "pv25_sharpratio_3y",
+    "description": "3-year Sharpe ratio",
+    "dataset": {
+      "id": "pv25",
+      "name": "A-shares Index Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.9279,
+    "userCount": 1,
+    "alphaCount": 5,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2022-07-01"
+  },
+  {
+    "id": "pv25_sharpratio_6m",
+    "description": "6 month Sharpe ratio",
+    "dataset": {
+      "id": "pv25",
+      "name": "A-shares Index Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 1.0,
+    "userCount": 4,
+    "alphaCount": 5,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2022-07-01"
+  },
+  {
+    "id": "pv25_std_dev_1y",
+    "description": "1 year standard deviation",
+    "dataset": {
+      "id": "pv25",
+      "name": "A-shares Index Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 1.0,
+    "userCount": 2,
+    "alphaCount": 2,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2022-07-01"
+  },
+  {
+    "id": "pv25_std_dev_2y",
+    "description": "2 year standard deviation",
+    "dataset": {
+      "id": "pv25",
+      "name": "A-shares Index Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.9955,
+    "userCount": 3,
+    "alphaCount": 3,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2022-07-01"
+  },
+  {
+    "id": "pv25_std_dev_3y",
+    "description": "3 year standard deviation",
+    "dataset": {
+      "id": "pv25",
+      "name": "A-shares Index Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.9279,
+    "userCount": 1,
+    "alphaCount": 2,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2022-07-01"
+  },
+  {
+    "id": "pv25_std_dev_6m",
+    "description": "6 month standard deviation",
+    "dataset": {
+      "id": "pv25",
+      "name": "A-shares Index Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 1.0,
+    "userCount": 3,
+    "alphaCount": 6,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2022-07-01"
+  },
+  {
+    "id": "pv25_tot_shr",
+    "description": "Aggregate total shares outstanding of constituents (shares)",
+    "dataset": {
+      "id": "pv25",
+      "name": "A-shares Index Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.8139,
+    "userCount": 3,
+    "alphaCount": 3,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2022-07-01"
+  },
+  {
+    "id": "pv25_tot_shr_float",
+    "description": "Aggregate circulating (float) shares of constituents (shares)",
+    "dataset": {
+      "id": "pv25",
+      "name": "A-shares Index Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.8139,
+    "userCount": 3,
+    "alphaCount": 4,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2022-07-01"
+  },
+  {
+    "id": "pv25_tot_shr_free",
+    "description": "Free tradable share capital",
+    "dataset": {
+      "id": "pv25",
+      "name": "A-shares Index Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.8139,
+    "userCount": 1,
+    "alphaCount": 2,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2022-07-01"
+  },
+  {
+    "id": "pv25_turnover",
+    "description": "Hand turnover rate",
+    "dataset": {
+      "id": "pv25",
+      "name": "A-shares Index Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.8139,
+    "userCount": 4,
+    "alphaCount": 4,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2022-07-01"
+  },
+  {
+    "id": "pv25_turnover_free",
+    "description": "Index turnover rate based on free-float capitalization",
+    "dataset": {
+      "id": "pv25",
+      "name": "A-shares Index Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.8139,
+    "userCount": 1,
+    "alphaCount": 1,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2022-07-01"
+  },
+  {
+    "id": "quick_ratio_value",
+    "description": "Quick ratio (acid-test; (current assets minus inventories) divided by current liabilities)",
+    "dataset": {
+      "id": "pv25",
+      "name": "A-shares Index Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.6202,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "retained_earnings_total_2",
+    "description": "Total undistributed profit (retained earnings)",
+    "dataset": {
+      "id": "pv25",
+      "name": "A-shares Index Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.6202,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "return_on_assets_pct",
+    "description": "Return on assets (index-level aggregate)",
+    "dataset": {
+      "id": "pv25",
+      "name": "A-shares Index Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.6202,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "return_on_assets_quarterly",
+    "description": "Single-quarter ROA",
+    "dataset": {
+      "id": "pv25",
+      "name": "A-shares Index Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.6202,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "return_on_assets_ttm_3",
+    "description": "ROA on a trailing-twelve-month basis",
+    "dataset": {
+      "id": "pv25",
+      "name": "A-shares Index Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.6202,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "return_on_equity_pct",
+    "description": "Return on equity (index-level aggregate)",
+    "dataset": {
+      "id": "pv25",
+      "name": "A-shares Index Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.6202,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "return_on_equity_quarterly",
+    "description": "Single-quarter ROE",
+    "dataset": {
+      "id": "pv25",
+      "name": "A-shares Index Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.6202,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "return_on_equity_ttm",
+    "description": "ROE on a trailing-twelve-month basis",
+    "dataset": {
+      "id": "pv25",
+      "name": "A-shares Index Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.6202,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "roa_growth_excl_specials",
+    "description": "ROA year-on-year increase and decrease",
+    "dataset": {
+      "id": "pv25",
+      "name": "A-shares Index Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.6202,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "roa_growth_excl_specials_quarter",
+    "description": "Single quarter: ROA year-on-year increase or decrease",
+    "dataset": {
+      "id": "pv25",
+      "name": "A-shares Index Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.6202,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "roa_growth_excl_specials_seq",
+    "description": "Single quarter: ROA increase or decrease",
+    "dataset": {
+      "id": "pv25",
+      "name": "A-shares Index Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.6202,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "roa_growth_excl_specials_ttm",
+    "description": "Year-over-year change in ROA on a trailing-twelve-month basis",
+    "dataset": {
+      "id": "pv25",
+      "name": "A-shares Index Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.6202,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "roe_growth_excl_specials",
+    "description": "ROE year-on-year increase or decrease",
+    "dataset": {
+      "id": "pv25",
+      "name": "A-shares Index Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.6202,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "roe_growth_excl_specials_quarter",
+    "description": "Single quarter: ROE year-on-year increase and decrease",
+    "dataset": {
+      "id": "pv25",
+      "name": "A-shares Index Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.6202,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "roe_growth_excl_specials_seq",
+    "description": "Single quarter: ROE increase or decrease",
+    "dataset": {
+      "id": "pv25",
+      "name": "A-shares Index Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.6202,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "roe_growth_excl_specials_ttm",
+    "description": "Year-over-year change in ROE on a trailing-twelve-month basis",
+    "dataset": {
+      "id": "pv25",
+      "name": "A-shares Index Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.6202,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "sales_cash_to_operating_income",
+    "description": "Total cash received from sales of goods and services",
+    "dataset": {
+      "id": "pv25",
+      "name": "A-shares Index Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.6202,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "sales_expense_ratio",
+    "description": "Sales expense ratio (selling expenses as a percentage of revenue)",
+    "dataset": {
+      "id": "pv25",
+      "name": "A-shares Index Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.6202,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "sales_expense_ratio_quarterly",
+    "description": "Single-quarter sales expense ratio",
+    "dataset": {
+      "id": "pv25",
+      "name": "A-shares Index Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.6202,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "selling_distribution_expense_total",
+    "description": "Total sales expenses, aggregated at the index level",
+    "dataset": {
+      "id": "pv25",
+      "name": "A-shares Index Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.6202,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "short_term_borrowings_total_2",
+    "description": "Total short-term borrowings, aggregated at the index level",
+    "dataset": {
+      "id": "pv25",
+      "name": "A-shares Index Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.6202,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "style_factor_ashare",
+    "description": "Style factor",
+    "dataset": {
+      "id": "pv25",
+      "name": "A-shares Index Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "MATRIX",
+    "dateCoverage": 0.3445,
+    "coverage": 0.265,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "total_cash_inflows_financing",
+    "description": "Total cash inflow from financing activities, aggregated at the index level",
+    "dataset": {
+      "id": "pv25",
+      "name": "A-shares Index Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.6202,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "total_cash_inflows_investing",
+    "description": "Total cash inflows from investment activities, aggregated at the index level",
+    "dataset": {
+      "id": "pv25",
+      "name": "A-shares Index Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.6202,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "total_cash_inflows_operating",
+    "description": "Total cash inflow from operating activities, aggregated at the index level",
+    "dataset": {
+      "id": "pv25",
+      "name": "A-shares Index Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.6202,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "total_cash_outflows_financing",
+    "description": "Total cash outflow from financing activities, aggregated at the index level",
+    "dataset": {
+      "id": "pv25",
+      "name": "A-shares Index Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.6202,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "total_cash_outflows_operating",
+    "description": "Total cash outflow from operating activities, aggregated at the index level",
+    "dataset": {
+      "id": "pv25",
+      "name": "A-shares Index Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.6202,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "total_profit_value",
+    "description": "Total profit",
+    "dataset": {
+      "id": "pv25",
+      "name": "A-shares Index Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.6202,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "trade_amount_index_industry_eod_main",
+    "description": "Aggregate transaction value of constituents, in thousand CNY",
+    "dataset": {
+      "id": "pv25",
+      "name": "A-shares Index Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.5442,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "trade_volume_index_industry_eod_main",
+    "description": "Aggregate traded volume of constituents, in hands (lots of 100 shares)",
+    "dataset": {
+      "id": "pv25",
+      "name": "A-shares Index Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.5442,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "value_factor_ashare",
+    "description": "Adjusting the market value factor",
+    "dataset": {
+      "id": "pv25",
+      "name": "A-shares Index Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "MATRIX",
+    "dateCoverage": 0.3445,
+    "coverage": 0.265,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "value_zscore_ashare",
+    "description": "Standardized Z-score representing the index’s value factor exposure (ZVP)",
+    "dataset": {
+      "id": "pv25",
+      "name": "A-shares Index Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "MATRIX",
+    "dateCoverage": 0.3445,
+    "coverage": 0.265,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  }
+]

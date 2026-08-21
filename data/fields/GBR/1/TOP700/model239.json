@@ -1,0 +1,930 @@
+﻿[
+    {
+        "id":  "activity_change_aggregated_metric",
+        "description":  "Aggregation of time-series changes in activity proxies including units, tickets, and utilization",
+        "dataset":  {
+                        "id":  "model239",
+                        "name":  "Short Selling Model"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-estimates-models",
+                            "name":  "Estimates Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "aggregated_lending_contract_count",
+        "description":  "Aggregated count/proxy of borrowing tickets (lending transactions)",
+        "dataset":  {
+                        "id":  "model239",
+                        "name":  "Short Selling Model"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-estimates-models",
+                            "name":  "Estimates Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "aggregated_loan_rate_cash_collateral",
+        "description":  "Primary aggregated securities-lending borrow rate (annualized)",
+        "dataset":  {
+                        "id":  "model239",
+                        "name":  "Short Selling Model"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-estimates-models",
+                            "name":  "Estimates Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "aggregated_loan_rate_non_cash_collateral",
+        "description":  "Aggregated secondary or alternative securities-lending borrow rate, monthly",
+        "dataset":  {
+                        "id":  "model239",
+                        "name":  "Short Selling Model"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-estimates-models",
+                            "name":  "Estimates Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "average_contract_age_aggregated",
+        "description":  "Aggregated average age of loans in days",
+        "dataset":  {
+                        "id":  "model239",
+                        "name":  "Short Selling Model"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-estimates-models",
+                            "name":  "Estimates Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "cross_sectional_activity_difference_agg",
+        "description":  "Aggregation for current differences between overnight contracts and standard contracts",
+        "dataset":  {
+                        "id":  "model239",
+                        "name":  "Short Selling Model"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-estimates-models",
+                            "name":  "Estimates Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "cross_sectional_metric_difference_agg",
+        "description":  "aggregation for cross-sectional differences in loan rates, age and tickets",
+        "dataset":  {
+                        "id":  "model239",
+                        "name":  "Short Selling Model"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-estimates-models",
+                            "name":  "Estimates Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "daily_short_interest_model_score",
+        "description":  "Machine-learning short crowding or squeeze risk score using the current day’s data (higher = higher risk)",
+        "dataset":  {
+                        "id":  "model239",
+                        "name":  "Short Selling Model"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-estimates-models",
+                            "name":  "Estimates Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "loan_rate_change_aggregated_metric",
+        "description":  "Aggregated time-series change in borrow/loan rates (e.g., day-over-day change)",
+        "dataset":  {
+                        "id":  "model239",
+                        "name":  "Short Selling Model"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-estimates-models",
+                            "name":  "Estimates Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "long_term_contract_difference_agg",
+        "description":  "aggregation for long term differences between overnight contracts and standard contracts",
+        "dataset":  {
+                        "id":  "model239",
+                        "name":  "Short Selling Model"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-estimates-models",
+                            "name":  "Estimates Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl239_combo_age",
+        "description":  "Normalized average age in days of outstanding loans",
+        "dataset":  {
+                        "id":  "model239",
+                        "name":  "Short Selling Model"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-estimates-models",
+                            "name":  "Estimates Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl239_combo_crossdeltaactivity",
+        "description":  "Normalized cross-sectional measure of changes in activity (units, tickets, utilization) between overnight and standard contracts",
+        "dataset":  {
+                        "id":  "model239",
+                        "name":  "Short Selling Model"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-estimates-models",
+                            "name":  "Estimates Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl239_combo_deltaactivity",
+        "description":  "Normalized day-over-day time-series change in activity (units, tickets, utilization) of lending contracts",
+        "dataset":  {
+                        "id":  "model239",
+                        "name":  "Short Selling Model"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-estimates-models",
+                            "name":  "Estimates Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl239_combo_deltacrossdelta",
+        "description":  "Normalized cross sectional difference in units, tickets and utilization between loans",
+        "dataset":  {
+                        "id":  "model239",
+                        "name":  "Short Selling Model"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-estimates-models",
+                            "name":  "Estimates Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl239_combo_deltarate",
+        "description":  "Normalized time-series change in loan or borrow rate",
+        "dataset":  {
+                        "id":  "model239",
+                        "name":  "Short Selling Model"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-estimates-models",
+                            "name":  "Estimates Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl239_combo_loanrate1",
+        "description":  "Normalized aggregated cash collateral borrow rate (annualized)",
+        "dataset":  {
+                        "id":  "model239",
+                        "name":  "Short Selling Model"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-estimates-models",
+                            "name":  "Estimates Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl239_combo_loanrate2",
+        "description":  "Normalized aggregated non-cash collateral borrow rate (annualized)",
+        "dataset":  {
+                        "id":  "model239",
+                        "name":  "Short Selling Model"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-estimates-models",
+                            "name":  "Estimates Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl239_combo_ltdelta",
+        "description":  "Normalized long-term difference in units, tickets, and utilization between overnight and standard contracts",
+        "dataset":  {
+                        "id":  "model239",
+                        "name":  "Short Selling Model"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-estimates-models",
+                            "name":  "Estimates Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl239_combo_tickets",
+        "description":  "Normalized aggregation of securities-lending ticket activity or counts",
+        "dataset":  {
+                        "id":  "model239",
+                        "name":  "Short Selling Model"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-estimates-models",
+                            "name":  "Estimates Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl239_combo_utilisation",
+        "description":  "Normalized utilization ratio (shares on loan divided by lendable shares)",
+        "dataset":  {
+                        "id":  "model239",
+                        "name":  "Short Selling Model"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-estimates-models",
+                            "name":  "Estimates Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl239_combo_utilisation_x_rate",
+        "description":  "Normalized product of utilization and loan rate (interaction metric)",
+        "dataset":  {
+                        "id":  "model239",
+                        "name":  "Short Selling Model"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-estimates-models",
+                            "name":  "Estimates Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl239_gvkey",
+        "description":  "Permanent company identifier (Compustat GVKEY) used for joins/merges",
+        "dataset":  {
+                        "id":  "model239",
+                        "name":  "Short Selling Model"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-estimates-models",
+                            "name":  "Estimates Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl239_shortlasso1d",
+        "description":  "Machine-learning short crowding or squeeze risk score using current day’s data (higher implies higher risk)",
+        "dataset":  {
+                        "id":  "model239",
+                        "name":  "Short Selling Model"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-estimates-models",
+                            "name":  "Estimates Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl239_shortlasso30d",
+        "description":  "Machine-learning short crowding or squeeze risk score using the last 30 days of data",
+        "dataset":  {
+                        "id":  "model239",
+                        "name":  "Short Selling Model"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-estimates-models",
+                            "name":  "Estimates Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl239_shortlasso92d",
+        "description":  "Machine-learning short crowding or squeeze risk score using the last 92 days of data",
+        "dataset":  {
+                        "id":  "model239",
+                        "name":  "Short Selling Model"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-estimates-models",
+                            "name":  "Estimates Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "ninety_two_day_avg_short_interest_score",
+        "description":  "Average crowding or short-squeeze risk model score over the last 92 days",
+        "dataset":  {
+                        "id":  "model239",
+                        "name":  "Short Selling Model"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-estimates-models",
+                            "name":  "Estimates Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "normalized_utilization_rate_aggregated",
+        "description":  "Normalized utilization rate (shares on loan over lendable shares) aggregated monthly",
+        "dataset":  {
+                        "id":  "model239",
+                        "name":  "Short Selling Model"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-estimates-models",
+                            "name":  "Estimates Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "thirty_day_avg_short_interest_score",
+        "description":  "Average crowding or short-squeeze risk model score over the last 30 days",
+        "dataset":  {
+                        "id":  "model239",
+                        "name":  "Short Selling Model"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-estimates-models",
+                            "name":  "Estimates Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "utilization_loan_rate_interaction_agg",
+        "description":  "Interaction metric equal to Utilisation multiplied by Loan Rate; combined stress/cost indicator",
+        "dataset":  {
+                        "id":  "model239",
+                        "name":  "Short Selling Model"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-estimates-models",
+                            "name":  "Estimates Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    }
+]

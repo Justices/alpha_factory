@@ -1,0 +1,407 @@
+[
+  {
+    "id": "snt27_avgranking_100",
+    "description": "Average of rankings",
+    "dataset": {
+      "id": "sentiment27",
+      "name": "Website Popularity Rankings"
+    },
+    "category": {
+      "id": "sentiment",
+      "name": "Sentiment"
+    },
+    "subcategory": {
+      "id": "sentiment-sentiment",
+      "name": "Sentiment"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.3083,
+    "userCount": 25,
+    "alphaCount": 56,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2024-06-01"
+  },
+  {
+    "id": "snt27_dltcc_68",
+    "description": "Country code TLD",
+    "dataset": {
+      "id": "sentiment27",
+      "name": "Website Popularity Rankings"
+    },
+    "category": {
+      "id": "sentiment",
+      "name": "Sentiment"
+    },
+    "subcategory": {
+      "id": "sentiment-sentiment",
+      "name": "Sentiment"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.307,
+    "userCount": 19,
+    "alphaCount": 40,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2024-07-01"
+  },
+  {
+    "id": "snt27_new_atlas_domain_66",
+    "description": "Cleaned domain name",
+    "dataset": {
+      "id": "sentiment27",
+      "name": "Website Popularity Rankings"
+    },
+    "category": {
+      "id": "sentiment",
+      "name": "Sentiment"
+    },
+    "subcategory": {
+      "id": "sentiment-sentiment",
+      "name": "Sentiment"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.307,
+    "userCount": 10,
+    "alphaCount": 27,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2024-07-01"
+  },
+  {
+    "id": "snt27_rank_67",
+    "description": "rank of the domain",
+    "dataset": {
+      "id": "sentiment27",
+      "name": "Website Popularity Rankings"
+    },
+    "category": {
+      "id": "sentiment",
+      "name": "Sentiment"
+    },
+    "subcategory": {
+      "id": "sentiment-sentiment",
+      "name": "Sentiment"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.307,
+    "userCount": 11,
+    "alphaCount": 14,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2024-07-01"
+  },
+  {
+    "id": "snt27_relpopularity08_99",
+    "description": "Relative popularity calculated with alpha=0.8",
+    "dataset": {
+      "id": "sentiment27",
+      "name": "Website Popularity Rankings"
+    },
+    "category": {
+      "id": "sentiment",
+      "name": "Sentiment"
+    },
+    "subcategory": {
+      "id": "sentiment-sentiment",
+      "name": "Sentiment"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.3083,
+    "userCount": 16,
+    "alphaCount": 33,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2024-06-01"
+  },
+  {
+    "id": "snt27_relpopularity1_92",
+    "description": "Relative popularity calculated with alpha=1",
+    "dataset": {
+      "id": "sentiment27",
+      "name": "Website Popularity Rankings"
+    },
+    "category": {
+      "id": "sentiment",
+      "name": "Sentiment"
+    },
+    "subcategory": {
+      "id": "sentiment-sentiment",
+      "name": "Sentiment"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.3083,
+    "userCount": 16,
+    "alphaCount": 41,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2024-06-01"
+  },
+  {
+    "id": "snt27_top50pctranking_91",
+    "description": "The top 50% percentile ranking",
+    "dataset": {
+      "id": "sentiment27",
+      "name": "Website Popularity Rankings"
+    },
+    "category": {
+      "id": "sentiment",
+      "name": "Sentiment"
+    },
+    "subcategory": {
+      "id": "sentiment-sentiment",
+      "name": "Sentiment"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.3083,
+    "userCount": 20,
+    "alphaCount": 41,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2024-06-01"
+  },
+  {
+    "id": "snt27_top50pctrankingavg_97",
+    "description": "The average ranking of the top 50% percentile",
+    "dataset": {
+      "id": "sentiment27",
+      "name": "Website Popularity Rankings"
+    },
+    "category": {
+      "id": "sentiment",
+      "name": "Sentiment"
+    },
+    "subcategory": {
+      "id": "sentiment-sentiment",
+      "name": "Sentiment"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.3083,
+    "userCount": 21,
+    "alphaCount": 23,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2024-06-01"
+  },
+  {
+    "id": "snt27_top75pctranking_102",
+    "description": "The top 75% percentile ranking",
+    "dataset": {
+      "id": "sentiment27",
+      "name": "Website Popularity Rankings"
+    },
+    "category": {
+      "id": "sentiment",
+      "name": "Sentiment"
+    },
+    "subcategory": {
+      "id": "sentiment-sentiment",
+      "name": "Sentiment"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.3083,
+    "userCount": 13,
+    "alphaCount": 16,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2024-06-01"
+  },
+  {
+    "id": "snt27_top75pctrankingavg_93",
+    "description": "The average ranking of the top 75% percentile",
+    "dataset": {
+      "id": "sentiment27",
+      "name": "Website Popularity Rankings"
+    },
+    "category": {
+      "id": "sentiment",
+      "name": "Sentiment"
+    },
+    "subcategory": {
+      "id": "sentiment-sentiment",
+      "name": "Sentiment"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.3083,
+    "userCount": 14,
+    "alphaCount": 19,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2024-06-01"
+  },
+  {
+    "id": "snt27_topranking_105",
+    "description": "The top ranking",
+    "dataset": {
+      "id": "sentiment27",
+      "name": "Website Popularity Rankings"
+    },
+    "category": {
+      "id": "sentiment",
+      "name": "Sentiment"
+    },
+    "subcategory": {
+      "id": "sentiment-sentiment",
+      "name": "Sentiment"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.3083,
+    "userCount": 15,
+    "alphaCount": 24,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2024-06-01"
+  },
+  {
+    "id": "snt27_totalcountrydomains_103",
+    "description": "Total number of country-code TLDs",
+    "dataset": {
+      "id": "sentiment27",
+      "name": "Website Popularity Rankings"
+    },
+    "category": {
+      "id": "sentiment",
+      "name": "Sentiment"
+    },
+    "subcategory": {
+      "id": "sentiment-sentiment",
+      "name": "Sentiment"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.3083,
+    "userCount": 27,
+    "alphaCount": 52,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2024-06-01"
+  },
+  {
+    "id": "snt27_totaldomains_101",
+    "description": "Total number of sub-domains",
+    "dataset": {
+      "id": "sentiment27",
+      "name": "Website Popularity Rankings"
+    },
+    "category": {
+      "id": "sentiment",
+      "name": "Sentiment"
+    },
+    "subcategory": {
+      "id": "sentiment-sentiment",
+      "name": "Sentiment"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.3083,
+    "userCount": 29,
+    "alphaCount": 50,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2024-06-01"
+  },
+  {
+    "id": "snt27_website_69",
+    "description": "name of the website",
+    "dataset": {
+      "id": "sentiment27",
+      "name": "Website Popularity Rankings"
+    },
+    "category": {
+      "id": "sentiment",
+      "name": "Sentiment"
+    },
+    "subcategory": {
+      "id": "sentiment-sentiment",
+      "name": "Sentiment"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.307,
+    "userCount": 18,
+    "alphaCount": 21,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2024-07-01"
+  },
+  {
+    "id": "snt27_wq_pit_94",
+    "description": "For ongoing data it is wq_append_time, for history data it simulated from PIT simulation field in the MCD input settings. MCD builder can disable auto-filled value of wq_pit for ongoing, by checking the flag Always simulate PIT\" in MCD Output Config\"",
+    "dataset": {
+      "id": "sentiment27",
+      "name": "Website Popularity Rankings"
+    },
+    "category": {
+      "id": "sentiment",
+      "name": "Sentiment"
+    },
+    "subcategory": {
+      "id": "sentiment-sentiment",
+      "name": "Sentiment"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.3083,
+    "userCount": 24,
+    "alphaCount": 42,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2024-07-01"
+  }
+]

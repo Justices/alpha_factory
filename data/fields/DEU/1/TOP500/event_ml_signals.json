@@ -1,0 +1,3330 @@
+﻿[
+    {
+        "id":  "activist_agreement_event",
+        "description":  "Announcement related to agreements involving activist investors.",
+        "dataset":  {
+                        "id":  "event_ml_signals",
+                        "name":  "Machine Learning Company Event Signals"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-event-data",
+                            "name":  "Event Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "activist_communication_event",
+        "description":  "Indicator of activist investor communications (campaign launch, letters, filings, public statements) on this date",
+        "dataset":  {
+                        "id":  "event_ml_signals",
+                        "name":  "Machine Learning Company Event Signals"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-event-data",
+                            "name":  "Event Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "activist_financing_option_event",
+        "description":  "Announcement of financing options provided by activist investors.",
+        "dataset":  {
+                        "id":  "event_ml_signals",
+                        "name":  "Machine Learning Company Event Signals"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-event-data",
+                            "name":  "Event Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "activist_nomination_event",
+        "description":  "Indicator of activist actions related to director nominations or proxy contest nominations at the company",
+        "dataset":  {
+                        "id":  "event_ml_signals",
+                        "name":  "Machine Learning Company Event Signals"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-event-data",
+                            "name":  "Event Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "activist_proxy_voting_event",
+        "description":  "Indicator of proxy-voting-related activism events (proxy contests, solicitations, or vote outcomes)",
+        "dataset":  {
+                        "id":  "event_ml_signals",
+                        "name":  "Machine Learning Company Event Signals"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-event-data",
+                            "name":  "Event Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "activist_supporting_statement",
+        "description":  "Statement issued in support of activist investor actions.",
+        "dataset":  {
+                        "id":  "event_ml_signals",
+                        "name":  "Machine Learning Company Event Signals"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-event-data",
+                            "name":  "Event Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "activist_target_communication_event",
+        "description":  "Communication from activist investors directed at a target company.",
+        "dataset":  {
+                        "id":  "event_ml_signals",
+                        "name":  "Machine Learning Company Event Signals"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-event-data",
+                            "name":  "Event Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "analyst_investor_day_event",
+        "description":  "Indicator that the company held an analyst/investor day event on this date",
+        "dataset":  {
+                        "id":  "event_ml_signals",
+                        "name":  "Machine Learning Company Event Signals"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-event-data",
+                            "name":  "Event Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "annual_general_meeting_event",
+        "description":  "Indicator that the annual general meeting (AGM) occurred or was formally held",
+        "dataset":  {
+                        "id":  "event_ml_signals",
+                        "name":  "Machine Learning Company Event Signals"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-event-data",
+                            "name":  "Event Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "auditor_change_event",
+        "description":  "Indicator that the company changed its external auditor",
+        "dataset":  {
+                        "id":  "event_ml_signals",
+                        "name":  "Machine Learning Company Event Signals"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-event-data",
+                            "name":  "Event Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "auditor_going_concern_doubt_event",
+        "description":  "Flag that the auditor expressed substantial doubt about the company\u0027s ability to continue as a going concern",
+        "dataset":  {
+                        "id":  "event_ml_signals",
+                        "name":  "Machine Learning Company Event Signals"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-event-data",
+                            "name":  "Event Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "bankruptcy_event",
+        "description":  "Event flag for bankruptcy, insolvency, or court-administered restructuring filings",
+        "dataset":  {
+                        "id":  "event_ml_signals",
+                        "name":  "Machine Learning Company Event Signals"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-event-data",
+                            "name":  "Event Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "board_meeting_event",
+        "description":  "Flag that a board of directors meeting occurred",
+        "dataset":  {
+                        "id":  "event_ml_signals",
+                        "name":  "Machine Learning Company Event Signals"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-event-data",
+                            "name":  "Event Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "business_expansion_event",
+        "description":  "Notification of company expansion activities.",
+        "dataset":  {
+                        "id":  "event_ml_signals",
+                        "name":  "Machine Learning Company Event Signals"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-event-data",
+                            "name":  "Event Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "business_reorganization_event",
+        "description":  "Notification of a business reorganization or restructuring.",
+        "dataset":  {
+                        "id":  "event_ml_signals",
+                        "name":  "Machine Learning Company Event Signals"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-event-data",
+                            "name":  "Event Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "buyback_plan_term_change_event",
+        "description":  "Flag that the terms of an existing share buyback plan were changed",
+        "dataset":  {
+                        "id":  "event_ml_signals",
+                        "name":  "Machine Learning Company Event Signals"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-event-data",
+                            "name":  "Event Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "buyback_tranche_update_event",
+        "description":  "Update regarding a tranche in a share buyback program.",
+        "dataset":  {
+                        "id":  "event_ml_signals",
+                        "name":  "Machine Learning Company Event Signals"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-event-data",
+                            "name":  "Event Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "buyback_transaction_announcement",
+        "description":  "Flag that the company announced execution of share repurchase transactions or reported buyback activity",
+        "dataset":  {
+                        "id":  "event_ml_signals",
+                        "name":  "Machine Learning Company Event Signals"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-event-data",
+                            "name":  "Event Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "buyback_transaction_cancellation_event",
+        "description":  "Announcement of the cancellation of a share buyback transaction.",
+        "dataset":  {
+                        "id":  "event_ml_signals",
+                        "name":  "Machine Learning Company Event Signals"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-event-data",
+                            "name":  "Event Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "client_announcement_event",
+        "description":  "Notification of announcements related to company clients.",
+        "dataset":  {
+                        "id":  "event_ml_signals",
+                        "name":  "Machine Learning Company Event Signals"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-event-data",
+                            "name":  "Event Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "company_address_change_event",
+        "description":  "Flag that the company changed its registered or headquarters address",
+        "dataset":  {
+                        "id":  "event_ml_signals",
+                        "name":  "Machine Learning Company Event Signals"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-event-data",
+                            "name":  "Event Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "company_conference_presentation_event",
+        "description":  "Indicator that the company gave a presentation at a conference on this date",
+        "dataset":  {
+                        "id":  "event_ml_signals",
+                        "name":  "Machine Learning Company Event Signals"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-event-data",
+                            "name":  "Event Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "company_name_change_event",
+        "description":  "Flag that the company changed its legal or trading name",
+        "dataset":  {
+                        "id":  "event_ml_signals",
+                        "name":  "Machine Learning Company Event Signals"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-event-data",
+                            "name":  "Event Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "composite_unit_offering_event",
+        "description":  "Announcement of a new composite unit security offering.",
+        "dataset":  {
+                        "id":  "event_ml_signals",
+                        "name":  "Machine Learning Company Event Signals"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-event-data",
+                            "name":  "Event Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "conference_event",
+        "description":  "Notification of company participation in conferences.",
+        "dataset":  {
+                        "id":  "event_ml_signals",
+                        "name":  "Machine Learning Company Event Signals"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-event-data",
+                            "name":  "Event Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "corporate_bylaws_amendment_event",
+        "description":  "Event flag indicating the company adopted or amended its bylaws or corporate rules on this date",
+        "dataset":  {
+                        "id":  "event_ml_signals",
+                        "name":  "Machine Learning Company Event Signals"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-event-data",
+                            "name":  "Event Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "corporate_guidance_lowered_event",
+        "description":  "D1-lagged flag that the company lowered its forward guidance such as revenue or EPS outlook versus prior guidance",
+        "dataset":  {
+                        "id":  "event_ml_signals",
+                        "name":  "Machine Learning Company Event Signals"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-event-data",
+                            "name":  "Event Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "corporate_guidance_raised_event",
+        "description":  "Event flag that the company raised forward guidance",
+        "dataset":  {
+                        "id":  "event_ml_signals",
+                        "name":  "Machine Learning Company Event Signals"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-event-data",
+                            "name":  "Event Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "corporate_guidance_unusual_event",
+        "description":  "Announcement of unusual events affecting company guidance.",
+        "dataset":  {
+                        "id":  "event_ml_signals",
+                        "name":  "Machine Learning Company Event Signals"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-event-data",
+                            "name":  "Event Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "corporate_legal_structure_update",
+        "description":  "Records changes to a company\u0027s legal or organizational structure.",
+        "dataset":  {
+                        "id":  "event_ml_signals",
+                        "name":  "Machine Learning Company Event Signals"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-event-data",
+                            "name":  "Event Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "debt_default_event",
+        "description":  "Indicator that the company defaulted on debt obligations or missed required payments on that date",
+        "dataset":  {
+                        "id":  "event_ml_signals",
+                        "name":  "Machine Learning Company Event Signals"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-event-data",
+                            "name":  "Event Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "debt_financing_event",
+        "description":  "Notification of events related to company debt financing.",
+        "dataset":  {
+                        "id":  "event_ml_signals",
+                        "name":  "Machine Learning Company Event Signals"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-event-data",
+                            "name":  "Event Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "delayed_earnings_announcement",
+        "description":  "Indicator that the company announced a delay in releasing earnings or filing associated reports",
+        "dataset":  {
+                        "id":  "event_ml_signals",
+                        "name":  "Machine Learning Company Event Signals"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-event-data",
+                            "name":  "Event Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "delayed_sec_filing_event",
+        "description":  "Indicator of a delay or late-notice filing for required SEC reports (e.g., NT 10-K/10-Q)",
+        "dataset":  {
+                        "id":  "event_ml_signals",
+                        "name":  "Machine Learning Company Event Signals"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-event-data",
+                            "name":  "Event Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "delisting_event",
+        "description":  "Event flag indicating the company’s shares were delisted from an exchange on this date",
+        "dataset":  {
+                        "id":  "event_ml_signals",
+                        "name":  "Machine Learning Company Event Signals"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-event-data",
+                            "name":  "Event Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "derivative_instrument_offering_event",
+        "description":  "Announcement of a new derivative or other financial instrument offering.",
+        "dataset":  {
+                        "id":  "event_ml_signals",
+                        "name":  "Machine Learning Company Event Signals"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-event-data",
+                            "name":  "Event Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "discontinued_operations_downsizing_event",
+        "description":  "Indicator that the company announced discontinued operations, closures, or workforce/footprint downsizing",
+        "dataset":  {
+                        "id":  "event_ml_signals",
+                        "name":  "Machine Learning Company Event Signals"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-event-data",
+                            "name":  "Event Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "divestiture_intent_disclosure",
+        "description":  "Event flag indicating the company announced plans to seek a sale or divestiture of assets or business units on this date",
+        "dataset":  {
+                        "id":  "event_ml_signals",
+                        "name":  "Machine Learning Company Event Signals"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-event-data",
+                            "name":  "Event Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "dividend_affirmation_event",
+        "description":  "Announcement affirming a previously declared dividend.",
+        "dataset":  {
+                        "id":  "event_ml_signals",
+                        "name":  "Machine Learning Company Event Signals"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-event-data",
+                            "name":  "Event Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "dividend_cancellation_event",
+        "description":  "Indicator that the company canceled a previously declared dividend",
+        "dataset":  {
+                        "id":  "event_ml_signals",
+                        "name":  "Machine Learning Company Event Signals"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-event-data",
+                            "name":  "Event Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "dividend_decrease_event",
+        "description":  "Flag that the company announced a dividend decrease or cut",
+        "dataset":  {
+                        "id":  "event_ml_signals",
+                        "name":  "Machine Learning Company Event Signals"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-event-data",
+                            "name":  "Event Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "dividend_increase_event",
+        "description":  "Indicator flag that the company announced an increase in its dividend",
+        "dataset":  {
+                        "id":  "event_ml_signals",
+                        "name":  "Machine Learning Company Event Signals"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-event-data",
+                            "name":  "Event Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "dividend_initiation_event",
+        "description":  "Indicator that the company initiated a regular dividend program by declaring its first dividend on this date",
+        "dataset":  {
+                        "id":  "event_ml_signals",
+                        "name":  "Machine Learning Company Event Signals"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-event-data",
+                            "name":  "Event Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "earnings_announcement_event",
+        "description":  "Flag that the company announced its earnings results",
+        "dataset":  {
+                        "id":  "event_ml_signals",
+                        "name":  "Machine Learning Company Event Signals"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-event-data",
+                            "name":  "Event Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "earnings_call_event",
+        "description":  "Indicator that an earnings conference call occurred",
+        "dataset":  {
+                        "id":  "event_ml_signals",
+                        "name":  "Machine Learning Company Event Signals"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-event-data",
+                            "name":  "Event Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "exchange_change_event",
+        "description":  "Indicator that the company changed its primary listing exchange",
+        "dataset":  {
+                        "id":  "event_ml_signals",
+                        "name":  "Machine Learning Company Event Signals"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-event-data",
+                            "name":  "Event Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "executive_change_event",
+        "description":  "Indicator of executive leadership changes such as appointments or departures (e.g., CEO, CFO)",
+        "dataset":  {
+                        "id":  "event_ml_signals",
+                        "name":  "Machine Learning Company Event Signals"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-event-data",
+                            "name":  "Event Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "extraordinary_shareholder_meeting",
+        "description":  "Flag for a special or extraordinary shareholders\u0027 meeting",
+        "dataset":  {
+                        "id":  "event_ml_signals",
+                        "name":  "Machine Learning Company Event Signals"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-event-data",
+                            "name":  "Event Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "fiscal_year_end_change",
+        "description":  "Event flag indicating the company announced a change to its fiscal year-end on this date",
+        "dataset":  {
+                        "id":  "event_ml_signals",
+                        "name":  "Machine Learning Company Event Signals"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-event-data",
+                            "name":  "Event Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "fixed_income_call_event",
+        "description":  "Scheduled call for fixed income investors.",
+        "dataset":  {
+                        "id":  "event_ml_signals",
+                        "name":  "Machine Learning Company Event Signals"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-event-data",
+                            "name":  "Event Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "fixed_income_offering_event",
+        "description":  "Indicator of a debt securities offering (e.g., bonds, notes)",
+        "dataset":  {
+                        "id":  "event_ml_signals",
+                        "name":  "Machine Learning Company Event Signals"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-event-data",
+                            "name":  "Event Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "followon_equity_offering_event",
+        "description":  "Indicator of a follow-on/seasoned equity offering of shares after the IPO",
+        "dataset":  {
+                        "id":  "event_ml_signals",
+                        "name":  "Machine Learning Company Event Signals"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-event-data",
+                            "name":  "Event Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "government_entity_privatization_event",
+        "description":  "Announcement of potential privatization of government-owned entities.",
+        "dataset":  {
+                        "id":  "event_ml_signals",
+                        "name":  "Machine Learning Company Event Signals"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-event-data",
+                            "name":  "Event Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "guidance_update_call_event",
+        "description":  "Indicator that the company held a call specifically to update or change corporate guidance on this date",
+        "dataset":  {
+                        "id":  "event_ml_signals",
+                        "name":  "Machine Learning Company Event Signals"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-event-data",
+                            "name":  "Event Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "halt_resume_operations_event",
+        "description":  "Announcement of a halt or resumption of company operations due to unusual events.",
+        "dataset":  {
+                        "id":  "event_ml_signals",
+                        "name":  "Machine Learning Company Event Signals"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-event-data",
+                            "name":  "Event Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "impairment_writeoff_event",
+        "description":  "Indicator that the company announced or recorded asset impairments or write-offs",
+        "dataset":  {
+                        "id":  "event_ml_signals",
+                        "name":  "Machine Learning Company Event Signals"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-event-data",
+                            "name":  "Event Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "index_constituent_add_event",
+        "description":  "Flag indicating the company was added as a constituent to a stock index",
+        "dataset":  {
+                        "id":  "event_ml_signals",
+                        "name":  "Machine Learning Company Event Signals"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-event-data",
+                            "name":  "Event Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "index_constituent_drop_event",
+        "description":  "Indicator that the company was removed/dropped from a stock index",
+        "dataset":  {
+                        "id":  "event_ml_signals",
+                        "name":  "Machine Learning Company Event Signals"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-event-data",
+                            "name":  "Event Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "initial_public_offering_event",
+        "description":  "Flag for an initial public offering event",
+        "dataset":  {
+                        "id":  "event_ml_signals",
+                        "name":  "Machine Learning Company Event Signals"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-event-data",
+                            "name":  "Event Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "interim_management_statement_announcement",
+        "description":  "Notification of the announcement of an interim management statement.",
+        "dataset":  {
+                        "id":  "event_ml_signals",
+                        "name":  "Machine Learning Company Event Signals"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-event-data",
+                            "name":  "Event Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "interim_statement_call_event",
+        "description":  "Indicator that the company held an interim management statement or trading update call on this date",
+        "dataset":  {
+                        "id":  "event_ml_signals",
+                        "name":  "Machine Learning Company Event Signals"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-event-data",
+                            "name":  "Event Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "interim_statement_release_date_3",
+        "description":  "Scheduled date for the release of an interim management statement.",
+        "dataset":  {
+                        "id":  "event_ml_signals",
+                        "name":  "Machine Learning Company Event Signals"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-event-data",
+                            "name":  "Event Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "labor_related_announcement",
+        "description":  "Notification of labor-related company events or changes.",
+        "dataset":  {
+                        "id":  "event_ml_signals",
+                        "name":  "Machine Learning Company Event Signals"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-event-data",
+                            "name":  "Event Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "lawsuit_legal_issue_event",
+        "description":  "Announcement of legal proceedings or lawsuits involving the company.",
+        "dataset":  {
+                        "id":  "event_ml_signals",
+                        "name":  "Machine Learning Company Event Signals"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-event-data",
+                            "name":  "Event Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "lead_underwriter_change_event",
+        "description":  "Announcement of a change in the lead underwriter for a public offering.",
+        "dataset":  {
+                        "id":  "event_ml_signals",
+                        "name":  "Machine Learning Company Event Signals"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-event-data",
+                            "name":  "Event Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "lockup_period_end_event",
+        "description":  "Indicator that an insider/IPO lock-up period expired for the company on this date",
+        "dataset":  {
+                        "id":  "event_ml_signals",
+                        "name":  "Machine Learning Company Event Signals"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-event-data",
+                            "name":  "Event Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "ma_call_event",
+        "description":  "Indicator of a conference call focused on a merger or acquisition transaction",
+        "dataset":  {
+                        "id":  "event_ml_signals",
+                        "name":  "Machine Learning Company Event Signals"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-event-data",
+                            "name":  "Event Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "ma_rumor_discussion",
+        "description":  "Rumors or discussions related to mergers and acquisitions.",
+        "dataset":  {
+                        "id":  "event_ml_signals",
+                        "name":  "Machine Learning Company Event Signals"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-event-data",
+                            "name":  "Event Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "ma_transaction_announcement_event",
+        "description":  "Indicator that the company announced an M\u0026A transaction (merger, acquisition, sale) on that date",
+        "dataset":  {
+                        "id":  "event_ml_signals",
+                        "name":  "Machine Learning Company Event Signals"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-event-data",
+                            "name":  "Event Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "ma_transaction_cancellation_event",
+        "description":  "Indicator that a merger or acquisition transaction involving the company was canceled or terminated",
+        "dataset":  {
+                        "id":  "event_ml_signals",
+                        "name":  "Machine Learning Company Event Signals"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-event-data",
+                            "name":  "Event Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "ma_transaction_closing_event",
+        "description":  "Event flag indicating the closing/completion of a merger or acquisition transaction on this date",
+        "dataset":  {
+                        "id":  "event_ml_signals",
+                        "name":  "Machine Learning Company Event Signals"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-event-data",
+                            "name":  "Event Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "multiple_strategic_alternatives_considered",
+        "description":  "D1-lagged flag that the company announced a review of multiple strategic alternatives such as sale merger spin-off or recapitalization",
+        "dataset":  {
+                        "id":  "event_ml_signals",
+                        "name":  "Machine Learning Company Event Signals"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-event-data",
+                            "name":  "Event Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "new_corporate_guidance_confirmed",
+        "description":  "Announcement of newly confirmed company guidance or outlook.",
+        "dataset":  {
+                        "id":  "event_ml_signals",
+                        "name":  "Machine Learning Company Event Signals"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-event-data",
+                            "name":  "Event Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "operating_results_announcement",
+        "description":  "Indicator that the company announced its operating or financial results (earnings release)",
+        "dataset":  {
+                        "id":  "event_ml_signals",
+                        "name":  "Machine Learning Company Event Signals"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-event-data",
+                            "name":  "Event Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "operating_results_call_event",
+        "description":  "Flag for a conference call discussing operating results, typically an earnings call",
+        "dataset":  {
+                        "id":  "event_ml_signals",
+                        "name":  "Machine Learning Company Event Signals"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-event-data",
+                            "name":  "Event Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "operating_results_release_date",
+        "description":  "Event flag indicating the company released its operating results/earnings report on this date",
+        "dataset":  {
+                        "id":  "event_ml_signals",
+                        "name":  "Machine Learning Company Event Signals"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-event-data",
+                            "name":  "Event Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "operating_results_restated_event",
+        "description":  "Indicator that previously reported operating or financial results were restated",
+        "dataset":  {
+                        "id":  "event_ml_signals",
+                        "name":  "Machine Learning Company Event Signals"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-event-data",
+                            "name":  "Event Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "other_event_type",
+        "description":  "Other event type not classified elsewhere.",
+        "dataset":  {
+                        "id":  "event_ml_signals",
+                        "name":  "Machine Learning Company Event Signals"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-event-data",
+                            "name":  "Event Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "potential_buyback_event",
+        "description":  "Announcement of a possible future share buyback.",
+        "dataset":  {
+                        "id":  "event_ml_signals",
+                        "name":  "Machine Learning Company Event Signals"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-event-data",
+                            "name":  "Event Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "preferred_dividend_event",
+        "description":  "Indicator of a preferred stock dividend event (e.g., declaration, update, or payment announcement)",
+        "dataset":  {
+                        "id":  "event_ml_signals",
+                        "name":  "Machine Learning Company Event Signals"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-event-data",
+                            "name":  "Event Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "preferred_stock_buyback_event",
+        "description":  "Indicator that the company announced or executed repurchases of preferred stock",
+        "dataset":  {
+                        "id":  "event_ml_signals",
+                        "name":  "Machine Learning Company Event Signals"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-event-data",
+                            "name":  "Event Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "private_placement_event",
+        "description":  "Indicator that the company announced a private placement of securities",
+        "dataset":  {
+                        "id":  "event_ml_signals",
+                        "name":  "Machine Learning Company Event Signals"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-event-data",
+                            "name":  "Event Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "product_related_announcement",
+        "description":  "Announcement related to new or updated company products.",
+        "dataset":  {
+                        "id":  "event_ml_signals",
+                        "name":  "Machine Learning Company Event Signals"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-event-data",
+                            "name":  "Event Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "regular_exdividend_date",
+        "description":  "Event flag indicating the stock went ex-dividend for a regular dividend on this date",
+        "dataset":  {
+                        "id":  "event_ml_signals",
+                        "name":  "Machine Learning Company Event Signals"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-event-data",
+                            "name":  "Event Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "regulatory_authority_event",
+        "description":  "Announcement involving a regulatory authority or agency.",
+        "dataset":  {
+                        "id":  "event_ml_signals",
+                        "name":  "Machine Learning Company Event Signals"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-event-data",
+                            "name":  "Event Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "regulatory_inquiry_event",
+        "description":  "Indicator that a regulatory agency initiated or disclosed an inquiry or investigation involving the company",
+        "dataset":  {
+                        "id":  "event_ml_signals",
+                        "name":  "Machine Learning Company Event Signals"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-event-data",
+                            "name":  "Event Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "sales_trading_statement_announcement",
+        "description":  "Notification of a sales or trading statement announcement.",
+        "dataset":  {
+                        "id":  "event_ml_signals",
+                        "name":  "Machine Learning Company Event Signals"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-event-data",
+                            "name":  "Event Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "sales_trading_statement_call_event",
+        "description":  "Scheduled call to discuss sales or trading statements.",
+        "dataset":  {
+                        "id":  "event_ml_signals",
+                        "name":  "Machine Learning Company Event Signals"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-event-data",
+                            "name":  "Event Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "sales_trading_statement_release_date",
+        "description":  "Scheduled date for the release of a sales or trading statement.",
+        "dataset":  {
+                        "id":  "event_ml_signals",
+                        "name":  "Machine Learning Company Event Signals"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-event-data",
+                            "name":  "Event Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "seeking_acquisition_investment",
+        "description":  "Company announcement seeking acquisitions or investment opportunities.",
+        "dataset":  {
+                        "id":  "event_ml_signals",
+                        "name":  "Machine Learning Company Event Signals"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-event-data",
+                            "name":  "Event Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "seeking_financing_partner",
+        "description":  "Company announcement seeking new financing partners.",
+        "dataset":  {
+                        "id":  "event_ml_signals",
+                        "name":  "Machine Learning Company Event Signals"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-event-data",
+                            "name":  "Event Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "shareholder_activism_proposal_event",
+        "description":  "Represents events related to shareholder activism proposals.",
+        "dataset":  {
+                        "id":  "event_ml_signals",
+                        "name":  "Machine Learning Company Event Signals"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-event-data",
+                            "name":  "Event Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "shareholder_analyst_call_event",
+        "description":  "Scheduled call to update shareholders or analysts on company matters.",
+        "dataset":  {
+                        "id":  "event_ml_signals",
+                        "name":  "Machine Learning Company Event Signals"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-event-data",
+                            "name":  "Event Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "share_repurchase_completion",
+        "description":  "Indicates the completion of a company\u0027s share repurchase transaction.",
+        "dataset":  {
+                        "id":  "event_ml_signals",
+                        "name":  "Machine Learning Company Event Signals"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-event-data",
+                            "name":  "Event Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "shelf_registration_filing_event",
+        "description":  "Indicator flag that a shelf registration statement was filed or became effective",
+        "dataset":  {
+                        "id":  "event_ml_signals",
+                        "name":  "Machine Learning Company Event Signals"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-event-data",
+                            "name":  "Event Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "special_call_event",
+        "description":  "Conference call to discuss special or urgent company matters.",
+        "dataset":  {
+                        "id":  "event_ml_signals",
+                        "name":  "Machine Learning Company Event Signals"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-event-data",
+                            "name":  "Event Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "special_dividend_announcement",
+        "description":  "Flag that a special or extraordinary cash dividend was announced",
+        "dataset":  {
+                        "id":  "event_ml_signals",
+                        "name":  "Machine Learning Company Event Signals"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-event-data",
+                            "name":  "Event Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "special_exdividend_date",
+        "description":  "Indicator that a special dividend went ex-dividend on that date",
+        "dataset":  {
+                        "id":  "event_ml_signals",
+                        "name":  "Machine Learning Company Event Signals"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-event-data",
+                            "name":  "Event Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "spinoff_splitoff_event",
+        "description":  "Indicator that the company announced or executed a spin-off or split-off transaction on this date",
+        "dataset":  {
+                        "id":  "event_ml_signals",
+                        "name":  "Machine Learning Company Event Signals"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-event-data",
+                            "name":  "Event Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "stock_dividend_event",
+        "description":  "Indicator that the company declared or issued a stock dividend (shares distributed instead of cash) on that date",
+        "dataset":  {
+                        "id":  "event_ml_signals",
+                        "name":  "Machine Learning Company Event Signals"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-event-data",
+                            "name":  "Event Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "stock_split_significant_dividend",
+        "description":  "Flag for stock split or a significant stock dividend corporate action",
+        "dataset":  {
+                        "id":  "event_ml_signals",
+                        "name":  "Machine Learning Company Event Signals"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-event-data",
+                            "name":  "Event Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "strategic_alliance_event",
+        "description":  "Indicator that the company announced a strategic alliance or partnership agreement",
+        "dataset":  {
+                        "id":  "event_ml_signals",
+                        "name":  "Machine Learning Company Event Signals"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-event-data",
+                            "name":  "Event Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "structured_product_offering_event",
+        "description":  "Notification of a new structured product offering.",
+        "dataset":  {
+                        "id":  "event_ml_signals",
+                        "name":  "Machine Learning Company Event Signals"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-event-data",
+                            "name":  "Event Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "ticker_change_event",
+        "description":  "Indicator that the company changed its stock ticker/symbol",
+        "dataset":  {
+                        "id":  "event_ml_signals",
+                        "name":  "Machine Learning Company Event Signals"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-event-data",
+                            "name":  "Event Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    }
+]

@@ -1,0 +1,1634 @@
+﻿[
+    {
+        "id":  "mdl177_emm_chg3yepsp_alt",
+        "description":  "3-year change in price-adjusted TTM EPS: current TTM EPS minus EPS 12 quarters ago, divided by price",
+        "dataset":  {
+                        "id":  "model77",
+                        "name":  "Analysts\u0027 Factor Model"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-technical-models",
+                            "name":  "Technical Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl177_emm_chgepsp_alt",
+        "description":  "1-year change in price-adjusted TTM EPS: EPS difference over the last year, divided by price",
+        "dataset":  {
+                        "id":  "model77",
+                        "name":  "Analysts\u0027 Factor Model"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-technical-models",
+                            "name":  "Technical Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl177_emm_emm_eur_composite_alt",
+        "description":  "Earnings Momentum (EUR)",
+        "dataset":  {
+                        "id":  "model77",
+                        "name":  "Analysts\u0027 Factor Model"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-technical-models",
+                            "name":  "Technical Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl177_emm_fc_dypeg_alt",
+        "description":  "Reciprocal of the dividend yield–adjusted PEG ratio",
+        "dataset":  {
+                        "id":  "model77",
+                        "name":  "Analysts\u0027 Factor Model"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-technical-models",
+                            "name":  "Technical Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl177_emm_fc_epsrm_alt",
+        "description":  "Street Revision Magnitude: 3-month change in the median FY1 consensus EPS estimate, scaled",
+        "dataset":  {
+                        "id":  "model77",
+                        "name":  "Analysts\u0027 Factor Model"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-technical-models",
+                            "name":  "Technical Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl177_emm_fc_numrevy1_alt",
+        "description":  "Net # of Revisions for Fiscal Year 1 : It is defined as the weighted average of the number of FY1 analyst earnings forecasts raised less the number lowered within a month, divided by the total number of analyst forecasts.",
+        "dataset":  {
+                        "id":  "model77",
+                        "name":  "Analysts\u0027 Factor Model"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-technical-models",
+                            "name":  "Technical Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl177_emm_fc_rev3y2_alt",
+        "description":  "3-month revision in FY2 EPS forecasts: change in FY2 consensus earnings since three months ago, scaled by price",
+        "dataset":  {
+                        "id":  "model77",
+                        "name":  "Analysts\u0027 Factor Model"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-technical-models",
+                            "name":  "Technical Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl177_emm_fc_stdevfy1epsp_alt",
+        "description":  "Std Dev of FY1 EPS Estimates-to-Price",
+        "dataset":  {
+                        "id":  "model77",
+                        "name":  "Analysts\u0027 Factor Model"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-technical-models",
+                            "name":  "Technical Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl177_eur_balshtrank_qvaeur_alt",
+        "description":  "Balance Sheet Strength Rank",
+        "dataset":  {
+                        "id":  "model77",
+                        "name":  "Analysts\u0027 Factor Model"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-technical-models",
+                            "name":  "Technical Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl177_eur_incstmtrank_qaveur_alt",
+        "description":  "Income Statement Rank",
+        "dataset":  {
+                        "id":  "model77",
+                        "name":  "Analysts\u0027 Factor Model"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-technical-models",
+                            "name":  "Technical Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl177_eur_mgteff_qvaeur_alt",
+        "description":  "Profitability \u0026  Earnings Quality Rank",
+        "dataset":  {
+                        "id":  "model77",
+                        "name":  "Analysts\u0027 Factor Model"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-technical-models",
+                            "name":  "Technical Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl177_pmm_actrtn24m_alt",
+        "description":  "24-month active return with 1-month lag: percent change in stock price from month t-25 to t-1",
+        "dataset":  {
+                        "id":  "model77",
+                        "name":  "Analysts\u0027 Factor Model"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-technical-models",
+                            "name":  "Technical Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl177_pmm_actrtn6m_alt",
+        "description":  "6-Month Active Return with 1-Month Lag : It is defined the percent change in price for a stock from month t-7 to month t-1.",
+        "dataset":  {
+                        "id":  "model77",
+                        "name":  "Analysts\u0027 Factor Model"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-technical-models",
+                            "name":  "Technical Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl177_pmm_indrelrtn4w_alt",
+        "description":  "4-week Industry Relative Return: stock return over the last 4 weeks minus the industry average, scaled by the industry standard deviation",
+        "dataset":  {
+                        "id":  "model77",
+                        "name":  "Analysts\u0027 Factor Model"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-technical-models",
+                            "name":  "Technical Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl177_pmm_indrelrtn5d__alt",
+        "description":  "5-day Industry Relative Return: stock return over the last 5 trading days minus the industry average, scaled by the industry standard deviation",
+        "dataset":  {
+                        "id":  "model77",
+                        "name":  "Analysts\u0027 Factor Model"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-technical-models",
+                            "name":  "Technical Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl177_pmm_p50_200ratio_alt",
+        "description":  "50-200 Day Stock Price Ratio : It is defined as the moving average of a stock\u0027s prices in last 50 days divided by the moving average of its prices in last 200 days.",
+        "dataset":  {
+                        "id":  "model77",
+                        "name":  "Analysts\u0027 Factor Model"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-technical-models",
+                            "name":  "Technical Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl177_pmm_pmm_eur_composite_alt",
+        "description":  "Price Momentum (EUR)",
+        "dataset":  {
+                        "id":  "model77",
+                        "name":  "Analysts\u0027 Factor Model"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-technical-models",
+                            "name":  "Technical Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl177_pmm_rationalalpha_alt",
+        "description":  "Rational Decay Alpha : It evaluates stocks based on their historical 12-month market (S\u0026P 500) adjusted excess return (the Y intercept from an OLS regression equation) using a proprietary rational decay function",
+        "dataset":  {
+                        "id":  "model77",
+                        "name":  "Analysts\u0027 Factor Model"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-technical-models",
+                            "name":  "Technical Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl177_pmm_relpricestrength_alt",
+        "description":  "Industry-adjusted 12-month Relative Price Strength: stock’s 12-month price strength minus industry average, scaled by industry standard deviation",
+        "dataset":  {
+                        "id":  "model77",
+                        "name":  "Analysts\u0027 Factor Model"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-technical-models",
+                            "name":  "Technical Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl177_pmm_slope52wp_alt",
+        "description":  "Slope of 52 Week Price Trend Line : It is defined as the 4-week lagged slope coefficient of the least squares regression line of the last 52-week weekly stock\u0027s closing price against the corresponding weekly dates.",
+        "dataset":  {
+                        "id":  "model77",
+                        "name":  "Analysts\u0027 Factor Model"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-technical-models",
+                            "name":  "Technical Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl177_qva_balshtrank_qvaeur_alt",
+        "description":  "Balance Sheet Strength Rank",
+        "dataset":  {
+                        "id":  "model77",
+                        "name":  "Analysts\u0027 Factor Model"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-technical-models",
+                            "name":  "Technical Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl177_qva_dvm_qvaeur_alt",
+        "description":  "Cross-sectional valuation rank for European equities in the QVA model, measuring cheapness based on valuation metrics",
+        "dataset":  {
+                        "id":  "model77",
+                        "name":  "Analysts\u0027 Factor Model"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-technical-models",
+                            "name":  "Technical Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl177_qva_evrank_qvaeur_alt",
+        "description":  "Earnings Valuation Rank",
+        "dataset":  {
+                        "id":  "model77",
+                        "name":  "Analysts\u0027 Factor Model"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-technical-models",
+                            "name":  "Technical Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl177_qva_finstmtrank_qvaeur_alt",
+        "description":  "Financial Statement Rank",
+        "dataset":  {
+                        "id":  "model77",
+                        "name":  "Analysts\u0027 Factor Model"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-technical-models",
+                            "name":  "Technical Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl177_qva_incstmtrank_qvaeur_alt",
+        "description":  "Income Statement Rank",
+        "dataset":  {
+                        "id":  "model77",
+                        "name":  "Analysts\u0027 Factor Model"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-technical-models",
+                            "name":  "Technical Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl177_qva_mgteff_qvaeur_alt",
+        "description":  "Profitability \u0026  Earnings Quality Rank",
+        "dataset":  {
+                        "id":  "model77",
+                        "name":  "Analysts\u0027 Factor Model"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-technical-models",
+                            "name":  "Technical Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl177_qva_mgtlev_qvaeur_alt",
+        "description":  "Cross-sectional liquidity and leverage rank for European equities in the QVA/VMM framework, with lower leverage and stronger liquidity ranking higher",
+        "dataset":  {
+                        "id":  "model77",
+                        "name":  "Analysts\u0027 Factor Model"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-technical-models",
+                            "name":  "Technical Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl177_qva_qva_eur_composite_alt",
+        "description":  "Overall composite score for the QSG QVA Europe model, aggregating its subranks into a single signal",
+        "dataset":  {
+                        "id":  "model77",
+                        "name":  "Analysts\u0027 Factor Model"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-technical-models",
+                            "name":  "Technical Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl177_qva_vmm_eur_composite_alt",
+        "description":  "Value Momentum Europe Model composite score",
+        "dataset":  {
+                        "id":  "model77",
+                        "name":  "Analysts\u0027 Factor Model"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-technical-models",
+                            "name":  "Technical Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl177_rvm_capacq_alt",
+        "description":  "Capital Acquisition Ratio",
+        "dataset":  {
+                        "id":  "model77",
+                        "name":  "Analysts\u0027 Factor Model"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-technical-models",
+                            "name":  "Technical Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl177_rvm_ebitdaev_alt",
+        "description":  "Trailing twelve months EBITDA-to-Enterprise Value ratio",
+        "dataset":  {
+                        "id":  "model77",
+                        "name":  "Analysts\u0027 Factor Model"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-technical-models",
+                            "name":  "Technical Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl177_rvm_roe_alt",
+        "description":  "Return on Equity",
+        "dataset":  {
+                        "id":  "model77",
+                        "name":  "Analysts\u0027 Factor Model"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-technical-models",
+                            "name":  "Technical Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl177_rvm_rvm_eur_composite_alt",
+        "description":  "Relative Value (EUR)",
+        "dataset":  {
+                        "id":  "model77",
+                        "name":  "Analysts\u0027 Factor Model"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-technical-models",
+                            "name":  "Technical Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl177_rvm_ttmfcfp_alt",
+        "description":  "Trailing twelve months Free Cash Flow-to-Price ratio",
+        "dataset":  {
+                        "id":  "model77",
+                        "name":  "Analysts\u0027 Factor Model"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-technical-models",
+                            "name":  "Technical Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl177_rvm_ttmgfp_alt",
+        "description":  "Trailing twelve months Growth Flow-to-Price ratio, defined as last four quarters GAAP earnings plus R\u0026D scaled by market value",
+        "dataset":  {
+                        "id":  "model77",
+                        "name":  "Analysts\u0027 Factor Model"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-technical-models",
+                            "name":  "Technical Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl177_rvm_ttmsp_alt",
+        "description":  "Trailing twelve months Sales-to-Price ratio",
+        "dataset":  {
+                        "id":  "model77",
+                        "name":  "Analysts\u0027 Factor Model"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-technical-models",
+                            "name":  "Technical Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl177_rvm_tw_ep_alt",
+        "description":  "Time Weighted Earnings Yield : This factor uses a time-weighted combination of FY1 and FY2 earnings estimates to create a twelve-month forward earnings forecastThis earnings factor is a unique compliment to the wide variety of earnings-related metrics available to determine a company\u0027s fair value.",
+        "dataset":  {
+                        "id":  "model77",
+                        "name":  "Analysts\u0027 Factor Model"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-technical-models",
+                            "name":  "Technical Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl177_sensitivityfactor_apsales",
+        "description":  "Proportion of company sales from the Asia-Pacific region",
+        "dataset":  {
+                        "id":  "model77",
+                        "name":  "Analysts\u0027 Factor Model"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-technical-models",
+                            "name":  "Technical Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl177_sensitivityfactor_ceroe",
+        "description":  "Cash Earnings Return on Equity",
+        "dataset":  {
+                        "id":  "model77",
+                        "name":  "Analysts\u0027 Factor Model"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-technical-models",
+                            "name":  "Technical Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl177_sensitivityfactor_crp",
+        "description":  "Credit Risk Premium: change in yield spread between Moody\u0027s BAA and AAA bond indices (CRP_t − CRP_t−1)",
+        "dataset":  {
+                        "id":  "model77",
+                        "name":  "Analysts\u0027 Factor Model"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-technical-models",
+                            "name":  "Technical Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl177_sensitivityfactor_da",
+        "description":  "Total debt to total assets leverage ratio",
+        "dataset":  {
+                        "id":  "model77",
+                        "name":  "Analysts\u0027 Factor Model"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-technical-models",
+                            "name":  "Technical Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl177_sensitivityfactor_emeasales",
+        "description":  "Proportion of company sales from the Europe, Middle East and Africa region",
+        "dataset":  {
+                        "id":  "model77",
+                        "name":  "Analysts\u0027 Factor Model"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-technical-models",
+                            "name":  "Technical Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl177_sensitivityfactor_hs",
+        "description":  "Housing Starts: percentage change in new residential housing units ((HS_t / HS_t−1) − 1) × 100",
+        "dataset":  {
+                        "id":  "model77",
+                        "name":  "Analysts\u0027 Factor Model"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-technical-models",
+                            "name":  "Technical Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl177_sensitivityfactor_inflation",
+        "description":  "Inflation Sensitivity",
+        "dataset":  {
+                        "id":  "model77",
+                        "name":  "Analysts\u0027 Factor Model"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-technical-models",
+                            "name":  "Technical Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl177_sensitivityfactor_ip",
+        "description":  "Industrial Production: percentage change in industrial output ((IP_t / IP_t−1) − 1) × 100",
+        "dataset":  {
+                        "id":  "model77",
+                        "name":  "Analysts\u0027 Factor Model"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-technical-models",
+                            "name":  "Technical Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl177_sensitivityfactor_lasales",
+        "description":  "Proportion of company sales from the Latin America region",
+        "dataset":  {
+                        "id":  "model77",
+                        "name":  "Analysts\u0027 Factor Model"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-technical-models",
+                            "name":  "Technical Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl177_sensitivityfactor_nasales",
+        "description":  "Proportion of company sales from the North America region",
+        "dataset":  {
+                        "id":  "model77",
+                        "name":  "Analysts\u0027 Factor Model"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-technical-models",
+                            "name":  "Technical Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl177_sensitivityfactor_oilprice",
+        "description":  "Beta coefficient measuring the stock’s sensitivity to oil price changes",
+        "dataset":  {
+                        "id":  "model77",
+                        "name":  "Analysts\u0027 Factor Model"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-technical-models",
+                            "name":  "Technical Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl177_sensitivityfactor_usd",
+        "description":  "US Dollar Value Sensitivity",
+        "dataset":  {
+                        "id":  "model77",
+                        "name":  "Analysts\u0027 Factor Model"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-technical-models",
+                            "name":  "Technical Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl177_sensitivityfactor_vix",
+        "description":  "CBOE Volatility Index (market volatility measure)",
+        "dataset":  {
+                        "id":  "model77",
+                        "name":  "Analysts\u0027 Factor Model"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-technical-models",
+                            "name":  "Technical Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl177_sensitivityfactor_yieldsprd",
+        "description":  "Sensitivity to the yield curve slope (beta to yield spread)",
+        "dataset":  {
+                        "id":  "model77",
+                        "name":  "Analysts\u0027 Factor Model"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-technical-models",
+                            "name":  "Technical Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    }
+]

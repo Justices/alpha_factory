@@ -1,0 +1,66 @@
+﻿[
+    {
+        "id":  "company_analytics_previous_score",
+        "description":  "Numeric value representing the previously assigned analytics score",
+        "dataset":  {
+                        "id":  "news76",
+                        "name":  "Textual News Feed Data"
+                    },
+        "category":  {
+                         "id":  "news",
+                         "name":  "News"
+                     },
+        "subcategory":  {
+                            "id":  "news-news",
+                            "name":  "News"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  0.7963,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "company_analytics_score_value",
+        "description":  "Deprecated analytics value field; always 0 and no longer used",
+        "dataset":  {
+                        "id":  "news76",
+                        "name":  "Textual News Feed Data"
+                    },
+        "category":  {
+                         "id":  "news",
+                         "name":  "News"
+                     },
+        "subcategory":  {
+                            "id":  "news-news",
+                            "name":  "News"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  0.7963,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    }
+]

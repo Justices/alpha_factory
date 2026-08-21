@@ -1,0 +1,130 @@
+﻿[
+    {
+        "id":  "oth734_standardized_company_value",
+        "description":  "Standardized search interest score (unbounded float) indicating the popularity of the search term",
+        "dataset":  {
+                        "id":  "other734",
+                        "name":  "Search Engine Data"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-event-data",
+                            "name":  "Event Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "search_popularity_score",
+        "description":  "Standardized (stitched) Google search interest score as a float, comparable across terms and time",
+        "dataset":  {
+                        "id":  "other734",
+                        "name":  "Search Engine Data"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-event-data",
+                            "name":  "Event Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "search_term_daily_score",
+        "description":  "Native Google interest score (0–100) indicating relative search popularity at capture time",
+        "dataset":  {
+                        "id":  "other734",
+                        "name":  "Search Engine Data"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-event-data",
+                            "name":  "Event Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  0.1813,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "search_term_popularity_score",
+        "description":  "Google native search interest score on a 0–100 relative scale",
+        "dataset":  {
+                        "id":  "other734",
+                        "name":  "Search Engine Data"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-event-data",
+                            "name":  "Event Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  0.181,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    }
+]

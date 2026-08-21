@@ -1,0 +1,226 @@
+﻿[
+    {
+        "id":  "oth323_esod",
+        "description":  "Date of the most recent shares outstanding figure (YYYYMMDD)",
+        "dataset":  {
+                        "id":  "other323",
+                        "name":  "Global Equity Premarket Data"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-dividend-models",
+                            "name":  "Dividend Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  0.9504,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "oth323_esor",
+        "description":  "Number of shares outstanding (unrounded)",
+        "dataset":  {
+                        "id":  "other323",
+                        "name":  "Global Equity Premarket Data"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-dividend-models",
+                            "name":  "Dividend Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  0.9504,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "oth323_ibc",
+        "description":  "Bloomberg Company ID (issuer-level numeric identifier)",
+        "dataset":  {
+                        "id":  "other323",
+                        "name":  "Global Equity Premarket Data"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-dividend-models",
+                            "name":  "Dividend Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  0.9504,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "oth323_ibs",
+        "description":  "Bloomberg security-level identifier (instrument serial number)",
+        "dataset":  {
+                        "id":  "other323",
+                        "name":  "Global Equity Premarket Data"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-dividend-models",
+                            "name":  "Dividend Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  0.9504,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "oth323_par_amt",
+        "description":  "Par amount or face value of the security, in currency units",
+        "dataset":  {
+                        "id":  "other323",
+                        "name":  "Global Equity Premarket Data"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-dividend-models",
+                            "name":  "Dividend Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  0.9504,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "oth323_pxrls",
+        "description":  "Standard round lot size for trading the security (number of shares)",
+        "dataset":  {
+                        "id":  "other323",
+                        "name":  "Global Equity Premarket Data"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-dividend-models",
+                            "name":  "Dividend Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  0.9504,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "oth323_pxtls",
+        "description":  "Minimum tradable lot size for the security as defined by the venue or regulator",
+        "dataset":  {
+                        "id":  "other323",
+                        "name":  "Global Equity Premarket Data"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-dividend-models",
+                            "name":  "Dividend Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  0.9504,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    }
+]

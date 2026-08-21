@@ -1,0 +1,83 @@
+[
+  {
+    "id": "top2000",
+    "description": "universe",
+    "dataset": {
+      "id": "univ1",
+      "name": "Universe Dataset"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "UNIVERSE",
+    "dateCoverage": 1.0,
+    "coverage": 0.67,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2024-06-01"
+  },
+  {
+    "id": "top2000u",
+    "description": "No field description",
+    "dataset": {
+      "id": "univ1",
+      "name": "Universe Dataset"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "UNIVERSE",
+    "dateCoverage": 1.0,
+    "coverage": 1.0,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2024-07-01"
+  },
+  {
+    "id": "top3000",
+    "description": "universe",
+    "dataset": {
+      "id": "univ1",
+      "name": "Universe Dataset"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "UNIVERSE",
+    "dateCoverage": 1.0,
+    "coverage": 1.0,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2024-06-01"
+  }
+]

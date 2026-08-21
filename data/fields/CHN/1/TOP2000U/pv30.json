@@ -1,0 +1,1042 @@
+[
+  {
+    "id": "sta2_top2000_fact1_c10",
+    "description": "Statistical, return-based industry cluster label assigning each stock to one of 10 clusters for the ATOP2000 universe using the FACT1 robust method",
+    "dataset": {
+      "id": "pv30",
+      "name": "Alternate Industry Classification"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "GROUP",
+    "coverage": 1.0,
+    "userCount": 12,
+    "alphaCount": 40,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2022-07-01"
+  },
+  {
+    "id": "sta2_top2000_fact1_c2",
+    "description": "Statistical, return-based industry cluster label assigning each stock to one of 2 clusters for the ATOP2000 universe using the FACT1 robust method",
+    "dataset": {
+      "id": "pv30",
+      "name": "Alternate Industry Classification"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "GROUP",
+    "coverage": 1.0,
+    "userCount": 8,
+    "alphaCount": 10,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2022-07-01"
+  },
+  {
+    "id": "sta2_top2000_fact1_c20",
+    "description": "Statistical, return-based industry cluster label assigning each stock to one of 20 clusters for the ATOP2000 universe using the FACT1 robust method",
+    "dataset": {
+      "id": "pv30",
+      "name": "Alternate Industry Classification"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "GROUP",
+    "coverage": 1.0,
+    "userCount": 10,
+    "alphaCount": 27,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2022-07-01"
+  },
+  {
+    "id": "sta2_top2000_fact1_c5",
+    "description": "Statistical, return-based industry cluster label assigning each stock to one of 5 clusters for the ATOP2000 universe using the FACT1 robust method",
+    "dataset": {
+      "id": "pv30",
+      "name": "Alternate Industry Classification"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "GROUP",
+    "coverage": 1.0,
+    "userCount": 9,
+    "alphaCount": 10,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2022-07-01"
+  },
+  {
+    "id": "sta2_top2000_fact1_c50",
+    "description": "Statistical, return-based industry cluster label assigning each stock to one of 50 clusters for the ATOP2000 universe using the FACT1 robust method",
+    "dataset": {
+      "id": "pv30",
+      "name": "Alternate Industry Classification"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "GROUP",
+    "coverage": 1.0,
+    "userCount": 7,
+    "alphaCount": 9,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2022-07-01"
+  },
+  {
+    "id": "sta2_top2000_fact2_c10",
+    "description": "Statistical, return-based industry cluster label assigning each stock to one of 10 clusters for the ATOP2000 universe using the FACT2 robust method",
+    "dataset": {
+      "id": "pv30",
+      "name": "Alternate Industry Classification"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "GROUP",
+    "coverage": 1.0,
+    "userCount": 6,
+    "alphaCount": 13,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2022-07-01"
+  },
+  {
+    "id": "sta2_top2000_fact2_c2",
+    "description": "Statistical, return-based industry cluster label assigning each stock to one of 2 clusters for the ATOP2000 universe using the FACT2 robust method",
+    "dataset": {
+      "id": "pv30",
+      "name": "Alternate Industry Classification"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "GROUP",
+    "coverage": 1.0,
+    "userCount": 4,
+    "alphaCount": 5,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2022-07-01"
+  },
+  {
+    "id": "sta2_top2000_fact2_c20",
+    "description": "Statistical, return-based industry cluster label assigning each stock to one of 20 clusters for the ATOP2000 universe using the FACT2 robust method",
+    "dataset": {
+      "id": "pv30",
+      "name": "Alternate Industry Classification"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "GROUP",
+    "coverage": 1.0,
+    "userCount": 7,
+    "alphaCount": 17,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2022-07-01"
+  },
+  {
+    "id": "sta2_top2000_fact2_c5",
+    "description": "Statistical, return-based industry cluster label assigning each stock to one of 5 clusters for the ATOP2000 universe using the FACT2 robust method",
+    "dataset": {
+      "id": "pv30",
+      "name": "Alternate Industry Classification"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "GROUP",
+    "coverage": 1.0,
+    "userCount": 4,
+    "alphaCount": 9,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2022-07-01"
+  },
+  {
+    "id": "sta2_top2000_fact2_c50",
+    "description": "Statistical, return-based industry cluster label assigning each stock to one of 50 clusters for the ATOP2000 universe using the FACT2 robust method",
+    "dataset": {
+      "id": "pv30",
+      "name": "Alternate Industry Classification"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "GROUP",
+    "coverage": 1.0,
+    "userCount": 9,
+    "alphaCount": 12,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2022-07-01"
+  },
+  {
+    "id": "sta2_top2000_fact3_c10",
+    "description": "Statistical, return-based industry cluster label assigning each stock to one of 10 clusters for the ATOP2000 universe using the FACT3 robust method",
+    "dataset": {
+      "id": "pv30",
+      "name": "Alternate Industry Classification"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "GROUP",
+    "coverage": 1.0,
+    "userCount": 12,
+    "alphaCount": 24,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2022-07-01"
+  },
+  {
+    "id": "sta2_top2000_fact3_c2",
+    "description": "Statistical, return-based industry cluster label assigning each stock to one of 2 clusters for the ATOP2000 universe using the FACT3 robust method",
+    "dataset": {
+      "id": "pv30",
+      "name": "Alternate Industry Classification"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "GROUP",
+    "coverage": 1.0,
+    "userCount": 5,
+    "alphaCount": 5,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2022-07-01"
+  },
+  {
+    "id": "sta2_top2000_fact3_c20",
+    "description": "Statistical, return-based industry cluster label assigning each stock to one of 20 clusters for the ATOP2000 universe using the FACT3 robust method",
+    "dataset": {
+      "id": "pv30",
+      "name": "Alternate Industry Classification"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "GROUP",
+    "coverage": 1.0,
+    "userCount": 9,
+    "alphaCount": 26,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2022-07-01"
+  },
+  {
+    "id": "sta2_top2000_fact3_c5",
+    "description": "Statistical, return-based industry cluster label assigning each stock to one of 5 clusters for the ATOP2000 universe using the FACT3 robust method",
+    "dataset": {
+      "id": "pv30",
+      "name": "Alternate Industry Classification"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "GROUP",
+    "coverage": 1.0,
+    "userCount": 6,
+    "alphaCount": 7,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2022-07-01"
+  },
+  {
+    "id": "sta2_top2000_fact3_c50",
+    "description": "Statistical, return-based industry cluster label assigning each stock to one of 50 clusters for the ATOP2000 universe using the FACT3 robust method",
+    "dataset": {
+      "id": "pv30",
+      "name": "Alternate Industry Classification"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "GROUP",
+    "coverage": 1.0,
+    "userCount": 9,
+    "alphaCount": 10,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2022-07-01"
+  },
+  {
+    "id": "sta2_top2000_fact4_c10",
+    "description": "Statistical, return-based industry cluster label assigning each stock to one of 10 clusters for the ATOP2000 universe using the FACT4 robust method",
+    "dataset": {
+      "id": "pv30",
+      "name": "Alternate Industry Classification"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "GROUP",
+    "coverage": 1.0,
+    "userCount": 5,
+    "alphaCount": 5,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2022-07-01"
+  },
+  {
+    "id": "sta2_top2000_fact4_c2",
+    "description": "Statistical, return-based industry cluster label assigning each stock to one of 2 clusters for the ATOP2000 universe using the FACT4 robust method",
+    "dataset": {
+      "id": "pv30",
+      "name": "Alternate Industry Classification"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "GROUP",
+    "coverage": 1.0,
+    "userCount": 6,
+    "alphaCount": 6,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2022-07-01"
+  },
+  {
+    "id": "sta2_top2000_fact4_c20",
+    "description": "Statistical, return-based industry cluster label assigning each stock to one of 20 clusters for the ATOP2000 universe using the FACT4 robust method",
+    "dataset": {
+      "id": "pv30",
+      "name": "Alternate Industry Classification"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "GROUP",
+    "coverage": 1.0,
+    "userCount": 5,
+    "alphaCount": 6,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2022-07-01"
+  },
+  {
+    "id": "sta2_top2000_fact4_c5",
+    "description": "Statistical, return-based industry cluster label assigning each stock to one of 5 clusters for the ATOP2000 universe using the FACT4 robust method",
+    "dataset": {
+      "id": "pv30",
+      "name": "Alternate Industry Classification"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "GROUP",
+    "coverage": 1.0,
+    "userCount": 6,
+    "alphaCount": 6,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2022-07-01"
+  },
+  {
+    "id": "sta2_top2000_fact4_c50",
+    "description": "Statistical, return-based industry cluster label assigning each stock to one of 50 clusters for the ATOP2000 universe using the FACT4 robust method",
+    "dataset": {
+      "id": "pv30",
+      "name": "Alternate Industry Classification"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "GROUP",
+    "coverage": 1.0,
+    "userCount": 11,
+    "alphaCount": 15,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2022-07-01"
+  },
+  {
+    "id": "sta2_top3000_fact1_c10",
+    "description": "statistical industry classification",
+    "dataset": {
+      "id": "pv30",
+      "name": "Alternate Industry Classification"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "GROUP",
+    "coverage": 1.0,
+    "userCount": 4,
+    "alphaCount": 5,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2022-07-01"
+  },
+  {
+    "id": "sta2_top3000_fact1_c2",
+    "description": "statistical industry classification",
+    "dataset": {
+      "id": "pv30",
+      "name": "Alternate Industry Classification"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "GROUP",
+    "coverage": 1.0,
+    "userCount": 5,
+    "alphaCount": 9,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2022-07-01"
+  },
+  {
+    "id": "sta2_top3000_fact1_c20",
+    "description": "statistical industry classification",
+    "dataset": {
+      "id": "pv30",
+      "name": "Alternate Industry Classification"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "GROUP",
+    "coverage": 1.0,
+    "userCount": 6,
+    "alphaCount": 6,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2022-07-01"
+  },
+  {
+    "id": "sta2_top3000_fact1_c5",
+    "description": "statistical industry classification",
+    "dataset": {
+      "id": "pv30",
+      "name": "Alternate Industry Classification"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "GROUP",
+    "coverage": 1.0,
+    "userCount": 3,
+    "alphaCount": 4,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2022-07-01"
+  },
+  {
+    "id": "sta2_top3000_fact1_c50",
+    "description": "statistical industry classification",
+    "dataset": {
+      "id": "pv30",
+      "name": "Alternate Industry Classification"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "GROUP",
+    "coverage": 1.0,
+    "userCount": 4,
+    "alphaCount": 7,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2022-07-01"
+  },
+  {
+    "id": "sta2_top3000_fact2_c10",
+    "description": "statistical industry classification",
+    "dataset": {
+      "id": "pv30",
+      "name": "Alternate Industry Classification"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "GROUP",
+    "coverage": 1.0,
+    "userCount": 9,
+    "alphaCount": 15,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2022-07-01"
+  },
+  {
+    "id": "sta2_top3000_fact2_c2",
+    "description": "statistical industry classification",
+    "dataset": {
+      "id": "pv30",
+      "name": "Alternate Industry Classification"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "GROUP",
+    "coverage": 1.0,
+    "userCount": 5,
+    "alphaCount": 6,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2022-07-01"
+  },
+  {
+    "id": "sta2_top3000_fact2_c20",
+    "description": "statistical industry classification",
+    "dataset": {
+      "id": "pv30",
+      "name": "Alternate Industry Classification"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "GROUP",
+    "coverage": 1.0,
+    "userCount": 3,
+    "alphaCount": 4,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2022-07-01"
+  },
+  {
+    "id": "sta2_top3000_fact2_c5",
+    "description": "statistical industry classification",
+    "dataset": {
+      "id": "pv30",
+      "name": "Alternate Industry Classification"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "GROUP",
+    "coverage": 1.0,
+    "userCount": 4,
+    "alphaCount": 4,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2022-07-01"
+  },
+  {
+    "id": "sta2_top3000_fact2_c50",
+    "description": "statistical industry classification",
+    "dataset": {
+      "id": "pv30",
+      "name": "Alternate Industry Classification"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "GROUP",
+    "coverage": 1.0,
+    "userCount": 9,
+    "alphaCount": 10,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2022-07-01"
+  },
+  {
+    "id": "sta2_top3000_fact3_c10",
+    "description": "statistical industry classification",
+    "dataset": {
+      "id": "pv30",
+      "name": "Alternate Industry Classification"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "GROUP",
+    "coverage": 1.0,
+    "userCount": 8,
+    "alphaCount": 11,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2022-07-01"
+  },
+  {
+    "id": "sta2_top3000_fact3_c2",
+    "description": "statistical industry classification",
+    "dataset": {
+      "id": "pv30",
+      "name": "Alternate Industry Classification"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "GROUP",
+    "coverage": 1.0,
+    "userCount": 6,
+    "alphaCount": 7,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2022-07-01"
+  },
+  {
+    "id": "sta2_top3000_fact3_c20",
+    "description": "statistical industry classification",
+    "dataset": {
+      "id": "pv30",
+      "name": "Alternate Industry Classification"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "GROUP",
+    "coverage": 1.0,
+    "userCount": 7,
+    "alphaCount": 7,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2022-07-01"
+  },
+  {
+    "id": "sta2_top3000_fact3_c5",
+    "description": "statistical industry classification",
+    "dataset": {
+      "id": "pv30",
+      "name": "Alternate Industry Classification"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "GROUP",
+    "coverage": 1.0,
+    "userCount": 6,
+    "alphaCount": 7,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2022-07-01"
+  },
+  {
+    "id": "sta2_top3000_fact3_c50",
+    "description": "statistical industry classification",
+    "dataset": {
+      "id": "pv30",
+      "name": "Alternate Industry Classification"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "GROUP",
+    "coverage": 1.0,
+    "userCount": 7,
+    "alphaCount": 8,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2022-07-01"
+  },
+  {
+    "id": "sta2_top3000_fact4_c10",
+    "description": "statistical industry classification",
+    "dataset": {
+      "id": "pv30",
+      "name": "Alternate Industry Classification"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "GROUP",
+    "coverage": 1.0,
+    "userCount": 7,
+    "alphaCount": 9,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2022-07-01"
+  },
+  {
+    "id": "sta2_top3000_fact4_c2",
+    "description": "statistical industry classification",
+    "dataset": {
+      "id": "pv30",
+      "name": "Alternate Industry Classification"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "GROUP",
+    "coverage": 1.0,
+    "userCount": 6,
+    "alphaCount": 6,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2022-07-01"
+  },
+  {
+    "id": "sta2_top3000_fact4_c20",
+    "description": "statistical industry classification",
+    "dataset": {
+      "id": "pv30",
+      "name": "Alternate Industry Classification"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "GROUP",
+    "coverage": 1.0,
+    "userCount": 10,
+    "alphaCount": 14,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2022-07-01"
+  },
+  {
+    "id": "sta2_top3000_fact4_c5",
+    "description": "statistical industry classification",
+    "dataset": {
+      "id": "pv30",
+      "name": "Alternate Industry Classification"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "GROUP",
+    "coverage": 1.0,
+    "userCount": 5,
+    "alphaCount": 5,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2022-07-01"
+  },
+  {
+    "id": "sta2_top3000_fact4_c50",
+    "description": "statistical industry classification",
+    "dataset": {
+      "id": "pv30",
+      "name": "Alternate Industry Classification"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "GROUP",
+    "coverage": 1.0,
+    "userCount": 4,
+    "alphaCount": 5,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2022-07-01"
+  }
+]

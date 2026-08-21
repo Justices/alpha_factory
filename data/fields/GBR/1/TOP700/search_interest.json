@@ -1,0 +1,226 @@
+﻿[
+    {
+        "id":  "relative_interest_score_6",
+        "description":  "Standardized unbounded daily search interest score comparable across time and terms",
+        "dataset":  {
+                        "id":  "search_interest",
+                        "name":  "Rapid Search Interest Signals"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-aiml-data",
+                            "name":  "AI/ML Data"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "relative_interest_score_8",
+        "description":  "Standardized, unbounded search interest score indicating the term’s popularity, comparable across time and terms",
+        "dataset":  {
+                        "id":  "search_interest",
+                        "name":  "Rapid Search Interest Signals"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-aiml-data",
+                            "name":  "AI/ML Data"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "sentiment_confidence_overlap_months",
+        "description":  "The size of the data overlap window in months, a float or integer, used for calibrating the search interest score. A value of zero indicates low overlap and suggests the score should be used with caution.",
+        "dataset":  {
+                        "id":  "search_interest",
+                        "name":  "Rapid Search Interest Signals"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-aiml-data",
+                            "name":  "AI/ML Data"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "sentiment_confidence_score_d1",
+        "description":  "The confidence estimate for the D1 search interest score, indicating the reliability of the estimate. Higher values indicate greater reliability and it is a float or integer.",
+        "dataset":  {
+                        "id":  "search_interest",
+                        "name":  "Rapid Search Interest Signals"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-aiml-data",
+                            "name":  "AI/ML Data"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "sentiment_search_interest_score_d1",
+        "description":  "The point-in-time stable (D1), unbounded standardized daily Google search interest score, suitable for backtesting. This is a float value.",
+        "dataset":  {
+                        "id":  "search_interest",
+                        "name":  "Rapid Search Interest Signals"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-aiml-data",
+                            "name":  "AI/ML Data"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "trend_confidence_overlap_months_4",
+        "description":  "the confident of our guessing over months",
+        "dataset":  {
+                        "id":  "search_interest",
+                        "name":  "Rapid Search Interest Signals"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-aiml-data",
+                            "name":  "AI/ML Data"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "trend_estimation_confidence_score_4",
+        "description":  "Confidence score of the nowcasted search interest value; higher indicates more reliable estimates",
+        "dataset":  {
+                        "id":  "search_interest",
+                        "name":  "Rapid Search Interest Signals"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-aiml-data",
+                            "name":  "AI/ML Data"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    }
+]

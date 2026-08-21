@@ -1,0 +1,1666 @@
+﻿[
+    {
+        "id":  "event_count_in_section_aggregation",
+        "description":  "Weighted count of events within the specified section context",
+        "dataset":  {
+                        "id":  "event_sentiment_signals",
+                        "name":  "Corporate Event Sentiment Signals"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-event-data",
+                            "name":  "Event Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "event_count_in_section_aggregation_2",
+        "description":  "Weighted count of events in the given section context",
+        "dataset":  {
+                        "id":  "event_sentiment_signals",
+                        "name":  "Corporate Event Sentiment Signals"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-event-data",
+                            "name":  "Event Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "event_weight_aggregation",
+        "description":  "The numerical weight/magnitude assigned to the event occurrence",
+        "dataset":  {
+                        "id":  "event_sentiment_signals",
+                        "name":  "Corporate Event Sentiment Signals"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-event-data",
+                            "name":  "Event Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "event_weight_aggregation_2",
+        "description":  "The numeric weight assigned to an aggregated event, indicating its contribution or importance in the event aggregation and sentiment calculations",
+        "dataset":  {
+                        "id":  "event_sentiment_signals",
+                        "name":  "Corporate Event Sentiment Signals"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-event-data",
+                            "name":  "Event Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "key_factor_negative_event_count_section",
+        "description":  "Count of negative events associated with the key driver in the section",
+        "dataset":  {
+                        "id":  "event_sentiment_signals",
+                        "name":  "Corporate Event Sentiment Signals"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-event-data",
+                            "name":  "Event Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "key_factor_negative_event_count_section_2",
+        "description":  "Count of negative events for the key driver within the section",
+        "dataset":  {
+                        "id":  "event_sentiment_signals",
+                        "name":  "Corporate Event Sentiment Signals"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-event-data",
+                            "name":  "Event Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "key_factor_negative_score_section",
+        "description":  "Weighted aggregate negative sentiment score for the given key driver within the section",
+        "dataset":  {
+                        "id":  "event_sentiment_signals",
+                        "name":  "Corporate Event Sentiment Signals"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-event-data",
+                            "name":  "Event Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "key_factor_negative_score_section_2",
+        "description":  "Weighted aggregate of negative events for the specified key driver within the section",
+        "dataset":  {
+                        "id":  "event_sentiment_signals",
+                        "name":  "Corporate Event Sentiment Signals"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-event-data",
+                            "name":  "Event Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "key_factor_positive_event_count_section",
+        "description":  "Count of positive events associated with the key driver in the section",
+        "dataset":  {
+                        "id":  "event_sentiment_signals",
+                        "name":  "Corporate Event Sentiment Signals"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-event-data",
+                            "name":  "Event Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "key_factor_positive_event_count_section_2",
+        "description":  "Count of positive events for the key driver within the section",
+        "dataset":  {
+                        "id":  "event_sentiment_signals",
+                        "name":  "Corporate Event Sentiment Signals"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-event-data",
+                            "name":  "Event Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "key_factor_positive_score_section",
+        "description":  "Weighted sum of positive events for the key driver within the section",
+        "dataset":  {
+                        "id":  "event_sentiment_signals",
+                        "name":  "Corporate Event Sentiment Signals"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-event-data",
+                            "name":  "Event Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "key_factor_positive_score_section_2",
+        "description":  "Weighted aggregate of positive events for the specified key driver within the section",
+        "dataset":  {
+                        "id":  "event_sentiment_signals",
+                        "name":  "Corporate Event Sentiment Signals"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-event-data",
+                            "name":  "Event Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "key_factor_score_section",
+        "description":  "Sentiment score for the key driver within the section, computed as (P−N)/(P+N+1) where P and N are weighted sums of positive and negative events",
+        "dataset":  {
+                        "id":  "event_sentiment_signals",
+                        "name":  "Corporate Event Sentiment Signals"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-event-data",
+                            "name":  "Event Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "key_factor_score_section_2",
+        "description":  "Sentiment score for the key driver within the section computed as (P−N)/(P+N+1) where P and N are weighted sums of positive and negative events",
+        "dataset":  {
+                        "id":  "event_sentiment_signals",
+                        "name":  "Corporate Event Sentiment Signals"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-event-data",
+                            "name":  "Event Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "positive_event_count_section",
+        "description":  "Count of positive events in the section",
+        "dataset":  {
+                        "id":  "event_sentiment_signals",
+                        "name":  "Corporate Event Sentiment Signals"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-event-data",
+                            "name":  "Event Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "positive_event_count_section_2",
+        "description":  "Number of positive events identified in a document section.",
+        "dataset":  {
+                        "id":  "event_sentiment_signals",
+                        "name":  "Corporate Event Sentiment Signals"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-event-data",
+                            "name":  "Event Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "section_negative_event_count",
+        "description":  "Count of negative events in the specified section",
+        "dataset":  {
+                        "id":  "event_sentiment_signals",
+                        "name":  "Corporate Event Sentiment Signals"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-event-data",
+                            "name":  "Event Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "section_negative_event_count_2",
+        "description":  "Count of negative events in a document section.",
+        "dataset":  {
+                        "id":  "event_sentiment_signals",
+                        "name":  "Corporate Event Sentiment Signals"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-event-data",
+                            "name":  "Event Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "section_negative_score",
+        "description":  "Weighted aggregate negative sentiment score for the section",
+        "dataset":  {
+                        "id":  "event_sentiment_signals",
+                        "name":  "Corporate Event Sentiment Signals"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-event-data",
+                            "name":  "Event Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "section_negative_score_2",
+        "description":  "Weighted sum of negative events for the Fundamental-KD key driver in the section",
+        "dataset":  {
+                        "id":  "event_sentiment_signals",
+                        "name":  "Corporate Event Sentiment Signals"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-event-data",
+                            "name":  "Event Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "section_positive_score",
+        "description":  "Weighted aggregate positive sentiment score for the section",
+        "dataset":  {
+                        "id":  "event_sentiment_signals",
+                        "name":  "Corporate Event Sentiment Signals"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-event-data",
+                            "name":  "Event Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "section_positive_score_2",
+        "description":  "Weighted sum of positive events for the Fundamental-KD key driver in the section",
+        "dataset":  {
+                        "id":  "event_sentiment_signals",
+                        "name":  "Corporate Event Sentiment Signals"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-event-data",
+                            "name":  "Event Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "section_sentiment_score_2",
+        "description":  "Sentiment score for events tagged with the Fundamental-KD key driver in this section, computed as (P−N)/(P+N+1)",
+        "dataset":  {
+                        "id":  "event_sentiment_signals",
+                        "name":  "Corporate Event Sentiment Signals"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-event-data",
+                            "name":  "Event Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "section_sentiment_score_3",
+        "description":  "Sentiment score for the section, computed as (P−N)/(P+N+1) where P and N are weighted sums of positive and negative events",
+        "dataset":  {
+                        "id":  "event_sentiment_signals",
+                        "name":  "Corporate Event Sentiment Signals"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-event-data",
+                            "name":  "Event Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "sentiment_aggregated_event_weight",
+        "description":  "The weight assigned to an NLP-extracted event in the aggregated events array.",
+        "dataset":  {
+                        "id":  "event_sentiment_signals",
+                        "name":  "Corporate Event Sentiment Signals"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-event-data",
+                            "name":  "Event Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "sentiment_aggregated_sections_keydriver_positive_event_count",
+        "description":  "The count of positive events for a specific key driver within an aggregated document section.",
+        "dataset":  {
+                        "id":  "event_sentiment_signals",
+                        "name":  "Corporate Event Sentiment Signals"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-event-data",
+                            "name":  "Event Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "sentiment_aggregated_section_negative_event_count_d1",
+        "description":  "The count of negative events within an aggregated document section, with data available the next day.",
+        "dataset":  {
+                        "id":  "event_sentiment_signals",
+                        "name":  "Corporate Event Sentiment Signals"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-event-data",
+                            "name":  "Event Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "sentiment_aggregated_section_negative_event_count_improved_d1",
+        "description":  "The count of negative events within an aggregated document section, derived from an improved model, with data available the next day.",
+        "dataset":  {
+                        "id":  "event_sentiment_signals",
+                        "name":  "Corporate Event Sentiment Signals"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-event-data",
+                            "name":  "Event Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "sentiment_event_weight_improved_d1",
+        "description":  "The weight of an NLP-extracted event, from an improved calculation model, with data available the next day.",
+        "dataset":  {
+                        "id":  "event_sentiment_signals",
+                        "name":  "Corporate Event Sentiment Signals"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-event-data",
+                            "name":  "Event Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "sentiment_keydriver_positive_event_count",
+        "description":  "The total count of positive events related to a specific key driver, aggregated across the entire document.",
+        "dataset":  {
+                        "id":  "event_sentiment_signals",
+                        "name":  "Corporate Event Sentiment Signals"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-event-data",
+                            "name":  "Event Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "sentiment_section_event_count_d1",
+        "description":  "The total count of all events (positive and negative) within a document section, with data available the next day.",
+        "dataset":  {
+                        "id":  "event_sentiment_signals",
+                        "name":  "Corporate Event Sentiment Signals"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-event-data",
+                            "name":  "Event Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "sentiment_section_event_count_improved_d1",
+        "description":  "The total count of all events (positive and negative) within a document section, from an improved model, available the next day.",
+        "dataset":  {
+                        "id":  "event_sentiment_signals",
+                        "name":  "Corporate Event Sentiment Signals"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-event-data",
+                            "name":  "Event Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "sentiment_section_keydriver_negative_event_count_improved_d1",
+        "description":  "The count of negative events for a key driver within a section, derived from an improved model, with data available the next day.",
+        "dataset":  {
+                        "id":  "event_sentiment_signals",
+                        "name":  "Corporate Event Sentiment Signals"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-event-data",
+                            "name":  "Event Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "sentiment_section_keydriver_negative_score",
+        "description":  "The weighted sum of all negative events for a specific key driver within a document section. This corresponds to the vendor\u0027s `negativeScore`.",
+        "dataset":  {
+                        "id":  "event_sentiment_signals",
+                        "name":  "Corporate Event Sentiment Signals"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-event-data",
+                            "name":  "Event Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "sentiment_section_keydriver_negative_weighted_count_improved_d1",
+        "description":  "The weighted sum of negative events for a key driver in a section, from an improved model, available the next day. This corresponds to the vendor\u0027s `negativeScore`.",
+        "dataset":  {
+                        "id":  "event_sentiment_signals",
+                        "name":  "Corporate Event Sentiment Signals"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-event-data",
+                            "name":  "Event Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "sentiment_section_keydriver_positive_weighted_count",
+        "description":  "The weighted sum of all positive events for a specific key driver within a document section. This corresponds to the vendor\u0027s `positiveScore`.",
+        "dataset":  {
+                        "id":  "event_sentiment_signals",
+                        "name":  "Corporate Event Sentiment Signals"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-event-data",
+                            "name":  "Event Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "sentiment_section_keydriver_score",
+        "description":  "The sentiment score for a specific key driver within a document section, calculated as (P-N)/(P+N+1).",
+        "dataset":  {
+                        "id":  "event_sentiment_signals",
+                        "name":  "Corporate Event Sentiment Signals"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-event-data",
+                            "name":  "Event Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "sentiment_section_key_driver_negative_event_count",
+        "description":  "The count of negative events for a specific key driver within a document section.",
+        "dataset":  {
+                        "id":  "event_sentiment_signals",
+                        "name":  "Corporate Event Sentiment Signals"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-event-data",
+                            "name":  "Event Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "sentiment_section_key_driver_score",
+        "description":  "The sentiment score for a specific key driver within a document section, calculated as (P-N)/(P+N+1).",
+        "dataset":  {
+                        "id":  "event_sentiment_signals",
+                        "name":  "Corporate Event Sentiment Signals"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-event-data",
+                            "name":  "Event Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "sentiment_section_negative_event_count_improved_d1",
+        "description":  "The count of negative events within a document section, derived from an improved calculation model, with data available the next day.",
+        "dataset":  {
+                        "id":  "event_sentiment_signals",
+                        "name":  "Corporate Event Sentiment Signals"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-event-data",
+                            "name":  "Event Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "sentiment_section_negative_score_d1",
+        "description":  "The weighted sum of all negative events within a document section, available the next day. This corresponds to the vendor\u0027s `negativeScore` field.",
+        "dataset":  {
+                        "id":  "event_sentiment_signals",
+                        "name":  "Corporate Event Sentiment Signals"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-event-data",
+                            "name":  "Event Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "sentiment_section_positive_event_count_alt_improved_d1",
+        "description":  "An alternative calculation of the positive event count within a document section, from an improved model, available the next day.",
+        "dataset":  {
+                        "id":  "event_sentiment_signals",
+                        "name":  "Corporate Event Sentiment Signals"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-event-data",
+                            "name":  "Event Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "sentiment_section_positive_event_count_d1",
+        "description":  "The count of positive events within a document section, with data available the next day.",
+        "dataset":  {
+                        "id":  "event_sentiment_signals",
+                        "name":  "Corporate Event Sentiment Signals"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-event-data",
+                            "name":  "Event Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "sentiment_section_positive_event_count_improved_d1",
+        "description":  "The count of positive events within a document section, derived from an improved model, with data available the next day.",
+        "dataset":  {
+                        "id":  "event_sentiment_signals",
+                        "name":  "Corporate Event Sentiment Signals"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-event-data",
+                            "name":  "Event Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "sentiment_section_positive_score_d1",
+        "description":  "The weighted sum of all positive events within a document section, available the next day. This corresponds to the vendor\u0027s `positiveScore` field.",
+        "dataset":  {
+                        "id":  "event_sentiment_signals",
+                        "name":  "Corporate Event Sentiment Signals"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-event-data",
+                            "name":  "Event Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "sentiment_section_score_d1",
+        "description":  "The overall sentiment score of a document section, available the next day. The score is calculated as (P-N)/(P+N+1).",
+        "dataset":  {
+                        "id":  "event_sentiment_signals",
+                        "name":  "Corporate Event Sentiment Signals"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-event-data",
+                            "name":  "Event Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "sentiment_section_score_improved_d1",
+        "description":  "The overall sentiment score of a document section, derived from an improved model, with data available the next day.",
+        "dataset":  {
+                        "id":  "event_sentiment_signals",
+                        "name":  "Corporate Event Sentiment Signals"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-event-data",
+                            "name":  "Event Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "sentiment_section_word_count_d1",
+        "description":  "The total word count of a document section, with data available the next day.",
+        "dataset":  {
+                        "id":  "event_sentiment_signals",
+                        "name":  "Corporate Event Sentiment Signals"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-event-data",
+                            "name":  "Event Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "sentiment_section_word_count_improved_d1",
+        "description":  "The total word count of a document section, derived from an improved calculation model, with data available the next day.",
+        "dataset":  {
+                        "id":  "event_sentiment_signals",
+                        "name":  "Corporate Event Sentiment Signals"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-event-data",
+                            "name":  "Event Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "transcript_section_keydriver_positive_event_count",
+        "description":  "The count of positive events for a specific key driver within a transcript section.",
+        "dataset":  {
+                        "id":  "event_sentiment_signals",
+                        "name":  "Corporate Event Sentiment Signals"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-event-data",
+                            "name":  "Event Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "word_count_section",
+        "description":  "Word count of the content in the specified transcript section",
+        "dataset":  {
+                        "id":  "event_sentiment_signals",
+                        "name":  "Corporate Event Sentiment Signals"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-event-data",
+                            "name":  "Event Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "word_count_section_2",
+        "description":  "Total number of words in a document section.",
+        "dataset":  {
+                        "id":  "event_sentiment_signals",
+                        "name":  "Corporate Event Sentiment Signals"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-event-data",
+                            "name":  "Event Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    }
+]

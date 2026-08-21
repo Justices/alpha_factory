@@ -1,0 +1,258 @@
+﻿[
+    {
+        "id":  "pairwise_price_volume_corr_score",
+        "description":  "A numeric value representing the strength of the relationship between two instruments based on their price and volume correlation.",
+        "dataset":  {
+                        "id":  "pv71",
+                        "name":  "Europe Relation Dataset"
+                    },
+        "category":  {
+                         "id":  "pv",
+                         "name":  "Price Volume"
+                     },
+        "subcategory":  {
+                            "id":  "pv-relationship",
+                            "name":  "Relationship"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "pv71_ibesest_relation",
+        "description":  "For each as-of-date and source European equity, the directional list (A→B) of target equities linked by an IBES estimates–driven event (e.g., shared analyst estimate activity or estimate revisions) observed that day; edges exist only when such events are observed",
+        "dataset":  {
+                        "id":  "pv71",
+                        "name":  "Europe Relation Dataset"
+                    },
+        "category":  {
+                         "id":  "pv",
+                         "name":  "Price Volume"
+                     },
+        "subcategory":  {
+                            "id":  "pv-relationship",
+                            "name":  "Relationship"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "pv71_ibesest_score",
+        "description":  "score",
+        "dataset":  {
+                        "id":  "pv71",
+                        "name":  "Europe Relation Dataset"
+                    },
+        "category":  {
+                         "id":  "pv",
+                         "name":  "Price Volume"
+                     },
+        "subcategory":  {
+                            "id":  "pv-relationship",
+                            "name":  "Relationship"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "pv71_ibesest_score_float",
+        "description":  "score float",
+        "dataset":  {
+                        "id":  "pv71",
+                        "name":  "Europe Relation Dataset"
+                    },
+        "category":  {
+                         "id":  "pv",
+                         "name":  "Price Volume"
+                     },
+        "subcategory":  {
+                            "id":  "pv-relationship",
+                            "name":  "Relationship"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "pv71_pvvolcorr_relation",
+        "description":  "Directional list of target stocks (A→B) linked to the source stock on the date by a price‑volume correlation microstructure signal",
+        "dataset":  {
+                        "id":  "pv71",
+                        "name":  "Europe Relation Dataset"
+                    },
+        "category":  {
+                         "id":  "pv",
+                         "name":  "Price Volume"
+                     },
+        "subcategory":  {
+                            "id":  "pv-relationship",
+                            "name":  "Relationship"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "pv71_pvvolcorr_score_float",
+        "description":  "score float",
+        "dataset":  {
+                        "id":  "pv71",
+                        "name":  "Europe Relation Dataset"
+                    },
+        "category":  {
+                         "id":  "pv",
+                         "name":  "Price Volume"
+                     },
+        "subcategory":  {
+                            "id":  "pv-relationship",
+                            "name":  "Relationship"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "relation_edge_score",
+        "description":  "A raw integer score representing a discrete, event-driven metric for a relationship, such as the number of analyst overlaps or co-occurring news mentions. Referred to as \u0027score\u0027 in the documentation, this value is only meaningful within its specific module and date.",
+        "dataset":  {
+                        "id":  "pv71",
+                        "name":  "Europe Relation Dataset"
+                    },
+        "category":  {
+                         "id":  "pv",
+                         "name":  "Price Volume"
+                     },
+        "subcategory":  {
+                            "id":  "pv-relationship",
+                            "name":  "Relationship"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "relation_weight_normalized",
+        "description":  "A research-grade, continuous float weight representing the normalized significance of an event-driven relationship between two stocks. This value, referred to as \u0027score_float\u0027 in the documentation, is derived from metrics like news relevance z-scores or overlap percentages and must be normalized daily within each module before use.",
+        "dataset":  {
+                        "id":  "pv71",
+                        "name":  "Europe Relation Dataset"
+                    },
+        "category":  {
+                         "id":  "pv",
+                         "name":  "Price Volume"
+                     },
+        "subcategory":  {
+                            "id":  "pv-relationship",
+                            "name":  "Relationship"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    }
+]

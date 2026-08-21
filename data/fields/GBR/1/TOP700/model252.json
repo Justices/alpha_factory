@@ -1,0 +1,98 @@
+﻿[
+    {
+        "id":  "firm_market_value",
+        "description":  "Market capitalization of the security on the given date",
+        "dataset":  {
+                        "id":  "model252",
+                        "name":  "Systematic Hedging for Investors to Evade Large Drawdowns"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-mlai-models",
+                            "name":  "ML/AI Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl252_shield",
+        "description":  "Primary SHIELD model composite risk/defense score for the stock, between 0 and 1",
+        "dataset":  {
+                        "id":  "model252",
+                        "name":  "Systematic Hedging for Investors to Evade Large Drawdowns"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-mlai-models",
+                            "name":  "ML/AI Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl252_shield2",
+        "description":  "Auxiliary or alternate composite SHIELD risk/defense score for the stock, between 0 and 1",
+        "dataset":  {
+                        "id":  "model252",
+                        "name":  "Systematic Hedging for Investors to Evade Large Drawdowns"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-mlai-models",
+                            "name":  "ML/AI Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    }
+]

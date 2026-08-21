@@ -1,0 +1,1538 @@
+﻿[
+    {
+        "id":  "fnd31_o_additionalfactor3_avg10yep",
+        "description":  "Average 10 year economic profit",
+        "dataset":  {
+                        "id":  "fundamental31",
+                        "name":  "Additional Factor Model"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-models",
+                            "name":  "Fundamental Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.4106,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "fnd31_o_additionalfactor4_apg",
+        "description":  "Trailing-twelve-month gross profit to total assets ratio (gross profit divided by total assets)",
+        "dataset":  {
+                        "id":  "fundamental31",
+                        "name":  "Additional Factor Model"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-models",
+                            "name":  "Fundamental Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.4305,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "fnd31_o_additionalfactor4_apgghcy1",
+        "description":  "Year-over-year change in gross profit to assets ratio",
+        "dataset":  {
+                        "id":  "fundamental31",
+                        "name":  "Additional Factor Model"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-models",
+                            "name":  "Fundamental Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.4305,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "fnd31_o_additionalfactor4_apgghcy3",
+        "description":  "Three-year change in gross profit to assets ratio",
+        "dataset":  {
+                        "id":  "fundamental31",
+                        "name":  "Additional Factor Model"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-models",
+                            "name":  "Fundamental Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.4305,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "fnd31_o_additionalfactor4_capexdeplink",
+        "description":  "Capital Expenditures to Depreciation Linkage",
+        "dataset":  {
+                        "id":  "fundamental31",
+                        "name":  "Additional Factor Model"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-models",
+                            "name":  "Fundamental Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.4305,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "fnd31_o_additionalfactor4_chg12mtotdebt",
+        "description":  "Change in total debt over the last 12 months",
+        "dataset":  {
+                        "id":  "fundamental31",
+                        "name":  "Additional Factor Model"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-models",
+                            "name":  "Fundamental Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.4305,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "fnd31_o_additionalfactor4_chginvavgast",
+        "description":  "Year-over-year change in inventories scaled by average assets",
+        "dataset":  {
+                        "id":  "fundamental31",
+                        "name":  "Additional Factor Model"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-models",
+                            "name":  "Fundamental Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.4305,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "fnd31_o_additionalfactor4_chgqtrepssurp",
+        "description":  "Change in Real Earnings Surprise",
+        "dataset":  {
+                        "id":  "fundamental31",
+                        "name":  "Additional Factor Model"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-models",
+                            "name":  "Fundamental Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.4305,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "fnd31_o_additionalfactor4_coreepsp",
+        "description":  "Trailing 12-month core earnings per share divided by price; excludes extraordinary items",
+        "dataset":  {
+                        "id":  "fundamental31",
+                        "name":  "Additional Factor Model"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-models",
+                            "name":  "Fundamental Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.4305,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "fnd31_o_additionalfactor4_cpgspea2y",
+        "description":  "Two-year ahead EPS growth percentage: (FY2 EPS − FY1 EPS) divided by FY1 EPS",
+        "dataset":  {
+                        "id":  "fundamental31",
+                        "name":  "Additional Factor Model"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-models",
+                            "name":  "Fundamental Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.4305,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "fnd31_o_additionalfactor4_divgp",
+        "description":  "Dividends paid over the trailing twelve months divided by gross profit (shareholder payout to gross profit)",
+        "dataset":  {
+                        "id":  "fundamental31",
+                        "name":  "Additional Factor Model"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-models",
+                            "name":  "Fundamental Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.4305,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "fnd31_o_additionalfactor4_dtsm1_rd",
+        "description":  "Realized volatility of daily stock returns over the past month (standard deviation)",
+        "dataset":  {
+                        "id":  "fundamental31",
+                        "name":  "Additional Factor Model"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-models",
+                            "name":  "Fundamental Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.4305,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "fnd31_o_additionalfactor4_earningstorpedo",
+        "description":  "Earnings Torpedo",
+        "dataset":  {
+                        "id":  "fundamental31",
+                        "name":  "Additional Factor Model"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-models",
+                            "name":  "Fundamental Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.4305,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "fnd31_o_additionalfactor4_earnshortfall",
+        "description":  "Earnings Shortfall",
+        "dataset":  {
+                        "id":  "fundamental31",
+                        "name":  "Additional Factor Model"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-models",
+                            "name":  "Fundamental Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.4305,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "fnd31_o_additionalfactor4_fc_fqsurstd",
+        "description":  "Standardized most recent quarterly earnings surprise: actual EPS minus consensus, scaled by forecast dispersion",
+        "dataset":  {
+                        "id":  "fundamental31",
+                        "name":  "Additional Factor Model"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-models",
+                            "name":  "Fundamental Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.4305,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "fnd31_o_additionalfactor4_fc_y2repsg",
+        "description":  "2-Year Projected EPS Growth",
+        "dataset":  {
+                        "id":  "fundamental31",
+                        "name":  "Additional Factor Model"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-models",
+                            "name":  "Fundamental Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.4305,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "fnd31_o_additionalfactor4_fqsurstd60dlag",
+        "description":  "Standardized quarterly earnings surprise measured with a 60-day lag",
+        "dataset":  {
+                        "id":  "fundamental31",
+                        "name":  "Additional Factor Model"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-models",
+                            "name":  "Fundamental Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.4305,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "fnd31_o_additionalfactor4_fwdebitdaev",
+        "description":  "Forward next 12 months EBITDA divided by enterprise value",
+        "dataset":  {
+                        "id":  "fundamental31",
+                        "name":  "Additional Factor Model"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-models",
+                            "name":  "Fundamental Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.4305,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "fnd31_o_additionalfactor4_irttmsalesev",
+        "description":  "Industry-relative ratio of trailing twelve month sales to enterprise value",
+        "dataset":  {
+                        "id":  "fundamental31",
+                        "name":  "Additional Factor Model"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-models",
+                            "name":  "Fundamental Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.4305,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "fnd31_o_additionalfactor4_md",
+        "description":  "Distress Measure",
+        "dataset":  {
+                        "id":  "fundamental31",
+                        "name":  "Additional Factor Model"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-models",
+                            "name":  "Fundamental Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.4305,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "fnd31_o_additionalfactor4_mpg",
+        "description":  "Trailing-twelve-month gross profit margin (gross profit divided by sales)",
+        "dataset":  {
+                        "id":  "fundamental31",
+                        "name":  "Additional Factor Model"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-models",
+                            "name":  "Fundamental Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.4305,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "fnd31_o_additionalfactor4_mpgghcy3",
+        "description":  "Change in TTM gross profit margin over the past three years, measured as the 3-year year-on-year change in GPM",
+        "dataset":  {
+                        "id":  "fundamental31",
+                        "name":  "Additional Factor Model"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-models",
+                            "name":  "Fundamental Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.4305,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "fnd31_o_additionalfactor4_numrevy2",
+        "description":  "Net # of Revisions for Fiscal Year 2",
+        "dataset":  {
+                        "id":  "fundamental31",
+                        "name":  "Additional Factor Model"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-models",
+                            "name":  "Fundamental Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.4305,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "fnd31_o_additionalfactor4_ohlsonscore",
+        "description":  "Ohlson O-score estimating bankruptcy/distress risk from financial ratios",
+        "dataset":  {
+                        "id":  "fundamental31",
+                        "name":  "Additional Factor Model"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-models",
+                            "name":  "Fundamental Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.4305,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "fnd31_o_additionalfactor4_pbdwf",
+        "description":  "Forward next 12 months book value per share divided by stock price (forward book yield)",
+        "dataset":  {
+                        "id":  "fundamental31",
+                        "name":  "Additional Factor Model"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-models",
+                            "name":  "Fundamental Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.4305,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "fnd31_o_additionalfactor4_pbroeresidual",
+        "description":  "Price-to-Book Return-on-Equity Combination (PB-ROE)",
+        "dataset":  {
+                        "id":  "fundamental31",
+                        "name":  "Additional Factor Model"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-models",
+                            "name":  "Fundamental Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.4305,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "fnd31_o_additionalfactor4_pbwt",
+        "description":  "Time-weighted blend of forward book yield",
+        "dataset":  {
+                        "id":  "fundamental31",
+                        "name":  "Additional Factor Model"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-models",
+                            "name":  "Fundamental Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.4305,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "fnd31_o_additionalfactor4_pcdwf",
+        "description":  "Forward next 12 months cash flow per share divided by stock price (forward cash yield)",
+        "dataset":  {
+                        "id":  "fundamental31",
+                        "name":  "Additional Factor Model"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-models",
+                            "name":  "Fundamental Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.4305,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "fnd31_o_additionalfactor4_pcwt",
+        "description":  "Time-weighted blend of forward cash flow yield",
+        "dataset":  {
+                        "id":  "fundamental31",
+                        "name":  "Additional Factor Model"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-models",
+                            "name":  "Fundamental Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.4305,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "fnd31_o_additionalfactor4_psdwf",
+        "description":  "Forward next 12 months sales divided by stock price (forward sales yield)",
+        "dataset":  {
+                        "id":  "fundamental31",
+                        "name":  "Additional Factor Model"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-models",
+                            "name":  "Fundamental Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.4305,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "fnd31_o_additionalfactor4_ps_wt",
+        "description":  "Time-weighted blend of current and forward sales to price yield",
+        "dataset":  {
+                        "id":  "fundamental31",
+                        "name":  "Additional Factor Model"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-models",
+                            "name":  "Fundamental Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.4305,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "fnd31_o_additionalfactor4_pu",
+        "description":  "Unexpected Profitability",
+        "dataset":  {
+                        "id":  "fundamental31",
+                        "name":  "Additional Factor Model"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-models",
+                            "name":  "Fundamental Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.4305,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "fnd31_o_additionalfactor4_rev3my1std",
+        "description":  "Three-month change in FY1 EPS estimates scaled by analyst dispersion",
+        "dataset":  {
+                        "id":  "fundamental31",
+                        "name":  "Additional Factor Model"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-models",
+                            "name":  "Fundamental Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.4305,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "fnd31_o_additionalfactor4_rev3my2std",
+        "description":  "Three-month change in FY2 EPS estimates scaled by analyst dispersion",
+        "dataset":  {
+                        "id":  "fundamental31",
+                        "name":  "Additional Factor Model"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-models",
+                            "name":  "Fundamental Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.4305,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "fnd31_o_additionalfactor4_rev6fy2",
+        "description":  "Average FY2 EPS estimate revisions over the past six months",
+        "dataset":  {
+                        "id":  "fundamental31",
+                        "name":  "Additional Factor Model"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-models",
+                            "name":  "Fundamental Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.4305,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "fnd31_o_additionalfactor4_rp",
+        "description":  "Profitability ratio: operating income scaled by total assets (QSG convention)",
+        "dataset":  {
+                        "id":  "fundamental31",
+                        "name":  "Additional Factor Model"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-models",
+                            "name":  "Fundamental Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.4305,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "fnd31_o_additionalfactor4_rqi_rd",
+        "description":  "1-Month Stock Return Interquartile Range",
+        "dataset":  {
+                        "id":  "fundamental31",
+                        "name":  "Additional Factor Model"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-models",
+                            "name":  "Fundamental Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.4305,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "fnd31_o_additionalfactor4_slope4qeps5y",
+        "description":  "Slope of the linear trend line for rolling four-quarter TTM EPS over the past five years",
+        "dataset":  {
+                        "id":  "fundamental31",
+                        "name":  "Additional Factor Model"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-models",
+                            "name":  "Fundamental Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.4305,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "fnd31_o_additionalfactor4_ttmopincev",
+        "description":  "Trailing twelve month operating income divided by enterprise value",
+        "dataset":  {
+                        "id":  "fundamental31",
+                        "name":  "Additional Factor Model"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-models",
+                            "name":  "Fundamental Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.4305,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "fnd31_o_additionalfactor4_twepsrev",
+        "description":  "Time-weighted measure of analysts’ EPS estimate revisions (e.g., FY1/FY2)",
+        "dataset":  {
+                        "id":  "fundamental31",
+                        "name":  "Additional Factor Model"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-models",
+                            "name":  "Fundamental Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.4305,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "fnd31_o_additionalfactor4_twepsstdrev",
+        "description":  "Time Weighted Earnings Revision Dispersion",
+        "dataset":  {
+                        "id":  "fundamental31",
+                        "name":  "Additional Factor Model"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-models",
+                            "name":  "Fundamental Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.4305,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "fnd31_o_additionalfactor4_tw_ebitdaev",
+        "description":  "Time-weighted blend of current and forward EBITDA to enterprise value",
+        "dataset":  {
+                        "id":  "fundamental31",
+                        "name":  "Additional Factor Model"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-models",
+                            "name":  "Fundamental Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.4305,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "fnd31_o_additionalfactor4_vefcomtt",
+        "description":  "Trailing twelve months operating cash flow divided by enterprise value",
+        "dataset":  {
+                        "id":  "fundamental31",
+                        "name":  "Additional Factor Model"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-models",
+                            "name":  "Fundamental Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.4305,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "fnd31_o_additionalfactor4_y5speq4rqsr",
+        "description":  "R-squared of the linear trend line fitted to rolling four-quarter TTM EPS over the past five years",
+        "dataset":  {
+                        "id":  "fundamental31",
+                        "name":  "Additional Factor Model"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-models",
+                            "name":  "Fundamental Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.4305,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "fnd31_o_additionalfactor4_y5speq4vc",
+        "description":  "Coefficient of variation of rolling four-quarter TTM EPS over the past five years, measuring stability",
+        "dataset":  {
+                        "id":  "fundamental31",
+                        "name":  "Additional Factor Model"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-models",
+                            "name":  "Fundamental Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.4305,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "fnd31_o_additionalfactor4_yen",
+        "description":  "Normalized earnings yield (standardized inverse of price-to-earnings)",
+        "dataset":  {
+                        "id":  "fundamental31",
+                        "name":  "Additional Factor Model"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-models",
+                            "name":  "Fundamental Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.4305,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "fnd31_o_additionalfactor4_yoychgroeart",
+        "description":  "Year-over-year absolute change in return on equity, using arithmetic difference",
+        "dataset":  {
+                        "id":  "fundamental31",
+                        "name":  "Additional Factor Model"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-models",
+                            "name":  "Fundamental Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.4305,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "fnd31_o_additionalfactor4_yoychgroepct",
+        "description":  "Year-over-year percentage change in return on equity",
+        "dataset":  {
+                        "id":  "fundamental31",
+                        "name":  "Additional Factor Model"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-models",
+                            "name":  "Fundamental Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.4305,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    }
+]

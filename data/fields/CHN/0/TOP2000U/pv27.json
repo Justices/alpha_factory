@@ -1,0 +1,7832 @@
+[
+  {
+    "id": "actual_extra_large_order_buy_value",
+    "description": "Actual value of extra-large buy orders executed.",
+    "dataset": {
+      "id": "pv27",
+      "name": "A-shares Trade Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.8972,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "actual_extra_large_order_buy_volume",
+    "description": "Actual volume of extra-large buy orders executed.",
+    "dataset": {
+      "id": "pv27",
+      "name": "A-shares Trade Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.8972,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "actual_extra_large_order_sell_value",
+    "description": "Amount of active (market-initiated) extra-large sell orders on the day",
+    "dataset": {
+      "id": "pv27",
+      "name": "A-shares Trade Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.8972,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "actual_extra_large_order_sell_volume",
+    "description": "Volume of active extra-large sell orders (shares)",
+    "dataset": {
+      "id": "pv27",
+      "name": "A-shares Trade Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.8972,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "actual_large_order_buy_value",
+    "description": "Actual value of large buy orders executed.",
+    "dataset": {
+      "id": "pv27",
+      "name": "A-shares Trade Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.8972,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "actual_large_order_buy_volume",
+    "description": "Actual volume of large buy orders executed.",
+    "dataset": {
+      "id": "pv27",
+      "name": "A-shares Trade Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.8972,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "actual_large_order_sell_value",
+    "description": "Actual value of large sell orders executed.",
+    "dataset": {
+      "id": "pv27",
+      "name": "A-shares Trade Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.8972,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "actual_large_order_sell_volume",
+    "description": "Actual volume of large sell orders executed.",
+    "dataset": {
+      "id": "pv27",
+      "name": "A-shares Trade Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.8972,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "actual_medium_order_buy_value",
+    "description": "Monetary value of active medium-sized buy orders",
+    "dataset": {
+      "id": "pv27",
+      "name": "A-shares Trade Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.8972,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "actual_medium_order_buy_volume",
+    "description": "Volume of active medium-sized buy orders (shares)",
+    "dataset": {
+      "id": "pv27",
+      "name": "A-shares Trade Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.8972,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "actual_medium_order_sell_value",
+    "description": "Actual value of medium sell orders executed.",
+    "dataset": {
+      "id": "pv27",
+      "name": "A-shares Trade Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.8972,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "actual_medium_order_sell_volume",
+    "description": "Actual volume of medium sell orders executed.",
+    "dataset": {
+      "id": "pv27",
+      "name": "A-shares Trade Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.8972,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "actual_small_order_buy_value",
+    "description": "Active small-order buy amount on the day",
+    "dataset": {
+      "id": "pv27",
+      "name": "A-shares Trade Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.8972,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "actual_small_order_buy_volume",
+    "description": "Actual volume of small buy orders executed.",
+    "dataset": {
+      "id": "pv27",
+      "name": "A-shares Trade Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.8972,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "actual_small_order_sell_value",
+    "description": "Actual value of small sell orders executed.",
+    "dataset": {
+      "id": "pv27",
+      "name": "A-shares Trade Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.8972,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "actual_small_order_sell_volume",
+    "description": "Actual volume of small sell orders executed.",
+    "dataset": {
+      "id": "pv27",
+      "name": "A-shares Trade Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.8972,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "close_inflow_large_order_value",
+    "description": "Amount of large-order capital inflow after 14:30 (ten thousand CNY)",
+    "dataset": {
+      "id": "pv27",
+      "name": "A-shares Trade Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.8972,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "close_inflow_volume_large_orders",
+    "description": "Volume of large-order capital inflow after 14:30 (hands)",
+    "dataset": {
+      "id": "pv27",
+      "name": "A-shares Trade Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.8972,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "close_money_flow_percentage_large_value",
+    "description": "Percentage of closing-period money flow attributable to large single orders (by amount)",
+    "dataset": {
+      "id": "pv27",
+      "name": "A-shares Trade Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.8972,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "close_money_flow_percentage_large_volume",
+    "description": "Percentage of money flow by volume for large orders at market close.",
+    "dataset": {
+      "id": "pv27",
+      "name": "A-shares Trade Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.8972,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "close_net_inflow_rate_large_value",
+    "description": "Net inflow rate by value for large orders at market close.",
+    "dataset": {
+      "id": "pv27",
+      "name": "A-shares Trade Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.8972,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "close_net_inflow_rate_large_volume",
+    "description": "Net inflow rate by volume for large orders at market close.",
+    "dataset": {
+      "id": "pv27",
+      "name": "A-shares Trade Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.8972,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "extreme_price_status_indicator",
+    "description": "Indicator showing if price reached lowest or highest point for the period.",
+    "dataset": {
+      "id": "pv27",
+      "name": "A-shares Trade Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 1.0,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "five_day_volume_ratio",
+    "description": "Ratio of current trading volume to the average over the past five days.",
+    "dataset": {
+      "id": "pv27",
+      "name": "A-shares Trade Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 1.0,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "five_month_volume_average",
+    "description": "Average trading volume over the past five months.",
+    "dataset": {
+      "id": "pv27",
+      "name": "A-shares Trade Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 1.0,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "major_holder_average_transaction_price",
+    "description": "Average transaction price of the major shareholder trades",
+    "dataset": {
+      "id": "pv27",
+      "name": "A-shares Trade Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.2692,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "major_holder_block_trade_quantity",
+    "description": "Quantity of shares changed via the block trading system",
+    "dataset": {
+      "id": "pv27",
+      "name": "A-shares Trade Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.2692,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "major_holder_new_quantity_ratio",
+    "description": "it refers to the proportion of the latest holdings in circulation to the circulation (%), high score means low liquidity",
+    "dataset": {
+      "id": "pv27",
+      "name": "A-shares Trade Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.2692,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "major_holder_new_share_quantity",
+    "description": "Latest number of shares held in circulation; higher implies lower liquidity",
+    "dataset": {
+      "id": "pv27",
+      "name": "A-shares Trade Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.2692,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "major_holder_transaction_quantity_ratio",
+    "description": "Ratio of changed quantity to circulation/free float (%); higher implies higher liquidity",
+    "dataset": {
+      "id": "pv27",
+      "name": "A-shares Trade Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.2692,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "major_holder_transaction_share_quantity",
+    "description": "Transaction volume (quantity) involved; higher implies higher liquidity",
+    "dataset": {
+      "id": "pv27",
+      "name": "A-shares Trade Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.2692,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "money_flow_close_difference_indicator",
+    "description": "Indicator showing the difference in money flow at market close.",
+    "dataset": {
+      "id": "pv27",
+      "name": "A-shares Trade Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.8972,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "money_flow_close_volume_difference",
+    "description": "Difference in money flow volume at market close.",
+    "dataset": {
+      "id": "pv27",
+      "name": "A-shares Trade Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.8972,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "money_flow_difference_indicator",
+    "description": "Indicator showing the difference in money flow for the period.",
+    "dataset": {
+      "id": "pv27",
+      "name": "A-shares Trade Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.8972,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "money_flow_difference_large_order_volume",
+    "description": "Difference in money flow volume for large orders.",
+    "dataset": {
+      "id": "pv27",
+      "name": "A-shares Trade Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.8972,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "money_flow_difference_large_orders",
+    "description": "Difference in money flow for large orders.",
+    "dataset": {
+      "id": "pv27",
+      "name": "A-shares Trade Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.8972,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "money_flow_open_difference_indicator",
+    "description": "Money inflow amount before 10:00 AM",
+    "dataset": {
+      "id": "pv27",
+      "name": "A-shares Trade Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.8972,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "money_flow_open_volume_difference",
+    "description": "Inflow volume before 10:00",
+    "dataset": {
+      "id": "pv27",
+      "name": "A-shares Trade Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.8972,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "money_flow_percentage_large_value",
+    "description": "Percentage of money flow by value for large orders.",
+    "dataset": {
+      "id": "pv27",
+      "name": "A-shares Trade Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.8972,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "money_flow_percentage_large_volume",
+    "description": "Large-order capital flow ratio by volume for the day (%)",
+    "dataset": {
+      "id": "pv27",
+      "name": "A-shares Trade Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.8972,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "money_flow_volume_difference_indicator",
+    "description": "Money flow inflow volume (quantity of shares associated with inflows)",
+    "dataset": {
+      "id": "pv27",
+      "name": "A-shares Trade Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.8972,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "net_inflow_rate_large_order_value",
+    "description": "Net inflow rate by value for large orders.",
+    "dataset": {
+      "id": "pv27",
+      "name": "A-shares Trade Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.8972,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "net_inflow_rate_large_order_volume",
+    "description": "Large-order net inflow rate by volume for the day (%)",
+    "dataset": {
+      "id": "pv27",
+      "name": "A-shares Trade Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.8972,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "one_month_volume_average",
+    "description": "Average trading volume over the past one month.",
+    "dataset": {
+      "id": "pv27",
+      "name": "A-shares Trade Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 1.0,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "open_inflow_volume_large_orders",
+    "description": "Volume of large-order capital inflow before 10:00 (hands)",
+    "dataset": {
+      "id": "pv27",
+      "name": "A-shares Trade Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.8972,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "open_money_flow_difference_large_orders",
+    "description": "Difference in money flow for large orders at market open.",
+    "dataset": {
+      "id": "pv27",
+      "name": "A-shares Trade Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.8972,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "open_money_flow_percentage_large_value",
+    "description": "Percentage of money flow by value for large orders at market open.",
+    "dataset": {
+      "id": "pv27",
+      "name": "A-shares Trade Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.8972,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "open_money_flow_percentage_large_volume",
+    "description": "Percentage of money flow by volume for large orders at market open.",
+    "dataset": {
+      "id": "pv27",
+      "name": "A-shares Trade Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.8972,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "open_net_inflow_rate_large_value",
+    "description": "Large-order net inflow rate by amount before 10:00 (%)",
+    "dataset": {
+      "id": "pv27",
+      "name": "A-shares Trade Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.8972,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "open_net_inflow_rate_large_volume",
+    "description": "Large-order net inflow rate by volume before 10:00 (%)",
+    "dataset": {
+      "id": "pv27",
+      "name": "A-shares Trade Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.8972,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "price_limit_status_indicator",
+    "description": "Indicator showing if price reached daily up or down limit.",
+    "dataset": {
+      "id": "pv27",
+      "name": "A-shares Trade Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 1.0,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "pv27_alpha_100w",
+    "description": "CAPM alpha estimated over the past 100 weeks; higher values indicate positive risk-adjusted performance",
+    "dataset": {
+      "id": "pv27",
+      "name": "A-shares Trade Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 1.0,
+    "userCount": 7,
+    "alphaCount": 13,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2022-07-01"
+  },
+  {
+    "id": "pv27_alpha_24m",
+    "description": "CAPM alpha estimated over the past 24 months; higher values indicate positive risk-adjusted performance",
+    "dataset": {
+      "id": "pv27",
+      "name": "A-shares Trade Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 1.0,
+    "userCount": 5,
+    "alphaCount": 6,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2022-07-01"
+  },
+  {
+    "id": "pv27_alpha_60m",
+    "description": "CAPM alpha estimated over the past 60 months; higher values indicate positive risk-adjusted performance",
+    "dataset": {
+      "id": "pv27",
+      "name": "A-shares Trade Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 1.0,
+    "userCount": 5,
+    "alphaCount": 5,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2022-07-01"
+  },
+  {
+    "id": "pv27_alpha_day_1y",
+    "description": "CAPM alpha estimated using daily data over the past 1 year (about 256 trading days); higher values indicate stronger risk-adjusted outperformance",
+    "dataset": {
+      "id": "pv27",
+      "name": "A-shares Trade Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 1.0,
+    "userCount": 1,
+    "alphaCount": 1,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2022-07-01"
+  },
+  {
+    "id": "pv27_alpha_day_2y",
+    "description": "CAPM alpha estimated using daily data over the past 2 years (about 512 trading days); higher values indicate stronger risk-adjusted outperformance",
+    "dataset": {
+      "id": "pv27",
+      "name": "A-shares Trade Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 1.0,
+    "userCount": 4,
+    "alphaCount": 6,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2022-07-01"
+  },
+  {
+    "id": "pv27_amount_m",
+    "description": "Total monthly transaction amount in currency, a liquidity measure",
+    "dataset": {
+      "id": "pv27",
+      "name": "A-shares Trade Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 1.0,
+    "userCount": 2,
+    "alphaCount": 2,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2022-07-01"
+  },
+  {
+    "id": "pv27_amount_w",
+    "description": "Total weekly transaction amount in currency, a liquidity measure",
+    "dataset": {
+      "id": "pv27",
+      "name": "A-shares Trade Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 1.0,
+    "userCount": 4,
+    "alphaCount": 7,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2022-07-01"
+  },
+  {
+    "id": "pv27_as_holder_pct",
+    "description": "It refers to strong holders' share ratio. High score indicates high stock concentration",
+    "dataset": {
+      "id": "pv27",
+      "name": "A-shares Trade Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.9632,
+    "userCount": 1,
+    "alphaCount": 1,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2022-07-01"
+  },
+  {
+    "id": "pv27_as_holder_quantity",
+    "description": "It refers to the number of shares. A high score indicates high stock concentration.",
+    "dataset": {
+      "id": "pv27",
+      "name": "A-shares Trade Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.9634,
+    "userCount": 2,
+    "alphaCount": 3,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2022-07-01"
+  },
+  {
+    "id": "pv27_as_holder_total_num",
+    "description": "It refers to the total number of A-share shareholders.",
+    "dataset": {
+      "id": "pv27",
+      "name": "A-shares Trade Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.7962,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2022-07-01"
+  },
+  {
+    "id": "pv27_beta_100w",
+    "description": "CAPM beta estimated over the past 100 weeks measuring sensitivity to market returns; higher values imply higher market risk",
+    "dataset": {
+      "id": "pv27",
+      "name": "A-shares Trade Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 1.0,
+    "userCount": 3,
+    "alphaCount": 7,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2022-07-01"
+  },
+  {
+    "id": "pv27_beta_24m",
+    "description": "CAPM beta estimated over the past 24 months; higher values imply greater market sensitivity and risk",
+    "dataset": {
+      "id": "pv27",
+      "name": "A-shares Trade Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 1.0,
+    "userCount": 4,
+    "alphaCount": 4,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2022-07-01"
+  },
+  {
+    "id": "pv27_beta_60m",
+    "description": "CAPM beta estimated over the past 60 months; higher values imply greater market sensitivity and risk",
+    "dataset": {
+      "id": "pv27",
+      "name": "A-shares Trade Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 1.0,
+    "userCount": 4,
+    "alphaCount": 4,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2022-07-01"
+  },
+  {
+    "id": "pv27_beta_day_1y",
+    "description": "daily beta(256 days),  it computes daily beta using 256 days data,   higher score means the future return of stock has high market risk .",
+    "dataset": {
+      "id": "pv27",
+      "name": "A-shares Trade Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 1.0,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2022-07-01"
+  },
+  {
+    "id": "pv27_beta_day_2y",
+    "description": "daily beta(512 days),  it computes daily beta using 512 days data,   higher score means the future return of stock has high market risk .",
+    "dataset": {
+      "id": "pv27",
+      "name": "A-shares Trade Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 1.0,
+    "userCount": 7,
+    "alphaCount": 13,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2022-07-01"
+  },
+  {
+    "id": "pv27_buy_trades_exlarge_order",
+    "description": "Number of extra-large buy orders for the day",
+    "dataset": {
+      "id": "pv27",
+      "name": "A-shares Trade Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.8972,
+    "userCount": 1,
+    "alphaCount": 1,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2022-07-01"
+  },
+  {
+    "id": "pv27_buy_trades_large_order",
+    "description": "Number of large buy orders during the day",
+    "dataset": {
+      "id": "pv27",
+      "name": "A-shares Trade Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.8972,
+    "userCount": 4,
+    "alphaCount": 11,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2022-07-01"
+  },
+  {
+    "id": "pv27_buy_trades_med_order",
+    "description": "Number of medium buy orders during the day",
+    "dataset": {
+      "id": "pv27",
+      "name": "A-shares Trade Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.8972,
+    "userCount": 1,
+    "alphaCount": 1,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2022-07-01"
+  },
+  {
+    "id": "pv27_buy_trades_small_order",
+    "description": "Number of small buy orders for the day",
+    "dataset": {
+      "id": "pv27",
+      "name": "A-shares Trade Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.8972,
+    "userCount": 4,
+    "alphaCount": 4,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2022-07-01"
+  },
+  {
+    "id": "pv27_buy_value_exlarge_order",
+    "description": "Total amount of extra-large buy orders on the day (typically in 10,000 yuan)",
+    "dataset": {
+      "id": "pv27",
+      "name": "A-shares Trade Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.8972,
+    "userCount": 2,
+    "alphaCount": 2,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2022-07-01"
+  },
+  {
+    "id": "pv27_buy_value_large_order",
+    "description": "Total amount of large buy orders on the day (typically in 10,000 yuan), indicating intensity of large buying activity",
+    "dataset": {
+      "id": "pv27",
+      "name": "A-shares Trade Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.8972,
+    "userCount": 6,
+    "alphaCount": 14,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2022-07-01"
+  },
+  {
+    "id": "pv27_buy_value_med_order",
+    "description": "Amount of medium buy orders during the day (ten thousand CNY)",
+    "dataset": {
+      "id": "pv27",
+      "name": "A-shares Trade Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.8972,
+    "userCount": 1,
+    "alphaCount": 1,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2022-07-01"
+  },
+  {
+    "id": "pv27_buy_value_small_order",
+    "description": "Value of small buy orders for the day",
+    "dataset": {
+      "id": "pv27",
+      "name": "A-shares Trade Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.8972,
+    "userCount": 1,
+    "alphaCount": 1,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2022-07-01"
+  },
+  {
+    "id": "pv27_buy_volume_exlarge_order",
+    "description": "Volume of extra-large buy orders on the day (usually measured in lots/hands)",
+    "dataset": {
+      "id": "pv27",
+      "name": "A-shares Trade Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.8972,
+    "userCount": 4,
+    "alphaCount": 6,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2022-07-01"
+  },
+  {
+    "id": "pv27_buy_volume_large_order",
+    "description": "Volume of large buy orders on the day (usually in lots/hands)",
+    "dataset": {
+      "id": "pv27",
+      "name": "A-shares Trade Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.8972,
+    "userCount": 1,
+    "alphaCount": 1,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2022-07-01"
+  },
+  {
+    "id": "pv27_buy_volume_med_order",
+    "description": "Volume of medium buy orders on the day (usually in lots/hands)",
+    "dataset": {
+      "id": "pv27",
+      "name": "A-shares Trade Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.8972,
+    "userCount": 2,
+    "alphaCount": 2,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2022-07-01"
+  },
+  {
+    "id": "pv27_buy_volume_small_order",
+    "description": "Total volume of small buy orders during the day (hands)",
+    "dataset": {
+      "id": "pv27",
+      "name": "A-shares Trade Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.8972,
+    "userCount": 3,
+    "alphaCount": 3,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2022-07-01"
+  },
+  {
+    "id": "pv27_close_moneyflow_pct_value",
+    "description": "Proportion of capital flow by amount after 14:30 (closing period)",
+    "dataset": {
+      "id": "pv27",
+      "name": "A-shares Trade Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.8972,
+    "userCount": 4,
+    "alphaCount": 8,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2022-07-01"
+  },
+  {
+    "id": "pv27_close_net_inflow_pct_vol",
+    "description": "Proportion of volume after 14:30 (amount ratio) (ten thousand yuan / (yuan * ten thousand shares), high score means high proportion transaction during  last hour of the day",
+    "dataset": {
+      "id": "pv27",
+      "name": "A-shares Trade Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.8972,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2022-07-01"
+  },
+  {
+    "id": "pv27_close_net_inflow_rate_value",
+    "description": "Net inflow rate by amount after 14:30 (closing period); proportion of net inflow value during the last hour",
+    "dataset": {
+      "id": "pv27",
+      "name": "A-shares Trade Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.8972,
+    "userCount": 1,
+    "alphaCount": 1,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2022-07-01"
+  },
+  {
+    "id": "pv27_close_net_inflow_rate_vol",
+    "description": "Net inflow rate by volume after 14:30 (net inflow volume divided by trading volume)",
+    "dataset": {
+      "id": "pv27",
+      "name": "A-shares Trade Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.8972,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2022-07-01"
+  },
+  {
+    "id": "pv27_float_a_shr_today",
+    "description": "Circulating A-shares outstanding today",
+    "dataset": {
+      "id": "pv27",
+      "name": "A-shares Trade Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 1.0,
+    "userCount": 3,
+    "alphaCount": 4,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2022-07-01"
+  },
+  {
+    "id": "pv27_float_s_holder_quantity",
+    "description": "Number of shares held by the holder",
+    "dataset": {
+      "id": "pv27",
+      "name": "A-shares Trade Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.8358,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2022-07-01"
+  },
+  {
+    "id": "pv27_free_shares_today",
+    "description": "Number of free float shares today",
+    "dataset": {
+      "id": "pv27",
+      "name": "A-shares Trade Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 1.0,
+    "userCount": 2,
+    "alphaCount": 2,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2022-07-01"
+  },
+  {
+    "id": "pv27_inside_s_holder_quantity",
+    "description": "It refers to the number of shares. A high score indicates high stock concentration.",
+    "dataset": {
+      "id": "pv27",
+      "name": "A-shares Trade Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.7961,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2022-07-01"
+  },
+  {
+    "id": "pv27_inst_as_holder_pct",
+    "description": "Shareholding ratio (%) of strong/institutional holders in the reporting period",
+    "dataset": {
+      "id": "pv27",
+      "name": "A-shares Trade Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9661,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "pv27_inst_as_holder_quantity",
+    "description": "Number of shares held by strong/institutional holders in the reporting period",
+    "dataset": {
+      "id": "pv27",
+      "name": "A-shares Trade Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9661,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "pv27_moneyflow_pct_value",
+    "description": "Proportion of capital flow (amount) implies todays' net money inflow value proportion of totoal capital, high score means high liquidity",
+    "dataset": {
+      "id": "pv27",
+      "name": "A-shares Trade Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.8972,
+    "userCount": 2,
+    "alphaCount": 2,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2022-07-01"
+  },
+  {
+    "id": "pv27_moneyflow_pct_volume",
+    "description": "Proportion of net money inflow by volume relative to total trading volume for the day",
+    "dataset": {
+      "id": "pv27",
+      "name": "A-shares Trade Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.8972,
+    "userCount": 1,
+    "alphaCount": 1,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2022-07-01"
+  },
+  {
+    "id": "pv27_net_assets_today",
+    "description": "A financially strong company has higher  current net asset score",
+    "dataset": {
+      "id": "pv27",
+      "name": "A-shares Trade Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 1.0,
+    "userCount": 3,
+    "alphaCount": 3,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2022-07-01"
+  },
+  {
+    "id": "pv27_net_cash_flows_oper_act_lyr",
+    "description": "Net cash flow from operating activities, last fiscal year",
+    "dataset": {
+      "id": "pv27",
+      "name": "A-shares Trade Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 1.0,
+    "userCount": 3,
+    "alphaCount": 3,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2022-07-01"
+  },
+  {
+    "id": "pv27_net_cash_flows_oper_act_ttm",
+    "description": "Net cash flow from operating activities, trailing twelve months",
+    "dataset": {
+      "id": "pv27",
+      "name": "A-shares Trade Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 1.0,
+    "userCount": 4,
+    "alphaCount": 5,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2022-07-01"
+  },
+  {
+    "id": "pv27_net_incr_cash_cash_equ_lyr",
+    "description": "Net increase in cash and cash equivalents for the last fiscal year (LYR)",
+    "dataset": {
+      "id": "pv27",
+      "name": "A-shares Trade Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 1.0,
+    "userCount": 2,
+    "alphaCount": 2,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2022-07-01"
+  },
+  {
+    "id": "pv27_net_incr_cash_cash_equ_ttm",
+    "description": "Net increase in cash and cash equivalents over the trailing twelve months (TTM)",
+    "dataset": {
+      "id": "pv27",
+      "name": "A-shares Trade Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 1.0,
+    "userCount": 2,
+    "alphaCount": 2,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2022-07-01"
+  },
+  {
+    "id": "pv27_net_inflow_rate_value",
+    "description": "Net inflow rate by amount for the day (net inflow divided by transaction amount)",
+    "dataset": {
+      "id": "pv27",
+      "name": "A-shares Trade Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.8972,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2022-07-01"
+  },
+  {
+    "id": "pv27_net_inflow_rate_volume",
+    "description": "Daily net inflow rate by volume (net inflow volume divided by total traded volume)",
+    "dataset": {
+      "id": "pv27",
+      "name": "A-shares Trade Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.8972,
+    "userCount": 2,
+    "alphaCount": 2,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2022-07-01"
+  },
+  {
+    "id": "pv27_net_profit_parent_comp_lyr",
+    "description": "Net profit attributable to the parent company, last fiscal year",
+    "dataset": {
+      "id": "pv27",
+      "name": "A-shares Trade Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 1.0,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2022-07-01"
+  },
+  {
+    "id": "pv27_net_profit_parent_comp_ttm",
+    "description": "Net profit attributable to the parent company, trailing twelve months",
+    "dataset": {
+      "id": "pv27",
+      "name": "A-shares Trade Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 1.0,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2022-07-01"
+  },
+  {
+    "id": "pv27_open_moneyflow_pct_value",
+    "description": "Proportion of capital flow before 10:00 based on amount (%)",
+    "dataset": {
+      "id": "pv27",
+      "name": "A-shares Trade Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.8972,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2022-07-01"
+  },
+  {
+    "id": "pv27_open_moneyflow_pct_volume",
+    "description": "Proportion of capital flow before 10:00 based on volume (%)",
+    "dataset": {
+      "id": "pv27",
+      "name": "A-shares Trade Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.8972,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2022-07-01"
+  },
+  {
+    "id": "pv27_open_net_inflow_rate_value",
+    "description": "Net capital inflow rate by amount before 10:00 (net inflow amount divided by transaction amount)",
+    "dataset": {
+      "id": "pv27",
+      "name": "A-shares Trade Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.8972,
+    "userCount": 1,
+    "alphaCount": 1,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2022-07-01"
+  },
+  {
+    "id": "pv27_open_net_inflow_rate_volume",
+    "description": "Net inflow volume rate before 10:00 (net inflow volume divided by traded volume, %)",
+    "dataset": {
+      "id": "pv27",
+      "name": "A-shares Trade Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.8972,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2022-07-01"
+  },
+  {
+    "id": "pv27_oper_rev_lyr",
+    "description": "Operating revenue for the last fiscal year (LYR)",
+    "dataset": {
+      "id": "pv27",
+      "name": "A-shares Trade Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 1.0,
+    "userCount": 2,
+    "alphaCount": 3,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2022-07-01"
+  },
+  {
+    "id": "pv27_oper_rev_ttm",
+    "description": "Operating revenue, trailing twelve months",
+    "dataset": {
+      "id": "pv27",
+      "name": "A-shares Trade Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 1.0,
+    "userCount": 3,
+    "alphaCount": 4,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2022-07-01"
+  },
+  {
+    "id": "pv27_pct_change_ave_100w",
+    "description": "Average weekly percent change over the past 100 weeks",
+    "dataset": {
+      "id": "pv27",
+      "name": "A-shares Trade Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 1.0,
+    "userCount": 1,
+    "alphaCount": 1,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2022-07-01"
+  },
+  {
+    "id": "pv27_pct_change_ave_24m",
+    "description": "Average monthly percent change over the past 24 months",
+    "dataset": {
+      "id": "pv27",
+      "name": "A-shares Trade Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 1.0,
+    "userCount": 1,
+    "alphaCount": 1,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2022-07-01"
+  },
+  {
+    "id": "pv27_pct_change_ave_60m",
+    "description": "Average monthly percent change over the past 60 months",
+    "dataset": {
+      "id": "pv27",
+      "name": "A-shares Trade Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 1.0,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2022-07-01"
+  },
+  {
+    "id": "pv27_pct_change_d",
+    "description": "Daily percent change in stock price",
+    "dataset": {
+      "id": "pv27",
+      "name": "A-shares Trade Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 1.0,
+    "userCount": 1,
+    "alphaCount": 1,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2022-07-01"
+  },
+  {
+    "id": "pv27_pct_change_m",
+    "description": "Monthly percent change in stock price",
+    "dataset": {
+      "id": "pv27",
+      "name": "A-shares Trade Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 1.0,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2022-07-01"
+  },
+  {
+    "id": "pv27_pct_change_w",
+    "description": "Weekly percent change in stock price",
+    "dataset": {
+      "id": "pv27",
+      "name": "A-shares Trade Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 1.0,
+    "userCount": 2,
+    "alphaCount": 2,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2022-07-01"
+  },
+  {
+    "id": "pv27_s_block_amount",
+    "description": "Total monetary amount of the block trade",
+    "dataset": {
+      "id": "pv27",
+      "name": "A-shares Trade Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.3417,
+    "userCount": 1,
+    "alphaCount": 1,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2022-07-01"
+  },
+  {
+    "id": "pv27_s_block_frequency",
+    "description": "it refers to frenquency of the block trading.",
+    "dataset": {
+      "id": "pv27",
+      "name": "A-shares Trade Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.3417,
+    "userCount": 2,
+    "alphaCount": 3,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2022-07-01"
+  },
+  {
+    "id": "pv27_s_block_price",
+    "description": "Price per share at which the block trade was executed",
+    "dataset": {
+      "id": "pv27",
+      "name": "A-shares Trade Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.3417,
+    "userCount": 1,
+    "alphaCount": 2,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2022-07-01"
+  },
+  {
+    "id": "pv27_s_block_volume",
+    "description": "Number of shares traded in the block trade",
+    "dataset": {
+      "id": "pv27",
+      "name": "A-shares Trade Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.3417,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2022-07-01"
+  },
+  {
+    "id": "pv27_s_dq_adjclose",
+    "description": "Adjusted closing price (close multiplied by adjustment factor)",
+    "dataset": {
+      "id": "pv27",
+      "name": "A-shares Trade Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 1.0,
+    "userCount": 3,
+    "alphaCount": 3,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2022-07-01"
+  },
+  {
+    "id": "pv27_s_dq_adjfactor",
+    "description": "Cumulative price adjustment factor for corporate actions (initially 1, used to adjust raw prices)",
+    "dataset": {
+      "id": "pv27",
+      "name": "A-shares Trade Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 1.0,
+    "userCount": 1,
+    "alphaCount": 1,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2022-07-01"
+  },
+  {
+    "id": "pv27_s_dq_adjhigh",
+    "description": "Adjusted highest price (high multiplied by adjustment factor)",
+    "dataset": {
+      "id": "pv27",
+      "name": "A-shares Trade Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 1.0,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2022-07-01"
+  },
+  {
+    "id": "pv27_s_dq_adjlow",
+    "description": "Adjusted lowest price (low multiplied by adjustment factor)",
+    "dataset": {
+      "id": "pv27",
+      "name": "A-shares Trade Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 1.0,
+    "userCount": 3,
+    "alphaCount": 3,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2022-07-01"
+  },
+  {
+    "id": "pv27_s_dq_adjopen",
+    "description": "Adjusted opening price (open multiplied by adjustment factor)",
+    "dataset": {
+      "id": "pv27",
+      "name": "A-shares Trade Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 1.0,
+    "userCount": 1,
+    "alphaCount": 1,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2022-07-01"
+  },
+  {
+    "id": "pv27_s_dq_adjpreclose",
+    "description": "Adjusted pre-close price (preclose multiplied by adjustment factor)",
+    "dataset": {
+      "id": "pv27",
+      "name": "A-shares Trade Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 1.0,
+    "userCount": 1,
+    "alphaCount": 1,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2022-07-01"
+  },
+  {
+    "id": "pv27_s_dq_amount",
+    "description": "Trading amount in thousand RMB",
+    "dataset": {
+      "id": "pv27",
+      "name": "A-shares Trade Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 1.0,
+    "userCount": 2,
+    "alphaCount": 2,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2022-07-01"
+  },
+  {
+    "id": "pv27_s_dq_avgprice",
+    "description": "it refers to the average stocks' price",
+    "dataset": {
+      "id": "pv27",
+      "name": "A-shares Trade Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 1.0,
+    "userCount": 1,
+    "alphaCount": 1,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2022-07-01"
+  },
+  {
+    "id": "pv27_s_dq_change",
+    "description": "Price change in points versus previous close (today’s close minus previous close)",
+    "dataset": {
+      "id": "pv27",
+      "name": "A-shares Trade Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 1.0,
+    "userCount": 1,
+    "alphaCount": 1,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2022-07-01"
+  },
+  {
+    "id": "pv27_s_dq_close",
+    "description": "Closing price of the day",
+    "dataset": {
+      "id": "pv27",
+      "name": "A-shares Trade Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 1.0,
+    "userCount": 1,
+    "alphaCount": 1,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2022-07-01"
+  },
+  {
+    "id": "pv27_s_dq_close_today",
+    "description": "Today's closing price of the stock",
+    "dataset": {
+      "id": "pv27",
+      "name": "A-shares Trade Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 1.0,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2022-07-01"
+  },
+  {
+    "id": "pv27_s_dq_freeturnover",
+    "description": "Turnover rate based on free float shares",
+    "dataset": {
+      "id": "pv27",
+      "name": "A-shares Trade Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 1.0,
+    "userCount": 6,
+    "alphaCount": 22,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2022-07-01"
+  },
+  {
+    "id": "pv27_s_dq_high",
+    "description": "Highest price of the day",
+    "dataset": {
+      "id": "pv27",
+      "name": "A-shares Trade Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 1.0,
+    "userCount": 5,
+    "alphaCount": 6,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2022-07-01"
+  },
+  {
+    "id": "pv27_s_dq_low",
+    "description": "Lowest price of the day",
+    "dataset": {
+      "id": "pv27",
+      "name": "A-shares Trade Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 1.0,
+    "userCount": 2,
+    "alphaCount": 2,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2022-07-01"
+  },
+  {
+    "id": "pv27_s_dq_open",
+    "description": "Opening price of the day",
+    "dataset": {
+      "id": "pv27",
+      "name": "A-shares Trade Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 1.0,
+    "userCount": 2,
+    "alphaCount": 2,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2022-07-01"
+  },
+  {
+    "id": "pv27_s_dq_pctchange",
+    "description": "Percentage price change versus previous close",
+    "dataset": {
+      "id": "pv27",
+      "name": "A-shares Trade Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 1.0,
+    "userCount": 4,
+    "alphaCount": 4,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2022-07-01"
+  },
+  {
+    "id": "pv27_s_dq_preclose",
+    "description": "Previous trading day’s closing price",
+    "dataset": {
+      "id": "pv27",
+      "name": "A-shares Trade Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 1.0,
+    "userCount": 2,
+    "alphaCount": 2,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2022-07-01"
+  },
+  {
+    "id": "pv27_s_dq_turn",
+    "description": "Daily turnover rate",
+    "dataset": {
+      "id": "pv27",
+      "name": "A-shares Trade Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 1.0,
+    "userCount": 2,
+    "alphaCount": 4,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2022-07-01"
+  },
+  {
+    "id": "pv27_s_dq_volume",
+    "description": "Trading volume in lots (hands; 1 hand = 100 shares)",
+    "dataset": {
+      "id": "pv27",
+      "name": "A-shares Trade Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 1.0,
+    "userCount": 3,
+    "alphaCount": 3,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2022-07-01"
+  },
+  {
+    "id": "pv27_s_holder_category",
+    "description": "Type/category of the shareholder (insider role classification)",
+    "dataset": {
+      "id": "pv27",
+      "name": "A-shares Trade Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.8845,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "pv27_s_holder_floatholdercategory",
+    "description": "Type or category of the shareholder",
+    "dataset": {
+      "id": "pv27",
+      "name": "A-shares Trade Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.8358,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2022-07-01"
+  },
+  {
+    "id": "pv27_s_holder_num",
+    "description": "Number of A-share household shareholders",
+    "dataset": {
+      "id": "pv27",
+      "name": "A-shares Trade Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.8142,
+    "userCount": 2,
+    "alphaCount": 2,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2022-07-01"
+  },
+  {
+    "id": "pv27_s_holder_pct",
+    "description": "Percentage of total shares held by the insider",
+    "dataset": {
+      "id": "pv27",
+      "name": "A-shares Trade Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.8845,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2022-07-01"
+  },
+  {
+    "id": "pv27_s_holder_quantity",
+    "description": "Number of shares held by the insider",
+    "dataset": {
+      "id": "pv27",
+      "name": "A-shares Trade Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.8845,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "pv27_s_holder_restrictedquantity",
+    "description": "Number of restricted (non-tradable) shares held",
+    "dataset": {
+      "id": "pv27",
+      "name": "A-shares Trade Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.8845,
+    "userCount": 2,
+    "alphaCount": 2,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2022-07-01"
+  },
+  {
+    "id": "pv27_s_holder_total_num",
+    "description": "Total number of A-share shareholders (household plus institutions)",
+    "dataset": {
+      "id": "pv27",
+      "name": "A-shares Trade Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.8142,
+    "userCount": 3,
+    "alphaCount": 3,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2022-07-01"
+  },
+  {
+    "id": "pv27_s_li_entrudifferamoney",
+    "description": "Order book buy entrust monetary value minus sell entrust monetary value",
+    "dataset": {
+      "id": "pv27",
+      "name": "A-shares Trade Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9969,
+    "userCount": 4,
+    "alphaCount": 4,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2022-07-01"
+  },
+  {
+    "id": "pv27_s_li_entrudifferamount",
+    "description": "Order book buy entrust volume minus sell entrust volume",
+    "dataset": {
+      "id": "pv27",
+      "name": "A-shares Trade Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9969,
+    "userCount": 1,
+    "alphaCount": 2,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2022-07-01"
+  },
+  {
+    "id": "pv27_s_li_entrustbuyamount",
+    "description": "The total purchase volume from the buy one to the lower limit position, a financially strong company has higher score.",
+    "dataset": {
+      "id": "pv27",
+      "name": "A-shares Trade Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9969,
+    "userCount": 1,
+    "alphaCount": 1,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2022-07-01"
+  },
+  {
+    "id": "pv27_s_li_entrustbuymoney",
+    "description": "The total purchase amount from the buy one to the lower limit position, a financially strong company has higher score.",
+    "dataset": {
+      "id": "pv27",
+      "name": "A-shares Trade Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9969,
+    "userCount": 1,
+    "alphaCount": 1,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2022-07-01"
+  },
+  {
+    "id": "pv27_s_li_entrustrate",
+    "description": "it refers to ratio of buy amount and sell amount, a financially strong company has higher score.",
+    "dataset": {
+      "id": "pv27",
+      "name": "A-shares Trade Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9969,
+    "userCount": 1,
+    "alphaCount": 1,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2022-07-01"
+  },
+  {
+    "id": "pv27_s_li_entrustsellamount",
+    "description": "The total sell volume from the buy one to the lower limit position, a financially strong company has lower score.",
+    "dataset": {
+      "id": "pv27",
+      "name": "A-shares Trade Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9969,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2022-07-01"
+  },
+  {
+    "id": "pv27_s_li_entrustsellmoney",
+    "description": "The total sell amount from the buy one to the lower limit position, a financially strong company has lower score.",
+    "dataset": {
+      "id": "pv27",
+      "name": "A-shares Trade Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9969,
+    "userCount": 2,
+    "alphaCount": 3,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2022-07-01"
+  },
+  {
+    "id": "pv27_s_li_initiativebuyamount",
+    "description": "Total traded volume (shares) from buyer-initiated (aggressive) trades",
+    "dataset": {
+      "id": "pv27",
+      "name": "A-shares Trade Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9969,
+    "userCount": 3,
+    "alphaCount": 8,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2022-07-01"
+  },
+  {
+    "id": "pv27_s_li_initiativebuymoney",
+    "description": "Total traded value from buyer-initiated (aggressive) trades",
+    "dataset": {
+      "id": "pv27",
+      "name": "A-shares Trade Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9969,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2022-07-01"
+  },
+  {
+    "id": "pv27_s_li_initiativebuyrate",
+    "description": "it refers to initiative buy rate, a financially strong company has higher score.",
+    "dataset": {
+      "id": "pv27",
+      "name": "A-shares Trade Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9969,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2022-07-01"
+  },
+  {
+    "id": "pv27_s_li_initiativesellamount",
+    "description": "Total traded volume (shares) from seller-initiated (aggressive) trades",
+    "dataset": {
+      "id": "pv27",
+      "name": "A-shares Trade Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9969,
+    "userCount": 3,
+    "alphaCount": 3,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2022-07-01"
+  },
+  {
+    "id": "pv27_s_li_initiativesellmoney",
+    "description": "Total traded value from seller-initiated (aggressive) trades",
+    "dataset": {
+      "id": "pv27",
+      "name": "A-shares Trade Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9969,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2022-07-01"
+  },
+  {
+    "id": "pv27_s_li_initiativesellrate",
+    "description": "it refers to initiative sell rate, a financially strong company has lower score.",
+    "dataset": {
+      "id": "pv27",
+      "name": "A-shares Trade Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9969,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2022-07-01"
+  },
+  {
+    "id": "pv27_s_li_largebuyamount",
+    "description": "Total traded volume from large-order buys",
+    "dataset": {
+      "id": "pv27",
+      "name": "A-shares Trade Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9969,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2022-07-01"
+  },
+  {
+    "id": "pv27_s_li_largebuymoney",
+    "description": "Total traded value from large-order buys",
+    "dataset": {
+      "id": "pv27",
+      "name": "A-shares Trade Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9969,
+    "userCount": 1,
+    "alphaCount": 2,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2022-07-01"
+  },
+  {
+    "id": "pv27_s_li_largebuyrate",
+    "description": "lage buy rate , a financially strong company has higher score.",
+    "dataset": {
+      "id": "pv27",
+      "name": "A-shares Trade Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9969,
+    "userCount": 2,
+    "alphaCount": 2,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2022-07-01"
+  },
+  {
+    "id": "pv27_s_li_largesellamount",
+    "description": "Total traded volume from large-order sells",
+    "dataset": {
+      "id": "pv27",
+      "name": "A-shares Trade Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9969,
+    "userCount": 2,
+    "alphaCount": 8,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2022-07-01"
+  },
+  {
+    "id": "pv27_s_li_largesellmoney",
+    "description": "Total traded value from large-order sells",
+    "dataset": {
+      "id": "pv27",
+      "name": "A-shares Trade Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9969,
+    "userCount": 2,
+    "alphaCount": 2,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2022-07-01"
+  },
+  {
+    "id": "pv27_s_li_largesellrate",
+    "description": "lage sell rate ,  a financially strong company has lower score.",
+    "dataset": {
+      "id": "pv27",
+      "name": "A-shares Trade Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9969,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2022-07-01"
+  },
+  {
+    "id": "pv27_s_margin_margintradebalance",
+    "description": "Margin securities lending balance, high score means less people trade on this stocks.",
+    "dataset": {
+      "id": "pv27",
+      "name": "A-shares Trade Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.5961,
+    "userCount": 4,
+    "alphaCount": 4,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2022-07-01"
+  },
+  {
+    "id": "pv27_s_margin_purchwithborrow",
+    "description": "Amount of shares purchased with borrowed money on the day (financing purchase amount, Yuan)",
+    "dataset": {
+      "id": "pv27",
+      "name": "A-shares Trade Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.5961,
+    "userCount": 4,
+    "alphaCount": 5,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2022-07-01"
+  },
+  {
+    "id": "pv27_s_margin_repayborrowsec",
+    "description": "Shares of borrowed securities repaid (returned) on the day, volume (shares)",
+    "dataset": {
+      "id": "pv27",
+      "name": "A-shares Trade Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.5961,
+    "userCount": 2,
+    "alphaCount": 2,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2022-07-01"
+  },
+  {
+    "id": "pv27_s_margin_repaymenttobroker",
+    "description": "Financing repayment amount to broker on the day (Yuan)",
+    "dataset": {
+      "id": "pv27",
+      "name": "A-shares Trade Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.5961,
+    "userCount": 4,
+    "alphaCount": 4,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2022-07-01"
+  },
+  {
+    "id": "pv27_s_margin_salesofborrowedsec",
+    "description": "Shares sold short on the day (via borrowed securities), volume (shares)",
+    "dataset": {
+      "id": "pv27",
+      "name": "A-shares Trade Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.5961,
+    "userCount": 3,
+    "alphaCount": 3,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2022-07-01"
+  },
+  {
+    "id": "pv27_s_margin_seclendbalancevol",
+    "description": "Securities lending balance  volume,  a financially strong company has higher score.",
+    "dataset": {
+      "id": "pv27",
+      "name": "A-shares Trade Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.5961,
+    "userCount": 4,
+    "alphaCount": 4,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2022-07-01"
+  },
+  {
+    "id": "pv27_s_margin_seclendingbalance",
+    "description": "Outstanding securities lending (short selling) balance in value terms (Yuan)",
+    "dataset": {
+      "id": "pv27",
+      "name": "A-shares Trade Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.5961,
+    "userCount": 4,
+    "alphaCount": 6,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2022-07-01"
+  },
+  {
+    "id": "pv27_s_margin_tradingbalance",
+    "description": "Financing balance outstanding (Yuan)",
+    "dataset": {
+      "id": "pv27",
+      "name": "A-shares Trade Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.5961,
+    "userCount": 2,
+    "alphaCount": 2,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2022-07-01"
+  },
+  {
+    "id": "pv27_s_mq_amount",
+    "description": "Monthly transaction amount (ten thousand yuan)",
+    "dataset": {
+      "id": "pv27",
+      "name": "A-shares Trade Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9911,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2022-07-01"
+  },
+  {
+    "id": "pv27_s_mq_avgpctchange24",
+    "description": "Average monthly return over the past 24 months",
+    "dataset": {
+      "id": "pv27",
+      "name": "A-shares Trade Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9911,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2022-07-01"
+  },
+  {
+    "id": "pv27_s_mq_avgpctchange60",
+    "description": "Average monthly return over the past 60 months",
+    "dataset": {
+      "id": "pv27",
+      "name": "A-shares Trade Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9911,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2022-07-01"
+  },
+  {
+    "id": "pv27_s_mq_avgturn",
+    "description": "Monthly turnover rate (arithmetic average)",
+    "dataset": {
+      "id": "pv27",
+      "name": "A-shares Trade Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9911,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2022-07-01"
+  },
+  {
+    "id": "pv27_s_mq_devpctchange24",
+    "description": "Standard deviation of monthly returns over the past 24 months",
+    "dataset": {
+      "id": "pv27",
+      "name": "A-shares Trade Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9911,
+    "userCount": 1,
+    "alphaCount": 1,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2022-07-01"
+  },
+  {
+    "id": "pv27_s_mq_devpctchange60",
+    "description": "Standard deviation of monthly returns over the past 60 months",
+    "dataset": {
+      "id": "pv27",
+      "name": "A-shares Trade Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9911,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2022-07-01"
+  },
+  {
+    "id": "pv27_s_mq_pctchange",
+    "description": "Monthly return (percentage change)",
+    "dataset": {
+      "id": "pv27",
+      "name": "A-shares Trade Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9911,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2022-07-01"
+  },
+  {
+    "id": "pv27_s_mq_turn",
+    "description": "Monthly turnover rate (total)",
+    "dataset": {
+      "id": "pv27",
+      "name": "A-shares Trade Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9911,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2022-07-01"
+  },
+  {
+    "id": "pv27_s_mq_varpctchange24",
+    "description": "Variance of monthly returns over the past 24 months",
+    "dataset": {
+      "id": "pv27",
+      "name": "A-shares Trade Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9911,
+    "userCount": 1,
+    "alphaCount": 1,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2022-07-01"
+  },
+  {
+    "id": "pv27_s_mq_varpctchange60",
+    "description": "Variance of monthly returns over the past 60 months",
+    "dataset": {
+      "id": "pv27",
+      "name": "A-shares Trade Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9911,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2022-07-01"
+  },
+  {
+    "id": "pv27_s_pq_adjhigh_52w",
+    "description": "Adjusted highest price over the past 52 weeks (corporate action adjusted)",
+    "dataset": {
+      "id": "pv27",
+      "name": "A-shares Trade Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 1.0,
+    "userCount": 1,
+    "alphaCount": 1,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2022-07-01"
+  },
+  {
+    "id": "pv27_s_pq_adjlow_52w",
+    "description": "Adjusted lowest price over the past 52 weeks (corporate action adjusted)",
+    "dataset": {
+      "id": "pv27",
+      "name": "A-shares Trade Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 1.0,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2022-07-01"
+  },
+  {
+    "id": "pv27_s_pq_high_52w_",
+    "description": "Highest price over the past 52 weeks (unadjusted)",
+    "dataset": {
+      "id": "pv27",
+      "name": "A-shares Trade Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 1.0,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2022-07-01"
+  },
+  {
+    "id": "pv27_s_pq_low_52w_",
+    "description": "Lowest price over the past 52 weeks (unadjusted)",
+    "dataset": {
+      "id": "pv27",
+      "name": "A-shares Trade Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 1.0,
+    "userCount": 1,
+    "alphaCount": 1,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2022-07-01"
+  },
+  {
+    "id": "pv27_s_price_div_dps",
+    "description": "it refers to stock price divide dividend per share,    a financially strong company has lower score.",
+    "dataset": {
+      "id": "pv27",
+      "name": "A-shares Trade Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 1.0,
+    "userCount": 3,
+    "alphaCount": 3,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2022-07-01"
+  },
+  {
+    "id": "pv27_s_risk_betar100",
+    "description": "beta (100 months),  it computes 100 months beta using capm model,   higher score means the future return of stock has high market risk .",
+    "dataset": {
+      "id": "pv27",
+      "name": "A-shares Trade Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9981,
+    "userCount": 1,
+    "alphaCount": 1,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2022-07-01"
+  },
+  {
+    "id": "pv27_s_risk_betar24",
+    "description": "CAPM beta over the past 24 months",
+    "dataset": {
+      "id": "pv27",
+      "name": "A-shares Trade Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9911,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2022-07-01"
+  },
+  {
+    "id": "pv27_s_risk_betar60",
+    "description": "CAPM beta over the past 60 months",
+    "dataset": {
+      "id": "pv27",
+      "name": "A-shares Trade Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9911,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2022-07-01"
+  },
+  {
+    "id": "pv27_s_strange_amount",
+    "description": "Total transaction amount (turnover in yuan) during the abnormal trade period; higher value indicates higher liquidity",
+    "dataset": {
+      "id": "pv27",
+      "name": "A-shares Trade Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.3089,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2022-07-01"
+  },
+  {
+    "id": "pv27_s_strange_buyamount",
+    "description": "Total buy amount (yuan) during the abnormal trade period; higher value indicates stronger buying interest",
+    "dataset": {
+      "id": "pv27",
+      "name": "A-shares Trade Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.3089,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2022-07-01"
+  },
+  {
+    "id": "pv27_s_strange_range",
+    "description": "Price up-down range during the abnormal trade period; higher value indicates higher volatility",
+    "dataset": {
+      "id": "pv27",
+      "name": "A-shares Trade Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.3089,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2022-07-01"
+  },
+  {
+    "id": "pv27_s_strange_sellamount",
+    "description": "Total sell amount (yuan) during the abnormal trade period; higher value indicates stronger selling pressure",
+    "dataset": {
+      "id": "pv27",
+      "name": "A-shares Trade Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.3089,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2022-07-01"
+  },
+  {
+    "id": "pv27_s_strange_traderamount",
+    "description": "it refers to sales amount of sales department, a financially strong company has higher score.",
+    "dataset": {
+      "id": "pv27",
+      "name": "A-shares Trade Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.3089,
+    "userCount": 2,
+    "alphaCount": 2,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2022-07-01"
+  },
+  {
+    "id": "pv27_s_strange_volume",
+    "description": "Total traded volume during the abnormal trade period; higher value indicates higher liquidity",
+    "dataset": {
+      "id": "pv27",
+      "name": "A-shares Trade Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.3089,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2022-07-01"
+  },
+  {
+    "id": "pv27_s_val_mv",
+    "description": "Total market value (market capitalization) at end of day, in 10,000 yuan",
+    "dataset": {
+      "id": "pv27",
+      "name": "A-shares Trade Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 1.0,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2022-07-01"
+  },
+  {
+    "id": "pv27_s_val_pb_ncf",
+    "description": "Price-to-net cash flow ratio",
+    "dataset": {
+      "id": "pv27",
+      "name": "A-shares Trade Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 1.0,
+    "userCount": 1,
+    "alphaCount": 1,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2022-07-01"
+  },
+  {
+    "id": "pv27_s_val_pb_new",
+    "description": "Price-to-book ratio",
+    "dataset": {
+      "id": "pv27",
+      "name": "A-shares Trade Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 1.0,
+    "userCount": 2,
+    "alphaCount": 4,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2022-07-01"
+  },
+  {
+    "id": "pv27_s_val_pcf_ncfttm",
+    "description": "Price-to-net cash flow ratio, trailing twelve months",
+    "dataset": {
+      "id": "pv27",
+      "name": "A-shares Trade Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 1.0,
+    "userCount": 1,
+    "alphaCount": 1,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2022-07-01"
+  },
+  {
+    "id": "pv27_s_val_pcf_ocf",
+    "description": "Price-to-operating cash flow ratio",
+    "dataset": {
+      "id": "pv27",
+      "name": "A-shares Trade Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 1.0,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2022-07-01"
+  },
+  {
+    "id": "pv27_s_val_pcf_ocfttm",
+    "description": "Price-to-operating cash flow ratio, trailing twelve months",
+    "dataset": {
+      "id": "pv27",
+      "name": "A-shares Trade Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 1.0,
+    "userCount": 2,
+    "alphaCount": 2,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2022-07-01"
+  },
+  {
+    "id": "pv27_s_val_pe",
+    "description": "Price-to-earnings ratio",
+    "dataset": {
+      "id": "pv27",
+      "name": "A-shares Trade Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 1.0,
+    "userCount": 1,
+    "alphaCount": 1,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2022-07-01"
+  },
+  {
+    "id": "pv27_s_val_pe_ttm",
+    "description": "Price-to-earnings ratio based on trailing twelve months",
+    "dataset": {
+      "id": "pv27",
+      "name": "A-shares Trade Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 1.0,
+    "userCount": 5,
+    "alphaCount": 5,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2022-07-01"
+  },
+  {
+    "id": "pv27_s_val_ps",
+    "description": "Price-to-sales ratio",
+    "dataset": {
+      "id": "pv27",
+      "name": "A-shares Trade Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 1.0,
+    "userCount": 2,
+    "alphaCount": 2,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2022-07-01"
+  },
+  {
+    "id": "pv27_s_val_ps_ttm",
+    "description": "Price-to-sales ratio, trailing twelve months",
+    "dataset": {
+      "id": "pv27",
+      "name": "A-shares Trade Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 1.0,
+    "userCount": 2,
+    "alphaCount": 2,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2022-07-01"
+  },
+  {
+    "id": "pv27_s_wq_amount",
+    "description": "Weekly transaction amount (in 10,000 yuan)",
+    "dataset": {
+      "id": "pv27",
+      "name": "A-shares Trade Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9981,
+    "userCount": 2,
+    "alphaCount": 2,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2022-07-01"
+  },
+  {
+    "id": "pv27_s_wq_avgpctchange100",
+    "description": "Average weekly return over the past 100 weeks",
+    "dataset": {
+      "id": "pv27",
+      "name": "A-shares Trade Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9981,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2022-07-01"
+  },
+  {
+    "id": "pv27_s_wq_avgturn",
+    "description": "Weekly turnover rate (arithmetic average) (%)",
+    "dataset": {
+      "id": "pv27",
+      "name": "A-shares Trade Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9981,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2022-07-01"
+  },
+  {
+    "id": "pv27_s_wq_devpctchange100",
+    "description": "Standard deviation of weekly returns over the past 100 weeks",
+    "dataset": {
+      "id": "pv27",
+      "name": "A-shares Trade Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9981,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2022-07-01"
+  },
+  {
+    "id": "pv27_s_wq_pctchange",
+    "description": "Weekly rate of return (%)",
+    "dataset": {
+      "id": "pv27",
+      "name": "A-shares Trade Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9981,
+    "userCount": 2,
+    "alphaCount": 3,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2022-07-01"
+  },
+  {
+    "id": "pv27_s_wq_turn",
+    "description": "Weekly turnover rate (total) (%)",
+    "dataset": {
+      "id": "pv27",
+      "name": "A-shares Trade Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9981,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2022-07-01"
+  },
+  {
+    "id": "pv27_s_wq_varpctchange100",
+    "description": "Variance of weekly returns over the past 100 weeks",
+    "dataset": {
+      "id": "pv27",
+      "name": "A-shares Trade Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9981,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2022-07-01"
+  },
+  {
+    "id": "pv27_sell_trades_exlarge_order",
+    "description": "Number of extra-large sell orders for the day",
+    "dataset": {
+      "id": "pv27",
+      "name": "A-shares Trade Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.8972,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2022-07-01"
+  },
+  {
+    "id": "pv27_sell_trades_large_order",
+    "description": "Number of large sell orders during the day",
+    "dataset": {
+      "id": "pv27",
+      "name": "A-shares Trade Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.8972,
+    "userCount": 2,
+    "alphaCount": 2,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2022-07-01"
+  },
+  {
+    "id": "pv27_sell_trades_med_order",
+    "description": "Number of medium sell orders during the day",
+    "dataset": {
+      "id": "pv27",
+      "name": "A-shares Trade Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.8972,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2022-07-01"
+  },
+  {
+    "id": "pv27_sell_trades_small_order",
+    "description": "Number of small sell orders during the day",
+    "dataset": {
+      "id": "pv27",
+      "name": "A-shares Trade Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.8972,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2022-07-01"
+  },
+  {
+    "id": "pv27_sell_value_exlarge_order",
+    "description": "Total amount of extra-large sell orders on the day (typically in 10,000 yuan), indicating intensity of large selling activity",
+    "dataset": {
+      "id": "pv27",
+      "name": "A-shares Trade Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.8972,
+    "userCount": 3,
+    "alphaCount": 3,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2022-07-01"
+  },
+  {
+    "id": "pv27_sell_value_large_order",
+    "description": "Value of large sell orders for the day",
+    "dataset": {
+      "id": "pv27",
+      "name": "A-shares Trade Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.8972,
+    "userCount": 1,
+    "alphaCount": 1,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2022-07-01"
+  },
+  {
+    "id": "pv27_sell_value_med_order",
+    "description": "Value of medium-sized sell orders for the day; higher values indicate more medium-order selling and liquidity",
+    "dataset": {
+      "id": "pv27",
+      "name": "A-shares Trade Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.8972,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2022-07-01"
+  },
+  {
+    "id": "pv27_sell_value_small_order",
+    "description": "Total amount of small sell orders on the day (typically in 10,000 yuan)",
+    "dataset": {
+      "id": "pv27",
+      "name": "A-shares Trade Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.8972,
+    "userCount": 4,
+    "alphaCount": 4,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2022-07-01"
+  },
+  {
+    "id": "pv27_sell_volume_exlarge_order",
+    "description": "Total volume of extra-large sell orders during the day (hands)",
+    "dataset": {
+      "id": "pv27",
+      "name": "A-shares Trade Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.8972,
+    "userCount": 1,
+    "alphaCount": 2,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2022-07-01"
+  },
+  {
+    "id": "pv27_sell_volume_large_order",
+    "description": "Volume of large sell orders for the day",
+    "dataset": {
+      "id": "pv27",
+      "name": "A-shares Trade Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.8972,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2022-07-01"
+  },
+  {
+    "id": "pv27_sell_volume_med_order",
+    "description": "Volume of medium sell orders on the day (usually in lots/hands)",
+    "dataset": {
+      "id": "pv27",
+      "name": "A-shares Trade Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.8972,
+    "userCount": 1,
+    "alphaCount": 1,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2022-07-01"
+  },
+  {
+    "id": "pv27_sell_volume_small_order",
+    "description": "Total volume of small sell orders during the day (hands)",
+    "dataset": {
+      "id": "pv27",
+      "name": "A-shares Trade Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.8972,
+    "userCount": 2,
+    "alphaCount": 2,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2022-07-01"
+  },
+  {
+    "id": "pv27_std_deviation_100w",
+    "description": "Standard deviation of weekly returns over the past 100 weeks",
+    "dataset": {
+      "id": "pv27",
+      "name": "A-shares Trade Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 1.0,
+    "userCount": 1,
+    "alphaCount": 1,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2022-07-01"
+  },
+  {
+    "id": "pv27_std_deviation_24m",
+    "description": "Standard deviation of monthly returns over the past 24 months",
+    "dataset": {
+      "id": "pv27",
+      "name": "A-shares Trade Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 1.0,
+    "userCount": 3,
+    "alphaCount": 3,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2022-07-01"
+  },
+  {
+    "id": "pv27_std_deviation_60m",
+    "description": "Standard deviation of monthly returns over the past 60 months",
+    "dataset": {
+      "id": "pv27",
+      "name": "A-shares Trade Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 1.0,
+    "userCount": 2,
+    "alphaCount": 2,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2022-07-01"
+  },
+  {
+    "id": "pv27_tot_shr_today",
+    "description": "Total shares outstanding today",
+    "dataset": {
+      "id": "pv27",
+      "name": "A-shares Trade Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 1.0,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2022-07-01"
+  },
+  {
+    "id": "pv27_trades_count",
+    "description": "Number of trades for the day",
+    "dataset": {
+      "id": "pv27",
+      "name": "A-shares Trade Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.8972,
+    "userCount": 5,
+    "alphaCount": 6,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2022-07-01"
+  },
+  {
+    "id": "pv27_turnover_d",
+    "description": "Daily turnover rate based on total shares outstanding",
+    "dataset": {
+      "id": "pv27",
+      "name": "A-shares Trade Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 1.0,
+    "userCount": 1,
+    "alphaCount": 1,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2022-07-01"
+  },
+  {
+    "id": "pv27_turnover_d_float",
+    "description": "Daily turnover rate based on free float shares",
+    "dataset": {
+      "id": "pv27",
+      "name": "A-shares Trade Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 1.0,
+    "userCount": 2,
+    "alphaCount": 2,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2022-07-01"
+  },
+  {
+    "id": "pv27_turnover_m",
+    "description": "Monthly turnover rate based on total shares outstanding",
+    "dataset": {
+      "id": "pv27",
+      "name": "A-shares Trade Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 1.0,
+    "userCount": 2,
+    "alphaCount": 3,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2022-07-01"
+  },
+  {
+    "id": "pv27_turnover_m_ave",
+    "description": "it refers to average monthly turnover rate   , high score means high liquidity.",
+    "dataset": {
+      "id": "pv27",
+      "name": "A-shares Trade Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 1.0,
+    "userCount": 2,
+    "alphaCount": 2,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2022-07-01"
+  },
+  {
+    "id": "pv27_turnover_m_ave_float",
+    "description": "it refers to average monthly turnover rate (free float equity)  , high score means high liquidity.",
+    "dataset": {
+      "id": "pv27",
+      "name": "A-shares Trade Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 1.0,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2022-07-01"
+  },
+  {
+    "id": "pv27_turnover_m_float",
+    "description": "Monthly turnover rate based on free float shares",
+    "dataset": {
+      "id": "pv27",
+      "name": "A-shares Trade Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 1.0,
+    "userCount": 3,
+    "alphaCount": 3,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2022-07-01"
+  },
+  {
+    "id": "pv27_turnover_w",
+    "description": "Weekly turnover rate based on total shares outstanding",
+    "dataset": {
+      "id": "pv27",
+      "name": "A-shares Trade Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 1.0,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2022-07-01"
+  },
+  {
+    "id": "pv27_turnover_w_ave",
+    "description": "it refers to average weekly turnover rate (free float equity)  , high score means high liquidity.",
+    "dataset": {
+      "id": "pv27",
+      "name": "A-shares Trade Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 1.0,
+    "userCount": 5,
+    "alphaCount": 5,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2022-07-01"
+  },
+  {
+    "id": "pv27_turnover_w_ave_float",
+    "description": "it refers to average weekly turnover rate (free float equity)  , high score means high liquidity.",
+    "dataset": {
+      "id": "pv27",
+      "name": "A-shares Trade Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 1.0,
+    "userCount": 1,
+    "alphaCount": 1,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2022-07-01"
+  },
+  {
+    "id": "pv27_turnover_w_float",
+    "description": "Weekly turnover rate based on free float shares",
+    "dataset": {
+      "id": "pv27",
+      "name": "A-shares Trade Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 1.0,
+    "userCount": 3,
+    "alphaCount": 3,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2022-07-01"
+  },
+  {
+    "id": "pv27_value_diff_institute",
+    "description": "Net amount of extra-large orders: extra-large buy amount minus extra-large sell amount",
+    "dataset": {
+      "id": "pv27",
+      "name": "A-shares Trade Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.8972,
+    "userCount": 2,
+    "alphaCount": 2,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2022-07-01"
+  },
+  {
+    "id": "pv27_value_diff_institute_act",
+    "description": "Active extra-large order buy amount minus active extra-large order sell amount (net active amount for extra-large orders)",
+    "dataset": {
+      "id": "pv27",
+      "name": "A-shares Trade Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.8972,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2022-07-01"
+  },
+  {
+    "id": "pv27_value_diff_large_trader",
+    "description": "Large-order buy amount minus large-order sell amount (ten thousand CNY)",
+    "dataset": {
+      "id": "pv27",
+      "name": "A-shares Trade Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.8972,
+    "userCount": 13,
+    "alphaCount": 15,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2022-07-01"
+  },
+  {
+    "id": "pv27_value_diff_large_trader_act",
+    "description": "it refers to Active Buy Amount for Large Orders minus Active Buy Amount for Large Orders , a financially strong company has higher  score.",
+    "dataset": {
+      "id": "pv27",
+      "name": "A-shares Trade Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.8972,
+    "userCount": 5,
+    "alphaCount": 5,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2022-07-01"
+  },
+  {
+    "id": "pv27_value_diff_med_trader",
+    "description": "Medium-order buy amount minus medium-order sell amount on the day",
+    "dataset": {
+      "id": "pv27",
+      "name": "A-shares Trade Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.8972,
+    "userCount": 1,
+    "alphaCount": 1,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2022-07-01"
+  },
+  {
+    "id": "pv27_value_diff_med_trader_act",
+    "description": "it refers to Active Buy Amount for medium Orders minus Active Buy Amount for medium Orders, a financially strong company has higher  score.",
+    "dataset": {
+      "id": "pv27",
+      "name": "A-shares Trade Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.8972,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2022-07-01"
+  },
+  {
+    "id": "pv27_value_diff_small_trader",
+    "description": "Small-order purchase amount minus small-order sale amount (net small-order amount)",
+    "dataset": {
+      "id": "pv27",
+      "name": "A-shares Trade Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.8972,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2022-07-01"
+  },
+  {
+    "id": "pv27_value_diff_small_trader_act",
+    "description": "Active small-order buy amount minus active small-order sell amount on the day",
+    "dataset": {
+      "id": "pv27",
+      "name": "A-shares Trade Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.8972,
+    "userCount": 1,
+    "alphaCount": 1,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2022-07-01"
+  },
+  {
+    "id": "pv27_variance_100w",
+    "description": "Variance of weekly returns over the past 100 weeks",
+    "dataset": {
+      "id": "pv27",
+      "name": "A-shares Trade Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 1.0,
+    "userCount": 2,
+    "alphaCount": 2,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2022-07-01"
+  },
+  {
+    "id": "pv27_variance_24m",
+    "description": "Variance of monthly returns over the past 24 months",
+    "dataset": {
+      "id": "pv27",
+      "name": "A-shares Trade Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 1.0,
+    "userCount": 3,
+    "alphaCount": 3,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2022-07-01"
+  },
+  {
+    "id": "pv27_variance_60m",
+    "description": "Variance of monthly returns over the past 60 months",
+    "dataset": {
+      "id": "pv27",
+      "name": "A-shares Trade Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 1.0,
+    "userCount": 1,
+    "alphaCount": 1,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2022-07-01"
+  },
+  {
+    "id": "pv27_vm_qd_s",
+    "description": "Circulating A-share market value at end of day, in 10,000 yuan",
+    "dataset": {
+      "id": "pv27",
+      "name": "A-shares Trade Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 1.0,
+    "userCount": 1,
+    "alphaCount": 1,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2022-07-01"
+  },
+  {
+    "id": "pv27_voldiff_large_trader_act",
+    "description": "it refers to Active Buy volume for Large Orders minus Active Buy volume for Large Orders, a financially strong company has higher  score.",
+    "dataset": {
+      "id": "pv27",
+      "name": "A-shares Trade Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.8972,
+    "userCount": 3,
+    "alphaCount": 3,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2022-07-01"
+  },
+  {
+    "id": "pv27_voldiff_small_trader_act",
+    "description": "Active small-order buy volume minus active small-order sell volume (hands)",
+    "dataset": {
+      "id": "pv27",
+      "name": "A-shares Trade Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.8972,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2022-07-01"
+  },
+  {
+    "id": "pv27_volume_diff_institute",
+    "description": "it refers to Extra large single purchase volume minus extra large single sale volume, a financially strong company has higher  score.",
+    "dataset": {
+      "id": "pv27",
+      "name": "A-shares Trade Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.8972,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2022-07-01"
+  },
+  {
+    "id": "pv27_volume_diff_institute_act",
+    "description": "Active extra-large order buy volume minus active extra-large order sell volume (net active volume for extra-large orders)",
+    "dataset": {
+      "id": "pv27",
+      "name": "A-shares Trade Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.8972,
+    "userCount": 1,
+    "alphaCount": 1,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2022-07-01"
+  },
+  {
+    "id": "pv27_volume_diff_large_trader",
+    "description": "Large-order buy volume minus large-order sell volume on the day",
+    "dataset": {
+      "id": "pv27",
+      "name": "A-shares Trade Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.8972,
+    "userCount": 8,
+    "alphaCount": 10,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2022-07-01"
+  },
+  {
+    "id": "pv27_volume_diff_med_trader",
+    "description": "Medium-order buy volume minus medium-order sell volume (net medium-order volume)",
+    "dataset": {
+      "id": "pv27",
+      "name": "A-shares Trade Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.8972,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2022-07-01"
+  },
+  {
+    "id": "pv27_volume_diff_med_trader_act",
+    "description": "Active medium-order buy volume minus active medium-order sell volume on the day",
+    "dataset": {
+      "id": "pv27",
+      "name": "A-shares Trade Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.8972,
+    "userCount": 4,
+    "alphaCount": 4,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2022-07-01"
+  },
+  {
+    "id": "pv27_volume_diff_small_trader",
+    "description": "Small-order buy volume minus small-order sell volume on the day",
+    "dataset": {
+      "id": "pv27",
+      "name": "A-shares Trade Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.8972,
+    "userCount": 7,
+    "alphaCount": 9,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2022-07-01"
+  },
+  {
+    "id": "pv27_volume_m",
+    "description": "Total monthly trading volume",
+    "dataset": {
+      "id": "pv27",
+      "name": "A-shares Trade Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 1.0,
+    "userCount": 3,
+    "alphaCount": 3,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2022-07-01"
+  },
+  {
+    "id": "pv27_volume_w",
+    "description": "Total weekly trading volume",
+    "dataset": {
+      "id": "pv27",
+      "name": "A-shares Trade Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 1.0,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2022-07-01"
+  },
+  {
+    "id": "refinance_repayment_volume",
+    "description": "it refers to repayment amount of refinancing bonds,    a financially strong company has lower score.",
+    "dataset": {
+      "id": "pv27",
+      "name": "A-shares Trade Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.5961,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "refinance_securities_borrowing_14day_volume",
+    "description": "it refers to number of refinancing bonds (14 days), high score means stock is more attractive.",
+    "dataset": {
+      "id": "pv27",
+      "name": "A-shares Trade Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.5961,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "refinance_securities_borrowing_3day_volume",
+    "description": "it refers to number of refinancing bonds (3 days), high score means stock is more attractive.",
+    "dataset": {
+      "id": "pv27",
+      "name": "A-shares Trade Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.5961,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "refinance_securities_borrowing_7day_volume",
+    "description": "it refers to number of refinancing bonds (7 days), high score means stock is more attractive.",
+    "dataset": {
+      "id": "pv27",
+      "name": "A-shares Trade Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.5961,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "refinance_securities_borrowing_eod_volume",
+    "description": "it refers to refinancing bonds into daily trading volume, high score means stock is more attractive.",
+    "dataset": {
+      "id": "pv27",
+      "name": "A-shares Trade Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.5961,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "refinance_securities_lending_14day_volume",
+    "description": "it refers to number of refinancing bonds (14 days), high score means stock is more attractive.",
+    "dataset": {
+      "id": "pv27",
+      "name": "A-shares Trade Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.5961,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "refinance_securities_lending_182day_volume",
+    "description": "it refers to number of refinancing bonds (182 days), high score means stock is more attractive.",
+    "dataset": {
+      "id": "pv27",
+      "name": "A-shares Trade Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.5961,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "refinance_securities_lending_28day_volume",
+    "description": "it refers to number of refinancing bonds (28 days), high score means stock is more attractive.",
+    "dataset": {
+      "id": "pv27",
+      "name": "A-shares Trade Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.5961,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "refinance_securities_lending_3day_volume",
+    "description": "it refers to number of refinancing bonds (3 days), high score means stock is more attractive.",
+    "dataset": {
+      "id": "pv27",
+      "name": "A-shares Trade Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.5961,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "refinance_securities_lending_7day_volume",
+    "description": "it refers to number of refinancing bonds (7 days), high score means stock is more attractive.",
+    "dataset": {
+      "id": "pv27",
+      "name": "A-shares Trade Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.5961,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "refinance_securities_lending_eod_volume",
+    "description": "it refers to daily trading volume of refinancing securities, high score means stock is more attractive.",
+    "dataset": {
+      "id": "pv27",
+      "name": "A-shares Trade Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.5961,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "refinance_securities_lending_eop_balance",
+    "description": "it refers to ending balance of refinancing bonds, high score means stock is more attractive.",
+    "dataset": {
+      "id": "pv27",
+      "name": "A-shares Trade Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.5961,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "refinance_securities_lending_eop_volume",
+    "description": "it refers to refinancing securities ending balance, high score means stock is more attractive.",
+    "dataset": {
+      "id": "pv27",
+      "name": "A-shares Trade Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.5961,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "securities_borrowing_182day_volume",
+    "description": "it refers to number of refinancing bonds (182 days), high score means stock is more attractive.",
+    "dataset": {
+      "id": "pv27",
+      "name": "A-shares Trade Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.5961,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "securities_borrowing_28day_volume",
+    "description": "it refers to number of refinancing bonds (28 days), high score means stock is more attractive.",
+    "dataset": {
+      "id": "pv27",
+      "name": "A-shares Trade Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.5961,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "six_day_tech_price_indicator",
+    "description": "Technical price indicator calculated over six days.",
+    "dataset": {
+      "id": "pv27",
+      "name": "A-shares Trade Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 1.0,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "sixteen_day_tech_price_indicator",
+    "description": "Technical price indicator calculated over sixteen days.",
+    "dataset": {
+      "id": "pv27",
+      "name": "A-shares Trade Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 1.0,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "sixty_month_volume_average",
+    "description": "Average trading volume over the past sixty months.",
+    "dataset": {
+      "id": "pv27",
+      "name": "A-shares Trade Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 1.0,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "strange_trade_3day_change_deviation",
+    "description": "A company with high three day  volatility  has high change deviation",
+    "dataset": {
+      "id": "pv27",
+      "name": "A-shares Trade Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.2857,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "strange_trade_change_deviation",
+    "description": "A company with high volatility  has high change deviation",
+    "dataset": {
+      "id": "pv27",
+      "name": "A-shares Trade Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.2857,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "strange_trade_margin_percentage",
+    "description": "The margin percentage associated with the abnormal trading event.",
+    "dataset": {
+      "id": "pv27",
+      "name": "A-shares Trade Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.2857,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "strange_trade_percent_change",
+    "description": "Percentage price change during the abnormal trading episode",
+    "dataset": {
+      "id": "pv27",
+      "name": "A-shares Trade Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.2857,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "strange_trade_swing_value",
+    "description": "The swing or range of price movement during the abnormal trading event.",
+    "dataset": {
+      "id": "pv27",
+      "name": "A-shares Trade Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.2857,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "strange_trade_total_value",
+    "description": "Transaction amount during the abnormal trading episode; higher values indicate higher liquidity",
+    "dataset": {
+      "id": "pv27",
+      "name": "A-shares Trade Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.2857,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "strange_trade_turnover_ratio",
+    "description": "it refers to turnover of the stock, high score means high liquidity.",
+    "dataset": {
+      "id": "pv27",
+      "name": "A-shares Trade Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.2857,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "strange_trade_volume_amount",
+    "description": "Traded volume during the abnormal trading episode; higher values often coincide with higher volatility",
+    "dataset": {
+      "id": "pv27",
+      "name": "A-shares Trade Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.2857,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "ten_day_volume_stddev",
+    "description": "Standard deviation of daily trading volume over the past 10 trading days",
+    "dataset": {
+      "id": "pv27",
+      "name": "A-shares Trade Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 1.0,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "twenty_two_month_volume_average",
+    "description": "Average trading volume over the past twenty-two months.",
+    "dataset": {
+      "id": "pv27",
+      "name": "A-shares Trade Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 1.0,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "volume_macd_dea_value",
+    "description": "DEA value from the volume-based MACD calculation.",
+    "dataset": {
+      "id": "pv27",
+      "name": "A-shares Trade Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 1.0,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "volume_macd_indicator",
+    "description": "MACD technical indicator calculated using trading volume.",
+    "dataset": {
+      "id": "pv27",
+      "name": "A-shares Trade Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 1.0,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "volume_macd_main_value",
+    "description": "Main MACD value derived from trading volume data.",
+    "dataset": {
+      "id": "pv27",
+      "name": "A-shares Trade Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 1.0,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "volume_oscillator_value",
+    "description": "Oscillator value based on trading volume fluctuations.",
+    "dataset": {
+      "id": "pv27",
+      "name": "A-shares Trade Data"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 1.0,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  }
+]

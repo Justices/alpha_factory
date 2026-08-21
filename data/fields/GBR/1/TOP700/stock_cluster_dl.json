@@ -1,0 +1,162 @@
+﻿[
+    {
+        "id":  "principal_component_features_5",
+        "description":  "Feature vector for each stock derived from principal component analysis (TOP800 universe).",
+        "dataset":  {
+                        "id":  "stock_cluster_dl",
+                        "name":  "Deep Learning Stock Clusters"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-aiml-data",
+                            "name":  "AI/ML Data"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.3635,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "principal_component_features_6",
+        "description":  "Feature vector for each stock derived from principal component analysis (TOP600 universe).",
+        "dataset":  {
+                        "id":  "stock_cluster_dl",
+                        "name":  "Deep Learning Stock Clusters"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-aiml-data",
+                            "name":  "AI/ML Data"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.2594,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "principal_component_features_7",
+        "description":  "Feature vector for each stock derived from principal component analysis (TOP1200 universe).",
+        "dataset":  {
+                        "id":  "stock_cluster_dl",
+                        "name":  "Deep Learning Stock Clusters"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-aiml-data",
+                            "name":  "AI/ML Data"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.58,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "principal_component_features_8",
+        "description":  "Feature vector for each stock derived from principal component analysis (TOP400 universe).",
+        "dataset":  {
+                        "id":  "stock_cluster_dl",
+                        "name":  "Deep Learning Stock Clusters"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-aiml-data",
+                            "name":  "AI/ML Data"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.1665,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "principal_component_features_9",
+        "description":  "Feature vector for each stock derived from principal component analysis (TOP2500 universe).",
+        "dataset":  {
+                        "id":  "stock_cluster_dl",
+                        "name":  "Deep Learning Stock Clusters"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-aiml-data",
+                            "name":  "AI/ML Data"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  1,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    }
+]

@@ -1,0 +1,322 @@
+﻿[
+    {
+        "id":  "alt_rec_analyst_mask_code",
+        "description":  "Encoded identifier for the individual analyst contributing the recommendation, used for anonymization",
+        "dataset":  {
+                        "id":  "analyst8",
+                        "name":  "Daily Split Data"
+                    },
+        "category":  {
+                         "id":  "analyst",
+                         "name":  "Analyst"
+                     },
+        "subcategory":  {
+                            "id":  "analyst-analyst-estimates",
+                            "name":  "Analyst Estimates"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "alt_rec_standardized_code",
+        "description":  "Numeric code denoting the type of analyst recommendation (e.g., Buy, Hold, Sell etc.), as defined by the IBES code table",
+        "dataset":  {
+                        "id":  "analyst8",
+                        "name":  "Daily Split Data"
+                    },
+        "category":  {
+                         "id":  "analyst",
+                         "name":  "Analyst"
+                     },
+        "subcategory":  {
+                            "id":  "analyst-analyst-estimates",
+                            "name":  "Analyst Estimates"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "anl8_analyst_code",
+        "description":  "Unique identifier code for the analyst issuing the price target",
+        "dataset":  {
+                        "id":  "analyst8",
+                        "name":  "Daily Split Data"
+                    },
+        "category":  {
+                         "id":  "analyst",
+                         "name":  "Analyst"
+                     },
+        "subcategory":  {
+                            "id":  "analyst-analyst-estimates",
+                            "name":  "Analyst Estimates"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "anl8_eur_ibessplit_rec_analyst_maskcode",
+        "description":  "Encoded identifier for the analyst providing the recommendation",
+        "dataset":  {
+                        "id":  "analyst8",
+                        "name":  "Daily Split Data"
+                    },
+        "category":  {
+                         "id":  "analyst",
+                         "name":  "Analyst"
+                     },
+        "subcategory":  {
+                            "id":  "analyst-analyst-estimates",
+                            "name":  "Analyst Estimates"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "anl8_eur_ibessplit_rec_ibes_reccode",
+        "description":  "Numerical code representing the type of analyst recommendation (e.g. Buy, Sell, Hold) based on IBES lookup",
+        "dataset":  {
+                        "id":  "analyst8",
+                        "name":  "Daily Split Data"
+                    },
+        "category":  {
+                         "id":  "analyst",
+                         "name":  "Analyst"
+                     },
+        "subcategory":  {
+                            "id":  "analyst-analyst-estimates",
+                            "name":  "Analyst Estimates"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "anl8_horizon",
+        "description":  "Time horizon in days for which the price target is forecasted",
+        "dataset":  {
+                        "id":  "analyst8",
+                        "name":  "Daily Split Data"
+                    },
+        "category":  {
+                         "id":  "analyst",
+                         "name":  "Analyst"
+                     },
+        "subcategory":  {
+                            "id":  "analyst-analyst-estimates",
+                            "name":  "Analyst Estimates"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "anl8_irl_level",
+        "description":  "Indicates how frequently the recommendation data is updated or reported (e.g., daily, weekly, monthly)",
+        "dataset":  {
+                        "id":  "analyst8",
+                        "name":  "Daily Split Data"
+                    },
+        "category":  {
+                         "id":  "analyst",
+                         "name":  "Analyst"
+                     },
+        "subcategory":  {
+                            "id":  "analyst-analyst-estimates",
+                            "name":  "Analyst Estimates"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "anl8_value",
+        "description":  "Analyst-reported price target for the security",
+        "dataset":  {
+                        "id":  "analyst8",
+                        "name":  "Daily Split Data"
+                    },
+        "category":  {
+                         "id":  "analyst",
+                         "name":  "Analyst"
+                     },
+        "subcategory":  {
+                            "id":  "analyst-analyst-estimates",
+                            "name":  "Analyst Estimates"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "rec_d0_analyst_mask_code",
+        "description":  "An encoded identifier for the analyst who made the recommendation",
+        "dataset":  {
+                        "id":  "analyst8",
+                        "name":  "Daily Split Data"
+                    },
+        "category":  {
+                         "id":  "analyst",
+                         "name":  "Analyst"
+                     },
+        "subcategory":  {
+                            "id":  "analyst-analyst-estimates",
+                            "name":  "Analyst Estimates"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "rec_d0_standardized_code",
+        "description":  "The recommendation code given by the analyst, indicating buy/sell/hold status",
+        "dataset":  {
+                        "id":  "analyst8",
+                        "name":  "Daily Split Data"
+                    },
+        "category":  {
+                         "id":  "analyst",
+                         "name":  "Analyst"
+                     },
+        "subcategory":  {
+                            "id":  "analyst-analyst-estimates",
+                            "name":  "Analyst Estimates"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    }
+]

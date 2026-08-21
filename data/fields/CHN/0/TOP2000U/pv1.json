@@ -1,0 +1,569 @@
+[
+  {
+    "id": "adjfactor",
+    "description": "Adjustment factor applied to historical prices and dividends to account for splits and other corporate actions",
+    "dataset": {
+      "id": "pv1",
+      "name": "Price Volume Data for Equity"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "MATRIX",
+    "dateCoverage": 1.0,
+    "coverage": 1.0,
+    "userCount": 1,
+    "alphaCount": 1,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2026-04-01"
+  },
+  {
+    "id": "adv20",
+    "description": "Average daily volume in past 20 days",
+    "dataset": {
+      "id": "pv1",
+      "name": "Price Volume Data for Equity"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "MATRIX",
+    "dateCoverage": 1.0,
+    "coverage": 1.0,
+    "userCount": 50,
+    "alphaCount": 131,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2022-05-01"
+  },
+  {
+    "id": "cap",
+    "description": "Daily market capitalization (in millions)",
+    "dataset": {
+      "id": "pv1",
+      "name": "Price Volume Data for Equity"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "MATRIX",
+    "dateCoverage": 1.0,
+    "coverage": 1.0,
+    "userCount": 111,
+    "alphaCount": 1964,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2022-05-01"
+  },
+  {
+    "id": "close",
+    "description": "Daily close price",
+    "dataset": {
+      "id": "pv1",
+      "name": "Price Volume Data for Equity"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "MATRIX",
+    "dateCoverage": 1.0,
+    "coverage": 1.0,
+    "userCount": 119,
+    "alphaCount": 385,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2022-05-01"
+  },
+  {
+    "id": "country",
+    "description": "Country grouping",
+    "dataset": {
+      "id": "pv1",
+      "name": "Price Volume Data for Equity"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "GROUP",
+    "dateCoverage": 1.0,
+    "coverage": 1.0,
+    "userCount": 38,
+    "alphaCount": 72,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2022-05-01"
+  },
+  {
+    "id": "cusip",
+    "description": "CUSIP Value",
+    "dataset": {
+      "id": "pv1",
+      "name": "Price Volume Data for Equity"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "SYMBOL",
+    "dateCoverage": 1.0,
+    "coverage": 1.0,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2025-10-01"
+  },
+  {
+    "id": "dividend",
+    "description": "Dividend",
+    "dataset": {
+      "id": "pv1",
+      "name": "Price Volume Data for Equity"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "MATRIX",
+    "dateCoverage": 1.0,
+    "coverage": 1.0,
+    "userCount": 13,
+    "alphaCount": 22,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2022-05-01"
+  },
+  {
+    "id": "exchange",
+    "description": "Exchange grouping",
+    "dataset": {
+      "id": "pv1",
+      "name": "Price Volume Data for Equity"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "GROUP",
+    "dateCoverage": 1.0,
+    "coverage": 1.0,
+    "userCount": 35,
+    "alphaCount": 92,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2022-05-01"
+  },
+  {
+    "id": "high",
+    "description": "Daily high price",
+    "dataset": {
+      "id": "pv1",
+      "name": "Price Volume Data for Equity"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "MATRIX",
+    "dateCoverage": 1.0,
+    "coverage": 1.0,
+    "userCount": 32,
+    "alphaCount": 58,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2022-05-01"
+  },
+  {
+    "id": "industry",
+    "description": "Industry grouping",
+    "dataset": {
+      "id": "pv1",
+      "name": "Price Volume Data for Equity"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "GROUP",
+    "dateCoverage": 1.0,
+    "coverage": 1.0,
+    "userCount": 127,
+    "alphaCount": 793,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2022-05-01"
+  },
+  {
+    "id": "isin",
+    "description": "ISIN Value",
+    "dataset": {
+      "id": "pv1",
+      "name": "Price Volume Data for Equity"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "SYMBOL",
+    "dateCoverage": 1.0,
+    "coverage": 1.0,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2025-10-01"
+  },
+  {
+    "id": "low",
+    "description": "Daily low price",
+    "dataset": {
+      "id": "pv1",
+      "name": "Price Volume Data for Equity"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "MATRIX",
+    "dateCoverage": 1.0,
+    "coverage": 1.0,
+    "userCount": 25,
+    "alphaCount": 39,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2022-05-01"
+  },
+  {
+    "id": "market",
+    "description": "Market grouping",
+    "dataset": {
+      "id": "pv1",
+      "name": "Price Volume Data for Equity"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "GROUP",
+    "dateCoverage": 1.0,
+    "coverage": 1.0,
+    "userCount": 98,
+    "alphaCount": 170,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2022-05-01"
+  },
+  {
+    "id": "open",
+    "description": "Daily open price",
+    "dataset": {
+      "id": "pv1",
+      "name": "Price Volume Data for Equity"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "MATRIX",
+    "dateCoverage": 1.0,
+    "coverage": 1.0,
+    "userCount": 43,
+    "alphaCount": 195,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2022-05-01"
+  },
+  {
+    "id": "returns",
+    "description": "Daily returns",
+    "dataset": {
+      "id": "pv1",
+      "name": "Price Volume Data for Equity"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "MATRIX",
+    "dateCoverage": 1.0,
+    "coverage": 1.0,
+    "userCount": 64,
+    "alphaCount": 222,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2022-05-01"
+  },
+  {
+    "id": "sector",
+    "description": "Sector grouping",
+    "dataset": {
+      "id": "pv1",
+      "name": "Price Volume Data for Equity"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "GROUP",
+    "dateCoverage": 1.0,
+    "coverage": 1.0,
+    "userCount": 167,
+    "alphaCount": 325,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2022-05-01"
+  },
+  {
+    "id": "sharesout",
+    "description": "Daily outstanding shares (in millions)",
+    "dataset": {
+      "id": "pv1",
+      "name": "Price Volume Data for Equity"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "MATRIX",
+    "dateCoverage": 1.0,
+    "coverage": 1.0,
+    "userCount": 36,
+    "alphaCount": 69,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2022-05-01"
+  },
+  {
+    "id": "split",
+    "description": "Stock split ratio",
+    "dataset": {
+      "id": "pv1",
+      "name": "Price Volume Data for Equity"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "MATRIX",
+    "dateCoverage": 1.0,
+    "coverage": 1.0,
+    "userCount": 10,
+    "alphaCount": 12,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2022-05-01"
+  },
+  {
+    "id": "subindustry",
+    "description": "Subindustry grouping",
+    "dataset": {
+      "id": "pv1",
+      "name": "Price Volume Data for Equity"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "GROUP",
+    "dateCoverage": 1.0,
+    "coverage": 1.0,
+    "userCount": 222,
+    "alphaCount": 448,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2022-05-01"
+  },
+  {
+    "id": "volume",
+    "description": "Daily volume",
+    "dataset": {
+      "id": "pv1",
+      "name": "Price Volume Data for Equity"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "MATRIX",
+    "dateCoverage": 1.0,
+    "coverage": 1.0,
+    "userCount": 294,
+    "alphaCount": 615,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2022-05-01"
+  },
+  {
+    "id": "vwap",
+    "description": "Daily volume weighted average price",
+    "dataset": {
+      "id": "pv1",
+      "name": "Price Volume Data for Equity"
+    },
+    "category": {
+      "id": "pv",
+      "name": "Price Volume"
+    },
+    "subcategory": {
+      "id": "pv-price-volume",
+      "name": "Price Volume"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "MATRIX",
+    "dateCoverage": 1.0,
+    "coverage": 1.0,
+    "userCount": 40,
+    "alphaCount": 93,
+    "pyramidMultiplier": 1.6,
+    "themes": [],
+    "dateCreated": "2022-05-01"
+  }
+]

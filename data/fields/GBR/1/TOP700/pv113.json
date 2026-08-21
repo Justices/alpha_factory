@@ -1,0 +1,32 @@
+﻿{
+    "id":  "pv113_value",
+    "description":  "Reported value of the economic indicator for that series and release/revision",
+    "dataset":  {
+                    "id":  "pv113",
+                    "name":  "Economic MacroIndicator Data"
+                },
+    "category":  {
+                     "id":  "pv",
+                     "name":  "Price Volume"
+                 },
+    "subcategory":  {
+                        "id":  "pv-relationship",
+                        "name":  "Relationship"
+                    },
+    "region":  "GBR",
+    "delay":  1,
+    "universe":  "TOP700",
+    "type":  "MATRIX",
+    "dateCoverage":  1,
+    "coverage":  0,
+    "userCount":  0,
+    "alphaCount":  0,
+    "pyramidMultiplier":  2,
+    "themes":  {
+                   "value":  [
+
+                             ],
+                   "Count":  0
+               },
+    "dateCreated":  "2026-07-01"
+}

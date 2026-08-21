@@ -1,0 +1,386 @@
+﻿[
+    {
+        "id":  "entity_connection_type_financial",
+        "description":  "Integer code for the observed, directional financial relationship type from the current stock (A) to the counterparty (B) on the as-of date; decode via this module’s PIT codebook",
+        "dataset":  {
+                        "id":  "event_relation",
+                        "name":  "Text-Based Event Relationship Analysis"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-aiml-data",
+                            "name":  "AI/ML Data"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "entity_connection_type_general",
+        "description":  "Signed integer code for the relationship type and direction between the focal stock and its counterparty within the All family union of MA, Partner, and Financial links, decoded using point-in-time module- and region-specific codebooks",
+        "dataset":  {
+                        "id":  "event_relation",
+                        "name":  "Text-Based Event Relationship Analysis"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-aiml-data",
+                            "name":  "AI/ML Data"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "entity_connection_type_merger",
+        "description":  "Integer code encoding the specific MA-family relationship type and direction (e.g., acquisition, merger, joint venture) for the A→B edge; requires module- and date-specific point-in-time codebooks to decode",
+        "dataset":  {
+                        "id":  "event_relation",
+                        "name":  "Text-Based Event Relationship Analysis"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-aiml-data",
+                            "name":  "AI/ML Data"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "entity_connection_type_partner",
+        "description":  "Integer code encoding the type and direction of the partnership/alliance/contractual relationship between the focal stock (A) and counterparty (B) on the as-of date; requires module-local, date-specific PIT codebook to decode",
+        "dataset":  {
+                        "id":  "event_relation",
+                        "name":  "Text-Based Event Relationship Analysis"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-aiml-data",
+                            "name":  "AI/ML Data"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "relation_strength_rank_financial",
+        "description":  "Vendor/event-native categorical integer code indicating confidence, status, or classification of the financial relationship edge on that date; decode via PIT, module-specific codebook",
+        "dataset":  {
+                        "id":  "event_relation",
+                        "name":  "Text-Based Event Relationship Analysis"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-aiml-data",
+                            "name":  "AI/ML Data"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "relation_strength_rank_general",
+        "description":  "Vendor-native integer code indicating the relationship’s confidence, status, or classification for each edge on that date, to be decoded via module-, region-, and date-specific point-in-time codebooks",
+        "dataset":  {
+                        "id":  "event_relation",
+                        "name":  "Text-Based Event Relationship Analysis"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-aiml-data",
+                            "name":  "AI/ML Data"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "relation_strength_rank_merger",
+        "description":  "Vendor/event-native integer code indicating confidence/status/classification of the MA relationship edge on the as-of date; decoding is module-, region-, and date-specific via PIT codebooks",
+        "dataset":  {
+                        "id":  "event_relation",
+                        "name":  "Text-Based Event Relationship Analysis"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-aiml-data",
+                            "name":  "AI/ML Data"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "relation_strength_rank_partner",
+        "description":  "Integer vendor-native categorical code describing confidence/status/classification of the partner relationship on the as-of date; decoding requires PIT, module/region/date-specific codebooks",
+        "dataset":  {
+                        "id":  "event_relation",
+                        "name":  "Text-Based Event Relationship Analysis"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-aiml-data",
+                            "name":  "AI/ML Data"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "relation_strength_score_financial",
+        "description":  "Vendor-native quantitative impact or confidence score (typically 0–1) for the financial relationship edge on that date, used directly for weighting or propagation",
+        "dataset":  {
+                        "id":  "event_relation",
+                        "name":  "Text-Based Event Relationship Analysis"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-aiml-data",
+                            "name":  "AI/ML Data"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "relation_strength_score_general",
+        "description":  "Vendor-native quantitative impact or confidence score, typically between 0 and 1, used directly for weighting and propagation without local recalculation",
+        "dataset":  {
+                        "id":  "event_relation",
+                        "name":  "Text-Based Event Relationship Analysis"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-aiml-data",
+                            "name":  "AI/ML Data"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "relation_strength_score_merger",
+        "description":  "Vendor-native quantitative impact or confidence score (typically 0–1) for the MA relationship edge, used directly for weighting/propagation and not recalculated locally",
+        "dataset":  {
+                        "id":  "event_relation",
+                        "name":  "Text-Based Event Relationship Analysis"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-aiml-data",
+                            "name":  "AI/ML Data"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "relation_strength_score_partner",
+        "description":  "Vendor-native quantitative impact or confidence score for the partnership edge on that as-of-date (typically 0–1), used directly for weighting/propagation and strictly point-in-time D1-lagged",
+        "dataset":  {
+                        "id":  "event_relation",
+                        "name":  "Text-Based Event Relationship Analysis"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-aiml-data",
+                            "name":  "AI/ML Data"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    }
+]

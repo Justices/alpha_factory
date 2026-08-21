@@ -1,0 +1,354 @@
+﻿[
+    {
+        "id":  "australia_nz_sales_ratio",
+        "description":  "Fraction of total company sales attributed to Australia and New Zealand at the reporting date",
+        "dataset":  {
+                        "id":  "model307",
+                        "name":  "Global Sales Allocation Model Data"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-estimates-models",
+                            "name":  "Estimates Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0.4333,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "canada_sales_fraction",
+        "description":  "Fraction of the company’s total sales revenue allocated to Canada as a proportion (0 to 1)",
+        "dataset":  {
+                        "id":  "model307",
+                        "name":  "Global Sales Allocation Model Data"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-estimates-models",
+                            "name":  "Estimates Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0.4333,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl307_sales_pct_axj",
+        "description":  "Fraction of total company sales attributed to Asia excluding Japan at the reporting date",
+        "dataset":  {
+                        "id":  "model307",
+                        "name":  "Global Sales Allocation Model Data"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-estimates-models",
+                            "name":  "Estimates Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0.4333,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl307_sales_pct_cnax",
+        "description":  "Fraction of total company sales attributed to Mainland China (excluding Hong Kong and Macau) at the reporting date",
+        "dataset":  {
+                        "id":  "model307",
+                        "name":  "Global Sales Allocation Model Data"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-estimates-models",
+                            "name":  "Estimates Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0.4333,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl307_sales_pct_emea",
+        "description":  "Fraction of the company\u0027s total sales revenue allocated to Europe, Middle East, and Africa (EMEA) region, as a decimal proportion",
+        "dataset":  {
+                        "id":  "model307",
+                        "name":  "Global Sales Allocation Model Data"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-estimates-models",
+                            "name":  "Estimates Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0.4333,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl307_sales_pct_eu",
+        "description":  "Fraction of company sales allocated to the European Union excluding Great Britain as a proportion of total revenue",
+        "dataset":  {
+                        "id":  "model307",
+                        "name":  "Global Sales Allocation Model Data"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-estimates-models",
+                            "name":  "Estimates Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0.4333,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl307_sales_pct_gb",
+        "description":  "Fraction of the company\u0027s total sales allocated to Great Britain (UK) for the given period, expressed as a number between 0 and 1",
+        "dataset":  {
+                        "id":  "model307",
+                        "name":  "Global Sales Allocation Model Data"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-estimates-models",
+                            "name":  "Estimates Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0.4333,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl307_sales_pct_jp",
+        "description":  "Fraction of the company’s total sales revenue allocated to Japan as a proportion (0 to 1)",
+        "dataset":  {
+                        "id":  "model307",
+                        "name":  "Global Sales Allocation Model Data"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-estimates-models",
+                            "name":  "Estimates Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0.4333,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl307_sales_pct_latam",
+        "description":  "Fraction of the company\u0027s total sales revenue allocated to the Latin America and Caribbean region, as a decimal proportion",
+        "dataset":  {
+                        "id":  "model307",
+                        "name":  "Global Sales Allocation Model Data"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-estimates-models",
+                            "name":  "Estimates Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0.4333,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl307_sales_pct_unclassified",
+        "description":  "Fraction of the company’s total sales revenue that is unallocated or not classified to any defined geographic region as a proportion (0 to 1)",
+        "dataset":  {
+                        "id":  "model307",
+                        "name":  "Global Sales Allocation Model Data"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-estimates-models",
+                            "name":  "Estimates Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0.4333,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl307_sales_pct_us",
+        "description":  "Fraction of the company’s total sales revenue allocated to the United States as a proportion (0 to 1)",
+        "dataset":  {
+                        "id":  "model307",
+                        "name":  "Global Sales Allocation Model Data"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-estimates-models",
+                            "name":  "Estimates Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0.4333,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    }
+]

@@ -1,0 +1,1058 @@
+﻿[
+    {
+        "id":  "director_intensity_score",
+        "description":  "Dataset-specific timing/bookkeeping indicator used for internal sequence logging; not a trading signal",
+        "dataset":  {
+                        "id":  "insider_matrix",
+                        "name":  "Aggregated Insider Transaction Matrix"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-event-data",
+                            "name":  "Event Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  1,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "eur_aggregated_value_1",
+        "description":  "Mean value of shares bought in Euro currency",
+        "dataset":  {
+                        "id":  "insider_matrix",
+                        "name":  "Aggregated Insider Transaction Matrix"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-event-data",
+                            "name":  "Event Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.5344,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "eur_aggregated_value_2",
+        "description":  "Sum value of shares bought in Euro currency",
+        "dataset":  {
+                        "id":  "insider_matrix",
+                        "name":  "Aggregated Insider Transaction Matrix"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-event-data",
+                            "name":  "Event Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.5344,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "eur_aggregated_value_3",
+        "description":  "Mean value of shares sold in Euro currency",
+        "dataset":  {
+                        "id":  "insider_matrix",
+                        "name":  "Aggregated Insider Transaction Matrix"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-event-data",
+                            "name":  "Event Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.5344,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "eur_aggregated_value_4",
+        "description":  "Sum value of shares sold in Euro currency",
+        "dataset":  {
+                        "id":  "insider_matrix",
+                        "name":  "Aggregated Insider Transaction Matrix"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-event-data",
+                            "name":  "Event Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.5344,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "eur_director_signal_value_1",
+        "description":  "Mean value of shares bought directly in Euro currency by directors with significant trades",
+        "dataset":  {
+                        "id":  "insider_matrix",
+                        "name":  "Aggregated Insider Transaction Matrix"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-event-data",
+                            "name":  "Event Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.5344,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "eur_director_signal_value_2",
+        "description":  "Sum value of shares bought directly in Euro currency by directors with significant trades",
+        "dataset":  {
+                        "id":  "insider_matrix",
+                        "name":  "Aggregated Insider Transaction Matrix"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-event-data",
+                            "name":  "Event Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.5344,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "eur_director_signal_value_3",
+        "description":  "Mean value of shares sold directly in Euro currency by directors with significant trades",
+        "dataset":  {
+                        "id":  "insider_matrix",
+                        "name":  "Aggregated Insider Transaction Matrix"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-event-data",
+                            "name":  "Event Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.5344,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "eur_director_signal_value_4",
+        "description":  "Sum value of shares sold directly in Euro currency by directors with significant trades",
+        "dataset":  {
+                        "id":  "insider_matrix",
+                        "name":  "Aggregated Insider Transaction Matrix"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-event-data",
+                            "name":  "Event Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.5344,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "eur_director_value_1",
+        "description":  "Mean value of shares bought in Euro currency by all directors",
+        "dataset":  {
+                        "id":  "insider_matrix",
+                        "name":  "Aggregated Insider Transaction Matrix"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-event-data",
+                            "name":  "Event Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.5344,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "eur_director_value_2",
+        "description":  "Sum value of shares bought in Euro currency by all directors",
+        "dataset":  {
+                        "id":  "insider_matrix",
+                        "name":  "Aggregated Insider Transaction Matrix"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-event-data",
+                            "name":  "Event Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.5344,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "eur_director_value_3",
+        "description":  "Mean value of shares sold in Euro currency by all directors",
+        "dataset":  {
+                        "id":  "insider_matrix",
+                        "name":  "Aggregated Insider Transaction Matrix"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-event-data",
+                            "name":  "Event Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.5344,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "eur_director_value_4",
+        "description":  "Sum value of shares sold in Euro currency by all directors",
+        "dataset":  {
+                        "id":  "insider_matrix",
+                        "name":  "Aggregated Insider Transaction Matrix"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-event-data",
+                            "name":  "Event Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.5344,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "eur_signal_value_1",
+        "description":  "Mean value of shares bought in Euro currency by directors with significant trades",
+        "dataset":  {
+                        "id":  "insider_matrix",
+                        "name":  "Aggregated Insider Transaction Matrix"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-event-data",
+                            "name":  "Event Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.5344,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "eur_signal_value_2",
+        "description":  "Sum value of shares bought in Euro currency by directors with significant trades",
+        "dataset":  {
+                        "id":  "insider_matrix",
+                        "name":  "Aggregated Insider Transaction Matrix"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-event-data",
+                            "name":  "Event Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.5344,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "eur_signal_value_3",
+        "description":  "Mean value of shares sold in Euro currency by directors with significant trades",
+        "dataset":  {
+                        "id":  "insider_matrix",
+                        "name":  "Aggregated Insider Transaction Matrix"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-event-data",
+                            "name":  "Event Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.5344,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "eur_signal_value_4",
+        "description":  "Sum value of shares sold in Euro currency by directors with significant trades",
+        "dataset":  {
+                        "id":  "insider_matrix",
+                        "name":  "Aggregated Insider Transaction Matrix"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-event-data",
+                            "name":  "Event Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.5344,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "eur_top_director_signal_value_1",
+        "description":  "Mean value of shares bought directly in Euro currency by executives with significant trades",
+        "dataset":  {
+                        "id":  "insider_matrix",
+                        "name":  "Aggregated Insider Transaction Matrix"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-event-data",
+                            "name":  "Event Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.5344,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "eur_top_director_signal_value_2",
+        "description":  "Sum value of shares bought directly in Euro currency by executives with significant trades",
+        "dataset":  {
+                        "id":  "insider_matrix",
+                        "name":  "Aggregated Insider Transaction Matrix"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-event-data",
+                            "name":  "Event Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.5344,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "eur_top_director_signal_value_3",
+        "description":  "Mean value of shares sold directly in Euro currency by executives with significant trades",
+        "dataset":  {
+                        "id":  "insider_matrix",
+                        "name":  "Aggregated Insider Transaction Matrix"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-event-data",
+                            "name":  "Event Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.5344,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "eur_top_director_signal_value_4",
+        "description":  "Sum value of shares sold directly in Euro currency by executives with significant trades",
+        "dataset":  {
+                        "id":  "insider_matrix",
+                        "name":  "Aggregated Insider Transaction Matrix"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-event-data",
+                            "name":  "Event Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.5344,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "eur_top_director_value_1",
+        "description":  "Mean value of shares bought in Euro currency by specific directors",
+        "dataset":  {
+                        "id":  "insider_matrix",
+                        "name":  "Aggregated Insider Transaction Matrix"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-event-data",
+                            "name":  "Event Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.5344,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "eur_top_director_value_2",
+        "description":  "Sum value of shares bought in Euro currency by specific directors",
+        "dataset":  {
+                        "id":  "insider_matrix",
+                        "name":  "Aggregated Insider Transaction Matrix"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-event-data",
+                            "name":  "Event Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.5344,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "eur_top_director_value_3",
+        "description":  "Mean value of shares sold in Euro currency by specific directors",
+        "dataset":  {
+                        "id":  "insider_matrix",
+                        "name":  "Aggregated Insider Transaction Matrix"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-event-data",
+                            "name":  "Event Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.5344,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "eur_top_director_value_4",
+        "description":  "Sum value of shares sold in Euro currency by specific directors",
+        "dataset":  {
+                        "id":  "insider_matrix",
+                        "name":  "Aggregated Insider Transaction Matrix"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-event-data",
+                            "name":  "Event Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.5344,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "eur_top_signal_value_1",
+        "description":  "Mean value of shares bought in Euro currency by executives with significant trades",
+        "dataset":  {
+                        "id":  "insider_matrix",
+                        "name":  "Aggregated Insider Transaction Matrix"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-event-data",
+                            "name":  "Event Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.5344,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "eur_top_signal_value_2",
+        "description":  "Sum value of shares bought in Euro currency by executives with significant trades",
+        "dataset":  {
+                        "id":  "insider_matrix",
+                        "name":  "Aggregated Insider Transaction Matrix"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-event-data",
+                            "name":  "Event Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.5344,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "eur_top_signal_value_3",
+        "description":  "Mean value of shares sold in Euro currency by executives with significant trades",
+        "dataset":  {
+                        "id":  "insider_matrix",
+                        "name":  "Aggregated Insider Transaction Matrix"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-event-data",
+                            "name":  "Event Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.5344,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "eur_top_signal_value_4",
+        "description":  "Sum value of shares sold in Euro currency by executives with significant trades",
+        "dataset":  {
+                        "id":  "insider_matrix",
+                        "name":  "Aggregated Insider Transaction Matrix"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-event-data",
+                            "name":  "Event Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.5344,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "eur_top_value_1",
+        "description":  "Mean value of shares bought in Euro currency by executives",
+        "dataset":  {
+                        "id":  "insider_matrix",
+                        "name":  "Aggregated Insider Transaction Matrix"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-event-data",
+                            "name":  "Event Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.5344,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "eur_top_value_2",
+        "description":  "Sum value of shares bought in Euro currency by executives",
+        "dataset":  {
+                        "id":  "insider_matrix",
+                        "name":  "Aggregated Insider Transaction Matrix"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-event-data",
+                            "name":  "Event Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.5344,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "eur_top_value_3",
+        "description":  "Mean value of shares sold in Euro currency by executives",
+        "dataset":  {
+                        "id":  "insider_matrix",
+                        "name":  "Aggregated Insider Transaction Matrix"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-event-data",
+                            "name":  "Event Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.5344,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "eur_top_value_4",
+        "description":  "Sum value of shares sold in Euro currency by executives",
+        "dataset":  {
+                        "id":  "insider_matrix",
+                        "name":  "Aggregated Insider Transaction Matrix"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-event-data",
+                            "name":  "Event Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.5344,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    }
+]

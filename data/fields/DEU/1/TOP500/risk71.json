@@ -1,0 +1,322 @@
+﻿[
+    {
+        "id":  "ecs_top1200_specific_return_dsrt",
+        "description":  "Reproducible specific return for the top 1200 equities in the ECS universe.",
+        "dataset":  {
+                        "id":  "risk71",
+                        "name":  "Daily Specific Return Profiling Dataset"
+                    },
+        "category":  {
+                         "id":  "risk",
+                         "name":  "Risk"
+                     },
+        "subcategory":  {
+                            "id":  "risk-risk-factors",
+                            "name":  "Risk Factors"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "ecs_top1600_specific_return_dsrt",
+        "description":  "Reproducible specific return for the top 1600 equities in the ECS universe.",
+        "dataset":  {
+                        "id":  "risk71",
+                        "name":  "Daily Specific Return Profiling Dataset"
+                    },
+        "category":  {
+                         "id":  "risk",
+                         "name":  "Risk"
+                     },
+        "subcategory":  {
+                            "id":  "risk-risk-factors",
+                            "name":  "Risk Factors"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "ecs_top400_specific_return_dsrt",
+        "description":  "Reproducible specific return for the top 400 equities in the ECS universe.",
+        "dataset":  {
+                        "id":  "risk71",
+                        "name":  "Daily Specific Return Profiling Dataset"
+                    },
+        "category":  {
+                         "id":  "risk",
+                         "name":  "Risk"
+                     },
+        "subcategory":  {
+                            "id":  "risk-risk-factors",
+                            "name":  "Risk Factors"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "ecs_top800_specific_return_dsrt",
+        "description":  "Reproducible specific return for the top 800 equities in the ECS universe.",
+        "dataset":  {
+                        "id":  "risk71",
+                        "name":  "Daily Specific Return Profiling Dataset"
+                    },
+        "category":  {
+                         "id":  "risk",
+                         "name":  "Risk"
+                     },
+        "subcategory":  {
+                            "id":  "risk-risk-factors",
+                            "name":  "Risk Factors"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "epp_minvol1m_specific_return_dsrt",
+        "description":  "Reproducible specific return for the minimum volatility 1-month strategy in the Asia Pacific supported universe.",
+        "dataset":  {
+                        "id":  "risk71",
+                        "name":  "Daily Specific Return Profiling Dataset"
+                    },
+        "category":  {
+                         "id":  "risk",
+                         "name":  "Risk"
+                     },
+        "subcategory":  {
+                            "id":  "risk-risk-factors",
+                            "name":  "Risk Factors"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "eur_minvol1m_specific_return_dsrt",
+        "description":  "Reproducible specific return for the minimum volatility 1-month strategy in the Europe supported universe.",
+        "dataset":  {
+                        "id":  "risk71",
+                        "name":  "Daily Specific Return Profiling Dataset"
+                    },
+        "category":  {
+                         "id":  "risk",
+                         "name":  "Risk"
+                     },
+        "subcategory":  {
+                            "id":  "risk-risk-factors",
+                            "name":  "Risk Factors"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "residualized_return_top2500",
+        "description":  "Daily stock-specific idiosyncratic residual returns panel for the Europe TOP2500 ATS universe from the mfm2 risk model, in daily percent (stocks × dates)",
+        "dataset":  {
+                        "id":  "risk71",
+                        "name":  "Daily Specific Return Profiling Dataset"
+                    },
+        "category":  {
+                         "id":  "risk",
+                         "name":  "Risk"
+                     },
+        "subcategory":  {
+                            "id":  "risk-risk-factors",
+                            "name":  "Risk Factors"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "residualized_return_top600_ats",
+        "description":  "Panel of daily stock-specific residual returns (DSRT) from the MFM2 risk model for the Americas TOP600 universe; float matrix stock × date in daily percent",
+        "dataset":  {
+                        "id":  "risk71",
+                        "name":  "Daily Specific Return Profiling Dataset"
+                    },
+        "category":  {
+                         "id":  "risk",
+                         "name":  "Risk"
+                     },
+        "subcategory":  {
+                            "id":  "risk-risk-factors",
+                            "name":  "Risk Factors"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "top1200_residual_return_dsrt",
+        "description":  "Reproducible specific return for the top 1200 equities in the selected universe.",
+        "dataset":  {
+                        "id":  "risk71",
+                        "name":  "Daily Specific Return Profiling Dataset"
+                    },
+        "category":  {
+                         "id":  "risk",
+                         "name":  "Risk"
+                     },
+        "subcategory":  {
+                            "id":  "risk-risk-factors",
+                            "name":  "Risk Factors"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "top800_residual_return_dsrt",
+        "description":  "Reproducible specific return for the top 800 equities in the selected universe.",
+        "dataset":  {
+                        "id":  "risk71",
+                        "name":  "Daily Specific Return Profiling Dataset"
+                    },
+        "category":  {
+                         "id":  "risk",
+                         "name":  "Risk"
+                     },
+        "subcategory":  {
+                            "id":  "risk-risk-factors",
+                            "name":  "Risk Factors"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    }
+]

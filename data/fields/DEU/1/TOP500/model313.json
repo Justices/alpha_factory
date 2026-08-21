@@ -1,0 +1,130 @@
+﻿[
+    {
+        "id":  "mdl313_iai",
+        "description":  "Intangible Asset Intensity Score (composite of KCI and OCI), normalized [0,1]",
+        "dataset":  {
+                        "id":  "model313",
+                        "name":  "Intangible Asset Factors"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-estimates-models",
+                            "name":  "Estimates Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.4757,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl313_ick",
+        "description":  "Knowledge Capital Intensity Score, based on capitalized R\u0026D spending, normalized [0,1]",
+        "dataset":  {
+                        "id":  "model313",
+                        "name":  "Intangible Asset Factors"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-estimates-models",
+                            "name":  "Estimates Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.2016,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl313_ico",
+        "description":  "Organizational Capital Intensity Score, calculated from capitalized SG\u0026A, normalized [0,1]",
+        "dataset":  {
+                        "id":  "model313",
+                        "name":  "Intangible Asset Factors"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-estimates-models",
+                            "name":  "Estimates Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.4757,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl313_mktcap_usd",
+        "description":  "Market capitalization of the company in US dollars as of the observation date",
+        "dataset":  {
+                        "id":  "model313",
+                        "name":  "Intangible Asset Factors"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-estimates-models",
+                            "name":  "Estimates Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.4757,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    }
+]

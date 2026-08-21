@@ -1,0 +1,5090 @@
+﻿[
+    {
+        "id":  "compustat_liquidity_metric_one",
+        "description":  "1st liquidity measure of Predictive models",
+        "dataset":  {
+                        "id":  "model262",
+                        "name":  "DNN prediction of fundamentals"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-estimates-models",
+                            "name":  "Estimates Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.2489,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "compustat_liquidity_metric_three",
+        "description":  "3rd liquidity measure of Predictive models",
+        "dataset":  {
+                        "id":  "model262",
+                        "name":  "DNN prediction of fundamentals"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-estimates-models",
+                            "name":  "Estimates Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.2593,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "compustat_liquidity_metric_two",
+        "description":  "2nd liquidity measure of Predictive models",
+        "dataset":  {
+                        "id":  "model262",
+                        "name":  "DNN prediction of fundamentals"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-estimates-models",
+                            "name":  "Estimates Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.2594,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl262_accruals_revtq_predict",
+        "description":  "Predict value of Revenue - Total",
+        "dataset":  {
+                        "id":  "model262",
+                        "name":  "DNN prediction of fundamentals"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-estimates-models",
+                            "name":  "Estimates Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.3629,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl262_acoq_predict",
+        "description":  "Predicted value of Current Assets - Other - Total",
+        "dataset":  {
+                        "id":  "model262",
+                        "name":  "DNN prediction of fundamentals"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-estimates-models",
+                            "name":  "Estimates Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.361,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl262_ancq_predict",
+        "description":  "Market-implied predicted value of Non-Current Assets – Total (quarterly), as of close (D0)",
+        "dataset":  {
+                        "id":  "model262",
+                        "name":  "DNN prediction of fundamentals"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-estimates-models",
+                            "name":  "Estimates Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.3645,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl262_apq_predict",
+        "description":  "Market-implied predicted value of Accounts Payable/Creditors - Trade",
+        "dataset":  {
+                        "id":  "model262",
+                        "name":  "DNN prediction of fundamentals"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-estimates-models",
+                            "name":  "Estimates Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.3629,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl262_assets_revtq_predict",
+        "description":  "Market-implied predicted value of Revenue – Total (quarterly), as of close (D0)",
+        "dataset":  {
+                        "id":  "model262",
+                        "name":  "DNN prediction of fundamentals"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-estimates-models",
+                            "name":  "Estimates Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.3645,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl262_atq_predict",
+        "description":  "Market-implied predicted value of Assets – Total (quarterly), as of close (D0)",
+        "dataset":  {
+                        "id":  "model262",
+                        "name":  "DNN prediction of fundamentals"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-estimates-models",
+                            "name":  "Estimates Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.3645,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl262_capital_revtq_predict",
+        "description":  "Market-implied forecast for revenue, quarterly (REVTQ)",
+        "dataset":  {
+                        "id":  "model262",
+                        "name":  "DNN prediction of fundamentals"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-estimates-models",
+                            "name":  "Estimates Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.3567,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl262_cheq_predict",
+        "description":  "Predicted value of Cash and Short-Term Investments",
+        "dataset":  {
+                        "id":  "model262",
+                        "name":  "DNN prediction of fundamentals"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-estimates-models",
+                            "name":  "Estimates Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.361,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl262_cogsq_predict",
+        "description":  "Market-implied predicted quarterly value of Cost of Goods Sold (Compustat COGSQ), at 1-day delay",
+        "dataset":  {
+                        "id":  "model262",
+                        "name":  "DNN prediction of fundamentals"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-estimates-models",
+                            "name":  "Estimates Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.3629,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl262_compustatpredictiveacoq_mad_act",
+        "description":  "Mean absolute deviation of scaled actual values of Other Current Assets",
+        "dataset":  {
+                        "id":  "model262",
+                        "name":  "DNN prediction of fundamentals"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-estimates-models",
+                            "name":  "Estimates Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.4636,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl262_compustatpredictiveacoq_mad_pred",
+        "description":  "Mean absolute deviation of predicted values of Other Current Assets",
+        "dataset":  {
+                        "id":  "model262",
+                        "name":  "DNN prediction of fundamentals"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-estimates-models",
+                            "name":  "Estimates Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.4636,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl262_compustatpredictiveacoq_mae",
+        "description":  "Mean absolute error diagnostic for the model’s predictions of Other Current Assets",
+        "dataset":  {
+                        "id":  "model262",
+                        "name":  "DNN prediction of fundamentals"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-estimates-models",
+                            "name":  "Estimates Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.4636,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl262_compustatpredictiveacoq_prediction",
+        "description":  "Market-implied predicted value of Other Current Assets (quarterly), with a one-trading-day delay",
+        "dataset":  {
+                        "id":  "model262",
+                        "name":  "DNN prediction of fundamentals"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-estimates-models",
+                            "name":  "Estimates Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.3059,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl262_compustatpredictiveancq_mad_act",
+        "description":  "Mean absolute deviation of scaled actual Non-current Assets values (quarterly)",
+        "dataset":  {
+                        "id":  "model262",
+                        "name":  "DNN prediction of fundamentals"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-estimates-models",
+                            "name":  "Estimates Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.4653,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl262_compustatpredictiveancq_mad_pred",
+        "description":  "Mean absolute deviation of predicted Non-current Assets values (quarterly)",
+        "dataset":  {
+                        "id":  "model262",
+                        "name":  "DNN prediction of fundamentals"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-estimates-models",
+                            "name":  "Estimates Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.4653,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl262_compustatpredictiveancq_mae",
+        "description":  "Mean absolute error of the Non-current Assets prediction model (quarterly, D0)",
+        "dataset":  {
+                        "id":  "model262",
+                        "name":  "DNN prediction of fundamentals"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-estimates-models",
+                            "name":  "Estimates Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.4653,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl262_compustatpredictiveancq_prediction",
+        "description":  "Predicted/market-implied Non-current Assets value (quarterly) at D0",
+        "dataset":  {
+                        "id":  "model262",
+                        "name":  "DNN prediction of fundamentals"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-estimates-models",
+                            "name":  "Estimates Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.3226,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl262_compustatpredictiveapq_mad_act",
+        "description":  "Mean Absolute Deviation of scaled actual Accounts Payable values",
+        "dataset":  {
+                        "id":  "model262",
+                        "name":  "DNN prediction of fundamentals"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-estimates-models",
+                            "name":  "Estimates Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.4644,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl262_compustatpredictiveapq_mad_pred",
+        "description":  "Mean Absolute Deviation of predicted Accounts Payable values",
+        "dataset":  {
+                        "id":  "model262",
+                        "name":  "DNN prediction of fundamentals"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-estimates-models",
+                            "name":  "Estimates Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.4644,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl262_compustatpredictiveapq_mae",
+        "description":  "Mean absolute error of the APQ prediction for this module/stock-date, used as a validation metric",
+        "dataset":  {
+                        "id":  "model262",
+                        "name":  "DNN prediction of fundamentals"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-estimates-models",
+                            "name":  "Estimates Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.4644,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl262_compustatpredictiveapq_prediction",
+        "description":  "Market-implied predicted value of Accounts Payable (quarterly), as of close (D0)",
+        "dataset":  {
+                        "id":  "model262",
+                        "name":  "DNN prediction of fundamentals"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-estimates-models",
+                            "name":  "Estimates Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.3212,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl262_compustatpredictiveatq_mad_act",
+        "description":  "Mean absolute deviation of scaled actual Total Assets values",
+        "dataset":  {
+                        "id":  "model262",
+                        "name":  "DNN prediction of fundamentals"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-estimates-models",
+                            "name":  "Estimates Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.4653,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl262_compustatpredictiveatq_mad_pred",
+        "description":  "Mean absolute deviation of predicted Total Assets values",
+        "dataset":  {
+                        "id":  "model262",
+                        "name":  "DNN prediction of fundamentals"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-estimates-models",
+                            "name":  "Estimates Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.4653,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl262_compustatpredictiveatq_mae",
+        "description":  "Mean absolute error for the Total Assets prediction model",
+        "dataset":  {
+                        "id":  "model262",
+                        "name":  "DNN prediction of fundamentals"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-estimates-models",
+                            "name":  "Estimates Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.4653,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl262_compustatpredictiveatq_prediction",
+        "description":  "Predicted market-implied Total Assets (quarterly, ATQ) at 1-day delay",
+        "dataset":  {
+                        "id":  "model262",
+                        "name":  "DNN prediction of fundamentals"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-estimates-models",
+                            "name":  "Estimates Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.3226,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl262_compustatpredictivecheq_mad_act",
+        "description":  "Mean absolute deviation of the scaled actual Cash and Short-term Investments value",
+        "dataset":  {
+                        "id":  "model262",
+                        "name":  "DNN prediction of fundamentals"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-estimates-models",
+                            "name":  "Estimates Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.4651,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl262_compustatpredictivecheq_mad_pred",
+        "description":  "Mean absolute deviation of the predicted Cash and Short-term Investments value",
+        "dataset":  {
+                        "id":  "model262",
+                        "name":  "DNN prediction of fundamentals"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-estimates-models",
+                            "name":  "Estimates Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.4651,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl262_compustatpredictivecheq_mae",
+        "description":  "Mean absolute error (MAE) of the model for Cash and Short-term Investments",
+        "dataset":  {
+                        "id":  "model262",
+                        "name":  "DNN prediction of fundamentals"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-estimates-models",
+                            "name":  "Estimates Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.4651,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl262_compustatpredictivecheq_prediction",
+        "description":  "Predicted (market-implied) value of Cash and Short-term Investments",
+        "dataset":  {
+                        "id":  "model262",
+                        "name":  "DNN prediction of fundamentals"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-estimates-models",
+                            "name":  "Estimates Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.3239,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl262_compustatpredictivecogsq_mad_act",
+        "description":  "Mean absolute deviation of scaled actual quarterly Cost of Goods Sold values (diagnostic metric)",
+        "dataset":  {
+                        "id":  "model262",
+                        "name":  "DNN prediction of fundamentals"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-estimates-models",
+                            "name":  "Estimates Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.463,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl262_compustatpredictivecogsq_mad_pred",
+        "description":  "Mean absolute deviation of predicted quarterly Cost of Goods Sold values (diagnostic metric)",
+        "dataset":  {
+                        "id":  "model262",
+                        "name":  "DNN prediction of fundamentals"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-estimates-models",
+                            "name":  "Estimates Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.463,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl262_compustatpredictivecogsq_mae",
+        "description":  "Mean absolute error of the quarterly Cost of Goods Sold prediction for the USA Compustat predictive model (D0)",
+        "dataset":  {
+                        "id":  "model262",
+                        "name":  "DNN prediction of fundamentals"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-estimates-models",
+                            "name":  "Estimates Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.463,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl262_compustatpredictivecogsq_prediction",
+        "description":  "Market-implied prediction of quarterly Cost of Goods Sold (as-of-close, D0) for each stock/day",
+        "dataset":  {
+                        "id":  "model262",
+                        "name":  "DNN prediction of fundamentals"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-estimates-models",
+                            "name":  "Estimates Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.3184,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl262_compustatpredictivedlttq_mad_act",
+        "description":  "Mean Absolute Deviation of scaled actual Long-term Debt values",
+        "dataset":  {
+                        "id":  "model262",
+                        "name":  "DNN prediction of fundamentals"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-estimates-models",
+                            "name":  "Estimates Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.4647,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl262_compustatpredictivedlttq_mad_pred",
+        "description":  "Mean Absolute Deviation of predicted Long-term Debt values",
+        "dataset":  {
+                        "id":  "model262",
+                        "name":  "DNN prediction of fundamentals"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-estimates-models",
+                            "name":  "Estimates Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.4647,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl262_compustatpredictivedlttq_mae",
+        "description":  "Mean Absolute Error of the model\u0027s Long-term Debt prediction",
+        "dataset":  {
+                        "id":  "model262",
+                        "name":  "DNN prediction of fundamentals"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-estimates-models",
+                            "name":  "Estimates Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.4647,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl262_compustatpredictivedlttq_prediction",
+        "description":  "Market-implied predicted Long-term Debt (DLTTQ, quarterly) with 1-day delay",
+        "dataset":  {
+                        "id":  "model262",
+                        "name":  "DNN prediction of fundamentals"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-estimates-models",
+                            "name":  "Estimates Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.3064,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl262_compustatpredictivegdwlq_mad_act",
+        "description":  "Mean absolute deviation of scaled actual Goodwill values for this module",
+        "dataset":  {
+                        "id":  "model262",
+                        "name":  "DNN prediction of fundamentals"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-estimates-models",
+                            "name":  "Estimates Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.4599,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl262_compustatpredictivegdwlq_mad_pred",
+        "description":  "Mean absolute deviation of predicted Goodwill values for this module",
+        "dataset":  {
+                        "id":  "model262",
+                        "name":  "DNN prediction of fundamentals"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-estimates-models",
+                            "name":  "Estimates Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.4599,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl262_compustatpredictivegdwlq_mae",
+        "description":  "Mean absolute error of the Goodwill prediction model for this module",
+        "dataset":  {
+                        "id":  "model262",
+                        "name":  "DNN prediction of fundamentals"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-estimates-models",
+                            "name":  "Estimates Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.4599,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl262_compustatpredictivegdwlq_prediction",
+        "description":  "Market-implied predicted value of Goodwill (quarterly) at D0 (as-of-close)",
+        "dataset":  {
+                        "id":  "model262",
+                        "name":  "DNN prediction of fundamentals"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-estimates-models",
+                            "name":  "Estimates Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.2353,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl262_compustatpredictiveinvtq_mad_act",
+        "description":  "Mean Absolute Deviation of scaled actual value of Total Inventories",
+        "dataset":  {
+                        "id":  "model262",
+                        "name":  "DNN prediction of fundamentals"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-estimates-models",
+                            "name":  "Estimates Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.4648,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl262_compustatpredictiveinvtq_mad_pred",
+        "description":  "Mean Absolute Deviation of predicted value of Total Inventories",
+        "dataset":  {
+                        "id":  "model262",
+                        "name":  "DNN prediction of fundamentals"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-estimates-models",
+                            "name":  "Estimates Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.4648,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl262_compustatpredictiveinvtq_mae",
+        "description":  "Mean Absolute Error of the Total Inventories prediction model for this stock",
+        "dataset":  {
+                        "id":  "model262",
+                        "name":  "DNN prediction of fundamentals"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-estimates-models",
+                            "name":  "Estimates Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.4648,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl262_compustatpredictiveinvtq_prediction",
+        "description":  "Market-implied predicted value of Total Inventories (quarterly, Compustat INVTQ) with D1 delay",
+        "dataset":  {
+                        "id":  "model262",
+                        "name":  "DNN prediction of fundamentals"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-estimates-models",
+                            "name":  "Estimates Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.3109,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl262_compustatpredictivelctq_mad_act",
+        "description":  "Mean absolute deviation of the scaled actual Total Current Liabilities (Compustat LCTQ), quarterly",
+        "dataset":  {
+                        "id":  "model262",
+                        "name":  "DNN prediction of fundamentals"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-estimates-models",
+                            "name":  "Estimates Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.4652,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl262_compustatpredictivelctq_mad_pred",
+        "description":  "Mean absolute deviation of the predicted Total Current Liabilities (Compustat LCTQ), quarterly",
+        "dataset":  {
+                        "id":  "model262",
+                        "name":  "DNN prediction of fundamentals"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-estimates-models",
+                            "name":  "Estimates Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.4652,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl262_compustatpredictivelctq_mae",
+        "description":  "Mean absolute error of the model for predicted Total Current Liabilities (Compustat LCTQ)",
+        "dataset":  {
+                        "id":  "model262",
+                        "name":  "DNN prediction of fundamentals"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-estimates-models",
+                            "name":  "Estimates Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.4652,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl262_compustatpredictivelctq_prediction",
+        "description":  "Market-implied predicted value of Total Current Liabilities (Compustat LCTQ), quarterly, with 1-day delay",
+        "dataset":  {
+                        "id":  "model262",
+                        "name":  "DNN prediction of fundamentals"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-estimates-models",
+                            "name":  "Estimates Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.3225,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl262_compustatpredictiveltq_mad_act",
+        "description":  "Mean Absolute Deviation of scaled actual value of Total Liabilities",
+        "dataset":  {
+                        "id":  "model262",
+                        "name":  "DNN prediction of fundamentals"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-estimates-models",
+                            "name":  "Estimates Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.4584,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl262_compustatpredictiveltq_mad_pred",
+        "description":  "Mean Absolute Deviation of predicted value of Total Liabilities",
+        "dataset":  {
+                        "id":  "model262",
+                        "name":  "DNN prediction of fundamentals"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-estimates-models",
+                            "name":  "Estimates Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.4584,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl262_compustatpredictiveltq_mae",
+        "description":  "Mean Average Error of the model of Total Liabilities",
+        "dataset":  {
+                        "id":  "model262",
+                        "name":  "DNN prediction of fundamentals"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-estimates-models",
+                            "name":  "Estimates Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.4584,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl262_compustatpredictiveltq_prediction",
+        "description":  "Predicted value of Total Liabilities",
+        "dataset":  {
+                        "id":  "model262",
+                        "name":  "DNN prediction of fundamentals"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-estimates-models",
+                            "name":  "Estimates Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.3135,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl262_compustatpredictiveoiadpq_mad_act",
+        "description":  "Mean absolute deviation of scaled actual Operating Income After Depreciation (OIADPQ)",
+        "dataset":  {
+                        "id":  "model262",
+                        "name":  "DNN prediction of fundamentals"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-estimates-models",
+                            "name":  "Estimates Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.463,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl262_compustatpredictiveoiadpq_mad_pred",
+        "description":  "Mean absolute deviation of predicted Operating Income After Depreciation (OIADPQ)",
+        "dataset":  {
+                        "id":  "model262",
+                        "name":  "DNN prediction of fundamentals"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-estimates-models",
+                            "name":  "Estimates Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.463,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl262_compustatpredictiveoiadpq_mae",
+        "description":  "Mean absolute error of the model’s predicted Operating Income After Depreciation (OIADPQ)",
+        "dataset":  {
+                        "id":  "model262",
+                        "name":  "DNN prediction of fundamentals"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-estimates-models",
+                            "name":  "Estimates Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.463,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl262_compustatpredictiveoiadpq_prediction",
+        "description":  "Market-implied predicted value of quarterly Operating Income After Depreciation (Compustat OIADPQ) at D0 (as-of-close)",
+        "dataset":  {
+                        "id":  "model262",
+                        "name":  "DNN prediction of fundamentals"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-estimates-models",
+                            "name":  "Estimates Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.3149,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl262_compustatpredictivepiq_mad_act",
+        "description":  "Mean absolute deviation of the scaled actual Pretax Income (quarterly) for diagnostics",
+        "dataset":  {
+                        "id":  "model262",
+                        "name":  "DNN prediction of fundamentals"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-estimates-models",
+                            "name":  "Estimates Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.4629,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl262_compustatpredictivepiq_mad_pred",
+        "description":  "Mean absolute deviation of the predicted Pretax Income (quarterly) values for diagnostics",
+        "dataset":  {
+                        "id":  "model262",
+                        "name":  "DNN prediction of fundamentals"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-estimates-models",
+                            "name":  "Estimates Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.4629,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl262_compustatpredictivepiq_mae",
+        "description":  "Mean absolute error (MAE) of the Pretax Income (quarterly) prediction model",
+        "dataset":  {
+                        "id":  "model262",
+                        "name":  "DNN prediction of fundamentals"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-estimates-models",
+                            "name":  "Estimates Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.4629,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl262_compustatpredictivepiq_prediction",
+        "description":  "Market-implied predicted value of Pretax Income (quarterly) at D0",
+        "dataset":  {
+                        "id":  "model262",
+                        "name":  "DNN prediction of fundamentals"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-estimates-models",
+                            "name":  "Estimates Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.3204,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl262_compustatpredictiveppentq_mad_act",
+        "description":  "Mean Absolute Deviation of scaled actual value of Property Plant and Equipment - Total (Net)",
+        "dataset":  {
+                        "id":  "model262",
+                        "name":  "DNN prediction of fundamentals"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-estimates-models",
+                            "name":  "Estimates Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.465,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl262_compustatpredictiveppentq_mad_pred",
+        "description":  "Mean Absolute Deviation of predicted value of Property Plant and Equipment - Total (Net)",
+        "dataset":  {
+                        "id":  "model262",
+                        "name":  "DNN prediction of fundamentals"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-estimates-models",
+                            "name":  "Estimates Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.465,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl262_compustatpredictiveppentq_mae",
+        "description":  "Mean Average Error of the model of Property Plant and Equipment - Total (Net)",
+        "dataset":  {
+                        "id":  "model262",
+                        "name":  "DNN prediction of fundamentals"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-estimates-models",
+                            "name":  "Estimates Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.465,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl262_compustatpredictiveppentq_prediction",
+        "description":  "Predicted value of Property Plant and Equipment - Total (Net)",
+        "dataset":  {
+                        "id":  "model262",
+                        "name":  "DNN prediction of fundamentals"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-estimates-models",
+                            "name":  "Estimates Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.3209,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl262_compustatpredictiverectq_mad_act",
+        "description":  "Mean absolute deviation of scaled actual quarterly Receivables - Total (RECTQ)",
+        "dataset":  {
+                        "id":  "model262",
+                        "name":  "DNN prediction of fundamentals"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-estimates-models",
+                            "name":  "Estimates Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.4652,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl262_compustatpredictiverectq_mad_pred",
+        "description":  "Mean absolute deviation of predicted quarterly Receivables - Total (RECTQ) values",
+        "dataset":  {
+                        "id":  "model262",
+                        "name":  "DNN prediction of fundamentals"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-estimates-models",
+                            "name":  "Estimates Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.4652,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl262_compustatpredictiverectq_mae",
+        "description":  "Mean absolute error of the model’s predicted quarterly Receivables - Total (RECTQ)",
+        "dataset":  {
+                        "id":  "model262",
+                        "name":  "DNN prediction of fundamentals"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-estimates-models",
+                            "name":  "Estimates Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.4652,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl262_compustatpredictiverectq_prediction",
+        "description":  "Market-implied predicted quarterly Receivables - Total (RECTQ) value as of D0",
+        "dataset":  {
+                        "id":  "model262",
+                        "name":  "DNN prediction of fundamentals"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-estimates-models",
+                            "name":  "Estimates Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.3224,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl262_compustatpredictiverevtq_mad_act",
+        "description":  "Mean absolute deviation of the actual (scaled) realized quarterly total revenue used for validation",
+        "dataset":  {
+                        "id":  "model262",
+                        "name":  "DNN prediction of fundamentals"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-estimates-models",
+                            "name":  "Estimates Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.4629,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl262_compustatpredictiverevtq_mad_pred",
+        "description":  "Mean absolute deviation of the predicted total revenue (REVTQ) values",
+        "dataset":  {
+                        "id":  "model262",
+                        "name":  "DNN prediction of fundamentals"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-estimates-models",
+                            "name":  "Estimates Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.4629,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl262_compustatpredictiverevtq_mae",
+        "description":  "Mean absolute error of the model’s total revenue (REVTQ) prediction",
+        "dataset":  {
+                        "id":  "model262",
+                        "name":  "DNN prediction of fundamentals"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-estimates-models",
+                            "name":  "Estimates Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.4629,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl262_compustatpredictiverevtq_prediction",
+        "description":  "Market‑implied predicted quarterly total revenue (Compustat REVTQ) per stock/date for Europe, lagged by one trading day (D1)",
+        "dataset":  {
+                        "id":  "model262",
+                        "name":  "DNN prediction of fundamentals"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-estimates-models",
+                            "name":  "Estimates Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.3201,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl262_compustatpredictivetxtq_mad_act",
+        "description":  "Mean absolute deviation of the scaled actual quarterly Income Taxes - Total (TXTQ) values for this model",
+        "dataset":  {
+                        "id":  "model262",
+                        "name":  "DNN prediction of fundamentals"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-estimates-models",
+                            "name":  "Estimates Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.4628,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl262_compustatpredictivetxtq_mad_pred",
+        "description":  "Mean absolute deviation of the model’s predicted quarterly Income Taxes - Total (TXTQ) values",
+        "dataset":  {
+                        "id":  "model262",
+                        "name":  "DNN prediction of fundamentals"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-estimates-models",
+                            "name":  "Estimates Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.4628,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl262_compustatpredictivetxtq_mae",
+        "description":  "Mean absolute error of the model’s predicted quarterly Income Taxes - Total (TXTQ)",
+        "dataset":  {
+                        "id":  "model262",
+                        "name":  "DNN prediction of fundamentals"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-estimates-models",
+                            "name":  "Estimates Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.4628,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl262_compustatpredictivetxtq_prediction",
+        "description":  "Market-implied predicted quarterly Income Taxes - Total (TXTQ) value, D0 (as-of-close)",
+        "dataset":  {
+                        "id":  "model262",
+                        "name":  "DNN prediction of fundamentals"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-estimates-models",
+                            "name":  "Estimates Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.3174,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl262_compustatpredictivexintq_mad_act",
+        "description":  "Mean absolute deviation of the scaled actual quarterly Interest and Related Expense – Total (Compustat XINTQ) values",
+        "dataset":  {
+                        "id":  "model262",
+                        "name":  "DNN prediction of fundamentals"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-estimates-models",
+                            "name":  "Estimates Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.4629,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl262_compustatpredictivexintq_mad_pred",
+        "description":  "Mean absolute deviation of the predicted (market‑implied) quarterly Interest and Related Expense – Total values",
+        "dataset":  {
+                        "id":  "model262",
+                        "name":  "DNN prediction of fundamentals"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-estimates-models",
+                            "name":  "Estimates Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.4629,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl262_compustatpredictivexintq_mae",
+        "description":  "Mean absolute error of the model for quarterly Interest and Related Expense – Total predictions",
+        "dataset":  {
+                        "id":  "model262",
+                        "name":  "DNN prediction of fundamentals"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-estimates-models",
+                            "name":  "Estimates Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.4629,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl262_compustatpredictivexintq_prediction",
+        "description":  "Market‑implied predicted quarterly Interest and Related Expense – Total (Compustat XINTQ) with 1‑day delay",
+        "dataset":  {
+                        "id":  "model262",
+                        "name":  "DNN prediction of fundamentals"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-estimates-models",
+                            "name":  "Estimates Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.3157,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl262_compustat_models_leverage_payoff2",
+        "description":  "2nd deleveraged profitability measure of Predictive models",
+        "dataset":  {
+                        "id":  "model262",
+                        "name":  "DNN prediction of fundamentals"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-estimates-models",
+                            "name":  "Estimates Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.2522,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl262_compustat_models_leverage_payoff4",
+        "description":  "4th deleveraged profitability measure of Predictive models",
+        "dataset":  {
+                        "id":  "model262",
+                        "name":  "DNN prediction of fundamentals"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-estimates-models",
+                            "name":  "Estimates Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.2522,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl262_compustat_models_leverage_payoff5",
+        "description":  "5th deleveraged profitability measure of Predictive models",
+        "dataset":  {
+                        "id":  "model262",
+                        "name":  "DNN prediction of fundamentals"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-estimates-models",
+                            "name":  "Estimates Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.2522,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl262_compustat_models_profitability10",
+        "description":  "10th profitability field of Predictive models",
+        "dataset":  {
+                        "id":  "model262",
+                        "name":  "DNN prediction of fundamentals"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-estimates-models",
+                            "name":  "Estimates Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.2622,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl262_compustat_models_profitability12",
+        "description":  "12th profitability field of Predictive models",
+        "dataset":  {
+                        "id":  "model262",
+                        "name":  "DNN prediction of fundamentals"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-estimates-models",
+                            "name":  "Estimates Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.2614,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl262_compustat_models_profitability14",
+        "description":  "14th profitability field of Predictive models",
+        "dataset":  {
+                        "id":  "model262",
+                        "name":  "DNN prediction of fundamentals"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-estimates-models",
+                            "name":  "Estimates Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.2614,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl262_compustat_models_profitability15",
+        "description":  "15th profitability field of Predictive models",
+        "dataset":  {
+                        "id":  "model262",
+                        "name":  "DNN prediction of fundamentals"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-estimates-models",
+                            "name":  "Estimates Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.2614,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl262_compustat_models_profitability2",
+        "description":  "2nd profitability field of Predictive models",
+        "dataset":  {
+                        "id":  "model262",
+                        "name":  "DNN prediction of fundamentals"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-estimates-models",
+                            "name":  "Estimates Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.2631,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl262_compustat_models_profitability4",
+        "description":  "4th profitability field of Predictive models",
+        "dataset":  {
+                        "id":  "model262",
+                        "name":  "DNN prediction of fundamentals"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-estimates-models",
+                            "name":  "Estimates Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.2631,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl262_compustat_models_profitability5",
+        "description":  "5th profitability field of Predictive models",
+        "dataset":  {
+                        "id":  "model262",
+                        "name":  "DNN prediction of fundamentals"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-estimates-models",
+                            "name":  "Estimates Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.2631,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl262_compustat_models_profitability7",
+        "description":  "7th profitability field of Predictive models",
+        "dataset":  {
+                        "id":  "model262",
+                        "name":  "DNN prediction of fundamentals"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-estimates-models",
+                            "name":  "Estimates Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.2622,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl262_compustat_models_profitability9",
+        "description":  "9th profitability field of Predictive models",
+        "dataset":  {
+                        "id":  "model262",
+                        "name":  "DNN prediction of fundamentals"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-estimates-models",
+                            "name":  "Estimates Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.2622,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl262_compustat_models_tot_rev_cap",
+        "description":  "Total Revenue to market cap ratio of Predictive models",
+        "dataset":  {
+                        "id":  "model262",
+                        "name":  "DNN prediction of fundamentals"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-estimates-models",
+                            "name":  "Estimates Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.3151,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl262_compustat_models_tot_rev_yield",
+        "description":  "Total Revenue Yield of Predictive models",
+        "dataset":  {
+                        "id":  "model262",
+                        "name":  "DNN prediction of fundamentals"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-estimates-models",
+                            "name":  "Estimates Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.2522,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl262_currents_revtq_predict",
+        "description":  "Predict value of Revenue - Total",
+        "dataset":  {
+                        "id":  "model262",
+                        "name":  "DNN prediction of fundamentals"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-estimates-models",
+                            "name":  "Estimates Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.361,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl262_cur_mae",
+        "description":  "Mean absolute error of the Enterprise Value prediction/model",
+        "dataset":  {
+                        "id":  "model262",
+                        "name":  "DNN prediction of fundamentals"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-estimates-models",
+                            "name":  "Estimates Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.3786,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl262_cur_predict",
+        "description":  "Predicted Enterprise Value (market-implied EV) from the model with 1-day delay",
+        "dataset":  {
+                        "id":  "model262",
+                        "name":  "DNN prediction of fundamentals"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-estimates-models",
+                            "name":  "Estimates Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.4629,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl262_dlttq_predict",
+        "description":  "Market-implied forecast for long-term debt total, quarterly (DLTTQ)",
+        "dataset":  {
+                        "id":  "model262",
+                        "name":  "DNN prediction of fundamentals"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-estimates-models",
+                            "name":  "Estimates Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.3567,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl262_earnings_cap2",
+        "description":  "Earnings to cap ratio of Predictive models",
+        "dataset":  {
+                        "id":  "model262",
+                        "name":  "DNN prediction of fundamentals"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-estimates-models",
+                            "name":  "Estimates Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.3151,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl262_earnings_cap3",
+        "description":  "Earnings to cap ratio of Predictive models",
+        "dataset":  {
+                        "id":  "model262",
+                        "name":  "DNN prediction of fundamentals"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-estimates-models",
+                            "name":  "Estimates Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.3151,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl262_earnings_yield2",
+        "description":  "Earnings Yield of Predictive models",
+        "dataset":  {
+                        "id":  "model262",
+                        "name":  "DNN prediction of fundamentals"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-estimates-models",
+                            "name":  "Estimates Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.2522,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl262_earnings_yield3",
+        "description":  "Earnings Yield of Predictive models",
+        "dataset":  {
+                        "id":  "model262",
+                        "name":  "DNN prediction of fundamentals"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-estimates-models",
+                            "name":  "Estimates Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.2522,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl262_ebitd_a_predict",
+        "description":  "Market-implied annual Earnings before Interest, Tax, and Depreciation (EBITD) prediction, one-day delayed (D1)",
+        "dataset":  {
+                        "id":  "model262",
+                        "name":  "DNN prediction of fundamentals"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-estimates-models",
+                            "name":  "Estimates Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.4623,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl262_ebitd_q_predict",
+        "description":  "Market-implied quarterly Earnings before Interest, Tax, and Depreciation (EBITD) prediction, one-day delayed (D1)",
+        "dataset":  {
+                        "id":  "model262",
+                        "name":  "DNN prediction of fundamentals"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-estimates-models",
+                            "name":  "Estimates Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.4623,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl262_ebitd_ttm_predict",
+        "description":  "Market-implied trailing-twelve-month Earnings before Interest, Tax, and Depreciation (EBITD) prediction, one-day delayed (D1)",
+        "dataset":  {
+                        "id":  "model262",
+                        "name":  "DNN prediction of fundamentals"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-estimates-models",
+                            "name":  "Estimates Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.4623,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl262_ebit_a_predict",
+        "description":  "Predicted (market-implied) annual EBIT",
+        "dataset":  {
+                        "id":  "model262",
+                        "name":  "DNN prediction of fundamentals"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-estimates-models",
+                            "name":  "Estimates Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.4624,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl262_ebit_q_predict",
+        "description":  "Predicted (market-implied) quarterly EBIT",
+        "dataset":  {
+                        "id":  "model262",
+                        "name":  "DNN prediction of fundamentals"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-estimates-models",
+                            "name":  "Estimates Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.4624,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl262_ebit_ttm_predict",
+        "description":  "Predicted (market-implied) trailing-twelve-month EBIT",
+        "dataset":  {
+                        "id":  "model262",
+                        "name":  "DNN prediction of fundamentals"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-estimates-models",
+                            "name":  "Estimates Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.4624,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl262_ebt_a_predict",
+        "description":  "Market-implied forecast of annual earnings before tax (EBT), with 1-day delay",
+        "dataset":  {
+                        "id":  "model262",
+                        "name":  "DNN prediction of fundamentals"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-estimates-models",
+                            "name":  "Estimates Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.4624,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl262_ebt_q_predict",
+        "description":  "Market-implied forecast of quarterly earnings before tax (EBT), with 1-day delay",
+        "dataset":  {
+                        "id":  "model262",
+                        "name":  "DNN prediction of fundamentals"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-estimates-models",
+                            "name":  "Estimates Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.4624,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl262_ebt_ttm_predict",
+        "description":  "Market-implied forecast of trailing-twelve-month earnings before tax (EBT), with 1-day delay",
+        "dataset":  {
+                        "id":  "model262",
+                        "name":  "DNN prediction of fundamentals"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-estimates-models",
+                            "name":  "Estimates Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.4624,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl262_expense_piq_predict",
+        "description":  "Market-implied predicted quarterly value of Pretax Income (Compustat PIQ), at 1-day delay",
+        "dataset":  {
+                        "id":  "model262",
+                        "name":  "DNN prediction of fundamentals"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-estimates-models",
+                            "name":  "Estimates Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.3629,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl262_expense_revtq_predict",
+        "description":  "Market-implied forecast of quarterly revenue/sales (Compustat REVTQ), at D0 (no delay)",
+        "dataset":  {
+                        "id":  "model262",
+                        "name":  "DNN prediction of fundamentals"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-estimates-models",
+                            "name":  "Estimates Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.3629,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl262_fcf_a_predict",
+        "description":  "Predict value of Free Cash Flow",
+        "dataset":  {
+                        "id":  "model262",
+                        "name":  "DNN prediction of fundamentals"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-estimates-models",
+                            "name":  "Estimates Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.4624,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl262_fcf_q_predict",
+        "description":  "Predict value of Free Cash Flow",
+        "dataset":  {
+                        "id":  "model262",
+                        "name":  "DNN prediction of fundamentals"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-estimates-models",
+                            "name":  "Estimates Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.4624,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl262_fcf_ttm_predict",
+        "description":  "Predict value of Free Cash Flow",
+        "dataset":  {
+                        "id":  "model262",
+                        "name":  "DNN prediction of fundamentals"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-estimates-models",
+                            "name":  "Estimates Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.4624,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl262_income_piq_predict",
+        "description":  "Market-implied forecast of pretax income (Compustat PIQ), quarterly, as of close (D0)",
+        "dataset":  {
+                        "id":  "model262",
+                        "name":  "DNN prediction of fundamentals"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-estimates-models",
+                            "name":  "Estimates Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.3644,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl262_income_revtq_predict",
+        "description":  "Market-implied forecast of total revenue (Compustat REVTQ), quarterly, as of close (D0)",
+        "dataset":  {
+                        "id":  "model262",
+                        "name":  "DNN prediction of fundamentals"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-estimates-models",
+                            "name":  "Estimates Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.3644,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl262_lctq_predict",
+        "description":  "Predicted value of Current Liabilities - Total",
+        "dataset":  {
+                        "id":  "model262",
+                        "name":  "DNN prediction of fundamentals"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-estimates-models",
+                            "name":  "Estimates Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.361,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl262_ltq_predict",
+        "description":  "Predicted value of Total Liabilities (quarterly, market-implied)",
+        "dataset":  {
+                        "id":  "model262",
+                        "name":  "DNN prediction of fundamentals"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-estimates-models",
+                            "name":  "Estimates Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.3567,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl262_ni_a_predict",
+        "description":  "Market-implied forecast of annual Net Income, as of D0",
+        "dataset":  {
+                        "id":  "model262",
+                        "name":  "DNN prediction of fundamentals"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-estimates-models",
+                            "name":  "Estimates Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.4624,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl262_ni_q_predict",
+        "description":  "Market-implied forecast of quarterly Net Income, as of D0",
+        "dataset":  {
+                        "id":  "model262",
+                        "name":  "DNN prediction of fundamentals"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-estimates-models",
+                            "name":  "Estimates Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.4624,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl262_ni_ttm_predict",
+        "description":  "Market-implied forecast of Net Income on a trailing-twelve-month (TTM) basis, as of D0",
+        "dataset":  {
+                        "id":  "model262",
+                        "name":  "DNN prediction of fundamentals"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-estimates-models",
+                            "name":  "Estimates Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.4624,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl262_oiadpq_predict",
+        "description":  "Market-implied forecast of operating income after depreciation (Compustat OIADPQ), quarterly, as of close (D0)",
+        "dataset":  {
+                        "id":  "model262",
+                        "name":  "DNN prediction of fundamentals"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-estimates-models",
+                            "name":  "Estimates Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.3644,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl262_ppentq_predict",
+        "description":  "Market-implied forecast for property, plant and equipment, net, quarterly (PPENTQ)",
+        "dataset":  {
+                        "id":  "model262",
+                        "name":  "DNN prediction of fundamentals"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-estimates-models",
+                            "name":  "Estimates Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.3567,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl262_predictiveebitd_a_predict",
+        "description":  "Predict value of Earnings before Interest,Tax and Depreciation",
+        "dataset":  {
+                        "id":  "model262",
+                        "name":  "DNN prediction of fundamentals"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-estimates-models",
+                            "name":  "Estimates Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.388,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl262_predictiveebitd_q_predict",
+        "description":  "Predict value of Earnings before Interest,Tax and Depreciation",
+        "dataset":  {
+                        "id":  "model262",
+                        "name":  "DNN prediction of fundamentals"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-estimates-models",
+                            "name":  "Estimates Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.388,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl262_predictiveebitd_ttm_predict",
+        "description":  "Predict value of Earnings before Interest,Tax and Depreciation",
+        "dataset":  {
+                        "id":  "model262",
+                        "name":  "DNN prediction of fundamentals"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-estimates-models",
+                            "name":  "Estimates Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.388,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl262_predictiveebit_a_predict",
+        "description":  "Market-implied annual EBIT forecast (D1 delay)",
+        "dataset":  {
+                        "id":  "model262",
+                        "name":  "DNN prediction of fundamentals"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-estimates-models",
+                            "name":  "Estimates Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.3881,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl262_predictiveebit_q_predict",
+        "description":  "Market-implied quarterly EBIT forecast (D1 delay)",
+        "dataset":  {
+                        "id":  "model262",
+                        "name":  "DNN prediction of fundamentals"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-estimates-models",
+                            "name":  "Estimates Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.3881,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl262_predictiveebit_ttm_predict",
+        "description":  "Market-implied trailing-twelve-month (TTM) EBIT forecast (D1 delay)",
+        "dataset":  {
+                        "id":  "model262",
+                        "name":  "DNN prediction of fundamentals"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-estimates-models",
+                            "name":  "Estimates Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.3881,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl262_predictiveebt_a_predict",
+        "description":  "Market-implied forecast of annual Earnings Before Tax (EBT) for EUR-region stocks, delayed by one trading day (D1)",
+        "dataset":  {
+                        "id":  "model262",
+                        "name":  "DNN prediction of fundamentals"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-estimates-models",
+                            "name":  "Estimates Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.3881,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl262_predictiveebt_q_predict",
+        "description":  "Market-implied forecast of quarterly Earnings Before Tax (EBT) for EUR-region stocks, delayed by one trading day (D1)",
+        "dataset":  {
+                        "id":  "model262",
+                        "name":  "DNN prediction of fundamentals"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-estimates-models",
+                            "name":  "Estimates Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.3881,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl262_predictiveebt_ttm_predict",
+        "description":  "Market-implied forecast of trailing twelve months (TTM) Earnings Before Tax (EBT) for EUR-region stocks, delayed by one trading day (D1)",
+        "dataset":  {
+                        "id":  "model262",
+                        "name":  "DNN prediction of fundamentals"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-estimates-models",
+                            "name":  "Estimates Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.3881,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl262_predictiveev_cur_mae",
+        "description":  "Mean absolute error of the Enterprise Value predictive model (diagnostic metric)",
+        "dataset":  {
+                        "id":  "model262",
+                        "name":  "DNN prediction of fundamentals"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-estimates-models",
+                            "name":  "Estimates Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.328,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl262_predictiveev_cur_predict",
+        "description":  "Predicted (market-implied) Enterprise Value with 1-day delay",
+        "dataset":  {
+                        "id":  "model262",
+                        "name":  "DNN prediction of fundamentals"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-estimates-models",
+                            "name":  "Estimates Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.3884,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl262_predictivefcf_a_predict",
+        "description":  "Market‑implied forecast of annual free cash flow, lagged by one trading day (D1)",
+        "dataset":  {
+                        "id":  "model262",
+                        "name":  "DNN prediction of fundamentals"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-estimates-models",
+                            "name":  "Estimates Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.388,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl262_predictivefcf_q_predict",
+        "description":  "Implied quarterly Free Cash Flow prediction",
+        "dataset":  {
+                        "id":  "model262",
+                        "name":  "DNN prediction of fundamentals"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-estimates-models",
+                            "name":  "Estimates Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.388,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl262_predictivefcf_ttm_predict",
+        "description":  "Implied trailing‑twelve‑months Free Cash Flow prediction",
+        "dataset":  {
+                        "id":  "model262",
+                        "name":  "DNN prediction of fundamentals"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-estimates-models",
+                            "name":  "Estimates Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.388,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl262_predictiveni_a_predict",
+        "description":  "Market-implied annual Net Income prediction (as-of-close, D0)",
+        "dataset":  {
+                        "id":  "model262",
+                        "name":  "DNN prediction of fundamentals"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-estimates-models",
+                            "name":  "Estimates Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.3881,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl262_predictiveni_q_predict",
+        "description":  "Market-implied quarterly Net Income prediction (as-of-close, D0)",
+        "dataset":  {
+                        "id":  "model262",
+                        "name":  "DNN prediction of fundamentals"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-estimates-models",
+                            "name":  "Estimates Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.3881,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl262_predictiveni_ttm_predict",
+        "description":  "Market-implied trailing-twelve-month Net Income prediction (as-of-close, D0)",
+        "dataset":  {
+                        "id":  "model262",
+                        "name":  "DNN prediction of fundamentals"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-estimates-models",
+                            "name":  "Estimates Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.3881,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl262_predictiverev_a_predict",
+        "description":  "Predict value of Revenue - Total",
+        "dataset":  {
+                        "id":  "model262",
+                        "name":  "DNN prediction of fundamentals"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-estimates-models",
+                            "name":  "Estimates Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.3881,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl262_predictiverev_q_predict",
+        "description":  "Market-implied forecast of total revenue on a quarterly basis (D1 lag)",
+        "dataset":  {
+                        "id":  "model262",
+                        "name":  "DNN prediction of fundamentals"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-estimates-models",
+                            "name":  "Estimates Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.3881,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl262_predictiverev_ttm_predict",
+        "description":  "Market-implied forecast of total revenue on a trailing-twelve-month basis (D1 lag)",
+        "dataset":  {
+                        "id":  "model262",
+                        "name":  "DNN prediction of fundamentals"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-estimates-models",
+                            "name":  "Estimates Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.3881,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl262_predictivetotd_a_predict",
+        "description":  "Market-implied annual Total Debt forecast (point-in-time), with a 1-trading-day delay",
+        "dataset":  {
+                        "id":  "model262",
+                        "name":  "DNN prediction of fundamentals"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-estimates-models",
+                            "name":  "Estimates Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.3881,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl262_predictivetotd_q_predict",
+        "description":  "Market-implied quarterly Total Debt forecast (point-in-time), with a 1-trading-day delay",
+        "dataset":  {
+                        "id":  "model262",
+                        "name":  "DNN prediction of fundamentals"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-estimates-models",
+                            "name":  "Estimates Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.3881,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl262_rectq_predict",
+        "description":  "Market-implied predicted value of Receivables - Total",
+        "dataset":  {
+                        "id":  "model262",
+                        "name":  "DNN prediction of fundamentals"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-estimates-models",
+                            "name":  "Estimates Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.3629,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl262_rev_a_predict",
+        "description":  "Predict value of Revenue - Total",
+        "dataset":  {
+                        "id":  "model262",
+                        "name":  "DNN prediction of fundamentals"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-estimates-models",
+                            "name":  "Estimates Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.4624,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl262_rev_q_predict",
+        "description":  "Predict value of Revenue - Total",
+        "dataset":  {
+                        "id":  "model262",
+                        "name":  "DNN prediction of fundamentals"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-estimates-models",
+                            "name":  "Estimates Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.4624,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl262_rev_ttm_predict",
+        "description":  "Market‑implied predicted Total Revenue on a trailing‑twelve‑month basis (as of close, D0)",
+        "dataset":  {
+                        "id":  "model262",
+                        "name":  "DNN prediction of fundamentals"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-estimates-models",
+                            "name":  "Estimates Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.4624,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl262_totd_a_predict",
+        "description":  "Market implied point in time prediction of annual Total Debt with a 1 trading day delay",
+        "dataset":  {
+                        "id":  "model262",
+                        "name":  "DNN prediction of fundamentals"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-estimates-models",
+                            "name":  "Estimates Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.4623,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl262_totd_q_predict",
+        "description":  "Market implied point in time prediction of quarterly Total Debt with a 1 trading day delay",
+        "dataset":  {
+                        "id":  "model262",
+                        "name":  "DNN prediction of fundamentals"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-estimates-models",
+                            "name":  "Estimates Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.4623,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl262_txtq_predict",
+        "description":  "Market-implied predicted quarterly value of Income Taxes - Total (Compustat TXTQ), at 1-day delay",
+        "dataset":  {
+                        "id":  "model262",
+                        "name":  "DNN prediction of fundamentals"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-estimates-models",
+                            "name":  "Estimates Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.3629,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl262_xintq_predict",
+        "description":  "Market-implied predicted quarterly value of Interest and Related Expense - Total (Compustat XINTQ), at 1-day delay",
+        "dataset":  {
+                        "id":  "model262",
+                        "name":  "DNN prediction of fundamentals"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-estimates-models",
+                            "name":  "Estimates Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.3629,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    }
+]

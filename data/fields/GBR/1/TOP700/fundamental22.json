@@ -1,0 +1,32 @@
+﻿{
+    "id":  "fnd22_value",
+    "description":  "Numerical value of the specific ESG KPI for the given entity and date",
+    "dataset":  {
+                    "id":  "fundamental22",
+                    "name":  "Environmental and Social Governance Data"
+                },
+    "category":  {
+                     "id":  "fundamental",
+                     "name":  "Fundamental"
+                 },
+    "subcategory":  {
+                        "id":  "fundamental-fundamental-models",
+                        "name":  "Fundamental Models"
+                    },
+    "region":  "GBR",
+    "delay":  1,
+    "universe":  "TOP700",
+    "type":  "VECTOR",
+    "dateCoverage":  1,
+    "coverage":  0.7587,
+    "userCount":  0,
+    "alphaCount":  0,
+    "pyramidMultiplier":  2,
+    "themes":  {
+                   "value":  [
+
+                             ],
+                   "Count":  0
+               },
+    "dateCreated":  "2026-07-01"
+}

@@ -1,0 +1,130 @@
+﻿[
+    {
+        "id":  "mdl162_vwap_126",
+        "description":  "Predicted volume-weighted average price 126 trading days after the verified earnings conference call (D1-lagged, local currency, event-only rows)",
+        "dataset":  {
+                        "id":  "model162",
+                        "name":  "Return prediction from conference call"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-mlai-models",
+                            "name":  "ML/AI Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.1621,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl162_vwap_22",
+        "description":  "Predicted volume-weighted average price 22 trading days after the verified earnings conference call (D1-lagged, local currency, event-only rows)",
+        "dataset":  {
+                        "id":  "model162",
+                        "name":  "Return prediction from conference call"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-mlai-models",
+                            "name":  "ML/AI Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.1621,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl162_vwap_5",
+        "description":  "Predicted volume-weighted average price 5 trading days after the verified earnings conference call (D1-lagged, local currency, event-only rows)",
+        "dataset":  {
+                        "id":  "model162",
+                        "name":  "Return prediction from conference call"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-mlai-models",
+                            "name":  "ML/AI Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.1621,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl162_vwap_66",
+        "description":  "Predicted volume-weighted average price 66 trading days after the verified earnings conference call (D1-lagged, local currency, event-only rows)",
+        "dataset":  {
+                        "id":  "model162",
+                        "name":  "Return prediction from conference call"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-mlai-models",
+                            "name":  "ML/AI Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.1621,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    }
+]

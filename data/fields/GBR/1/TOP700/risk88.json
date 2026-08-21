@@ -1,0 +1,32 @@
+﻿{
+    "id":  "alternative_market_cap_usd",
+    "description":  "Market capitalization of each stock expressed in US dollars (stocks×dates matrix used for weighting/normalization)",
+    "dataset":  {
+                    "id":  "risk88",
+                    "name":  "Other Multi-Factor Risk Models"
+                },
+    "category":  {
+                     "id":  "risk",
+                     "name":  "Risk"
+                 },
+    "subcategory":  {
+                        "id":  "risk-risk-models",
+                        "name":  "Risk Models"
+                    },
+    "region":  "GBR",
+    "delay":  1,
+    "universe":  "TOP700",
+    "type":  "MATRIX",
+    "dateCoverage":  1,
+    "coverage":  1,
+    "userCount":  0,
+    "alphaCount":  0,
+    "pyramidMultiplier":  2,
+    "themes":  {
+                   "value":  [
+
+                             ],
+                   "Count":  0
+               },
+    "dateCreated":  "2026-07-01"
+}

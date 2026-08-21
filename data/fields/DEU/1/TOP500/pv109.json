@@ -1,0 +1,834 @@
+﻿[
+    {
+        "id":  "ask_side_conversion_yield",
+        "description":  "Yield to conversion based on the ask price.",
+        "dataset":  {
+                        "id":  "pv109",
+                        "name":  "Bond Yield Data"
+                    },
+        "category":  {
+                         "id":  "pv",
+                         "name":  "Price Volume"
+                     },
+        "subcategory":  {
+                            "id":  "pv-price-volume",
+                            "name":  "Price Volume"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0.4665,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "ask_side_yield_to_maturity",
+        "description":  "Yield to maturity calculated using the ask price; represents expected annualized return if purchased at the ask price and held to maturity",
+        "dataset":  {
+                        "id":  "pv109",
+                        "name":  "Bond Yield Data"
+                    },
+        "category":  {
+                         "id":  "pv",
+                         "name":  "Price Volume"
+                     },
+        "subcategory":  {
+                            "id":  "pv-price-volume",
+                            "name":  "Price Volume"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0.4665,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "bid_side_conversion_yield",
+        "description":  "Yield to conversion based on the bid price.",
+        "dataset":  {
+                        "id":  "pv109",
+                        "name":  "Bond Yield Data"
+                    },
+        "category":  {
+                         "id":  "pv",
+                         "name":  "Price Volume"
+                     },
+        "subcategory":  {
+                            "id":  "pv-price-volume",
+                            "name":  "Price Volume"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0.4665,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "bid_side_yield_to_maturity",
+        "description":  "Yield to maturity on the bid side, i.e., yield investors would earn if buying at bid price and holding to maturity",
+        "dataset":  {
+                        "id":  "pv109",
+                        "name":  "Bond Yield Data"
+                    },
+        "category":  {
+                         "id":  "pv",
+                         "name":  "Price Volume"
+                     },
+        "subcategory":  {
+                            "id":  "pv-price-volume",
+                            "name":  "Price Volume"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0.4665,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "bond_coupon_rate",
+        "description":  "The nominal coupon rate specified for the bond, representing periodic interest paid",
+        "dataset":  {
+                        "id":  "pv109",
+                        "name":  "Bond Yield Data"
+                    },
+        "category":  {
+                         "id":  "pv",
+                         "name":  "Price Volume"
+                     },
+        "subcategory":  {
+                            "id":  "pv-price-volume",
+                            "name":  "Price Volume"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0.4665,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "bond_maturity_structure",
+        "description":  "Type of bond maturity (e.g., bullet, fixed-term), categorizing how and when the bond principal is repaid",
+        "dataset":  {
+                        "id":  "pv109",
+                        "name":  "Bond Yield Data"
+                    },
+        "category":  {
+                         "id":  "pv",
+                         "name":  "Price Volume"
+                     },
+        "subcategory":  {
+                            "id":  "pv-price-volume",
+                            "name":  "Price Volume"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0.4665,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "coupon_payment_frequency",
+        "description":  "Code for frequency of coupon payments (e.g., annual, semiannual, quarterly)",
+        "dataset":  {
+                        "id":  "pv109",
+                        "name":  "Bond Yield Data"
+                    },
+        "category":  {
+                         "id":  "pv",
+                         "name":  "Price Volume"
+                     },
+        "subcategory":  {
+                            "id":  "pv-price-volume",
+                            "name":  "Price Volume"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0.4665,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "coupon_type_description",
+        "description":  "Code indicating the coupon type (e.g., fixed, floating, step-up)",
+        "dataset":  {
+                        "id":  "pv109",
+                        "name":  "Bond Yield Data"
+                    },
+        "category":  {
+                         "id":  "pv",
+                         "name":  "Price Volume"
+                     },
+        "subcategory":  {
+                            "id":  "pv-price-volume",
+                            "name":  "Price Volume"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0.4665,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "current_coupon_rate",
+        "description":  "Current coupon rate applicable on the bond as of the date, especially relevant for floating or step-up coupons",
+        "dataset":  {
+                        "id":  "pv109",
+                        "name":  "Bond Yield Data"
+                    },
+        "category":  {
+                         "id":  "pv",
+                         "name":  "Price Volume"
+                     },
+        "subcategory":  {
+                            "id":  "pv-price-volume",
+                            "name":  "Price Volume"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0.4665,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "face_value_amount",
+        "description":  "Par amount or face value of the bond",
+        "dataset":  {
+                        "id":  "pv109",
+                        "name":  "Bond Yield Data"
+                    },
+        "category":  {
+                         "id":  "pv",
+                         "name":  "Price Volume"
+                     },
+        "subcategory":  {
+                            "id":  "pv-price-volume",
+                            "name":  "Price Volume"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0.4665,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "highest_bid_price",
+        "description":  "Bid price, i.e., the price a buyer is willing to pay for the bond",
+        "dataset":  {
+                        "id":  "pv109",
+                        "name":  "Bond Yield Data"
+                    },
+        "category":  {
+                         "id":  "pv",
+                         "name":  "Price Volume"
+                     },
+        "subcategory":  {
+                            "id":  "pv-price-volume",
+                            "name":  "Price Volume"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0.4665,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "initial_issue_price",
+        "description":  "Price at which the bond was originally issued",
+        "dataset":  {
+                        "id":  "pv109",
+                        "name":  "Bond Yield Data"
+                    },
+        "category":  {
+                         "id":  "pv",
+                         "name":  "Price Volume"
+                     },
+        "subcategory":  {
+                            "id":  "pv-price-volume",
+                            "name":  "Price Volume"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0.4665,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "interest_day_count_basis",
+        "description":  "Day count convention code, specifying the interest accrual calculation method for coupon payments",
+        "dataset":  {
+                        "id":  "pv109",
+                        "name":  "Bond Yield Data"
+                    },
+        "category":  {
+                         "id":  "pv",
+                         "name":  "Price Volume"
+                     },
+        "subcategory":  {
+                            "id":  "pv-price-volume",
+                            "name":  "Price Volume"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0.4665,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "last_traded_price",
+        "description":  "Last traded price for the bond, typically representing the end-of-day closing price or last price observed",
+        "dataset":  {
+                        "id":  "pv109",
+                        "name":  "Bond Yield Data"
+                    },
+        "category":  {
+                         "id":  "pv",
+                         "name":  "Price Volume"
+                     },
+        "subcategory":  {
+                            "id":  "pv-price-volume",
+                            "name":  "Price Volume"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0.4665,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "lowest_ask_price",
+        "description":  "Bond\u0027s quoted ask (offer) price at the as-of date",
+        "dataset":  {
+                        "id":  "pv109",
+                        "name":  "Bond Yield Data"
+                    },
+        "category":  {
+                         "id":  "pv",
+                         "name":  "Price Volume"
+                     },
+        "subcategory":  {
+                            "id":  "pv-price-volume",
+                            "name":  "Price Volume"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0.4665,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "midpoint_conversion_yield",
+        "description":  "Yield to conversion calculated using the average of bid and ask prices.",
+        "dataset":  {
+                        "id":  "pv109",
+                        "name":  "Bond Yield Data"
+                    },
+        "category":  {
+                         "id":  "pv",
+                         "name":  "Price Volume"
+                     },
+        "subcategory":  {
+                            "id":  "pv-price-volume",
+                            "name":  "Price Volume"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0.4665,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "midpoint_trade_price",
+        "description":  "Mid price of the bond, either calculated or observed, typically midway between bid and ask prices",
+        "dataset":  {
+                        "id":  "pv109",
+                        "name":  "Bond Yield Data"
+                    },
+        "category":  {
+                         "id":  "pv",
+                         "name":  "Price Volume"
+                     },
+        "subcategory":  {
+                            "id":  "pv-price-volume",
+                            "name":  "Price Volume"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0.4665,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "midpoint_yield_to_maturity",
+        "description":  "Yield to maturity calculated at the mid price for the bond as of the as-of-date",
+        "dataset":  {
+                        "id":  "pv109",
+                        "name":  "Bond Yield Data"
+                    },
+        "category":  {
+                         "id":  "pv",
+                         "name":  "Price Volume"
+                     },
+        "subcategory":  {
+                            "id":  "pv-price-volume",
+                            "name":  "Price Volume"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0.4665,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "minimum_bond_denomination",
+        "description":  "Minimum denomination or smallest tradable amount of the bond",
+        "dataset":  {
+                        "id":  "pv109",
+                        "name":  "Bond Yield Data"
+                    },
+        "category":  {
+                         "id":  "pv",
+                         "name":  "Price Volume"
+                     },
+        "subcategory":  {
+                            "id":  "pv-price-volume",
+                            "name":  "Price Volume"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0.4665,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "minimum_trade_increment",
+        "description":  "Minimum trading increment, i.e., the smallest allowable amount by which the bond can be traded; expressed as a numerical value",
+        "dataset":  {
+                        "id":  "pv109",
+                        "name":  "Bond Yield Data"
+                    },
+        "category":  {
+                         "id":  "pv",
+                         "name":  "Price Volume"
+                     },
+        "subcategory":  {
+                            "id":  "pv-price-volume",
+                            "name":  "Price Volume"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0.4665,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "pv109_amt_issued",
+        "description":  "Total amount of the bond issued at origination",
+        "dataset":  {
+                        "id":  "pv109",
+                        "name":  "Bond Yield Data"
+                    },
+        "category":  {
+                         "id":  "pv",
+                         "name":  "Price Volume"
+                     },
+        "subcategory":  {
+                            "id":  "pv-price-volume",
+                            "name":  "Price Volume"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0.4665,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "pv109_amt_outstanding",
+        "description":  "The face value amount of the bond that is currently outstanding (not yet repaid) as of the date",
+        "dataset":  {
+                        "id":  "pv109",
+                        "name":  "Bond Yield Data"
+                    },
+        "category":  {
+                         "id":  "pv",
+                         "name":  "Price Volume"
+                     },
+        "subcategory":  {
+                            "id":  "pv-price-volume",
+                            "name":  "Price Volume"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0.4665,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "pv109_announce_dt",
+        "description":  "Date when the bond or related event (such as issuance) was publicly announced",
+        "dataset":  {
+                        "id":  "pv109",
+                        "name":  "Bond Yield Data"
+                    },
+        "category":  {
+                         "id":  "pv",
+                         "name":  "Price Volume"
+                     },
+        "subcategory":  {
+                            "id":  "pv-price-volume",
+                            "name":  "Price Volume"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0.4665,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "pv109_maturity",
+        "description":  "Date on which the bond matures, when principal is scheduled to be repaid",
+        "dataset":  {
+                        "id":  "pv109",
+                        "name":  "Bond Yield Data"
+                    },
+        "category":  {
+                         "id":  "pv",
+                         "name":  "Price Volume"
+                     },
+        "subcategory":  {
+                            "id":  "pv-price-volume",
+                            "name":  "Price Volume"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0.4665,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "redemption_value_amount",
+        "description":  "Redemption value, i.e., the amount paid upon maturity or call/redemption event of the bond",
+        "dataset":  {
+                        "id":  "pv109",
+                        "name":  "Bond Yield Data"
+                    },
+        "category":  {
+                         "id":  "pv",
+                         "name":  "Price Volume"
+                     },
+        "subcategory":  {
+                            "id":  "pv-price-volume",
+                            "name":  "Price Volume"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0.4665,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "total_traded_volume",
+        "description":  "Trading volume (number/amount of bonds traded) for the bond at the as-of date",
+        "dataset":  {
+                        "id":  "pv109",
+                        "name":  "Bond Yield Data"
+                    },
+        "category":  {
+                         "id":  "pv",
+                         "name":  "Price Volume"
+                     },
+        "subcategory":  {
+                            "id":  "pv-price-volume",
+                            "name":  "Price Volume"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0.4665,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    }
+]

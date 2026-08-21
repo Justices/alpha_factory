@@ -1,0 +1,32 @@
+﻿{
+    "id":  "sta3_6_sector",
+    "description":  "Statistical, point-in-time, categorical industry grouping code for each eligible equity in the EUR region, assigned by the companyGrouping6 module logic",
+    "dataset":  {
+                    "id":  "pv17",
+                    "name":  "Intermediate Cluster Groups"
+                },
+    "category":  {
+                     "id":  "pv",
+                     "name":  "Price Volume"
+                 },
+    "subcategory":  {
+                        "id":  "pv-price-volume",
+                        "name":  "Price Volume"
+                    },
+    "region":  "DEU",
+    "delay":  1,
+    "universe":  "TOP500",
+    "type":  "GROUP",
+    "dateCoverage":  1,
+    "coverage":  0,
+    "userCount":  0,
+    "alphaCount":  0,
+    "pyramidMultiplier":  2,
+    "themes":  {
+                   "value":  [
+
+                             ],
+                   "Count":  0
+               },
+    "dateCreated":  "2026-07-01"
+}

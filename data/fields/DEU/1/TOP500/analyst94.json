@@ -1,0 +1,1090 @@
+﻿[
+    {
+        "id":  "analyst_dps_ntm_revision_3m",
+        "description":  "The consensus revision over the last three months for the next-twelve-month (NTM) dividend-per-share (DPS) estimate. This is a float value.",
+        "dataset":  {
+                        "id":  "analyst94",
+                        "name":  "Fundamental Income and Dividend Model"
+                    },
+        "category":  {
+                         "id":  "analyst",
+                         "name":  "Analyst"
+                     },
+        "subcategory":  {
+                            "id":  "analyst-analyst-estimates",
+                            "name":  "Analyst Estimates"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "analyst_eps_next12m_revision_3m",
+        "description":  "The consensus revision over the last three months for the next-twelve-month (NTM) earnings-per-share (EPS) estimate. This is a float value.",
+        "dataset":  {
+                        "id":  "analyst94",
+                        "name":  "Fundamental Income and Dividend Model"
+                    },
+        "category":  {
+                         "id":  "analyst",
+                         "name":  "Analyst"
+                     },
+        "subcategory":  {
+                            "id":  "analyst-analyst-estimates",
+                            "name":  "Analyst Estimates"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "analyst_expected_dividend_yield",
+        "description":  "The forward-looking or expected dividend yield based on analyst consensus estimates. This is a float value.",
+        "dataset":  {
+                        "id":  "analyst94",
+                        "name":  "Fundamental Income and Dividend Model"
+                    },
+        "category":  {
+                         "id":  "analyst",
+                         "name":  "Analyst"
+                     },
+        "subcategory":  {
+                            "id":  "analyst-analyst-estimates",
+                            "name":  "Analyst Estimates"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "analyst_recommendation_avg",
+        "description":  "The average analyst recommendation score. This is a float value on a vendor-specific scale that may require normalization before use.",
+        "dataset":  {
+                        "id":  "analyst94",
+                        "name":  "Fundamental Income and Dividend Model"
+                    },
+        "category":  {
+                         "id":  "analyst",
+                         "name":  "Analyst"
+                     },
+        "subcategory":  {
+                            "id":  "analyst-analyst-estimates",
+                            "name":  "Analyst Estimates"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "analyst_target_price_return_d1",
+        "description":  "The implied return based on the consensus analyst target price versus the current price, from the research-safe T+1 (D1) module. This is a float value where a positive number implies expected upside.",
+        "dataset":  {
+                        "id":  "analyst94",
+                        "name":  "Fundamental Income and Dividend Model"
+                    },
+        "category":  {
+                         "id":  "analyst",
+                         "name":  "Analyst"
+                     },
+        "subcategory":  {
+                            "id":  "analyst-analyst-estimates",
+                            "name":  "Analyst Estimates"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "anl94_b_mtl_dlyspe",
+        "description":  "Earnings yield for the last twelve months, calculated as earnings over price, using Bloomberg-sourced trailing data",
+        "dataset":  {
+                        "id":  "analyst94",
+                        "name":  "Fundamental Income and Dividend Model"
+                    },
+        "category":  {
+                         "id":  "analyst",
+                         "name":  "Analyst"
+                     },
+        "subcategory":  {
+                            "id":  "analyst-analyst-estimates",
+                            "name":  "Analyst Estimates"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "anl94_cfrnoa",
+        "description":  "Cash flow return on net operating assets, a quality/profitability metric indicating how efficiently a company generates cash flow from its operational assets",
+        "dataset":  {
+                        "id":  "analyst94",
+                        "name":  "Fundamental Income and Dividend Model"
+                    },
+        "category":  {
+                         "id":  "analyst",
+                         "name":  "Analyst"
+                     },
+        "subcategory":  {
+                            "id":  "analyst-analyst-estimates",
+                            "name":  "Analyst Estimates"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "anl94_divyld",
+        "description":  "Trailing (historical) dividend yield expressed as a percentage, calculated as dividends paid over market price",
+        "dataset":  {
+                        "id":  "analyst94",
+                        "name":  "Fundamental Income and Dividend Model"
+                    },
+        "category":  {
+                         "id":  "analyst",
+                         "name":  "Analyst"
+                     },
+        "subcategory":  {
+                            "id":  "analyst-analyst-estimates",
+                            "name":  "Analyst Estimates"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "anl94_divyld_exp",
+        "description":  "Expected, forward-looking dividend yield percentage based on analyst or vendor estimates",
+        "dataset":  {
+                        "id":  "analyst94",
+                        "name":  "Fundamental Income and Dividend Model"
+                    },
+        "category":  {
+                         "id":  "analyst",
+                         "name":  "Analyst"
+                     },
+        "subcategory":  {
+                            "id":  "analyst-analyst-estimates",
+                            "name":  "Analyst Estimates"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "anl94_div_payout",
+        "description":  "Dividend payout ratio, calculated as Dividends divided by Earnings (factor is descending, so higher value = worse for sorting)",
+        "dataset":  {
+                        "id":  "analyst94",
+                        "name":  "Fundamental Income and Dividend Model"
+                    },
+        "category":  {
+                         "id":  "analyst",
+                         "name":  "Analyst"
+                     },
+        "subcategory":  {
+                            "id":  "analyst-analyst-estimates",
+                            "name":  "Analyst Estimates"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "anl94_find",
+        "description":  "Composite model score from the Fundamental INcome and Dividend (FIND) framework, summarizing value, dividend, quality, and sentiment characteristics",
+        "dataset":  {
+                        "id":  "analyst94",
+                        "name":  "Fundamental Income and Dividend Model"
+                    },
+        "category":  {
+                         "id":  "analyst",
+                         "name":  "Analyst"
+                     },
+        "subcategory":  {
+                            "id":  "analyst-analyst-estimates",
+                            "name":  "Analyst Estimates"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "anl94_gva_mmocer_se",
+        "description":  "Normalized average score of sell side analyst recommendations for the stock within the relevant regional universe",
+        "dataset":  {
+                        "id":  "analyst94",
+                        "name":  "Fundamental Income and Dividend Model"
+                    },
+        "category":  {
+                         "id":  "analyst",
+                         "name":  "Analyst"
+                     },
+        "subcategory":  {
+                            "id":  "analyst-analyst-estimates",
+                            "name":  "Analyst Estimates"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "anl94_m1m21_ntr",
+        "description":  "Momentum factor calculated as the 12-month (trailing) price return minus the most recent 1-month return, then normalized regionally",
+        "dataset":  {
+                        "id":  "analyst94",
+                        "name":  "Fundamental Income and Dividend Model"
+                    },
+        "category":  {
+                         "id":  "analyst",
+                         "name":  "Analyst"
+                     },
+        "subcategory":  {
+                            "id":  "analyst-analyst-estimates",
+                            "name":  "Analyst Estimates"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "anl94_m3r_mtn_spd_se",
+        "description":  "3-month momentum in analyst consensus estimate revisions for next twelve months’ dividend per share",
+        "dataset":  {
+                        "id":  "analyst94",
+                        "name":  "Fundamental Income and Dividend Model"
+                    },
+        "category":  {
+                         "id":  "analyst",
+                         "name":  "Analyst"
+                     },
+        "subcategory":  {
+                            "id":  "analyst-analyst-estimates",
+                            "name":  "Analyst Estimates"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "anl94_m3r_mtn_spe_se",
+        "description":  "Three-month momentum of analyst consensus revisions to next-twelve-months earnings per share (EPS) estimates",
+        "dataset":  {
+                        "id":  "analyst94",
+                        "name":  "Fundamental Income and Dividend Model"
+                    },
+        "category":  {
+                         "id":  "analyst",
+                         "name":  "Analyst"
+                     },
+        "subcategory":  {
+                            "id":  "analyst-analyst-estimates",
+                            "name":  "Analyst Estimates"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "anl94_mktcap",
+        "description":  "Market capitalization, the total market value of a company\u0027s outstanding shares",
+        "dataset":  {
+                        "id":  "analyst94",
+                        "name":  "Fundamental Income and Dividend Model"
+                    },
+        "category":  {
+                         "id":  "analyst",
+                         "name":  "Analyst"
+                     },
+        "subcategory":  {
+                            "id":  "analyst-analyst-estimates",
+                            "name":  "Analyst Estimates"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "anl94_news_sent_3m",
+        "description":  "Change in news sentiment score for the stock over the last three months, derived from vendor NLP analysis",
+        "dataset":  {
+                        "id":  "analyst94",
+                        "name":  "Fundamental Income and Dividend Model"
+                    },
+        "category":  {
+                         "id":  "analyst",
+                         "name":  "Analyst"
+                     },
+        "subcategory":  {
+                            "id":  "analyst-analyst-estimates",
+                            "name":  "Analyst Estimates"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "anl94_ntr_pt",
+        "description":  "Sell-side analyst target price return: (Target Price minus Current Price) divided by Current Price; normalized within the regional universe",
+        "dataset":  {
+                        "id":  "analyst94",
+                        "name":  "Fundamental Income and Dividend Model"
+                    },
+        "category":  {
+                         "id":  "analyst",
+                         "name":  "Analyst"
+                     },
+        "subcategory":  {
+                            "id":  "analyst-analyst-estimates",
+                            "name":  "Analyst Estimates"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "anl94_roe",
+        "description":  "Return on equity, calculated as net income divided by shareholder equity, usually z-score normalized within the region",
+        "dataset":  {
+                        "id":  "analyst94",
+                        "name":  "Fundamental Income and Dividend Model"
+                    },
+        "category":  {
+                         "id":  "analyst",
+                         "name":  "Analyst"
+                     },
+        "subcategory":  {
+                            "id":  "analyst-analyst-estimates",
+                            "name":  "Analyst Estimates"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "anl94_spd_rtni_rg",
+        "description":  "Smoothed/interpolated annualized growth rate of dividend per share for the company",
+        "dataset":  {
+                        "id":  "analyst94",
+                        "name":  "Fundamental Income and Dividend Model"
+                    },
+        "category":  {
+                         "id":  "analyst",
+                         "name":  "Analyst"
+                     },
+        "subcategory":  {
+                            "id":  "analyst-analyst-estimates",
+                            "name":  "Analyst Estimates"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "anl94_spe_rtni_rg",
+        "description":  "Smoothed/interpolated annualized growth rate of earnings per share for the company",
+        "dataset":  {
+                        "id":  "analyst94",
+                        "name":  "Fundamental Income and Dividend Model"
+                    },
+        "category":  {
+                         "id":  "analyst",
+                         "name":  "Analyst"
+                     },
+        "subcategory":  {
+                            "id":  "analyst-analyst-estimates",
+                            "name":  "Analyst Estimates"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "anl94_ve_fcf",
+        "description":  "Free cash flow divided by enterprise value, a valuation ratio showing profitability relative to company valuation",
+        "dataset":  {
+                        "id":  "analyst94",
+                        "name":  "Fundamental Income and Dividend Model"
+                    },
+        "category":  {
+                         "id":  "analyst",
+                         "name":  "Analyst"
+                     },
+        "subcategory":  {
+                            "id":  "analyst-analyst-estimates",
+                            "name":  "Analyst Estimates"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "cash_flow_return_on_net_operating_assets_d1",
+        "description":  "The company\u0027s cash flow return on net operating assets (CFRNOA), a measure of quality, from the research-safe T+1 (D1) module. This is a float value.",
+        "dataset":  {
+                        "id":  "analyst94",
+                        "name":  "Fundamental Income and Dividend Model"
+                    },
+        "category":  {
+                         "id":  "analyst",
+                         "name":  "Analyst"
+                     },
+        "subcategory":  {
+                            "id":  "analyst-analyst-estimates",
+                            "name":  "Analyst Estimates"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "dividend_payout_ratio_d1",
+        "description":  "The ratio of dividends paid out relative to net income, from the research-safe T+1 (D1) module. This is a float value and may require winsorization.",
+        "dataset":  {
+                        "id":  "analyst94",
+                        "name":  "Fundamental Income and Dividend Model"
+                    },
+        "category":  {
+                         "id":  "analyst",
+                         "name":  "Analyst"
+                     },
+        "subcategory":  {
+                            "id":  "analyst-analyst-estimates",
+                            "name":  "Analyst Estimates"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "free_cash_flow_to_enterprise_value_ratio",
+        "description":  "The ratio of a company\u0027s free cash flow to its enterprise value (FCF/EV). This is a float value.",
+        "dataset":  {
+                        "id":  "analyst94",
+                        "name":  "Fundamental Income and Dividend Model"
+                    },
+        "category":  {
+                         "id":  "analyst",
+                         "name":  "Analyst"
+                     },
+        "subcategory":  {
+                            "id":  "analyst-analyst-estimates",
+                            "name":  "Analyst Estimates"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "fundamental_income_dividend_score_d1",
+        "description":  "The main proprietary composite score from Wolfe\u0027s Fundamental Income and Dividend (FIND) model, from the research-safe T+1 (D1) module. This is a float value.",
+        "dataset":  {
+                        "id":  "analyst94",
+                        "name":  "Fundamental Income and Dividend Model"
+                    },
+        "category":  {
+                         "id":  "analyst",
+                         "name":  "Analyst"
+                     },
+        "subcategory":  {
+                            "id":  "analyst-analyst-estimates",
+                            "name":  "Analyst Estimates"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "interpolated_dividend_per_share_growth_d1",
+        "description":  "The interpolated or estimated dividend-per-share (DPS) growth rate, from the research-safe T+1 (D1) module. This is a float value.",
+        "dataset":  {
+                        "id":  "analyst94",
+                        "name":  "Fundamental Income and Dividend Model"
+                    },
+        "category":  {
+                         "id":  "analyst",
+                         "name":  "Analyst"
+                     },
+        "subcategory":  {
+                            "id":  "analyst-analyst-estimates",
+                            "name":  "Analyst Estimates"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "interpolated_eps_growth_d1",
+        "description":  "The interpolated or estimated earnings-per-share (EPS) growth rate, from the research-safe T+1 (D1) module. This is a float value.",
+        "dataset":  {
+                        "id":  "analyst94",
+                        "name":  "Fundamental Income and Dividend Model"
+                    },
+        "category":  {
+                         "id":  "analyst",
+                         "name":  "Analyst"
+                     },
+        "subcategory":  {
+                            "id":  "analyst-analyst-estimates",
+                            "name":  "Analyst Estimates"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "market_cap",
+        "description":  "The company\u0027s market capitalization. This is a float value with currency and units dependent on the specific region and vendor.",
+        "dataset":  {
+                        "id":  "analyst94",
+                        "name":  "Fundamental Income and Dividend Model"
+                    },
+        "category":  {
+                         "id":  "analyst",
+                         "name":  "Analyst"
+                     },
+        "subcategory":  {
+                            "id":  "analyst-analyst-estimates",
+                            "name":  "Analyst Estimates"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "news_sentiment_3m_d1",
+        "description":  "A composite score representing the change in news sentiment over the last three months, from the research-safe T+1 (D1) module. This is a float value.",
+        "dataset":  {
+                        "id":  "analyst94",
+                        "name":  "Fundamental Income and Dividend Model"
+                    },
+        "category":  {
+                         "id":  "analyst",
+                         "name":  "Analyst"
+                     },
+        "subcategory":  {
+                            "id":  "analyst-analyst-estimates",
+                            "name":  "Analyst Estimates"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "price_momentum_12m_minus_1m",
+        "description":  "The 12-month price return excluding the most recent month (12M-1M), a standard momentum factor. This is a float value.",
+        "dataset":  {
+                        "id":  "analyst94",
+                        "name":  "Fundamental Income and Dividend Model"
+                    },
+        "category":  {
+                         "id":  "analyst",
+                         "name":  "Analyst"
+                     },
+        "subcategory":  {
+                            "id":  "analyst-analyst-estimates",
+                            "name":  "Analyst Estimates"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "return_on_equity_d1",
+        "description":  "The company\u0027s return on equity (ROE), a measure of profitability, from the research-safe T+1 (D1) module. This is a float value.",
+        "dataset":  {
+                        "id":  "analyst94",
+                        "name":  "Fundamental Income and Dividend Model"
+                    },
+        "category":  {
+                         "id":  "analyst",
+                         "name":  "Analyst"
+                     },
+        "subcategory":  {
+                            "id":  "analyst-analyst-estimates",
+                            "name":  "Analyst Estimates"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "trailing_dividend_yield_d1",
+        "description":  "The historical dividend yield based on past payments over the last twelve months, from the research-safe T+1 (D1) module. This is a float value.",
+        "dataset":  {
+                        "id":  "analyst94",
+                        "name":  "Fundamental Income and Dividend Model"
+                    },
+        "category":  {
+                         "id":  "analyst",
+                         "name":  "Analyst"
+                     },
+        "subcategory":  {
+                            "id":  "analyst-analyst-estimates",
+                            "name":  "Analyst Estimates"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "trailing_eps_yield_ltm",
+        "description":  "Trailing twelve-month (LTM) earnings-per-share (EPS) yield, calculated as EPS divided by price. This is a float value, typically from Bloomberg-derived pipelines.",
+        "dataset":  {
+                        "id":  "analyst94",
+                        "name":  "Fundamental Income and Dividend Model"
+                    },
+        "category":  {
+                         "id":  "analyst",
+                         "name":  "Analyst"
+                     },
+        "subcategory":  {
+                            "id":  "analyst-analyst-estimates",
+                            "name":  "Analyst Estimates"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    }
+]

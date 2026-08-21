@@ -1,0 +1,930 @@
+﻿[
+    {
+        "id":  "average_bid_ask_price_warrant",
+        "description":  "Midpoint price between bid and ask for the warrant",
+        "dataset":  {
+                        "id":  "pv132",
+                        "name":  "Equity Warrants Data"
+                    },
+        "category":  {
+                         "id":  "pv",
+                         "name":  "Price Volume"
+                     },
+        "subcategory":  {
+                            "id":  "pv-price-volume",
+                            "name":  "Price Volume"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "highest_buyer_offer_warrant",
+        "description":  "Market bid price for the warrant at the end of the trading period",
+        "dataset":  {
+                        "id":  "pv132",
+                        "name":  "Equity Warrants Data"
+                    },
+        "category":  {
+                         "id":  "pv",
+                         "name":  "Price Volume"
+                     },
+        "subcategory":  {
+                            "id":  "pv-price-volume",
+                            "name":  "Price Volume"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "official_fixed_price_warrant",
+        "description":  "The officially determined price for the warrant, typically set by the exchange.",
+        "dataset":  {
+                        "id":  "pv132",
+                        "name":  "Equity Warrants Data"
+                    },
+        "category":  {
+                         "id":  "pv",
+                         "name":  "Price Volume"
+                     },
+        "subcategory":  {
+                            "id":  "pv-price-volume",
+                            "name":  "Price Volume"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "pv132_high_52week",
+        "description":  "The highest trading price of the warrant observed within the last 52 weeks",
+        "dataset":  {
+                        "id":  "pv132",
+                        "name":  "Equity Warrants Data"
+                    },
+        "category":  {
+                         "id":  "pv",
+                         "name":  "Price Volume"
+                     },
+        "subcategory":  {
+                            "id":  "pv-price-volume",
+                            "name":  "Price Volume"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "pv132_high_dt_52week",
+        "description":  "Date on which the 52-week high price occurred",
+        "dataset":  {
+                        "id":  "pv132",
+                        "name":  "Equity Warrants Data"
+                    },
+        "category":  {
+                         "id":  "pv",
+                         "name":  "Price Volume"
+                     },
+        "subcategory":  {
+                            "id":  "pv-price-volume",
+                            "name":  "Price Volume"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "pv132_low_52week",
+        "description":  "52-week low price of the warrant",
+        "dataset":  {
+                        "id":  "pv132",
+                        "name":  "Equity Warrants Data"
+                    },
+        "category":  {
+                         "id":  "pv",
+                         "name":  "Price Volume"
+                     },
+        "subcategory":  {
+                            "id":  "pv-price-volume",
+                            "name":  "Price Volume"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "pv132_low_dt_52week",
+        "description":  "Date on which the 52-week low price occurred",
+        "dataset":  {
+                        "id":  "pv132",
+                        "name":  "Equity Warrants Data"
+                    },
+        "category":  {
+                         "id":  "pv",
+                         "name":  "Price Volume"
+                     },
+        "subcategory":  {
+                            "id":  "pv-price-volume",
+                            "name":  "Price Volume"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "pv132_pq_lotsize",
+        "description":  "Quote Lot Size",
+        "dataset":  {
+                        "id":  "pv132",
+                        "name":  "Equity Warrants Data"
+                    },
+        "category":  {
+                         "id":  "pv",
+                         "name":  "Price Volume"
+                     },
+        "subcategory":  {
+                            "id":  "pv-price-volume",
+                            "name":  "Price Volume"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "pv132_px_ask",
+        "description":  "Market ask price for the warrant at the end of the trading period",
+        "dataset":  {
+                        "id":  "pv132",
+                        "name":  "Equity Warrants Data"
+                    },
+        "category":  {
+                         "id":  "pv",
+                         "name":  "Price Volume"
+                     },
+        "subcategory":  {
+                            "id":  "pv-price-volume",
+                            "name":  "Price Volume"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "pv132_px_high",
+        "description":  "Highest price of the warrant during the trading day",
+        "dataset":  {
+                        "id":  "pv132",
+                        "name":  "Equity Warrants Data"
+                    },
+        "category":  {
+                         "id":  "pv",
+                         "name":  "Price Volume"
+                     },
+        "subcategory":  {
+                            "id":  "pv-price-volume",
+                            "name":  "Price Volume"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "pv132_px_last",
+        "description":  "Last traded price of the warrant for the trading day",
+        "dataset":  {
+                        "id":  "pv132",
+                        "name":  "Equity Warrants Data"
+                    },
+        "category":  {
+                         "id":  "pv",
+                         "name":  "Price Volume"
+                     },
+        "subcategory":  {
+                            "id":  "pv-price-volume",
+                            "name":  "Price Volume"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "pv132_px_low",
+        "description":  "Lowest price of the warrant during the trading day",
+        "dataset":  {
+                        "id":  "pv132",
+                        "name":  "Equity Warrants Data"
+                    },
+        "category":  {
+                         "id":  "pv",
+                         "name":  "Price Volume"
+                     },
+        "subcategory":  {
+                            "id":  "pv-price-volume",
+                            "name":  "Price Volume"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "pv132_px_open",
+        "description":  "Opening price of the warrant for the trading day",
+        "dataset":  {
+                        "id":  "pv132",
+                        "name":  "Equity Warrants Data"
+                    },
+        "category":  {
+                         "id":  "pv",
+                         "name":  "Price Volume"
+                     },
+        "subcategory":  {
+                            "id":  "pv-price-volume",
+                            "name":  "Price Volume"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "pv132_px_round_lot_size",
+        "description":  "Minimum tradable lot size for the warrant",
+        "dataset":  {
+                        "id":  "pv132",
+                        "name":  "Equity Warrants Data"
+                    },
+        "category":  {
+                         "id":  "pv",
+                         "name":  "Price Volume"
+                     },
+        "subcategory":  {
+                            "id":  "pv-price-volume",
+                            "name":  "Price Volume"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "pv132_px_vol",
+        "description":  "Total number of warrant contracts traded during the trading day",
+        "dataset":  {
+                        "id":  "pv132",
+                        "name":  "Equity Warrants Data"
+                    },
+        "category":  {
+                         "id":  "pv",
+                         "name":  "Price Volume"
+                     },
+        "subcategory":  {
+                            "id":  "pv-price-volume",
+                            "name":  "Price Volume"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "pv132_pyt_trw",
+        "description":  "Warrant type classification (e.g., call, put, covered), decoded via IX",
+        "dataset":  {
+                        "id":  "pv132",
+                        "name":  "Equity Warrants Data"
+                    },
+        "category":  {
+                         "id":  "pv",
+                         "name":  "Price Volume"
+                     },
+        "subcategory":  {
+                            "id":  "pv-price-volume",
+                            "name":  "Price Volume"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "pv132_pyt_xp_trw",
+        "description":  "Price type code indicating the kind of price (e.g., bid, ask, last, official)",
+        "dataset":  {
+                        "id":  "pv132",
+                        "name":  "Equity Warrants Data"
+                    },
+        "category":  {
+                         "id":  "pv",
+                         "name":  "Price Volume"
+                     },
+        "subcategory":  {
+                            "id":  "pv-price-volume",
+                            "name":  "Price Volume"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "pv132_td_rexe_trw",
+        "description":  "Exercise date of the warrant, the date when the warrant can be exercised",
+        "dataset":  {
+                        "id":  "pv132",
+                        "name":  "Equity Warrants Data"
+                    },
+        "category":  {
+                         "id":  "pv",
+                         "name":  "Price Volume"
+                     },
+        "subcategory":  {
+                            "id":  "pv-price-volume",
+                            "name":  "Price Volume"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "pv132_wrt_divisor",
+        "description":  "Divisor",
+        "dataset":  {
+                        "id":  "pv132",
+                        "name":  "Equity Warrants Data"
+                    },
+        "category":  {
+                         "id":  "pv",
+                         "name":  "Price Volume"
+                     },
+        "subcategory":  {
+                            "id":  "pv-price-volume",
+                            "name":  "Price Volume"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "pv132_wrt_expire_dt",
+        "description":  "Expiration Date or maturity date of the warrant",
+        "dataset":  {
+                        "id":  "pv132",
+                        "name":  "Equity Warrants Data"
+                    },
+        "category":  {
+                         "id":  "pv",
+                         "name":  "Price Volume"
+                     },
+        "subcategory":  {
+                            "id":  "pv-price-volume",
+                            "name":  "Price Volume"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "pv132_wrt_issue_amt",
+        "description":  "Number of warrant contracts issued",
+        "dataset":  {
+                        "id":  "pv132",
+                        "name":  "Equity Warrants Data"
+                    },
+        "category":  {
+                         "id":  "pv",
+                         "name":  "Price Volume"
+                     },
+        "subcategory":  {
+                            "id":  "pv-price-volume",
+                            "name":  "Price Volume"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "pv132_wrt_issue_dt",
+        "description":  "Issue Date of the warrant in YYYYMMDD format",
+        "dataset":  {
+                        "id":  "pv132",
+                        "name":  "Equity Warrants Data"
+                    },
+        "category":  {
+                         "id":  "pv",
+                         "name":  "Price Volume"
+                     },
+        "subcategory":  {
+                            "id":  "pv-price-volume",
+                            "name":  "Price Volume"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "pv132_wrt_issue_prc",
+        "description":  "Issue Price of the warrant",
+        "dataset":  {
+                        "id":  "pv132",
+                        "name":  "Equity Warrants Data"
+                    },
+        "category":  {
+                         "id":  "pv",
+                         "name":  "Price Volume"
+                     },
+        "subcategory":  {
+                            "id":  "pv-price-volume",
+                            "name":  "Price Volume"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "pv132_wrt_min_exer",
+        "description":  "Minimum quantity required for a valid exercise of the warrant",
+        "dataset":  {
+                        "id":  "pv132",
+                        "name":  "Equity Warrants Data"
+                    },
+        "category":  {
+                         "id":  "pv",
+                         "name":  "Price Volume"
+                     },
+        "subcategory":  {
+                            "id":  "pv-price-volume",
+                            "name":  "Price Volume"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "pv132_wrt_settle_typ",
+        "description":  "Type of settlement for the warrant contract (e.g., cash or physical settlement), decoded via IX",
+        "dataset":  {
+                        "id":  "pv132",
+                        "name":  "Equity Warrants Data"
+                    },
+        "category":  {
+                         "id":  "pv",
+                         "name":  "Price Volume"
+                     },
+        "subcategory":  {
+                            "id":  "pv-price-volume",
+                            "name":  "Price Volume"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "pv132_wrt_sh_per",
+        "description":  "Number of underlying shares represented per warrant",
+        "dataset":  {
+                        "id":  "pv132",
+                        "name":  "Equity Warrants Data"
+                    },
+        "category":  {
+                         "id":  "pv",
+                         "name":  "Price Volume"
+                     },
+        "subcategory":  {
+                            "id":  "pv-price-volume",
+                            "name":  "Price Volume"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "pv132_xp_ldnu_trw",
+        "description":  "Price of the underlying equity/security related to the warrant",
+        "dataset":  {
+                        "id":  "pv132",
+                        "name":  "Equity Warrants Data"
+                    },
+        "category":  {
+                         "id":  "pv",
+                         "name":  "Price Volume"
+                     },
+        "subcategory":  {
+                            "id":  "pv-price-volume",
+                            "name":  "Price Volume"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "pv132_xp_rexe_trw",
+        "description":  "Exercise (strike) Price of the warrant",
+        "dataset":  {
+                        "id":  "pv132",
+                        "name":  "Equity Warrants Data"
+                    },
+        "category":  {
+                         "id":  "pv",
+                         "name":  "Price Volume"
+                     },
+        "subcategory":  {
+                            "id":  "pv-price-volume",
+                            "name":  "Price Volume"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "pv132_xp_trw",
+        "description":  "Warrant price",
+        "dataset":  {
+                        "id":  "pv132",
+                        "name":  "Equity Warrants Data"
+                    },
+        "category":  {
+                         "id":  "pv",
+                         "name":  "Price Volume"
+                     },
+        "subcategory":  {
+                            "id":  "pv-price-volume",
+                            "name":  "Price Volume"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    }
+]

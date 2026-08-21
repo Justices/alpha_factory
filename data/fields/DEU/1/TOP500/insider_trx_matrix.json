@@ -1,0 +1,1058 @@
+﻿[
+    {
+        "id":  "directional_indicator_score",
+        "description":  "Score indicating the net direction of aggregated transactions.",
+        "dataset":  {
+                        "id":  "insider_trx_matrix",
+                        "name":  "Global Insider Transaction Aggregates"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-event-data",
+                            "name":  "Event Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  1,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mean_buy_transaction_count",
+        "description":  "Average per event of insider buy activity across all purchase events on D0 in the base OGE module",
+        "dataset":  {
+                        "id":  "insider_trx_matrix",
+                        "name":  "Global Insider Transaction Aggregates"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-event-data",
+                            "name":  "Event Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.5344,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mean_secondary_buy_transaction_count",
+        "description":  "Average per event of insider buy activity using aggregation recipe 2 on D0",
+        "dataset":  {
+                        "id":  "insider_trx_matrix",
+                        "name":  "Global Insider Transaction Aggregates"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-event-data",
+                            "name":  "Event Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.5344,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mean_secondary_sell_transaction_count",
+        "description":  "Average per event of insider sell activity using aggregation recipe 2 on D0",
+        "dataset":  {
+                        "id":  "insider_trx_matrix",
+                        "name":  "Global Insider Transaction Aggregates"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-event-data",
+                            "name":  "Event Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.5344,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mean_sell_transaction_count",
+        "description":  "Average per event of insider sell activity across all sale events on D0 in the base OGE module",
+        "dataset":  {
+                        "id":  "insider_trx_matrix",
+                        "name":  "Global Insider Transaction Aggregates"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-event-data",
+                            "name":  "Event Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.5344,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mean_top_buy_transaction_count",
+        "description":  "Average per event of high-confidence (“Top”) insider buy activity on D0",
+        "dataset":  {
+                        "id":  "insider_trx_matrix",
+                        "name":  "Global Insider Transaction Aggregates"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-event-data",
+                            "name":  "Event Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.5344,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mean_top_secondary_buy_transaction_count",
+        "description":  "Average per event of high-confidence (“Top”) insider buy activity using aggregation recipe 2 on D0",
+        "dataset":  {
+                        "id":  "insider_trx_matrix",
+                        "name":  "Global Insider Transaction Aggregates"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-event-data",
+                            "name":  "Event Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.5344,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mean_top_secondary_sell_transaction_count",
+        "description":  "Average per event of high-confidence (“Top”) insider sell activity using the alternative aggregation recipe 2 on D0",
+        "dataset":  {
+                        "id":  "insider_trx_matrix",
+                        "name":  "Global Insider Transaction Aggregates"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-event-data",
+                            "name":  "Event Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.5344,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mean_top_sell_transaction_count",
+        "description":  "Average per event of high-confidence (“Top”) insider sell activity on D0",
+        "dataset":  {
+                        "id":  "insider_trx_matrix",
+                        "name":  "Global Insider Transaction Aggregates"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-event-data",
+                            "name":  "Event Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.5344,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "total_buy_transaction_count",
+        "description":  "Sum of insider buy activity across all purchase events for the stock on D0 in the base OGE module (proprietary intensity units)",
+        "dataset":  {
+                        "id":  "insider_trx_matrix",
+                        "name":  "Global Insider Transaction Aggregates"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-event-data",
+                            "name":  "Event Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.5344,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "total_secondary_buy_transaction_count",
+        "description":  "Sum of insider buy activity across all events using aggregation recipe 2 on D0",
+        "dataset":  {
+                        "id":  "insider_trx_matrix",
+                        "name":  "Global Insider Transaction Aggregates"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-event-data",
+                            "name":  "Event Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.5344,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "total_secondary_sell_transaction_count",
+        "description":  "Sum of insider sell activity across all events using aggregation recipe 2 on D0",
+        "dataset":  {
+                        "id":  "insider_trx_matrix",
+                        "name":  "Global Insider Transaction Aggregates"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-event-data",
+                            "name":  "Event Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.5344,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "total_sell_transaction_count",
+        "description":  "Sum of insider sell activity across all sale events for the stock on D0 in the base OGE module (proprietary intensity units; higher = more selling)",
+        "dataset":  {
+                        "id":  "insider_trx_matrix",
+                        "name":  "Global Insider Transaction Aggregates"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-event-data",
+                            "name":  "Event Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.5344,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "total_top_buy_transaction_count",
+        "description":  "Sum of high-confidence (“Top”) insider buy activity on D0",
+        "dataset":  {
+                        "id":  "insider_trx_matrix",
+                        "name":  "Global Insider Transaction Aggregates"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-event-data",
+                            "name":  "Event Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.5344,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "total_top_secondary_buy_transaction_count",
+        "description":  "Sum of high-confidence (“Top”) insider buy activity using aggregation recipe 2 on D0",
+        "dataset":  {
+                        "id":  "insider_trx_matrix",
+                        "name":  "Global Insider Transaction Aggregates"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-event-data",
+                            "name":  "Event Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.5344,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "total_top_secondary_sell_transaction_count",
+        "description":  "Sum of high-confidence (“Top”) insider sell activity using aggregation recipe 2 on D0",
+        "dataset":  {
+                        "id":  "insider_trx_matrix",
+                        "name":  "Global Insider Transaction Aggregates"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-event-data",
+                            "name":  "Event Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.5344,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "total_top_sell_transaction_count",
+        "description":  "Sum of high-confidence (“Top”) insider sell activity on D0",
+        "dataset":  {
+                        "id":  "insider_trx_matrix",
+                        "name":  "Global Insider Transaction Aggregates"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-event-data",
+                            "name":  "Event Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.5344,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "usd_direct_signal_value_1",
+        "description":  "Mean USD value of shares bought directly by directors with significant trades",
+        "dataset":  {
+                        "id":  "insider_trx_matrix",
+                        "name":  "Global Insider Transaction Aggregates"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-event-data",
+                            "name":  "Event Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.5207,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "usd_direct_signal_value_2",
+        "description":  "Sum USD value of shares bought directly by directors with significant trades",
+        "dataset":  {
+                        "id":  "insider_trx_matrix",
+                        "name":  "Global Insider Transaction Aggregates"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-event-data",
+                            "name":  "Event Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.5207,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "usd_direct_signal_value_3",
+        "description":  "Mean USD value of shares sold directly by directors with significant trades",
+        "dataset":  {
+                        "id":  "insider_trx_matrix",
+                        "name":  "Global Insider Transaction Aggregates"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-event-data",
+                            "name":  "Event Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.5207,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "usd_direct_signal_value_4",
+        "description":  "Sum USD value of shares sold directly by directors with significant trades",
+        "dataset":  {
+                        "id":  "insider_trx_matrix",
+                        "name":  "Global Insider Transaction Aggregates"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-event-data",
+                            "name":  "Event Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.5207,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "usd_primary_signal_value",
+        "description":  "Mean USD value of shares bought by directors with significant trades",
+        "dataset":  {
+                        "id":  "insider_trx_matrix",
+                        "name":  "Global Insider Transaction Aggregates"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-event-data",
+                            "name":  "Event Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.5207,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "usd_quaternary_signal_value",
+        "description":  "Sum USD value of shares sold by directors with significant trades",
+        "dataset":  {
+                        "id":  "insider_trx_matrix",
+                        "name":  "Global Insider Transaction Aggregates"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-event-data",
+                            "name":  "Event Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.5207,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "usd_secondary_signal_value",
+        "description":  "Sum USD value of shares bought by directors with significant trades",
+        "dataset":  {
+                        "id":  "insider_trx_matrix",
+                        "name":  "Global Insider Transaction Aggregates"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-event-data",
+                            "name":  "Event Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.5207,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "usd_tertiary_signal_value",
+        "description":  "Mean USD value of shares sold by directors with significant trades",
+        "dataset":  {
+                        "id":  "insider_trx_matrix",
+                        "name":  "Global Insider Transaction Aggregates"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-event-data",
+                            "name":  "Event Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.5207,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "usd_top_direct_signal_value_1",
+        "description":  "Mean USD value of shares bought directly by executives with significant trades",
+        "dataset":  {
+                        "id":  "insider_trx_matrix",
+                        "name":  "Global Insider Transaction Aggregates"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-event-data",
+                            "name":  "Event Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.5207,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "usd_top_direct_signal_value_2",
+        "description":  "Sum USD value of shares bought directly by executives with significant trades",
+        "dataset":  {
+                        "id":  "insider_trx_matrix",
+                        "name":  "Global Insider Transaction Aggregates"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-event-data",
+                            "name":  "Event Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.5207,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "usd_top_direct_signal_value_3",
+        "description":  "Mean USD value of shares sold directly by executives with significant trades",
+        "dataset":  {
+                        "id":  "insider_trx_matrix",
+                        "name":  "Global Insider Transaction Aggregates"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-event-data",
+                            "name":  "Event Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.5207,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "usd_top_direct_signal_value_4",
+        "description":  "Sum USD value of shares sold directly by executives with significant trades",
+        "dataset":  {
+                        "id":  "insider_trx_matrix",
+                        "name":  "Global Insider Transaction Aggregates"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-event-data",
+                            "name":  "Event Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.5207,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "usd_top_primary_signal_value",
+        "description":  "Mean USD value of shares bought by executives with significant trades",
+        "dataset":  {
+                        "id":  "insider_trx_matrix",
+                        "name":  "Global Insider Transaction Aggregates"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-event-data",
+                            "name":  "Event Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.5207,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "usd_top_quaternary_signal_value",
+        "description":  "Sum USD value of shares sold by executives with significant trades",
+        "dataset":  {
+                        "id":  "insider_trx_matrix",
+                        "name":  "Global Insider Transaction Aggregates"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-event-data",
+                            "name":  "Event Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.5207,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "usd_top_secondary_signal_value",
+        "description":  "Sum USD value of shares bought by executives with significant trades",
+        "dataset":  {
+                        "id":  "insider_trx_matrix",
+                        "name":  "Global Insider Transaction Aggregates"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-event-data",
+                            "name":  "Event Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.5207,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "usd_top_tertiary_signal_value",
+        "description":  "Mean USD value of shares sold by executives with significant trades",
+        "dataset":  {
+                        "id":  "insider_trx_matrix",
+                        "name":  "Global Insider Transaction Aggregates"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-event-data",
+                            "name":  "Event Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.5207,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    }
+]

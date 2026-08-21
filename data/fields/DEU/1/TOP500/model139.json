@@ -1,0 +1,66 @@
+﻿[
+    {
+        "id":  "mdl139_mktcap",
+        "description":  "Market capitalization of the company/security, typically in USD for this module",
+        "dataset":  {
+                        "id":  "model139",
+                        "name":  "Inflation based stock selection model"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-risk-based-models",
+                            "name":  "Risk Based Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl139_score",
+        "description":  "Composite RISE alpha score ranging from 0 to 1, indicating expected outperformance in rising inflation environments",
+        "dataset":  {
+                        "id":  "model139",
+                        "name":  "Inflation based stock selection model"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-risk-based-models",
+                            "name":  "Risk Based Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    }
+]

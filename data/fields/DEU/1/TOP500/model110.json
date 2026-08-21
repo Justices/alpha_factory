@@ -1,0 +1,258 @@
+﻿[
+    {
+        "id":  "mdl110_alternative",
+        "description":  "Composite alpha signal generated from non-traditional sources such as alternative data, big data, and unstructured information",
+        "dataset":  {
+                        "id":  "model110",
+                        "name":  "Big data and machine learning based model"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-mlai-models",
+                            "name":  "ML/AI Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl110_analyst_sentiment",
+        "description":  "Aggregate sentiment score derived from analyst ratings, estimate revisions, and market sentiment factors",
+        "dataset":  {
+                        "id":  "model110",
+                        "name":  "Big data and machine learning based model"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-mlai-models",
+                            "name":  "ML/AI Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl110_growth",
+        "description":  "Composite growth factor derived from forward-looking estimates and backward-looking financials, representing robust sales and earnings growth",
+        "dataset":  {
+                        "id":  "model110",
+                        "name":  "Big data and machine learning based model"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-mlai-models",
+                            "name":  "ML/AI Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl110_price_momentum_reversal",
+        "description":  "A score indicating the influence of recent price momentum and mean-reversion effects on the stock price, capturing both trends and potential reversals in price over short to medium time periods",
+        "dataset":  {
+                        "id":  "model110",
+                        "name":  "Big data and machine learning based model"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-mlai-models",
+                            "name":  "ML/AI Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl110_quality",
+        "description":  "Composite score measuring company profitability, accounting robustness, earnings quality, and risk-related financial metrics",
+        "dataset":  {
+                        "id":  "model110",
+                        "name":  "Big data and machine learning based model"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-mlai-models",
+                            "name":  "ML/AI Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl110_score",
+        "description":  "The overall alpha signal produced by a weighted combination of all underlying factor scores (sentiment, quality, value, growth, price momentum/reversion, alternative, tree)",
+        "dataset":  {
+                        "id":  "model110",
+                        "name":  "Big data and machine learning based model"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-mlai-models",
+                            "name":  "ML/AI Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl110_tree",
+        "description":  "A composite score generated from nonlinear tree-based machine learning models, synthesizing all available individual signals and factors to capture complex interactions and enhance alpha prediction beyond linear approaches",
+        "dataset":  {
+                        "id":  "model110",
+                        "name":  "Big data and machine learning based model"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-mlai-models",
+                            "name":  "ML/AI Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl110_value",
+        "description":  "Composite valuation factor blending multiple price-based and fundamental metrics such as P/E, P/B, and price-to-sales",
+        "dataset":  {
+                        "id":  "model110",
+                        "name":  "Big data and machine learning based model"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-mlai-models",
+                            "name":  "ML/AI Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    }
+]

@@ -1,0 +1,4706 @@
+﻿[
+    {
+        "id":  "long_term_balance_sheet_rank_europe",
+        "description":  "Long-term ranking of companies based on balance sheet strength in the European universe.",
+        "dataset":  {
+                        "id":  "multi_horizon_alpha",
+                        "name":  "Multi Horizon Alpha Decomposition"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-reversion-models",
+                            "name":  "Reversion Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "long_term_balance_sheet_strength_europe_rank",
+        "description":  "Long-horizon rank for balance sheet strength in European companies.",
+        "dataset":  {
+                        "id":  "multi_horizon_alpha",
+                        "name":  "Multi Horizon Alpha Decomposition"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-reversion-models",
+                            "name":  "Reversion Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "long_term_capital_acquisition_ratio_3",
+        "description":  "Long-term ratio of operating cash flow after dividends to total capital expenditures, measuring sustained ability to fund investments internally.",
+        "dataset":  {
+                        "id":  "multi_horizon_alpha",
+                        "name":  "Multi Horizon Alpha Decomposition"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-reversion-models",
+                            "name":  "Reversion Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "long_term_change_in_net_operating_assets",
+        "description":  "Long-term year-over-year change of net operating assets to total assets.",
+        "dataset":  {
+                        "id":  "multi_horizon_alpha",
+                        "name":  "Multi Horizon Alpha Decomposition"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-reversion-models",
+                            "name":  "Reversion Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "long_term_change_in_price_adj_eps",
+        "description":  "Long-term change in trailing 12-month EPS compared to four quarters ago, deflated by month-end trading price.",
+        "dataset":  {
+                        "id":  "multi_horizon_alpha",
+                        "name":  "Multi Horizon Alpha Decomposition"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-reversion-models",
+                            "name":  "Reversion Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "long_term_change_in_price_adj_eps_2",
+        "description":  "Long-term change in trailing 12-month EPS compared to four quarters ago, deflated by month-end trading price.",
+        "dataset":  {
+                        "id":  "multi_horizon_alpha",
+                        "name":  "Multi Horizon Alpha Decomposition"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-reversion-models",
+                            "name":  "Reversion Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "long_term_deep_value_europe_rank",
+        "description":  "Long-horizon composite rank for deep value model in European equities.",
+        "dataset":  {
+                        "id":  "multi_horizon_alpha",
+                        "name":  "Multi Horizon Alpha Decomposition"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-reversion-models",
+                            "name":  "Reversion Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "long_term_ebitda_to_enterprise_value_ratio",
+        "description":  "Enterprise value divided by EBITDA (EV/EBITDA) ratio",
+        "dataset":  {
+                        "id":  "multi_horizon_alpha",
+                        "name":  "Multi Horizon Alpha Decomposition"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-reversion-models",
+                            "name":  "Reversion Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "long_term_ebitda_to_enterprise_value_ratio_2",
+        "description":  "Ratio of earnings before interest, taxes, depreciation, and amortization to enterprise value, measured over a long-term horizon.",
+        "dataset":  {
+                        "id":  "multi_horizon_alpha",
+                        "name":  "Multi Horizon Alpha Decomposition"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-reversion-models",
+                            "name":  "Reversion Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "long_term_enterprise_value_europe_rank",
+        "description":  "Long-horizon rank for enterprise value-based valuation in European stocks.",
+        "dataset":  {
+                        "id":  "multi_horizon_alpha",
+                        "name":  "Multi Horizon Alpha Decomposition"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-reversion-models",
+                            "name":  "Reversion Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "long_term_enterprise_value_rank_europe",
+        "description":  "Long-horizon rank for enterprise value-based valuation in European stocks.",
+        "dataset":  {
+                        "id":  "multi_horizon_alpha",
+                        "name":  "Multi Horizon Alpha Decomposition"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-reversion-models",
+                            "name":  "Reversion Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "long_term_estimate_revision_europe_rank",
+        "description":  "Long-horizon rank for analyst earnings estimate revisions in European stocks.",
+        "dataset":  {
+                        "id":  "multi_horizon_alpha",
+                        "name":  "Multi Horizon Alpha Decomposition"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-reversion-models",
+                            "name":  "Reversion Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "long_term_financial_statement_rank_europe",
+        "description":  "Long-term ranking of companies based on overall financial statement strength in the European universe.",
+        "dataset":  {
+                        "id":  "multi_horizon_alpha",
+                        "name":  "Multi Horizon Alpha Decomposition"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-reversion-models",
+                            "name":  "Reversion Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "long_term_financial_statement_strength_europe_rank",
+        "description":  "Long-horizon rank for financial statement strength in European companies.",
+        "dataset":  {
+                        "id":  "multi_horizon_alpha",
+                        "name":  "Multi Horizon Alpha Decomposition"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-reversion-models",
+                            "name":  "Reversion Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "long_term_five_day_industry_relative_return",
+        "description":  "Long-term difference between a stock\u0027s 5-day return and industry average, deflated by standard deviation.",
+        "dataset":  {
+                        "id":  "multi_horizon_alpha",
+                        "name":  "Multi Horizon Alpha Decomposition"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-reversion-models",
+                            "name":  "Reversion Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "long_term_free_cash_flow_to_price_2",
+        "description":  "Long-term ratio of trailing 12-month free cash flow per share to month-end trading price.",
+        "dataset":  {
+                        "id":  "multi_horizon_alpha",
+                        "name":  "Multi Horizon Alpha Decomposition"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-reversion-models",
+                            "name":  "Reversion Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "long_term_free_cash_flow_to_price_3",
+        "description":  "Long-term ratio of trailing 12-month free cash flow per share to month-end trading price.",
+        "dataset":  {
+                        "id":  "multi_horizon_alpha",
+                        "name":  "Multi Horizon Alpha Decomposition"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-reversion-models",
+                            "name":  "Reversion Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "long_term_growth_analyst_europe_rank",
+        "description":  "Long-horizon rank for growth-focused analyst model in European equities.",
+        "dataset":  {
+                        "id":  "multi_horizon_alpha",
+                        "name":  "Multi Horizon Alpha Decomposition"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-reversion-models",
+                            "name":  "Reversion Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "long_term_growth_flow_to_price_2",
+        "description":  "Long-term sum of trailing 12-month growth flow value per share divided by month-end trading price.",
+        "dataset":  {
+                        "id":  "multi_horizon_alpha",
+                        "name":  "Multi Horizon Alpha Decomposition"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-reversion-models",
+                            "name":  "Reversion Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "long_term_growth_flow_to_price_3",
+        "description":  "Long-term sum of trailing 12-month growth flow value per share divided by month-end trading price.",
+        "dataset":  {
+                        "id":  "multi_horizon_alpha",
+                        "name":  "Multi Horizon Alpha Decomposition"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-reversion-models",
+                            "name":  "Reversion Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "long_term_income_statement_europe_rank",
+        "description":  "Long-horizon rank for income statement strength in European companies.",
+        "dataset":  {
+                        "id":  "multi_horizon_alpha",
+                        "name":  "Multi Horizon Alpha Decomposition"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-reversion-models",
+                            "name":  "Reversion Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "long_term_income_statement_rank_europe",
+        "description":  "Long-term ranking of companies based on income statement strength in the European universe.",
+        "dataset":  {
+                        "id":  "multi_horizon_alpha",
+                        "name":  "Multi Horizon Alpha Decomposition"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-reversion-models",
+                            "name":  "Reversion Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "long_term_inverse_dividend_adjusted_peg",
+        "description":  "Long-term reciprocal of the forward P/E ratio divided by total growth rate and adjusted for dividend yield.",
+        "dataset":  {
+                        "id":  "multi_horizon_alpha",
+                        "name":  "Multi Horizon Alpha Decomposition"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-reversion-models",
+                            "name":  "Reversion Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "long_term_management_efficiency_europe_rank",
+        "description":  "Long-horizon rank for management efficiency in European companies.",
+        "dataset":  {
+                        "id":  "multi_horizon_alpha",
+                        "name":  "Multi Horizon Alpha Decomposition"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-reversion-models",
+                            "name":  "Reversion Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "long_term_management_efficiency_rank_europe",
+        "description":  "Long-horizon rank for management efficiency in European companies.",
+        "dataset":  {
+                        "id":  "multi_horizon_alpha",
+                        "name":  "Multi Horizon Alpha Decomposition"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-reversion-models",
+                            "name":  "Reversion Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "long_term_management_leverage_europe_rank",
+        "description":  "Long-horizon rank for management leverage in European companies.",
+        "dataset":  {
+                        "id":  "multi_horizon_alpha",
+                        "name":  "Multi Horizon Alpha Decomposition"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-reversion-models",
+                            "name":  "Reversion Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "long_term_management_leverage_rank_europe",
+        "description":  "Long-horizon rank for management leverage in European companies.",
+        "dataset":  {
+                        "id":  "multi_horizon_alpha",
+                        "name":  "Multi Horizon Alpha Decomposition"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-reversion-models",
+                            "name":  "Reversion Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "long_term_momentum_analyst_europe_rank",
+        "description":  "Long-horizon composite rank for momentum-focused analyst model in European equities.",
+        "dataset":  {
+                        "id":  "multi_horizon_alpha",
+                        "name":  "Multi Horizon Alpha Decomposition"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-reversion-models",
+                            "name":  "Reversion Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "long_term_net_number_revisions_fy1",
+        "description":  "Long-term net number of analyst forecast revisions for FY1 within a month, weighted by total forecasts.",
+        "dataset":  {
+                        "id":  "multi_horizon_alpha",
+                        "name":  "Multi Horizon Alpha Decomposition"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-reversion-models",
+                            "name":  "Reversion Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "long_term_operating_liability_leverage_change2",
+        "description":  "Long-horizon change in operating liability leverage, indicating shifts in non-debt financing.",
+        "dataset":  {
+                        "id":  "multi_horizon_alpha",
+                        "name":  "Multi Horizon Alpha Decomposition"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-reversion-models",
+                            "name":  "Reversion Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "long_term_price_momentum_europe_rank",
+        "description":  "Long-horizon rank for price momentum in European equities.",
+        "dataset":  {
+                        "id":  "multi_horizon_alpha",
+                        "name":  "Multi Horizon Alpha Decomposition"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-reversion-models",
+                            "name":  "Reversion Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "long_term_price_to_total_assets_ratio",
+        "description":  "Long-horizon ratio of price to total assets per share.",
+        "dataset":  {
+                        "id":  "multi_horizon_alpha",
+                        "name":  "Multi Horizon Alpha Decomposition"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-reversion-models",
+                            "name":  "Reversion Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "long_term_rational_decay_alpha",
+        "description":  "Long-term market-adjusted excess return using a decay function for weighting past returns.",
+        "dataset":  {
+                        "id":  "multi_horizon_alpha",
+                        "name":  "Multi Horizon Alpha Decomposition"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-reversion-models",
+                            "name":  "Reversion Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "long_term_return_on_equity",
+        "description":  "Long-horizon return on equity, measuring profitability relative to shareholder equity.",
+        "dataset":  {
+                        "id":  "multi_horizon_alpha",
+                        "name":  "Multi Horizon Alpha Decomposition"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-reversion-models",
+                            "name":  "Reversion Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "long_term_return_on_equity1",
+        "description":  "Long-term return on equity, calculated as net income divided by average common equity over a long-term period.",
+        "dataset":  {
+                        "id":  "multi_horizon_alpha",
+                        "name":  "Multi Horizon Alpha Decomposition"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-reversion-models",
+                            "name":  "Reversion Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "long_term_sales_to_price",
+        "description":  "Long-term ratio of trailing 12-month sales per share to month-end trading price.",
+        "dataset":  {
+                        "id":  "multi_horizon_alpha",
+                        "name":  "Multi Horizon Alpha Decomposition"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-reversion-models",
+                            "name":  "Reversion Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "long_term_stddev_fy1_eps_estimates_to_price",
+        "description":  "Long-term standard deviation of FY1 earnings forecasts scaled by month-end price.",
+        "dataset":  {
+                        "id":  "multi_horizon_alpha",
+                        "name":  "Multi Horizon Alpha Decomposition"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-reversion-models",
+                            "name":  "Reversion Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "long_term_street_revision_magnitude",
+        "description":  "Long-term 3-month change in median earnings forecast for FY1 scaled by current mean estimate.",
+        "dataset":  {
+                        "id":  "multi_horizon_alpha",
+                        "name":  "Multi Horizon Alpha Decomposition"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-reversion-models",
+                            "name":  "Reversion Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "long_term_three_month_revision_fy2_eps2",
+        "description":  "Long-term change in current FY2 mean earnings estimate less three months ago, deflated by month-end price.",
+        "dataset":  {
+                        "id":  "multi_horizon_alpha",
+                        "name":  "Multi Horizon Alpha Decomposition"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-reversion-models",
+                            "name":  "Reversion Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "long_term_three_month_revision_fy2_eps_2",
+        "description":  "Long-term change in current FY2 mean earnings estimate less three months ago, deflated by month-end price.",
+        "dataset":  {
+                        "id":  "multi_horizon_alpha",
+                        "name":  "Multi Horizon Alpha Decomposition"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-reversion-models",
+                            "name":  "Reversion Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "long_term_three_year_change_in_price_adj_eps",
+        "description":  "Long-term difference between trailing 12-month EPS and 12-quarters ago, divided by month-end trading price.",
+        "dataset":  {
+                        "id":  "multi_horizon_alpha",
+                        "name":  "Multi Horizon Alpha Decomposition"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-reversion-models",
+                            "name":  "Reversion Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "long_term_time_weighted_earnings_yield",
+        "description":  "Long-term time-weighted sum of reported EPS and next year\u0027s consensus estimate divided by price.",
+        "dataset":  {
+                        "id":  "multi_horizon_alpha",
+                        "name":  "Multi Horizon Alpha Decomposition"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-reversion-models",
+                            "name":  "Reversion Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "long_term_time_weighted_earnings_yield_2",
+        "description":  "Long-term time-weighted sum of reported EPS and next year\u0027s consensus estimate divided by price.",
+        "dataset":  {
+                        "id":  "multi_horizon_alpha",
+                        "name":  "Multi Horizon Alpha Decomposition"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-reversion-models",
+                            "name":  "Reversion Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "long_term_time_weighted_earnings_yield_3",
+        "description":  "Long-horizon time-weighted earnings yield, combining current and forward earnings estimates.",
+        "dataset":  {
+                        "id":  "multi_horizon_alpha",
+                        "name":  "Multi Horizon Alpha Decomposition"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-reversion-models",
+                            "name":  "Reversion Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "long_term_trailing_free_cash_flow_to_price",
+        "description":  "Long-horizon ratio of trailing twelve-month free cash flow to price.",
+        "dataset":  {
+                        "id":  "multi_horizon_alpha",
+                        "name":  "Multi Horizon Alpha Decomposition"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-reversion-models",
+                            "name":  "Reversion Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "long_term_trailing_growth_flow_to_price",
+        "description":  "Long-horizon ratio of trailing twelve-month growth flow to price.",
+        "dataset":  {
+                        "id":  "multi_horizon_alpha",
+                        "name":  "Multi Horizon Alpha Decomposition"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-reversion-models",
+                            "name":  "Reversion Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "long_term_value_analyst_europe_composite",
+        "description":  "Long-horizon composite score for value analyst model in European equities.",
+        "dataset":  {
+                        "id":  "multi_horizon_alpha",
+                        "name":  "Multi Horizon Alpha Decomposition"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-reversion-models",
+                            "name":  "Reversion Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "long_term_value_analyst_europe_rank",
+        "description":  "Long-horizon composite rank for value-focused analyst model in European equities.",
+        "dataset":  {
+                        "id":  "multi_horizon_alpha",
+                        "name":  "Multi Horizon Alpha Decomposition"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-reversion-models",
+                            "name":  "Reversion Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "long_term_value_momentum_europe_composite",
+        "description":  "Long-horizon composite score for value and momentum model in European equities.",
+        "dataset":  {
+                        "id":  "multi_horizon_alpha",
+                        "name":  "Multi Horizon Alpha Decomposition"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-reversion-models",
+                            "name":  "Reversion Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mid_term_balance_sheet_europe_rank",
+        "description":  "Medium-horizon rank for balance sheet strength in European companies.",
+        "dataset":  {
+                        "id":  "multi_horizon_alpha",
+                        "name":  "Multi Horizon Alpha Decomposition"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-reversion-models",
+                            "name":  "Reversion Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mid_term_balance_sheet_strength_europe_rank",
+        "description":  "Medium-horizon rank for balance sheet strength in European companies.",
+        "dataset":  {
+                        "id":  "multi_horizon_alpha",
+                        "name":  "Multi Horizon Alpha Decomposition"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-reversion-models",
+                            "name":  "Reversion Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mid_term_capital_acquisition_ratio2",
+        "description":  "Medium-term ratio of operating cash flow less cash dividends to total expenditures over the trailing 12 months.",
+        "dataset":  {
+                        "id":  "multi_horizon_alpha",
+                        "name":  "Multi Horizon Alpha Decomposition"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-reversion-models",
+                            "name":  "Reversion Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mid_term_change_in_net_operating_assets",
+        "description":  "Medium-term year-over-year change of net operating assets to total assets.",
+        "dataset":  {
+                        "id":  "multi_horizon_alpha",
+                        "name":  "Multi Horizon Alpha Decomposition"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-reversion-models",
+                            "name":  "Reversion Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mid_term_change_in_price_adj_eps",
+        "description":  "Medium-term change in trailing 12-month EPS compared to four quarters ago, deflated by month-end trading price.",
+        "dataset":  {
+                        "id":  "multi_horizon_alpha",
+                        "name":  "Multi Horizon Alpha Decomposition"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-reversion-models",
+                            "name":  "Reversion Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mid_term_change_in_price_adj_eps_2",
+        "description":  "Medium-term change in trailing 12-month EPS compared to four quarters ago, deflated by month-end trading price.",
+        "dataset":  {
+                        "id":  "multi_horizon_alpha",
+                        "name":  "Multi Horizon Alpha Decomposition"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-reversion-models",
+                            "name":  "Reversion Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mid_term_deep_value_europe_rank",
+        "description":  "Medium-horizon composite rank for deep value model in European equities.",
+        "dataset":  {
+                        "id":  "multi_horizon_alpha",
+                        "name":  "Multi Horizon Alpha Decomposition"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-reversion-models",
+                            "name":  "Reversion Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mid_term_ebitda_to_enterprise_value_3",
+        "description":  "Enterprise value divided by EBITDA (EV/EBITDA) ratio",
+        "dataset":  {
+                        "id":  "multi_horizon_alpha",
+                        "name":  "Multi Horizon Alpha Decomposition"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-reversion-models",
+                            "name":  "Reversion Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mid_term_ebitda_to_enterprise_value_ratio",
+        "description":  "Ratio of earnings before interest, taxes, depreciation, and amortization to enterprise value, measured over a medium-term horizon.",
+        "dataset":  {
+                        "id":  "multi_horizon_alpha",
+                        "name":  "Multi Horizon Alpha Decomposition"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-reversion-models",
+                            "name":  "Reversion Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mid_term_enterprise_value_europe",
+        "description":  "Medium-term enterprise value metric for companies in the European universe.",
+        "dataset":  {
+                        "id":  "multi_horizon_alpha",
+                        "name":  "Multi Horizon Alpha Decomposition"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-reversion-models",
+                            "name":  "Reversion Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mid_term_enterprise_value_rank_europe",
+        "description":  "Medium-horizon rank for enterprise value-based valuation in European stocks.",
+        "dataset":  {
+                        "id":  "multi_horizon_alpha",
+                        "name":  "Multi Horizon Alpha Decomposition"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-reversion-models",
+                            "name":  "Reversion Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mid_term_estimate_revision_europe_rank",
+        "description":  "Medium-horizon rank for analyst earnings estimate revisions in European stocks.",
+        "dataset":  {
+                        "id":  "multi_horizon_alpha",
+                        "name":  "Multi Horizon Alpha Decomposition"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-reversion-models",
+                            "name":  "Reversion Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mid_term_financial_statement_rank_europe",
+        "description":  "Medium-term ranking of companies based on overall financial statement strength in the European universe.",
+        "dataset":  {
+                        "id":  "multi_horizon_alpha",
+                        "name":  "Multi Horizon Alpha Decomposition"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-reversion-models",
+                            "name":  "Reversion Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mid_term_financial_statement_strength_rank_europe",
+        "description":  "Medium-horizon rank for financial statement strength in European companies.",
+        "dataset":  {
+                        "id":  "multi_horizon_alpha",
+                        "name":  "Multi Horizon Alpha Decomposition"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-reversion-models",
+                            "name":  "Reversion Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mid_term_five_day_industry_relative_return",
+        "description":  "Medium-term difference between a stock\u0027s 5-day return and industry average, deflated by standard deviation.",
+        "dataset":  {
+                        "id":  "multi_horizon_alpha",
+                        "name":  "Multi Horizon Alpha Decomposition"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-reversion-models",
+                            "name":  "Reversion Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mid_term_free_cash_flow_to_price_2",
+        "description":  "Medium-term ratio of trailing 12-month free cash flow per share to month-end trading price.",
+        "dataset":  {
+                        "id":  "multi_horizon_alpha",
+                        "name":  "Multi Horizon Alpha Decomposition"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-reversion-models",
+                            "name":  "Reversion Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mid_term_growth_analyst_europe_rank",
+        "description":  "Medium-horizon rank for growth-focused analyst model in European equities.",
+        "dataset":  {
+                        "id":  "multi_horizon_alpha",
+                        "name":  "Multi Horizon Alpha Decomposition"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-reversion-models",
+                            "name":  "Reversion Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mid_term_growth_flow_to_price_2",
+        "description":  "Medium-term sum of trailing 12-month growth flow value per share divided by month-end trading price.",
+        "dataset":  {
+                        "id":  "multi_horizon_alpha",
+                        "name":  "Multi Horizon Alpha Decomposition"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-reversion-models",
+                            "name":  "Reversion Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mid_term_growth_flow_to_price_ratio_2",
+        "description":  "Medium-term ratio of trailing twelve-month growth flow per share to stock price, reflecting intermediate horizon value from growth and R\u0026D.",
+        "dataset":  {
+                        "id":  "multi_horizon_alpha",
+                        "name":  "Multi Horizon Alpha Decomposition"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-reversion-models",
+                            "name":  "Reversion Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mid_term_income_statement_europe_rank",
+        "description":  "Medium-horizon rank for income statement strength in European companies.",
+        "dataset":  {
+                        "id":  "multi_horizon_alpha",
+                        "name":  "Multi Horizon Alpha Decomposition"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-reversion-models",
+                            "name":  "Reversion Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mid_term_income_statement_rank_europe",
+        "description":  "Medium-term ranking of companies based on income statement strength in the European universe.",
+        "dataset":  {
+                        "id":  "multi_horizon_alpha",
+                        "name":  "Multi Horizon Alpha Decomposition"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-reversion-models",
+                            "name":  "Reversion Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mid_term_inverse_dividend_adjusted_peg_2",
+        "description":  "Medium-term reciprocal of the forward P/E ratio divided by total growth rate and adjusted for dividend yield.",
+        "dataset":  {
+                        "id":  "multi_horizon_alpha",
+                        "name":  "Multi Horizon Alpha Decomposition"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-reversion-models",
+                            "name":  "Reversion Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mid_term_management_efficiency_europe_rank",
+        "description":  "Medium-horizon rank for management efficiency in European companies.",
+        "dataset":  {
+                        "id":  "multi_horizon_alpha",
+                        "name":  "Multi Horizon Alpha Decomposition"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-reversion-models",
+                            "name":  "Reversion Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mid_term_management_efficiency_rank_europe",
+        "description":  "Medium-horizon rank for management efficiency in European companies.",
+        "dataset":  {
+                        "id":  "multi_horizon_alpha",
+                        "name":  "Multi Horizon Alpha Decomposition"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-reversion-models",
+                            "name":  "Reversion Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mid_term_management_leverage_europe_rank",
+        "description":  "Medium-horizon rank for management leverage in European companies.",
+        "dataset":  {
+                        "id":  "multi_horizon_alpha",
+                        "name":  "Multi Horizon Alpha Decomposition"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-reversion-models",
+                            "name":  "Reversion Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mid_term_management_leverage_rank_europe",
+        "description":  "Medium-horizon rank for management leverage in European companies.",
+        "dataset":  {
+                        "id":  "multi_horizon_alpha",
+                        "name":  "Multi Horizon Alpha Decomposition"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-reversion-models",
+                            "name":  "Reversion Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mid_term_momentum_analyst_europe_rank",
+        "description":  "Medium-horizon composite rank for momentum-focused analyst model in European equities.",
+        "dataset":  {
+                        "id":  "multi_horizon_alpha",
+                        "name":  "Multi Horizon Alpha Decomposition"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-reversion-models",
+                            "name":  "Reversion Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mid_term_net_number_revisions_fy1",
+        "description":  "Medium-term net number of analyst forecast revisions for FY1 within a month, weighted by total forecasts.",
+        "dataset":  {
+                        "id":  "multi_horizon_alpha",
+                        "name":  "Multi Horizon Alpha Decomposition"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-reversion-models",
+                            "name":  "Reversion Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mid_term_operating_liability_leverage_change_4",
+        "description":  "Medium-term change in a company\u0027s operating liability leverage, measuring the difference in operating liability leverage between the current and a prior period to assess shifts in non-debt financing usage.",
+        "dataset":  {
+                        "id":  "multi_horizon_alpha",
+                        "name":  "Multi Horizon Alpha Decomposition"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-reversion-models",
+                            "name":  "Reversion Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mid_term_price_momentum_europe_rank",
+        "description":  "Medium-horizon rank for price momentum in European equities.",
+        "dataset":  {
+                        "id":  "multi_horizon_alpha",
+                        "name":  "Multi Horizon Alpha Decomposition"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-reversion-models",
+                            "name":  "Reversion Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mid_term_price_to_total_assets_ratio",
+        "description":  "Medium-horizon ratio of price to total assets per share.",
+        "dataset":  {
+                        "id":  "multi_horizon_alpha",
+                        "name":  "Multi Horizon Alpha Decomposition"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-reversion-models",
+                            "name":  "Reversion Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mid_term_rational_decay_alpha",
+        "description":  "Medium-term market-adjusted excess return using a decay function for weighting past returns.",
+        "dataset":  {
+                        "id":  "multi_horizon_alpha",
+                        "name":  "Multi Horizon Alpha Decomposition"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-reversion-models",
+                            "name":  "Reversion Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mid_term_return_on_equity",
+        "description":  "Medium-horizon return on equity, measuring profitability relative to shareholder equity.",
+        "dataset":  {
+                        "id":  "multi_horizon_alpha",
+                        "name":  "Multi Horizon Alpha Decomposition"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-reversion-models",
+                            "name":  "Reversion Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mid_term_return_on_equity1",
+        "description":  "Medium-term return on equity, calculated as net income divided by average common equity over a medium-term period.",
+        "dataset":  {
+                        "id":  "multi_horizon_alpha",
+                        "name":  "Multi Horizon Alpha Decomposition"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-reversion-models",
+                            "name":  "Reversion Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mid_term_sales_to_price",
+        "description":  "Medium-term ratio of trailing 12-month sales per share to month-end trading price.",
+        "dataset":  {
+                        "id":  "multi_horizon_alpha",
+                        "name":  "Multi Horizon Alpha Decomposition"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-reversion-models",
+                            "name":  "Reversion Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mid_term_stddev_fy1_eps_estimates_to_price",
+        "description":  "Medium-term standard deviation of FY1 earnings forecasts scaled by month-end price.",
+        "dataset":  {
+                        "id":  "multi_horizon_alpha",
+                        "name":  "Multi Horizon Alpha Decomposition"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-reversion-models",
+                            "name":  "Reversion Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mid_term_street_revision_magnitude",
+        "description":  "Medium-term 3-month change in median earnings forecast for FY1 scaled by current mean estimate.",
+        "dataset":  {
+                        "id":  "multi_horizon_alpha",
+                        "name":  "Multi Horizon Alpha Decomposition"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-reversion-models",
+                            "name":  "Reversion Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mid_term_three_month_revision_fy2_eps2",
+        "description":  "Medium-term change in current FY2 mean earnings estimate less three months ago, deflated by month-end price.",
+        "dataset":  {
+                        "id":  "multi_horizon_alpha",
+                        "name":  "Multi Horizon Alpha Decomposition"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-reversion-models",
+                            "name":  "Reversion Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mid_term_three_month_revision_fy2_eps_2",
+        "description":  "Medium-term change in current FY2 mean earnings estimate less three months ago, deflated by month-end price.",
+        "dataset":  {
+                        "id":  "multi_horizon_alpha",
+                        "name":  "Multi Horizon Alpha Decomposition"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-reversion-models",
+                            "name":  "Reversion Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mid_term_three_year_change_in_price_adj_eps",
+        "description":  "Medium-term difference between trailing 12-month EPS and 12-quarters ago, divided by month-end trading price.",
+        "dataset":  {
+                        "id":  "multi_horizon_alpha",
+                        "name":  "Multi Horizon Alpha Decomposition"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-reversion-models",
+                            "name":  "Reversion Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mid_term_time_weighted_earnings_yield1",
+        "description":  "Medium-term time-weighted sum of reported EPS and next year\u0027s consensus estimate divided by price.",
+        "dataset":  {
+                        "id":  "multi_horizon_alpha",
+                        "name":  "Multi Horizon Alpha Decomposition"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-reversion-models",
+                            "name":  "Reversion Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mid_term_time_weighted_earnings_yield_2",
+        "description":  "Medium-term time-weighted sum of reported EPS and next year\u0027s consensus estimate divided by price.",
+        "dataset":  {
+                        "id":  "multi_horizon_alpha",
+                        "name":  "Multi Horizon Alpha Decomposition"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-reversion-models",
+                            "name":  "Reversion Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mid_term_time_weighted_earnings_yield_3",
+        "description":  "Medium-horizon time-weighted earnings yield, combining current and forward earnings estimates.",
+        "dataset":  {
+                        "id":  "multi_horizon_alpha",
+                        "name":  "Multi Horizon Alpha Decomposition"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-reversion-models",
+                            "name":  "Reversion Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mid_term_trailing_free_cash_flow_to_price",
+        "description":  "Medium-horizon ratio of trailing twelve-month free cash flow to price.",
+        "dataset":  {
+                        "id":  "multi_horizon_alpha",
+                        "name":  "Multi Horizon Alpha Decomposition"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-reversion-models",
+                            "name":  "Reversion Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mid_term_trailing_free_cash_flow_to_price1",
+        "description":  "Medium-term ratio of trailing twelve-month free cash flow per share to stock price, reflecting intermediate cash generation relative to valuation.",
+        "dataset":  {
+                        "id":  "multi_horizon_alpha",
+                        "name":  "Multi Horizon Alpha Decomposition"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-reversion-models",
+                            "name":  "Reversion Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mid_term_trailing_growth_flow_to_price",
+        "description":  "Medium-horizon ratio of trailing twelve-month growth flow to price.",
+        "dataset":  {
+                        "id":  "multi_horizon_alpha",
+                        "name":  "Multi Horizon Alpha Decomposition"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-reversion-models",
+                            "name":  "Reversion Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mid_term_value_analyst_europe_composite",
+        "description":  "Medium-horizon composite score for value analyst model in European equities.",
+        "dataset":  {
+                        "id":  "multi_horizon_alpha",
+                        "name":  "Multi Horizon Alpha Decomposition"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-reversion-models",
+                            "name":  "Reversion Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mid_term_value_analyst_europe_rank",
+        "description":  "Medium-horizon composite rank for value-focused analyst model in European equities.",
+        "dataset":  {
+                        "id":  "multi_horizon_alpha",
+                        "name":  "Multi Horizon Alpha Decomposition"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-reversion-models",
+                            "name":  "Reversion Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mid_term_value_momentum_europe_composite",
+        "description":  "Medium-horizon composite score for value and momentum model in European equities.",
+        "dataset":  {
+                        "id":  "multi_horizon_alpha",
+                        "name":  "Multi Horizon Alpha Decomposition"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-reversion-models",
+                            "name":  "Reversion Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "short_term_balance_sheet_rank_europe",
+        "description":  "Short-term ranking of companies based on balance sheet strength in the European universe.",
+        "dataset":  {
+                        "id":  "multi_horizon_alpha",
+                        "name":  "Multi Horizon Alpha Decomposition"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-reversion-models",
+                            "name":  "Reversion Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "short_term_balance_sheet_strength_europe_rank",
+        "description":  "Short-horizon rank for balance sheet strength in European companies.",
+        "dataset":  {
+                        "id":  "multi_horizon_alpha",
+                        "name":  "Multi Horizon Alpha Decomposition"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-reversion-models",
+                            "name":  "Reversion Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "short_term_capital_acquisition_ratio2",
+        "description":  "Short-term ratio of operating cash flow less cash dividends to total expenditures over the trailing 12 months.",
+        "dataset":  {
+                        "id":  "multi_horizon_alpha",
+                        "name":  "Multi Horizon Alpha Decomposition"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-reversion-models",
+                            "name":  "Reversion Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "short_term_change_in_net_operating_assets",
+        "description":  "Short-term year-over-year change of net operating assets to total assets.",
+        "dataset":  {
+                        "id":  "multi_horizon_alpha",
+                        "name":  "Multi Horizon Alpha Decomposition"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-reversion-models",
+                            "name":  "Reversion Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "short_term_change_in_price_adj_eps",
+        "description":  "Short-term change in trailing 12-month EPS compared to four quarters ago, deflated by month-end trading price.",
+        "dataset":  {
+                        "id":  "multi_horizon_alpha",
+                        "name":  "Multi Horizon Alpha Decomposition"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-reversion-models",
+                            "name":  "Reversion Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "short_term_change_in_price_adj_eps_2",
+        "description":  "Short-term change in trailing 12-month EPS compared to four quarters ago, deflated by month-end trading price.",
+        "dataset":  {
+                        "id":  "multi_horizon_alpha",
+                        "name":  "Multi Horizon Alpha Decomposition"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-reversion-models",
+                            "name":  "Reversion Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "short_term_deep_value_europe_rank",
+        "description":  "Short-horizon composite rank for deep value model in European equities.",
+        "dataset":  {
+                        "id":  "multi_horizon_alpha",
+                        "name":  "Multi Horizon Alpha Decomposition"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-reversion-models",
+                            "name":  "Reversion Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "short_term_ebitda_to_enterprise_value_3",
+        "description":  "Enterprise value divided by EBITDA (EV/EBITDA) ratio",
+        "dataset":  {
+                        "id":  "multi_horizon_alpha",
+                        "name":  "Multi Horizon Alpha Decomposition"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-reversion-models",
+                            "name":  "Reversion Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "short_term_ebitda_to_enterprise_value_ratio",
+        "description":  "Ratio of earnings before interest, taxes, depreciation, and amortization to enterprise value, measured over a short-term horizon.",
+        "dataset":  {
+                        "id":  "multi_horizon_alpha",
+                        "name":  "Multi Horizon Alpha Decomposition"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-reversion-models",
+                            "name":  "Reversion Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "short_term_enterprise_value_europe",
+        "description":  "Short-term enterprise value metric for companies in the European universe.",
+        "dataset":  {
+                        "id":  "multi_horizon_alpha",
+                        "name":  "Multi Horizon Alpha Decomposition"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-reversion-models",
+                            "name":  "Reversion Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "short_term_enterprise_value_rank_europe",
+        "description":  "Short-horizon rank for enterprise value-based valuation in European stocks.",
+        "dataset":  {
+                        "id":  "multi_horizon_alpha",
+                        "name":  "Multi Horizon Alpha Decomposition"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-reversion-models",
+                            "name":  "Reversion Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "short_term_estimate_revision_europe_rank",
+        "description":  "Short-horizon rank for analyst earnings estimate revisions in European stocks.",
+        "dataset":  {
+                        "id":  "multi_horizon_alpha",
+                        "name":  "Multi Horizon Alpha Decomposition"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-reversion-models",
+                            "name":  "Reversion Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "short_term_financial_statement_europe_rank",
+        "description":  "Short-horizon rank for financial statement strength in European companies.",
+        "dataset":  {
+                        "id":  "multi_horizon_alpha",
+                        "name":  "Multi Horizon Alpha Decomposition"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-reversion-models",
+                            "name":  "Reversion Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "short_term_financial_statement_strength_europe_rank",
+        "description":  "Short-horizon rank for financial statement strength in European companies.",
+        "dataset":  {
+                        "id":  "multi_horizon_alpha",
+                        "name":  "Multi Horizon Alpha Decomposition"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-reversion-models",
+                            "name":  "Reversion Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "short_term_five_day_industry_relative_return",
+        "description":  "Short-term difference between a stock\u0027s 5-day return and industry average, deflated by standard deviation.",
+        "dataset":  {
+                        "id":  "multi_horizon_alpha",
+                        "name":  "Multi Horizon Alpha Decomposition"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-reversion-models",
+                            "name":  "Reversion Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "short_term_free_cash_flow_to_price_2",
+        "description":  "Short-term ratio of trailing 12-month free cash flow per share to month-end trading price.",
+        "dataset":  {
+                        "id":  "multi_horizon_alpha",
+                        "name":  "Multi Horizon Alpha Decomposition"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-reversion-models",
+                            "name":  "Reversion Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "short_term_growth_flow_to_price_2",
+        "description":  "Short-term sum of trailing 12-month growth flow value per share divided by month-end trading price.",
+        "dataset":  {
+                        "id":  "multi_horizon_alpha",
+                        "name":  "Multi Horizon Alpha Decomposition"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-reversion-models",
+                            "name":  "Reversion Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "short_term_growth_flow_to_price_3",
+        "description":  "Short-term sum of trailing 12-month growth flow value per share divided by month-end trading price.",
+        "dataset":  {
+                        "id":  "multi_horizon_alpha",
+                        "name":  "Multi Horizon Alpha Decomposition"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-reversion-models",
+                            "name":  "Reversion Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "short_term_growth_rank_europe",
+        "description":  "Short-term ranking of companies based on growth metrics in the European universe.",
+        "dataset":  {
+                        "id":  "multi_horizon_alpha",
+                        "name":  "Multi Horizon Alpha Decomposition"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-reversion-models",
+                            "name":  "Reversion Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "short_term_income_statement_europe_rank",
+        "description":  "Short-horizon rank for income statement strength in European companies.",
+        "dataset":  {
+                        "id":  "multi_horizon_alpha",
+                        "name":  "Multi Horizon Alpha Decomposition"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-reversion-models",
+                            "name":  "Reversion Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "short_term_income_statement_rank_europe",
+        "description":  "Short-term ranking of companies based on income statement strength in the European universe.",
+        "dataset":  {
+                        "id":  "multi_horizon_alpha",
+                        "name":  "Multi Horizon Alpha Decomposition"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-reversion-models",
+                            "name":  "Reversion Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "short_term_inverse_dividend_adjusted_peg",
+        "description":  "Short-term reciprocal of the forward P/E ratio divided by total growth rate and adjusted for dividend yield.",
+        "dataset":  {
+                        "id":  "multi_horizon_alpha",
+                        "name":  "Multi Horizon Alpha Decomposition"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-reversion-models",
+                            "name":  "Reversion Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "short_term_management_efficiency_europe",
+        "description":  "Short-term measure of management efficiency for companies in the European universe.",
+        "dataset":  {
+                        "id":  "multi_horizon_alpha",
+                        "name":  "Multi Horizon Alpha Decomposition"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-reversion-models",
+                            "name":  "Reversion Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "short_term_management_efficiency_rank_europe",
+        "description":  "Short-horizon rank for management efficiency in European companies.",
+        "dataset":  {
+                        "id":  "multi_horizon_alpha",
+                        "name":  "Multi Horizon Alpha Decomposition"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-reversion-models",
+                            "name":  "Reversion Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "short_term_management_leverage_europe",
+        "description":  "Short-term measure of management leverage for companies in the European universe.",
+        "dataset":  {
+                        "id":  "multi_horizon_alpha",
+                        "name":  "Multi Horizon Alpha Decomposition"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-reversion-models",
+                            "name":  "Reversion Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "short_term_management_leverage_rank_europe",
+        "description":  "Short-horizon rank for management leverage in European companies.",
+        "dataset":  {
+                        "id":  "multi_horizon_alpha",
+                        "name":  "Multi Horizon Alpha Decomposition"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-reversion-models",
+                            "name":  "Reversion Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "short_term_momentum_analyst_europe_rank",
+        "description":  "Short-horizon composite rank for momentum-focused analyst model in European equities.",
+        "dataset":  {
+                        "id":  "multi_horizon_alpha",
+                        "name":  "Multi Horizon Alpha Decomposition"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-reversion-models",
+                            "name":  "Reversion Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "short_term_net_number_revisions_fy1",
+        "description":  "Short-term net number of analyst forecast revisions for FY1 within a month, weighted by total forecasts.",
+        "dataset":  {
+                        "id":  "multi_horizon_alpha",
+                        "name":  "Multi Horizon Alpha Decomposition"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-reversion-models",
+                            "name":  "Reversion Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "short_term_operating_liability_leverage_change3",
+        "description":  "Short-horizon change in operating liability leverage, indicating shifts in non-debt financing.",
+        "dataset":  {
+                        "id":  "multi_horizon_alpha",
+                        "name":  "Multi Horizon Alpha Decomposition"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-reversion-models",
+                            "name":  "Reversion Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "short_term_price_momentum_europe_rank",
+        "description":  "Short-horizon rank for price momentum in European equities.",
+        "dataset":  {
+                        "id":  "multi_horizon_alpha",
+                        "name":  "Multi Horizon Alpha Decomposition"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-reversion-models",
+                            "name":  "Reversion Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "short_term_price_to_total_assets_ratio",
+        "description":  "Short-horizon ratio of price to total assets per share.",
+        "dataset":  {
+                        "id":  "multi_horizon_alpha",
+                        "name":  "Multi Horizon Alpha Decomposition"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-reversion-models",
+                            "name":  "Reversion Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "short_term_rational_decay_alpha",
+        "description":  "Short-term market-adjusted excess return using a decay function for weighting past returns.",
+        "dataset":  {
+                        "id":  "multi_horizon_alpha",
+                        "name":  "Multi Horizon Alpha Decomposition"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-reversion-models",
+                            "name":  "Reversion Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "short_term_return_on_equity",
+        "description":  "Short-horizon return on equity, measuring profitability relative to shareholder equity.",
+        "dataset":  {
+                        "id":  "multi_horizon_alpha",
+                        "name":  "Multi Horizon Alpha Decomposition"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-reversion-models",
+                            "name":  "Reversion Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "short_term_return_on_equity1",
+        "description":  "Short-term return on equity, calculated as net income divided by average common equity over a short-term period.",
+        "dataset":  {
+                        "id":  "multi_horizon_alpha",
+                        "name":  "Multi Horizon Alpha Decomposition"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-reversion-models",
+                            "name":  "Reversion Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "short_term_sales_to_price",
+        "description":  "Short-term ratio of trailing 12-month sales per share to month-end trading price.",
+        "dataset":  {
+                        "id":  "multi_horizon_alpha",
+                        "name":  "Multi Horizon Alpha Decomposition"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-reversion-models",
+                            "name":  "Reversion Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "short_term_stddev_fy1_eps_estimates_to_price",
+        "description":  "Short-term standard deviation of FY1 earnings forecasts scaled by month-end price.",
+        "dataset":  {
+                        "id":  "multi_horizon_alpha",
+                        "name":  "Multi Horizon Alpha Decomposition"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-reversion-models",
+                            "name":  "Reversion Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "short_term_street_revision_magnitude",
+        "description":  "Short-term 3-month change in median earnings forecast for FY1 scaled by current mean estimate.",
+        "dataset":  {
+                        "id":  "multi_horizon_alpha",
+                        "name":  "Multi Horizon Alpha Decomposition"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-reversion-models",
+                            "name":  "Reversion Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "short_term_three_month_revision_fy2_eps2",
+        "description":  "Short-term change in current FY2 mean earnings estimate less three months ago, deflated by month-end price.",
+        "dataset":  {
+                        "id":  "multi_horizon_alpha",
+                        "name":  "Multi Horizon Alpha Decomposition"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-reversion-models",
+                            "name":  "Reversion Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "short_term_three_month_revision_fy2_eps_2",
+        "description":  "Short-term change in current FY2 mean earnings estimate less three months ago, deflated by month-end price.",
+        "dataset":  {
+                        "id":  "multi_horizon_alpha",
+                        "name":  "Multi Horizon Alpha Decomposition"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-reversion-models",
+                            "name":  "Reversion Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "short_term_three_year_change_in_price_adj_eps",
+        "description":  "Short-term difference between trailing 12-month EPS and 12-quarters ago, divided by month-end trading price.",
+        "dataset":  {
+                        "id":  "multi_horizon_alpha",
+                        "name":  "Multi Horizon Alpha Decomposition"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-reversion-models",
+                            "name":  "Reversion Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "short_term_time_weighted_earnings_yield",
+        "description":  "Short-term time-weighted sum of reported EPS and next year\u0027s consensus estimate divided by price.",
+        "dataset":  {
+                        "id":  "multi_horizon_alpha",
+                        "name":  "Multi Horizon Alpha Decomposition"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-reversion-models",
+                            "name":  "Reversion Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "short_term_time_weighted_earnings_yield_2",
+        "description":  "Short-term time-weighted sum of reported EPS and next year\u0027s consensus estimate divided by price.",
+        "dataset":  {
+                        "id":  "multi_horizon_alpha",
+                        "name":  "Multi Horizon Alpha Decomposition"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-reversion-models",
+                            "name":  "Reversion Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "short_term_time_weighted_earnings_yield_3",
+        "description":  "Short-horizon time-weighted earnings yield, combining current and forward earnings estimates.",
+        "dataset":  {
+                        "id":  "multi_horizon_alpha",
+                        "name":  "Multi Horizon Alpha Decomposition"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-reversion-models",
+                            "name":  "Reversion Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "short_term_trailing_free_cash_flow_to_price",
+        "description":  "Short-horizon ratio of trailing twelve-month free cash flow to price.",
+        "dataset":  {
+                        "id":  "multi_horizon_alpha",
+                        "name":  "Multi Horizon Alpha Decomposition"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-reversion-models",
+                            "name":  "Reversion Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "short_term_trailing_free_cash_flow_to_price1",
+        "description":  "Short-term ratio of trailing twelve-month free cash flow per share to stock price, indicating recent cash generation relative to valuation.",
+        "dataset":  {
+                        "id":  "multi_horizon_alpha",
+                        "name":  "Multi Horizon Alpha Decomposition"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-reversion-models",
+                            "name":  "Reversion Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "short_term_trailing_growth_flow_to_price",
+        "description":  "Short-horizon ratio of trailing twelve-month growth flow to price.",
+        "dataset":  {
+                        "id":  "multi_horizon_alpha",
+                        "name":  "Multi Horizon Alpha Decomposition"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-reversion-models",
+                            "name":  "Reversion Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "short_term_value_analyst_europe_composite",
+        "description":  "Short-horizon composite score for value analyst model in European equities.",
+        "dataset":  {
+                        "id":  "multi_horizon_alpha",
+                        "name":  "Multi Horizon Alpha Decomposition"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-reversion-models",
+                            "name":  "Reversion Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "short_term_value_analyst_europe_rank",
+        "description":  "Short-horizon composite rank for value-focused analyst model in European equities.",
+        "dataset":  {
+                        "id":  "multi_horizon_alpha",
+                        "name":  "Multi Horizon Alpha Decomposition"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-reversion-models",
+                            "name":  "Reversion Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "short_term_value_momentum_europe_composite",
+        "description":  "Short-horizon composite score for value and momentum model in European equities.",
+        "dataset":  {
+                        "id":  "multi_horizon_alpha",
+                        "name":  "Multi Horizon Alpha Decomposition"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-reversion-models",
+                            "name":  "Reversion Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    }
+]

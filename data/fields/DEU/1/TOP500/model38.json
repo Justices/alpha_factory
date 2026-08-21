@@ -1,0 +1,2274 @@
+﻿[
+    {
+        "id":  "buyback_yield_relative_component_rank_d1",
+        "description":  "Floating-point percentile score representing the global-relative attractiveness (valuation rank) based on the Buyback Yield component",
+        "dataset":  {
+                        "id":  "model38",
+                        "name":  "Growth Valuation Model"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-valuation-models",
+                            "name":  "Valuation Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "dividend_yield_relative_component_rank_d1",
+        "description":  "Floating-point percentile score representing the global-relative attractiveness (valuation rank) based on the Dividend Yield component",
+        "dataset":  {
+                        "id":  "model38",
+                        "name":  "Growth Valuation Model"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-valuation-models",
+                            "name":  "Valuation Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "ev_ebitda_relative_score",
+        "description":  "Floating-point percentile score representing the global-relative attractiveness (valuation rank) based on the EV/EBITDA ratio component",
+        "dataset":  {
+                        "id":  "model38",
+                        "name":  "Growth Valuation Model"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-valuation-models",
+                            "name":  "Valuation Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "ev_sales_relative_component_rank_d1",
+        "description":  "Floating-point percentile score representing the global-relative attractiveness (valuation rank) based on the EV/Sales ratio component",
+        "dataset":  {
+                        "id":  "model38",
+                        "name":  "Growth Valuation Model"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-valuation-models",
+                            "name":  "Valuation Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "industry_relative_valuation_rank",
+        "description":  "Floating-point percentile rank for relative valuation attractiveness within industry; higher is more attractive",
+        "dataset":  {
+                        "id":  "model38",
+                        "name":  "Growth Valuation Model"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-valuation-models",
+                            "name":  "Valuation Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "long_term_assumed_annual_earnings",
+        "description":  "Year when the company is projected to reach steady state earnings growth",
+        "dataset":  {
+                        "id":  "model38",
+                        "name":  "Growth Valuation Model"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-valuation-models",
+                            "name":  "Valuation Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl38_iv_cagr_base_year",
+        "description":  "Compound annual growth rate (CAGR) computed over the designated base years as used in the intrinsic value model’s projections; serves as baseline reference for growth rates",
+        "dataset":  {
+                        "id":  "model38",
+                        "name":  "Growth Valuation Model"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-valuation-models",
+                            "name":  "Valuation Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl38_iv_discount_rate",
+        "description":  "Discount rate used in the StarMine Intrinsic Valuation model for discounting dividends to FY0",
+        "dataset":  {
+                        "id":  "model38",
+                        "name":  "Growth Valuation Model"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-valuation-models",
+                            "name":  "Valuation Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl38_iv_div_payout_rate",
+        "description":  "Dividend payout rate of the company at and after the steady state year defined in the StarMine model",
+        "dataset":  {
+                        "id":  "model38",
+                        "name":  "Growth Valuation Model"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-valuation-models",
+                            "name":  "Valuation Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl38_iv_growth_ear",
+        "description":  "Earnings growth rate expected at steady state",
+        "dataset":  {
+                        "id":  "model38",
+                        "name":  "Growth Valuation Model"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-valuation-models",
+                            "name":  "Valuation Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl38_iv_warranted_f12m_p_e",
+        "description":  "Forward 12-month price-to-earnings ratio implied by the StarMine intrinsic value and SmartGrowth EPS projections; represents what the P/E would be if both estimates held true",
+        "dataset":  {
+                        "id":  "model38",
+                        "name":  "Growth Valuation Model"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-valuation-models",
+                            "name":  "Valuation Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl38_iv_year_div",
+        "description":  "Year when the company is projected to reach steady state dividends",
+        "dataset":  {
+                        "id":  "model38",
+                        "name":  "Growth Valuation Model"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-valuation-models",
+                            "name":  "Valuation Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl38_rel_val_ev_ebitda",
+        "description":  "Percentile rank (1-100) of the security for its enterprise value/EBITDA (EV/EBITDA) ratio valuation component versus global peers; higher scores indicate more attractive EV/EBITDA valuation",
+        "dataset":  {
+                        "id":  "model38",
+                        "name":  "Growth Valuation Model"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-valuation-models",
+                            "name":  "Valuation Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl38_rel_val_global_rk",
+        "description":  "Current global percentile (1-100) rank of a stock’s attractiveness in the Relative Valuation Model; higher is better value",
+        "dataset":  {
+                        "id":  "model38",
+                        "name":  "Growth Valuation Model"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-valuation-models",
+                            "name":  "Valuation Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "pb_ratio_relative_component_rank_d1",
+        "description":  "Floating-point percentile score representing the global-relative attractiveness (valuation rank) based on the Price/Book ratio component",
+        "dataset":  {
+                        "id":  "model38",
+                        "name":  "Growth Valuation Model"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-valuation-models",
+                            "name":  "Valuation Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "pcf_ratio_relative_component_rank_d1",
+        "description":  "Floating-point percentile score representing the global-relative attractiveness (valuation rank) based on the Price/Cash Flow ratio component",
+        "dataset":  {
+                        "id":  "model38",
+                        "name":  "Growth Valuation Model"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-valuation-models",
+                            "name":  "Valuation Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "pe_ratio_relative_score",
+        "description":  "Floating-point percentile score representing the global-relative attractiveness (valuation rank) based on the Price/Earnings ratio component",
+        "dataset":  {
+                        "id":  "model38",
+                        "name":  "Growth Valuation Model"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-valuation-models",
+                            "name":  "Valuation Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "price_to_intrinsic_value_industry_position_d1",
+        "description":  "Percentile ranking (as floating-point value) of the Price/Intrinsic Value ratio for the stock relative to its industry peer group; higher rank means stronger undervaluation compared to industry peers",
+        "dataset":  {
+                        "id":  "model38",
+                        "name":  "Growth Valuation Model"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-valuation-models",
+                            "name":  "Valuation Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "region_rank_price_to_intrinsic_value",
+        "description":  "Percentile ranking (as a floating-point value) of the Price/Intrinsic Value ratio for the stock relative to its regional peer group; higher rank means stronger undervaluation compared to regional peers",
+        "dataset":  {
+                        "id":  "model38",
+                        "name":  "Growth Valuation Model"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-valuation-models",
+                            "name":  "Valuation Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "region_relative_valuation_rank",
+        "description":  "Floating-point percentile rank for relative valuation attractiveness within region; higher is more attractive",
+        "dataset":  {
+                        "id":  "model38",
+                        "name":  "Growth Valuation Model"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-valuation-models",
+                            "name":  "Valuation Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "relative_valuation_global_position_d1",
+        "description":  "Floating-point global percentile rank for relative valuation attractiveness; higher is more attractive",
+        "dataset":  {
+                        "id":  "model38",
+                        "name":  "Growth Valuation Model"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-valuation-models",
+                            "name":  "Valuation Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "sector_rank_price_to_intrinsic_value",
+        "description":  "Percentile ranking (as a floating-point value) of the Price/Intrinsic Value ratio for the stock relative to its sector peer group; higher rank means stronger undervaluation compared to sector peers",
+        "dataset":  {
+                        "id":  "model38",
+                        "name":  "Growth Valuation Model"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-valuation-models",
+                            "name":  "Valuation Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "sector_relative_valuation_rank",
+        "description":  "Floating-point percentile rank for relative valuation attractiveness within sector; higher is more attractive",
+        "dataset":  {
+                        "id":  "model38",
+                        "name":  "Growth Valuation Model"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-valuation-models",
+                            "name":  "Valuation Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "star_val_buyback_yield",
+        "description":  "Global percentile rank of the stock in the buyback yield component of the Relative Valuation Model, 1-100 scale; higher scores indicate better value",
+        "dataset":  {
+                        "id":  "model38",
+                        "name":  "Growth Valuation Model"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-valuation-models",
+                            "name":  "Valuation Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "star_val_dividend_projection_fy1",
+        "description":  "Estimated dividends per share (DPS) for fiscal year 1, projected by the StarMine SmartGrowth model",
+        "dataset":  {
+                        "id":  "model38",
+                        "name":  "Growth Valuation Model"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-valuation-models",
+                            "name":  "Valuation Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "star_val_dividend_projection_fy10",
+        "description":  "Estimated dividends per share (DPS) for fiscal year 10, projected by the StarMine SmartGrowth model",
+        "dataset":  {
+                        "id":  "model38",
+                        "name":  "Growth Valuation Model"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-valuation-models",
+                            "name":  "Valuation Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "star_val_dividend_projection_fy11",
+        "description":  "Fiscal year 11 dividends per share (DPS) estimate from StarMine SmartGrowth model",
+        "dataset":  {
+                        "id":  "model38",
+                        "name":  "Growth Valuation Model"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-valuation-models",
+                            "name":  "Valuation Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "star_val_dividend_projection_fy12",
+        "description":  "Estimated dividends per share (DPS) for fiscal year 12, projected by the StarMine SmartGrowth model",
+        "dataset":  {
+                        "id":  "model38",
+                        "name":  "Growth Valuation Model"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-valuation-models",
+                            "name":  "Valuation Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "star_val_dividend_projection_fy13",
+        "description":  "Estimated dividends per share (DPS) for fiscal year 13, as projected by the StarMine SmartGrowth model",
+        "dataset":  {
+                        "id":  "model38",
+                        "name":  "Growth Valuation Model"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-valuation-models",
+                            "name":  "Valuation Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "star_val_dividend_projection_fy14",
+        "description":  "Estimated dividends per share (DPS) for fiscal year 14, projected by the StarMine SmartGrowth model",
+        "dataset":  {
+                        "id":  "model38",
+                        "name":  "Growth Valuation Model"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-valuation-models",
+                            "name":  "Valuation Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "star_val_dividend_projection_fy15",
+        "description":  "Estimated dividends per share (DPS) for fiscal year 15, as projected by the StarMine SmartGrowth model",
+        "dataset":  {
+                        "id":  "model38",
+                        "name":  "Growth Valuation Model"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-valuation-models",
+                            "name":  "Valuation Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "star_val_dividend_projection_fy2",
+        "description":  "Estimated dividends per share (DPS) for fiscal year 2, projected by the StarMine SmartGrowth model",
+        "dataset":  {
+                        "id":  "model38",
+                        "name":  "Growth Valuation Model"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-valuation-models",
+                            "name":  "Valuation Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "star_val_dividend_projection_fy3",
+        "description":  "Estimated dividends per share (DPS) for fiscal year 3, projected by the StarMine SmartGrowth model",
+        "dataset":  {
+                        "id":  "model38",
+                        "name":  "Growth Valuation Model"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-valuation-models",
+                            "name":  "Valuation Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "star_val_dividend_projection_fy4",
+        "description":  "Estimated dividends per share (DPS) for fiscal year 4, as projected by the StarMine SmartGrowth model",
+        "dataset":  {
+                        "id":  "model38",
+                        "name":  "Growth Valuation Model"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-valuation-models",
+                            "name":  "Valuation Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "star_val_dividend_projection_fy5",
+        "description":  "Estimated dividends per share (DPS) for fiscal year 5, as projected by the StarMine SmartGrowth model",
+        "dataset":  {
+                        "id":  "model38",
+                        "name":  "Growth Valuation Model"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-valuation-models",
+                            "name":  "Valuation Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "star_val_dividend_projection_fy6",
+        "description":  "Estimated dividends per share (DPS) for fiscal year 6, projected by the StarMine SmartGrowth model",
+        "dataset":  {
+                        "id":  "model38",
+                        "name":  "Growth Valuation Model"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-valuation-models",
+                            "name":  "Valuation Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "star_val_dividend_projection_fy7",
+        "description":  "Estimated dividends per share (DPS) for fiscal year 7, as projected by the StarMine SmartGrowth model",
+        "dataset":  {
+                        "id":  "model38",
+                        "name":  "Growth Valuation Model"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-valuation-models",
+                            "name":  "Valuation Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "star_val_dividend_projection_fy8",
+        "description":  "Estimated dividends per share (DPS) for fiscal year 8, projected by the StarMine SmartGrowth model",
+        "dataset":  {
+                        "id":  "model38",
+                        "name":  "Growth Valuation Model"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-valuation-models",
+                            "name":  "Valuation Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "star_val_dividend_projection_fy9",
+        "description":  "Fiscal year 9 dividends per share (DPS) estimate from StarMine SmartGrowth model",
+        "dataset":  {
+                        "id":  "model38",
+                        "name":  "Growth Valuation Model"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-valuation-models",
+                            "name":  "Valuation Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "star_val_dividend_yield",
+        "description":  "Percentile (1-100) rank of the stock’s dividend yield within the Relative Valuation Model; higher means better value on dividend yield",
+        "dataset":  {
+                        "id":  "model38",
+                        "name":  "Growth Valuation Model"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-valuation-models",
+                            "name":  "Valuation Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "star_val_earnings_projection_fy1",
+        "description":  "Estimated earnings per share (EPS) for fiscal year 1, projected by the StarMine SmartGrowth model",
+        "dataset":  {
+                        "id":  "model38",
+                        "name":  "Growth Valuation Model"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-valuation-models",
+                            "name":  "Valuation Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "star_val_earnings_projection_fy10",
+        "description":  "Estimated earnings per share (EPS) for fiscal year 10, as projected by the StarMine SmartGrowth model",
+        "dataset":  {
+                        "id":  "model38",
+                        "name":  "Growth Valuation Model"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-valuation-models",
+                            "name":  "Valuation Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "star_val_earnings_projection_fy11",
+        "description":  "Estimated earnings per share (EPS) for fiscal year 11, as projected by the StarMine SmartGrowth model",
+        "dataset":  {
+                        "id":  "model38",
+                        "name":  "Growth Valuation Model"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-valuation-models",
+                            "name":  "Valuation Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "star_val_earnings_projection_fy12",
+        "description":  "Estimated earnings per share (EPS) for fiscal year 12, projected by the StarMine SmartGrowth model",
+        "dataset":  {
+                        "id":  "model38",
+                        "name":  "Growth Valuation Model"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-valuation-models",
+                            "name":  "Valuation Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "star_val_earnings_projection_fy13",
+        "description":  "Estimated earnings per share (EPS) for fiscal year 13, as projected by the StarMine SmartGrowth model",
+        "dataset":  {
+                        "id":  "model38",
+                        "name":  "Growth Valuation Model"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-valuation-models",
+                            "name":  "Valuation Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "star_val_earnings_projection_fy14",
+        "description":  "Estimated earnings per share (EPS) for fiscal year 14, as projected by the StarMine SmartGrowth model",
+        "dataset":  {
+                        "id":  "model38",
+                        "name":  "Growth Valuation Model"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-valuation-models",
+                            "name":  "Valuation Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "star_val_earnings_projection_fy15",
+        "description":  "Estimated earnings per share (EPS) for fiscal year 15, projected by the StarMine SmartGrowth model",
+        "dataset":  {
+                        "id":  "model38",
+                        "name":  "Growth Valuation Model"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-valuation-models",
+                            "name":  "Valuation Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "star_val_earnings_projection_fy2",
+        "description":  "Estimated earnings per share (EPS) for fiscal year 2, projected by the StarMine SmartGrowth model",
+        "dataset":  {
+                        "id":  "model38",
+                        "name":  "Growth Valuation Model"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-valuation-models",
+                            "name":  "Valuation Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "star_val_earnings_projection_fy3",
+        "description":  "Estimated earnings per share (EPS) for fiscal year 3, projected by the StarMine SmartGrowth model",
+        "dataset":  {
+                        "id":  "model38",
+                        "name":  "Growth Valuation Model"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-valuation-models",
+                            "name":  "Valuation Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "star_val_earnings_projection_fy4",
+        "description":  "Fiscal year 4 EPS estimate from StarMine SmartGrowth model",
+        "dataset":  {
+                        "id":  "model38",
+                        "name":  "Growth Valuation Model"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-valuation-models",
+                            "name":  "Valuation Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "star_val_earnings_projection_fy5",
+        "description":  "Estimated earnings per share (EPS) for fiscal year 5, projected by the StarMine SmartGrowth model",
+        "dataset":  {
+                        "id":  "model38",
+                        "name":  "Growth Valuation Model"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-valuation-models",
+                            "name":  "Valuation Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "star_val_earnings_projection_fy6",
+        "description":  "Estimated earnings per share (EPS) for fiscal year 6, projected by the StarMine SmartGrowth model",
+        "dataset":  {
+                        "id":  "model38",
+                        "name":  "Growth Valuation Model"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-valuation-models",
+                            "name":  "Valuation Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "star_val_earnings_projection_fy7",
+        "description":  "Estimated earnings per share (EPS) for fiscal year 7, projected by the StarMine SmartGrowth model",
+        "dataset":  {
+                        "id":  "model38",
+                        "name":  "Growth Valuation Model"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-valuation-models",
+                            "name":  "Valuation Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "star_val_earnings_projection_fy8",
+        "description":  "Estimated earnings per share (EPS) for fiscal year 8, projected by the StarMine SmartGrowth model",
+        "dataset":  {
+                        "id":  "model38",
+                        "name":  "Growth Valuation Model"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-valuation-models",
+                            "name":  "Valuation Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "star_val_earnings_projection_fy9",
+        "description":  "Estimated earnings per share (EPS) for fiscal year 9, as projected by the StarMine SmartGrowth model",
+        "dataset":  {
+                        "id":  "model38",
+                        "name":  "Growth Valuation Model"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-valuation-models",
+                            "name":  "Valuation Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "star_val_ev_sales",
+        "description":  "Percentile (1-100) rank of the stock’s enterprise value/sales ratio in the Relative Valuation Model; higher means better value on EV/Sales",
+        "dataset":  {
+                        "id":  "model38",
+                        "name":  "Growth Valuation Model"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-valuation-models",
+                            "name":  "Valuation Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "star_val_fwd10_eps_cagr",
+        "description":  "Compound annual growth rate (CAGR) between last reported EPS and forecasted EPS for year 10 from StarMine SmartGrowth model",
+        "dataset":  {
+                        "id":  "model38",
+                        "name":  "Growth Valuation Model"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-valuation-models",
+                            "name":  "Valuation Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "star_val_fwd5_eps_cagr",
+        "description":  "Compound annual growth rate (CAGR) between last reported EPS and forecasted EPS for year 5 from StarMine SmartGrowth model",
+        "dataset":  {
+                        "id":  "model38",
+                        "name":  "Growth Valuation Model"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-valuation-models",
+                            "name":  "Valuation Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "star_val_implied10_eps_cagr",
+        "description":  "Forward compound annual growth rate of EPS over 10 years implied by the market price and analyst projections, such that intrinsic value matches market price",
+        "dataset":  {
+                        "id":  "model38",
+                        "name":  "Growth Valuation Model"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-valuation-models",
+                            "name":  "Valuation Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "star_val_implied5_eps_cagr",
+        "description":  "Market-implied compound annual EPS growth rate over 5 years needed for intrinsic value to equal current market price",
+        "dataset":  {
+                        "id":  "model38",
+                        "name":  "Growth Valuation Model"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-valuation-models",
+                            "name":  "Valuation Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "star_val_industry_rank",
+        "description":  "Percentile rank (1-100) of the security’s valuation attractiveness versus industry peers in the Relative Valuation Model; higher scores indicate stocks with better value in their industry",
+        "dataset":  {
+                        "id":  "model38",
+                        "name":  "Growth Valuation Model"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-valuation-models",
+                            "name":  "Valuation Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "star_val_iv_projection",
+        "description":  "Intrinsic value of the stock calculated by StarMine, expressed in the currency used for projections",
+        "dataset":  {
+                        "id":  "model38",
+                        "name":  "Growth Valuation Model"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-valuation-models",
+                            "name":  "Valuation Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "star_val_pb",
+        "description":  "Global percentile rank of the stock in the Price/Book component of the Relative Valuation Model, 1-100 scale; higher scores indicate better value",
+        "dataset":  {
+                        "id":  "model38",
+                        "name":  "Growth Valuation Model"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-valuation-models",
+                            "name":  "Valuation Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "star_val_pcf",
+        "description":  "Global percentile rank of the stock in the Price/Cash Flow component of the Relative Valuation Model, 1-100 scale; higher scores indicate better value",
+        "dataset":  {
+                        "id":  "model38",
+                        "name":  "Growth Valuation Model"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-valuation-models",
+                            "name":  "Valuation Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "star_val_pe",
+        "description":  "Percentile rank (1-100) of the security for its price/earnings (P/E) ratio valuation component versus global peers; higher scores mean more attractive P/E valuation",
+        "dataset":  {
+                        "id":  "model38",
+                        "name":  "Growth Valuation Model"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-valuation-models",
+                            "name":  "Valuation Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "star_val_piv_industry_rank",
+        "description":  "Percentile ranking (integer value, scale 1-100) of the Price/Intrinsic Value ratio for the stock relative to its industry peer group; higher rank means stronger undervaluation compared to industry peers",
+        "dataset":  {
+                        "id":  "model38",
+                        "name":  "Growth Valuation Model"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-valuation-models",
+                            "name":  "Valuation Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "star_val_piv_ratio",
+        "description":  "Ratio of previous day\u0027s market close price to the StarMine model\u0027s calculated intrinsic value",
+        "dataset":  {
+                        "id":  "model38",
+                        "name":  "Growth Valuation Model"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-valuation-models",
+                            "name":  "Valuation Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "star_val_piv_region_rank",
+        "description":  "Percentile ranking (integer value, scale 1-100) of the Price/Intrinsic Value ratio for the stock relative to its regional peer group; higher rank means stronger undervaluation compared to regional peers",
+        "dataset":  {
+                        "id":  "model38",
+                        "name":  "Growth Valuation Model"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-valuation-models",
+                            "name":  "Valuation Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "star_val_piv_sector_rank",
+        "description":  "Percentile rank (1-100) of a stock’s price to intrinsic value ratio within its region-sector; higher means more undervalued within sector",
+        "dataset":  {
+                        "id":  "model38",
+                        "name":  "Growth Valuation Model"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-valuation-models",
+                            "name":  "Valuation Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "star_val_region_rank",
+        "description":  "Current regional percentile (1-100) rank of a stock’s attractiveness in the Relative Valuation Model; higher is better value",
+        "dataset":  {
+                        "id":  "model38",
+                        "name":  "Growth Valuation Model"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-valuation-models",
+                            "name":  "Valuation Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "star_val_sector_rank",
+        "description":  "Sector-relative valuation rank (1-100) indicating attractiveness within the sector",
+        "dataset":  {
+                        "id":  "model38",
+                        "name":  "Growth Valuation Model"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-valuation-models",
+                            "name":  "Valuation Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    }
+]

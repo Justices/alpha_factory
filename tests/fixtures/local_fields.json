@@ -1,0 +1,15 @@
+[
+  {
+    "id": "country_percentile_acquisition_likelihood",
+    "description": "Percentile score of M&A target likelihood",
+    "dataset": {"id": "acquisition_model", "name": "Corporate Acquisition Likelihood Model"},
+    "category": {"id": "other", "name": "Other"},
+    "region": "GBR",
+    "delay": 1,
+    "universe": "TOP700",
+    "type": "VECTOR",
+    "coverage": 0,
+    "userCount": 0,
+    "alphaCount": 0
+  }
+]

@@ -1,0 +1,162 @@
+﻿[
+    {
+        "id":  "annual_report_language_similarity_eu",
+        "description":  "Year-over-year textual similarity metric for companies\u0027 annual reports, measuring changes or stability in language/content",
+        "dataset":  {
+                        "id":  "model257",
+                        "name":  "International sentiment analysis NLP model"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-nlp-models",
+                            "name":  "NLP Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "interim_filing_language_similarity_eu",
+        "description":  "Year-over-year textual similarity metric for consecutive interim (quarterly or half-year) regulatory filings of a company, used to assess the degree of change or stability in report language",
+        "dataset":  {
+                        "id":  "model257",
+                        "name":  "International sentiment analysis NLP model"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-nlp-models",
+                            "name":  "NLP Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl257_eu_lm_nnc",
+        "description":  "Score derived from convolutional neural network models trained on annual regulatory reports",
+        "dataset":  {
+                        "id":  "model257",
+                        "name":  "International sentiment analysis NLP model"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-nlp-models",
+                            "name":  "NLP Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl257_eu_score",
+        "description":  "Composite GINA alpha score for the security, capturing various qualitative and quantitative factors as modeled by Wolfe\u0027s process",
+        "dataset":  {
+                        "id":  "model257",
+                        "name":  "International sentiment analysis NLP model"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-nlp-models",
+                            "name":  "NLP Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl257_eu_sentiment_ml",
+        "description":  "Machine learning-based sentiment score derived from analysis of regulatory filings and behavioral features",
+        "dataset":  {
+                        "id":  "model257",
+                        "name":  "International sentiment analysis NLP model"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-nlp-models",
+                            "name":  "NLP Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    }
+]

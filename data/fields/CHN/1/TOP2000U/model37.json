@@ -1,0 +1,677 @@
+[
+  {
+    "id": "balance_sheet_language_score",
+    "description": "Global 1–100 rank based on language related to how the company structures its debt, stock, and accounts; higher scores indicate lower credit risk",
+    "dataset": {
+      "id": "model37",
+      "name": "Text Mining Data"
+    },
+    "category": {
+      "id": "model",
+      "name": "Model"
+    },
+    "subcategory": {
+      "id": "model-nlp-models",
+      "name": "NLP Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "MATRIX",
+    "dateCoverage": 0.9507,
+    "coverage": 0.6688,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2025-11-01"
+  },
+  {
+    "id": "credit_model_structural_letter_grade_float",
+    "description": "Credit rating grade inferred from the structural risk model, as a floating point value.",
+    "dataset": {
+      "id": "model37",
+      "name": "Text Mining Data"
+    },
+    "category": {
+      "id": "model",
+      "name": "Model"
+    },
+    "subcategory": {
+      "id": "model-nlp-models",
+      "name": "NLP Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "MATRIX",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9108,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2025-11-01"
+  },
+  {
+    "id": "credit_risk_country_percentile_score",
+    "description": "Percentile rank from 1 to 100 by country of the company’s 1-year default probability, where higher values indicate safer credit",
+    "dataset": {
+      "id": "model37",
+      "name": "Text Mining Data"
+    },
+    "category": {
+      "id": "model",
+      "name": "Model"
+    },
+    "subcategory": {
+      "id": "model-nlp-models",
+      "name": "NLP Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "MATRIX",
+    "dateCoverage": 0.9507,
+    "coverage": 0.6688,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2025-11-01"
+  },
+  {
+    "id": "credit_risk_country_percentile_score_float_2",
+    "description": "The 0–100 float percentile rank, by country, of the company’s 1‑year default probability; higher values indicate lower risk",
+    "dataset": {
+      "id": "model37",
+      "name": "Text Mining Data"
+    },
+    "category": {
+      "id": "model",
+      "name": "Model"
+    },
+    "subcategory": {
+      "id": "model-nlp-models",
+      "name": "NLP Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "MATRIX",
+    "dateCoverage": 0.9507,
+    "coverage": 0.6688,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2025-11-01"
+  },
+  {
+    "id": "credit_risk_global_percentile_score",
+    "description": "Global 1–100 percentile rank of the company’s 1-year default probability based on the StarMine Text Mining Credit Risk Model; higher scores indicate lower risk",
+    "dataset": {
+      "id": "model37",
+      "name": "Text Mining Data"
+    },
+    "category": {
+      "id": "model",
+      "name": "Model"
+    },
+    "subcategory": {
+      "id": "model-nlp-models",
+      "name": "NLP Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "MATRIX",
+    "dateCoverage": 0.9507,
+    "coverage": 0.6688,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2025-11-01"
+  },
+  {
+    "id": "credit_risk_global_percentile_score_float_2",
+    "description": "Global peer percentile rank of 1-year PD scaled 0–100; higher value indicates safer credit",
+    "dataset": {
+      "id": "model37",
+      "name": "Text Mining Data"
+    },
+    "category": {
+      "id": "model",
+      "name": "Model"
+    },
+    "subcategory": {
+      "id": "model-nlp-models",
+      "name": "NLP Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "MATRIX",
+    "dateCoverage": 0.9507,
+    "coverage": 0.6688,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2025-11-01"
+  },
+  {
+    "id": "credit_risk_industry_percentile_score",
+    "description": "1–100 percentile rank of 1-year default probability within the same region and TRBC Industry Group; higher scores indicate lower default risk",
+    "dataset": {
+      "id": "model37",
+      "name": "Text Mining Data"
+    },
+    "category": {
+      "id": "model",
+      "name": "Model"
+    },
+    "subcategory": {
+      "id": "model-nlp-models",
+      "name": "NLP Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "MATRIX",
+    "dateCoverage": 0.9507,
+    "coverage": 0.6683,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2025-11-01"
+  },
+  {
+    "id": "credit_risk_industry_percentile_score_float_2",
+    "description": "Industry peer-relative safety rank expressed as a 0–100 percentile (higher = safer)",
+    "dataset": {
+      "id": "model37",
+      "name": "Text Mining Data"
+    },
+    "category": {
+      "id": "model",
+      "name": "Model"
+    },
+    "subcategory": {
+      "id": "model-nlp-models",
+      "name": "NLP Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "MATRIX",
+    "dateCoverage": 0.9507,
+    "coverage": 0.6683,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2025-11-01"
+  },
+  {
+    "id": "credit_risk_news_component_score",
+    "description": "Global 1–100 rank of a company’s credit riskiness based on textual data in Reuters news articles from the StarMine Text Mining Credit Risk Model; higher scores indicate lower risk",
+    "dataset": {
+      "id": "model37",
+      "name": "Text Mining Data"
+    },
+    "category": {
+      "id": "model",
+      "name": "Model"
+    },
+    "subcategory": {
+      "id": "model-nlp-models",
+      "name": "NLP Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "MATRIX",
+    "dateCoverage": 0.9507,
+    "coverage": 0.5814,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2025-11-01"
+  },
+  {
+    "id": "credit_risk_news_component_score_float_2",
+    "description": "Float-scaled (0–100) News-based credit risk component score from the StarMine Text Mining Credit Risk Model using Reuters news articles; higher values indicate lower credit risk",
+    "dataset": {
+      "id": "model37",
+      "name": "Text Mining Data"
+    },
+    "category": {
+      "id": "model",
+      "name": "Model"
+    },
+    "subcategory": {
+      "id": "model-nlp-models",
+      "name": "NLP Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "MATRIX",
+    "dateCoverage": 0.9507,
+    "coverage": 0.5814,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2025-11-01"
+  },
+  {
+    "id": "credit_risk_region_percentile_score",
+    "description": "1–100 percentile rank of the company’s 1-year default probability among firms in the same region; higher scores indicate lower default risk",
+    "dataset": {
+      "id": "model37",
+      "name": "Text Mining Data"
+    },
+    "category": {
+      "id": "model",
+      "name": "Model"
+    },
+    "subcategory": {
+      "id": "model-nlp-models",
+      "name": "NLP Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "MATRIX",
+    "dateCoverage": 0.9507,
+    "coverage": 0.6688,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2025-11-01"
+  },
+  {
+    "id": "credit_risk_region_percentile_score_float_2",
+    "description": "Regional peer-relative safety rank expressed as a 0–100 percentile (higher = safer)",
+    "dataset": {
+      "id": "model37",
+      "name": "Text Mining Data"
+    },
+    "category": {
+      "id": "model",
+      "name": "Model"
+    },
+    "subcategory": {
+      "id": "model-nlp-models",
+      "name": "NLP Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "MATRIX",
+    "dateCoverage": 0.9507,
+    "coverage": 0.6688,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2025-11-01"
+  },
+  {
+    "id": "credit_risk_sector_percentile_score_2",
+    "description": "1–100 percentile rank of the company’s 1-year default probability among firms in the same region and TRBC Economic Sector; higher scores indicate lower default risk",
+    "dataset": {
+      "id": "model37",
+      "name": "Text Mining Data"
+    },
+    "category": {
+      "id": "model",
+      "name": "Model"
+    },
+    "subcategory": {
+      "id": "model-nlp-models",
+      "name": "NLP Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "MATRIX",
+    "dateCoverage": 0.9507,
+    "coverage": 0.6686,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2025-11-01"
+  },
+  {
+    "id": "default_probability_percent",
+    "description": "Probability of default over the next 1-year period, expressed as a decimal fraction (e.g., 0.005)",
+    "dataset": {
+      "id": "model37",
+      "name": "Text Mining Data"
+    },
+    "category": {
+      "id": "model",
+      "name": "Model"
+    },
+    "subcategory": {
+      "id": "model-nlp-models",
+      "name": "NLP Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "MATRIX",
+    "dateCoverage": 0.9507,
+    "coverage": 0.6688,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2025-11-01"
+  },
+  {
+    "id": "external_event_language_score",
+    "description": "Global 1–100 rank based on language about market conditions or third parties materially impacting the company; higher scores indicate lower credit risk",
+    "dataset": {
+      "id": "model37",
+      "name": "Text Mining Data"
+    },
+    "category": {
+      "id": "model",
+      "name": "Model"
+    },
+    "subcategory": {
+      "id": "model-nlp-models",
+      "name": "NLP Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "MATRIX",
+    "dateCoverage": 0.9507,
+    "coverage": 0.6685,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2025-11-01"
+  },
+  {
+    "id": "legal_obligation_language_score",
+    "description": "Global 1–100 rank based on language regarding the company’s agreements with partners or financiers; higher scores indicate lower credit risk",
+    "dataset": {
+      "id": "model37",
+      "name": "Text Mining Data"
+    },
+    "category": {
+      "id": "model",
+      "name": "Model"
+    },
+    "subcategory": {
+      "id": "model-nlp-models",
+      "name": "NLP Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "MATRIX",
+    "dateCoverage": 0.9507,
+    "coverage": 0.6688,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2025-11-01"
+  },
+  {
+    "id": "profitability_language_score",
+    "description": "Global 1–100 rank based on language related to the company’s earnings and profitability; higher scores indicate lower credit risk",
+    "dataset": {
+      "id": "model37",
+      "name": "Text Mining Data"
+    },
+    "category": {
+      "id": "model",
+      "name": "Model"
+    },
+    "subcategory": {
+      "id": "model-nlp-models",
+      "name": "NLP Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "MATRIX",
+    "dateCoverage": 0.9507,
+    "coverage": 0.6688,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2025-11-01"
+  },
+  {
+    "id": "recent_broker_research_document_count",
+    "description": "The number of broker research documents within the trailing 30 days before the Data-Through Date",
+    "dataset": {
+      "id": "model37",
+      "name": "Text Mining Data"
+    },
+    "category": {
+      "id": "model",
+      "name": "Model"
+    },
+    "subcategory": {
+      "id": "model-nlp-models",
+      "name": "NLP Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "MATRIX",
+    "dateCoverage": 0.9507,
+    "coverage": 0.669,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2025-11-01"
+  },
+  {
+    "id": "recent_filings_document_count",
+    "description": "Number of filing documents within the 30 days prior to the Data-Through Date",
+    "dataset": {
+      "id": "model37",
+      "name": "Text Mining Data"
+    },
+    "category": {
+      "id": "model",
+      "name": "Model"
+    },
+    "subcategory": {
+      "id": "model-nlp-models",
+      "name": "NLP Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "MATRIX",
+    "dateCoverage": 0.9507,
+    "coverage": 0.669,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2025-11-01"
+  },
+  {
+    "id": "recent_news_document_count",
+    "description": "Number of news documents within the 30 days prior to the Data-Through Date",
+    "dataset": {
+      "id": "model37",
+      "name": "Text Mining Data"
+    },
+    "category": {
+      "id": "model",
+      "name": "Model"
+    },
+    "subcategory": {
+      "id": "model-nlp-models",
+      "name": "NLP Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "MATRIX",
+    "dateCoverage": 0.9507,
+    "coverage": 0.669,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2025-11-01"
+  },
+  {
+    "id": "recent_transcript_document_count",
+    "description": "Number of earnings call transcript documents in the trailing 30 days before the Data-Through Date",
+    "dataset": {
+      "id": "model37",
+      "name": "Text Mining Data"
+    },
+    "category": {
+      "id": "model",
+      "name": "Model"
+    },
+    "subcategory": {
+      "id": "model-nlp-models",
+      "name": "NLP Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "MATRIX",
+    "dateCoverage": 0.9507,
+    "coverage": 0.669,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2025-11-01"
+  },
+  {
+    "id": "yearly_broker_research_document_count",
+    "description": "Number of broker research documents within the 12 months prior to the Data-Through Date",
+    "dataset": {
+      "id": "model37",
+      "name": "Text Mining Data"
+    },
+    "category": {
+      "id": "model",
+      "name": "Model"
+    },
+    "subcategory": {
+      "id": "model-nlp-models",
+      "name": "NLP Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "MATRIX",
+    "dateCoverage": 0.9507,
+    "coverage": 0.669,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2025-11-01"
+  },
+  {
+    "id": "yearly_filings_document_count",
+    "description": "Number of filing documents within the 12 months prior to the Data-Through Date",
+    "dataset": {
+      "id": "model37",
+      "name": "Text Mining Data"
+    },
+    "category": {
+      "id": "model",
+      "name": "Model"
+    },
+    "subcategory": {
+      "id": "model-nlp-models",
+      "name": "NLP Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "MATRIX",
+    "dateCoverage": 0.9507,
+    "coverage": 0.669,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2025-11-01"
+  },
+  {
+    "id": "yearly_news_document_count",
+    "description": "The number of news documents within the trailing 12 months before the Data-Through Date",
+    "dataset": {
+      "id": "model37",
+      "name": "Text Mining Data"
+    },
+    "category": {
+      "id": "model",
+      "name": "Model"
+    },
+    "subcategory": {
+      "id": "model-nlp-models",
+      "name": "NLP Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "MATRIX",
+    "dateCoverage": 0.9507,
+    "coverage": 0.669,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2025-11-01"
+  },
+  {
+    "id": "yearly_transcript_document_count",
+    "description": "Number of transcript documents within the trailing 12 months before the Data-Through Date",
+    "dataset": {
+      "id": "model37",
+      "name": "Text Mining Data"
+    },
+    "category": {
+      "id": "model",
+      "name": "Model"
+    },
+    "subcategory": {
+      "id": "model-nlp-models",
+      "name": "NLP Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "MATRIX",
+    "dateCoverage": 0.9507,
+    "coverage": 0.669,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2025-11-01"
+  }
+]

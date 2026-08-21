@@ -1,0 +1,66 @@
+﻿[
+    {
+        "id":  "anl40_age",
+        "description":  "Age of the mutual board member at the event date",
+        "dataset":  {
+                        "id":  "analyst40",
+                        "name":  "Information on board of director"
+                    },
+        "category":  {
+                         "id":  "analyst",
+                         "name":  "Analyst"
+                     },
+        "subcategory":  {
+                            "id":  "analyst-crowdsourced-estimates",
+                            "name":  "Crowdsourced Estimates"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "anl40_relation",
+        "description":  "Instrument index identifier of the related company that shares a mutual board member",
+        "dataset":  {
+                        "id":  "analyst40",
+                        "name":  "Information on board of director"
+                    },
+        "category":  {
+                         "id":  "analyst",
+                         "name":  "Analyst"
+                     },
+        "subcategory":  {
+                            "id":  "analyst-crowdsourced-estimates",
+                            "name":  "Crowdsourced Estimates"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    }
+]

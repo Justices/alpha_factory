@@ -1,0 +1,66 @@
+﻿[
+    {
+        "id":  "imb5_mktcap",
+        "description":  "Market capitalization of security in regional currency units",
+        "dataset":  {
+                        "id":  "imbalance5",
+                        "name":  "Oil Price Resilience Scores"
+                    },
+        "category":  {
+                         "id":  "imbalance",
+                         "name":  "Imbalance"
+                     },
+        "subcategory":  {
+                            "id":  "imbalance-imbalance-models",
+                            "name":  "Imbalance Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "imb5_score",
+        "description":  "SHIELD-OIL composite score (0-1) indicating resilience/advantage in oil shock regimes",
+        "dataset":  {
+                        "id":  "imbalance5",
+                        "name":  "Oil Price Resilience Scores"
+                    },
+        "category":  {
+                         "id":  "imbalance",
+                         "name":  "Imbalance"
+                     },
+        "subcategory":  {
+                            "id":  "imbalance-imbalance-models",
+                            "name":  "Imbalance Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    }
+]

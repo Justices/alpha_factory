@@ -1,0 +1,418 @@
+﻿[
+    {
+        "id":  "scl5_s_createdts_time",
+        "description":  "Time when the post was received by the system",
+        "dataset":  {
+                        "id":  "socialmedia5",
+                        "name":  "Lexical Breakdown Data"
+                    },
+        "category":  {
+                         "id":  "socialmedia",
+                         "name":  "Social Media"
+                     },
+        "subcategory":  {
+                            "id":  "socialmedia-social-media",
+                            "name":  "Social Media"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  0.5931,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "scl5_s_d1_wqreceivetime",
+        "description":  "System ingestion timestamp in UTC when the record was received",
+        "dataset":  {
+                        "id":  "socialmedia5",
+                        "name":  "Lexical Breakdown Data"
+                    },
+        "category":  {
+                         "id":  "socialmedia",
+                         "name":  "Social Media"
+                     },
+        "subcategory":  {
+                            "id":  "socialmedia-social-media",
+                            "name":  "Social Media"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  0.5931,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "scl5_s_duplicatecount",
+        "description":  "Duplicate indicator: 0 for original, values \u003e1 are the running duplicate count for the originalId",
+        "dataset":  {
+                        "id":  "socialmedia5",
+                        "name":  "Lexical Breakdown Data"
+                    },
+        "category":  {
+                         "id":  "socialmedia",
+                         "name":  "Social Media"
+                     },
+        "subcategory":  {
+                            "id":  "socialmedia-social-media",
+                            "name":  "Social Media"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  0.5931,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "scl5_s_hitscore_averagesentiment",
+        "description":  "Average sentiment score computed for the post across its sentiment-bearing fragments",
+        "dataset":  {
+                        "id":  "socialmedia5",
+                        "name":  "Lexical Breakdown Data"
+                    },
+        "category":  {
+                         "id":  "socialmedia",
+                         "name":  "Social Media"
+                     },
+        "subcategory":  {
+                            "id":  "socialmedia-social-media",
+                            "name":  "Social Media"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  0.5931,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "scl5_s_hitscore_highsentiment",
+        "description":  "Maximum sentiment score computed for the post based on its lexical fragments",
+        "dataset":  {
+                        "id":  "socialmedia5",
+                        "name":  "Lexical Breakdown Data"
+                    },
+        "category":  {
+                         "id":  "socialmedia",
+                         "name":  "Social Media"
+                     },
+        "subcategory":  {
+                            "id":  "socialmedia-social-media",
+                            "name":  "Social Media"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  0.5931,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "scl5_s_hitscore_lowsentiment",
+        "description":  "Minimum sentiment score computed for the post based on its lexical fragments",
+        "dataset":  {
+                        "id":  "socialmedia5",
+                        "name":  "Lexical Breakdown Data"
+                    },
+        "category":  {
+                         "id":  "socialmedia",
+                         "name":  "Social Media"
+                     },
+        "subcategory":  {
+                            "id":  "socialmedia-social-media",
+                            "name":  "Social Media"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  0.5931,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "scl5_s_hitscore_sentimentcount",
+        "description":  "Number of words or phrases in the post that matched the sentiment dictionary",
+        "dataset":  {
+                        "id":  "socialmedia5",
+                        "name":  "Lexical Breakdown Data"
+                    },
+        "category":  {
+                         "id":  "socialmedia",
+                         "name":  "Social Media"
+                     },
+        "subcategory":  {
+                            "id":  "socialmedia-social-media",
+                            "name":  "Social Media"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  0.5931,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "scl5_s_hitscore_wordcount",
+        "description":  "Total number of words in the post used for sentiment analysis",
+        "dataset":  {
+                        "id":  "socialmedia5",
+                        "name":  "Lexical Breakdown Data"
+                    },
+        "category":  {
+                         "id":  "socialmedia",
+                         "name":  "Social Media"
+                     },
+        "subcategory":  {
+                            "id":  "socialmedia-social-media",
+                            "name":  "Social Media"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  0.5931,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "scl5_s_job",
+        "description":  "Internal job settings identifier",
+        "dataset":  {
+                        "id":  "socialmedia5",
+                        "name":  "Lexical Breakdown Data"
+                    },
+        "category":  {
+                         "id":  "socialmedia",
+                         "name":  "Social Media"
+                     },
+        "subcategory":  {
+                            "id":  "socialmedia-social-media",
+                            "name":  "Social Media"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  0.5931,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "scl5_s_postedts_time",
+        "description":  "Time of the post",
+        "dataset":  {
+                        "id":  "socialmedia5",
+                        "name":  "Lexical Breakdown Data"
+                    },
+        "category":  {
+                         "id":  "socialmedia",
+                         "name":  "Social Media"
+                     },
+        "subcategory":  {
+                            "id":  "socialmedia-social-media",
+                            "name":  "Social Media"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  0.5931,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "scl5_s_post_accountrating_value",
+        "description":  "Author/account quality rating score for the poster (higher indicates more credible or relevant)",
+        "dataset":  {
+                        "id":  "socialmedia5",
+                        "name":  "Lexical Breakdown Data"
+                    },
+        "category":  {
+                         "id":  "socialmedia",
+                         "name":  "Social Media"
+                     },
+        "subcategory":  {
+                            "id":  "socialmedia-social-media",
+                            "name":  "Social Media"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  0.5931,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "scl5_s_publishedts_time",
+        "description":  "Time at which the post was published",
+        "dataset":  {
+                        "id":  "socialmedia5",
+                        "name":  "Lexical Breakdown Data"
+                    },
+        "category":  {
+                         "id":  "socialmedia",
+                         "name":  "Social Media"
+                     },
+        "subcategory":  {
+                            "id":  "socialmedia-social-media",
+                            "name":  "Social Media"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  0.5931,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "sentiment_fragment_score_d1",
+        "description":  "The backtest-safe sentiment score for a specific word or phrase (fragment) within a social media post, delivered with a one-day lag (D1). This float value is derived from the `score` field in the fragment-level (`f_*`) data modules.",
+        "dataset":  {
+                        "id":  "socialmedia5",
+                        "name":  "Lexical Breakdown Data"
+                    },
+        "category":  {
+                         "id":  "socialmedia",
+                         "name":  "Social Media"
+                     },
+        "subcategory":  {
+                            "id":  "socialmedia-social-media",
+                            "name":  "Social Media"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  0.5931,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    }
+]

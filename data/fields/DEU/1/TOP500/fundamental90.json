@@ -1,0 +1,2114 @@
+﻿[
+    {
+        "id":  "fnd90_game_accruals_vol",
+        "description":  "The volatility of accounting accruals, measuring variability in accruals over time; higher values indicate greater manipulation or lower earnings quality",
+        "dataset":  {
+                        "id":  "fundamental90",
+                        "name":  "Governance, Accounting, Management, and Equality"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-models",
+                            "name":  "Fundamental Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "fnd90_game_an_cov_chng",
+        "description":  "Period-over-period change in the number of financial analysts covering the company, positive values indicate increasing analyst attention",
+        "dataset":  {
+                        "id":  "fundamental90",
+                        "name":  "Governance, Accounting, Management, and Equality"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-models",
+                            "name":  "Fundamental Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "fnd90_game_asset_turnover_chg",
+        "description":  "The change in asset turnover ratio (typically sales/assets), reflecting improvement or deterioration in capital utilization over time",
+        "dataset":  {
+                        "id":  "fundamental90",
+                        "name":  "Governance, Accounting, Management, and Equality"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-models",
+                            "name":  "Fundamental Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "fnd90_game_capex_dep",
+        "description":  "Ratio of capital expenditures to depreciation, with higher values indicating more aggressive reinvestment relative to asset aging",
+        "dataset":  {
+                        "id":  "fundamental90",
+                        "name":  "Governance, Accounting, Management, and Equality"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-models",
+                            "name":  "Fundamental Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "fnd90_game_capex_sale",
+        "description":  "Ratio of capital expenditures to sales, indicating investment intensity compared to revenue generation",
+        "dataset":  {
+                        "id":  "fundamental90",
+                        "name":  "Governance, Accounting, Management, and Equality"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-models",
+                            "name":  "Fundamental Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "fnd90_game_cash_flow_coverage",
+        "description":  "A ratio measuring how well a company\u0027s operating cash flow covers its obligations (likely total debt or interest); higher values signal stronger ability to service liabilities",
+        "dataset":  {
+                        "id":  "fundamental90",
+                        "name":  "Governance, Accounting, Management, and Equality"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-models",
+                            "name":  "Fundamental Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "fnd90_game_contingent_liab",
+        "description":  "The ratio of contingent liabilities (potential future obligations) to equity, indicating off-balance-sheet or unrecognized risk; higher values mean higher risk",
+        "dataset":  {
+                        "id":  "fundamental90",
+                        "name":  "Governance, Accounting, Management, and Equality"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-models",
+                            "name":  "Fundamental Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "fnd90_game_debt_convertible",
+        "description":  "The proportion of total debt comprised of convertible debt instruments, indicating capital structure complexity or equity dilution risk; higher values mean more risk",
+        "dataset":  {
+                        "id":  "fundamental90",
+                        "name":  "Governance, Accounting, Management, and Equality"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-models",
+                            "name":  "Fundamental Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "fnd90_game_deferred_sal_chg",
+        "description":  "The period-over-period change in deferred revenue (sales received but not yet recognized), which may reflect aggressive revenue recognition practices; positive changes may warrant scrutiny",
+        "dataset":  {
+                        "id":  "fundamental90",
+                        "name":  "Governance, Accounting, Management, and Equality"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-models",
+                            "name":  "Fundamental Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "fnd90_game_deferred_tax_asset_chg",
+        "description":  "The period-over-period change in the amount of deferred tax assets on the balance sheet, reflecting adjustments or aggressive accounting in tax accruals or recognition timing",
+        "dataset":  {
+                        "id":  "fundamental90",
+                        "name":  "Governance, Accounting, Management, and Equality"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-models",
+                            "name":  "Fundamental Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "fnd90_game_deferred_tax_liab_chg",
+        "description":  "The period-over-period change in deferred tax liabilities, indicating shifts in future tax obligations possibly due to accounting policies or estimates",
+        "dataset":  {
+                        "id":  "fundamental90",
+                        "name":  "Governance, Accounting, Management, and Equality"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-models",
+                            "name":  "Fundamental Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "fnd90_game_depreciation_chg",
+        "description":  "The change in the depreciation rate (either method or level), which can indicate changes in accounting estimate or potential earnings management",
+        "dataset":  {
+                        "id":  "fundamental90",
+                        "name":  "Governance, Accounting, Management, and Equality"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-models",
+                            "name":  "Fundamental Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "fnd90_game_earning_smooth",
+        "description":  "A measure of how stable or \"smooth\" reported earnings are over time, potentially capturing both persistent profitability or possible earnings management/smoothing practices",
+        "dataset":  {
+                        "id":  "fundamental90",
+                        "name":  "Governance, Accounting, Management, and Equality"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-models",
+                            "name":  "Fundamental Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "fnd90_game_eff_interest_rate",
+        "description":  "The effective interest rate experienced by the company, representing the cost of debt factoring in all forms of financing; higher rates signal more financial leverage risk",
+        "dataset":  {
+                        "id":  "fundamental90",
+                        "name":  "Governance, Accounting, Management, and Equality"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-models",
+                            "name":  "Fundamental Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "fnd90_game_eps_sur_vol",
+        "description":  "Volatility of analyst EPS (earnings per share) forecast errors, reflecting the unpredictability or low quality of reported earnings versus market expectations",
+        "dataset":  {
+                        "id":  "fundamental90",
+                        "name":  "Governance, Accounting, Management, and Equality"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-models",
+                            "name":  "Fundamental Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "fnd90_game_eps_vol",
+        "description":  "Volatility (standard deviation) of earnings per share over a period, with higher values indicating unstable profitability",
+        "dataset":  {
+                        "id":  "fundamental90",
+                        "name":  "Governance, Accounting, Management, and Equality"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-models",
+                            "name":  "Fundamental Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "fnd90_game_equity_dilution",
+        "description":  "An indicator of new equity issuance or dilution, such as through new share issuance or conversion of convertibles, reflecting risk of ownership dilution to existing shareholders",
+        "dataset":  {
+                        "id":  "fundamental90",
+                        "name":  "Governance, Accounting, Management, and Equality"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-models",
+                            "name":  "Fundamental Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "fnd90_game_esop_grant",
+        "description":  "ESOP grants [ ] - [Quality.Capital structure]",
+        "dataset":  {
+                        "id":  "fundamental90",
+                        "name":  "Governance, Accounting, Management, and Equality"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-models",
+                            "name":  "Fundamental Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "fnd90_game_finished_goods",
+        "description":  "Ratio of finished goods to total inventory, indicating the proportion of inventory in final form; higher values may signal slow sales, overproduction, or potential risk in working capital management",
+        "dataset":  {
+                        "id":  "fundamental90",
+                        "name":  "Governance, Accounting, Management, and Equality"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-models",
+                            "name":  "Fundamental Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "fnd90_game_gma_chg",
+        "description":  "Change in gross margin (as a percentage or ratio) from one period to the next, capturing improvement or deterioration in efficiency",
+        "dataset":  {
+                        "id":  "fundamental90",
+                        "name":  "Governance, Accounting, Management, and Equality"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-models",
+                            "name":  "Fundamental Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "fnd90_game_gross_margin_vol",
+        "description":  "Volatility in gross margin over time; high volatility signals instability or unpredictability in profitability, indicating potential business risk",
+        "dataset":  {
+                        "id":  "fundamental90",
+                        "name":  "Governance, Accounting, Management, and Equality"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-models",
+                            "name":  "Fundamental Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "fnd90_game_inc_cash_tax",
+        "description":  "Ratio of tax expense per income statement to actual cash taxes paid, designed to highlight aggressive tax recognition or earnings quality red flags",
+        "dataset":  {
+                        "id":  "fundamental90",
+                        "name":  "Governance, Accounting, Management, and Equality"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-models",
+                            "name":  "Fundamental Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "fnd90_game_interest_investment_inc",
+        "description":  "The amount of income earned from interest and investments, as opposed to operating earnings, which might distort quality of earnings if high relative to core business profit",
+        "dataset":  {
+                        "id":  "fundamental90",
+                        "name":  "Governance, Accounting, Management, and Equality"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-models",
+                            "name":  "Fundamental Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "fnd90_game_inventory_chg",
+        "description":  "Change in company inventory levels over a specific period, typically quarter-over-quarter or year-over-year, reflecting working capital changes and operational efficiency; higher changes may indicate risk of inventory buildup or fluctuations in demand",
+        "dataset":  {
+                        "id":  "fundamental90",
+                        "name":  "Governance, Accounting, Management, and Equality"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-models",
+                            "name":  "Fundamental Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "fnd90_game_inventory_days",
+        "description":  "Number of days inventory remains on hand before being sold, calculated as inventory divided by average daily sales; a higher value suggests slower inventory turnover and potential working capital inefficiency or sales weakness",
+        "dataset":  {
+                        "id":  "fundamental90",
+                        "name":  "Governance, Accounting, Management, and Equality"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-models",
+                            "name":  "Fundamental Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "fnd90_game_labor_efficiency_chg",
+        "description":  "Period-to-period change in labor efficiency (e.g., revenue or profit per employee), with increases reflecting greater efficiency",
+        "dataset":  {
+                        "id":  "fundamental90",
+                        "name":  "Governance, Accounting, Management, and Equality"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-models",
+                            "name":  "Fundamental Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "fnd90_game_minority_interest",
+        "description":  "The ratio of minority interest (equity attributable to non-controlling shareholders in subsidiaries) to total equity; higher values may reflect more complex ownership structures and potential earnings quality concerns",
+        "dataset":  {
+                        "id":  "fundamental90",
+                        "name":  "Governance, Accounting, Management, and Equality"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-models",
+                            "name":  "Fundamental Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "fnd90_game_noa",
+        "description":  "Net Operating Assets; represents the company\u0027s operating assets minus operating liabilities, indicating capital employed in operations",
+        "dataset":  {
+                        "id":  "fundamental90",
+                        "name":  "Governance, Accounting, Management, and Equality"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-models",
+                            "name":  "Fundamental Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "fnd90_game_non_oper_inc",
+        "description":  "Non-operating income as a share of EBITDA, highlighting the proportion of earnings derived from sources outside the core business; higher ratios may imply lower earnings quality or potential one-off items",
+        "dataset":  {
+                        "id":  "fundamental90",
+                        "name":  "Governance, Accounting, Management, and Equality"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-models",
+                            "name":  "Fundamental Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "fnd90_game_non_production_asset",
+        "description":  "Amount or ratio of company assets not directly tied to production or core operations (such as investments, property held for sale); higher values may indicate inefficient capital utilization or non-core area exposure",
+        "dataset":  {
+                        "id":  "fundamental90",
+                        "name":  "Governance, Accounting, Management, and Equality"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-models",
+                            "name":  "Fundamental Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "fnd90_game_optimism_gma",
+        "description":  "Analyst Optimism Gross Margin [ Descending] - [Quality.Profitability]",
+        "dataset":  {
+                        "id":  "fundamental90",
+                        "name":  "Governance, Accounting, Management, and Equality"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-models",
+                            "name":  "Fundamental Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "fnd90_game_optimism_sale",
+        "description":  "Analyst Optimism Sales [ Descending] - [Quality.Profitability]",
+        "dataset":  {
+                        "id":  "fundamental90",
+                        "name":  "Governance, Accounting, Management, and Equality"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-models",
+                            "name":  "Fundamental Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "fnd90_game_other_asset_gr",
+        "description":  "Other Asset Growth [ Descending] - [Quality.Capital utilization]",
+        "dataset":  {
+                        "id":  "fundamental90",
+                        "name":  "Governance, Accounting, Management, and Equality"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-models",
+                            "name":  "Fundamental Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "fnd90_game_payble_days",
+        "description":  "Average number of days the company takes to pay its suppliers (accounts payable days); a higher value means slower payments, which could indicate cash flow management or payment risk to suppliers",
+        "dataset":  {
+                        "id":  "fundamental90",
+                        "name":  "Governance, Accounting, Management, and Equality"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-models",
+                            "name":  "Fundamental Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "fnd90_game_pension_debt_equi_pbo",
+        "description":  "Value of the company\u0027s net pension benefit obligation (PBO) expressed as debt equivalent; a higher value indicates greater pension-related financial risk relative to debt",
+        "dataset":  {
+                        "id":  "fundamental90",
+                        "name":  "Governance, Accounting, Management, and Equality"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-models",
+                            "name":  "Fundamental Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "fnd90_game_pension_discount_rate",
+        "description":  "The discount rate used to calculate the present value of pension obligations; higher values may indicate more aggressive accounting practices (lowering reported liabilities)",
+        "dataset":  {
+                        "id":  "fundamental90",
+                        "name":  "Governance, Accounting, Management, and Equality"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-models",
+                            "name":  "Fundamental Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "fnd90_game_pension_ev",
+        "description":  "Ratio of pension and other post-employment benefit obligations to total enterprise value; higher values mean greater pension-related liability risks relative to the company\u0027s market worth",
+        "dataset":  {
+                        "id":  "fundamental90",
+                        "name":  "Governance, Accounting, Management, and Equality"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-models",
+                            "name":  "Fundamental Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "fnd90_game_pension_expense",
+        "description":  "Pension-related expense scaled by EBITDA, where higher values indicate greater pension-related liability risk",
+        "dataset":  {
+                        "id":  "fundamental90",
+                        "name":  "Governance, Accounting, Management, and Equality"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-models",
+                            "name":  "Fundamental Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "fnd90_game_pension_interest",
+        "description":  "Interest cost component of pension expense, representing the increase in projected pension liability due to the passage of time",
+        "dataset":  {
+                        "id":  "fundamental90",
+                        "name":  "Governance, Accounting, Management, and Equality"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-models",
+                            "name":  "Fundamental Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "fnd90_game_pension_pbo",
+        "description":  "Ratio of projected pension benefit obligations (pension liabilities) to total enterprise value, indicating pension-related financial risk",
+        "dataset":  {
+                        "id":  "fundamental90",
+                        "name":  "Governance, Accounting, Management, and Equality"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-models",
+                            "name":  "Fundamental Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "fnd90_game_prepaid_expense",
+        "description":  "Ratio of prepaid expenses to sales, indicating the extent of accounting items paid in advance relative to revenue, which may signal aggressive accounting practices",
+        "dataset":  {
+                        "id":  "fundamental90",
+                        "name":  "Governance, Accounting, Management, and Equality"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-models",
+                            "name":  "Fundamental Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "fnd90_game_receivable_chg",
+        "description":  "Change in receivables (typically quarter-over-quarter or year-over-year), showing how much accounts receivable increased or decreased, reflecting shifts in working capital",
+        "dataset":  {
+                        "id":  "fundamental90",
+                        "name":  "Governance, Accounting, Management, and Equality"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-models",
+                            "name":  "Fundamental Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "fnd90_game_receivable_days",
+        "description":  "Number of days, on average, it takes a company to collect receivables from customers; a measure of working capital efficiency",
+        "dataset":  {
+                        "id":  "fundamental90",
+                        "name":  "Governance, Accounting, Management, and Equality"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-models",
+                            "name":  "Fundamental Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "fnd90_game_relative_rtn_vol",
+        "description":  "Volatility of a security’s returns relative to a benchmark or peers, representing relative risk or instability of stock returns",
+        "dataset":  {
+                        "id":  "fundamental90",
+                        "name":  "Governance, Accounting, Management, and Equality"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-models",
+                            "name":  "Fundamental Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "fnd90_game_serial_special",
+        "description":  "Total of special (non-recurring/one-off) accounting items as a proportion of sales, highlighting the prevalence of such adjustments and potential earnings manipulation",
+        "dataset":  {
+                        "id":  "fundamental90",
+                        "name":  "Governance, Accounting, Management, and Equality"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-models",
+                            "name":  "Fundamental Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "fnd90_game_sg_a_cost_ratio",
+        "description":  "Selling, General, \u0026 Administrative (SG\u0026A) expenses as a ratio to a base (likely sales or revenue), measuring company efficiency in overhead spending",
+        "dataset":  {
+                        "id":  "fundamental90",
+                        "name":  "Governance, Accounting, Management, and Equality"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-models",
+                            "name":  "Fundamental Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "fnd90_game_sg_a_inefficiency",
+        "description":  "Level of inefficiency in SG\u0026A (Selling, General \u0026 Administrative) expenses; higher values suggest less efficient management of overhead costs",
+        "dataset":  {
+                        "id":  "fundamental90",
+                        "name":  "Governance, Accounting, Management, and Equality"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-models",
+                            "name":  "Fundamental Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "fnd90_game_sg_a_vol",
+        "description":  "Volatility or variability in SG\u0026A expenses over time, with higher values indicating instability or unpredictability in overhead costs, which could be a risk factor for efficiency",
+        "dataset":  {
+                        "id":  "fundamental90",
+                        "name":  "Governance, Accounting, Management, and Equality"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-models",
+                            "name":  "Fundamental Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "fnd90_game_short_term_debt",
+        "description":  "Ratio of short-term (due within one year) debt to a base (likely total assets or capitalization), indicating near-term financial leverage or refinancing risk",
+        "dataset":  {
+                        "id":  "fundamental90",
+                        "name":  "Governance, Accounting, Management, and Equality"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-models",
+                            "name":  "Fundamental Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "fnd90_game_tax_rate",
+        "description":  "Effective tax rate, with lower rates possibly indicating aggressive accounting or tax minimization strategies",
+        "dataset":  {
+                        "id":  "fundamental90",
+                        "name":  "Governance, Accounting, Management, and Equality"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-models",
+                            "name":  "Fundamental Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "fnd90_game_total_debt_chg",
+        "description":  "Change in total debt balance (period-over-period), measuring increases or decreases in company leverage",
+        "dataset":  {
+                        "id":  "fundamental90",
+                        "name":  "Governance, Accounting, Management, and Equality"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-models",
+                            "name":  "Fundamental Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "fnd90_qes_gamef_cashflow_var",
+        "description":  "Variability (volatility) of operating cashflows; higher values indicate more unpredictable or volatile cashflow generation, which means higher risk",
+        "dataset":  {
+                        "id":  "fundamental90",
+                        "name":  "Governance, Accounting, Management, and Equality"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-models",
+                            "name":  "Fundamental Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "fnd90_qes_gamef_chs_default",
+        "description":  "Standardized probability of bankruptcy/default (z-score) based on the Campbell, Hilscher, Szilagyi model; higher values = greater default risk",
+        "dataset":  {
+                        "id":  "fundamental90",
+                        "name":  "Governance, Accounting, Management, and Equality"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-models",
+                            "name":  "Fundamental Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "fnd90_qes_gamef_cscore",
+        "description":  "Montier’s C-score, an integer-based composite designed to flag accounting manipulation or fraud risk (higher is more risk)",
+        "dataset":  {
+                        "id":  "fundamental90",
+                        "name":  "Governance, Accounting, Management, and Equality"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-models",
+                            "name":  "Fundamental Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "fnd90_qes_gamef_earnigs_timeliness",
+        "description":  "Z-score measuring the timeliness of a company\u0027s earnings releases, where higher values typically indicate quicker (more timely) earnings reporting, which may reflect better governance or information transparency",
+        "dataset":  {
+                        "id":  "fundamental90",
+                        "name":  "Governance, Accounting, Management, and Equality"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-models",
+                            "name":  "Fundamental Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "fnd90_qes_gamef_earn_var",
+        "description":  "Earnings variability, typically representing the standard deviation or volatility of a company\u0027s earnings over a period; higher values indicate less stable or more unpredictable earnings, signaling higher risk",
+        "dataset":  {
+                        "id":  "fundamental90",
+                        "name":  "Governance, Accounting, Management, and Equality"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-models",
+                            "name":  "Fundamental Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "fnd90_qes_gamef_grossprofit_asset",
+        "description":  "Gross profit divided by total assets, a quality/profitability metric where higher values indicate better profitability",
+        "dataset":  {
+                        "id":  "fundamental90",
+                        "name":  "Governance, Accounting, Management, and Equality"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-models",
+                            "name":  "Fundamental Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "fnd90_qes_gamef_icfroe_1y",
+        "description":  "Incremental Cash Flow Return on Equity over the past 1 year; higher values indicate stronger cash generation relative to equity for the recent year",
+        "dataset":  {
+                        "id":  "fundamental90",
+                        "name":  "Governance, Accounting, Management, and Equality"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-models",
+                            "name":  "Fundamental Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "fnd90_qes_gamef_icfroe_3y",
+        "description":  "Incremental Cash Flow Return on Equity over the past 3 years; higher values indicate stronger multi-year cash flow returns relative to equity",
+        "dataset":  {
+                        "id":  "fundamental90",
+                        "name":  "Governance, Accounting, Management, and Equality"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-models",
+                            "name":  "Fundamental Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "fnd90_qes_gamef_icfroe_5y",
+        "description":  "Incremental Cash Flow Return on Equity over the past 5 years; higher values indicate sustained cash flow return performance relative to equity over a longer period",
+        "dataset":  {
+                        "id":  "fundamental90",
+                        "name":  "Governance, Accounting, Management, and Equality"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-models",
+                            "name":  "Fundamental Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "fnd90_qes_gamef_mohanram",
+        "description":  "Mohanram “G-score” assessing risk of earnings manipulation in growth stocks (higher indicates greater fraud or earnings risk)",
+        "dataset":  {
+                        "id":  "fundamental90",
+                        "name":  "Governance, Accounting, Management, and Equality"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-models",
+                            "name":  "Fundamental Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "fnd90_qes_gamef_negative_earnings",
+        "description":  "Frequency or indicator of negative earnings occurrences for the entity; higher numbers suggest more frequent negative earnings results",
+        "dataset":  {
+                        "id":  "fundamental90",
+                        "name":  "Governance, Accounting, Management, and Equality"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-models",
+                            "name":  "Fundamental Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "fnd90_qes_gamef_ohlson",
+        "description":  "Ohlson O-score, a bankruptcy prediction model score; higher scores indicate higher risk of bankruptcy for a company",
+        "dataset":  {
+                        "id":  "fundamental90",
+                        "name":  "Governance, Accounting, Management, and Equality"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-models",
+                            "name":  "Fundamental Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "fnd90_qes_gamef_pscore",
+        "description":  "Piotroski F-score (0–9), a composite accounting quality score based on fundamental signals; higher values indicate better accounting quality and financial health",
+        "dataset":  {
+                        "id":  "fundamental90",
+                        "name":  "Governance, Accounting, Management, and Equality"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-models",
+                            "name":  "Fundamental Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "fnd90_qes_gamef_score",
+        "description":  "SCORE",
+        "dataset":  {
+                        "id":  "fundamental90",
+                        "name":  "Governance, Accounting, Management, and Equality"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-models",
+                            "name":  "Fundamental Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "nonliquid_asset_ratio",
+        "description":  "Ratio of illiquid assets (such as plant, equipment, intangibles, or other hard-to-sell assets) to total assets, indicating potential capital utilization or liquidity risk",
+        "dataset":  {
+                        "id":  "fundamental90",
+                        "name":  "Governance, Accounting, Management, and Equality"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-models",
+                            "name":  "Fundamental Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    }
+]

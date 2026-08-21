@@ -1,0 +1,2114 @@
+﻿[
+    {
+        "id":  "actual_announce_date",
+        "description":  "The date when the actual value was officially announced.",
+        "dataset":  {
+                        "id":  "analyst16",
+                        "name":  "Real Time Estimates"
+                    },
+        "category":  {
+                         "id":  "analyst",
+                         "name":  "Analyst"
+                     },
+        "subcategory":  {
+                            "id":  "analyst-crowdsourced-estimates",
+                            "name":  "Crowdsourced Estimates"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "SYMBOL",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "actual_currency_adjustment",
+        "description":  "The adjustment factor to convert the actual value to a default currency.",
+        "dataset":  {
+                        "id":  "analyst16",
+                        "name":  "Real Time Estimates"
+                    },
+        "category":  {
+                         "id":  "analyst",
+                         "name":  "Analyst"
+                     },
+        "subcategory":  {
+                            "id":  "analyst-crowdsourced-estimates",
+                            "name":  "Crowdsourced Estimates"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "actual_effective_date",
+        "description":  "The date when the actual value became valid.",
+        "dataset":  {
+                        "id":  "analyst16",
+                        "name":  "Real Time Estimates"
+                    },
+        "category":  {
+                         "id":  "analyst",
+                         "name":  "Analyst"
+                     },
+        "subcategory":  {
+                            "id":  "analyst-crowdsourced-estimates",
+                            "name":  "Crowdsourced Estimates"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "SYMBOL",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "actual_fiscal_year_end_month",
+        "description":  "The fiscal year end month for the period covered by the actual value.",
+        "dataset":  {
+                        "id":  "analyst16",
+                        "name":  "Real Time Estimates"
+                    },
+        "category":  {
+                         "id":  "analyst",
+                         "name":  "Analyst"
+                     },
+        "subcategory":  {
+                            "id":  "analyst-crowdsourced-estimates",
+                            "name":  "Crowdsourced Estimates"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "actual_period_duration",
+        "description":  "The length of the period covered by the actual value, such as number of months or quarters.",
+        "dataset":  {
+                        "id":  "analyst16",
+                        "name":  "Real Time Estimates"
+                    },
+        "category":  {
+                         "id":  "analyst",
+                         "name":  "Analyst"
+                     },
+        "subcategory":  {
+                            "id":  "analyst-crowdsourced-estimates",
+                            "name":  "Crowdsourced Estimates"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "actual_system_timestamp",
+        "description":  "The system-generated date and time when the actual record was processed.",
+        "dataset":  {
+                        "id":  "analyst16",
+                        "name":  "Real Time Estimates"
+                    },
+        "category":  {
+                         "id":  "analyst",
+                         "name":  "Analyst"
+                     },
+        "subcategory":  {
+                            "id":  "analyst-crowdsourced-estimates",
+                            "name":  "Crowdsourced Estimates"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "SYMBOL",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "anl16_actnorm_estcomsplitadj",
+        "description":  "Adjustment factor for common stock split normalization applied to activity/estimate values",
+        "dataset":  {
+                        "id":  "analyst16",
+                        "name":  "Real Time Estimates"
+                    },
+        "category":  {
+                         "id":  "analyst",
+                         "name":  "Analyst"
+                     },
+        "subcategory":  {
+                            "id":  "analyst-crowdsourced-estimates",
+                            "name":  "Crowdsourced Estimates"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "anl16_actnorm_estnormcuradj",
+        "description":  "Currency-adjusted normalized actual value in the fiscal report.",
+        "dataset":  {
+                        "id":  "analyst16",
+                        "name":  "Real Time Estimates"
+                    },
+        "category":  {
+                         "id":  "analyst",
+                         "name":  "Analyst"
+                     },
+        "subcategory":  {
+                            "id":  "analyst-crowdsourced-estimates",
+                            "name":  "Crowdsourced Estimates"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "anl16_actunit_scale",
+        "description":  "Scale factor applied to the actual value (e.g., 1, 1e6)",
+        "dataset":  {
+                        "id":  "analyst16",
+                        "name":  "Real Time Estimates"
+                    },
+        "category":  {
+                         "id":  "analyst",
+                         "name":  "Analyst"
+                     },
+        "subcategory":  {
+                            "id":  "analyst-crowdsourced-estimates",
+                            "name":  "Crowdsourced Estimates"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "anl16_actunit_scale_ascontrib",
+        "description":  "Contributor-specific scale factor for the actual value (e.g., thousands, millions)",
+        "dataset":  {
+                        "id":  "analyst16",
+                        "name":  "Real Time Estimates"
+                    },
+        "category":  {
+                         "id":  "analyst",
+                         "name":  "Analyst"
+                     },
+        "subcategory":  {
+                            "id":  "analyst-crowdsourced-estimates",
+                            "name":  "Crowdsourced Estimates"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "anl16_actunit_scale_normal",
+        "description":  "Normalized scale factor for the actual value to ensure comparability",
+        "dataset":  {
+                        "id":  "analyst16",
+                        "name":  "Real Time Estimates"
+                    },
+        "category":  {
+                         "id":  "analyst",
+                         "name":  "Analyst"
+                     },
+        "subcategory":  {
+                            "id":  "analyst-crowdsourced-estimates",
+                            "name":  "Crowdsourced Estimates"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "anl16_actvalue",
+        "description":  "Numeric value of the actual reported measure (e.g., EPS, revenue)",
+        "dataset":  {
+                        "id":  "analyst16",
+                        "name":  "Real Time Estimates"
+                    },
+        "category":  {
+                         "id":  "analyst",
+                         "name":  "Analyst"
+                     },
+        "subcategory":  {
+                            "id":  "analyst-crowdsourced-estimates",
+                            "name":  "Crowdsourced Estimates"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "anl16_actvalue_ascontrib",
+        "description":  "Actual value as provided by the contributor, unadjusted",
+        "dataset":  {
+                        "id":  "analyst16",
+                        "name":  "Real Time Estimates"
+                    },
+        "category":  {
+                         "id":  "analyst",
+                         "name":  "Analyst"
+                     },
+        "subcategory":  {
+                            "id":  "analyst-crowdsourced-estimates",
+                            "name":  "Crowdsourced Estimates"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "anl16_actvalue_normal",
+        "description":  "Activity value after normalization for currency, units, and corporate actions",
+        "dataset":  {
+                        "id":  "analyst16",
+                        "name":  "Real Time Estimates"
+                    },
+        "category":  {
+                         "id":  "analyst",
+                         "name":  "Analyst"
+                     },
+        "subcategory":  {
+                            "id":  "analyst-crowdsourced-estimates",
+                            "name":  "Crowdsourced Estimates"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "anl16_eststddev",
+        "description":  "Standard deviation of the estimates, indicating dispersion among contributors",
+        "dataset":  {
+                        "id":  "analyst16",
+                        "name":  "Real Time Estimates"
+                    },
+        "category":  {
+                         "id":  "analyst",
+                         "name":  "Analyst"
+                     },
+        "subcategory":  {
+                            "id":  "analyst-crowdsourced-estimates",
+                            "name":  "Crowdsourced Estimates"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "anl16_eststddev_normal",
+        "description":  "Normalized standard deviation of all estimates for the period (shows consensus dispersion)",
+        "dataset":  {
+                        "id":  "analyst16",
+                        "name":  "Real Time Estimates"
+                    },
+        "category":  {
+                         "id":  "analyst",
+                         "name":  "Analyst"
+                     },
+        "subcategory":  {
+                            "id":  "analyst-crowdsourced-estimates",
+                            "name":  "Crowdsourced Estimates"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "anl16_highest",
+        "description":  "Highest estimate among contributors",
+        "dataset":  {
+                        "id":  "analyst16",
+                        "name":  "Real Time Estimates"
+                    },
+        "category":  {
+                         "id":  "analyst",
+                         "name":  "Analyst"
+                     },
+        "subcategory":  {
+                            "id":  "analyst-crowdsourced-estimates",
+                            "name":  "Crowdsourced Estimates"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "anl16_highest_normal",
+        "description":  "Highest contributor estimate after normalization",
+        "dataset":  {
+                        "id":  "analyst16",
+                        "name":  "Real Time Estimates"
+                    },
+        "category":  {
+                         "id":  "analyst",
+                         "name":  "Analyst"
+                     },
+        "subcategory":  {
+                            "id":  "analyst-crowdsourced-estimates",
+                            "name":  "Crowdsourced Estimates"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "anl16_lowest",
+        "description":  "Lowest estimate value in the summary",
+        "dataset":  {
+                        "id":  "analyst16",
+                        "name":  "Real Time Estimates"
+                    },
+        "category":  {
+                         "id":  "analyst",
+                         "name":  "Analyst"
+                     },
+        "subcategory":  {
+                            "id":  "analyst-crowdsourced-estimates",
+                            "name":  "Crowdsourced Estimates"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "anl16_lowest_normal",
+        "description":  "Lowest contributor estimate after normalization",
+        "dataset":  {
+                        "id":  "analyst16",
+                        "name":  "Real Time Estimates"
+                    },
+        "category":  {
+                         "id":  "analyst",
+                         "name":  "Analyst"
+                     },
+        "subcategory":  {
+                            "id":  "analyst-crowdsourced-estimates",
+                            "name":  "Crowdsourced Estimates"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "anl16_meanest",
+        "description":  "Mean value of the consensus estimate for the period",
+        "dataset":  {
+                        "id":  "analyst16",
+                        "name":  "Real Time Estimates"
+                    },
+        "category":  {
+                         "id":  "analyst",
+                         "name":  "Analyst"
+                     },
+        "subcategory":  {
+                            "id":  "analyst-crowdsourced-estimates",
+                            "name":  "Crowdsourced Estimates"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "anl16_meanestnorm_estcomsplitadj",
+        "description":  "split adjusted mean of estimate value in the summary",
+        "dataset":  {
+                        "id":  "analyst16",
+                        "name":  "Real Time Estimates"
+                    },
+        "category":  {
+                         "id":  "analyst",
+                         "name":  "Analyst"
+                     },
+        "subcategory":  {
+                            "id":  "analyst-crowdsourced-estimates",
+                            "name":  "Crowdsourced Estimates"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "anl16_meanestnorm_estnormcuradj",
+        "description":  "Normalization adjustment applied to the mean estimate for currency conversion",
+        "dataset":  {
+                        "id":  "analyst16",
+                        "name":  "Real Time Estimates"
+                    },
+        "category":  {
+                         "id":  "analyst",
+                         "name":  "Analyst"
+                     },
+        "subcategory":  {
+                            "id":  "analyst-crowdsourced-estimates",
+                            "name":  "Crowdsourced Estimates"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "anl16_meanestunit_scale",
+        "description":  "Scale factor applied to the mean estimate units",
+        "dataset":  {
+                        "id":  "analyst16",
+                        "name":  "Real Time Estimates"
+                    },
+        "category":  {
+                         "id":  "analyst",
+                         "name":  "Analyst"
+                     },
+        "subcategory":  {
+                            "id":  "analyst-crowdsourced-estimates",
+                            "name":  "Crowdsourced Estimates"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "anl16_meanestunit_scale_normal",
+        "description":  "Normalized scale factor applied to the mean estimate units after currency/unit normalization",
+        "dataset":  {
+                        "id":  "analyst16",
+                        "name":  "Real Time Estimates"
+                    },
+        "category":  {
+                         "id":  "analyst",
+                         "name":  "Analyst"
+                     },
+        "subcategory":  {
+                            "id":  "analyst-crowdsourced-estimates",
+                            "name":  "Crowdsourced Estimates"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "anl16_meanest_normal",
+        "description":  "Normalized mean consensus estimate value",
+        "dataset":  {
+                        "id":  "analyst16",
+                        "name":  "Real Time Estimates"
+                    },
+        "category":  {
+                         "id":  "analyst",
+                         "name":  "Analyst"
+                     },
+        "subcategory":  {
+                            "id":  "analyst-crowdsourced-estimates",
+                            "name":  "Crowdsourced Estimates"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "anl16_medianest",
+        "description":  "Median value of the consensus estimate for the period",
+        "dataset":  {
+                        "id":  "analyst16",
+                        "name":  "Real Time Estimates"
+                    },
+        "category":  {
+                         "id":  "analyst",
+                         "name":  "Analyst"
+                     },
+        "subcategory":  {
+                            "id":  "analyst-crowdsourced-estimates",
+                            "name":  "Crowdsourced Estimates"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "anl16_medianest_normal",
+        "description":  "Median of contributor estimates after normalization",
+        "dataset":  {
+                        "id":  "analyst16",
+                        "name":  "Real Time Estimates"
+                    },
+        "category":  {
+                         "id":  "analyst",
+                         "name":  "Analyst"
+                     },
+        "subcategory":  {
+                            "id":  "analyst-crowdsourced-estimates",
+                            "name":  "Crowdsourced Estimates"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "anl16_numests",
+        "description":  "Number of contributing estimates included in the summary",
+        "dataset":  {
+                        "id":  "analyst16",
+                        "name":  "Real Time Estimates"
+                    },
+        "category":  {
+                         "id":  "analyst",
+                         "name":  "Analyst"
+                     },
+        "subcategory":  {
+                            "id":  "analyst-crowdsourced-estimates",
+                            "name":  "Crowdsourced Estimates"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "anl16_numincests",
+        "description":  "the number of estimates used to generate the summary analytic values",
+        "dataset":  {
+                        "id":  "analyst16",
+                        "name":  "Real Time Estimates"
+                    },
+        "category":  {
+                         "id":  "analyst",
+                         "name":  "Analyst"
+                     },
+        "subcategory":  {
+                            "id":  "analyst-crowdsourced-estimates",
+                            "name":  "Crowdsourced Estimates"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "anl16_reccode",
+        "description":  "The recommendation code indicating the type or category of the analyst recommendation",
+        "dataset":  {
+                        "id":  "analyst16",
+                        "name":  "Real Time Estimates"
+                    },
+        "category":  {
+                         "id":  "analyst",
+                         "name":  "Analyst"
+                     },
+        "subcategory":  {
+                            "id":  "analyst-crowdsourced-estimates",
+                            "name":  "Crowdsourced Estimates"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  0.526,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "anl16_recsdown",
+        "description":  "the number of brokers revising their ratings downward during the comparison window",
+        "dataset":  {
+                        "id":  "analyst16",
+                        "name":  "Real Time Estimates"
+                    },
+        "category":  {
+                         "id":  "analyst",
+                         "name":  "Analyst"
+                     },
+        "subcategory":  {
+                            "id":  "analyst-crowdsourced-estimates",
+                            "name":  "Crowdsourced Estimates"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "anl16_recsup",
+        "description":  "the number of brokers revising their ratings upward during the comparison window",
+        "dataset":  {
+                        "id":  "analyst16",
+                        "name":  "Real Time Estimates"
+                    },
+        "category":  {
+                         "id":  "analyst",
+                         "name":  "Analyst"
+                     },
+        "subcategory":  {
+                            "id":  "analyst-crowdsourced-estimates",
+                            "name":  "Crowdsourced Estimates"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "anl16_recvalue",
+        "description":  "Recommendation value or score (e.g., numeric buy/hold/sell code)",
+        "dataset":  {
+                        "id":  "analyst16",
+                        "name":  "Real Time Estimates"
+                    },
+        "category":  {
+                         "id":  "analyst",
+                         "name":  "Analyst"
+                     },
+        "subcategory":  {
+                            "id":  "analyst-crowdsourced-estimates",
+                            "name":  "Crowdsourced Estimates"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "basedata_ticker_to_period_index_map_d1",
+        "description":  "A mapping from company tickers to their dependent period indexes for the D1 data partition.",
+        "dataset":  {
+                        "id":  "analyst16",
+                        "name":  "Real Time Estimates"
+                    },
+        "category":  {
+                         "id":  "analyst",
+                         "name":  "Analyst"
+                     },
+        "subcategory":  {
+                            "id":  "analyst-crowdsourced-estimates",
+                            "name":  "Crowdsourced Estimates"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "internal_id_to_security_mapping_base_d1",
+        "description":  "Mapping from internal instrument identifier to security identifier in base data partition d1.",
+        "dataset":  {
+                        "id":  "analyst16",
+                        "name":  "Real Time Estimates"
+                    },
+        "category":  {
+                         "id":  "analyst",
+                         "name":  "Analyst"
+                     },
+        "subcategory":  {
+                            "id":  "analyst-crowdsourced-estimates",
+                            "name":  "Crowdsourced Estimates"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "SYMBOL",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "internal_id_to_security_mapping_d1",
+        "description":  "Mapping from internal instrument identifier to security identifier for data partition d1.",
+        "dataset":  {
+                        "id":  "analyst16",
+                        "name":  "Real Time Estimates"
+                    },
+        "category":  {
+                         "id":  "analyst",
+                         "name":  "Analyst"
+                     },
+        "subcategory":  {
+                            "id":  "analyst-crowdsourced-estimates",
+                            "name":  "Crowdsourced Estimates"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "SYMBOL",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mean_estimate_activation_time",
+        "description":  "The timestamp when the mean estimate summary became active.",
+        "dataset":  {
+                        "id":  "analyst16",
+                        "name":  "Real Time Estimates"
+                    },
+        "category":  {
+                         "id":  "analyst",
+                         "name":  "Analyst"
+                     },
+        "subcategory":  {
+                            "id":  "analyst-crowdsourced-estimates",
+                            "name":  "Crowdsourced Estimates"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "SYMBOL",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mean_estimate_effective_date",
+        "description":  "The date when the mean estimate summary became valid.",
+        "dataset":  {
+                        "id":  "analyst16",
+                        "name":  "Real Time Estimates"
+                    },
+        "category":  {
+                         "id":  "analyst",
+                         "name":  "Analyst"
+                     },
+        "subcategory":  {
+                            "id":  "analyst-crowdsourced-estimates",
+                            "name":  "Crowdsourced Estimates"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "SYMBOL",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mean_estimate_fiscal_year_end_month",
+        "description":  "The fiscal year end month for the period covered by the mean estimate.",
+        "dataset":  {
+                        "id":  "analyst16",
+                        "name":  "Real Time Estimates"
+                    },
+        "category":  {
+                         "id":  "analyst",
+                         "name":  "Analyst"
+                     },
+        "subcategory":  {
+                            "id":  "analyst-crowdsourced-estimates",
+                            "name":  "Crowdsourced Estimates"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mean_estimate_period_duration",
+        "description":  "The length of the period covered by the mean estimate, such as number of months or quarters.",
+        "dataset":  {
+                        "id":  "analyst16",
+                        "name":  "Real Time Estimates"
+                    },
+        "category":  {
+                         "id":  "analyst",
+                         "name":  "Analyst"
+                     },
+        "subcategory":  {
+                            "id":  "analyst-crowdsourced-estimates",
+                            "name":  "Crowdsourced Estimates"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mean_estimate_period_end_date",
+        "description":  "The end date of the period for which the mean estimate is calculated.",
+        "dataset":  {
+                        "id":  "analyst16",
+                        "name":  "Real Time Estimates"
+                    },
+        "category":  {
+                         "id":  "analyst",
+                         "name":  "Analyst"
+                     },
+        "subcategory":  {
+                            "id":  "analyst-crowdsourced-estimates",
+                            "name":  "Crowdsourced Estimates"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "SYMBOL",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mean_estimate_system_timestamp",
+        "description":  "The system-generated date and time when the mean estimate summary was processed.",
+        "dataset":  {
+                        "id":  "analyst16",
+                        "name":  "Real Time Estimates"
+                    },
+        "category":  {
+                         "id":  "analyst",
+                         "name":  "Analyst"
+                     },
+        "subcategory":  {
+                            "id":  "analyst-crowdsourced-estimates",
+                            "name":  "Crowdsourced Estimates"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "SYMBOL",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mean_estimate_valid_until_date",
+        "description":  "The date until which the mean estimate summary is valid.",
+        "dataset":  {
+                        "id":  "analyst16",
+                        "name":  "Real Time Estimates"
+                    },
+        "category":  {
+                         "id":  "analyst",
+                         "name":  "Analyst"
+                     },
+        "subcategory":  {
+                            "id":  "analyst-crowdsourced-estimates",
+                            "name":  "Crowdsourced Estimates"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "SYMBOL",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "period_advance_activation_datetime",
+        "description":  "The system timestamp when the period advance indicator record became active.",
+        "dataset":  {
+                        "id":  "analyst16",
+                        "name":  "Real Time Estimates"
+                    },
+        "category":  {
+                         "id":  "analyst",
+                         "name":  "Analyst"
+                     },
+        "subcategory":  {
+                            "id":  "analyst-crowdsourced-estimates",
+                            "name":  "Crowdsourced Estimates"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "SYMBOL",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "period_advance_effective_date",
+        "description":  "The real-world date when the period advance indicator record becomes valid.",
+        "dataset":  {
+                        "id":  "analyst16",
+                        "name":  "Real Time Estimates"
+                    },
+        "category":  {
+                         "id":  "analyst",
+                         "name":  "Analyst"
+                     },
+        "subcategory":  {
+                            "id":  "analyst-crowdsourced-estimates",
+                            "name":  "Crowdsourced Estimates"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "SYMBOL",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "period_advance_effective_end_date",
+        "description":  "The date when the period advance indicator record ceases to be valid.",
+        "dataset":  {
+                        "id":  "analyst16",
+                        "name":  "Real Time Estimates"
+                    },
+        "category":  {
+                         "id":  "analyst",
+                         "name":  "Analyst"
+                     },
+        "subcategory":  {
+                            "id":  "analyst-crowdsourced-estimates",
+                            "name":  "Crowdsourced Estimates"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "SYMBOL",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "period_advance_fiscal_year_end_month",
+        "description":  "The fiscal year end month for the period advance indicator.",
+        "dataset":  {
+                        "id":  "analyst16",
+                        "name":  "Real Time Estimates"
+                    },
+        "category":  {
+                         "id":  "analyst",
+                         "name":  "Analyst"
+                     },
+        "subcategory":  {
+                            "id":  "analyst-crowdsourced-estimates",
+                            "name":  "Crowdsourced Estimates"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "period_advance_period_end_date",
+        "description":  "The end date of the fiscal or reporting period for the period advance indicator.",
+        "dataset":  {
+                        "id":  "analyst16",
+                        "name":  "Real Time Estimates"
+                    },
+        "category":  {
+                         "id":  "analyst",
+                         "name":  "Analyst"
+                     },
+        "subcategory":  {
+                            "id":  "analyst-crowdsourced-estimates",
+                            "name":  "Crowdsourced Estimates"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "SYMBOL",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "period_advance_period_length",
+        "description":  "The duration of the reporting period for the period advance indicator.",
+        "dataset":  {
+                        "id":  "analyst16",
+                        "name":  "Real Time Estimates"
+                    },
+        "category":  {
+                         "id":  "analyst",
+                         "name":  "Analyst"
+                     },
+        "subcategory":  {
+                            "id":  "analyst-crowdsourced-estimates",
+                            "name":  "Crowdsourced Estimates"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "period_advance_system_timestamp",
+        "description":  "The system-generated timestamp when the period advance indicator was processed.",
+        "dataset":  {
+                        "id":  "analyst16",
+                        "name":  "Real Time Estimates"
+                    },
+        "category":  {
+                         "id":  "analyst",
+                         "name":  "Analyst"
+                     },
+        "subcategory":  {
+                            "id":  "analyst-crowdsourced-estimates",
+                            "name":  "Crowdsourced Estimates"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "SYMBOL",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "period_end_date_5",
+        "description":  "The end date of the fiscal or reporting period for the actual value.",
+        "dataset":  {
+                        "id":  "analyst16",
+                        "name":  "Real Time Estimates"
+                    },
+        "category":  {
+                         "id":  "analyst",
+                         "name":  "Analyst"
+                     },
+        "subcategory":  {
+                            "id":  "analyst-crowdsourced-estimates",
+                            "name":  "Crowdsourced Estimates"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "SYMBOL",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "premap_ticker_to_period_index_map_d1",
+        "description":  "A mapping from company tickers to dependent period indexes in the pre-mapped D1 data partition.",
+        "dataset":  {
+                        "id":  "analyst16",
+                        "name":  "Real Time Estimates"
+                    },
+        "category":  {
+                         "id":  "analyst",
+                         "name":  "Analyst"
+                     },
+        "subcategory":  {
+                            "id":  "analyst-crowdsourced-estimates",
+                            "name":  "Crowdsourced Estimates"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "recommendation_activation_time",
+        "description":  "The timestamp when the recommendation record became active.",
+        "dataset":  {
+                        "id":  "analyst16",
+                        "name":  "Real Time Estimates"
+                    },
+        "category":  {
+                         "id":  "analyst",
+                         "name":  "Analyst"
+                     },
+        "subcategory":  {
+                            "id":  "analyst-crowdsourced-estimates",
+                            "name":  "Crowdsourced Estimates"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "SYMBOL",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "recommendation_announce_date",
+        "description":  "The date when the recommendation was officially announced.",
+        "dataset":  {
+                        "id":  "analyst16",
+                        "name":  "Real Time Estimates"
+                    },
+        "category":  {
+                         "id":  "analyst",
+                         "name":  "Analyst"
+                     },
+        "subcategory":  {
+                            "id":  "analyst-crowdsourced-estimates",
+                            "name":  "Crowdsourced Estimates"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "SYMBOL",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "recommendation_effective_date_2",
+        "description":  "The date when the recommendation became valid.",
+        "dataset":  {
+                        "id":  "analyst16",
+                        "name":  "Real Time Estimates"
+                    },
+        "category":  {
+                         "id":  "analyst",
+                         "name":  "Analyst"
+                     },
+        "subcategory":  {
+                            "id":  "analyst-crowdsourced-estimates",
+                            "name":  "Crowdsourced Estimates"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "SYMBOL",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "recommendation_system_timestamp",
+        "description":  "The system-generated date and time when the recommendation record was processed.",
+        "dataset":  {
+                        "id":  "analyst16",
+                        "name":  "Real Time Estimates"
+                    },
+        "category":  {
+                         "id":  "analyst",
+                         "name":  "Analyst"
+                     },
+        "subcategory":  {
+                            "id":  "analyst-crowdsourced-estimates",
+                            "name":  "Crowdsourced Estimates"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "SYMBOL",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "recommendation_valid_until_date",
+        "description":  "The date until which the recommendation is considered valid.",
+        "dataset":  {
+                        "id":  "analyst16",
+                        "name":  "Real Time Estimates"
+                    },
+        "category":  {
+                         "id":  "analyst",
+                         "name":  "Analyst"
+                     },
+        "subcategory":  {
+                            "id":  "analyst-crowdsourced-estimates",
+                            "name":  "Crowdsourced Estimates"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "SYMBOL",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "recommendation_window_end_date",
+        "description":  "The end date for which the recommendation summary window record is valid.",
+        "dataset":  {
+                        "id":  "analyst16",
+                        "name":  "Real Time Estimates"
+                    },
+        "category":  {
+                         "id":  "analyst",
+                         "name":  "Analyst"
+                     },
+        "subcategory":  {
+                            "id":  "analyst-crowdsourced-estimates",
+                            "name":  "Crowdsourced Estimates"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "SYMBOL",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "recommendation_window_length",
+        "description":  "The length of the time window used for recommendation summary analytics.",
+        "dataset":  {
+                        "id":  "analyst16",
+                        "name":  "Real Time Estimates"
+                    },
+        "category":  {
+                         "id":  "analyst",
+                         "name":  "Analyst"
+                     },
+        "subcategory":  {
+                            "id":  "analyst-crowdsourced-estimates",
+                            "name":  "Crowdsourced Estimates"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "recommendation_window_timestamp",
+        "description":  "The system-generated timestamp for the recommendation summary window record.",
+        "dataset":  {
+                        "id":  "analyst16",
+                        "name":  "Real Time Estimates"
+                    },
+        "category":  {
+                         "id":  "analyst",
+                         "name":  "Analyst"
+                     },
+        "subcategory":  {
+                            "id":  "analyst-crowdsourced-estimates",
+                            "name":  "Crowdsourced Estimates"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "SYMBOL",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "record_activation_time_actual",
+        "description":  "The timestamp when the actual record became active in the system.",
+        "dataset":  {
+                        "id":  "analyst16",
+                        "name":  "Real Time Estimates"
+                    },
+        "category":  {
+                         "id":  "analyst",
+                         "name":  "Analyst"
+                     },
+        "subcategory":  {
+                            "id":  "analyst-crowdsourced-estimates",
+                            "name":  "Crowdsourced Estimates"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "SYMBOL",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "record_effective_date_10",
+        "description":  "The real-world date when the record becomes valid.",
+        "dataset":  {
+                        "id":  "analyst16",
+                        "name":  "Real Time Estimates"
+                    },
+        "category":  {
+                         "id":  "analyst",
+                         "name":  "Analyst"
+                     },
+        "subcategory":  {
+                            "id":  "analyst-crowdsourced-estimates",
+                            "name":  "Crowdsourced Estimates"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "SYMBOL",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "security_to_internal_id_mapping_base_d1",
+        "description":  "Mapping from security identifier to internal instrument identifier in base data partition d1.",
+        "dataset":  {
+                        "id":  "analyst16",
+                        "name":  "Real Time Estimates"
+                    },
+        "category":  {
+                         "id":  "analyst",
+                         "name":  "Analyst"
+                     },
+        "subcategory":  {
+                            "id":  "analyst-crowdsourced-estimates",
+                            "name":  "Crowdsourced Estimates"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "SYMBOL",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "security_to_internal_id_mapping_d1",
+        "description":  "Mapping from security identifier to internal instrument identifier for data partition d1.",
+        "dataset":  {
+                        "id":  "analyst16",
+                        "name":  "Real Time Estimates"
+                    },
+        "category":  {
+                         "id":  "analyst",
+                         "name":  "Analyst"
+                     },
+        "subcategory":  {
+                            "id":  "analyst-crowdsourced-estimates",
+                            "name":  "Crowdsourced Estimates"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "SYMBOL",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "system_activation_datetime",
+        "description":  "The system timestamp when the record became active.",
+        "dataset":  {
+                        "id":  "analyst16",
+                        "name":  "Real Time Estimates"
+                    },
+        "category":  {
+                         "id":  "analyst",
+                         "name":  "Analyst"
+                     },
+        "subcategory":  {
+                            "id":  "analyst-crowdsourced-estimates",
+                            "name":  "Crowdsourced Estimates"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "SYMBOL",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    }
+]

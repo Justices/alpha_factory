@@ -1,0 +1,162 @@
+﻿[
+    {
+        "id":  "anl47_indicator",
+        "description":  "Composite alpha indicator scaled 1–10, with higher values indicating stronger buy consensus",
+        "dataset":  {
+                        "id":  "analyst47",
+                        "name":  "Alternative Analyst Investment Insight Data"
+                    },
+        "category":  {
+                         "id":  "analyst",
+                         "name":  "Analyst"
+                     },
+        "subcategory":  {
+                            "id":  "analyst-crowdsourced-estimates",
+                            "name":  "Crowdsourced Estimates"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  1,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "anl47_rawalphadecay",
+        "description":  "Raw component measuring impact of idea age or decay",
+        "dataset":  {
+                        "id":  "analyst47",
+                        "name":  "Alternative Analyst Investment Insight Data"
+                    },
+        "category":  {
+                         "id":  "analyst",
+                         "name":  "Analyst"
+                     },
+        "subcategory":  {
+                            "id":  "analyst-crowdsourced-estimates",
+                            "name":  "Crowdsourced Estimates"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.6445,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "anl47_rawexperts",
+        "description":  "Contribution of author historical performance to the raw signal",
+        "dataset":  {
+                        "id":  "analyst47",
+                        "name":  "Alternative Analyst Investment Insight Data"
+                    },
+        "category":  {
+                         "id":  "analyst",
+                         "name":  "Analyst"
+                     },
+        "subcategory":  {
+                            "id":  "analyst-crowdsourced-estimates",
+                            "name":  "Crowdsourced Estimates"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.6445,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "anl47_rawsentiment",
+        "description":  "Raw component reflecting long or short idea counts and open or closed status",
+        "dataset":  {
+                        "id":  "analyst47",
+                        "name":  "Alternative Analyst Investment Insight Data"
+                    },
+        "category":  {
+                         "id":  "analyst",
+                         "name":  "Analyst"
+                     },
+        "subcategory":  {
+                            "id":  "analyst-crowdsourced-estimates",
+                            "name":  "Crowdsourced Estimates"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.6445,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "anl47_totalrawsignal",
+        "description":  "Sum of raw components: sentiment + alpha decay + earnings + experts",
+        "dataset":  {
+                        "id":  "analyst47",
+                        "name":  "Alternative Analyst Investment Insight Data"
+                    },
+        "category":  {
+                         "id":  "analyst",
+                         "name":  "Analyst"
+                     },
+        "subcategory":  {
+                            "id":  "analyst-crowdsourced-estimates",
+                            "name":  "Crowdsourced Estimates"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.6445,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    }
+]

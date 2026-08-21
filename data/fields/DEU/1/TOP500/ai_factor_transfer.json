@@ -1,0 +1,642 @@
+﻿[
+    {
+        "id":  "balanced_price_oscillator",
+        "description":  "Price-Volume Ratio",
+        "dataset":  {
+                        "id":  "ai_factor_transfer",
+                        "name":  "AI Enhanced Equity Factor Transfer"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-mlai-models",
+                            "name":  "ML/AI Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "balanced_price_oscillator_2",
+        "description":  "Compares short-term and long-term price trends to measure their balance.",
+        "dataset":  {
+                        "id":  "ai_factor_transfer",
+                        "name":  "AI Enhanced Equity Factor Transfer"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-mlai-models",
+                            "name":  "ML/AI Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "cumulative_money_flow_volume_adjusted",
+        "description":  "Relative Strength (RSI)",
+        "dataset":  {
+                        "id":  "ai_factor_transfer",
+                        "name":  "AI Enhanced Equity Factor Transfer"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-mlai-models",
+                            "name":  "ML/AI Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "cumulative_money_flow_volume_adjusted_2",
+        "description":  "Logarithmic Price Transform",
+        "dataset":  {
+                        "id":  "ai_factor_transfer",
+                        "name":  "AI Enhanced Equity Factor Transfer"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-mlai-models",
+                            "name":  "ML/AI Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "liquidity_money_flow_alignment",
+        "description":  "Relative Turnover (RTN63D)",
+        "dataset":  {
+                        "id":  "ai_factor_transfer",
+                        "name":  "AI Enhanced Equity Factor Transfer"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-mlai-models",
+                            "name":  "ML/AI Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "liquidity_money_flow_alignment_2",
+        "description":  "Indicates whether liquidity and money flow are moving together.",
+        "dataset":  {
+                        "id":  "ai_factor_transfer",
+                        "name":  "AI Enhanced Equity Factor Transfer"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-mlai-models",
+                            "name":  "ML/AI Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "liquidity_weighted_returns_ma",
+        "description":  "13-week price change",
+        "dataset":  {
+                        "id":  "ai_factor_transfer",
+                        "name":  "AI Enhanced Equity Factor Transfer"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-mlai-models",
+                            "name":  "ML/AI Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "liquidity_weighted_returns_ma_2",
+        "description":  "Commodity Channel Index (CCI)",
+        "dataset":  {
+                        "id":  "ai_factor_transfer",
+                        "name":  "AI Enhanced Equity Factor Transfer"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-mlai-models",
+                            "name":  "ML/AI Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "momentum_williams_r_adjusted",
+        "description":  "Return momentum",
+        "dataset":  {
+                        "id":  "ai_factor_transfer",
+                        "name":  "AI Enhanced Equity Factor Transfer"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-mlai-models",
+                            "name":  "ML/AI Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "momentum_williams_r_adjusted_2",
+        "description":  "Price momentum (from ABN_VOLM)",
+        "dataset":  {
+                        "id":  "ai_factor_transfer",
+                        "name":  "AI Enhanced Equity Factor Transfer"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-mlai-models",
+                            "name":  "ML/AI Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "money_flow_strength_typical_price",
+        "description":  "Assesses the relative strength of money flow adjusted for typical price levels.",
+        "dataset":  {
+                        "id":  "ai_factor_transfer",
+                        "name":  "AI Enhanced Equity Factor Transfer"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-mlai-models",
+                            "name":  "ML/AI Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "money_flow_strength_typical_price_2",
+        "description":  "ADL trend component",
+        "dataset":  {
+                        "id":  "ai_factor_transfer",
+                        "name":  "AI Enhanced Equity Factor Transfer"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-mlai-models",
+                            "name":  "ML/AI Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "short_term_price_change",
+        "description":  "Williams %R",
+        "dataset":  {
+                        "id":  "ai_factor_transfer",
+                        "name":  "AI Enhanced Equity Factor Transfer"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-mlai-models",
+                            "name":  "ML/AI Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "short_term_price_change_2",
+        "description":  "Chaikin Money Flow (CMF)",
+        "dataset":  {
+                        "id":  "ai_factor_transfer",
+                        "name":  "AI Enhanced Equity Factor Transfer"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-mlai-models",
+                            "name":  "ML/AI Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "typical_price_bollinger_band_position",
+        "description":  "Shows the position of the typical price within Bollinger Bands.",
+        "dataset":  {
+                        "id":  "ai_factor_transfer",
+                        "name":  "AI Enhanced Equity Factor Transfer"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-mlai-models",
+                            "name":  "ML/AI Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "typical_price_bollinger_band_position_2",
+        "description":  "Price Volume Oscillator (PVO)",
+        "dataset":  {
+                        "id":  "ai_factor_transfer",
+                        "name":  "AI Enhanced Equity Factor Transfer"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-mlai-models",
+                            "name":  "ML/AI Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "volume_anomaly_price_positioning",
+        "description":  "Examines the relationship between unusual trading volume events and the current price level.",
+        "dataset":  {
+                        "id":  "ai_factor_transfer",
+                        "name":  "AI Enhanced Equity Factor Transfer"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-mlai-models",
+                            "name":  "ML/AI Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "volume_anomaly_price_positioning_2",
+        "description":  "Detrended Price Oscillator (DPO)",
+        "dataset":  {
+                        "id":  "ai_factor_transfer",
+                        "name":  "AI Enhanced Equity Factor Transfer"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-mlai-models",
+                            "name":  "ML/AI Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "volume_trend_money_flow_interaction",
+        "description":  "Analyzes how volume trends interact with money flow dynamics.",
+        "dataset":  {
+                        "id":  "ai_factor_transfer",
+                        "name":  "AI Enhanced Equity Factor Transfer"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-mlai-models",
+                            "name":  "ML/AI Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "volume_trend_money_flow_interaction_2",
+        "description":  "Bollinger Band (BB) indicator",
+        "dataset":  {
+                        "id":  "ai_factor_transfer",
+                        "name":  "AI Enhanced Equity Factor Transfer"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-mlai-models",
+                            "name":  "ML/AI Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    }
+]

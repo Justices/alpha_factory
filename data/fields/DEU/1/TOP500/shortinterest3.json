@@ -1,0 +1,802 @@
+﻿[
+    {
+        "id":  "average_loan_duration_days",
+        "description":  "Weighted average age of loans in this group, measured in days",
+        "dataset":  {
+                        "id":  "shortinterest3",
+                        "name":  "Securities Lending Files Data"
+                    },
+        "category":  {
+                         "id":  "shortinterest",
+                         "name":  "Short Interest"
+                     },
+        "subcategory":  {
+                            "id":  "shortinterest-short-sale-models",
+                            "name":  "Short Sale Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0.6683,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "average_loan_duration_days_main",
+        "description":  "The weighted average age of loans in this primary key group, measured in days",
+        "dataset":  {
+                        "id":  "shortinterest3",
+                        "name":  "Securities Lending Files Data"
+                    },
+        "category":  {
+                         "id":  "shortinterest",
+                         "name":  "Short Interest"
+                     },
+        "subcategory":  {
+                            "id":  "shortinterest-short-sale-models",
+                            "name":  "Short Sale Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0.6872,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "average_loan_duration_days_p5_d1",
+        "description":  "Weighted average age of loans in this group, in days",
+        "dataset":  {
+                        "id":  "shortinterest3",
+                        "name":  "Securities Lending Files Data"
+                    },
+        "category":  {
+                         "id":  "shortinterest",
+                         "name":  "Short Interest"
+                     },
+        "subcategory":  {
+                            "id":  "shortinterest-short-sale-models",
+                            "name":  "Short Sale Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0.7833,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "loaned_market_value_usd",
+        "description":  "US dollar market value of the units lent in the transactions in this group",
+        "dataset":  {
+                        "id":  "shortinterest3",
+                        "name":  "Securities Lending Files Data"
+                    },
+        "category":  {
+                         "id":  "shortinterest",
+                         "name":  "Short Interest"
+                     },
+        "subcategory":  {
+                            "id":  "shortinterest-short-sale-models",
+                            "name":  "Short Sale Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0.6683,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "loaned_market_value_usd_main",
+        "description":  "USD market value of the units lent in transactions in this primary key group",
+        "dataset":  {
+                        "id":  "shortinterest3",
+                        "name":  "Securities Lending Files Data"
+                    },
+        "category":  {
+                         "id":  "shortinterest",
+                         "name":  "Short Interest"
+                     },
+        "subcategory":  {
+                            "id":  "shortinterest-short-sale-models",
+                            "name":  "Short Sale Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0.6872,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "loaned_market_value_usd_p5_d1",
+        "description":  "Market value in US dollars of units lent in transactions in this group",
+        "dataset":  {
+                        "id":  "shortinterest3",
+                        "name":  "Securities Lending Files Data"
+                    },
+        "category":  {
+                         "id":  "shortinterest",
+                         "name":  "Short Interest"
+                     },
+        "subcategory":  {
+                            "id":  "shortinterest-short-sale-models",
+                            "name":  "Short Sale Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0.7833,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "loaned_share_count",
+        "description":  "Number of units (shares or par value) lent in the transactions in this group",
+        "dataset":  {
+                        "id":  "shortinterest3",
+                        "name":  "Securities Lending Files Data"
+                    },
+        "category":  {
+                         "id":  "shortinterest",
+                         "name":  "Short Interest"
+                     },
+        "subcategory":  {
+                            "id":  "shortinterest-short-sale-models",
+                            "name":  "Short Sale Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0.6683,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "loaned_share_count_main",
+        "description":  "Number of units (shares or par value) lent in transactions in this primary key group",
+        "dataset":  {
+                        "id":  "shortinterest3",
+                        "name":  "Securities Lending Files Data"
+                    },
+        "category":  {
+                         "id":  "shortinterest",
+                         "name":  "Short Interest"
+                     },
+        "subcategory":  {
+                            "id":  "shortinterest-short-sale-models",
+                            "name":  "Short Sale Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0.6872,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "loaned_share_count_p5_d1",
+        "description":  "Number of units (shares or par value) lent in transactions in this group",
+        "dataset":  {
+                        "id":  "shortinterest3",
+                        "name":  "Securities Lending Files Data"
+                    },
+        "category":  {
+                         "id":  "shortinterest",
+                         "name":  "Short Interest"
+                     },
+        "subcategory":  {
+                            "id":  "shortinterest-short-sale-models",
+                            "name":  "Short Sale Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0.7833,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "loan_rate_volatility",
+        "description":  "The standard deviation of loan rates for all transactions in this primary key group",
+        "dataset":  {
+                        "id":  "shortinterest3",
+                        "name":  "Securities Lending Files Data"
+                    },
+        "category":  {
+                         "id":  "shortinterest",
+                         "name":  "Short Interest"
+                     },
+        "subcategory":  {
+                            "id":  "shortinterest-short-sale-models",
+                            "name":  "Short Sale Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0.6683,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "loan_rate_volatility_main",
+        "description":  "Standard deviation of loan rates across transactions in this primary key group",
+        "dataset":  {
+                        "id":  "shortinterest3",
+                        "name":  "Securities Lending Files Data"
+                    },
+        "category":  {
+                         "id":  "shortinterest",
+                         "name":  "Short Interest"
+                     },
+        "subcategory":  {
+                            "id":  "shortinterest-short-sale-models",
+                            "name":  "Short Sale Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0.6872,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "loan_rate_volatility_p5_d1",
+        "description":  "Standard deviation of loan rates for transactions in this group",
+        "dataset":  {
+                        "id":  "shortinterest3",
+                        "name":  "Securities Lending Files Data"
+                    },
+        "category":  {
+                         "id":  "shortinterest",
+                         "name":  "Short Interest"
+                     },
+        "subcategory":  {
+                            "id":  "shortinterest-short-sale-models",
+                            "name":  "Short Sale Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0.7833,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "max_loan_rate",
+        "description":  "The maximum loan rate among all transactions in this primary key group",
+        "dataset":  {
+                        "id":  "shortinterest3",
+                        "name":  "Securities Lending Files Data"
+                    },
+        "category":  {
+                         "id":  "shortinterest",
+                         "name":  "Short Interest"
+                     },
+        "subcategory":  {
+                            "id":  "shortinterest-short-sale-models",
+                            "name":  "Short Sale Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0.6683,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "max_loan_rate_main",
+        "description":  "Maximum loan rate among transactions in this group",
+        "dataset":  {
+                        "id":  "shortinterest3",
+                        "name":  "Securities Lending Files Data"
+                    },
+        "category":  {
+                         "id":  "shortinterest",
+                         "name":  "Short Interest"
+                     },
+        "subcategory":  {
+                            "id":  "shortinterest-short-sale-models",
+                            "name":  "Short Sale Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0.6872,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "max_loan_rate_p5_d1",
+        "description":  "Maximum loan rate among transactions in this group",
+        "dataset":  {
+                        "id":  "shortinterest3",
+                        "name":  "Securities Lending Files Data"
+                    },
+        "category":  {
+                         "id":  "shortinterest",
+                         "name":  "Short Interest"
+                     },
+        "subcategory":  {
+                            "id":  "shortinterest-short-sale-models",
+                            "name":  "Short Sale Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0.7833,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mean_loan_rate",
+        "description":  "The weighted average loan rate for all transactions in this primary key group",
+        "dataset":  {
+                        "id":  "shortinterest3",
+                        "name":  "Securities Lending Files Data"
+                    },
+        "category":  {
+                         "id":  "shortinterest",
+                         "name":  "Short Interest"
+                     },
+        "subcategory":  {
+                            "id":  "shortinterest-short-sale-models",
+                            "name":  "Short Sale Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0.6683,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mean_loan_rate_main",
+        "description":  "Weighted average loan rate for transactions in this group",
+        "dataset":  {
+                        "id":  "shortinterest3",
+                        "name":  "Securities Lending Files Data"
+                    },
+        "category":  {
+                         "id":  "shortinterest",
+                         "name":  "Short Interest"
+                     },
+        "subcategory":  {
+                            "id":  "shortinterest-short-sale-models",
+                            "name":  "Short Sale Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0.6872,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mean_loan_rate_p5_d1",
+        "description":  "Weighted average loan rate for all transactions in this group",
+        "dataset":  {
+                        "id":  "shortinterest3",
+                        "name":  "Securities Lending Files Data"
+                    },
+        "category":  {
+                         "id":  "shortinterest",
+                         "name":  "Short Interest"
+                     },
+        "subcategory":  {
+                            "id":  "shortinterest-short-sale-models",
+                            "name":  "Short Sale Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0.7833,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "min_loan_rate",
+        "description":  "The minimum loan rate among all transactions in this primary key group",
+        "dataset":  {
+                        "id":  "shortinterest3",
+                        "name":  "Securities Lending Files Data"
+                    },
+        "category":  {
+                         "id":  "shortinterest",
+                         "name":  "Short Interest"
+                     },
+        "subcategory":  {
+                            "id":  "shortinterest-short-sale-models",
+                            "name":  "Short Sale Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0.6683,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "min_loan_rate_main",
+        "description":  "Minimum loan rate among transactions in this group",
+        "dataset":  {
+                        "id":  "shortinterest3",
+                        "name":  "Securities Lending Files Data"
+                    },
+        "category":  {
+                         "id":  "shortinterest",
+                         "name":  "Short Interest"
+                     },
+        "subcategory":  {
+                            "id":  "shortinterest-short-sale-models",
+                            "name":  "Short Sale Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0.6872,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "min_loan_rate_p5_d1",
+        "description":  "Minimum loan rate among transactions in this group",
+        "dataset":  {
+                        "id":  "shortinterest3",
+                        "name":  "Securities Lending Files Data"
+                    },
+        "category":  {
+                         "id":  "shortinterest",
+                         "name":  "Short Interest"
+                     },
+        "subcategory":  {
+                            "id":  "shortinterest-short-sale-models",
+                            "name":  "Short Sale Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0.7833,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "shrt3_bar",
+        "description":  "Borrow demand rating on a 1–10 scale for a stock (1 = relatively low demand, 10 = relatively high)",
+        "dataset":  {
+                        "id":  "shortinterest3",
+                        "name":  "Securities Lending Files Data"
+                    },
+        "category":  {
+                         "id":  "shortinterest",
+                         "name":  "Short Interest"
+                     },
+        "subcategory":  {
+                            "id":  "shortinterest-short-sale-models",
+                            "name":  "Short Sale Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0.6528,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "transaction_count",
+        "description":  "Number of transactions included in this primary key group",
+        "dataset":  {
+                        "id":  "shortinterest3",
+                        "name":  "Securities Lending Files Data"
+                    },
+        "category":  {
+                         "id":  "shortinterest",
+                         "name":  "Short Interest"
+                     },
+        "subcategory":  {
+                            "id":  "shortinterest-short-sale-models",
+                            "name":  "Short Sale Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0.6683,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "transaction_count_main",
+        "description":  "Number of transactions in this primary key group",
+        "dataset":  {
+                        "id":  "shortinterest3",
+                        "name":  "Securities Lending Files Data"
+                    },
+        "category":  {
+                         "id":  "shortinterest",
+                         "name":  "Short Interest"
+                     },
+        "subcategory":  {
+                            "id":  "shortinterest-short-sale-models",
+                            "name":  "Short Sale Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0.6872,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "transaction_count_p5_d1",
+        "description":  "Number of transactions that fit this primary key group",
+        "dataset":  {
+                        "id":  "shortinterest3",
+                        "name":  "Securities Lending Files Data"
+                    },
+        "category":  {
+                         "id":  "shortinterest",
+                         "name":  "Short Interest"
+                     },
+        "subcategory":  {
+                            "id":  "shortinterest-short-sale-models",
+                            "name":  "Short Sale Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0.7833,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    }
+]

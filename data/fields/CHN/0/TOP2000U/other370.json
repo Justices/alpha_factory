@@ -1,0 +1,542 @@
+[
+  {
+    "id": "oth370_atlas_unit_name",
+    "description": "Atlas unit name",
+    "dataset": {
+      "id": "other370",
+      "name": "Equity Share Events Data"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-analyst-models",
+      "name": "Analyst Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.8275,
+    "coverage": 1.0,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2025-06-01"
+  },
+  {
+    "id": "oth370_chinese_news_company_scoreexchange_cd",
+    "description": "Exchange Market Code",
+    "dataset": {
+      "id": "other370",
+      "name": "Equity Share Events Data"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-analyst-models",
+      "name": "Analyst Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.8275,
+    "coverage": 1.0,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2025-06-01"
+  },
+  {
+    "id": "oth370_degree_prop_1st",
+    "description": "Please see the detailed description for RELATED_COMPANY_SCORE",
+    "dataset": {
+      "id": "other370",
+      "name": "Equity Share Events Data"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-analyst-models",
+      "name": "Analyst Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.8275,
+    "coverage": 0.9986,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2025-06-01"
+  },
+  {
+    "id": "oth370_degree_prop_2st",
+    "description": "Please see the detailed description for RELATED_COMPANY_SCORE",
+    "dataset": {
+      "id": "other370",
+      "name": "Equity Share Events Data"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-analyst-models",
+      "name": "Analyst Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.8275,
+    "coverage": 0.9986,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2025-06-01"
+  },
+  {
+    "id": "oth370_degree_prop_2st_39",
+    "description": "Please see the detailed description for RELATED_COMPANY_SCORE",
+    "dataset": {
+      "id": "other370",
+      "name": "Equity Share Events Data"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-analyst-models",
+      "name": "Analyst Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.8275,
+    "coverage": 1.0,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2025-06-01"
+  },
+  {
+    "id": "oth370_effective_time",
+    "description": "Effective publish time of news. If news publish time is not  the same  date of current date and  is 12 hours more than current time, NEWS_PUBLISH_TIME will be used in this field. Otherwise, intial capture time will be used (INSERT_TIME).",
+    "dataset": {
+      "id": "other370",
+      "name": "Equity Share Events Data"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-analyst-models",
+      "name": "Analyst Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.8275,
+    "coverage": 0.9986,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2025-06-01"
+  },
+  {
+    "id": "oth370_related_company_degree",
+    "description": "Categorical relevance level from the model where 0 is not relevant, 1 is weak relevance, and 2 is strong relevance",
+    "dataset": {
+      "id": "other370",
+      "name": "Equity Share Events Data"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-analyst-models",
+      "name": "Analyst Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.8275,
+    "coverage": 0.9986,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "oth370_related_company_degree_40",
+    "description": "Results from deep learning model, value: 0 - not relevant, 1 - weak relevance, 2 -  strong relevance. Strong relevance indicates that the news focuses the most on, with more significant impact than others. Normally, a piece of news will cover 1 to 2 strong relevance companies. Weak relevance is the case that companies being mentioned as examples or comparisons.",
+    "dataset": {
+      "id": "other370",
+      "name": "Equity Share Events Data"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-analyst-models",
+      "name": "Analyst Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.8275,
+    "coverage": 1.0,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2025-07-01"
+  },
+  {
+    "id": "oth370_related_company_score",
+    "description": "Continuous relevance score in [0,1] indicating how related the news is to the company, computed as a weighted sum of strong and weak relevance probabilities",
+    "dataset": {
+      "id": "other370",
+      "name": "Equity Share Events Data"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-analyst-models",
+      "name": "Analyst Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.8275,
+    "coverage": 0.9986,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "oth370_related_company_score_41",
+    "description": "Continuous value between 0 and 1. Higher the score, more relevant the news to the company.  Based on weighted sum of relevance probability (weak and strong)",
+    "dataset": {
+      "id": "other370",
+      "name": "Equity Share Events Data"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-analyst-models",
+      "name": "Analyst Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.8275,
+    "coverage": 1.0,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2025-06-01"
+  },
+  {
+    "id": "oth370_ric_suffix",
+    "description": "RIC suffix to build up the RIC",
+    "dataset": {
+      "id": "other370",
+      "name": "Equity Share Events Data"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-analyst-models",
+      "name": "Analyst Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.8275,
+    "coverage": 1.0,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2025-06-01"
+  },
+  {
+    "id": "oth370_sentiment",
+    "description": "Sentiment category of the news toward the related company where 1 is positive, 0 is neutral, and -1 is negative",
+    "dataset": {
+      "id": "other370",
+      "name": "Equity Share Events Data"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-analyst-models",
+      "name": "Analyst Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.8275,
+    "coverage": 0.9986,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "oth370_sentiment_37",
+    "description": "ValueL: 1 - Positive, 0 - Neutral, -1 - Negative",
+    "dataset": {
+      "id": "other370",
+      "name": "Equity Share Events Data"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-analyst-models",
+      "name": "Analyst Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.8275,
+    "coverage": 1.0,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2025-06-01"
+  },
+  {
+    "id": "oth370_sentiment_prop_neg",
+    "description": "Derived from model. For model specific questions, please contact us directly.",
+    "dataset": {
+      "id": "other370",
+      "name": "Equity Share Events Data"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-analyst-models",
+      "name": "Analyst Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.8275,
+    "coverage": 0.9986,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2025-09-01"
+  },
+  {
+    "id": "oth370_sentiment_prop_neg_42",
+    "description": "Derived from model. For model specific questions, please contact us directly.",
+    "dataset": {
+      "id": "other370",
+      "name": "Equity Share Events Data"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-analyst-models",
+      "name": "Analyst Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.8275,
+    "coverage": 1.0,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2025-07-01"
+  },
+  {
+    "id": "oth370_sentiment_prop_pos",
+    "description": "Derived from model. For model specific questions, please contact us directly.",
+    "dataset": {
+      "id": "other370",
+      "name": "Equity Share Events Data"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-analyst-models",
+      "name": "Analyst Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.8275,
+    "coverage": 0.9986,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2025-09-01"
+  },
+  {
+    "id": "oth370_sentiment_prop_pos_43",
+    "description": "Derived from model. For model specific questions, please contact us directly.",
+    "dataset": {
+      "id": "other370",
+      "name": "Equity Share Events Data"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-analyst-models",
+      "name": "Analyst Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.8275,
+    "coverage": 1.0,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2025-07-01"
+  },
+  {
+    "id": "oth370_sentiment_score",
+    "description": "Numeric sentiment score in [-1,1] derived from a linear transform of the difference between positive and negative sentiment probabilities",
+    "dataset": {
+      "id": "other370",
+      "name": "Equity Share Events Data"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-analyst-models",
+      "name": "Analyst Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.8275,
+    "coverage": 0.9986,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "oth370_sentiment_score_38",
+    "description": "Value range: [-1,1], based on the linear transformation of difference between probability of positive sentiment and negative sentiment.",
+    "dataset": {
+      "id": "other370",
+      "name": "Equity Share Events Data"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-analyst-models",
+      "name": "Analyst Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.8275,
+    "coverage": 1.0,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2025-07-01"
+  },
+  {
+    "id": "oth370_ticker_symbol",
+    "description": "Ticker Symbol",
+    "dataset": {
+      "id": "other370",
+      "name": "Equity Share Events Data"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-analyst-models",
+      "name": "Analyst Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.8275,
+    "coverage": 1.0,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2025-06-01"
+  }
+]

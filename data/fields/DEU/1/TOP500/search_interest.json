@@ -1,0 +1,98 @@
+﻿[
+    {
+        "id":  "relative_interest_score_6",
+        "description":  "Standardized unbounded daily search interest score comparable across time and terms",
+        "dataset":  {
+                        "id":  "search_interest",
+                        "name":  "Rapid Search Interest Signals"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-aiml-data",
+                            "name":  "AI/ML Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "trend_confidence_overlap_months_4",
+        "description":  "the confident of our guessing over months",
+        "dataset":  {
+                        "id":  "search_interest",
+                        "name":  "Rapid Search Interest Signals"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-aiml-data",
+                            "name":  "AI/ML Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "trend_estimation_confidence_score_4",
+        "description":  "Confidence score of the nowcasted search interest value; higher indicates more reliable estimates",
+        "dataset":  {
+                        "id":  "search_interest",
+                        "name":  "Rapid Search Interest Signals"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-aiml-data",
+                            "name":  "AI/ML Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    }
+]

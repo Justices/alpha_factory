@@ -1,0 +1,542 @@
+[
+  {
+    "id": "market_impact_indicator",
+    "description": "Indicator of the news story's potential to move markets.",
+    "dataset": {
+      "id": "news38",
+      "name": "News Analytic Model Data"
+    },
+    "category": {
+      "id": "news",
+      "name": "News"
+    },
+    "subcategory": {
+      "id": "news-news",
+      "name": "News"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.9387,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.7,
+    "themes": [],
+    "dateCreated": "2025-11-01"
+  },
+  {
+    "id": "mws38_action",
+    "description": "News action",
+    "dataset": {
+      "id": "news38",
+      "name": "News Analytic Model Data"
+    },
+    "category": {
+      "id": "news",
+      "name": "News"
+    },
+    "subcategory": {
+      "id": "news-news",
+      "name": "News"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.9387,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.7,
+    "themes": [],
+    "dateCreated": "2025-11-01"
+  },
+  {
+    "id": "mws38_analytics_entitlement",
+    "description": "News entitlement ID (EID)",
+    "dataset": {
+      "id": "news38",
+      "name": "News Analytic Model Data"
+    },
+    "category": {
+      "id": "news",
+      "name": "News"
+    },
+    "subcategory": {
+      "id": "news-news",
+      "name": "News"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.9335,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.7,
+    "themes": [],
+    "dateCreated": "2025-11-01"
+  },
+  {
+    "id": "mws38_analytics_time",
+    "description": "News time",
+    "dataset": {
+      "id": "news38",
+      "name": "News Analytic Model Data"
+    },
+    "category": {
+      "id": "news",
+      "name": "News"
+    },
+    "subcategory": {
+      "id": "news-news",
+      "name": "News"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.9335,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.7,
+    "themes": [],
+    "dateCreated": "2025-11-01"
+  },
+  {
+    "id": "mws38_entitlement",
+    "description": "News entitlement ID (EID)",
+    "dataset": {
+      "id": "news38",
+      "name": "News Analytic Model Data"
+    },
+    "category": {
+      "id": "news",
+      "name": "News"
+    },
+    "subcategory": {
+      "id": "news-news",
+      "name": "News"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.9387,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.7,
+    "themes": [],
+    "dateCreated": "2025-11-01"
+  },
+  {
+    "id": "mws38_previous",
+    "description": "Previous news",
+    "dataset": {
+      "id": "news38",
+      "name": "News Analytic Model Data"
+    },
+    "category": {
+      "id": "news",
+      "name": "News"
+    },
+    "subcategory": {
+      "id": "news-news",
+      "name": "News"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.9335,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.7,
+    "themes": [],
+    "dateCreated": "2025-11-01"
+  },
+  {
+    "id": "mws38_related_num",
+    "description": "Number of stocks related to or affected by the news",
+    "dataset": {
+      "id": "news38",
+      "name": "News Analytic Model Data"
+    },
+    "category": {
+      "id": "news",
+      "name": "News"
+    },
+    "subcategory": {
+      "id": "news-news",
+      "name": "News"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.9387,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.7,
+    "themes": [],
+    "dateCreated": "2025-11-01"
+  },
+  {
+    "id": "mws38_relevances",
+    "description": "Degree of relevance the news is to the corresponding stock",
+    "dataset": {
+      "id": "news38",
+      "name": "News Analytic Model Data"
+    },
+    "category": {
+      "id": "news",
+      "name": "News"
+    },
+    "subcategory": {
+      "id": "news-news",
+      "name": "News"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.9387,
+    "userCount": 1,
+    "alphaCount": 1,
+    "pyramidMultiplier": 1.7,
+    "themes": [],
+    "dateCreated": "2025-11-01"
+  },
+  {
+    "id": "mws38_score",
+    "description": "News score",
+    "dataset": {
+      "id": "news38",
+      "name": "News Analytic Model Data"
+    },
+    "category": {
+      "id": "news",
+      "name": "News"
+    },
+    "subcategory": {
+      "id": "news-news",
+      "name": "News"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.9335,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.7,
+    "themes": [],
+    "dateCreated": "2025-11-01"
+  },
+  {
+    "id": "mws38_time",
+    "description": "News time",
+    "dataset": {
+      "id": "news38",
+      "name": "News Analytic Model Data"
+    },
+    "category": {
+      "id": "news",
+      "name": "News"
+    },
+    "subcategory": {
+      "id": "news-news",
+      "name": "News"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.9387,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.7,
+    "themes": [],
+    "dateCreated": "2025-11-01"
+  },
+  {
+    "id": "mws38_type",
+    "description": "News type",
+    "dataset": {
+      "id": "news38",
+      "name": "News Analytic Model Data"
+    },
+    "category": {
+      "id": "news",
+      "name": "News"
+    },
+    "subcategory": {
+      "id": "news-news",
+      "name": "News"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.9335,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.7,
+    "themes": [],
+    "dateCreated": "2025-11-01"
+  },
+  {
+    "id": "mws38_uniq_action",
+    "description": "News action",
+    "dataset": {
+      "id": "news38",
+      "name": "News Analytic Model Data"
+    },
+    "category": {
+      "id": "news",
+      "name": "News"
+    },
+    "subcategory": {
+      "id": "news-news",
+      "name": "News"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.9387,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.7,
+    "themes": [],
+    "dateCreated": "2025-11-01"
+  },
+  {
+    "id": "mws38_uniq_entitlement",
+    "description": "News entitlement ID (EID)",
+    "dataset": {
+      "id": "news38",
+      "name": "News Analytic Model Data"
+    },
+    "category": {
+      "id": "news",
+      "name": "News"
+    },
+    "subcategory": {
+      "id": "news-news",
+      "name": "News"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.9387,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.7,
+    "themes": [],
+    "dateCreated": "2025-11-01"
+  },
+  {
+    "id": "mws38_uniq_hotlevel",
+    "description": "News hotlevel (all 0)",
+    "dataset": {
+      "id": "news38",
+      "name": "News Analytic Model Data"
+    },
+    "category": {
+      "id": "news",
+      "name": "News"
+    },
+    "subcategory": {
+      "id": "news-news",
+      "name": "News"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.9387,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.7,
+    "themes": [],
+    "dateCreated": "2025-11-01"
+  },
+  {
+    "id": "mws38_uniq_related_num",
+    "description": "Number of stocks related to or affected by the news",
+    "dataset": {
+      "id": "news38",
+      "name": "News Analytic Model Data"
+    },
+    "category": {
+      "id": "news",
+      "name": "News"
+    },
+    "subcategory": {
+      "id": "news-news",
+      "name": "News"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.9387,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.7,
+    "themes": [],
+    "dateCreated": "2025-11-01"
+  },
+  {
+    "id": "mws38_uniq_relevances",
+    "description": "Degree of relevance the news is to the corresponding stock",
+    "dataset": {
+      "id": "news38",
+      "name": "News Analytic Model Data"
+    },
+    "category": {
+      "id": "news",
+      "name": "News"
+    },
+    "subcategory": {
+      "id": "news-news",
+      "name": "News"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.9387,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.7,
+    "themes": [],
+    "dateCreated": "2025-11-01"
+  },
+  {
+    "id": "mws38_uniq_time",
+    "description": "News time",
+    "dataset": {
+      "id": "news38",
+      "name": "News Analytic Model Data"
+    },
+    "category": {
+      "id": "news",
+      "name": "News"
+    },
+    "subcategory": {
+      "id": "news-news",
+      "name": "News"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.9387,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.7,
+    "themes": [],
+    "dateCreated": "2025-11-01"
+  },
+  {
+    "id": "mws38_uniq_version",
+    "description": "News version",
+    "dataset": {
+      "id": "news38",
+      "name": "News Analytic Model Data"
+    },
+    "category": {
+      "id": "news",
+      "name": "News"
+    },
+    "subcategory": {
+      "id": "news-news",
+      "name": "News"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.9387,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.7,
+    "themes": [],
+    "dateCreated": "2025-11-01"
+  },
+  {
+    "id": "mws38_value",
+    "description": "News value",
+    "dataset": {
+      "id": "news38",
+      "name": "News Analytic Model Data"
+    },
+    "category": {
+      "id": "news",
+      "name": "News"
+    },
+    "subcategory": {
+      "id": "news-news",
+      "name": "News"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.9335,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.7,
+    "themes": [],
+    "dateCreated": "2025-11-01"
+  },
+  {
+    "id": "mws38_version",
+    "description": "News version",
+    "dataset": {
+      "id": "news38",
+      "name": "News Analytic Model Data"
+    },
+    "category": {
+      "id": "news",
+      "name": "News"
+    },
+    "subcategory": {
+      "id": "news-news",
+      "name": "News"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 1.0,
+    "coverage": 0.9387,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.7,
+    "themes": [],
+    "dateCreated": "2025-11-01"
+  }
+]

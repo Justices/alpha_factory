@@ -1,0 +1,578 @@
+﻿[
+    {
+        "id":  "aggregate_collection_timestamp",
+        "description":  "The date when aggregated ranking data was collected from the source.",
+        "dataset":  {
+                        "id":  "sentiment27",
+                        "name":  "Website Popularity Rankings"
+                    },
+        "category":  {
+                         "id":  "sentiment",
+                         "name":  "Sentiment"
+                     },
+        "subcategory":  {
+                            "id":  "sentiment-sentiment",
+                            "name":  "Sentiment"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "SYMBOL",
+        "dateCoverage":  0.4869,
+        "coverage":  0.7976,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "aggregate_reference_date",
+        "description":  "The date representing the effective period for the aggregated ranking data.",
+        "dataset":  {
+                        "id":  "sentiment27",
+                        "name":  "Website Popularity Rankings"
+                    },
+        "category":  {
+                         "id":  "sentiment",
+                         "name":  "Sentiment"
+                     },
+        "subcategory":  {
+                            "id":  "sentiment-sentiment",
+                            "name":  "Sentiment"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "SYMBOL",
+        "dateCoverage":  0.4869,
+        "coverage":  0.7976,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "ranking_reference_date",
+        "description":  "The date representing the effective period of the website ranking data.",
+        "dataset":  {
+                        "id":  "sentiment27",
+                        "name":  "Website Popularity Rankings"
+                    },
+        "category":  {
+                         "id":  "sentiment",
+                         "name":  "Sentiment"
+                     },
+        "subcategory":  {
+                            "id":  "sentiment-sentiment",
+                            "name":  "Sentiment"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "SYMBOL",
+        "dateCoverage":  0.4869,
+        "coverage":  0.814,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "snl27_avgranking",
+        "description":  "Arithmetic mean of the Tranco ranks across all domains mapped to the issuer on that date; lower values indicate higher overall popularity",
+        "dataset":  {
+                        "id":  "sentiment27",
+                        "name":  "Website Popularity Rankings"
+                    },
+        "category":  {
+                         "id":  "sentiment",
+                         "name":  "Sentiment"
+                     },
+        "subcategory":  {
+                            "id":  "sentiment-sentiment",
+                            "name":  "Sentiment"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  0.4869,
+        "coverage":  0.7976,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "snl27_kurtosis",
+        "description":  "Excess kurtosis of the issuer’s domain rank distribution, indicating tail heaviness/extremes",
+        "dataset":  {
+                        "id":  "sentiment27",
+                        "name":  "Website Popularity Rankings"
+                    },
+        "category":  {
+                         "id":  "sentiment",
+                         "name":  "Sentiment"
+                     },
+        "subcategory":  {
+                            "id":  "sentiment-sentiment",
+                            "name":  "Sentiment"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  0.4869,
+        "coverage":  0.7976,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "snl27_relpopularity08",
+        "description":  "Composite relative popularity score computed with alpha=0.8; higher values indicate broader attention across the issuer’s domains",
+        "dataset":  {
+                        "id":  "sentiment27",
+                        "name":  "Website Popularity Rankings"
+                    },
+        "category":  {
+                         "id":  "sentiment",
+                         "name":  "Sentiment"
+                     },
+        "subcategory":  {
+                            "id":  "sentiment-sentiment",
+                            "name":  "Sentiment"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  0.4869,
+        "coverage":  0.7976,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "snl27_relpopularity1",
+        "description":  "Composite relative popularity score computed with alpha=1; higher values indicate broader attention across the issuer’s domains",
+        "dataset":  {
+                        "id":  "sentiment27",
+                        "name":  "Website Popularity Rankings"
+                    },
+        "category":  {
+                         "id":  "sentiment",
+                         "name":  "Sentiment"
+                     },
+        "subcategory":  {
+                            "id":  "sentiment-sentiment",
+                            "name":  "Sentiment"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  0.4869,
+        "coverage":  0.7976,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "snl27_skewness",
+        "description":  "Skewness of the issuer’s domain rank distribution, indicating asymmetry/concentration",
+        "dataset":  {
+                        "id":  "sentiment27",
+                        "name":  "Website Popularity Rankings"
+                    },
+        "category":  {
+                         "id":  "sentiment",
+                         "name":  "Sentiment"
+                     },
+        "subcategory":  {
+                            "id":  "sentiment-sentiment",
+                            "name":  "Sentiment"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  0.4869,
+        "coverage":  0.7976,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "snl27_top50pctranking",
+        "description":  "50th-percentile (median) rank cutoff of the issuer’s domain rank distribution; lower is better",
+        "dataset":  {
+                        "id":  "sentiment27",
+                        "name":  "Website Popularity Rankings"
+                    },
+        "category":  {
+                         "id":  "sentiment",
+                         "name":  "Sentiment"
+                     },
+        "subcategory":  {
+                            "id":  "sentiment-sentiment",
+                            "name":  "Sentiment"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  0.4869,
+        "coverage":  0.7976,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "snl27_top50pctrankingavg",
+        "description":  "Average rank within the top 50% (best half) of the issuer’s domain rank distribution",
+        "dataset":  {
+                        "id":  "sentiment27",
+                        "name":  "Website Popularity Rankings"
+                    },
+        "category":  {
+                         "id":  "sentiment",
+                         "name":  "Sentiment"
+                     },
+        "subcategory":  {
+                            "id":  "sentiment-sentiment",
+                            "name":  "Sentiment"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  0.4869,
+        "coverage":  0.7976,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "snl27_top75pctranking",
+        "description":  "75th-percentile rank cutoff of the issuer’s domain rank distribution; lower is better",
+        "dataset":  {
+                        "id":  "sentiment27",
+                        "name":  "Website Popularity Rankings"
+                    },
+        "category":  {
+                         "id":  "sentiment",
+                         "name":  "Sentiment"
+                     },
+        "subcategory":  {
+                            "id":  "sentiment-sentiment",
+                            "name":  "Sentiment"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  0.4869,
+        "coverage":  0.7976,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "snl27_top75pctrankingavg",
+        "description":  "Average rank within the top 75% of the issuer’s domain rank distribution",
+        "dataset":  {
+                        "id":  "sentiment27",
+                        "name":  "Website Popularity Rankings"
+                    },
+        "category":  {
+                         "id":  "sentiment",
+                         "name":  "Sentiment"
+                     },
+        "subcategory":  {
+                            "id":  "sentiment-sentiment",
+                            "name":  "Sentiment"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  0.4869,
+        "coverage":  0.7976,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "snl27_topranking",
+        "description":  "Best (lowest) rank among the issuer’s domains on that date",
+        "dataset":  {
+                        "id":  "sentiment27",
+                        "name":  "Website Popularity Rankings"
+                    },
+        "category":  {
+                         "id":  "sentiment",
+                         "name":  "Sentiment"
+                     },
+        "subcategory":  {
+                            "id":  "sentiment-sentiment",
+                            "name":  "Sentiment"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  0.4869,
+        "coverage":  0.7976,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "snl27_totalcountrydomains",
+        "description":  "Number of domains associated with the issuer that have a country-code TLD (ccTLD) or regional identifier",
+        "dataset":  {
+                        "id":  "sentiment27",
+                        "name":  "Website Popularity Rankings"
+                    },
+        "category":  {
+                         "id":  "sentiment",
+                         "name":  "Sentiment"
+                     },
+        "subcategory":  {
+                            "id":  "sentiment-sentiment",
+                            "name":  "Sentiment"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  0.4869,
+        "coverage":  0.7976,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "snl27_totaldomains",
+        "description":  "Total number of distinct domains associated with the issuer on that date (de-duplicated count)",
+        "dataset":  {
+                        "id":  "sentiment27",
+                        "name":  "Website Popularity Rankings"
+                    },
+        "category":  {
+                         "id":  "sentiment",
+                         "name":  "Sentiment"
+                     },
+        "subcategory":  {
+                            "id":  "sentiment-sentiment",
+                            "name":  "Sentiment"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  0.4869,
+        "coverage":  0.7976,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "snl27_wq_pit",
+        "description":  "Internal PIT alignment marker (wq_append_time for ongoing data or simulated for historical), used for point-in-time decoding/stitching; not an analytical metric",
+        "dataset":  {
+                        "id":  "sentiment27",
+                        "name":  "Website Popularity Rankings"
+                    },
+        "category":  {
+                         "id":  "sentiment",
+                         "name":  "Sentiment"
+                     },
+        "subcategory":  {
+                            "id":  "sentiment-sentiment",
+                            "name":  "Sentiment"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  0.4869,
+        "coverage":  0.7976,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "snt27_rank",
+        "description":  "Daily popularity rank of the domain in Tranco, 1 = most popular",
+        "dataset":  {
+                        "id":  "sentiment27",
+                        "name":  "Website Popularity Rankings"
+                    },
+        "category":  {
+                         "id":  "sentiment",
+                         "name":  "Sentiment"
+                     },
+        "subcategory":  {
+                            "id":  "sentiment-sentiment",
+                            "name":  "Sentiment"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  0.4869,
+        "coverage":  0.814,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "source_collection_timestamp",
+        "description":  "The date when the website ranking data was collected from the source.",
+        "dataset":  {
+                        "id":  "sentiment27",
+                        "name":  "Website Popularity Rankings"
+                    },
+        "category":  {
+                         "id":  "sentiment",
+                         "name":  "Sentiment"
+                     },
+        "subcategory":  {
+                            "id":  "sentiment-sentiment",
+                            "name":  "Sentiment"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "SYMBOL",
+        "dateCoverage":  0.4869,
+        "coverage":  0.814,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    }
+]

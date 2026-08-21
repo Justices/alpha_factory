@@ -1,0 +1,290 @@
+﻿[
+    {
+        "id":  "advertising_spend_local_currency",
+        "description":  "The estimated advertising expenditure in the local currency of the ad\u0027s geographic region, corresponding to the \u0027LocalSpend\u0027 field. This value is of type float.",
+        "dataset":  {
+                        "id":  "digital_ad_spend",
+                        "name":  "Digital Advertising Spend Intelligence"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-data",
+                            "name":  "Fundamental Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "advertising_spend_usd",
+        "description":  "The estimated advertising expenditure in US Dollars (USD), corresponding to the \u0027Spend\u0027 field. This value is inferred by applying cost-per-mille (CPM) estimates to impressions and is of type float.",
+        "dataset":  {
+                        "id":  "digital_ad_spend",
+                        "name":  "Digital Advertising Spend Intelligence"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-data",
+                            "name":  "Fundamental Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "ad_content_format",
+        "description":  "Format/type of the ad creative",
+        "dataset":  {
+                        "id":  "digital_ad_spend",
+                        "name":  "Digital Advertising Spend Intelligence"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-data",
+                            "name":  "Fundamental Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "ad_display_count",
+        "description":  "Estimated number of ad exposures (impressions count)",
+        "dataset":  {
+                        "id":  "digital_ad_spend",
+                        "name":  "Digital Advertising Spend Intelligence"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-data",
+                            "name":  "Fundamental Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "ad_purchase_channel",
+        "description":  "Enumerated code indicating the channel through which media was purchased (e.g., direct, DSP, ad network)",
+        "dataset":  {
+                        "id":  "digital_ad_spend",
+                        "name":  "Digital Advertising Spend Intelligence"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-data",
+                            "name":  "Fundamental Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "ad_sales_channel",
+        "description":  "Enumerated code indicating the channel through which the ad inventory was sold or distributed (e.g., direct, SSP, exchange)",
+        "dataset":  {
+                        "id":  "digital_ad_spend",
+                        "name":  "Digital Advertising Spend Intelligence"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-data",
+                            "name":  "Fundamental Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "estimated_ad_impressions",
+        "description":  "The estimated number of times a digital advertisement was served, corresponding to the \u0027Impressions\u0027 field. This value is modeled from sampled observations and is of type long.",
+        "dataset":  {
+                        "id":  "digital_ad_spend",
+                        "name":  "Digital Advertising Spend Intelligence"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-data",
+                            "name":  "Fundamental Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "estimated_ad_spend",
+        "description":  "Total advertising spend for the record in USD (normalized amount)",
+        "dataset":  {
+                        "id":  "digital_ad_spend",
+                        "name":  "Digital Advertising Spend Intelligence"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-data",
+                            "name":  "Fundamental Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "estimated_local_ad_spend",
+        "description":  "Advertising spend in original/local currency (pre-normalization; unconverted)",
+        "dataset":  {
+                        "id":  "digital_ad_spend",
+                        "name":  "Digital Advertising Spend Intelligence"
+                    },
+        "category":  {
+                         "id":  "fundamental",
+                         "name":  "Fundamental"
+                     },
+        "subcategory":  {
+                            "id":  "fundamental-fundamental-data",
+                            "name":  "Fundamental Data"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    }
+]

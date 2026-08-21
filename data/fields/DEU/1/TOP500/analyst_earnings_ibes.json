@@ -1,0 +1,1346 @@
+﻿[
+    {
+        "id":  "closing_price_dlr1",
+        "description":  "Daily closing price for the security, D1-delayed, point-in-time, event-masked, split- and FX-adjusted",
+        "dataset":  {
+                        "id":  "analyst_earnings_ibes",
+                        "name":  "Global Analyst Earnings Forecasts"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-mlai-models",
+                            "name":  "ML/AI Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  1,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "closing_price_dlr2",
+        "description":  "Closing price for the trading day, split- and FX-adjusted, point-in-time and D1-delayed, event-masked",
+        "dataset":  {
+                        "id":  "analyst_earnings_ibes",
+                        "name":  "Global Analyst Earnings Forecasts"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-mlai-models",
+                            "name":  "ML/AI Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  1,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "closing_price_dlr3",
+        "description":  "Closing price for the day (split/FX-adjusted, PIT, D1-delayed, event-masked)",
+        "dataset":  {
+                        "id":  "analyst_earnings_ibes",
+                        "name":  "Global Analyst Earnings Forecasts"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-mlai-models",
+                            "name":  "ML/AI Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  1,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "five_day_total_return_dlr1",
+        "description":  "Stock return over the last 5 trading days for Americas-region equities, D1-delayed, point-in-time, split/FX-adjusted and event-masked (rolling window masked if any day is masked)",
+        "dataset":  {
+                        "id":  "analyst_earnings_ibes",
+                        "name":  "Global Analyst Earnings Forecasts"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-mlai-models",
+                            "name":  "ML/AI Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  1,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "five_day_total_return_dlr2",
+        "description":  "Stock return over the last 5 trading days for Europe, D1-delayed and point-in-time, split/FX-adjusted and event-masked (masked if any day in the window is masked)",
+        "dataset":  {
+                        "id":  "analyst_earnings_ibes",
+                        "name":  "Global Analyst Earnings Forecasts"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-mlai-models",
+                            "name":  "ML/AI Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  1,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "five_day_total_return_dlra1",
+        "description":  "Rolling stock return over the last 5 trading days for Europe; D1-delayed, point-in-time, split/FX-adjusted, masked if any day in the window is masked",
+        "dataset":  {
+                        "id":  "analyst_earnings_ibes",
+                        "name":  "Global Analyst Earnings Forecasts"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-mlai-models",
+                            "name":  "ML/AI Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  1,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "highest_price_dlr1",
+        "description":  "Daily highest traded price (session high) for the security, D1-delayed, point-in-time, event-masked, split- and FX-adjusted",
+        "dataset":  {
+                        "id":  "analyst_earnings_ibes",
+                        "name":  "Global Analyst Earnings Forecasts"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-mlai-models",
+                            "name":  "ML/AI Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  1,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "highest_price_dlr2",
+        "description":  "Highest traded price of the day, split- and FX-adjusted, point-in-time and D1-delayed, event-masked",
+        "dataset":  {
+                        "id":  "analyst_earnings_ibes",
+                        "name":  "Global Analyst Earnings Forecasts"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-mlai-models",
+                            "name":  "ML/AI Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  1,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "highest_price_dlr3",
+        "description":  "Highest trade price of the day (split/FX-adjusted, PIT, D1-delayed, event-masked)",
+        "dataset":  {
+                        "id":  "analyst_earnings_ibes",
+                        "name":  "Global Analyst Earnings Forecasts"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-mlai-models",
+                            "name":  "ML/AI Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  1,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "lowest_price_dlr1",
+        "description":  "Daily lowest traded price (session low) for the security, D1-delayed, point-in-time, event-masked, split- and FX-adjusted",
+        "dataset":  {
+                        "id":  "analyst_earnings_ibes",
+                        "name":  "Global Analyst Earnings Forecasts"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-mlai-models",
+                            "name":  "ML/AI Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  1,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "lowest_price_dlr2",
+        "description":  "Lowest traded price of the day, split- and FX-adjusted, point-in-time and D1-delayed, event-masked",
+        "dataset":  {
+                        "id":  "analyst_earnings_ibes",
+                        "name":  "Global Analyst Earnings Forecasts"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-mlai-models",
+                            "name":  "ML/AI Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  1,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "lowest_price_dlr3",
+        "description":  "Lowest trade price of the day (split/FX-adjusted, PIT, D1-delayed, event-masked)",
+        "dataset":  {
+                        "id":  "analyst_earnings_ibes",
+                        "name":  "Global Analyst Earnings Forecasts"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-mlai-models",
+                            "name":  "ML/AI Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  1,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "market_capitalization_dlr1",
+        "description":  "Market capitalization as of the as-of-date close (price × shares outstanding), D1-delayed, point-in-time, event-masked",
+        "dataset":  {
+                        "id":  "analyst_earnings_ibes",
+                        "name":  "Global Analyst Earnings Forecasts"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-mlai-models",
+                            "name":  "ML/AI Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  1,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "market_capitalization_dlr2",
+        "description":  "Europe region market capitalization as of close (price times shares outstanding), D1-delayed, point-in-time, currency- and split-adjusted, event-masked",
+        "dataset":  {
+                        "id":  "analyst_earnings_ibes",
+                        "name":  "Global Analyst Earnings Forecasts"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-mlai-models",
+                            "name":  "ML/AI Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  1,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "market_capitalization_dlr3",
+        "description":  "Market capitalization as of the as-of-date close, computed as price × shares outstanding (PIT, D1-delayed, event-masked)",
+        "dataset":  {
+                        "id":  "analyst_earnings_ibes",
+                        "name":  "Global Analyst Earnings Forecasts"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-mlai-models",
+                            "name":  "ML/AI Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  1,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "one_day_total_return_dlr1",
+        "description":  "Daily (1-day) stock return for Americas-region equities, D1-delayed, point-in-time, split/FX-adjusted and event-masked",
+        "dataset":  {
+                        "id":  "analyst_earnings_ibes",
+                        "name":  "Global Analyst Earnings Forecasts"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-mlai-models",
+                            "name":  "ML/AI Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  1,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "one_day_total_return_dlr2",
+        "description":  "Daily stock return (1 trading day) for Europe, D1-delayed and point-in-time, split/FX-adjusted and event-masked",
+        "dataset":  {
+                        "id":  "analyst_earnings_ibes",
+                        "name":  "Global Analyst Earnings Forecasts"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-mlai-models",
+                            "name":  "ML/AI Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  1,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "one_day_total_return_dlra1",
+        "description":  "Total return for the most recent trading day.",
+        "dataset":  {
+                        "id":  "analyst_earnings_ibes",
+                        "name":  "Global Analyst Earnings Forecasts"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-mlai-models",
+                            "name":  "ML/AI Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  1,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "one_twenty_day_total_return_dlr1",
+        "description":  "Stock return over the last 120 trading days for Americas-region equities, D1-delayed, point-in-time, split/FX-adjusted and event-masked (rolling window masked if any day is masked)",
+        "dataset":  {
+                        "id":  "analyst_earnings_ibes",
+                        "name":  "Global Analyst Earnings Forecasts"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-mlai-models",
+                            "name":  "ML/AI Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.9951,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "one_twenty_day_total_return_dlr2",
+        "description":  "Stock return over the last 120 trading days for Europe, D1-delayed and point-in-time, split/FX-adjusted and event-masked (masked if any day in the window is masked)",
+        "dataset":  {
+                        "id":  "analyst_earnings_ibes",
+                        "name":  "Global Analyst Earnings Forecasts"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-mlai-models",
+                            "name":  "ML/AI Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.9954,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "one_twenty_day_total_return_dlra1",
+        "description":  "Rolling stock return over the last 120 trading days for Europe; D1-delayed, point-in-time, split/FX-adjusted, masked if any day in the window is masked",
+        "dataset":  {
+                        "id":  "analyst_earnings_ibes",
+                        "name":  "Global Analyst Earnings Forecasts"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-mlai-models",
+                            "name":  "ML/AI Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.9891,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "opening_price_dlr1",
+        "description":  "Daily opening price for the stock in the Europe region (D1-delayed, point-in-time, split- and FX-adjusted, event-masked)",
+        "dataset":  {
+                        "id":  "analyst_earnings_ibes",
+                        "name":  "Global Analyst Earnings Forecasts"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-mlai-models",
+                            "name":  "ML/AI Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  1,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "opening_price_dlr2",
+        "description":  "Opening price for the trading day, split- and FX-adjusted, point-in-time and D1-delayed, event-masked",
+        "dataset":  {
+                        "id":  "analyst_earnings_ibes",
+                        "name":  "Global Analyst Earnings Forecasts"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-mlai-models",
+                            "name":  "ML/AI Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  1,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "opening_price_dlr3",
+        "description":  "Opening price for the day (split/FX-adjusted, PIT, D1-delayed, event-masked)",
+        "dataset":  {
+                        "id":  "analyst_earnings_ibes",
+                        "name":  "Global Analyst Earnings Forecasts"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-mlai-models",
+                            "name":  "ML/AI Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  1,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "shares_outstanding_dlr1",
+        "description":  "Shares outstanding for the stock as of the as-of-date in the Europe region (D1-delayed, point-in-time, masked if unavailable)",
+        "dataset":  {
+                        "id":  "analyst_earnings_ibes",
+                        "name":  "Global Analyst Earnings Forecasts"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-mlai-models",
+                            "name":  "ML/AI Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  1,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "shares_outstanding_dlr2",
+        "description":  "Shares outstanding as of the as-of-date, point-in-time and D1-delayed, masked when unavailable or invalid",
+        "dataset":  {
+                        "id":  "analyst_earnings_ibes",
+                        "name":  "Global Analyst Earnings Forecasts"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-mlai-models",
+                            "name":  "ML/AI Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  1,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "shares_outstanding_dlr3",
+        "description":  "Shares outstanding as of the as-of-date (PIT, D1-delayed, event-masked)",
+        "dataset":  {
+                        "id":  "analyst_earnings_ibes",
+                        "name":  "Global Analyst Earnings Forecasts"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-mlai-models",
+                            "name":  "ML/AI Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  1,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "sixty_day_total_return_dlr1",
+        "description":  "Stock return over the last 60 trading days for Americas-region equities, D1-delayed, point-in-time, split/FX-adjusted and event-masked (rolling window masked if any day is masked)",
+        "dataset":  {
+                        "id":  "analyst_earnings_ibes",
+                        "name":  "Global Analyst Earnings Forecasts"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-mlai-models",
+                            "name":  "ML/AI Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.9999,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "sixty_day_total_return_dlr2",
+        "description":  "Stock return over the last 60 trading days for Europe, D1-delayed and point-in-time, split/FX-adjusted and event-masked (masked if any day in the window is masked)",
+        "dataset":  {
+                        "id":  "analyst_earnings_ibes",
+                        "name":  "Global Analyst Earnings Forecasts"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-mlai-models",
+                            "name":  "ML/AI Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.9999,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "sixty_day_total_return_dlra1",
+        "description":  "Rolling stock return over the last 60 trading days for Europe; D1-delayed, point-in-time, split/FX-adjusted, masked if any day in the window is masked",
+        "dataset":  {
+                        "id":  "analyst_earnings_ibes",
+                        "name":  "Global Analyst Earnings Forecasts"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-mlai-models",
+                            "name":  "ML/AI Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.9993,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "trading_volume_dlr1",
+        "description":  "Total traded volume for the day, D1-delayed, point-in-time, event-masked per calendar and events",
+        "dataset":  {
+                        "id":  "analyst_earnings_ibes",
+                        "name":  "Global Analyst Earnings Forecasts"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-mlai-models",
+                            "name":  "ML/AI Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  1,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "trading_volume_dlr2",
+        "description":  "Europe region daily traded volume, D1-delayed, point-in-time, with event and calendar masking",
+        "dataset":  {
+                        "id":  "analyst_earnings_ibes",
+                        "name":  "Global Analyst Earnings Forecasts"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-mlai-models",
+                            "name":  "ML/AI Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  1,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "trading_volume_dlr3",
+        "description":  "Daily traded share volume for the security (PIT, D1-delayed, event-masked)",
+        "dataset":  {
+                        "id":  "analyst_earnings_ibes",
+                        "name":  "Global Analyst Earnings Forecasts"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-mlai-models",
+                            "name":  "ML/AI Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  1,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "twenty_day_total_return_dlr1",
+        "description":  "Stock return over the last 20 trading days for Americas-region equities, D1-delayed, point-in-time, split/FX-adjusted and event-masked (rolling window masked if any day is masked)",
+        "dataset":  {
+                        "id":  "analyst_earnings_ibes",
+                        "name":  "Global Analyst Earnings Forecasts"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-mlai-models",
+                            "name":  "ML/AI Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  1,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "twenty_day_total_return_dlr2",
+        "description":  "Stock return over the last 20 trading days for Europe, D1-delayed and point-in-time, split/FX-adjusted and event-masked (masked if any day in the window is masked)",
+        "dataset":  {
+                        "id":  "analyst_earnings_ibes",
+                        "name":  "Global Analyst Earnings Forecasts"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-mlai-models",
+                            "name":  "ML/AI Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  1,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "twenty_day_total_return_dlra1",
+        "description":  "Rolling stock return over the last 20 trading days for Europe; D1-delayed, point-in-time, split/FX-adjusted, masked if any day in the window is masked",
+        "dataset":  {
+                        "id":  "analyst_earnings_ibes",
+                        "name":  "Global Analyst Earnings Forecasts"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-mlai-models",
+                            "name":  "ML/AI Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  1,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "two_fifty_day_total_return_dlr1",
+        "description":  "Stock return over the last 250 trading days for Americas-region equities, D1-delayed, point-in-time, split/FX-adjusted and event-masked (rolling window masked if any day is masked)",
+        "dataset":  {
+                        "id":  "analyst_earnings_ibes",
+                        "name":  "Global Analyst Earnings Forecasts"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-mlai-models",
+                            "name":  "ML/AI Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.9816,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "two_fifty_day_total_return_dlr2",
+        "description":  "Stock return over the last 250 trading days for Europe, D1-delayed and point-in-time, split/FX-adjusted and event-masked (masked if any day in the window is masked)",
+        "dataset":  {
+                        "id":  "analyst_earnings_ibes",
+                        "name":  "Global Analyst Earnings Forecasts"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-mlai-models",
+                            "name":  "ML/AI Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.9836,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "two_fifty_day_total_return_dlra1",
+        "description":  "Rolling stock return over the last 250 trading days for Europe; D1-delayed, point-in-time, split/FX-adjusted, masked if any day in the window is masked",
+        "dataset":  {
+                        "id":  "analyst_earnings_ibes",
+                        "name":  "Global Analyst Earnings Forecasts"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-mlai-models",
+                            "name":  "ML/AI Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.9651,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "volume_weighted_avg_price_dlr1",
+        "description":  "Daily volume-weighted average price, D1-delayed, point-in-time, event-masked, split- and FX-adjusted",
+        "dataset":  {
+                        "id":  "analyst_earnings_ibes",
+                        "name":  "Global Analyst Earnings Forecasts"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-mlai-models",
+                            "name":  "ML/AI Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.9996,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "volume_weighted_avg_price_dlr2",
+        "description":  "Europe region daily volume-weighted average price, D1-delayed, point-in-time, split- and currency-adjusted, event-masked",
+        "dataset":  {
+                        "id":  "analyst_earnings_ibes",
+                        "name":  "Global Analyst Earnings Forecasts"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-mlai-models",
+                            "name":  "ML/AI Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.9996,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "volume_weighted_avg_price_dlr3",
+        "description":  "Volume-weighted average price for the day (split/FX-adjusted, PIT, D1-delayed, event-masked)",
+        "dataset":  {
+                        "id":  "analyst_earnings_ibes",
+                        "name":  "Global Analyst Earnings Forecasts"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-mlai-models",
+                            "name":  "ML/AI Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.9995,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    }
+]

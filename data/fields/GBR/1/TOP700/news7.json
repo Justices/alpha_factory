@@ -1,0 +1,738 @@
+﻿[
+    {
+        "id":  "earnings_news_mention_count",
+        "description":  "Number of news items per security and date that mention \"earnings,\" \"earning,\" or \"EPS\" in the text, representing earnings-related news frequency",
+        "dataset":  {
+                        "id":  "news7",
+                        "name":  "Real Time News Feed Data"
+                    },
+        "category":  {
+                         "id":  "news",
+                         "name":  "News"
+                     },
+        "subcategory":  {
+                            "id":  "news-news",
+                            "name":  "News"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "europe_buyback_news_count",
+        "description":  "An integer count of news stories related to corporate share buybacks for European companies. The count is aggregated from news events sourced from the DJ News feed.",
+        "dataset":  {
+                        "id":  "news7",
+                        "name":  "Real Time News Feed Data"
+                    },
+        "category":  {
+                         "id":  "news",
+                         "name":  "News"
+                     },
+        "subcategory":  {
+                            "id":  "news-news",
+                            "name":  "News"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "livenews_story_company_count_sl",
+        "description":  "Number of companies or entities mentioned or involved in the story",
+        "dataset":  {
+                        "id":  "news7",
+                        "name":  "Real Time News Feed Data"
+                    },
+        "category":  {
+                         "id":  "news",
+                         "name":  "News"
+                     },
+        "subcategory":  {
+                            "id":  "news-news",
+                            "name":  "News"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "livenews_story_full_text_sl",
+        "description":  "Full text content of the news story",
+        "dataset":  {
+                        "id":  "news7",
+                        "name":  "Real Time News Feed Data"
+                    },
+        "category":  {
+                         "id":  "news",
+                         "name":  "News"
+                     },
+        "subcategory":  {
+                            "id":  "news-news",
+                            "name":  "News"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "live_news_area_identifier",
+        "description":  "Identifier for the geographic area or data center associated with the live news item.",
+        "dataset":  {
+                        "id":  "news7",
+                        "name":  "Real Time News Feed Data"
+                    },
+        "category":  {
+                         "id":  "news",
+                         "name":  "News"
+                     },
+        "subcategory":  {
+                            "id":  "news-news",
+                            "name":  "News"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "live_news_display_label",
+        "description":  "Display label or name for the live news item or source.",
+        "dataset":  {
+                        "id":  "news7",
+                        "name":  "Real Time News Feed Data"
+                    },
+        "category":  {
+                         "id":  "news",
+                         "name":  "News"
+                     },
+        "subcategory":  {
+                            "id":  "news-news",
+                            "name":  "News"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "live_news_headline_tag",
+        "description":  "Tag indicating the type or status of the live news headline.",
+        "dataset":  {
+                        "id":  "news7",
+                        "name":  "Real Time News Feed Data"
+                    },
+        "category":  {
+                         "id":  "news",
+                         "name":  "News"
+                     },
+        "subcategory":  {
+                            "id":  "news-news",
+                            "name":  "News"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "news_category_tag_livenews_all",
+        "description":  "Integer code for fine-grained classification tag (e.g., \"M\u0026A\", \"Earnings\"), resolved via codebook",
+        "dataset":  {
+                        "id":  "news7",
+                        "name":  "Real Time News Feed Data"
+                    },
+        "category":  {
+                         "id":  "news",
+                         "name":  "News"
+                     },
+        "subcategory":  {
+                            "id":  "news-news",
+                            "name":  "News"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "news_display_name_livenews_all",
+        "description":  "Code indicating message subtype (e.g., 0-alert, 1-first take, 2-subsequent take, etc.)",
+        "dataset":  {
+                        "id":  "news7",
+                        "name":  "Real Time News Feed Data"
+                    },
+        "category":  {
+                         "id":  "news",
+                         "name":  "News"
+                     },
+        "subcategory":  {
+                            "id":  "news-news",
+                            "name":  "News"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "news_geographic_area_livenews_all",
+        "description":  "Code for Data Centre where news was first broadcast (e.g., 0-NY, 1-LD, 2-LO, 3-HA)",
+        "dataset":  {
+                        "id":  "news7",
+                        "name":  "Real Time News Feed Data"
+                    },
+        "category":  {
+                         "id":  "news",
+                         "name":  "News"
+                     },
+        "subcategory":  {
+                            "id":  "news-news",
+                            "name":  "News"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "news_mention_frequency_1_all",
+        "description":  "Number of news articles per security and date within the Europe region, with an additional delay, containing keywords related to sales, earnings, analysts, and EPS",
+        "dataset":  {
+                        "id":  "news7",
+                        "name":  "Real Time News Feed Data"
+                    },
+        "category":  {
+                         "id":  "news",
+                         "name":  "News"
+                     },
+        "subcategory":  {
+                            "id":  "news-news",
+                            "name":  "News"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "news_mention_frequency_alt_livenewsfreq",
+        "description":  "The count of news articles per security and date containing the keywords \"sale\", \"earning\", \"analyst\", \"sales\", \"earnings\", or \"EPS\" as detected in headline or text",
+        "dataset":  {
+                        "id":  "news7",
+                        "name":  "Real Time News Feed Data"
+                    },
+        "category":  {
+                         "id":  "news",
+                         "name":  "News"
+                     },
+        "subcategory":  {
+                            "id":  "news-news",
+                            "name":  "News"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "news_mention_frequency_pzeng",
+        "description":  "Number of news events or stories related to European securities, counted per security and date in the djnews dataset",
+        "dataset":  {
+                        "id":  "news7",
+                        "name":  "Real Time News Feed Data"
+                    },
+        "category":  {
+                         "id":  "news",
+                         "name":  "News"
+                     },
+        "subcategory":  {
+                            "id":  "news-news",
+                            "name":  "News"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "news_mention_frequency_v11_0_0",
+        "description":  "Daily count of news events associated with a security or entity in the Europe (EUR) region, excluding stories containing the keyword \"insider\"",
+        "dataset":  {
+                        "id":  "news7",
+                        "name":  "Real Time News Feed Data"
+                    },
+        "category":  {
+                         "id":  "news",
+                         "name":  "News"
+                     },
+        "subcategory":  {
+                            "id":  "news-news",
+                            "name":  "News"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "news_product_code",
+        "description":  "Code indicating the news product or audience group to which a news item is published.",
+        "dataset":  {
+                        "id":  "news7",
+                        "name":  "Real Time News Feed Data"
+                    },
+        "category":  {
+                         "id":  "news",
+                         "name":  "News"
+                     },
+        "subcategory":  {
+                            "id":  "news-news",
+                            "name":  "News"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "news_product_code_all",
+        "description":  "Product code specifying the news product or audience for all news items in the feed.",
+        "dataset":  {
+                        "id":  "news7",
+                        "name":  "Real Time News Feed Data"
+                    },
+        "category":  {
+                         "id":  "news",
+                         "name":  "News"
+                     },
+        "subcategory":  {
+                            "id":  "news-news",
+                            "name":  "News"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "news_sales_mention_count",
+        "description":  "Daily count of news articles for European securities that mention sales-related keywords (e.g., sale, sales) or earnings, aggregated per security per date",
+        "dataset":  {
+                        "id":  "news7",
+                        "name":  "Real Time News Feed Data"
+                    },
+        "category":  {
+                         "id":  "news",
+                         "name":  "News"
+                     },
+        "subcategory":  {
+                            "id":  "news-news",
+                            "name":  "News"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "news_sales_mention_count_1",
+        "description":  "Count of Europe news articles per security and date with one-day delay that contain earnings or sales-related keywords (e.g., earning, earnings, EPS, sale, sales, estimate)",
+        "dataset":  {
+                        "id":  "news7",
+                        "name":  "Real Time News Feed Data"
+                    },
+        "category":  {
+                         "id":  "news",
+                         "name":  "News"
+                     },
+        "subcategory":  {
+                            "id":  "news-news",
+                            "name":  "News"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "news_sales_mention_count_all",
+        "description":  "Delayed next-day (D1) count of news stories for European securities containing the keywords \"sale\", \"sales\", or \"earnings\"",
+        "dataset":  {
+                        "id":  "news7",
+                        "name":  "Real Time News Feed Data"
+                    },
+        "category":  {
+                         "id":  "news",
+                         "name":  "News"
+                     },
+        "subcategory":  {
+                            "id":  "news-news",
+                            "name":  "News"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "news_story_company_count",
+        "description":  "Number of distinct companies or entities mentioned in the story",
+        "dataset":  {
+                        "id":  "news7",
+                        "name":  "Real Time News Feed Data"
+                    },
+        "category":  {
+                         "id":  "news",
+                         "name":  "News"
+                     },
+        "subcategory":  {
+                            "id":  "news-news",
+                            "name":  "News"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "news_story_full_text",
+        "description":  "Full text content of the news story/article",
+        "dataset":  {
+                        "id":  "news7",
+                        "name":  "Real Time News Feed Data"
+                    },
+        "category":  {
+                         "id":  "news",
+                         "name":  "News"
+                     },
+        "subcategory":  {
+                            "id":  "news-news",
+                            "name":  "News"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "news_subject_code",
+        "description":  "Code representing the subject or topic of a news item, such as asset class, geography, or industry.",
+        "dataset":  {
+                        "id":  "news7",
+                        "name":  "Real Time News Feed Data"
+                    },
+        "category":  {
+                         "id":  "news",
+                         "name":  "News"
+                     },
+        "subcategory":  {
+                            "id":  "news-news",
+                            "name":  "News"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "news_subject_code_all",
+        "description":  "Subject or topic code for all news items, indicating the main theme or category.",
+        "dataset":  {
+                        "id":  "news7",
+                        "name":  "Real Time News Feed Data"
+                    },
+        "category":  {
+                         "id":  "news",
+                         "name":  "News"
+                     },
+        "subcategory":  {
+                            "id":  "news-news",
+                            "name":  "News"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    }
+]

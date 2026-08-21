@@ -1,0 +1,1442 @@
+﻿[
+    {
+        "id":  "mdl216_armcountry100score",
+        "description":  "Percentile rank 1–100 within the country based on the Analyst Revisions Model; 100 best, 1 worst",
+        "dataset":  {
+                        "id":  "model216",
+                        "name":  "Analyst Revisions Model Data"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-mlai-models",
+                            "name":  "ML/AI Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  0.7004,
+        "coverage":  0.7121,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl216_armcountry1rank",
+        "description":  "0–1 scaled country-relative ARM rank, with higher values indicating stronger signals versus country peers",
+        "dataset":  {
+                        "id":  "model216",
+                        "name":  "Analyst Revisions Model Data"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-mlai-models",
+                            "name":  "ML/AI Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  0.7004,
+        "coverage":  0.7121,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl216_armcountry5score",
+        "description":  "1–5 mapped score of the country ARM percentile (bell-shaped bins); 1 best, 5 worst",
+        "dataset":  {
+                        "id":  "model216",
+                        "name":  "Analyst Revisions Model Data"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-mlai-models",
+                            "name":  "ML/AI Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  0.7004,
+        "coverage":  0.7121,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl216_armestimaterevisioncombinationrank",
+        "description":  "Combined estimate revisions rank that weights preferred, secondary, and revenue revisions, with weights varying by profitability",
+        "dataset":  {
+                        "id":  "model216",
+                        "name":  "Analyst Revisions Model Data"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-mlai-models",
+                            "name":  "ML/AI Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  0.7004,
+        "coverage":  0.7121,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl216_armglobal100score",
+        "description":  "Global 1–100 percentile score from the ARM model, where 100 indicates highest rated globally",
+        "dataset":  {
+                        "id":  "model216",
+                        "name":  "Analyst Revisions Model Data"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-mlai-models",
+                            "name":  "ML/AI Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  0.7004,
+        "coverage":  0.7121,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl216_armglobal1rank",
+        "description":  "0–1 precision version of the global ARM percentile rank",
+        "dataset":  {
+                        "id":  "model216",
+                        "name":  "Analyst Revisions Model Data"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-mlai-models",
+                            "name":  "ML/AI Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  0.7004,
+        "coverage":  0.7121,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl216_armglobal5score",
+        "description":  "Global ARM score mapped from the 1–100 percentile to a 1–5 scale, where 1 indicates highest rated and 5 indicates lowest, using the specified percentile buckets",
+        "dataset":  {
+                        "id":  "model216",
+                        "name":  "Analyst Revisions Model Data"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-mlai-models",
+                            "name":  "ML/AI Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  0.7004,
+        "coverage":  0.7121,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl216_armglobalcombinationscore",
+        "description":  "Combined global ARM score that blends the Estimates Revisions component with the Recommendations component; if recommendations are unavailable, it equals the Estimates Revisions component",
+        "dataset":  {
+                        "id":  "model216",
+                        "name":  "Analyst Revisions Model Data"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-mlai-models",
+                            "name":  "ML/AI Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  0.7004,
+        "coverage":  0.7121,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl216_armindustry100score",
+        "description":  "Percentile rank (1–100) within the industry based on the ARM algorithm; 100 is highest and 1 is lowest",
+        "dataset":  {
+                        "id":  "model216",
+                        "name":  "Analyst Revisions Model Data"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-mlai-models",
+                            "name":  "ML/AI Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  0.7004,
+        "coverage":  0.7121,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl216_armindustry1rank",
+        "description":  "0–1 precision version of the industry ARM percentile rank",
+        "dataset":  {
+                        "id":  "model216",
+                        "name":  "Analyst Revisions Model Data"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-mlai-models",
+                            "name":  "ML/AI Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  0.7004,
+        "coverage":  0.7121,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl216_armindustry5score",
+        "description":  "Industry score mapped from the 1–100 ARM percentile to a 1–5 scale (bell-shaped distribution), where 1 is highest and 5 is lowest",
+        "dataset":  {
+                        "id":  "model216",
+                        "name":  "Analyst Revisions Model Data"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-mlai-models",
+                            "name":  "ML/AI Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  0.7004,
+        "coverage":  0.7121,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl216_armpreferredrevision1rank",
+        "description":  "0–1 scaled rank for the preferred revisions component, providing higher precision than 1–100; higher values indicate stronger signals",
+        "dataset":  {
+                        "id":  "model216",
+                        "name":  "Analyst Revisions Model Data"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-mlai-models",
+                            "name":  "ML/AI Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  0.7004,
+        "coverage":  0.7121,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl216_armpreferredrevisioncomponent100rank",
+        "description":  "1–100 rank of the preferred (primary) revisions component based on the ARM algorithm, where 100 is strongest",
+        "dataset":  {
+                        "id":  "model216",
+                        "name":  "Analyst Revisions Model Data"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-mlai-models",
+                            "name":  "ML/AI Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  0.7004,
+        "coverage":  0.7121,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl216_armpreferredrevisioncomponent5rank",
+        "description":  "Analyst Revisions rank for the Preferred measure mapped from the 1–100 percentile to a 1–5 scale, where 1 is highest and 5 is lowest",
+        "dataset":  {
+                        "id":  "model216",
+                        "name":  "Analyst Revisions Model Data"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-mlai-models",
+                            "name":  "ML/AI Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  0.7004,
+        "coverage":  0.7121,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl216_armpreferredrevisionscore",
+        "description":  "Component score of the ARM derived from revisions and predicted surprises in the preferred earnings measure",
+        "dataset":  {
+                        "id":  "model216",
+                        "name":  "Analyst Revisions Model Data"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-mlai-models",
+                            "name":  "ML/AI Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  0.7004,
+        "coverage":  0.7121,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl216_armrecommendation100rank",
+        "description":  "1–100 percentile rank based solely on recommendations-based factors; 100 best, 1 worst",
+        "dataset":  {
+                        "id":  "model216",
+                        "name":  "Analyst Revisions Model Data"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-mlai-models",
+                            "name":  "ML/AI Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  0.7004,
+        "coverage":  0.7121,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl216_armrecommendation1rank",
+        "description":  "ARM recommendation rank expressed on a 0–1 scale providing greater precision than the 1–100 ranking",
+        "dataset":  {
+                        "id":  "model216",
+                        "name":  "Analyst Revisions Model Data"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-mlai-models",
+                            "name":  "ML/AI Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  0.7004,
+        "coverage":  0.7121,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl216_armrecommendation5rank",
+        "description":  "1–5 mapped rank of the recommendations-based ARM percentile; 1 best, 5 worst (bell-shaped bins)",
+        "dataset":  {
+                        "id":  "model216",
+                        "name":  "Analyst Revisions Model Data"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-mlai-models",
+                            "name":  "ML/AI Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  0.7004,
+        "coverage":  0.7121,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl216_armrecommendationscore",
+        "description":  "ARM component score derived from analyst recommendations with coverage normalization and combined ranking approach",
+        "dataset":  {
+                        "id":  "model216",
+                        "name":  "Analyst Revisions Model Data"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-mlai-models",
+                            "name":  "ML/AI Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  0.7004,
+        "coverage":  0.7121,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl216_armregion100score",
+        "description":  "Percentile rank 1–100 within the region based on the Analyst Revisions Model; 100 best, 1 worst",
+        "dataset":  {
+                        "id":  "model216",
+                        "name":  "Analyst Revisions Model Data"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-mlai-models",
+                            "name":  "ML/AI Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  0.7004,
+        "coverage":  0.7121,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl216_armregion1rank",
+        "description":  "0–1 scaled regional rank for the ARM model, with higher values indicating stronger signals relative to regional peers",
+        "dataset":  {
+                        "id":  "model216",
+                        "name":  "Analyst Revisions Model Data"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-mlai-models",
+                            "name":  "ML/AI Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  0.7004,
+        "coverage":  0.7121,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl216_armregion5score",
+        "description":  "Region score mapped from the 1–100 ARM percentile to a 1–5 scale (bell-shaped distribution), where 1 is highest and 5 is lowest",
+        "dataset":  {
+                        "id":  "model216",
+                        "name":  "Analyst Revisions Model Data"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-mlai-models",
+                            "name":  "ML/AI Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  0.7004,
+        "coverage":  0.7121,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl216_armrevenuerevision1rank",
+        "description":  "0–1 precision rank of the revenue-related component in the Analyst Revisions Model",
+        "dataset":  {
+                        "id":  "model216",
+                        "name":  "Analyst Revisions Model Data"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-mlai-models",
+                            "name":  "ML/AI Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  0.7004,
+        "coverage":  0.7121,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl216_armrevenuerevisioncomponent100rank",
+        "description":  "1–100 rank of the revenue revisions component based on the ARM algorithm, where 100 is strongest and 1 is weakest",
+        "dataset":  {
+                        "id":  "model216",
+                        "name":  "Analyst Revisions Model Data"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-mlai-models",
+                            "name":  "ML/AI Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  0.7004,
+        "coverage":  0.7121,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl216_armrevenuerevisioncomponent5rank",
+        "description":  "Rank of the revenue revisions component mapped to a 1–5 scale, where 1 is highest and 5 is lowest",
+        "dataset":  {
+                        "id":  "model216",
+                        "name":  "Analyst Revisions Model Data"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-mlai-models",
+                            "name":  "ML/AI Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  0.7004,
+        "coverage":  0.7121,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl216_armrevenuerevisionscore",
+        "description":  "Component score of the ARM based on revenue revisions and predicted surprises",
+        "dataset":  {
+                        "id":  "model216",
+                        "name":  "Analyst Revisions Model Data"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-mlai-models",
+                            "name":  "ML/AI Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  0.7004,
+        "coverage":  0.7121,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl216_armsecondaryrevision1rank",
+        "description":  "0–1 scaled rank for the secondary revisions component, with higher values indicating stronger signals",
+        "dataset":  {
+                        "id":  "model216",
+                        "name":  "Analyst Revisions Model Data"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-mlai-models",
+                            "name":  "ML/AI Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  0.7004,
+        "coverage":  0.7121,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl216_armsecondaryrevisioncomponent100rank",
+        "description":  "Analyst Revisions 1–100 rank for the Secondary measure based on the ARM algorithm, where 100 is highest and 1 is lowest",
+        "dataset":  {
+                        "id":  "model216",
+                        "name":  "Analyst Revisions Model Data"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-mlai-models",
+                            "name":  "ML/AI Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  0.7004,
+        "coverage":  0.7121,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl216_armsecondaryrevisioncomponent5rank",
+        "description":  "Analyst Revisions rank for the Secondary measure mapped from the 1–100 percentile to a 1–5 scale, where 1 is highest and 5 is lowest",
+        "dataset":  {
+                        "id":  "model216",
+                        "name":  "Analyst Revisions Model Data"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-mlai-models",
+                            "name":  "ML/AI Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  0.7004,
+        "coverage":  0.7121,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl216_armsecondaryrevisionscore",
+        "description":  "Component score of the Analyst Revisions Model derived from secondary earnings revisions and predicted surprises",
+        "dataset":  {
+                        "id":  "model216",
+                        "name":  "Analyst Revisions Model Data"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-mlai-models",
+                            "name":  "ML/AI Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  0.7004,
+        "coverage":  0.7121,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl216_armsector100score",
+        "description":  "Percentile rank 1–100 within the sector based on the Analyst Revisions Model; 100 best, 1 worst",
+        "dataset":  {
+                        "id":  "model216",
+                        "name":  "Analyst Revisions Model Data"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-mlai-models",
+                            "name":  "ML/AI Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  0.7004,
+        "coverage":  0.7121,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl216_armsector1rank",
+        "description":  "0–1 precision version of the sector ARM percentile rank",
+        "dataset":  {
+                        "id":  "model216",
+                        "name":  "Analyst Revisions Model Data"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-mlai-models",
+                            "name":  "ML/AI Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  0.7004,
+        "coverage":  0.7121,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl216_armsector5score",
+        "description":  "1–5 mapped score of the sector ARM percentile (bell-shaped bins); 1 best, 5 worst",
+        "dataset":  {
+                        "id":  "model216",
+                        "name":  "Analyst Revisions Model Data"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-mlai-models",
+                            "name":  "ML/AI Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  0.7004,
+        "coverage":  0.7121,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl216_industryclassification",
+        "description":  "TRBC Industry Group code as of the as-of date (point-in-time)",
+        "dataset":  {
+                        "id":  "model216",
+                        "name":  "Analyst Revisions Model Data"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-mlai-models",
+                            "name":  "ML/AI Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  0.7004,
+        "coverage":  0.7121,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl216_preferredblendedrevisionfq1percent",
+        "description":  "Even-weighted blended revision percent for the Preferred measure in FQ1 across 7, 14, 30, 60, and 90-day lookbacks",
+        "dataset":  {
+                        "id":  "model216",
+                        "name":  "Analyst Revisions Model Data"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-mlai-models",
+                            "name":  "ML/AI Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  0.7004,
+        "coverage":  0.7121,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl216_preferredblendedrevisionfy1percent",
+        "description":  "Even-weighted blend of Preferred FY1 revision measures over 7, 14, 30, 60, and 90 days, expressed as a percent change",
+        "dataset":  {
+                        "id":  "model216",
+                        "name":  "Analyst Revisions Model Data"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-mlai-models",
+                            "name":  "ML/AI Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  0.7004,
+        "coverage":  0.7121,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl216_preferredblendedrevisionfy2percent",
+        "description":  "Even-weighted blend of Preferred FY2 revision measures over 7, 14, 30, 60, and 90 days, expressed as a percent change",
+        "dataset":  {
+                        "id":  "model216",
+                        "name":  "Analyst Revisions Model Data"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-mlai-models",
+                            "name":  "ML/AI Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  0.7004,
+        "coverage":  0.7121,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl216_recommendationblendedrevisionpercent",
+        "description":  "Even-weighted blend of recommendation revisions over 7, 14, 30, 60, and 90 days, expressed as a percent change",
+        "dataset":  {
+                        "id":  "model216",
+                        "name":  "Analyst Revisions Model Data"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-mlai-models",
+                            "name":  "ML/AI Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  0.7004,
+        "coverage":  0.7121,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl216_revenueblendedrevisionfq1percent",
+        "description":  "Even-weighted blended percentage change in revenue estimate revisions for next fiscal quarter (FQ1) across 7, 14, 30, 60, and 90-day windows; positive indicates upward revisions",
+        "dataset":  {
+                        "id":  "model216",
+                        "name":  "Analyst Revisions Model Data"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-mlai-models",
+                            "name":  "ML/AI Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  0.7004,
+        "coverage":  0.7121,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl216_revenueblendedrevisionfy1percent",
+        "description":  "Even-weighted blend of Revenue FY1 revision measures over 7, 14, 30, 60, and 90 days, expressed as a percent change",
+        "dataset":  {
+                        "id":  "model216",
+                        "name":  "Analyst Revisions Model Data"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-mlai-models",
+                            "name":  "ML/AI Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  0.7004,
+        "coverage":  0.7121,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl216_revenueblendedrevisionfy2percent",
+        "description":  "Even-weighted blend of Revenue FY2 revision measures over 7, 14, 30, 60, and 90 days, expressed as a percent change",
+        "dataset":  {
+                        "id":  "model216",
+                        "name":  "Analyst Revisions Model Data"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-mlai-models",
+                            "name":  "ML/AI Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  0.7004,
+        "coverage":  0.7121,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl216_secondaryblendedrevisionfq1percent",
+        "description":  "Even-weighted blended revision percent for the Secondary measure in FQ1 across 7, 14, 30, 60, and 90-day lookbacks",
+        "dataset":  {
+                        "id":  "model216",
+                        "name":  "Analyst Revisions Model Data"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-mlai-models",
+                            "name":  "ML/AI Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  0.7004,
+        "coverage":  0.7121,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl216_secondaryblendedrevisionfy1percent",
+        "description":  "Even-weighted blended revision percent for the Secondary measure in FY1 across 7, 14, 30, 60, and 90-day lookbacks",
+        "dataset":  {
+                        "id":  "model216",
+                        "name":  "Analyst Revisions Model Data"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-mlai-models",
+                            "name":  "ML/AI Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  0.7004,
+        "coverage":  0.7121,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl216_secondaryblendedrevisionfy2percent",
+        "description":  "Even-weighted blended revision percent for the Secondary measure in FY2 across 7, 14, 30, 60, and 90-day lookbacks",
+        "dataset":  {
+                        "id":  "model216",
+                        "name":  "Analyst Revisions Model Data"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-mlai-models",
+                            "name":  "ML/AI Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  0.7004,
+        "coverage":  0.7121,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl216_sectorclassification",
+        "description":  "Refinitiv TRBC Economic Sector code as of the AsOfDate; earliest available TRBC used if missing on that date",
+        "dataset":  {
+                        "id":  "model216",
+                        "name":  "Analyst Revisions Model Data"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-mlai-models",
+                            "name":  "ML/AI Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  0.7004,
+        "coverage":  0.7121,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    }
+]

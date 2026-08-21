@@ -1,0 +1,14 @@
+﻿{
+    "sourceFile":  "datafields_GBR_1_TOP700.csv",
+    "region":  "GBR",
+    "delay":  1,
+    "universe":  "TOP700",
+    "datasetCount":  183,
+    "fieldCount":  20782,
+    "typeCounts":  {
+                       "MATRIX":  12905,
+                       "VECTOR":  6286,
+                       "GROUP":  1472,
+                       "SYMBOL":  119
+                   }
+}

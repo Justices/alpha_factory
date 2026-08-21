@@ -1,0 +1,3202 @@
+﻿[
+    {
+        "id":  "anl93_accuracy_analyst_analyst",
+        "description":  "Numeric index identifier of the analyst, consistent with IBES",
+        "dataset":  {
+                        "id":  "analyst93",
+                        "name":  "Europe Analyst Estimate Daily Data"
+                    },
+        "category":  {
+                         "id":  "analyst",
+                         "name":  "Analyst"
+                     },
+        "subcategory":  {
+                            "id":  "analyst-analyst-estimates",
+                            "name":  "Analyst Estimates"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0.5863,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "anl93_accuracy_estimator_analyst",
+        "description":  "IBES-consistent numeric index of the analyst",
+        "dataset":  {
+                        "id":  "analyst93",
+                        "name":  "Europe Analyst Estimate Daily Data"
+                    },
+        "category":  {
+                         "id":  "analyst",
+                         "name":  "Analyst"
+                     },
+        "subcategory":  {
+                            "id":  "analyst-analyst-estimates",
+                            "name":  "Analyst Estimates"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0.5863,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "anl93_analyst_accuracy1",
+        "description":  "Correct forecast probability under rule 1, equal to correct_forecast_times1 divided by total_forecast_times1",
+        "dataset":  {
+                        "id":  "analyst93",
+                        "name":  "Europe Analyst Estimate Daily Data"
+                    },
+        "category":  {
+                         "id":  "analyst",
+                         "name":  "Analyst"
+                     },
+        "subcategory":  {
+                            "id":  "analyst-analyst-estimates",
+                            "name":  "Analyst Estimates"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0.5863,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "anl93_analyst_accuracy2",
+        "description":  "Correct forecast probability under rule 2, equal to correct_forecast_times2 divided by total_forecast_times2",
+        "dataset":  {
+                        "id":  "analyst93",
+                        "name":  "Europe Analyst Estimate Daily Data"
+                    },
+        "category":  {
+                         "id":  "analyst",
+                         "name":  "Analyst"
+                     },
+        "subcategory":  {
+                            "id":  "analyst-analyst-estimates",
+                            "name":  "Analyst Estimates"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0.5863,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "anl93_analyst_consistency",
+        "description":  "Negative standard deviation of forecast error (forecast value minus actual); for price targets, actual is the equity’s close on the horizon day",
+        "dataset":  {
+                        "id":  "analyst93",
+                        "name":  "Europe Analyst Estimate Daily Data"
+                    },
+        "category":  {
+                         "id":  "analyst",
+                         "name":  "Analyst"
+                     },
+        "subcategory":  {
+                            "id":  "analyst-analyst-estimates",
+                            "name":  "Analyst Estimates"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0.5863,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "anl93_analyst_correct_forecast_times1",
+        "description":  "Number of those forecasts correct under rule 1: from the day after the forecast until min(Today−126, Today−horizon_days), the raw price hit the stated price target at least once",
+        "dataset":  {
+                        "id":  "analyst93",
+                        "name":  "Europe Analyst Estimate Daily Data"
+                    },
+        "category":  {
+                         "id":  "analyst",
+                         "name":  "Analyst"
+                     },
+        "subcategory":  {
+                            "id":  "analyst-analyst-estimates",
+                            "name":  "Analyst Estimates"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0.5863,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "anl93_analyst_correct_forecast_times2",
+        "description":  "Number of those forecasts correct under rule 2: the raw price hit the price target on the exact horizon date",
+        "dataset":  {
+                        "id":  "analyst93",
+                        "name":  "Europe Analyst Estimate Daily Data"
+                    },
+        "category":  {
+                         "id":  "analyst",
+                         "name":  "Analyst"
+                     },
+        "subcategory":  {
+                            "id":  "analyst-analyst-estimates",
+                            "name":  "Analyst Estimates"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0.5863,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "anl93_analyst_correct_revision_ratio",
+        "description":  "Ratio of correct revisions: correct_revision_times divided by total_revision_times",
+        "dataset":  {
+                        "id":  "analyst93",
+                        "name":  "Europe Analyst Estimate Daily Data"
+                    },
+        "category":  {
+                         "id":  "analyst",
+                         "name":  "Analyst"
+                     },
+        "subcategory":  {
+                            "id":  "analyst-analyst-estimates",
+                            "name":  "Analyst Estimates"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0.5863,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "anl93_analyst_correct_revision_times",
+        "description":  "Number of revisions whose direction was correctly predicted",
+        "dataset":  {
+                        "id":  "analyst93",
+                        "name":  "Europe Analyst Estimate Daily Data"
+                    },
+        "category":  {
+                         "id":  "analyst",
+                         "name":  "Analyst"
+                     },
+        "subcategory":  {
+                            "id":  "analyst-analyst-estimates",
+                            "name":  "Analyst Estimates"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0.5863,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "anl93_analyst_relative_accuracy1",
+        "description":  "Rank of accuracy1 among analysts covering the same equity",
+        "dataset":  {
+                        "id":  "analyst93",
+                        "name":  "Europe Analyst Estimate Daily Data"
+                    },
+        "category":  {
+                         "id":  "analyst",
+                         "name":  "Analyst"
+                     },
+        "subcategory":  {
+                            "id":  "analyst-analyst-estimates",
+                            "name":  "Analyst Estimates"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0.5863,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "anl93_analyst_relative_accuracy2",
+        "description":  "Min-max normalized accuracy1 among analysts covering the same equity; NaN if only one analyst covers the equity",
+        "dataset":  {
+                        "id":  "analyst93",
+                        "name":  "Europe Analyst Estimate Daily Data"
+                    },
+        "category":  {
+                         "id":  "analyst",
+                         "name":  "Analyst"
+                     },
+        "subcategory":  {
+                            "id":  "analyst-analyst-estimates",
+                            "name":  "Analyst Estimates"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0.5863,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "anl93_analyst_relative_accuracy3",
+        "description":  "Rank of accuracy2 among analysts covering the same equity",
+        "dataset":  {
+                        "id":  "analyst93",
+                        "name":  "Europe Analyst Estimate Daily Data"
+                    },
+        "category":  {
+                         "id":  "analyst",
+                         "name":  "Analyst"
+                     },
+        "subcategory":  {
+                            "id":  "analyst-analyst-estimates",
+                            "name":  "Analyst Estimates"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0.5863,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "anl93_analyst_relative_accuracy4",
+        "description":  "Min-max normalized accuracy2 among analysts covering the same equity; NaN if only one analyst covers the equity",
+        "dataset":  {
+                        "id":  "analyst93",
+                        "name":  "Europe Analyst Estimate Daily Data"
+                    },
+        "category":  {
+                         "id":  "analyst",
+                         "name":  "Analyst"
+                     },
+        "subcategory":  {
+                            "id":  "analyst-analyst-estimates",
+                            "name":  "Analyst Estimates"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0.5863,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "anl93_analyst_relative_consistency1",
+        "description":  "Rank of consistency among analysts covering the same equity (peer-relative rank)",
+        "dataset":  {
+                        "id":  "analyst93",
+                        "name":  "Europe Analyst Estimate Daily Data"
+                    },
+        "category":  {
+                         "id":  "analyst",
+                         "name":  "Analyst"
+                     },
+        "subcategory":  {
+                            "id":  "analyst-analyst-estimates",
+                            "name":  "Analyst Estimates"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0.5863,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "anl93_analyst_relative_consistency2",
+        "description":  "Normalized consistency among covering analysts: (consistency − min) / (max − min)",
+        "dataset":  {
+                        "id":  "analyst93",
+                        "name":  "Europe Analyst Estimate Daily Data"
+                    },
+        "category":  {
+                         "id":  "analyst",
+                         "name":  "Analyst"
+                     },
+        "subcategory":  {
+                            "id":  "analyst-analyst-estimates",
+                            "name":  "Analyst Estimates"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0.5863,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "anl93_analyst_relative_ratio1",
+        "description":  "Peer-relative rank of correct_revision_ratio among analysts covering the same equity/date",
+        "dataset":  {
+                        "id":  "analyst93",
+                        "name":  "Europe Analyst Estimate Daily Data"
+                    },
+        "category":  {
+                         "id":  "analyst",
+                         "name":  "Analyst"
+                     },
+        "subcategory":  {
+                            "id":  "analyst-analyst-estimates",
+                            "name":  "Analyst Estimates"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0.5863,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "anl93_analyst_relative_ratio2",
+        "description":  "Peer-relative min–max normalized correct_revision_ratio within analysts covering the same equity/date",
+        "dataset":  {
+                        "id":  "analyst93",
+                        "name":  "Europe Analyst Estimate Daily Data"
+                    },
+        "category":  {
+                         "id":  "analyst",
+                         "name":  "Analyst"
+                     },
+        "subcategory":  {
+                            "id":  "analyst-analyst-estimates",
+                            "name":  "Analyst Estimates"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0.5863,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "anl93_analyst_total_forecast_times1",
+        "description":  "Count of the analyst’s price-target forecasts in [Today−504, min(Today−126, Today−horizon_days)] used for rule 1 evaluation",
+        "dataset":  {
+                        "id":  "analyst93",
+                        "name":  "Europe Analyst Estimate Daily Data"
+                    },
+        "category":  {
+                         "id":  "analyst",
+                         "name":  "Analyst"
+                     },
+        "subcategory":  {
+                            "id":  "analyst-analyst-estimates",
+                            "name":  "Analyst Estimates"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0.5863,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "anl93_analyst_total_forecast_times2",
+        "description":  "Count of the analyst’s forecasts in [Today−504, min(Today−126, Today−horizon_days)] used for rule 2 evaluation",
+        "dataset":  {
+                        "id":  "analyst93",
+                        "name":  "Europe Analyst Estimate Daily Data"
+                    },
+        "category":  {
+                         "id":  "analyst",
+                         "name":  "Analyst"
+                     },
+        "subcategory":  {
+                            "id":  "analyst-analyst-estimates",
+                            "name":  "Analyst Estimates"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0.5863,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "anl93_analyst_total_revision_times",
+        "description":  "Total number of forecast revisions observed (computed as total_forecast_times − 1); may be zero",
+        "dataset":  {
+                        "id":  "analyst93",
+                        "name":  "Europe Analyst Estimate Daily Data"
+                    },
+        "category":  {
+                         "id":  "analyst",
+                         "name":  "Analyst"
+                     },
+        "subcategory":  {
+                            "id":  "analyst-analyst-estimates",
+                            "name":  "Analyst Estimates"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0.5863,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "anl93_consistency_analyst_analyst",
+        "description":  "Numeric identifier of the analyst (IBES-consistent)",
+        "dataset":  {
+                        "id":  "analyst93",
+                        "name":  "Europe Analyst Estimate Daily Data"
+                    },
+        "category":  {
+                         "id":  "analyst",
+                         "name":  "Analyst"
+                     },
+        "subcategory":  {
+                            "id":  "analyst-analyst-estimates",
+                            "name":  "Analyst Estimates"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0.5863,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "anl93_consistency_analyst_total_forecast_times",
+        "description":  "Count of the analyst’s forecasts in [Today−504, min(Today−126, Today−horizon_days)], excluding recent forecasts to allow verification",
+        "dataset":  {
+                        "id":  "analyst93",
+                        "name":  "Europe Analyst Estimate Daily Data"
+                    },
+        "category":  {
+                         "id":  "analyst",
+                         "name":  "Analyst"
+                     },
+        "subcategory":  {
+                            "id":  "analyst-analyst-estimates",
+                            "name":  "Analyst Estimates"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0.5863,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "anl93_consistency_estimator_analyst",
+        "description":  "Numeric identifier for the analyst, consistent with IBES",
+        "dataset":  {
+                        "id":  "analyst93",
+                        "name":  "Europe Analyst Estimate Daily Data"
+                    },
+        "category":  {
+                         "id":  "analyst",
+                         "name":  "Analyst"
+                     },
+        "subcategory":  {
+                            "id":  "analyst-analyst-estimates",
+                            "name":  "Analyst Estimates"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0.5863,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "anl93_consistency_estimator_total_forecast_times",
+        "description":  "Count of forecasts made by the analyst in the window [Today-504, min(Today-126, Today-horizon_days)], excluding recent forecasts to allow verification",
+        "dataset":  {
+                        "id":  "analyst93",
+                        "name":  "Europe Analyst Estimate Daily Data"
+                    },
+        "category":  {
+                         "id":  "analyst",
+                         "name":  "Analyst"
+                     },
+        "subcategory":  {
+                            "id":  "analyst-analyst-estimates",
+                            "name":  "Analyst Estimates"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0.5863,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "anl93_correv_analyst_analyst",
+        "description":  "Numeric index (IBES-consistent) identifying the analyst",
+        "dataset":  {
+                        "id":  "analyst93",
+                        "name":  "Europe Analyst Estimate Daily Data"
+                    },
+        "category":  {
+                         "id":  "analyst",
+                         "name":  "Analyst"
+                     },
+        "subcategory":  {
+                            "id":  "analyst-analyst-estimates",
+                            "name":  "Analyst Estimates"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0.5863,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "anl93_correv_estimator_analyst",
+        "description":  "Numeric index/ID of the analyst, consistent with IBES",
+        "dataset":  {
+                        "id":  "analyst93",
+                        "name":  "Europe Analyst Estimate Daily Data"
+                    },
+        "category":  {
+                         "id":  "analyst",
+                         "name":  "Analyst"
+                     },
+        "subcategory":  {
+                            "id":  "analyst-analyst-estimates",
+                            "name":  "Analyst Estimates"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0.5863,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "anl93_estimator_accuracy1",
+        "description":  "Correct forecast probability under rule 1, calculated as correct_forecast_times1 divided by total_forecast_times1",
+        "dataset":  {
+                        "id":  "analyst93",
+                        "name":  "Europe Analyst Estimate Daily Data"
+                    },
+        "category":  {
+                         "id":  "analyst",
+                         "name":  "Analyst"
+                     },
+        "subcategory":  {
+                            "id":  "analyst-analyst-estimates",
+                            "name":  "Analyst Estimates"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0.5863,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "anl93_estimator_accuracy2",
+        "description":  "Correct forecast probability under rule 2, calculated as correct_forecast_times2 divided by total_forecast_times2",
+        "dataset":  {
+                        "id":  "analyst93",
+                        "name":  "Europe Analyst Estimate Daily Data"
+                    },
+        "category":  {
+                         "id":  "analyst",
+                         "name":  "Analyst"
+                     },
+        "subcategory":  {
+                            "id":  "analyst-analyst-estimates",
+                            "name":  "Analyst Estimates"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0.5863,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "anl93_estimator_consistency",
+        "description":  "Negative standard deviation of forecast errors (forecast value minus actual value); for price targets the actual is the close price on the horizon day",
+        "dataset":  {
+                        "id":  "analyst93",
+                        "name":  "Europe Analyst Estimate Daily Data"
+                    },
+        "category":  {
+                         "id":  "analyst",
+                         "name":  "Analyst"
+                     },
+        "subcategory":  {
+                            "id":  "analyst-analyst-estimates",
+                            "name":  "Analyst Estimates"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0.5863,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "anl93_estimator_correct_forecast_times1",
+        "description":  "Number of forecasts deemed correct under rule 1: from the day after the forecast until min(Today-126, Today-horizon_days), the raw price hits the price target at least once",
+        "dataset":  {
+                        "id":  "analyst93",
+                        "name":  "Europe Analyst Estimate Daily Data"
+                    },
+        "category":  {
+                         "id":  "analyst",
+                         "name":  "Analyst"
+                     },
+        "subcategory":  {
+                            "id":  "analyst-analyst-estimates",
+                            "name":  "Analyst Estimates"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0.5863,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "anl93_estimator_correct_forecast_times2",
+        "description":  "Number of forecasts deemed correct under rule 2: the raw price hits the price target on the exact horizon date",
+        "dataset":  {
+                        "id":  "analyst93",
+                        "name":  "Europe Analyst Estimate Daily Data"
+                    },
+        "category":  {
+                         "id":  "analyst",
+                         "name":  "Analyst"
+                     },
+        "subcategory":  {
+                            "id":  "analyst-analyst-estimates",
+                            "name":  "Analyst Estimates"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0.5863,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "anl93_estimator_correct_revision_ratio",
+        "description":  "Share of revisions that were correct, computed as correct_revision_times divided by total_revision_times",
+        "dataset":  {
+                        "id":  "analyst93",
+                        "name":  "Europe Analyst Estimate Daily Data"
+                    },
+        "category":  {
+                         "id":  "analyst",
+                         "name":  "Analyst"
+                     },
+        "subcategory":  {
+                            "id":  "analyst-analyst-estimates",
+                            "name":  "Analyst Estimates"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0.5863,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "anl93_estimator_correct_revision_times",
+        "description":  "Number of revisions whose predicted direction (up/down) was correct",
+        "dataset":  {
+                        "id":  "analyst93",
+                        "name":  "Europe Analyst Estimate Daily Data"
+                    },
+        "category":  {
+                         "id":  "analyst",
+                         "name":  "Analyst"
+                     },
+        "subcategory":  {
+                            "id":  "analyst-analyst-estimates",
+                            "name":  "Analyst Estimates"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0.5863,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "anl93_estimator_relative_accuracy1",
+        "description":  "Rank of accuracy1 among the analysts covering the equity",
+        "dataset":  {
+                        "id":  "analyst93",
+                        "name":  "Europe Analyst Estimate Daily Data"
+                    },
+        "category":  {
+                         "id":  "analyst",
+                         "name":  "Analyst"
+                     },
+        "subcategory":  {
+                            "id":  "analyst-analyst-estimates",
+                            "name":  "Analyst Estimates"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0.5863,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "anl93_estimator_relative_accuracy2",
+        "description":  "Min-max normalized accuracy1 among analysts covering the equity; NaN if only one analyst",
+        "dataset":  {
+                        "id":  "analyst93",
+                        "name":  "Europe Analyst Estimate Daily Data"
+                    },
+        "category":  {
+                         "id":  "analyst",
+                         "name":  "Analyst"
+                     },
+        "subcategory":  {
+                            "id":  "analyst-analyst-estimates",
+                            "name":  "Analyst Estimates"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0.5863,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "anl93_estimator_relative_accuracy3",
+        "description":  "Rank of accuracy2 among the analysts covering the equity",
+        "dataset":  {
+                        "id":  "analyst93",
+                        "name":  "Europe Analyst Estimate Daily Data"
+                    },
+        "category":  {
+                         "id":  "analyst",
+                         "name":  "Analyst"
+                     },
+        "subcategory":  {
+                            "id":  "analyst-analyst-estimates",
+                            "name":  "Analyst Estimates"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0.5863,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "anl93_estimator_relative_accuracy4",
+        "description":  "Min-max normalized accuracy2 among analysts covering the equity; NaN if only one analyst",
+        "dataset":  {
+                        "id":  "analyst93",
+                        "name":  "Europe Analyst Estimate Daily Data"
+                    },
+        "category":  {
+                         "id":  "analyst",
+                         "name":  "Analyst"
+                     },
+        "subcategory":  {
+                            "id":  "analyst-analyst-estimates",
+                            "name":  "Analyst Estimates"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0.5863,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "anl93_estimator_relative_consistency1",
+        "description":  "Rank of consistency among analysts covering the same equity instrument",
+        "dataset":  {
+                        "id":  "analyst93",
+                        "name":  "Europe Analyst Estimate Daily Data"
+                    },
+        "category":  {
+                         "id":  "analyst",
+                         "name":  "Analyst"
+                     },
+        "subcategory":  {
+                            "id":  "analyst-analyst-estimates",
+                            "name":  "Analyst Estimates"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0.5863,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "anl93_estimator_relative_consistency2",
+        "description":  "Min-max normalized consistency among analysts covering the same equity: (consistency - min) / (max - min)",
+        "dataset":  {
+                        "id":  "analyst93",
+                        "name":  "Europe Analyst Estimate Daily Data"
+                    },
+        "category":  {
+                         "id":  "analyst",
+                         "name":  "Analyst"
+                     },
+        "subcategory":  {
+                            "id":  "analyst-analyst-estimates",
+                            "name":  "Analyst Estimates"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0.5863,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "anl93_estimator_relative_ratio1",
+        "description":  "rank(correct_revision_ratio) over analysts covering equity ii",
+        "dataset":  {
+                        "id":  "analyst93",
+                        "name":  "Europe Analyst Estimate Daily Data"
+                    },
+        "category":  {
+                         "id":  "analyst",
+                         "name":  "Analyst"
+                     },
+        "subcategory":  {
+                            "id":  "analyst-analyst-estimates",
+                            "name":  "Analyst Estimates"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0.5863,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "anl93_estimator_relative_ratio2",
+        "description":  "(correct_revision_ratio-Min{correct_revision_ratio})/( Max{correct_revision_ratio}-Min{correct_revision_ratio})",
+        "dataset":  {
+                        "id":  "analyst93",
+                        "name":  "Europe Analyst Estimate Daily Data"
+                    },
+        "category":  {
+                         "id":  "analyst",
+                         "name":  "Analyst"
+                     },
+        "subcategory":  {
+                            "id":  "analyst-analyst-estimates",
+                            "name":  "Analyst Estimates"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0.5863,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "anl93_estimator_total_forecast_times1",
+        "description":  "Count of analyst forecasts in the past window [Today-504, min(Today-126, Today-horizon_days)] used for rule 1 evaluation",
+        "dataset":  {
+                        "id":  "analyst93",
+                        "name":  "Europe Analyst Estimate Daily Data"
+                    },
+        "category":  {
+                         "id":  "analyst",
+                         "name":  "Analyst"
+                     },
+        "subcategory":  {
+                            "id":  "analyst-analyst-estimates",
+                            "name":  "Analyst Estimates"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0.5863,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "anl93_estimator_total_forecast_times2",
+        "description":  "Count of analyst forecasts in the past window [Today-504, min(Today-126, Today-horizon_days)] used for rule 2 evaluation",
+        "dataset":  {
+                        "id":  "analyst93",
+                        "name":  "Europe Analyst Estimate Daily Data"
+                    },
+        "category":  {
+                         "id":  "analyst",
+                         "name":  "Analyst"
+                     },
+        "subcategory":  {
+                            "id":  "analyst-analyst-estimates",
+                            "name":  "Analyst Estimates"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0.5863,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "anl93_estimator_total_revision_times",
+        "description":  "Total number of forecast revisions (total_forecast_times minus 1); may be zero in raw data",
+        "dataset":  {
+                        "id":  "analyst93",
+                        "name":  "Europe Analyst Estimate Daily Data"
+                    },
+        "category":  {
+                         "id":  "analyst",
+                         "name":  "Analyst"
+                     },
+        "subcategory":  {
+                            "id":  "analyst-analyst-estimates",
+                            "name":  "Analyst Estimates"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0.5863,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "anl93_profitabilityprev_analyst_analyst",
+        "description":  "Integer identifier for the analyst, consistent with IBES",
+        "dataset":  {
+                        "id":  "analyst93",
+                        "name":  "Europe Analyst Estimate Daily Data"
+                    },
+        "category":  {
+                         "id":  "analyst",
+                         "name":  "Analyst"
+                     },
+        "subcategory":  {
+                            "id":  "analyst-analyst-estimates",
+                            "name":  "Analyst Estimates"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0.6028,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "anl93_profitabilityprev_analyst_profitability1",
+        "description":  "Average daily return from following the analyst’s forecasts in the past period, measured versus the analyst’s previous forecast (method 1)",
+        "dataset":  {
+                        "id":  "analyst93",
+                        "name":  "Europe Analyst Estimate Daily Data"
+                    },
+        "category":  {
+                         "id":  "analyst",
+                         "name":  "Analyst"
+                     },
+        "subcategory":  {
+                            "id":  "analyst-analyst-estimates",
+                            "name":  "Analyst Estimates"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0.6028,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "anl93_profitabilityprev_analyst_profitability1_120d",
+        "description":  "Average daily return from following the analyst’s forecasts over the past 120 days, measured versus the analyst’s previous forecast (method 1)",
+        "dataset":  {
+                        "id":  "analyst93",
+                        "name":  "Europe Analyst Estimate Daily Data"
+                    },
+        "category":  {
+                         "id":  "analyst",
+                         "name":  "Analyst"
+                     },
+        "subcategory":  {
+                            "id":  "analyst-analyst-estimates",
+                            "name":  "Analyst Estimates"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0.6028,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "anl93_profitabilityprev_analyst_profitability1_20d",
+        "description":  "Average daily return from following the analyst’s forecasts over the past 20 days, measured versus the analyst’s previous forecast (method 1)",
+        "dataset":  {
+                        "id":  "analyst93",
+                        "name":  "Europe Analyst Estimate Daily Data"
+                    },
+        "category":  {
+                         "id":  "analyst",
+                         "name":  "Analyst"
+                     },
+        "subcategory":  {
+                            "id":  "analyst-analyst-estimates",
+                            "name":  "Analyst Estimates"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0.6028,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "anl93_profitabilityprev_analyst_profitability1_60d",
+        "description":  "Average daily return from following the analyst’s forecasts over the past 60 days, measured versus the analyst’s previous forecast (method 1)",
+        "dataset":  {
+                        "id":  "analyst93",
+                        "name":  "Europe Analyst Estimate Daily Data"
+                    },
+        "category":  {
+                         "id":  "analyst",
+                         "name":  "Analyst"
+                     },
+        "subcategory":  {
+                            "id":  "analyst-analyst-estimates",
+                            "name":  "Analyst Estimates"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0.6028,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "anl93_profitabilityprev_analyst_profitability2",
+        "description":  "Average daily return from following the analyst’s forecasts in the past period, measured versus the close price on the forecasting date (method 2)",
+        "dataset":  {
+                        "id":  "analyst93",
+                        "name":  "Europe Analyst Estimate Daily Data"
+                    },
+        "category":  {
+                         "id":  "analyst",
+                         "name":  "Analyst"
+                     },
+        "subcategory":  {
+                            "id":  "analyst-analyst-estimates",
+                            "name":  "Analyst Estimates"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0.6028,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "anl93_profitabilityprev_analyst_profitability2_120d",
+        "description":  "Average daily return from following the analyst’s forecasts over the past 120 days, measured versus the close price on the forecasting date (method 2)",
+        "dataset":  {
+                        "id":  "analyst93",
+                        "name":  "Europe Analyst Estimate Daily Data"
+                    },
+        "category":  {
+                         "id":  "analyst",
+                         "name":  "Analyst"
+                     },
+        "subcategory":  {
+                            "id":  "analyst-analyst-estimates",
+                            "name":  "Analyst Estimates"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0.6028,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "anl93_profitabilityprev_analyst_profitability2_20d",
+        "description":  "Average daily return from following the analyst’s forecasts over the past 20 days, measured versus the close price on the forecasting date (method 2)",
+        "dataset":  {
+                        "id":  "analyst93",
+                        "name":  "Europe Analyst Estimate Daily Data"
+                    },
+        "category":  {
+                         "id":  "analyst",
+                         "name":  "Analyst"
+                     },
+        "subcategory":  {
+                            "id":  "analyst-analyst-estimates",
+                            "name":  "Analyst Estimates"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0.6028,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "anl93_profitabilityprev_analyst_profitability2_60d",
+        "description":  "Average daily return from following the analyst’s forecasts over the past 60 days, measured versus the close price on the forecasting date (method 2)",
+        "dataset":  {
+                        "id":  "analyst93",
+                        "name":  "Europe Analyst Estimate Daily Data"
+                    },
+        "category":  {
+                         "id":  "analyst",
+                         "name":  "Analyst"
+                     },
+        "subcategory":  {
+                            "id":  "analyst-analyst-estimates",
+                            "name":  "Analyst Estimates"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0.6028,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "anl93_profitabilityprev_analyst_relative_profitability1",
+        "description":  "rank(accuracy1) over the analysts covering equity ii",
+        "dataset":  {
+                        "id":  "analyst93",
+                        "name":  "Europe Analyst Estimate Daily Data"
+                    },
+        "category":  {
+                         "id":  "analyst",
+                         "name":  "Analyst"
+                     },
+        "subcategory":  {
+                            "id":  "analyst-analyst-estimates",
+                            "name":  "Analyst Estimates"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0.6028,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "anl93_profitabilityprev_analyst_relative_profitability2",
+        "description":  "(accuracy1-min(accuracy1 covering equity ii))/(max(accuracy1 covering equity ii)-min(accuracy1 covering equity ii)).   If only one forecast covering equity ii, then the value will be nan.",
+        "dataset":  {
+                        "id":  "analyst93",
+                        "name":  "Europe Analyst Estimate Daily Data"
+                    },
+        "category":  {
+                         "id":  "analyst",
+                         "name":  "Analyst"
+                     },
+        "subcategory":  {
+                            "id":  "analyst-analyst-estimates",
+                            "name":  "Analyst Estimates"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0.6028,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "anl93_profitabilityprev_analyst_relative_profitability3",
+        "description":  "rank(accuracy2) over the analysts covering equity ii",
+        "dataset":  {
+                        "id":  "analyst93",
+                        "name":  "Europe Analyst Estimate Daily Data"
+                    },
+        "category":  {
+                         "id":  "analyst",
+                         "name":  "Analyst"
+                     },
+        "subcategory":  {
+                            "id":  "analyst-analyst-estimates",
+                            "name":  "Analyst Estimates"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0.6028,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "anl93_profitabilityprev_analyst_relative_profitability4",
+        "description":  "(accuracy2-min(accuracy2 covering equity ii))/(max(accuracy2 covering equity ii)-min(accuracy2 covering equity ii)).   If only one forecast covering equity ii, then the value will be nan.",
+        "dataset":  {
+                        "id":  "analyst93",
+                        "name":  "Europe Analyst Estimate Daily Data"
+                    },
+        "category":  {
+                         "id":  "analyst",
+                         "name":  "Analyst"
+                     },
+        "subcategory":  {
+                            "id":  "analyst-analyst-estimates",
+                            "name":  "Analyst Estimates"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0.6028,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "anl93_profitabilityprev_analyst_total_forecast_times",
+        "description":  "Total number of qualifying forecasts made by the analyst in the lookback window [Today−504, min(Today−126, Today−horizon_days)], excluding recent ones to allow verification",
+        "dataset":  {
+                        "id":  "analyst93",
+                        "name":  "Europe Analyst Estimate Daily Data"
+                    },
+        "category":  {
+                         "id":  "analyst",
+                         "name":  "Analyst"
+                     },
+        "subcategory":  {
+                            "id":  "analyst-analyst-estimates",
+                            "name":  "Analyst Estimates"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0.6028,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "anl93_profitabilityprev_estimator_analyst",
+        "description":  "PIT index identifying the analyst (IBES-consistent)",
+        "dataset":  {
+                        "id":  "analyst93",
+                        "name":  "Europe Analyst Estimate Daily Data"
+                    },
+        "category":  {
+                         "id":  "analyst",
+                         "name":  "Analyst"
+                     },
+        "subcategory":  {
+                            "id":  "analyst-analyst-estimates",
+                            "name":  "Analyst Estimates"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0.6028,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "anl93_profitabilityprev_estimator_profitability1",
+        "description":  "Average daily return from following the analyst’s forecasts over the past period, measured relative to the analyst’s previous forecast (method 1)",
+        "dataset":  {
+                        "id":  "analyst93",
+                        "name":  "Europe Analyst Estimate Daily Data"
+                    },
+        "category":  {
+                         "id":  "analyst",
+                         "name":  "Analyst"
+                     },
+        "subcategory":  {
+                            "id":  "analyst-analyst-estimates",
+                            "name":  "Analyst Estimates"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0.6028,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "anl93_profitabilityprev_estimator_profitability1_120d",
+        "description":  "Method 1 realized profitability over a 120-day horizon, measured vs the previous forecast; reported as average daily return",
+        "dataset":  {
+                        "id":  "analyst93",
+                        "name":  "Europe Analyst Estimate Daily Data"
+                    },
+        "category":  {
+                         "id":  "analyst",
+                         "name":  "Analyst"
+                     },
+        "subcategory":  {
+                            "id":  "analyst-analyst-estimates",
+                            "name":  "Analyst Estimates"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0.6028,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "anl93_profitabilityprev_estimator_profitability1_20d",
+        "description":  "Method 1 realized profitability over a 20-day horizon, measured vs the previous forecast; reported as average daily return",
+        "dataset":  {
+                        "id":  "analyst93",
+                        "name":  "Europe Analyst Estimate Daily Data"
+                    },
+        "category":  {
+                         "id":  "analyst",
+                         "name":  "Analyst"
+                     },
+        "subcategory":  {
+                            "id":  "analyst-analyst-estimates",
+                            "name":  "Analyst Estimates"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0.6028,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "anl93_profitabilityprev_estimator_profitability1_60d",
+        "description":  "Method 1 realized profitability over a 60-day horizon, measured vs the previous forecast; reported as average daily return",
+        "dataset":  {
+                        "id":  "analyst93",
+                        "name":  "Europe Analyst Estimate Daily Data"
+                    },
+        "category":  {
+                         "id":  "analyst",
+                         "name":  "Analyst"
+                     },
+        "subcategory":  {
+                            "id":  "analyst-analyst-estimates",
+                            "name":  "Analyst Estimates"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0.6028,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "anl93_profitabilityprev_estimator_profitability2",
+        "description":  "Average daily return from following the analyst’s forecasts over the past period, measured relative to the close price on the forecasting date (method 2)",
+        "dataset":  {
+                        "id":  "analyst93",
+                        "name":  "Europe Analyst Estimate Daily Data"
+                    },
+        "category":  {
+                         "id":  "analyst",
+                         "name":  "Analyst"
+                     },
+        "subcategory":  {
+                            "id":  "analyst-analyst-estimates",
+                            "name":  "Analyst Estimates"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0.6028,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "anl93_profitabilityprev_estimator_profitability2_120d",
+        "description":  "Method 2 realized profitability over a 120-day horizon, measured vs the close on the forecasting date; reported as average daily return",
+        "dataset":  {
+                        "id":  "analyst93",
+                        "name":  "Europe Analyst Estimate Daily Data"
+                    },
+        "category":  {
+                         "id":  "analyst",
+                         "name":  "Analyst"
+                     },
+        "subcategory":  {
+                            "id":  "analyst-analyst-estimates",
+                            "name":  "Analyst Estimates"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0.6028,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "anl93_profitabilityprev_estimator_profitability2_20d",
+        "description":  "Method 2 realized profitability over a 20-day horizon, measured vs the close on the forecasting date; reported as average daily return",
+        "dataset":  {
+                        "id":  "analyst93",
+                        "name":  "Europe Analyst Estimate Daily Data"
+                    },
+        "category":  {
+                         "id":  "analyst",
+                         "name":  "Analyst"
+                     },
+        "subcategory":  {
+                            "id":  "analyst-analyst-estimates",
+                            "name":  "Analyst Estimates"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0.6028,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "anl93_profitabilityprev_estimator_profitability2_60d",
+        "description":  "Method 2 realized profitability over a 60-day horizon, measured vs the close on the forecasting date; reported as average daily return",
+        "dataset":  {
+                        "id":  "analyst93",
+                        "name":  "Europe Analyst Estimate Daily Data"
+                    },
+        "category":  {
+                         "id":  "analyst",
+                         "name":  "Analyst"
+                     },
+        "subcategory":  {
+                            "id":  "analyst-analyst-estimates",
+                            "name":  "Analyst Estimates"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0.6028,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "anl93_profitabilityprev_estimator_relative_profitability1",
+        "description":  "rank(accuracy1) over the analysts covering equity ii",
+        "dataset":  {
+                        "id":  "analyst93",
+                        "name":  "Europe Analyst Estimate Daily Data"
+                    },
+        "category":  {
+                         "id":  "analyst",
+                         "name":  "Analyst"
+                     },
+        "subcategory":  {
+                            "id":  "analyst-analyst-estimates",
+                            "name":  "Analyst Estimates"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0.6028,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "anl93_profitabilityprev_estimator_relative_profitability2",
+        "description":  "(accuracy1-min(accuracy1 covering equity ii))/(max(accuracy1 covering equity ii)-min(accuracy1 covering equity ii)).   If only one forecast covering equity ii, then the value will be nan.",
+        "dataset":  {
+                        "id":  "analyst93",
+                        "name":  "Europe Analyst Estimate Daily Data"
+                    },
+        "category":  {
+                         "id":  "analyst",
+                         "name":  "Analyst"
+                     },
+        "subcategory":  {
+                            "id":  "analyst-analyst-estimates",
+                            "name":  "Analyst Estimates"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0.6028,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "anl93_profitabilityprev_estimator_relative_profitability3",
+        "description":  "rank(accuracy2) over the analysts covering equity ii",
+        "dataset":  {
+                        "id":  "analyst93",
+                        "name":  "Europe Analyst Estimate Daily Data"
+                    },
+        "category":  {
+                         "id":  "analyst",
+                         "name":  "Analyst"
+                     },
+        "subcategory":  {
+                            "id":  "analyst-analyst-estimates",
+                            "name":  "Analyst Estimates"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0.6028,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "anl93_profitabilityprev_estimator_relative_profitability4",
+        "description":  "(accuracy2-min(accuracy2 covering equity ii))/(max(accuracy2 covering equity ii)-min(accuracy2 covering equity ii)).   If only one forecast covering equity ii, then the value will be nan.",
+        "dataset":  {
+                        "id":  "analyst93",
+                        "name":  "Europe Analyst Estimate Daily Data"
+                    },
+        "category":  {
+                         "id":  "analyst",
+                         "name":  "Analyst"
+                     },
+        "subcategory":  {
+                            "id":  "analyst-analyst-estimates",
+                            "name":  "Analyst Estimates"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0.6028,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "anl93_profitabilityprev_estimator_total_forecast_times",
+        "description":  "Count of qualifying forecasts in the past window [Today-504, min(Today-126, Today-horizon_days)] used to evaluate profitability",
+        "dataset":  {
+                        "id":  "analyst93",
+                        "name":  "Europe Analyst Estimate Daily Data"
+                    },
+        "category":  {
+                         "id":  "analyst",
+                         "name":  "Analyst"
+                     },
+        "subcategory":  {
+                            "id":  "analyst-analyst-estimates",
+                            "name":  "Analyst Estimates"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0.6028,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "anl93_recprofitabilityprev_analyst_analyst",
+        "description":  "Integer identifier of the analyst, consistent with IBES",
+        "dataset":  {
+                        "id":  "analyst93",
+                        "name":  "Europe Analyst Estimate Daily Data"
+                    },
+        "category":  {
+                         "id":  "analyst",
+                         "name":  "Analyst"
+                     },
+        "subcategory":  {
+                            "id":  "analyst-analyst-estimates",
+                            "name":  "Analyst Estimates"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0.5922,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "anl93_recprofitabilityprev_analyst_profitability1",
+        "description":  "Average daily return from following the analyst’s recommendations over the past period, measured relative to the analyst’s previous recommendation (method 1)",
+        "dataset":  {
+                        "id":  "analyst93",
+                        "name":  "Europe Analyst Estimate Daily Data"
+                    },
+        "category":  {
+                         "id":  "analyst",
+                         "name":  "Analyst"
+                     },
+        "subcategory":  {
+                            "id":  "analyst-analyst-estimates",
+                            "name":  "Analyst Estimates"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0.5922,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "anl93_recprofitabilityprev_analyst_profitability1_120d",
+        "description":  "Average daily return from following the analyst’s recommendations over the past 120 days, relative to the analyst’s previous recommendation (method 1)",
+        "dataset":  {
+                        "id":  "analyst93",
+                        "name":  "Europe Analyst Estimate Daily Data"
+                    },
+        "category":  {
+                         "id":  "analyst",
+                         "name":  "Analyst"
+                     },
+        "subcategory":  {
+                            "id":  "analyst-analyst-estimates",
+                            "name":  "Analyst Estimates"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0.5922,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "anl93_recprofitabilityprev_analyst_profitability1_20d",
+        "description":  "Average daily return from following the analyst’s recommendations over the past 20 days, relative to the analyst’s previous recommendation (method 1)",
+        "dataset":  {
+                        "id":  "analyst93",
+                        "name":  "Europe Analyst Estimate Daily Data"
+                    },
+        "category":  {
+                         "id":  "analyst",
+                         "name":  "Analyst"
+                     },
+        "subcategory":  {
+                            "id":  "analyst-analyst-estimates",
+                            "name":  "Analyst Estimates"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0.5922,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "anl93_recprofitabilityprev_analyst_profitability1_60d",
+        "description":  "Average daily return from following the analyst’s recommendations over the past 60 days, relative to the analyst’s previous recommendation (method 1)",
+        "dataset":  {
+                        "id":  "analyst93",
+                        "name":  "Europe Analyst Estimate Daily Data"
+                    },
+        "category":  {
+                         "id":  "analyst",
+                         "name":  "Analyst"
+                     },
+        "subcategory":  {
+                            "id":  "analyst-analyst-estimates",
+                            "name":  "Analyst Estimates"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0.5922,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "anl93_recprofitabilityprev_analyst_profitability2",
+        "description":  "Average daily return from following the analyst’s recommendations over the past period, measured relative to the close price on the recommendation date (method 2)",
+        "dataset":  {
+                        "id":  "analyst93",
+                        "name":  "Europe Analyst Estimate Daily Data"
+                    },
+        "category":  {
+                         "id":  "analyst",
+                         "name":  "Analyst"
+                     },
+        "subcategory":  {
+                            "id":  "analyst-analyst-estimates",
+                            "name":  "Analyst Estimates"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0.5922,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "anl93_recprofitabilityprev_analyst_profitability2_120d",
+        "description":  "Average daily return from following the analyst’s recommendations over the past 120 days, measured relative to the close price on the recommendation date (method 2)",
+        "dataset":  {
+                        "id":  "analyst93",
+                        "name":  "Europe Analyst Estimate Daily Data"
+                    },
+        "category":  {
+                         "id":  "analyst",
+                         "name":  "Analyst"
+                     },
+        "subcategory":  {
+                            "id":  "analyst-analyst-estimates",
+                            "name":  "Analyst Estimates"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0.5922,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "anl93_recprofitabilityprev_analyst_profitability2_20d",
+        "description":  "Average daily return from following the analyst’s recommendations over the past 20 days, measured relative to the close price on the recommendation date (method 2)",
+        "dataset":  {
+                        "id":  "analyst93",
+                        "name":  "Europe Analyst Estimate Daily Data"
+                    },
+        "category":  {
+                         "id":  "analyst",
+                         "name":  "Analyst"
+                     },
+        "subcategory":  {
+                            "id":  "analyst-analyst-estimates",
+                            "name":  "Analyst Estimates"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0.5922,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "anl93_recprofitabilityprev_analyst_profitability2_60d",
+        "description":  "Average daily return from following the analyst’s recommendations over the past 60 days, measured relative to the close price on the recommendation date (method 2)",
+        "dataset":  {
+                        "id":  "analyst93",
+                        "name":  "Europe Analyst Estimate Daily Data"
+                    },
+        "category":  {
+                         "id":  "analyst",
+                         "name":  "Analyst"
+                     },
+        "subcategory":  {
+                            "id":  "analyst-analyst-estimates",
+                            "name":  "Analyst Estimates"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0.5922,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "anl93_recprofitabilityprev_analyst_relative_profitability1",
+        "description":  "rank(accuracy1) over the analysts covering equity ii",
+        "dataset":  {
+                        "id":  "analyst93",
+                        "name":  "Europe Analyst Estimate Daily Data"
+                    },
+        "category":  {
+                         "id":  "analyst",
+                         "name":  "Analyst"
+                     },
+        "subcategory":  {
+                            "id":  "analyst-analyst-estimates",
+                            "name":  "Analyst Estimates"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0.5922,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "anl93_recprofitabilityprev_analyst_relative_profitability2",
+        "description":  "(accuracy1-min(accuracy1 covering equity ii))/(max(accuracy1 covering equity ii)-min(accuracy1 covering equity ii)).   If only one forecast covering equity ii, then the value will be nan.",
+        "dataset":  {
+                        "id":  "analyst93",
+                        "name":  "Europe Analyst Estimate Daily Data"
+                    },
+        "category":  {
+                         "id":  "analyst",
+                         "name":  "Analyst"
+                     },
+        "subcategory":  {
+                            "id":  "analyst-analyst-estimates",
+                            "name":  "Analyst Estimates"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0.5922,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "anl93_recprofitabilityprev_analyst_relative_profitability3",
+        "description":  "rank(accuracy2) over the analysts covering equity ii",
+        "dataset":  {
+                        "id":  "analyst93",
+                        "name":  "Europe Analyst Estimate Daily Data"
+                    },
+        "category":  {
+                         "id":  "analyst",
+                         "name":  "Analyst"
+                     },
+        "subcategory":  {
+                            "id":  "analyst-analyst-estimates",
+                            "name":  "Analyst Estimates"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0.5922,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "anl93_recprofitabilityprev_analyst_relative_profitability4",
+        "description":  "(accuracy2-min(accuracy2 covering equity ii))/(max(accuracy2 covering equity ii)-min(accuracy2 covering equity ii)).   If only one forecast covering equity ii, then the value will be nan.",
+        "dataset":  {
+                        "id":  "analyst93",
+                        "name":  "Europe Analyst Estimate Daily Data"
+                    },
+        "category":  {
+                         "id":  "analyst",
+                         "name":  "Analyst"
+                     },
+        "subcategory":  {
+                            "id":  "analyst-analyst-estimates",
+                            "name":  "Analyst Estimates"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0.5922,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "anl93_recprofitabilityprev_analyst_total_forecast_times",
+        "description":  "Total number of recommendation forecasts made by the analyst in the past window [Today-504, min(Today-126, Today-horizon_days)] used for verification",
+        "dataset":  {
+                        "id":  "analyst93",
+                        "name":  "Europe Analyst Estimate Daily Data"
+                    },
+        "category":  {
+                         "id":  "analyst",
+                         "name":  "Analyst"
+                     },
+        "subcategory":  {
+                            "id":  "analyst-analyst-estimates",
+                            "name":  "Analyst Estimates"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0.5922,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "anl93_recprofitabilityprev_estimator_analyst",
+        "description":  "Point-in-time identifier/index for the analyst, consistent with IBES",
+        "dataset":  {
+                        "id":  "analyst93",
+                        "name":  "Europe Analyst Estimate Daily Data"
+                    },
+        "category":  {
+                         "id":  "analyst",
+                         "name":  "Analyst"
+                     },
+        "subcategory":  {
+                            "id":  "analyst-analyst-estimates",
+                            "name":  "Analyst Estimates"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0.5922,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "anl93_recprofitabilityprev_estimator_profitability1",
+        "description":  "average daily return by following the analyst’s forecast in the past period, using comparison to his previous forecast",
+        "dataset":  {
+                        "id":  "analyst93",
+                        "name":  "Europe Analyst Estimate Daily Data"
+                    },
+        "category":  {
+                         "id":  "analyst",
+                         "name":  "Analyst"
+                     },
+        "subcategory":  {
+                            "id":  "analyst-analyst-estimates",
+                            "name":  "Analyst Estimates"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0.5922,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "anl93_recprofitabilityprev_estimator_profitability1_120d",
+        "description":  "average daily return by following the analyst’s forecast in the past 120 days, using comparison to his previous forecast",
+        "dataset":  {
+                        "id":  "analyst93",
+                        "name":  "Europe Analyst Estimate Daily Data"
+                    },
+        "category":  {
+                         "id":  "analyst",
+                         "name":  "Analyst"
+                     },
+        "subcategory":  {
+                            "id":  "analyst-analyst-estimates",
+                            "name":  "Analyst Estimates"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0.5922,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "anl93_recprofitabilityprev_estimator_profitability1_20d",
+        "description":  "average daily return by following the analyst’s forecast in the past 20 days, using comparison to his previous forecast",
+        "dataset":  {
+                        "id":  "analyst93",
+                        "name":  "Europe Analyst Estimate Daily Data"
+                    },
+        "category":  {
+                         "id":  "analyst",
+                         "name":  "Analyst"
+                     },
+        "subcategory":  {
+                            "id":  "analyst-analyst-estimates",
+                            "name":  "Analyst Estimates"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0.5922,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "anl93_recprofitabilityprev_estimator_profitability1_60d",
+        "description":  "average daily return by following the analyst’s forecast in the past 60 days, using comparison to his previous forecast",
+        "dataset":  {
+                        "id":  "analyst93",
+                        "name":  "Europe Analyst Estimate Daily Data"
+                    },
+        "category":  {
+                         "id":  "analyst",
+                         "name":  "Analyst"
+                     },
+        "subcategory":  {
+                            "id":  "analyst-analyst-estimates",
+                            "name":  "Analyst Estimates"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0.5922,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "anl93_recprofitabilityprev_estimator_profitability2",
+        "description":  "the correct forecast probability: = correct_forecast_times2/total_forecast_times2",
+        "dataset":  {
+                        "id":  "analyst93",
+                        "name":  "Europe Analyst Estimate Daily Data"
+                    },
+        "category":  {
+                         "id":  "analyst",
+                         "name":  "Analyst"
+                     },
+        "subcategory":  {
+                            "id":  "analyst-analyst-estimates",
+                            "name":  "Analyst Estimates"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0.5922,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "anl93_recprofitabilityprev_estimator_profitability2_120d",
+        "description":  "average daily return by following the analyst’s forecast in the past 120 days, using comparison to current close price",
+        "dataset":  {
+                        "id":  "analyst93",
+                        "name":  "Europe Analyst Estimate Daily Data"
+                    },
+        "category":  {
+                         "id":  "analyst",
+                         "name":  "Analyst"
+                     },
+        "subcategory":  {
+                            "id":  "analyst-analyst-estimates",
+                            "name":  "Analyst Estimates"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0.5922,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "anl93_recprofitabilityprev_estimator_profitability2_20d",
+        "description":  "average daily return by following the analyst’s forecast in the past 20 days, using comparison to current close price",
+        "dataset":  {
+                        "id":  "analyst93",
+                        "name":  "Europe Analyst Estimate Daily Data"
+                    },
+        "category":  {
+                         "id":  "analyst",
+                         "name":  "Analyst"
+                     },
+        "subcategory":  {
+                            "id":  "analyst-analyst-estimates",
+                            "name":  "Analyst Estimates"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0.5922,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "anl93_recprofitabilityprev_estimator_profitability2_60d",
+        "description":  "average daily return by following the analyst’s forecast in the past 60 days, using comparison to current close price",
+        "dataset":  {
+                        "id":  "analyst93",
+                        "name":  "Europe Analyst Estimate Daily Data"
+                    },
+        "category":  {
+                         "id":  "analyst",
+                         "name":  "Analyst"
+                     },
+        "subcategory":  {
+                            "id":  "analyst-analyst-estimates",
+                            "name":  "Analyst Estimates"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0.5922,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "anl93_recprofitabilityprev_estimator_relative_profitability1",
+        "description":  "rank(accuracy1) over the analysts covering equity ii",
+        "dataset":  {
+                        "id":  "analyst93",
+                        "name":  "Europe Analyst Estimate Daily Data"
+                    },
+        "category":  {
+                         "id":  "analyst",
+                         "name":  "Analyst"
+                     },
+        "subcategory":  {
+                            "id":  "analyst-analyst-estimates",
+                            "name":  "Analyst Estimates"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0.5922,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "anl93_recprofitabilityprev_estimator_relative_profitability2",
+        "description":  "(accuracy1-min(accuracy1 covering equity ii))/(max(accuracy1 covering equity ii)-min(accuracy1 covering equity ii)).   If only one forecast covering equity ii, then the value will be nan.",
+        "dataset":  {
+                        "id":  "analyst93",
+                        "name":  "Europe Analyst Estimate Daily Data"
+                    },
+        "category":  {
+                         "id":  "analyst",
+                         "name":  "Analyst"
+                     },
+        "subcategory":  {
+                            "id":  "analyst-analyst-estimates",
+                            "name":  "Analyst Estimates"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0.5922,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "anl93_recprofitabilityprev_estimator_relative_profitability3",
+        "description":  "rank(accuracy2) over the analysts covering equity ii",
+        "dataset":  {
+                        "id":  "analyst93",
+                        "name":  "Europe Analyst Estimate Daily Data"
+                    },
+        "category":  {
+                         "id":  "analyst",
+                         "name":  "Analyst"
+                     },
+        "subcategory":  {
+                            "id":  "analyst-analyst-estimates",
+                            "name":  "Analyst Estimates"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0.5922,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "anl93_recprofitabilityprev_estimator_relative_profitability4",
+        "description":  "(accuracy2-min(accuracy2 covering equity ii))/(max(accuracy2 covering equity ii)-min(accuracy2 covering equity ii)).   If only one forecast covering equity ii, then the value will be nan.",
+        "dataset":  {
+                        "id":  "analyst93",
+                        "name":  "Europe Analyst Estimate Daily Data"
+                    },
+        "category":  {
+                         "id":  "analyst",
+                         "name":  "Analyst"
+                     },
+        "subcategory":  {
+                            "id":  "analyst-analyst-estimates",
+                            "name":  "Analyst Estimates"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0.5922,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "anl93_recprofitabilityprev_estimator_total_forecast_times",
+        "description":  "Count of eligible recommendation forecasts in the past window [Today-504, min(Today-126, Today-horizon_days)] used to evaluate profitability",
+        "dataset":  {
+                        "id":  "analyst93",
+                        "name":  "Europe Analyst Estimate Daily Data"
+                    },
+        "category":  {
+                         "id":  "analyst",
+                         "name":  "Analyst"
+                     },
+        "subcategory":  {
+                            "id":  "analyst-analyst-estimates",
+                            "name":  "Analyst Estimates"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0.5922,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    }
+]

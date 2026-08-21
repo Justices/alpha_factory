@@ -1,0 +1,994 @@
+﻿[
+    {
+        "id":  "ats_top1200_equity_residualized_return",
+        "description":  "Specific return for the top 1200 equities in the ATS universe.",
+        "dataset":  {
+                        "id":  "risk72",
+                        "name":  "Specific return of extended factors"
+                    },
+        "category":  {
+                         "id":  "risk",
+                         "name":  "Risk"
+                     },
+        "subcategory":  {
+                            "id":  "risk-risk-factors",
+                            "name":  "Risk Factors"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "ats_top800_equity_residualized_return",
+        "description":  "Specific return for the top 800 equities in the ATS universe.",
+        "dataset":  {
+                        "id":  "risk72",
+                        "name":  "Specific return of extended factors"
+                    },
+        "category":  {
+                         "id":  "risk",
+                         "name":  "Risk"
+                     },
+        "subcategory":  {
+                            "id":  "risk-risk-factors",
+                            "name":  "Risk Factors"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "cfg2_top1200_replicator1",
+        "description":  "First replicator value for the top 1200 equity universe using configuration 2.",
+        "dataset":  {
+                        "id":  "risk72",
+                        "name":  "Specific return of extended factors"
+                    },
+        "category":  {
+                         "id":  "risk",
+                         "name":  "Risk"
+                     },
+        "subcategory":  {
+                            "id":  "risk-risk-factors",
+                            "name":  "Risk Factors"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "cfg2_top1200_replicator2",
+        "description":  "Second replicator value for the top 1200 equity universe using configuration 2.",
+        "dataset":  {
+                        "id":  "risk72",
+                        "name":  "Specific return of extended factors"
+                    },
+        "category":  {
+                         "id":  "risk",
+                         "name":  "Risk"
+                     },
+        "subcategory":  {
+                            "id":  "risk-risk-factors",
+                            "name":  "Risk Factors"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "cfg2_top1200_residual_return",
+        "description":  "Daily matrix of residual (idiosyncratic) stock returns for the EUR TOP1200 universe, in percent units, after neutralizing market/country/industry and MFM1 Risk Index style factors; point-in-time D1",
+        "dataset":  {
+                        "id":  "risk72",
+                        "name":  "Specific return of extended factors"
+                    },
+        "category":  {
+                         "id":  "risk",
+                         "name":  "Risk"
+                     },
+        "subcategory":  {
+                            "id":  "risk-risk-factors",
+                            "name":  "Risk Factors"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "cfg2_top600_replicator1",
+        "description":  "First replicator value for the top 600 equity universe using configuration 2.",
+        "dataset":  {
+                        "id":  "risk72",
+                        "name":  "Specific return of extended factors"
+                    },
+        "category":  {
+                         "id":  "risk",
+                         "name":  "Risk"
+                     },
+        "subcategory":  {
+                            "id":  "risk-risk-factors",
+                            "name":  "Risk Factors"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "cfg2_top600_replicator2",
+        "description":  "Second replicator value for the top 600 equity universe using configuration 2.",
+        "dataset":  {
+                        "id":  "risk72",
+                        "name":  "Specific return of extended factors"
+                    },
+        "category":  {
+                         "id":  "risk",
+                         "name":  "Risk"
+                     },
+        "subcategory":  {
+                            "id":  "risk-risk-factors",
+                            "name":  "Risk Factors"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "cfg2_top600_residual_return",
+        "description":  "Daily matrix of residual (idiosyncratic) stock returns for the EUR TOP600 universe, in percent units, after neutralizing market/country/industry and MFM1 Risk Index style factors; point-in-time D1",
+        "dataset":  {
+                        "id":  "risk72",
+                        "name":  "Specific return of extended factors"
+                    },
+        "category":  {
+                         "id":  "risk",
+                         "name":  "Risk"
+                     },
+        "subcategory":  {
+                            "id":  "risk-risk-factors",
+                            "name":  "Risk Factors"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "cfg2_top800_replicator1",
+        "description":  "First replicator value for the top 800 equity universe using configuration 2.",
+        "dataset":  {
+                        "id":  "risk72",
+                        "name":  "Specific return of extended factors"
+                    },
+        "category":  {
+                         "id":  "risk",
+                         "name":  "Risk"
+                     },
+        "subcategory":  {
+                            "id":  "risk-risk-factors",
+                            "name":  "Risk Factors"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "cfg2_top800_replicator2",
+        "description":  "Second replicator value for the top 800 equity universe using configuration 2.",
+        "dataset":  {
+                        "id":  "risk72",
+                        "name":  "Specific return of extended factors"
+                    },
+        "category":  {
+                         "id":  "risk",
+                         "name":  "Risk"
+                     },
+        "subcategory":  {
+                            "id":  "risk-risk-factors",
+                            "name":  "Risk Factors"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "cfg2_top800_residual_return",
+        "description":  "Daily matrix of residual (idiosyncratic) stock returns for the EUR TOP800 universe, in percent units, after neutralizing market/country/industry and MFM1 Risk Index style factors; point-in-time D1",
+        "dataset":  {
+                        "id":  "risk72",
+                        "name":  "Specific return of extended factors"
+                    },
+        "category":  {
+                         "id":  "risk",
+                         "name":  "Risk"
+                     },
+        "subcategory":  {
+                            "id":  "risk-risk-factors",
+                            "name":  "Risk Factors"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "ecs_top1200_equity_residualized_return",
+        "description":  "Specific return for the top 1200 equities in the ECS universe.",
+        "dataset":  {
+                        "id":  "risk72",
+                        "name":  "Specific return of extended factors"
+                    },
+        "category":  {
+                         "id":  "risk",
+                         "name":  "Risk"
+                     },
+        "subcategory":  {
+                            "id":  "risk-risk-factors",
+                            "name":  "Risk Factors"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "ecs_top1200_residual_return_cfg2",
+        "description":  "Daily reproducible specific returns (idiosyncratic residual returns) for equities in the EQY_ECS_TOP1200 Europe universe after removing systematic factors via the MFM1 model",
+        "dataset":  {
+                        "id":  "risk72",
+                        "name":  "Specific return of extended factors"
+                    },
+        "category":  {
+                         "id":  "risk",
+                         "name":  "Risk"
+                     },
+        "subcategory":  {
+                            "id":  "risk-risk-factors",
+                            "name":  "Risk Factors"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "ecs_top1600_equity_residualized_return",
+        "description":  "Specific return for the top 1600 equities in the ECS universe.",
+        "dataset":  {
+                        "id":  "risk72",
+                        "name":  "Specific return of extended factors"
+                    },
+        "category":  {
+                         "id":  "risk",
+                         "name":  "Risk"
+                     },
+        "subcategory":  {
+                            "id":  "risk-risk-factors",
+                            "name":  "Risk Factors"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "ecs_top1600_residual_return_cfg2",
+        "description":  "Daily reproducible specific returns (idiosyncratic residual returns) for equities in the EQY_ECS_TOP1600 Europe universe after removing systematic factors via the MFM1 model",
+        "dataset":  {
+                        "id":  "risk72",
+                        "name":  "Specific return of extended factors"
+                    },
+        "category":  {
+                         "id":  "risk",
+                         "name":  "Risk"
+                     },
+        "subcategory":  {
+                            "id":  "risk-risk-factors",
+                            "name":  "Risk Factors"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "ecs_top400_equity_residualized_return",
+        "description":  "Specific return for the top 400 equities in the ECS universe.",
+        "dataset":  {
+                        "id":  "risk72",
+                        "name":  "Specific return of extended factors"
+                    },
+        "category":  {
+                         "id":  "risk",
+                         "name":  "Risk"
+                     },
+        "subcategory":  {
+                            "id":  "risk-risk-factors",
+                            "name":  "Risk Factors"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "ecs_top400_residual_return_cfg2",
+        "description":  "Daily reproducible specific returns (idiosyncratic residual returns) for equities in the EQY_ECS_TOP400 Europe universe after removing systematic factors via the MFM1 model",
+        "dataset":  {
+                        "id":  "risk72",
+                        "name":  "Specific return of extended factors"
+                    },
+        "category":  {
+                         "id":  "risk",
+                         "name":  "Risk"
+                     },
+        "subcategory":  {
+                            "id":  "risk-risk-factors",
+                            "name":  "Risk Factors"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "ecs_top800_equity_residualized_return",
+        "description":  "Specific return for the top 800 equities in the ECS universe.",
+        "dataset":  {
+                        "id":  "risk72",
+                        "name":  "Specific return of extended factors"
+                    },
+        "category":  {
+                         "id":  "risk",
+                         "name":  "Risk"
+                     },
+        "subcategory":  {
+                            "id":  "risk-risk-factors",
+                            "name":  "Risk Factors"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "ecs_top800_residual_return_cfg2",
+        "description":  "Daily reproducible specific returns (idiosyncratic residual returns) for equities in the EQY_ECS_TOP800 Europe universe after removing systematic factors via the MFM1 model",
+        "dataset":  {
+                        "id":  "risk72",
+                        "name":  "Specific return of extended factors"
+                    },
+        "category":  {
+                         "id":  "risk",
+                         "name":  "Risk"
+                     },
+        "subcategory":  {
+                            "id":  "risk-risk-factors",
+                            "name":  "Risk Factors"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "epp_equity_minvol1m_residual_return",
+        "description":  "Residualized return for EPP equities with minimum 1M trading volume.",
+        "dataset":  {
+                        "id":  "risk72",
+                        "name":  "Specific return of extended factors"
+                    },
+        "category":  {
+                         "id":  "risk",
+                         "name":  "Risk"
+                     },
+        "subcategory":  {
+                            "id":  "risk-risk-factors",
+                            "name":  "Risk Factors"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "eur_equity_minvol1m_residual_return",
+        "description":  "Residualized return for EUR equities with minimum 1M trading volume.",
+        "dataset":  {
+                        "id":  "risk72",
+                        "name":  "Specific return of extended factors"
+                    },
+        "category":  {
+                         "id":  "risk",
+                         "name":  "Risk"
+                     },
+        "subcategory":  {
+                            "id":  "risk-risk-factors",
+                            "name":  "Risk Factors"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "eur_equity_minvol1m_residual_return_validated",
+        "description":  "Residualized return for EUR equities with minimum 1M volume, validated for current day.",
+        "dataset":  {
+                        "id":  "risk72",
+                        "name":  "Specific return of extended factors"
+                    },
+        "category":  {
+                         "id":  "risk",
+                         "name":  "Risk"
+                     },
+        "subcategory":  {
+                            "id":  "risk-risk-factors",
+                            "name":  "Risk Factors"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "top1200_equity_residualized_return",
+        "description":  "Specific return for the top 1200 equities in the selected universe.",
+        "dataset":  {
+                        "id":  "risk72",
+                        "name":  "Specific return of extended factors"
+                    },
+        "category":  {
+                         "id":  "risk",
+                         "name":  "Risk"
+                     },
+        "subcategory":  {
+                            "id":  "risk-risk-factors",
+                            "name":  "Risk Factors"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "top1200_equity_residualized_return_nogroup",
+        "description":  "Specific return for the top 1200 equities without group-based adjustments.",
+        "dataset":  {
+                        "id":  "risk72",
+                        "name":  "Specific return of extended factors"
+                    },
+        "category":  {
+                         "id":  "risk",
+                         "name":  "Risk"
+                     },
+        "subcategory":  {
+                            "id":  "risk-risk-factors",
+                            "name":  "Risk Factors"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "top2500_equity_residualized_return",
+        "description":  "Specific return for the top 2500 equities in the selected universe.",
+        "dataset":  {
+                        "id":  "risk72",
+                        "name":  "Specific return of extended factors"
+                    },
+        "category":  {
+                         "id":  "risk",
+                         "name":  "Risk"
+                     },
+        "subcategory":  {
+                            "id":  "risk-risk-factors",
+                            "name":  "Risk Factors"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "top2500_equity_residualized_return_nogroup",
+        "description":  "Specific return for the top 2500 equities without group-based adjustments.",
+        "dataset":  {
+                        "id":  "risk72",
+                        "name":  "Specific return of extended factors"
+                    },
+        "category":  {
+                         "id":  "risk",
+                         "name":  "Risk"
+                     },
+        "subcategory":  {
+                            "id":  "risk-risk-factors",
+                            "name":  "Risk Factors"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "top600_equity_residualized_return",
+        "description":  "Specific return for the top 600 equities in the selected universe.",
+        "dataset":  {
+                        "id":  "risk72",
+                        "name":  "Specific return of extended factors"
+                    },
+        "category":  {
+                         "id":  "risk",
+                         "name":  "Risk"
+                     },
+        "subcategory":  {
+                            "id":  "risk-risk-factors",
+                            "name":  "Risk Factors"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "top600_equity_residualized_return_nogroup",
+        "description":  "Specific return for the top 600 equities without group-based adjustments.",
+        "dataset":  {
+                        "id":  "risk72",
+                        "name":  "Specific return of extended factors"
+                    },
+        "category":  {
+                         "id":  "risk",
+                         "name":  "Risk"
+                     },
+        "subcategory":  {
+                            "id":  "risk-risk-factors",
+                            "name":  "Risk Factors"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "top600_reproducible_specific_return",
+        "description":  "Daily reproducible specific (idiosyncratic) returns for the AMR TOP600 universe from the MFM1 risk model with D1 lag, i.e., residual returns after removing market/country/style factors",
+        "dataset":  {
+                        "id":  "risk72",
+                        "name":  "Specific return of extended factors"
+                    },
+        "category":  {
+                         "id":  "risk",
+                         "name":  "Risk"
+                     },
+        "subcategory":  {
+                            "id":  "risk-risk-factors",
+                            "name":  "Risk Factors"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "top800_equity_residualized_return",
+        "description":  "Specific return for the top 800 equities in the selected universe.",
+        "dataset":  {
+                        "id":  "risk72",
+                        "name":  "Specific return of extended factors"
+                    },
+        "category":  {
+                         "id":  "risk",
+                         "name":  "Risk"
+                     },
+        "subcategory":  {
+                            "id":  "risk-risk-factors",
+                            "name":  "Risk Factors"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "top800_equity_residualized_return_nogroup",
+        "description":  "Specific return for the top 800 equities without group-based adjustments.",
+        "dataset":  {
+                        "id":  "risk72",
+                        "name":  "Specific return of extended factors"
+                    },
+        "category":  {
+                         "id":  "risk",
+                         "name":  "Risk"
+                     },
+        "subcategory":  {
+                            "id":  "risk-risk-factors",
+                            "name":  "Risk Factors"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    }
+]

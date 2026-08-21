@@ -1,0 +1,2 @@
+﻿"alphaCount","category","coverage","dataset","dateCoverage","dateCreated","delay","description","id","pyramidMultiplier","region","subcategory","themes","type","universe","userCount"
+"0","{""id"":""risk"",""name"":""Risk""}","1","{""id"":""risk88"",""name"":""Other Multi-Factor Risk Models""}","1","2026-07-01","1","Market capitalization of each stock expressed in US dollars (stocks×dates matrix used for weighting/normalization)","alternative_market_cap_usd","2","GBR","{""id"":""risk-risk-models"",""name"":""Risk Models""}","[]","MATRIX","TOP700","0"

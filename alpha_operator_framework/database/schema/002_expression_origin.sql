@@ -1,0 +1,2 @@
+-- Version 002: alpha_expressions.expression_origin. The repository applies this
+-- with a PRAGMA guard because SQLite lacks portable ALTER TABLE ... IF NOT EXISTS.

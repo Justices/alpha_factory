@@ -1,0 +1,226 @@
+﻿[
+    {
+        "id":  "intraday_delay_indicator",
+        "description":  "A code indicating whether the data is updated intraday or with a delay.",
+        "dataset":  {
+                        "id":  "earnings_sent_matrix",
+                        "name":  "Global Earnings Call Sentiment Matrix"
+                    },
+        "category":  {
+                         "id":  "earnings",
+                         "name":  "Earnings"
+                     },
+        "subcategory":  {
+                            "id":  "earnings-earnings-estimates",
+                            "name":  "Earnings Estimates"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "likelihood_of_neutral_tone",
+        "description":  "Model-estimated probability [0–1] that the intraday transcript slice has neutral sentiment; sums with the other two probabilities to 1",
+        "dataset":  {
+                        "id":  "earnings_sent_matrix",
+                        "name":  "Global Earnings Call Sentiment Matrix"
+                    },
+        "category":  {
+                         "id":  "earnings",
+                         "name":  "Earnings"
+                     },
+        "subcategory":  {
+                            "id":  "earnings-earnings-estimates",
+                            "name":  "Earnings Estimates"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "negative_sentiment_probability_3",
+        "description":  "Model-estimated probability [0–1] that the intraday transcript slice has negative sentiment; designed to sum to 1 with Prob_NTR and Prob_POS",
+        "dataset":  {
+                        "id":  "earnings_sent_matrix",
+                        "name":  "Global Earnings Call Sentiment Matrix"
+                    },
+        "category":  {
+                         "id":  "earnings",
+                         "name":  "Earnings"
+                     },
+        "subcategory":  {
+                            "id":  "earnings-earnings-estimates",
+                            "name":  "Earnings Estimates"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "overall_sentiment_score",
+        "description":  "Categorical sentiment label derived by argmax over Prob_POS, Prob_NTR, Prob_NEG; typically -1 negative, 0 neutral, 1 positive",
+        "dataset":  {
+                        "id":  "earnings_sent_matrix",
+                        "name":  "Global Earnings Call Sentiment Matrix"
+                    },
+        "category":  {
+                         "id":  "earnings",
+                         "name":  "Earnings"
+                     },
+        "subcategory":  {
+                            "id":  "earnings-earnings-estimates",
+                            "name":  "Earnings Estimates"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "positive_sentiment_probability_3",
+        "description":  "Model-estimated probability [0–1] that the intraday transcript slice has positive sentiment; part of the three-class distribution",
+        "dataset":  {
+                        "id":  "earnings_sent_matrix",
+                        "name":  "Global Earnings Call Sentiment Matrix"
+                    },
+        "category":  {
+                         "id":  "earnings",
+                         "name":  "Earnings"
+                     },
+        "subcategory":  {
+                            "id":  "earnings-earnings-estimates",
+                            "name":  "Earnings Estimates"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "sentiment_weighting_method1",
+        "description":  "Aggregate transcript tone score computed via method 1; higher values indicate more positive sentiment for the segment",
+        "dataset":  {
+                        "id":  "earnings_sent_matrix",
+                        "name":  "Global Earnings Call Sentiment Matrix"
+                    },
+        "category":  {
+                         "id":  "earnings",
+                         "name":  "Earnings"
+                     },
+        "subcategory":  {
+                            "id":  "earnings-earnings-estimates",
+                            "name":  "Earnings Estimates"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "sentiment_weighting_method2",
+        "description":  "Alternative aggregate transcript tone score computed via method 2; higher values indicate more positive sentiment",
+        "dataset":  {
+                        "id":  "earnings_sent_matrix",
+                        "name":  "Global Earnings Call Sentiment Matrix"
+                    },
+        "category":  {
+                         "id":  "earnings",
+                         "name":  "Earnings"
+                     },
+        "subcategory":  {
+                            "id":  "earnings-earnings-estimates",
+                            "name":  "Earnings Estimates"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    }
+]

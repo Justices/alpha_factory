@@ -1,0 +1,194 @@
+﻿[
+    {
+        "id":  "institutional_holding_current_market_value",
+        "description":  "Market value of the holding in the current period for the institution.",
+        "dataset":  {
+                        "id":  "institutions4",
+                        "name":  "Institutional Ownership Data"
+                    },
+        "category":  {
+                         "id":  "institutions",
+                         "name":  "Institutions"
+                     },
+        "subcategory":  {
+                            "id":  "institutions-ownership-models",
+                            "name":  "Ownership Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0.39,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "institutional_holding_current_shares",
+        "description":  "Number of shares currently held by the institution for the security.",
+        "dataset":  {
+                        "id":  "institutions4",
+                        "name":  "Institutional Ownership Data"
+                    },
+        "category":  {
+                         "id":  "institutions",
+                         "name":  "Institutions"
+                     },
+        "subcategory":  {
+                            "id":  "institutions-ownership-models",
+                            "name":  "Ownership Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0.39,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "institutional_holding_percent_of_portfolio",
+        "description":  "Percentage of the institution\u0027s portfolio value represented by this holding.",
+        "dataset":  {
+                        "id":  "institutions4",
+                        "name":  "Institutional Ownership Data"
+                    },
+        "category":  {
+                         "id":  "institutions",
+                         "name":  "Institutions"
+                     },
+        "subcategory":  {
+                            "id":  "institutions-ownership-models",
+                            "name":  "Ownership Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  0.5682,
+        "coverage":  0.39,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "institutional_holding_percent_of_shares_outstanding",
+        "description":  "Percentage of the security\u0027s outstanding shares held by the institution.",
+        "dataset":  {
+                        "id":  "institutions4",
+                        "name":  "Institutional Ownership Data"
+                    },
+        "category":  {
+                         "id":  "institutions",
+                         "name":  "Institutions"
+                     },
+        "subcategory":  {
+                            "id":  "institutions-ownership-models",
+                            "name":  "Ownership Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  0.5682,
+        "coverage":  0.39,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "institutional_holding_previous_market_value",
+        "description":  "Market value of the holding in the previous period for the institution.",
+        "dataset":  {
+                        "id":  "institutions4",
+                        "name":  "Institutional Ownership Data"
+                    },
+        "category":  {
+                         "id":  "institutions",
+                         "name":  "Institutions"
+                     },
+        "subcategory":  {
+                            "id":  "institutions-ownership-models",
+                            "name":  "Ownership Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0.39,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "institutional_holding_previous_shares",
+        "description":  "Number of shares previously held by the institution for the security.",
+        "dataset":  {
+                        "id":  "institutions4",
+                        "name":  "Institutional Ownership Data"
+                    },
+        "category":  {
+                         "id":  "institutions",
+                         "name":  "Institutions"
+                     },
+        "subcategory":  {
+                            "id":  "institutions-ownership-models",
+                            "name":  "Ownership Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0.39,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    }
+]

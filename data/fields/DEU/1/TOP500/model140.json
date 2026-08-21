@@ -1,0 +1,98 @@
+﻿[
+    {
+        "id":  "mdl140_qes_sinc_comp",
+        "description":  "Composite factor combining both pure inflation sensitivity and interest rate sensitivity into a holistic metric of a stock\u0027s macro inflation exposure; preferred for portfolio risk modeling and thematic tilts",
+        "dataset":  {
+                        "id":  "model140",
+                        "name":  "Sensitivity to the Inflation Change"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-mlai-models",
+                            "name":  "ML/AI Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.327,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl140_qes_sinc_neut",
+        "description":  "Stock-level sensitivity to expected inflation changes, \"neutralized\" or adjusted to remove the contemporaneous effect of benchmark interest rate changes; captures pure inflation beta orthogonal to interest rates",
+        "dataset":  {
+                        "id":  "model140",
+                        "name":  "Sensitivity to the Inflation Change"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-mlai-models",
+                            "name":  "ML/AI Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.4902,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl140_qes_sinc_sensitivity",
+        "description":  "Stock-level estimated “beta” sensitivity to expected inflation, specifically to changes in the 10-year breakeven inflation rate, derived from elastic net regression",
+        "dataset":  {
+                        "id":  "model140",
+                        "name":  "Sensitivity to the Inflation Change"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-mlai-models",
+                            "name":  "ML/AI Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0.327,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    }
+]

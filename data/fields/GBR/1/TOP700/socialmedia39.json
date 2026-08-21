@@ -1,0 +1,32 @@
+﻿{
+    "id":  "scl39_top5_people_also_watch_ticker_ii",
+    "description":  "Atlas instrument IDs of the co-viewed neighbor tickers; stable identifiers suitable for joins across files",
+    "dataset":  {
+                    "id":  "socialmedia39",
+                    "name":  "Investor views"
+                },
+    "category":  {
+                     "id":  "socialmedia",
+                     "name":  "Social Media"
+                 },
+    "subcategory":  {
+                        "id":  "socialmedia-social-media",
+                        "name":  "Social Media"
+                    },
+    "region":  "GBR",
+    "delay":  1,
+    "universe":  "TOP700",
+    "type":  "VECTOR",
+    "dateCoverage":  0.2653,
+    "coverage":  0.4948,
+    "userCount":  0,
+    "alphaCount":  0,
+    "pyramidMultiplier":  2,
+    "themes":  {
+                   "value":  [
+
+                             ],
+                   "Count":  0
+               },
+    "dateCreated":  "2026-07-01"
+}

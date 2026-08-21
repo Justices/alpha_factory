@@ -1,0 +1,71 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Virtual Environment
+.venv/
+venv/
+ENV/
+env/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Testing
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Project specific
+runs/*.json
+runs/*.db
+**/*/.gitkeep
+
+# OS
+.DS_Store
+Thumbs.db
+.idea/*
+.brain_session.json
+.brain.json
+.claude
+__pycache__
+runs/*
+# SQLite databases & temp files (NEVER commit binary .db files)
+*.db
+*.db-journal
+*.db-wal
+*.db-shm
+*.sqlite
+*.sqlite3
+data/*.db-wal
+data/*.db-shm
+data/*.db-journal
+runs/**/*.db
+runs/**/*.db-wal
+runs/**/*.db-shm
+**/data/*.db-wal
+**/data/*.db-shm
+!data/README.md
+

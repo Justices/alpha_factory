@@ -1,0 +1,13 @@
+# Alpha Factory - 项目依赖
+# 安装命令: D:\quant-venv\Scripts\python.exe -m pip install -r requirements.txt
+# 运行环境: Python 3.12 (D:\quant-venv)
+
+# 本地代码直接依赖的第三方库（其余均为标准库）
+requests==2.34.2     # HTTP 客户端，cnhkmcp 平台会话管理使用
+msgpack==1.2.1 # 平台回测结果序列化
+
+# cnhkmcp 为 WorldQuant BRAIN 平台连接器（本地已安装，非 PyPI 包），
+cnhkmcp==4.2.9
+# 提供 brain_client / session_manager 能力，依赖上述 requests。
+# 如在新环境部署，需单独安装 cnhkmcp 连接器。
+

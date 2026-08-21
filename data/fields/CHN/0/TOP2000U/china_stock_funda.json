@@ -1,0 +1,2108 @@
+[
+  {
+    "id": "adjusted_notes_receivable_value",
+    "description": "Value of notes receivable after adjustments.",
+    "dataset": {
+      "id": "china_stock_funda",
+      "name": "China Stock Market Fundamentals"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-dividend-models",
+      "name": "Dividend Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.7735,
+    "coverage": 0.4198,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  },
+  {
+    "id": "aggregate_cash_equivalents",
+    "description": "Total cash and cash equivalents for the period.",
+    "dataset": {
+      "id": "china_stock_funda",
+      "name": "China Stock Market Fundamentals"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-dividend-models",
+      "name": "Dividend Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.7359,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "aggregate_cash_equivalents_inflow",
+    "description": "Total cash equivalents received during the period.",
+    "dataset": {
+      "id": "china_stock_funda",
+      "name": "China Stock Market Fundamentals"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-dividend-models",
+      "name": "Dividend Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.7359,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  },
+  {
+    "id": "aggregate_cash_inflow",
+    "description": "Total cash inflow for the period.",
+    "dataset": {
+      "id": "china_stock_funda",
+      "name": "China Stock Market Fundamentals"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-dividend-models",
+      "name": "Dividend Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.7359,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "aggregate_cash_outflow",
+    "description": "Total cash outflow for the period.",
+    "dataset": {
+      "id": "china_stock_funda",
+      "name": "China Stock Market Fundamentals"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-dividend-models",
+      "name": "Dividend Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.7359,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "aggregate_financing_cash_inflow",
+    "description": "Total cash inflow from financing activities.",
+    "dataset": {
+      "id": "china_stock_funda",
+      "name": "China Stock Market Fundamentals"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-dividend-models",
+      "name": "Dividend Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.7359,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  },
+  {
+    "id": "aggregate_financing_cash_outflow",
+    "description": "Total cash outflow from financing activities.",
+    "dataset": {
+      "id": "china_stock_funda",
+      "name": "China Stock Market Fundamentals"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-dividend-models",
+      "name": "Dividend Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.7359,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  },
+  {
+    "id": "aggregate_net_financing_cash_flow",
+    "description": "Total net cash flow from financing activities.",
+    "dataset": {
+      "id": "china_stock_funda",
+      "name": "China Stock Market Fundamentals"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-dividend-models",
+      "name": "Dividend Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.7359,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  },
+  {
+    "id": "aggregate_net_investment_cash_flow",
+    "description": "Total net cash flow from investment activities.",
+    "dataset": {
+      "id": "china_stock_funda",
+      "name": "China Stock Market Fundamentals"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-dividend-models",
+      "name": "Dividend Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.7359,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  },
+  {
+    "id": "aggregate_net_operating_cash_flow",
+    "description": "Total net cash flow from operating activities.",
+    "dataset": {
+      "id": "china_stock_funda",
+      "name": "China Stock Market Fundamentals"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-dividend-models",
+      "name": "Dividend Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.7359,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  },
+  {
+    "id": "aggregate_operating_cash_inflow",
+    "description": "Total cash inflow from operating activities.",
+    "dataset": {
+      "id": "china_stock_funda",
+      "name": "China Stock Market Fundamentals"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-dividend-models",
+      "name": "Dividend Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.7359,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  },
+  {
+    "id": "aggregate_other_cash_outflow",
+    "description": "Total other cash outflows from various activities within the period.",
+    "dataset": {
+      "id": "china_stock_funda",
+      "name": "China Stock Market Fundamentals"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-dividend-models",
+      "name": "Dividend Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.7359,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "bank_acceptance_bill_value",
+    "description": "Value of bank acceptance bills receivable.",
+    "dataset": {
+      "id": "china_stock_funda",
+      "name": "China Stock Market Fundamentals"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-dividend-models",
+      "name": "Dividend Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.7735,
+    "coverage": 0.4198,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  },
+  {
+    "id": "beginning_cash_equivalents_balance",
+    "description": "Balance of cash and cash equivalents at period start.",
+    "dataset": {
+      "id": "china_stock_funda",
+      "name": "China Stock Market Fundamentals"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-dividend-models",
+      "name": "Dividend Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.7359,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "capital_increase_from_repurchase",
+    "description": "Capital raised through repurchase of shares or other instruments.",
+    "dataset": {
+      "id": "china_stock_funda",
+      "name": "China Stock Market Fundamentals"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-dividend-models",
+      "name": "Dividend Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.7359,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  },
+  {
+    "id": "cash_from_disposal_fixed_assets",
+    "description": "Cash received from selling fixed assets and other items.",
+    "dataset": {
+      "id": "china_stock_funda",
+      "name": "China Stock Market Fundamentals"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-dividend-models",
+      "name": "Dividend Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.7359,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  },
+  {
+    "id": "cash_inflow_financing_activities",
+    "description": "Total cash inflows from financing activities.",
+    "dataset": {
+      "id": "china_stock_funda",
+      "name": "China Stock Market Fundamentals"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-dividend-models",
+      "name": "Dividend Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.7359,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "cash_inflow_from_operations",
+    "description": "Total cash received from operating activities.",
+    "dataset": {
+      "id": "china_stock_funda",
+      "name": "China Stock Market Fundamentals"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-dividend-models",
+      "name": "Dividend Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.7359,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  },
+  {
+    "id": "cash_inflow_investment_activities",
+    "description": "Total cash received from investment activities.",
+    "dataset": {
+      "id": "china_stock_funda",
+      "name": "China Stock Market Fundamentals"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-dividend-models",
+      "name": "Dividend Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.7359,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  },
+  {
+    "id": "cash_outflow_financing_activities",
+    "description": "Total cash paid for financing activities.",
+    "dataset": {
+      "id": "china_stock_funda",
+      "name": "China Stock Market Fundamentals"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-dividend-models",
+      "name": "Dividend Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.7359,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  },
+  {
+    "id": "cash_outflow_investment_activities_6",
+    "description": "Total cash paid for investment activities.",
+    "dataset": {
+      "id": "china_stock_funda",
+      "name": "China Stock Market Fundamentals"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-dividend-models",
+      "name": "Dividend Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.7359,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  },
+  {
+    "id": "cash_outflow_operating_activities",
+    "description": "Total cash outflows from operating activities.",
+    "dataset": {
+      "id": "china_stock_funda",
+      "name": "China Stock Market Fundamentals"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-dividend-models",
+      "name": "Dividend Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.7359,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "cash_paid_dividends_profits_interest",
+    "description": "Cash paid for dividends, profits, and interest.",
+    "dataset": {
+      "id": "china_stock_funda",
+      "name": "China Stock Market Fundamentals"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-dividend-models",
+      "name": "Dividend Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.7359,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "cash_paid_for_acquisitions_2",
+    "description": "Cash payments made for acquiring subsidiaries or other businesses.",
+    "dataset": {
+      "id": "china_stock_funda",
+      "name": "China Stock Market Fundamentals"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-dividend-models",
+      "name": "Dividend Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.7359,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  },
+  {
+    "id": "cash_paid_for_debt_repayment",
+    "description": "Cash paid to settle debts.",
+    "dataset": {
+      "id": "china_stock_funda",
+      "name": "China Stock Market Fundamentals"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-dividend-models",
+      "name": "Dividend Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.7359,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "cash_paid_for_goods_and_services",
+    "description": "Cash payments made for purchasing goods and services.",
+    "dataset": {
+      "id": "china_stock_funda",
+      "name": "China Stock Market Fundamentals"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-dividend-models",
+      "name": "Dividend Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.7359,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  },
+  {
+    "id": "cash_paid_for_investments_3",
+    "description": "Cash paid for investment activities.",
+    "dataset": {
+      "id": "china_stock_funda",
+      "name": "China Stock Market Fundamentals"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-dividend-models",
+      "name": "Dividend Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.7359,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "cash_paid_for_taxes",
+    "description": "Cash outflow for tax payments.",
+    "dataset": {
+      "id": "china_stock_funda",
+      "name": "China Stock Market Fundamentals"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-dividend-models",
+      "name": "Dividend Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.7359,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  },
+  {
+    "id": "cash_paid_investment_fund_contributions",
+    "description": "Cash paid for investment fund contributions.",
+    "dataset": {
+      "id": "china_stock_funda",
+      "name": "China Stock Market Fundamentals"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-dividend-models",
+      "name": "Dividend Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.7359,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  },
+  {
+    "id": "cash_paid_other_financing_activities",
+    "description": "Cash outflows for miscellaneous financing activities.",
+    "dataset": {
+      "id": "china_stock_funda",
+      "name": "China Stock Market Fundamentals"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-dividend-models",
+      "name": "Dividend Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.7359,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  },
+  {
+    "id": "cash_paid_other_investment_activities",
+    "description": "Cash paid for other investment activities.",
+    "dataset": {
+      "id": "china_stock_funda",
+      "name": "China Stock Market Fundamentals"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-dividend-models",
+      "name": "Dividend Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.7359,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "cash_paid_other_operating_activities",
+    "description": "Cash paid for other operating activities.",
+    "dataset": {
+      "id": "china_stock_funda",
+      "name": "China Stock Market Fundamentals"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-dividend-models",
+      "name": "Dividend Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.7359,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "cash_paid_policy_dividends",
+    "description": "Cash paid for policyholder dividends.",
+    "dataset": {
+      "id": "china_stock_funda",
+      "name": "China Stock Market Fundamentals"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-dividend-models",
+      "name": "Dividend Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.7359,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "cash_paid_to_employees",
+    "description": "Cash paid to employees for services.",
+    "dataset": {
+      "id": "china_stock_funda",
+      "name": "China Stock Market Fundamentals"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-dividend-models",
+      "name": "Dividend Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.7359,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "cash_received_capital_contributions_4",
+    "description": "Cash received from capital contributions by owners or investors.",
+    "dataset": {
+      "id": "china_stock_funda",
+      "name": "China Stock Market Fundamentals"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-dividend-models",
+      "name": "Dividend Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.7359,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  },
+  {
+    "id": "cash_received_from_bond_issuance",
+    "description": "Cash inflow from issuing bonds.",
+    "dataset": {
+      "id": "china_stock_funda",
+      "name": "China Stock Market Fundamentals"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-dividend-models",
+      "name": "Dividend Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.7359,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  },
+  {
+    "id": "cash_received_from_borrowings_2",
+    "description": "Cash received from borrowings for the period.",
+    "dataset": {
+      "id": "china_stock_funda",
+      "name": "China Stock Market Fundamentals"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-dividend-models",
+      "name": "Dividend Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.7359,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  },
+  {
+    "id": "cash_received_from_minority_subsidiaries",
+    "description": "Cash inflows from minority interests in subsidiaries.",
+    "dataset": {
+      "id": "china_stock_funda",
+      "name": "China Stock Market Fundamentals"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-dividend-models",
+      "name": "Dividend Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.7359,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  },
+  {
+    "id": "cash_received_from_sales_goods_services",
+    "description": "Cash inflow from sales of goods and services.",
+    "dataset": {
+      "id": "china_stock_funda",
+      "name": "China Stock Market Fundamentals"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-dividend-models",
+      "name": "Dividend Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.7359,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  },
+  {
+    "id": "cash_received_other_financing_activities",
+    "description": "Cash inflow from miscellaneous financing activities.",
+    "dataset": {
+      "id": "china_stock_funda",
+      "name": "China Stock Market Fundamentals"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-dividend-models",
+      "name": "Dividend Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.7359,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  },
+  {
+    "id": "cash_received_other_investment_activities",
+    "description": "Cash inflow from miscellaneous investment activities.",
+    "dataset": {
+      "id": "china_stock_funda",
+      "name": "China Stock Market Fundamentals"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-dividend-models",
+      "name": "Dividend Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.7359,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  },
+  {
+    "id": "cash_received_other_operating_activities",
+    "description": "Cash inflow from miscellaneous operating activities.",
+    "dataset": {
+      "id": "china_stock_funda",
+      "name": "China Stock Market Fundamentals"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-dividend-models",
+      "name": "Dividend Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.7359,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  },
+  {
+    "id": "commercial_acceptance_bill_value",
+    "description": "Value of commercial acceptance bills receivable.",
+    "dataset": {
+      "id": "china_stock_funda",
+      "name": "China Stock Market Fundamentals"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-dividend-models",
+      "name": "Dividend Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.7735,
+    "coverage": 0.4198,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  },
+  {
+    "id": "dividends_profits_subsidiaries_minority_share",
+    "description": "Dividends and profits paid to subsidiaries and minority shareholders.",
+    "dataset": {
+      "id": "china_stock_funda",
+      "name": "China Stock Market Fundamentals"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-dividend-models",
+      "name": "Dividend Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.7359,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  },
+  {
+    "id": "ending_cash_equivalents_balance",
+    "description": "Cash and cash equivalents balance at the end of the period.",
+    "dataset": {
+      "id": "china_stock_funda",
+      "name": "China Stock Market Fundamentals"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-dividend-models",
+      "name": "Dividend Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.7359,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "foreign_exchange_impact_on_cash",
+    "description": "Effect of currency exchange rate changes on cash balances.",
+    "dataset": {
+      "id": "china_stock_funda",
+      "name": "China Stock Market Fundamentals"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-dividend-models",
+      "name": "Dividend Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.7359,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "gain_from_investments",
+    "description": "Profit earned from investment activities.",
+    "dataset": {
+      "id": "china_stock_funda",
+      "name": "China Stock Market Fundamentals"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-dividend-models",
+      "name": "Dividend Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.7359,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  },
+  {
+    "id": "income_from_disposal_of_trading_assets",
+    "description": "Income generated from selling trading financial assets.",
+    "dataset": {
+      "id": "china_stock_funda",
+      "name": "China Stock Market Fundamentals"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-dividend-models",
+      "name": "Dividend Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.7359,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  },
+  {
+    "id": "increase_in_borrowings",
+    "description": "Net increase in borrowings during the period.",
+    "dataset": {
+      "id": "china_stock_funda",
+      "name": "China Stock Market Fundamentals"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-dividend-models",
+      "name": "Dividend Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.7359,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  },
+  {
+    "id": "increase_in_borrowings_from_central_bank",
+    "description": "Net increase in borrowings from the central bank.",
+    "dataset": {
+      "id": "china_stock_funda",
+      "name": "China Stock Market Fundamentals"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-dividend-models",
+      "name": "Dividend Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.7359,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  },
+  {
+    "id": "increase_in_borrowings_other_financial_institutions",
+    "description": "Net increase in borrowings from other financial institutions.",
+    "dataset": {
+      "id": "china_stock_funda",
+      "name": "China Stock Market Fundamentals"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-dividend-models",
+      "name": "Dividend Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.7359,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  },
+  {
+    "id": "increase_in_deposits_from_financial_institutions",
+    "description": "Net increase in deposits received from financial institutions.",
+    "dataset": {
+      "id": "china_stock_funda",
+      "name": "China Stock Market Fundamentals"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-dividend-models",
+      "name": "Dividend Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.7359,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  },
+  {
+    "id": "increase_in_investment_fund_cash",
+    "description": "Increase in cash from investment funds during the period.",
+    "dataset": {
+      "id": "china_stock_funda",
+      "name": "China Stock Market Fundamentals"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-dividend-models",
+      "name": "Dividend Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.7359,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  },
+  {
+    "id": "increase_in_loan_disbursements",
+    "description": "Increase in cash outflows due to loan disbursements.",
+    "dataset": {
+      "id": "china_stock_funda",
+      "name": "China Stock Market Fundamentals"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-dividend-models",
+      "name": "Dividend Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.7359,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  },
+  {
+    "id": "increase_in_pledged_deposits_investment",
+    "description": "Increase in deposits pledged for investment purposes.",
+    "dataset": {
+      "id": "china_stock_funda",
+      "name": "China Stock Market Fundamentals"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-dividend-models",
+      "name": "Dividend Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.7359,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  },
+  {
+    "id": "increase_in_pledged_loans",
+    "description": "Net increase in loans secured by pledged assets during the period.",
+    "dataset": {
+      "id": "china_stock_funda",
+      "name": "China Stock Market Fundamentals"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-dividend-models",
+      "name": "Dividend Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.7359,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  },
+  {
+    "id": "letter_of_credit_receivable_value",
+    "description": "Value of letters of credit receivable.",
+    "dataset": {
+      "id": "china_stock_funda",
+      "name": "China Stock Market Fundamentals"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-dividend-models",
+      "name": "Dividend Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.7735,
+    "coverage": 0.4198,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  },
+  {
+    "id": "net_cash_from_disposal_of_subsidiaries",
+    "description": "Net cash received from selling subsidiaries or other businesses.",
+    "dataset": {
+      "id": "china_stock_funda",
+      "name": "China Stock Market Fundamentals"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-dividend-models",
+      "name": "Dividend Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.7359,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  },
+  {
+    "id": "net_change_in_cash_balance",
+    "description": "Net change in cash and cash equivalents during the period.",
+    "dataset": {
+      "id": "china_stock_funda",
+      "name": "China Stock Market Fundamentals"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-dividend-models",
+      "name": "Dividend Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.7359,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  },
+  {
+    "id": "net_financing_cash_flow",
+    "description": "Net cash inflow or outflow from financing activities over the period.",
+    "dataset": {
+      "id": "china_stock_funda",
+      "name": "China Stock Market Fundamentals"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-dividend-models",
+      "name": "Dividend Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.7359,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  },
+  {
+    "id": "net_increase_deposits_financial_institutions",
+    "description": "Net increase in deposits at financial institutions.",
+    "dataset": {
+      "id": "china_stock_funda",
+      "name": "China Stock Market Fundamentals"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-dividend-models",
+      "name": "Dividend Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.7359,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "net_investing_cash_flow",
+    "description": "Net cash inflow or outflow from investing activities.",
+    "dataset": {
+      "id": "china_stock_funda",
+      "name": "China Stock Market Fundamentals"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-dividend-models",
+      "name": "Dividend Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.7359,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  },
+  {
+    "id": "net_operating_cash_flow",
+    "description": "Total cash generated from core business operations during the period.",
+    "dataset": {
+      "id": "china_stock_funda",
+      "name": "China Stock Market Fundamentals"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-dividend-models",
+      "name": "Dividend Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.7359,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  },
+  {
+    "id": "net_reinsurance_premiums_received_2",
+    "description": "Net premiums received from reinsurance activities.",
+    "dataset": {
+      "id": "china_stock_funda",
+      "name": "China Stock Market Fundamentals"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-dividend-models",
+      "name": "Dividend Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.7359,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  },
+  {
+    "id": "original_contribution_indemnity",
+    "description": "Cash received as indemnity from original contributions.",
+    "dataset": {
+      "id": "china_stock_funda",
+      "name": "China Stock Market Fundamentals"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-dividend-models",
+      "name": "Dividend Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.7359,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "other_effects_on_cash_equivalents1",
+    "description": "Other factors affecting cash and cash equivalents.",
+    "dataset": {
+      "id": "china_stock_funda",
+      "name": "China Stock Market Fundamentals"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-dividend-models",
+      "name": "Dividend Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.7359,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  },
+  {
+    "id": "premium_from_original_contributions",
+    "description": "Premiums received from initial contributions or contracts.",
+    "dataset": {
+      "id": "china_stock_funda",
+      "name": "China Stock Market Fundamentals"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-dividend-models",
+      "name": "Dividend Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.7359,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  },
+  {
+    "id": "proceeds_from_sale_of_investments",
+    "description": "Cash received from selling investments.",
+    "dataset": {
+      "id": "china_stock_funda",
+      "name": "China Stock Market Fundamentals"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-dividend-models",
+      "name": "Dividend Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.7359,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  },
+  {
+    "id": "purchase_fixed_and_other_assets",
+    "description": "Cash paid for purchase of fixed and other assets.",
+    "dataset": {
+      "id": "china_stock_funda",
+      "name": "China Stock Market Fundamentals"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-dividend-models",
+      "name": "Dividend Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.7359,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  },
+  {
+    "id": "special_cash_inflow",
+    "description": "Cash inflow for special or non-recurring items.",
+    "dataset": {
+      "id": "china_stock_funda",
+      "name": "China Stock Market Fundamentals"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-dividend-models",
+      "name": "Dividend Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.7359,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "special_cash_outflow",
+    "description": "Cash outflow for special or non-recurring items.",
+    "dataset": {
+      "id": "china_stock_funda",
+      "name": "China Stock Market Fundamentals"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-dividend-models",
+      "name": "Dividend Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.7359,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "special_financing_cash_inflow",
+    "description": "Cash inflow from special financing activities.",
+    "dataset": {
+      "id": "china_stock_funda",
+      "name": "China Stock Market Fundamentals"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-dividend-models",
+      "name": "Dividend Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.7359,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "special_financing_cash_outflow",
+    "description": "Cash outflow for special financing activities.",
+    "dataset": {
+      "id": "china_stock_funda",
+      "name": "China Stock Market Fundamentals"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-dividend-models",
+      "name": "Dividend Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.7359,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "special_notes_receivable_value",
+    "description": "Value of special notes receivable.",
+    "dataset": {
+      "id": "china_stock_funda",
+      "name": "China Stock Market Fundamentals"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-dividend-models",
+      "name": "Dividend Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.7735,
+    "coverage": 0.4198,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  },
+  {
+    "id": "special_other_cash_inflow",
+    "description": "Cash inflow for special other activities.",
+    "dataset": {
+      "id": "china_stock_funda",
+      "name": "China Stock Market Fundamentals"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-dividend-models",
+      "name": "Dividend Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.7359,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "special_other_cash_outflow",
+    "description": "Cash outflow for special other activities.",
+    "dataset": {
+      "id": "china_stock_funda",
+      "name": "China Stock Market Fundamentals"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-dividend-models",
+      "name": "Dividend Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.7359,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-03-01"
+  },
+  {
+    "id": "tax_refund_received",
+    "description": "Amount of tax refunds received during the period.",
+    "dataset": {
+      "id": "china_stock_funda",
+      "name": "China Stock Market Fundamentals"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-dividend-models",
+      "name": "Dividend Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.7359,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  },
+  {
+    "id": "total_notes_receivable_value",
+    "description": "Total value of notes receivable.",
+    "dataset": {
+      "id": "china_stock_funda",
+      "name": "China Stock Market Fundamentals"
+    },
+    "category": {
+      "id": "other",
+      "name": "Other"
+    },
+    "subcategory": {
+      "id": "other-dividend-models",
+      "name": "Dividend Models"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.7735,
+    "coverage": 0.4198,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.8,
+    "themes": [],
+    "dateCreated": "2026-02-01"
+  }
+]

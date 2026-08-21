@@ -1,0 +1,674 @@
+﻿[
+    {
+        "id":  "mws52_chars_in_presentation",
+        "description":  "Number of characters in the presentation section",
+        "dataset":  {
+                        "id":  "news52",
+                        "name":  "Conference call data"
+                    },
+        "category":  {
+                         "id":  "news",
+                         "name":  "News"
+                     },
+        "subcategory":  {
+                            "id":  "news-news",
+                            "name":  "News"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mws52_chars_in_qa",
+        "description":  "Number of characters in the Q\u0026A section",
+        "dataset":  {
+                        "id":  "news52",
+                        "name":  "Conference call data"
+                    },
+        "category":  {
+                         "id":  "news",
+                         "name":  "News"
+                     },
+        "subcategory":  {
+                            "id":  "news-news",
+                            "name":  "News"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mws52_conference_call_participants",
+        "description":  "Number of non-corporate participants (analysts, third parties) in the conference call",
+        "dataset":  {
+                        "id":  "news52",
+                        "name":  "Conference call data"
+                    },
+        "category":  {
+                         "id":  "news",
+                         "name":  "News"
+                     },
+        "subcategory":  {
+                            "id":  "news-news",
+                            "name":  "News"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mws52_corporate_participants",
+        "description":  "Number of representatives from the company (issuer) participating in the conference call",
+        "dataset":  {
+                        "id":  "news52",
+                        "name":  "Conference call data"
+                    },
+        "category":  {
+                         "id":  "news",
+                         "name":  "News"
+                     },
+        "subcategory":  {
+                            "id":  "news-news",
+                            "name":  "News"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mws52_eventtype",
+        "description":  "Type/category of the conference call event (e.g., earnings call, guidance update, etc.)",
+        "dataset":  {
+                        "id":  "news52",
+                        "name":  "Conference call data"
+                    },
+        "category":  {
+                         "id":  "news",
+                         "name":  "News"
+                     },
+        "subcategory":  {
+                            "id":  "news-news",
+                            "name":  "News"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mws52_expirationtime",
+        "description":  "Time when the event or record is considered expired or no longer current",
+        "dataset":  {
+                        "id":  "news52",
+                        "name":  "Conference call data"
+                    },
+        "category":  {
+                         "id":  "news",
+                         "name":  "News"
+                     },
+        "subcategory":  {
+                            "id":  "news-news",
+                            "name":  "News"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mws52_lastuptime",
+        "description":  "Time when the record was last updated",
+        "dataset":  {
+                        "id":  "news52",
+                        "name":  "Conference call data"
+                    },
+        "category":  {
+                         "id":  "news",
+                         "name":  "News"
+                     },
+        "subcategory":  {
+                            "id":  "news-news",
+                            "name":  "News"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mws52_paragraphs_in_presentation",
+        "description":  "Number of paragraphs in the presentation section of the conference call",
+        "dataset":  {
+                        "id":  "news52",
+                        "name":  "Conference call data"
+                    },
+        "category":  {
+                         "id":  "news",
+                         "name":  "News"
+                     },
+        "subcategory":  {
+                            "id":  "news-news",
+                            "name":  "News"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mws52_position",
+        "description":  "List of absolute positions (indices) where each keyword appears across the entire conference call (including both presentation and Q\u0026A sections)",
+        "dataset":  {
+                        "id":  "news52",
+                        "name":  "Conference call data"
+                    },
+        "category":  {
+                         "id":  "news",
+                         "name":  "News"
+                     },
+        "subcategory":  {
+                            "id":  "news-news",
+                            "name":  "News"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mws52_position_presentation",
+        "description":  "List of absolute positions (indices) where the keyword appears specifically within the presentation section of the transcript",
+        "dataset":  {
+                        "id":  "news52",
+                        "name":  "Conference call data"
+                    },
+        "category":  {
+                         "id":  "news",
+                         "name":  "News"
+                     },
+        "subcategory":  {
+                            "id":  "news-news",
+                            "name":  "News"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mws52_position_qa",
+        "description":  "List of absolute positions (indices) where the keyword appears specifically within the Q\u0026A section of the transcript",
+        "dataset":  {
+                        "id":  "news52",
+                        "name":  "Conference call data"
+                    },
+        "category":  {
+                         "id":  "news",
+                         "name":  "News"
+                     },
+        "subcategory":  {
+                            "id":  "news-news",
+                            "name":  "News"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mws52_pparagraphs_in_qa",
+        "description":  "Number of paragraphs in the Q\u0026A section of the conference call",
+        "dataset":  {
+                        "id":  "news52",
+                        "name":  "Conference call data"
+                    },
+        "category":  {
+                         "id":  "news",
+                         "name":  "News"
+                     },
+        "subcategory":  {
+                            "id":  "news-news",
+                            "name":  "News"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mws52_questions_in_presentation",
+        "description":  "Number of questions asked during the presentation section of the conference call",
+        "dataset":  {
+                        "id":  "news52",
+                        "name":  "Conference call data"
+                    },
+        "category":  {
+                         "id":  "news",
+                         "name":  "News"
+                     },
+        "subcategory":  {
+                            "id":  "news-news",
+                            "name":  "News"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mws52_questions_in_qa",
+        "description":  "Number of questions asked in the Q\u0026A section of the conference call",
+        "dataset":  {
+                        "id":  "news52",
+                        "name":  "Conference call data"
+                    },
+        "category":  {
+                         "id":  "news",
+                         "name":  "News"
+                     },
+        "subcategory":  {
+                            "id":  "news-news",
+                            "name":  "News"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mws52_sentences_in_presentation",
+        "description":  "Number of sentences in the presentation section of the conference call",
+        "dataset":  {
+                        "id":  "news52",
+                        "name":  "Conference call data"
+                    },
+        "category":  {
+                         "id":  "news",
+                         "name":  "News"
+                     },
+        "subcategory":  {
+                            "id":  "news-news",
+                            "name":  "News"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mws52_sentences_in_qa",
+        "description":  "Number of sentences in the Q\u0026A section of the conference call",
+        "dataset":  {
+                        "id":  "news52",
+                        "name":  "Conference call data"
+                    },
+        "category":  {
+                         "id":  "news",
+                         "name":  "News"
+                     },
+        "subcategory":  {
+                            "id":  "news-news",
+                            "name":  "News"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mws52_starttime",
+        "description":  "Time the conference call event started",
+        "dataset":  {
+                        "id":  "news52",
+                        "name":  "Conference call data"
+                    },
+        "category":  {
+                         "id":  "news",
+                         "name":  "News"
+                     },
+        "subcategory":  {
+                            "id":  "news-news",
+                            "name":  "News"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mws52_talks_in_presentation",
+        "description":  "Number of talks (distinct speaker turns or interventions) in the presentation section of the conference call",
+        "dataset":  {
+                        "id":  "news52",
+                        "name":  "Conference call data"
+                    },
+        "category":  {
+                         "id":  "news",
+                         "name":  "News"
+                     },
+        "subcategory":  {
+                            "id":  "news-news",
+                            "name":  "News"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mws52_talks_in_qa",
+        "description":  "Number of individual talks in the Q\u0026A section of the conference call",
+        "dataset":  {
+                        "id":  "news52",
+                        "name":  "Conference call data"
+                    },
+        "category":  {
+                         "id":  "news",
+                         "name":  "News"
+                     },
+        "subcategory":  {
+                            "id":  "news-news",
+                            "name":  "News"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mws52_words_in_presentation",
+        "description":  "Number of words in the presentation section of the conference call",
+        "dataset":  {
+                        "id":  "news52",
+                        "name":  "Conference call data"
+                    },
+        "category":  {
+                         "id":  "news",
+                         "name":  "News"
+                     },
+        "subcategory":  {
+                            "id":  "news-news",
+                            "name":  "News"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mws52_words_in_qa",
+        "description":  "Number of words in the Q\u0026A section of the conference call",
+        "dataset":  {
+                        "id":  "news52",
+                        "name":  "Conference call data"
+                    },
+        "category":  {
+                         "id":  "news",
+                         "name":  "News"
+                     },
+        "subcategory":  {
+                            "id":  "news-news",
+                            "name":  "News"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "MATRIX",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    }
+]

@@ -1,0 +1,137 @@
+[
+  {
+    "id": "event_secondary_topic_code",
+    "description": "Code representing the second-tier subcategory of the event; must be decoded via overlay",
+    "dataset": {
+      "id": "news29",
+      "name": "Significant Developments Data"
+    },
+    "category": {
+      "id": "news",
+      "name": "News"
+    },
+    "subcategory": {
+      "id": "news-news",
+      "name": "News"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9655,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.7,
+    "themes": [],
+    "dateCreated": "2025-11-01"
+  },
+  {
+    "id": "event_tertiary_topic_code",
+    "description": "Third-level event topic/category code (integer), for further sub-classification, must decode",
+    "dataset": {
+      "id": "news29",
+      "name": "Significant Developments Data"
+    },
+    "category": {
+      "id": "news",
+      "name": "News"
+    },
+    "subcategory": {
+      "id": "news-news",
+      "name": "News"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9655,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.7,
+    "themes": [],
+    "dateCreated": "2025-11-01"
+  },
+  {
+    "id": "nws29_full_frontpage",
+    "description": "Binary indicator (1/0) for whether the event/news was featured on Reuters front page",
+    "dataset": {
+      "id": "news29",
+      "name": "Significant Developments Data"
+    },
+    "category": {
+      "id": "news",
+      "name": "News"
+    },
+    "subcategory": {
+      "id": "news-news",
+      "name": "News"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9655,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.7,
+    "themes": [],
+    "dateCreated": "2025-11-01"
+  },
+  {
+    "id": "nws29_full_significance",
+    "description": "Event importance level code: High, Medium, Low relevance to market (must decode)",
+    "dataset": {
+      "id": "news29",
+      "name": "Significant Developments Data"
+    },
+    "category": {
+      "id": "news",
+      "name": "News"
+    },
+    "subcategory": {
+      "id": "news-news",
+      "name": "News"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9655,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.7,
+    "themes": [],
+    "dateCreated": "2025-11-01"
+  },
+  {
+    "id": "nws29_full_topic1",
+    "description": "Code representing the main category of the event; must be decoded via overlay (e.g. M&A, regulatory, etc.)",
+    "dataset": {
+      "id": "news29",
+      "name": "Significant Developments Data"
+    },
+    "category": {
+      "id": "news",
+      "name": "News"
+    },
+    "subcategory": {
+      "id": "news-news",
+      "name": "News"
+    },
+    "region": "CHN",
+    "delay": 0,
+    "universe": "TOP2000U",
+    "type": "VECTOR",
+    "dateCoverage": 0.9507,
+    "coverage": 0.9655,
+    "userCount": 0,
+    "alphaCount": 0,
+    "pyramidMultiplier": 1.7,
+    "themes": [],
+    "dateCreated": "2025-11-01"
+  }
+]

@@ -1,0 +1,514 @@
+﻿[
+    {
+        "id":  "company_event_description_text_full",
+        "description":  "The full narrative or detailed description of a company event or news story.",
+        "dataset":  {
+                        "id":  "news29",
+                        "name":  "Significant Developments Data"
+                    },
+        "category":  {
+                         "id":  "news",
+                         "name":  "News"
+                     },
+        "subcategory":  {
+                            "id":  "news-news",
+                            "name":  "News"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "company_event_description_text_full_refresh",
+        "description":  "The full narrative or detailed description of a company event or news story in the full refresh dataset.",
+        "dataset":  {
+                        "id":  "news29",
+                        "name":  "Significant Developments Data"
+                    },
+        "category":  {
+                         "id":  "news",
+                         "name":  "News"
+                     },
+        "subcategory":  {
+                            "id":  "news-news",
+                            "name":  "News"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "company_event_headline_text_full",
+        "description":  "The complete headline or summary text for a company event or news item.",
+        "dataset":  {
+                        "id":  "news29",
+                        "name":  "Significant Developments Data"
+                    },
+        "category":  {
+                         "id":  "news",
+                         "name":  "News"
+                     },
+        "subcategory":  {
+                            "id":  "news-news",
+                            "name":  "News"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "company_event_headline_text_full_refresh",
+        "description":  "The complete headline or summary text for a company event or news item in the full refresh dataset.",
+        "dataset":  {
+                        "id":  "news29",
+                        "name":  "Significant Developments Data"
+                    },
+        "category":  {
+                         "id":  "news",
+                         "name":  "News"
+                     },
+        "subcategory":  {
+                            "id":  "news-news",
+                            "name":  "News"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "company_event_structured_fields_full",
+        "description":  "All structured data fields and tags associated with a company event, including topics, codes, and attributes.",
+        "dataset":  {
+                        "id":  "news29",
+                        "name":  "Significant Developments Data"
+                    },
+        "category":  {
+                         "id":  "news",
+                         "name":  "News"
+                     },
+        "subcategory":  {
+                            "id":  "news-news",
+                            "name":  "News"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "company_event_structured_fields_full_refresh",
+        "description":  "All structured data fields and tags associated with a company event, including topics, codes, and attributes, in the full refresh dataset.",
+        "dataset":  {
+                        "id":  "news29",
+                        "name":  "Significant Developments Data"
+                    },
+        "category":  {
+                         "id":  "news",
+                         "name":  "News"
+                     },
+        "subcategory":  {
+                            "id":  "news-news",
+                            "name":  "News"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "event_secondary_topic_code",
+        "description":  "Code representing the second-tier subcategory of the event; must be decoded via overlay",
+        "dataset":  {
+                        "id":  "news29",
+                        "name":  "Significant Developments Data"
+                    },
+        "category":  {
+                         "id":  "news",
+                         "name":  "News"
+                     },
+        "subcategory":  {
+                            "id":  "news-news",
+                            "name":  "News"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "event_tertiary_topic_code",
+        "description":  "Third-level event topic/category code (integer), for further sub-classification, must decode",
+        "dataset":  {
+                        "id":  "news29",
+                        "name":  "Significant Developments Data"
+                    },
+        "category":  {
+                         "id":  "news",
+                         "name":  "News"
+                     },
+        "subcategory":  {
+                            "id":  "news-news",
+                            "name":  "News"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "nws29_frontpage",
+        "description":  "Flag indicating if the news item was featured on a Reuters front-page story (1 = yes, 0 = no)",
+        "dataset":  {
+                        "id":  "news29",
+                        "name":  "Significant Developments Data"
+                    },
+        "category":  {
+                         "id":  "news",
+                         "name":  "News"
+                     },
+        "subcategory":  {
+                            "id":  "news-news",
+                            "name":  "News"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "nws29_full_frontpage",
+        "description":  "Binary indicator (1/0) for whether the event/news was featured on Reuters front page",
+        "dataset":  {
+                        "id":  "news29",
+                        "name":  "Significant Developments Data"
+                    },
+        "category":  {
+                         "id":  "news",
+                         "name":  "News"
+                     },
+        "subcategory":  {
+                            "id":  "news-news",
+                            "name":  "News"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "nws29_full_significance",
+        "description":  "Event importance level code: High, Medium, Low relevance to market (must decode)",
+        "dataset":  {
+                        "id":  "news29",
+                        "name":  "Significant Developments Data"
+                    },
+        "category":  {
+                         "id":  "news",
+                         "name":  "News"
+                     },
+        "subcategory":  {
+                            "id":  "news-news",
+                            "name":  "News"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "nws29_full_topic1",
+        "description":  "Code representing the main category of the event; must be decoded via overlay (e.g. M\u0026A, regulatory, etc.)",
+        "dataset":  {
+                        "id":  "news29",
+                        "name":  "Significant Developments Data"
+                    },
+        "category":  {
+                         "id":  "news",
+                         "name":  "News"
+                     },
+        "subcategory":  {
+                            "id":  "news-news",
+                            "name":  "News"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "nws29_significance",
+        "description":  "Level of importance for the development (1 = High, 2 = Medium, 3 = Low)",
+        "dataset":  {
+                        "id":  "news29",
+                        "name":  "Significant Developments Data"
+                    },
+        "category":  {
+                         "id":  "news",
+                         "name":  "News"
+                     },
+        "subcategory":  {
+                            "id":  "news-news",
+                            "name":  "News"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "nws29_topic1",
+        "description":  "Main topic code or parent category of the development",
+        "dataset":  {
+                        "id":  "news29",
+                        "name":  "Significant Developments Data"
+                    },
+        "category":  {
+                         "id":  "news",
+                         "name":  "News"
+                     },
+        "subcategory":  {
+                            "id":  "news-news",
+                            "name":  "News"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "nws29_topic2",
+        "description":  "Second-tier topic code linked (mapped) to the parent topic",
+        "dataset":  {
+                        "id":  "news29",
+                        "name":  "Significant Developments Data"
+                    },
+        "category":  {
+                         "id":  "news",
+                         "name":  "News"
+                     },
+        "subcategory":  {
+                            "id":  "news-news",
+                            "name":  "News"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "nws29_topic3",
+        "description":  "Third-tier topic code linked to the parent topic",
+        "dataset":  {
+                        "id":  "news29",
+                        "name":  "Significant Developments Data"
+                    },
+        "category":  {
+                         "id":  "news",
+                         "name":  "News"
+                     },
+        "subcategory":  {
+                            "id":  "news-news",
+                            "name":  "News"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    }
+]

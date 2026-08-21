@@ -1,0 +1,130 @@
+﻿[
+    {
+        "id":  "mdl68_mktcap",
+        "description":  "Market capitalization of the company, measured in millions of USD",
+        "dataset":  {
+                        "id":  "model68",
+                        "name":  "Risk-Alleviated Momentum Scores"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-sentiment",
+                            "name":  "Sentiment"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl68_ram",
+        "description":  "Risk-adjusted momentum score for a China-listed equity, representing momentum alpha after adjusting for key risk factors such as beta, size, value, and rates",
+        "dataset":  {
+                        "id":  "model68",
+                        "name":  "Risk-Alleviated Momentum Scores"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-sentiment",
+                            "name":  "Sentiment"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl68_raw",
+        "description":  "Raw, unadjusted momentum score from the DREAM model, not risk-adjusted or standardized",
+        "dataset":  {
+                        "id":  "model68",
+                        "name":  "Risk-Alleviated Momentum Scores"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-sentiment",
+                            "name":  "Sentiment"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mdl68_score",
+        "description":  "Final, risk-adjusted, and standardized DREAM momentum score: the main recommended alpha signal",
+        "dataset":  {
+                        "id":  "model68",
+                        "name":  "Risk-Alleviated Momentum Scores"
+                    },
+        "category":  {
+                         "id":  "model",
+                         "name":  "Model"
+                     },
+        "subcategory":  {
+                            "id":  "model-sentiment",
+                            "name":  "Sentiment"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    }
+]

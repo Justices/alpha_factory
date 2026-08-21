@@ -1,0 +1,2 @@
+﻿"alphaCount","category","coverage","dataset","dateCoverage","dateCreated","delay","description","id","pyramidMultiplier","region","subcategory","themes","type","universe","userCount"
+"0","{""id"":""pv"",""name"":""Price Volume""}","0","{""id"":""pv17"",""name"":""Intermediate Cluster Groups""}","1","2026-07-01","1","Statistical, point-in-time, categorical industry grouping code for each eligible equity in the EUR region, assigned by the companyGrouping6 module logic","sta3_6_sector","2","DEU","{""id"":""pv-price-volume"",""name"":""Price Volume""}","[]","GROUP","TOP500","0"

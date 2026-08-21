@@ -1,0 +1,706 @@
+﻿[
+    {
+        "id":  "analyst_coverage_count",
+        "description":  "The total number of sell-side analysts (integer) covering the peer company (QESID_2) in a pair. This is the TO_ANALYST field from the AnalystNet network.",
+        "dataset":  {
+                        "id":  "other546",
+                        "name":  "Institutional Network Analysis Dataset"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-etf-models",
+                            "name":  "ETF Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "business_similarity_weight",
+        "description":  "A proprietary similarity weight (float) representing the business overlap between two companies. This is the STRENGTH field from the BusNet network.",
+        "dataset":  {
+                        "id":  "other546",
+                        "name":  "Institutional Network Analysis Dataset"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-etf-models",
+                            "name":  "ETF Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "executive_from_frequency",
+        "description":  "An integer count quantifying the intensity of a directional executive tie, associated with the source company (FROM_QESID) in a relationship. This is the FROM_FREQ field from the ExecutiveNet network.",
+        "dataset":  {
+                        "id":  "other546",
+                        "name":  "Institutional Network Analysis Dataset"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-etf-models",
+                            "name":  "ETF Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "executive_to_frequency_count",
+        "description":  "An integer count quantifying the intensity of a directional executive tie, associated with the target company (TO_QESID) in a relationship. This is the TO_FREQ field from the ExecutiveNet network.",
+        "dataset":  {
+                        "id":  "other546",
+                        "name":  "Institutional Network Analysis Dataset"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-etf-models",
+                            "name":  "ETF Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "geographic_similarity_weight",
+        "description":  "A proprietary similarity weight (float) representing the overlap in geographic exposure between two companies. This is the STRENGTH field from the GeoNet network.",
+        "dataset":  {
+                        "id":  "other546",
+                        "name":  "Institutional Network Analysis Dataset"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-etf-models",
+                            "name":  "ETF Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "mda_text_similarity_weight",
+        "description":  "Proprietary similarity weight (float) between two companies based on the text similarity of their \u0027Management\u0027s Discussion and Analysis\u0027 (MD\u0026A) sections. This is the STRENGTH field from the MDANet network.",
+        "dataset":  {
+                        "id":  "other546",
+                        "name":  "Institutional Network Analysis Dataset"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-etf-models",
+                            "name":  "ETF Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "model_risk_text_similarity_score",
+        "description":  "Proprietary similarity weight (float) between two companies based on the text similarity of their \u0027Risk Factors\u0027 sections in filings. This is the STRENGTH field from the RiskNet network.",
+        "dataset":  {
+                        "id":  "other546",
+                        "name":  "Institutional Network Analysis Dataset"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-etf-models",
+                            "name":  "ETF Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "oth546_analystnet_common",
+        "description":  "Number of analysts that cover both the primary and peer company (shared analyst coverage)",
+        "dataset":  {
+                        "id":  "other546",
+                        "name":  "Institutional Network Analysis Dataset"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-etf-models",
+                            "name":  "ETF Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "oth546_executivenet_common",
+        "description":  "Number of executives and board members (current or former) shared between the primary and peer companies",
+        "dataset":  {
+                        "id":  "other546",
+                        "name":  "Institutional Network Analysis Dataset"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-etf-models",
+                            "name":  "ETF Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "oth546_from_analyst",
+        "description":  "Number of analysts covering the primary company",
+        "dataset":  {
+                        "id":  "other546",
+                        "name":  "Institutional Network Analysis Dataset"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-etf-models",
+                            "name":  "ETF Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "oth546_from_freq",
+        "description":  "Number of executives and board members associated with the primary company",
+        "dataset":  {
+                        "id":  "other546",
+                        "name":  "Institutional Network Analysis Dataset"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-etf-models",
+                            "name":  "ETF Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "oth546_mdanet_strength",
+        "description":  "Similarity score based on Management Discussion \u0026 Analysis (MD\u0026A) filing text, indicating business operation similarity between the two companies",
+        "dataset":  {
+                        "id":  "other546",
+                        "name":  "Institutional Network Analysis Dataset"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-etf-models",
+                            "name":  "ETF Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "oth546_nlpbusnet_strength",
+        "description":  "Textual similarity score between the business section filings of the two companies, reflecting how closely related they are based on NLP analysis",
+        "dataset":  {
+                        "id":  "other546",
+                        "name":  "Institutional Network Analysis Dataset"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-etf-models",
+                            "name":  "ETF Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "oth546_qerf_ot",
+        "description":  "Number of executives and board members associated with the peer company",
+        "dataset":  {
+                        "id":  "other546",
+                        "name":  "Institutional Network Analysis Dataset"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-etf-models",
+                            "name":  "ETF Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "oth546_risknet_strength",
+        "description":  "Similarity score or correlation of Risk Factor section text between the primary and peer companies, indicating how similar their disclosed risk language/themes are",
+        "dataset":  {
+                        "id":  "other546",
+                        "name":  "Institutional Network Analysis Dataset"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-etf-models",
+                            "name":  "ETF Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "oth546_to_analyst",
+        "description":  "Number of analysts covering the peer (secondary) company",
+        "dataset":  {
+                        "id":  "other546",
+                        "name":  "Institutional Network Analysis Dataset"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-etf-models",
+                            "name":  "ETF Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "shared_analyst_count",
+        "description":  "The number of sell-side analysts (integer) that cover both companies in a pair. This is the COMMON field from the AnalystNet network.",
+        "dataset":  {
+                        "id":  "other546",
+                        "name":  "Institutional Network Analysis Dataset"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-etf-models",
+                            "name":  "ETF Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "shared_business_elements_count",
+        "description":  "The number of shared business elements (integer) between two companies, used to calculate business overlap. This is the COMMON field from the BusNet network.",
+        "dataset":  {
+                        "id":  "other546",
+                        "name":  "Institutional Network Analysis Dataset"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-etf-models",
+                            "name":  "ETF Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "shared_executive_count",
+        "description":  "The count of shared executives or board members (integer) that form a directional tie between two companies. This is the COMMON field from the ExecutiveNet network.",
+        "dataset":  {
+                        "id":  "other546",
+                        "name":  "Institutional Network Analysis Dataset"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-etf-models",
+                            "name":  "ETF Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "shared_geography_count",
+        "description":  "The number of shared geographic regions of operation (integer) between two companies. This is the COMMON field from the GeoNet network.",
+        "dataset":  {
+                        "id":  "other546",
+                        "name":  "Institutional Network Analysis Dataset"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-etf-models",
+                            "name":  "ETF Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "source_analyst_coverage_count",
+        "description":  "The total number of sell-side analysts (integer) covering the source company (QESID_1) in a pair. This is the FROM_ANALYST field from the AnalystNet network.",
+        "dataset":  {
+                        "id":  "other546",
+                        "name":  "Institutional Network Analysis Dataset"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-etf-models",
+                            "name":  "ETF Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "text_similarity_strength",
+        "description":  "A proprietary similarity weight (float) based on text analysis of company filings. This corresponds to the STRENGTH field in the NLPBusNet, MDANet, and RiskNet networks.",
+        "dataset":  {
+                        "id":  "other546",
+                        "name":  "Institutional Network Analysis Dataset"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-etf-models",
+                            "name":  "ETF Models"
+                        },
+        "region":  "DEU",
+        "delay":  1,
+        "universe":  "TOP500",
+        "type":  "VECTOR",
+        "dateCoverage":  1,
+        "coverage":  0,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    }
+]

@@ -1,0 +1,226 @@
+﻿[
+    {
+        "id":  "oth699_aggsplitfactor",
+        "description":  "Aggregate split adjustment factor applied to share counts to reflect corporate actions",
+        "dataset":  {
+                        "id":  "other699",
+                        "name":  "Individual Investor Transactions Data"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-analyst-models",
+                            "name":  "Analyst Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  0.7004,
+        "coverage":  0.3439,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "oth699_executiontimestamp",
+        "description":  "Timestamp when TipRanks recorded/logged the event (YYYYMMDDhhmmss, UTC)",
+        "dataset":  {
+                        "id":  "other699",
+                        "name":  "Individual Investor Transactions Data"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-analyst-models",
+                            "name":  "Analyst Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  0.7004,
+        "coverage":  0.3439,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "oth699_newnumofshares",
+        "description":  "Shares held in the position after the transaction, split‑adjusted in V2",
+        "dataset":  {
+                        "id":  "other699",
+                        "name":  "Individual Investor Transactions Data"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-analyst-models",
+                            "name":  "Analyst Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  0.7004,
+        "coverage":  0.3439,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "oth699_prevnumofshares",
+        "description":  "Shares held in the position before the transaction, split‑adjusted in V2",
+        "dataset":  {
+                        "id":  "other699",
+                        "name":  "Individual Investor Transactions Data"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-analyst-models",
+                            "name":  "Analyst Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  0.7004,
+        "coverage":  0.3439,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "oth699_priordistincttradingdays",
+        "description":  "Number of distinct prior trading days with user transactions before this event",
+        "dataset":  {
+                        "id":  "other699",
+                        "name":  "Individual Investor Transactions Data"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-analyst-models",
+                            "name":  "Analyst Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  0.7004,
+        "coverage":  0.3439,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "oth699_priortransactionnumber",
+        "description":  "Count of transactions the user made before this event in the portfolio",
+        "dataset":  {
+                        "id":  "other699",
+                        "name":  "Individual Investor Transactions Data"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-analyst-models",
+                            "name":  "Analyst Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  0.7004,
+        "coverage":  0.3439,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    },
+    {
+        "id":  "oth699_sharestraded",
+        "description":  "Number of shares transacted in the event (positive buy, negative sell; split-adjusted)",
+        "dataset":  {
+                        "id":  "other699",
+                        "name":  "Individual Investor Transactions Data"
+                    },
+        "category":  {
+                         "id":  "other",
+                         "name":  "Other"
+                     },
+        "subcategory":  {
+                            "id":  "other-analyst-models",
+                            "name":  "Analyst Models"
+                        },
+        "region":  "GBR",
+        "delay":  1,
+        "universe":  "TOP700",
+        "type":  "VECTOR",
+        "dateCoverage":  0.7004,
+        "coverage":  0.3439,
+        "userCount":  0,
+        "alphaCount":  0,
+        "pyramidMultiplier":  2,
+        "themes":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+        "dateCreated":  "2026-07-01"
+    }
+]

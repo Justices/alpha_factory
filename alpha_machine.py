@@ -55,6 +55,15 @@ class QualityGate:
     require_2y_pass: bool = False
 
 
+def judge_verdict_from_grade(grade: Optional[str]) -> Optional[str]:
+    """Convert an internal review grade to an alpha submission verdict."""
+    if not grade:
+        return None
+    if str(grade).strip().upper() == "READY":
+        return "READY"
+    return None
+
+
 def field_from_dict(row: dict[str, Any]) -> FieldSpec:
     # category 兼容嵌套 dict {"id":...} 与字符串 (平台原始行 category 是嵌套对象)
     cat = row.get("category") or row.get("category_name") or ""
@@ -120,13 +129,28 @@ def select_fields(rows: Iterable[dict[str, Any]], *, dataset_id: str = "", data_
     return selected[:limit] if limit else selected
 
 
+def positive_seconds(value: str) -> float:
+    val = float(value)
+    if val <= 0:
+        raise argparse.ArgumentTypeError(f"Must be positive seconds: {value}")
+    return val
+
+
+def mark_stalled_before_poll(tracker: Any, batch_id: int, max_idle_seconds: Optional[float]) -> bool:
+    if max_idle_seconds is None or tracker is None:
+        return False
+    return tracker.mark_stalled_if_expired(batch_id, max_idle_seconds)
+
+
 def preprocess_field(field: FieldSpec, *, backfill: int = 120, winsorize_std: float = 4.0,
                      vector_ops: Sequence[str] = VEC_OPS) -> list[str]:
-    """将可用 MATRIX/VECTOR 字段变成一阶工厂的标量输入；GROUP 不当作原子信号。"""
+    """将可用 MATRIX/VECTOR/EVENT 字段变成一阶工厂的标量输入；GROUP 不当作原子信号。"""
     if field.type == "MATRIX":
         bases = [field.id]
     elif field.type == "VECTOR":
         bases = [f"{op}({field.id})" for op in vector_ops]
+    elif field.type == "EVENT":
+        bases = [f"vec_avg({field.id})"]
     else:
         return []
     return [f"winsorize(ts_backfill({base}, {backfill}), std={winsorize_std:g})" for base in bases]
@@ -710,7 +734,7 @@ def main() -> None:
     mine_p = sub.add_parser("mine", help="一键执行分层地毯式挖掘、流式落库、剪枝与正向自优化全闭环流水线")
     add_settings(mine_p)
     mine_p.add_argument("--datasets", "-d", required=True, help="指定挖掘的数据集ID列表 (如: insider_agg_matrix,pattern_scores,fundamental31)")
-    mine_p.add_argument("--sample-per-family", "-s", type=int, default=4, help="每一类表达式随机抽取的候选数量 (默认: 4)")
+    mine_p.add_argument("--sample-per-family", "-s", "--sample-n", type=int, default=4, help="每一类表达式随机抽取的候选数量 (默认: 4)")
     mine_p.add_argument("--batch-size", "-b", type=int, default=5, help="平台并发回测每批任务数 (默认: 5)")
     mine_p.add_argument("--decay", type=int, default=12, help="默认 Decay 周期 (默认: 12)")
     mine_p.add_argument("--neutralization", "-n", default="SUBINDUSTRY", help="行业中性化 (默认: SUBINDUSTRY)")
@@ -741,7 +765,7 @@ def main() -> None:
     add_settings(auto_p)
     auto_p.add_argument("--datasets", "-d", default="analyst7", help="指定挖掘的数据集ID列表 (如: analyst7,fundamental31)")
     auto_p.add_argument("--paper", "-p", default=None, help="可选：指定研报或论文文件路径 (传入时优先运行文献提炼)")
-    auto_p.add_argument("--sample-per-family", "-s", type=int, default=4, help="每类表达式随机抽取的候选数量 (默认: 4)")
+    auto_p.add_argument("--sample-per-family", "-s", "--sample-n", type=int, default=4, help="每类表达式随机抽取的候选数量 (默认: 4)")
     auto_p.add_argument("--batch-size", "-b", type=int, default=5, help="平台并发回测每批任务数 (默认: 5)")
     auto_p.add_argument("--decay", type=int, default=12, help="默认 Decay 周期 (默认: 12)")
     auto_p.add_argument("--neutralization", "-n", default="SUBINDUSTRY", help="行业中性化 (默认: SUBINDUSTRY)")

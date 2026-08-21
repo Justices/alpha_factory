@@ -61,7 +61,7 @@ class CarpetMiningConfig:
     min_sharpe_for_opt: float = 0.35      # 触发自优化的最低 Sharpe 门槛
     min_return_for_opt: float = 0.02      # 触发自优化的最低年化收益率门槛 (2%)
     execute: bool = True                  # 是否真实提交平台模拟
-    seed: Optional[int] = 42
+    seed: Optional[int] = None            # 随机种子 (None 时动态随机并结合数据库增量去重)
 
 
 @dataclass
@@ -362,17 +362,55 @@ class StratifiedCarpetMiner:
         self,
         categorized_tasks: Dict[str, List[Task]],
     ) -> List[Task]:
-        """从各个表达式类别中进行分层随机抽样 (Stratified Sampling)."""
+        """从各个表达式类别中进行分层增量抽样 (自动优先未测空间，防止重复回测)."""
+        import hashlib
         cohort: List[Task] = []
         k = self.config.sample_per_family
+
+        # 1. 查找数据库中已回测过的表达式 SHA
+        existing_shas: set[str] = set()
+        if self.db:
+            try:
+                conn = self.db._get_connection()
+                rows = conn.execute(
+                    "SELECT expression_sha FROM alpha_expressions WHERE status IN ('completed', 'failed', 'pruned')"
+                ).fetchall()
+                existing_shas = {r[0] for r in rows}
+            except Exception:
+                pass
+
+        rng = random.Random(self.config.seed) if self.config.seed is not None else random
 
         for cat, task_list in categorized_tasks.items():
             if not task_list:
                 continue
-            sampled = random.sample(task_list, min(k, len(task_list)))
+
+            # 区分已回测与未回测候选
+            untested = []
+            tested = []
+            for t in task_list:
+                t_sha = self.db.compute_sha(t.expression) if self.db else hashlib.sha256(t.expression.strip().encode()).hexdigest()
+                if t_sha in existing_shas:
+                    tested.append(t)
+                else:
+                    untested.append(t)
+
+            # 优先从全新未回测候选中抽取
+            if len(untested) >= k:
+                sampled = rng.sample(untested, k)
+            elif untested:
+                sampled = list(untested)
+                needed = k - len(untested)
+                if needed > 0 and tested:
+                    sampled.extend(rng.sample(tested, min(needed, len(tested))))
+                logger.info(f"[{cat}] 未回测候选仅剩 {len(untested)} 条，已补充 {min(needed, len(tested))} 条历史条目")
+            else:
+                sampled = rng.sample(tested, min(k, len(tested)))
+                logger.info(f"[{cat}] 该分类全量 {len(task_list)} 条候选均已在数据库中回测过，按随机抽取")
+
             cohort.extend(sampled)
 
-        logger.info(f"分层抽样完成: 从 {len(categorized_tasks)} 类中抽样出 {len(cohort)} 条代表性 Alpha 任务")
+        logger.info(f"分层抽样完成: 从 {len(categorized_tasks)} 类中抽样出 {len(cohort)} 条代表性 Alpha 任务 (已优先未测空间)")
         return cohort
 
     def run_batch_simulation_and_persist(
@@ -624,6 +662,22 @@ class StratifiedCarpetMiner:
         all_ids = [r.alpha_id for r in (first_gen_results + opt_results) if r.alpha_id and not r.alpha_id.startswith("FAILED_")]
         elapsed = time.time() - start_time
 
+        # 记录已回测数据集
+        if self.db and hasattr(self.db, "upsert_backtest_record"):
+            for ds in self.config.datasets:
+                try:
+                    self.db.upsert_backtest_record(
+                        region=self.config.region,
+                        universe=self.config.universe,
+                        delay=self.config.delay,
+                        dataset_id=ds,
+                        strategy="carpet_mining",
+                        expression_count=total_gen,
+                        backtest_count=len(cohort),
+                    )
+                except Exception:
+                    pass
+
         return CarpetMiningResult(
             config=self.config,
             total_expressions_generated=total_gen,
@@ -649,6 +703,7 @@ def run_stratified_carpet_mining(
     neutralization: str = "SUBINDUSTRY",
     truncation: float = 0.08,
     execute: bool = True,
+    seed: Optional[int] = None,
     output_report_path: Optional[str] = None,
 ) -> CarpetMiningResult:
     """高阶统一入口: 一键执行分层地毯式挖掘、流式落库、剪枝与正向自优化."""
@@ -664,6 +719,7 @@ def run_stratified_carpet_mining(
         neutralization=neutralization,
         truncation=truncation,
         execute=execute,
+        seed=seed,
     )
 
     miner = StratifiedCarpetMiner(config)

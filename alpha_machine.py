@@ -657,6 +657,7 @@ def command_mine(args: argparse.Namespace) -> None:
         neutralization=getattr(args, "neutralization", "SUBINDUSTRY"),
         truncation=float(getattr(args, "truncation", 0.08)),
         execute=getattr(args, "execute", False),
+        seed=getattr(args, "seed", None),
         output_report_path=getattr(args, "output", None),
     )
     print("\n" + res.summary_markdown())
@@ -740,6 +741,7 @@ def main() -> None:
     mine_p.add_argument("--neutralization", "-n", default="SUBINDUSTRY", help="行业中性化 (默认: SUBINDUSTRY)")
     mine_p.add_argument("--truncation", type=float, default=0.08, help="截断阈值 (默认: 0.08)")
     mine_p.add_argument("--execute", "-e", action="store_true", help="直接向 WorldQuant BRAIN 平台提交真实在线回测")
+    mine_p.add_argument("--seed", type=int, default=None, help="随机种子 (默认 None: 动态增量随机，优先探索数据库中未测空间)")
     mine_p.add_argument("--output", "-o", default=None, help="输出 Markdown 研报路径")
     mine_p.set_defaults(func=command_mine)
     init_db_p = sub.add_parser("init-db", help="初始化或校验 SQLite 研究数据库表结构与索引 (无需提交 .db 文件)")
@@ -773,6 +775,7 @@ def main() -> None:
     auto_p.add_argument("--min-sharpe", type=float, default=1.25, help="终审准入夏普比率门槛 (默认: 1.25)")
     auto_p.add_argument("--min-fitness", type=float, default=1.0, help="终审准入健康度门槛 (默认: 1.0)")
     auto_p.add_argument("--execute", "-e", action="store_true", help="直接向 WorldQuant BRAIN 平台提交真实在线回测")
+    auto_p.add_argument("--seed", type=int, default=None, help="随机种子 (默认 None: 动态增量随机，优先探索数据库中未测空间)")
     auto_p.add_argument("--no-clean", action="store_true", help="回测完成后跳过数据库清理")
     auto_p.add_argument("--output", "-o", default=None, help="指定生产汇总报告输出路径")
     auto_p.set_defaults(func=command_auto_pilot)

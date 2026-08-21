@@ -18,9 +18,10 @@ class CandidateView:
     candidate_sha: str
     expression: str
     family: str
+    alpha_id: str = ""
     region: str = "GBR"
     universe: str = "TOP700"
-    status: str = "generated"             # generated / simulated / validated / ready / rejected
+    status: str = "generated"             # generated / simulated / validated / submission_ready / rejected
     evidence_level: str = "synthetic"
     sharpe: float = 0.0
     fitness: float = 0.0
@@ -32,6 +33,7 @@ class CandidateView:
     checks_passed: bool = False
     decision_verdict: Optional[str] = None
     approved_by: Optional[str] = None
+    artifact_ref: Optional[str] = None
     history_events: List[str] = field(default_factory=list)
 
 
@@ -66,17 +68,22 @@ class ProjectionEngine:
         self.candidates: Dict[str, CandidateView] = {}
         self.family_stats: Dict[str, FamilyStatsView] = {}
         self.outbox_items: Dict[str, OutboxItemView] = {}
-        self.approved_registry: List[CandidateView] = []
+        self.last_applied_event_id: Optional[str] = None
 
-    def apply(self, event: Event) -> None:
-        """纯函数式应用单个事件并更新内部视图."""
+    def replay(self, events: Sequence[Event]) -> None:
+        """从不可变事实流重放构建物化视图 (具备 100% 确定性)."""
+        for event in events:
+            self.apply_event(event)
+
+    def apply_event(self, event: Event) -> None:
+        """应用单个不可变事件更新投影状态."""
         etype = event.event_type
         payload = event.payload
 
         if etype == EventType.CANDIDATE_GENERATED:
             csha = payload.get("candidate_sha", "")
-            fam = payload.get("family", "default")
             expr = payload.get("expression", "")
+            fam = payload.get("family", "default")
             if csha:
                 cand = CandidateView(
                     candidate_sha=csha,
@@ -85,6 +92,7 @@ class ProjectionEngine:
                     region=payload.get("region", "GBR"),
                     universe=payload.get("universe", "TOP700"),
                     status="generated",
+                    artifact_ref=event.payload_ref,
                     history_events=[event.event_id],
                 )
                 self.candidates[csha] = cand
@@ -122,12 +130,15 @@ class ProjectionEngine:
             if csha in self.candidates:
                 cand = self.candidates[csha]
                 cand.status = "simulated"
+                cand.alpha_id = payload.get("alpha_id", cand.alpha_id)
                 cand.evidence_level = payload.get("evidence_level", "platform_is")
                 cand.sharpe = float(payload.get("sharpe", 0.0))
                 cand.fitness = float(payload.get("fitness", 0.0))
                 cand.turnover = float(payload.get("turnover", 0.0))
                 cand.returns = float(payload.get("returns", 0.0))
                 cand.drawdown = float(payload.get("drawdown", 0.0))
+                if event.payload_ref:
+                    cand.artifact_ref = event.payload_ref
                 cand.history_events.append(event.event_id)
 
                 if cand.sharpe >= 1.25 and cand.fitness >= 1.0:
@@ -138,20 +149,25 @@ class ProjectionEngine:
             csha = payload.get("candidate_sha", "")
             if csha in self.candidates:
                 cand = self.candidates[csha]
-                cand.checks_passed = bool(payload.get("checks_passed", False))
-                cand.status = "validated" if cand.checks_passed else "rejected"
+                cand.status = "validated"
+                cand.history_events.append(event.event_id)
+
+        elif etype == EventType.CORRELATION_CHECKED:
+            csha = payload.get("candidate_sha", "")
+            if csha in self.candidates:
+                cand = self.candidates[csha]
+                cand.pc_value = payload.get("pc_value")
+                cand.sc_value = payload.get("sc_value")
                 cand.history_events.append(event.event_id)
 
         elif etype == EventType.DECISION_APPROVED:
             csha = payload.get("candidate_sha", "")
             if csha in self.candidates:
                 cand = self.candidates[csha]
-                cand.status = "ready"
+                cand.status = "submission_ready"
                 cand.decision_verdict = "APPROVED"
                 cand.approved_by = event.actor
                 cand.history_events.append(event.event_id)
-                if cand not in self.approved_registry:
-                    self.approved_registry.append(cand)
 
         elif etype == EventType.DECISION_REJECTED:
             csha = payload.get("candidate_sha", "")
@@ -161,11 +177,13 @@ class ProjectionEngine:
                 cand.decision_verdict = "REJECTED"
                 cand.history_events.append(event.event_id)
 
-    def replay(self, events: Sequence[Event]) -> None:
-        """从事件序列全量重放，幂等重建所有物化视图."""
-        self.candidates.clear()
-        self.family_stats.clear()
-        self.outbox_items.clear()
-        self.approved_registry.clear()
-        for evt in events:
-            self.apply(evt)
+        elif etype == EventType.CANDIDATE_REJECTED_BY_RULE:
+            csha = payload.get("candidate_sha", "")
+            reason = payload.get("reason", "")
+            if csha in self.candidates:
+                cand = self.candidates[csha]
+                cand.status = "rejected"
+                cand.decision_verdict = f"RULE_REJECTED: {reason}"
+                cand.history_events.append(event.event_id)
+
+        self.last_applied_event_id = event.event_id

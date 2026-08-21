@@ -9,6 +9,7 @@ from pathlib import Path
 import pytest
 
 from alpha_operator_framework.database import AlphaDatabase, DatabaseConnectionManager
+from alpha_operator_framework.platform.simulation_tracker import SimulationTracker
 
 
 def test_database_wal_mode_and_pragmas():
@@ -100,3 +101,61 @@ def test_multithreaded_concurrent_read_write():
             assert len(errors) == 0, f"Concurrent workers encountered errors: {errors}"
         finally:
             db.close()
+
+
+def test_tracker_records_terminal_child_error_as_failed(tmp_path):
+    """A platform child in ERROR must not remain forever in the running state."""
+    db = AlphaDatabase(tmp_path / "tracker_error.db")
+    try:
+        def fetch(location):
+            if location == "batch-location":
+                return {"children": ["child-location"], "status": "ERROR"}, 0.0
+            return {"status": "ERROR", "message": "EVENT input requires vec_avg"}, 0.0
+
+        tracker = SimulationTracker(
+            db,
+            submit=lambda tasks: "batch-location",
+            fetch=fetch,
+            detail=lambda alpha_id: {},
+        )
+        batch_id = tracker.submit(
+            [{"expression": "ts_delta(event_field, 20)", "decay": 6}],
+            {"region": "USA", "universe": "TOP3000", "delay": 1, "decay": 6},
+        )
+
+        tracker.poll(batch_id)
+
+        result = db.get_simulation_results(batch_id)[0]
+        assert result["status"] == "failed"
+        assert "vec_avg" in result["error_message"]
+    finally:
+        db.close()
+
+
+def test_tracker_marks_idle_batch_stalled_without_resubmitting(tmp_path):
+    """An idle platform Location is escalated locally and is never submitted again."""
+    db = AlphaDatabase(tmp_path / "tracker_stalled.db")
+    submissions = []
+    try:
+        tracker = SimulationTracker(
+            db,
+            submit=lambda tasks: submissions.append(tasks) or "batch-location",
+            fetch=lambda location: ({"progress": 0.35}, 0.0),
+            detail=lambda alpha_id: {},
+        )
+        batch_id = tracker.submit(
+            [{"expression": "rank(close)", "decay": 6}],
+            {"region": "USA", "universe": "TOP3000", "delay": 1, "decay": 6},
+        )
+        db._get_connection().execute(
+            "UPDATE simulation_batches SET last_polled_at='2000-01-01T00:00:00' WHERE id=?", (batch_id,)
+        )
+        db._get_connection().commit()
+
+        assert tracker.mark_stalled_if_expired(batch_id, max_idle_seconds=60, now="2000-01-01T00:02:00") is True
+
+        batch = db.get_simulation_batch(batch_id)
+        assert batch["status"] == "stalled"
+        assert len(submissions) == 1
+    finally:
+        db.close()

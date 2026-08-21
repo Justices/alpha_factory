@@ -50,9 +50,6 @@ def persist_research_pipeline_results(
       2. alpha_details: 真实平台回测表现指标 (Sharpe, Fitness, Turnover, wf_stage等)
       3. alpha_checks: 平台全部 18 项 Checks 状态
     """
-    conn = db._get_connection()
-    now_iso = datetime.now().isoformat()
-
     inserted_exprs = 0
     saved_details = 0
 
@@ -87,33 +84,15 @@ def persist_research_pipeline_results(
             first_op = ""
 
         try:
-            cursor = conn.cursor()
-            cursor.execute(
-                """
-                INSERT INTO alpha_expressions (
-                    expression_sha, expression, expression_origin, settings,
-                    fields, status, first_operator, created_at, updated_at
-                ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
-                ON CONFLICT(expression_sha) DO UPDATE SET
-                    expression_origin = CASE WHEN alpha_expressions.expression_origin = '' THEN excluded.expression_origin ELSE alpha_expressions.expression_origin END,
-                    status = CASE WHEN excluded.status = 'completed' THEN 'completed' ELSE alpha_expressions.status END,
-                    fields = CASE WHEN excluded.fields != '[]' THEN excluded.fields ELSE alpha_expressions.fields END,
-                    first_operator = CASE WHEN alpha_expressions.first_operator = '' THEN excluded.first_operator ELSE alpha_expressions.first_operator END,
-                    updated_at = excluded.updated_at
-                """,
-                (
-                    expr_sha,
-                    can_expr,
-                    origin_str,
-                    json.dumps(settings, ensure_ascii=False),
-                    json.dumps(fields_used, ensure_ascii=False),
-                    "completed" if platform_results else "pending",
-                    first_op,
-                    now_iso,
-                    now_iso,
-                ),
+            db.upsert_expression_record(
+                expression_sha=expr_sha,
+                expression=can_expr,
+                origin=origin_str,
+                settings=settings,
+                fields=fields_used,
+                status="completed" if platform_results else "pending",
+                first_operator=first_op,
             )
-            conn.commit()
             inserted_exprs += 1
         except Exception as e:
             logger.warning(f"表达式落库异常 ({can_expr[:40]}): {e}")

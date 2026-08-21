@@ -53,11 +53,22 @@ def _survey_settings(args) -> dict:
 
 
 def _persist_rows(results: list, settings: dict, stage: str, status: str = "pending") -> int:
-    """把结果行批量持久化到数据库, 返回写入条数."""
-    db = AlphaDatabase()  # 使用默认路径 data/alpha_research.db
+    """把结果行批量持久化到数据库, 并登记到持久化试验账本."""
+    from alpha_operator_framework.domain.overfitting import TrialLedger
+    db = AlphaDatabase()
+    trial_ledger = TrialLedger(persistent=True)
     try:
         n = 0
         for row in results:
+            expr = row.get("expression") or ""
+            fam = row.get("family") or "default"
+            trial_ledger.record_trial(
+                expression=expr,
+                family=fam,
+                region=settings.get("region", "GBR"),
+                universe=settings.get("universe", "TOP700"),
+                metrics=row,
+            )
             if persist_workflow_row(db, row, settings, stage=stage, status=status):
                 n += 1
         return n
@@ -790,7 +801,7 @@ def cmd_submit(args) -> None:
     from alpha_operator_framework.domain.evidence import DecisionApprovalEngine, EvidenceLevel
     from alpha_operator_framework.domain.judge.evaluator import AlphaJudge
 
-    db = AlphaDatabase(db_path=args.db)
+    db = AlphaDatabase()
     try:
         ready_count = 0
         for aid in alpha_ids:
@@ -1160,6 +1171,8 @@ def build_parser() -> argparse.ArgumentParser:
                         help="SC边缘带 (默认0.05, threshold-marginal~threshold 标记黄色)")
     submit.add_argument("--os-alpha-count", type=int, default=100,
                         help="拉取已提交alpha数量用于SC计算 (默认100)")
+    submit.add_argument("--database", default=None,
+                        help="指定研究数据库路径 (可选, 默认自动获取配置)")
     submit.set_defaults(func=cmd_submit)
 
     return ap

@@ -315,17 +315,12 @@ async def _run_round_survey(config: LoopConfig, round_n: int, field_ids: List[st
         planned = list(dict.fromkeys(field_ids))
         if len(planned) < config.top_k_fields:
             tried: set = set()
-            if database and Path(database).exists():
-                import sqlite3 as _sqlite3
-                _conn = _sqlite3.connect(str(database))
-                try:
-                    tried = {r[0] for r in _conn.execute(
-                        "SELECT DISTINCT field_id FROM field_signal_stats WHERE region=?",
-                        (config.region,))}
-                except Exception:
-                    tried = set()
-                finally:
-                    _conn.close()
+            try:
+                from alpha_operator_framework.database.repository import AlphaDatabase
+                _db = AlphaDatabase()
+                tried = _db.get_tried_field_ids(config.region)
+            except Exception:
+                tried = set()
             planned_set = set(planned)
             cold_pool = [s.id for s in specs if s.id not in planned_set and s.id not in tried]
             if cold_pool:

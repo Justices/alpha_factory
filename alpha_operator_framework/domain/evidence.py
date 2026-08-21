@@ -175,3 +175,8 @@ class SubmissionApprovalEngine:
                 "margin": margin,
             },
         )
+
+
+# Alias
+DecisionApprovalEngine = SubmissionApprovalEngine
+

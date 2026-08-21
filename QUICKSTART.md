@@ -28,15 +28,30 @@ python alpha_machine.py init-db
 # 验证数据库完整性
 python init_db.py --verify
 
-# 运行全套 171 项测试
+# 运行全套 180 项测试
 python -m pytest
+
+# 运行小批崩溃恢复与治理闭环演练 (生产前推荐)
+python alpha_machine.py drill-recovery
 ```
 
 ---
 
 ## 🚀 2. 核心 CLI 命令备忘清单
 
-### 2.1 文献认知提炼流水线 (`run-research`)
+### 2.0 全自动无人值守投研流水线 (`auto-pilot`) 🌟
+一键串联：环境自检 ➔ 真实并发回测 ➔ 6 维证据终审 ➔ 空间释放 (VACUUM) ➔ 汇总研报生成：
+```bash
+# 云端/后台一键全自动生产运行 (推荐)
+python alpha_machine.py auto-pilot \
+    --region GBR --universe TOP700 \
+    --datasets analyst7 \
+    --sample-per-family 4 --batch-size 5 \
+    --execute
+
+# 或直接运行后台一键启动脚本 (自动保存日志):
+bash run_autopilot.sh GBR TOP700 analyst7 4 5
+```
 从学术研报或论文 PDF 中自动提取量化逻辑，对齐平台字段并执行真实回测与终审：
 ```bash
 # 试运行 (Dry-run, 不消耗平台回测额度)

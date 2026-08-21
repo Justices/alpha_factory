@@ -40,6 +40,18 @@
   python alpha_machine.py clean-db --mode stale
   ```
 
+### 1.5 全局数据库配置中心与存储解耦 (MySQL / PostgreSQL 迁移架构)
+系统通过 `alpha_operator_framework/database/config.py` 实现了全局数据库配置中心：
+- **统一单例与默认路径**：默认指向 `data/alpha_research.db`，所有模块（Repository、EventStore、TrialLedger、CLI）统一通过 `get_database_path()` / `get_database_config()` 获取；
+- **环境变量一键覆盖**：
+  - `ALPHA_DATABASE_PATH`: 自定义 SQLite 数据库文件绝对/相对路径；
+  - `ALPHA_DATABASE_URL`: 标准数据库连接 URL，如：
+    - `sqlite:///data/alpha_research.db`
+    - `mysql://user:password@localhost:3306/alpha_db`
+    - `postgresql://user:password@localhost:5432/alpha_db`
+- **极高内聚与低耦合封装**：所有数据库连接管理、驱动适配（SQLite / MySQL / Postgres）、SQL 语句、事务提交与 PRAGMA 调优 100% 严格封装在 `alpha_operator_framework/database/` 模块内部。
+- **业务/领域/内核零 SQL 泄漏**：上层业务（`core/EventStore`、`domain/TrialLedger`、`research/pipeline`、`loop`、`orchestrator`、`alpha_machine`）完全没有任何 `import sqlite3` 或原生 SQL 拼接，所有数据读写统一委托给 `AlphaDatabase` 仓储高阶接口，实现真正的透明持久化与后端无缝切换。
+
 ---
 
 ## 二、 实体关系图 (Entity Relationship Diagram)

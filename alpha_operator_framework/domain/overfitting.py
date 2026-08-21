@@ -14,7 +14,6 @@ import itertools
 import json
 import logging
 import math
-import sqlite3
 import threading
 from dataclasses import dataclass, field
 from datetime import datetime
@@ -201,45 +200,35 @@ class TrialRecord:
 
 
 class TrialLedger:
-    """真实试验自由度账本 (Trial Ledger) — 记录全生命周期搜索空间与有效试验次数 (支持 SQLite 持久化与族内相关性折损)."""
+    """真实试验自由度账本 (Trial Ledger) — 记录全生命周期搜索空间与有效试验次数 (支持持久化与族内相关性折损)."""
 
-    def __init__(self, db_path: Optional[Union[str, Path]] = None):
-        self.db_path = str(db_path) if db_path else None
+    def __init__(
+        self,
+        persistent: bool = True,
+        repository: Any = None,
+        db_path: Optional[Union[str, Path]] = None,
+    ):
+        """初始化试验账本.
+
+        Args:
+            persistent: 是否自动持久化至全局研究数据库 (默认 True)
+            repository: 可选注入仓储实例 (依赖倒置)
+            db_path: 向后兼容参数 (已由配置中心统一接管)
+        """
         self._lock = threading.Lock()
         self._trials_by_family: Dict[str, int] = {}
         self._total_trials: int = 0
         self._records: List[TrialRecord] = []
-        if self.db_path:
-            self._init_persistent_db()
+        self._repo = None
 
-    def _init_persistent_db(self) -> None:
-        """初始化持久化账本数据表与索引."""
-        if self.db_path and self.db_path != ":memory:":
-            Path(self.db_path).parent.mkdir(parents=True, exist_ok=True)
-        with self._lock:
-            with sqlite3.connect(self.db_path or ":memory:") as conn:
-                conn.execute("""
-                    CREATE TABLE IF NOT EXISTS trial_ledger (
-                        id INTEGER PRIMARY KEY AUTOINCREMENT,
-                        trial_id TEXT NOT NULL UNIQUE,
-                        expression TEXT NOT NULL,
-                        family TEXT NOT NULL DEFAULT 'default',
-                        region TEXT NOT NULL DEFAULT 'GBR',
-                        universe TEXT NOT NULL DEFAULT 'TOP700',
-                        metrics_json TEXT NOT NULL DEFAULT '{}',
-                        created_at TEXT NOT NULL
-                    )
-                """)
-                conn.execute("CREATE INDEX IF NOT EXISTS idx_trial_family ON trial_ledger(family)")
-                conn.commit()
-
-                # 从已有数据中恢复历史累计统计
-                cursor = conn.cursor()
-                cursor.execute("SELECT family, COUNT(*) FROM trial_ledger GROUP BY family")
-                for fam, count in cursor.fetchall():
-                    self._trials_by_family[fam] = count
-                cursor.execute("SELECT COUNT(*) FROM trial_ledger")
-                self._total_trials = cursor.fetchone()[0]
+        if persistent and str(db_path) != ":memory:":
+            try:
+                from alpha_operator_framework.database.repository import AlphaDatabase
+                self._repo = repository or AlphaDatabase(db_path=db_path if isinstance(db_path, (str, Path)) else None)
+                self._trials_by_family = self._repo.get_trial_counts_by_family()
+                self._total_trials = self._repo.get_total_trial_count()
+            except Exception as ex:
+                logger.debug(f"TrialLedger 仓储初始化跳过或失败: {ex}")
 
     def record_trial(
         self,
@@ -267,17 +256,17 @@ class TrialLedger:
             )
             self._records.append(rec)
 
-            if self.db_path:
+            if self._repo is not None:
                 try:
-                    with sqlite3.connect(self.db_path) as conn:
-                        conn.execute(
-                            """
-                            INSERT INTO trial_ledger (trial_id, expression, family, region, universe, metrics_json, created_at)
-                            VALUES (?, ?, ?, ?, ?, ?, ?)
-                            """,
-                            (trial_id, expression, family, region, universe, json.dumps(metrics or {}, ensure_ascii=False), now_iso),
-                        )
-                        conn.commit()
+                    self._repo.record_trial(
+                        trial_id=trial_id,
+                        expression=expression,
+                        family=family,
+                        region=region,
+                        universe=universe,
+                        metrics=metrics or {},
+                        created_at=now_iso,
+                    )
                 except Exception as ex:
                     logger.warning(f"TrialLedger 持久化写入异常: {ex}")
 

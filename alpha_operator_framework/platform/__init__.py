@@ -13,6 +13,7 @@ from .platform_simulator import (
     PlatformAlphaResult,
     BrainPlatformSimulator,
 )
+from .adapter import BrainPlatformAdapter
 
 __all__ = [
     "TokenBucketRateLimiter",
@@ -22,4 +23,5 @@ __all__ = [
     "PriorityTaskScheduler",
     "PlatformAlphaResult",
     "BrainPlatformSimulator",
+    "BrainPlatformAdapter",
 ]

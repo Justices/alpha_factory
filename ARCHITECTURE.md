@@ -149,8 +149,6 @@ $$N_{eff} = 1 + (N - 1)(1 - \bar{\rho}_{family})$$
 - **FASTEXPR 规范化转译**：消除空格、括号、操作数顺序等表面差异，生成全局唯一标准规范化字符串与 SHA256 哈希；
 - **废弃字段全面拦截**：在 AST 编译与字段摄取阶段**全面拦截 `close`、`open`、`high`、`low`**，强制采用 `returns`、`vwap`、`volume`、`market_cap`、`sharesout` 等标准字段。
 
----
-
 ## 六、 数据库全景架构与运维
 
 位于 `alpha_operator_framework/database/`：
@@ -158,3 +156,18 @@ $$N_{eff} = 1 + (N - 1)(1 - \bar{\rho}_{family})$$
 - **零提交规范 (Zero-Commit Policy)**：`.db` 严格加入 `.gitignore`，通过 `python init_db.py` 自动化创建与种子填充；
 - **WAL 并发调优**：启用 `journal_mode = WAL`、`synchronous = NORMAL`、`busy_timeout = 30000`；
 - **自动化存储回收 (`DatabaseCleaner`)**：支持按失败状态清理废弃记录，并在 autocommit 模式下执行 `PRAGMA wal_checkpoint(TRUNCATE)` 与 `VACUUM` 彻底释放磁盘空间。
+
+---
+
+## 七、 平台网关追踪、看门狗与无人值守架构
+
+### 1. 真实平台仿真追踪器与看门狗 (`SimulationTracker`)
+位于 `alpha_operator_framework/platform/simulation_tracker.py`：
+- **终态语义一致性**：将子任务平台错误（`ERROR`、`FAILED`、`CANCELLED`）直接映射为失败终态，避免顶层失败而子任务卡在 `running`；
+- **无重提交超时看门狗 (`mark_stalled_if_expired`)**：当批次在平台长期停滞超过 TTL 时，标记为 `stalled` 状态并写入告警日志，**严禁自动重提**，仅允许重试轮询既有 Location 或人工介入，杜绝平台配额浪费。
+
+### 2. 全自动无人值守投研流水线 (`auto-pilot`)
+通过 `python alpha_machine.py auto-pilot` 或 `run_autopilot.sh` 实现：
+$$\text{Preflight Check} \longrightarrow \text{Real Batch Mining} \longrightarrow \text{6-Dimension Audit} \longrightarrow \text{Database VACUUM} \longrightarrow \text{Markdown Summary Report}$$
+支持在云端通过 `nohup` / `tmux` 长时间稳定运行并自动生成结构化投研简报。
+

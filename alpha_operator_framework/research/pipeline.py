@@ -235,7 +235,6 @@ def run_literature_research_pipeline(
     run_decay_profiler: bool = True,
     run_judge_review: bool = True,
     save_to_db: bool = True,
-    database_path: Optional[Union[str, Path]] = DEFAULT_DB_PATH,
     output_report_path: Optional[Union[str, Path]] = None,
 ) -> ResearchPipelineResult:
     """全自动端到端文献研发与终审评级直通流水线 (End-to-End Autonomous Quant Pipeline).
@@ -305,6 +304,9 @@ def run_literature_research_pipeline(
     decay_profiles: Dict[str, AlphaDecayProfile] = {}
     candidates: List[Dict[str, Any]] = []
 
+    # 初始化试验账本
+    trial_ledger = TrialLedger(persistent=save_to_db)
+
     if execute_on_platform and tasks:
         logger.info(f"正在向 WorldQuant BRAIN 平台真实提交 {len(tasks)} 个 Alpha 进行回测...")
         simulator = BrainPlatformSimulator()
@@ -325,7 +327,10 @@ def run_literature_research_pipeline(
             fitness_val = round(p_res.fitness, 2)
             turnover_val = round(p_res.turnover, 2)
 
-            effective_n = max(len(tasks), 1)
+            # 登记到持久化试验账本并计算结构族有效试验数
+            trial_ledger.record_trial(can_expr, family="literature", region=region, universe=universe, metrics={"sharpe": sharpe_val})
+            effective_n = trial_ledger.get_effective_trials("literature")
+
             psr_val = compute_psr(sharpe_val, t_days=504, benchmark_sharpe=0.0)
             dsr_val = compute_dsr(sharpe_val, trial_count=effective_n, t_days=504)
             haircut_val = compute_haircut_sharpe(sharpe_val, trial_count=effective_n, t_days=504)
@@ -465,9 +470,8 @@ def run_literature_research_pipeline(
     # 7. 自动持久化落库 (alpha_expressions, alpha_details, alpha_checks)
     db_persisted = False
     db_stats = {}
-    if save_to_db and database_path:
-        db_p = Path(database_path)
-        db = AlphaDatabase(db_p)
+    if save_to_db:
+        db = AlphaDatabase()
         try:
             settings_dict = {
                 "region": region,

@@ -57,6 +57,7 @@ from alpha_operator_framework.platform.local_fields import (
 )
 from alpha_machine import write_json
 from alpha_machine import main as alpha_machine_main
+from alpha_operator_framework.orchestrator import build_parser
 from alpha_operator_framework.platform.simulation_tracker import SimulationTracker
 from alpha_operator_framework.generation.super_alpha import (
     SuperAlphaConfig,
@@ -91,6 +92,15 @@ def test_operators():
     assert len(exprs) > 0, "应生成至少1个表达式"
 
     print("✓ 算子库测试通过")
+
+
+def test_submit_cli_accepts_database_path():
+    """The production submit command must carry its durable database path."""
+    parser = build_parser()
+    args = parser.parse_args([
+        "submit", "--kept-out", "runs/kept.json", "--database", "data/production.db",
+    ])
+    assert args.database == "data/production.db"
 
 
 def test_families():

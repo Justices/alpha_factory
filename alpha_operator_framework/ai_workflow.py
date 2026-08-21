@@ -631,8 +631,7 @@ async def run_survey_with_fields(
         budget = int(getattr(config, "max_alpha_budget", 0) or 0)
         backtest_n = config.backtest_sample_n
         if budget > 0:
-            existing_alphas = catalog_db._get_connection().execute(
-                "SELECT COUNT(*) FROM alpha_details").fetchone()[0]
+            existing_alphas = catalog_db.get_total_alpha_details_count()
             allowance = budget - int(existing_alphas)
             requested = backtest_n if backtest_n > 0 else allowance
             if requested > allowance:

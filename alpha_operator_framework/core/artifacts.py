@@ -27,8 +27,13 @@ class ArtifactMetadata:
 class ArtifactStore:
     """基于 SHA-256 的不可变内容寻址存储器."""
 
-    def __init__(self, root_dir: Optional[Union[str, Path]] = None):
-        self.root_dir = Path(root_dir) if root_dir else None
+    def __init__(
+        self,
+        root_dir: Optional[Union[str, Path]] = None,
+        storage_dir: Optional[Union[str, Path]] = None,
+    ):
+        dir_p = storage_dir or root_dir
+        self.root_dir = Path(dir_p) if dir_p else None
         self._memory_store: Dict[str, bytes] = {}
         self._metadata_store: Dict[str, ArtifactMetadata] = {}
 

@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+from datetime import datetime
 from typing import Any, Callable, Sequence
 
 from alpha_operator_framework.database import AlphaDatabase, persist_workflow_row
@@ -71,6 +72,17 @@ class SimulationTracker:
             child, _ = self.fetch_progress(child_url)
             alpha_id = child.get("alpha") if isinstance(child, dict) else None
             if not alpha_id:
+                child_status = str(child.get("status") or "").upper() if isinstance(child, dict) else ""
+                if child_status in {"ERROR", "FAILED", "CANCELLED"}:
+                    message = str(child.get("message") or child_status)
+                    self.database.record_simulation_result(
+                        batch_id,
+                        sequence_no,
+                        status="failed",
+                        child_url=child_url,
+                        error_message=message,
+                    )
+                    continue
                 self.database.record_simulation_result(batch_id, sequence_no, status="running", child_url=child_url)
                 continue
             details = self.fetch_detail(str(alpha_id))
@@ -86,6 +98,34 @@ class SimulationTracker:
             else:
                 persist_workflow_row(self.database, {**details, "alpha_id": str(alpha_id)}, settings, stage="simulation")
         return self.database.get_simulation_batch(batch_id) or batch
+
+    def mark_stalled_if_expired(
+        self,
+        batch_id: int,
+        max_idle_seconds: float,
+        now: str | datetime | None = None,
+    ) -> bool:
+        """Mark a non-terminal batch stalled after its polling TTL without resubmitting it."""
+        batch = self.database.get_simulation_batch(batch_id)
+        if not batch or batch.get("status") in {"completed", "failed", "stalled"}:
+            return False
+        last_polled_at = batch.get("last_polled_at")
+        if not last_polled_at:
+            return False
+        try:
+            observed_at = datetime.fromisoformat(str(last_polled_at).replace("Z", "+00:00"))
+            current_at = datetime.fromisoformat(now.replace("Z", "+00:00")) if isinstance(now, str) else (now or datetime.now())
+        except ValueError:
+            return False
+        if (current_at - observed_at).total_seconds() < max_idle_seconds:
+            return False
+        self.database.record_simulation_progress(
+            batch_id,
+            batch.get("progress_json") or {},
+            status="stalled",
+            error_message=f"No platform progress for at least {int(max_idle_seconds)} seconds; poll stored Location before any retry.",
+        )
+        return True
 
 
 def _decode_settings(raw: str | None) -> dict[str, Any]:

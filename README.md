@@ -1,7 +1,7 @@
 # Alpha Factory (Alpha Factor Operator Framework)
 
 [![Python 3.10+](https://img.shields.io/badge/python-3.10%2B-blue.svg)](https://www.python.org/)
-[![Tests](https://img.shields.io/badge/tests-171%20passed%20(100%25)-brightgreen.svg)]()
+[![Tests](https://img.shields.io/badge/tests-180%20passed%20(100%25)-brightgreen.svg)]()
 [![Architecture](https://img.shields.io/badge/architecture-Event--Sourced%20Core%20%7C%20DDD-purple.svg)](ARCHITECTURE.md)
 [![Database](https://img.shields.io/badge/database-SQLite%20(17%20Tables)-orange.svg)](DATABASE_DESIGN.md)
 
@@ -95,9 +95,14 @@ python init_db.py
 python alpha_machine.py init-db
 ```
 
-### 2. 执行完整单元与集成测试 (171 项)
+### 2. 执行完整单元与集成测试 (172 项)
 ```bash
 python -m pytest
+```
+
+### 3. 小批崩溃恢复演练 (推荐在首次生产运行前执行)
+```bash
+python alpha_machine.py drill-recovery
 ```
 
 ### 3. 文献认知提取流水线 (Literature Research)

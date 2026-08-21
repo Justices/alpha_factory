@@ -149,6 +149,14 @@ GET  /experiments/{id}/compare 查询 A/B 对照与统计结论
 3. 选择一条小预算策略做端到端 A/B，验证重放、幂等和统计隔离。
 4. 当新投影覆盖现有候选/批次/审批视图后，切换写入端；旧表保留只读归档。
 
-## 11. 代价与适用性
+## 11. 真实平台适配器与小批恢复演练
+
+系统内置了标准生产适配层：
+- **`BrainPlatformAdapter` (`platform/adapter.py`)**：封装了认证会话、平台批量模拟与自适应限流，将平台原始响应转换为 `EvidenceLevel.PLATFORM_IS` 证据载体。
+- **`create_production_engine()`**：快速装配持久化 `EventStore`、`ArtifactStore`、`TrialLedger` 与生产网关。
+- **小批崩溃恢复演练 (`python alpha_machine.py drill-recovery`)**：用于在正式投研前验证 `SimulationAccepted -> Crash -> Restart & Resume -> 6-Dimension Approval` 全生命周期闭环。
+
+## 12. 代价与适用性
 
 该方案的收益是严谨的可复现性、并行实验能力和长期研究资产沉淀；代价是引入事件建模、worker/outbox、投影维护与 PostgreSQL 运维。它适合准备长期运行多策略、多分支、多 worker 的 Alpha 工厂；若近期目标是尽快验证现有流程，应优先采用渐进式分层方案。
+

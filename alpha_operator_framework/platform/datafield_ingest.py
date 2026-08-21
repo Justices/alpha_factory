@@ -56,8 +56,7 @@ async def ingest_random_datafield(
     else:
         pool = db.missing_datafield_candidates(region=region, delay=delay)
     if only_missing:
-        have = {r["field_id"] for r in db._get_connection().execute(
-            "SELECT field_id FROM datafields WHERE region=? AND delay=?", (region, delay))}
+        have = db.get_existing_datafield_ids(region=region, delay=delay)
         pool = [f for f in pool if f not in have]
     if not pool:
         return None

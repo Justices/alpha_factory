@@ -18,10 +18,12 @@ if hasattr(sys.stdout, "reconfigure"):
 if hasattr(sys.stderr, "reconfigure"):
     sys.stderr.reconfigure(encoding="utf-8")
 
+from alpha_operator_framework.database.config import get_database_path
+
 logger = logging.getLogger("init_db")
 
-# 默认主数据库路径
-DEFAULT_DB_PATH = Path("data") / "alpha_research.db"
+# 默认主数据库路径 (支持环境变量配置)
+DEFAULT_DB_PATH = get_database_path()
 SCHEMA_DIR = Path(__file__).parent / "schema"
 LATEST_SCHEMA_FILE = SCHEMA_DIR / "latest_schema.sql"
 

@@ -30,6 +30,7 @@ mindmap
     审计与历史评估 docs/assessments
       PROJECT_ASSESSMENT_2026-08-21.md["第一阶段评估报告"]
       REASSESSMENT_2026-08-21.md["第二阶段复评与改进要求"]
+      PRODUCTION_READINESS_2026-08-21.md["生产就绪性复核与处置清单"]
       code_cleanup_summary.md["代码与架构清理总结"]
       improvement_summary.md["核心能力增强总结"]
       project_summary.md["项目里程碑总结"]
@@ -82,6 +83,7 @@ mindmap
 | :--- | :--- |
 | [**PROJECT_ASSESSMENT_2026-08-21.md**](file:///d:/quant/alpha_factory/docs/assessments/PROJECT_ASSESSMENT_2026-08-21.md) | 2026-08-21 第一阶段系统架构与科学性全面评估。 |
 | [**REASSESSMENT_2026-08-21.md**](file:///d:/quant/alpha_factory/docs/assessments/REASSESSMENT_2026-08-21.md) | 2026-08-21 第二阶段复评（证据边界防御、Outbox 恢复、真实批处理）。 |
+| [**PRODUCTION_READINESS_2026-08-21.md**](file:///d:/quant/alpha_factory/docs/assessments/PRODUCTION_READINESS_2026-08-21.md) | 2026-08-21 生产运行就绪性复核与真实平台故障处置清单。 |
 | [**code_cleanup_summary.md**](file:///d:/quant/alpha_factory/docs/assessments/code_cleanup_summary.md) | 模块瘦身、冗余代码清理与工程规范化记录。 |
 | [**improvement_summary.md**](file:///d:/quant/alpha_factory/docs/assessments/improvement_summary.md) | 核心算法演进与系统效能提升历史总结。 |
 | [**project_summary.md**](file:///d:/quant/alpha_factory/docs/assessments/project_summary.md) | 项目阶段里程碑成果汇总。 |

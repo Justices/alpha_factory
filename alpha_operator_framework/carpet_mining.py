@@ -14,6 +14,7 @@ from __future__ import annotations
 import json
 import logging
 import random
+import re
 import time
 from dataclasses import dataclass, field
 from datetime import datetime
@@ -22,6 +23,8 @@ from typing import Any, Dict, List, Optional, Sequence, Tuple, Union
 
 from alpha_operator_framework.database.repository import AlphaDatabase
 from alpha_operator_framework.domain.ast import (
+    BreederConfig,
+    SymbolicTreeBreeder,
     canonicalize_expression,
     extract_ast_fields,
     parse_expression,
@@ -31,6 +34,7 @@ from alpha_operator_framework.domain.families import Task
 from alpha_operator_framework.domain.judge.evaluator import AlphaJudge, JudgeReport
 from alpha_operator_framework.distill.diagnostic import FailureDiagnosis, FailureMode, diagnose_alpha_failure
 from alpha_operator_framework.distill.mutation import AlphaMutator
+from alpha_operator_framework.distill.template_abstractor import abstract_templates
 from alpha_operator_framework.distill.template_pruner import matches_prune_rule
 from alpha_operator_framework.research.field_loader import load_real_market_fields
 from alpha_operator_framework.platform.platform_simulator import (
@@ -78,6 +82,7 @@ class CarpetMiningResult:
     all_persisted_ids: List[str]
     ranked_reports: List[JudgeReport]
     elapsed_seconds: float
+    distilled_templates: List[str] = field(default_factory=list)
 
     def summary_markdown(self) -> str:
         """生成 Markdown 格式的执行总结研报."""
@@ -89,6 +94,7 @@ class CarpetMiningResult:
             f"- **表达式生成规模**: 初始生成 `{self.total_expressions_generated}` 条 ➔ 分层抽样 `{self.sampled_cohort_size}` 条 ({len(self.categories_tested)} 个大类)",
             f"- **回测与入库**: 平台实测 `{len(self.first_gen_results)}` 条第一代 + `{len(self.optimized_results)}` 条二代优化",
             f"- **淘汰剪枝族数**: `{len(self.pruned_families)}` 族 (已沉淀剪枝规则)",
+            f"- **自主蒸馏模板**: 新沉淀 `{len(self.distilled_templates)}` 个高阶模板至知识库",
             f"- **全流程耗时**: `{self.elapsed_seconds:.1f}` 秒",
             f"",
             f"## 一、 综合优胜 Alpha 终审排行榜 (Top 10)",
@@ -144,6 +150,17 @@ class CarpetMiningResult:
                 f"- **综合表现**: Sharpe **{b_sharpe:.2f}**, Fitness **{b_fitness:.2f}**, 年化收益 **{b_returns:.2%}**, 最大回撤 **{b_drawdown:.1%}**, 换手率 **{b_turnover:.1%}**",
             ])
 
+        if self.distilled_templates:
+            lines.extend([
+                f"",
+                f"## 三、 🧬 本轮自主反向蒸馏沉淀的新模板骨架",
+                f"",
+                f"系统已自动将本轮胜出的高夏普 Alpha 结构泛化提取并存入 `template_library` 数据库，后续将自动跨数据集复用：",
+                f"",
+            ])
+            for idx, skel in enumerate(self.distilled_templates, 1):
+                lines.append(f"{idx}. `{skel}`")
+
         return "\n".join(lines)
 
 
@@ -191,7 +208,11 @@ class StratifiedCarpetMiner:
             "macd_velocity": [],          # 3. 长短均线加速度 (MACD)
             "relative_ratio": [],         # 4. 截面相对比率与估值溢价
             "asymmetric_risk": [],        # 5. 波动率与下行风险不对称惩罚
-            "cross_interaction": [],      # 6. 多源跨数据集协同
+            "sector_decomposition": [],  # 6. 行业-特质正交分解与Beta剪刀差
+            "three_tier_scaling": [],    # 7. 三层架构: 原始特征 ➔ 截面行业/市值分箱 ➔ 时序尺度标准化
+            "cross_interaction": [],      # 8. 多源跨数据集协同
+            "evolved_distillation": [],  # 9. 数据库自主进化模板动态回流与实例化
+            "symbolic_evolution": [],   # 10. 符号语法树自由杂交与进化探索
         }
 
         # 准备原子包装字段
@@ -265,8 +286,8 @@ class StratifiedCarpetMiner:
                     family="macd_velocity",
                     template_index=5,
                     fields_per_alpha=1,
-                    expression=f"group_neutralize(rank(ts_mean({atom}, 20) - ts_mean({atom}, 120)), {self.config.neutralization.lower()})",
-                    decay=15,
+                    expression=f"group_neutralize(rank(ts_decay_linear({atom}, 10)) - rank(ts_decay_linear({atom}, 30)), {self.config.neutralization.lower()})",
+                    decay=10,
                     meta={"dataset": ds, "field": fid},
                 )
             )
@@ -309,18 +330,92 @@ class StratifiedCarpetMiner:
 
         # 5. 不对称风险惩罚族 (asymmetric_risk)
         for fid, atom, ds in atomic_fields:
-            categorized_tasks["asymmetric_risk"].append(
-                Task(
-                    family="asymmetric_risk",
-                    template_index=9,
-                    fields_per_alpha=1,
-                    expression=f"group_neutralize(rank(ts_delta({atom}, 20)) / (0.01 + rank(ts_std_dev({atom}, 40))), {self.config.neutralization.lower()})",
-                    decay=self.config.decay,
-                    meta={"dataset": ds, "field": fid},
+            for w_delta, w_std in ((10, 20), (20, 40), (60, 120)):
+                categorized_tasks["asymmetric_risk"].append(
+                    Task(
+                        family="asymmetric_risk",
+                        template_index=9,
+                        fields_per_alpha=1,
+                        expression=f"group_neutralize(rank(ts_delta({atom}, {w_delta})) / (0.01 + rank(ts_std_dev({atom}, {w_std}))), {self.config.neutralization.lower()})",
+                        decay=self.config.decay,
+                        meta={"dataset": ds, "field": fid, "window_delta": w_delta, "window_std": w_std},
+                    )
                 )
-            )
 
-        # 6. 多源跨数据集协同族 (cross_interaction)
+        # 6. 行业-特质正交分解族 (sector_decomposition)
+        neut_group = self.config.neutralization.lower()
+        for fid, atom, ds in atomic_fields:
+            for w in (22, 63, 126):
+                categorized_tasks["sector_decomposition"].append(
+                    Task(
+                        family="sector_decomposition",
+                        template_index=11,
+                        fields_per_alpha=1,
+                        expression=f"ts_zscore({atom}, {w}) - ts_zscore(group_neutralize({atom}, {neut_group}), {w})",
+                        decay=self.config.decay,
+                        meta={"dataset": ds, "field": fid, "window": w, "decomp_type": "beta_drift"},
+                    )
+                )
+                categorized_tasks["sector_decomposition"].append(
+                    Task(
+                        family="sector_decomposition",
+                        template_index=12,
+                        fields_per_alpha=1,
+                        expression=f"group_neutralize(ts_rank(group_neutralize({atom}, {neut_group}), {w}) - ts_rank({atom}, {w}), {neut_group})",
+                        decay=self.config.decay,
+                        meta={"dataset": ds, "field": fid, "window": w, "decomp_type": "idiosyncratic_divergence"},
+                    )
+                )
+
+        # 7. 三层架构: 原始特征 ➔ 截面行业/市值分箱 ➔ 时序尺度标准化 (three_tier_scaling)
+        for fid, atom, ds in atomic_fields:
+            for w in (22, 66, 120, 240):
+                # 变体 1: ts_scale 极值截面标准化
+                categorized_tasks["three_tier_scaling"].append(
+                    Task(
+                        family="three_tier_scaling",
+                        template_index=13,
+                        fields_per_alpha=1,
+                        expression=f"ts_scale(group_rank({atom}, {neut_group}), {w})",
+                        decay=self.config.decay,
+                        meta={"dataset": ds, "field": fid, "window": w, "tier_type": "ts_scale_industry"},
+                    )
+                )
+                # 变体 2: ts_rank 排序保留
+                categorized_tasks["three_tier_scaling"].append(
+                    Task(
+                        family="three_tier_scaling",
+                        template_index=14,
+                        fields_per_alpha=1,
+                        expression=f"ts_rank(group_rank({atom}, {neut_group}), {w})",
+                        decay=self.config.decay,
+                        meta={"dataset": ds, "field": fid, "window": w, "tier_type": "ts_rank_industry"},
+                    )
+                )
+                # 变体 3: ts_zscore 高斯标准化
+                categorized_tasks["three_tier_scaling"].append(
+                    Task(
+                        family="three_tier_scaling",
+                        template_index=15,
+                        fields_per_alpha=1,
+                        expression=f"ts_zscore(group_rank({atom}, {neut_group}), {w})",
+                        decay=self.config.decay,
+                        meta={"dataset": ds, "field": fid, "window": w, "tier_type": "ts_zscore_industry"},
+                    )
+                )
+                # 变体 4: 市值十分箱中性化 + ts_scale
+                categorized_tasks["three_tier_scaling"].append(
+                    Task(
+                        family="three_tier_scaling",
+                        template_index=16,
+                        fields_per_alpha=1,
+                        expression=f"ts_scale(group_rank({atom}, bucket(rank(cap), range='0.1, 1, 0.1')), {w})",
+                        decay=self.config.decay,
+                        meta={"dataset": ds, "field": fid, "window": w, "tier_type": "ts_scale_market_cap_bucket"},
+                    )
+                )
+
+        # 8. 多源跨数据集协同族 (cross_interaction)
         by_dataset: Dict[str, List[Tuple[str, str]]] = {}
         for fid, atom, ds in atomic_fields:
             by_dataset.setdefault(ds, []).append((fid, atom))
@@ -344,6 +439,59 @@ class StratifiedCarpetMiner:
                                     meta={"dataset": f"{ds1}*{ds2}", "fields": [fid1, fid2]},
                                 )
                             )
+
+        # 9. 动态从数据库 template_library 加载并实例化自主进化模板
+        if self.db and hasattr(self.db, "list_templates"):
+            try:
+                db_templates = self.db.list_templates(active_only=True)
+                for tpl in db_templates:
+                    raw_tpl = tpl.expression_template
+                    if not raw_tpl or "{" not in raw_tpl:
+                        continue
+                    slots = sorted(list(set(re.findall(r"\{([a-z])\}", raw_tpl))))
+                    if len(slots) == 1:
+                        for fid, atom, ds in atomic_fields:
+                            inst_expr = raw_tpl.replace("{a}", atom).replace("{group}", neut_group).replace("{decay}", str(self.config.decay))
+                            categorized_tasks["evolved_distillation"].append(
+                                Task(
+                                    family=tpl.family or "evolved_distillation",
+                                    template_index=tpl.template_index or 999,
+                                    fields_per_alpha=1,
+                                    expression=inst_expr,
+                                    decay=self.config.decay,
+                                    meta={"dataset": ds, "field": fid, "from_db_template": tpl.name},
+                                )
+                            )
+                    elif len(slots) == 2 and len(atomic_fields) >= 2:
+                        for i in range(min(len(atomic_fields), 8)):
+                            fid1, atom1, ds1 = atomic_fields[i]
+                            for j in range(i + 1, min(len(atomic_fields), 10)):
+                                fid2, atom2, ds2 = atomic_fields[j]
+                                inst_expr = raw_tpl.replace("{a}", atom1).replace("{b}", atom2).replace("{group}", neut_group).replace("{decay}", str(self.config.decay))
+                                categorized_tasks["evolved_distillation"].append(
+                                    Task(
+                                        family=tpl.family or "evolved_distillation",
+                                        template_index=tpl.template_index or 999,
+                                        fields_per_alpha=2,
+                                        expression=inst_expr,
+                                        decay=self.config.decay,
+                                        meta={"dataset": f"{ds1}+{ds2}", "fields": [fid1, fid2], "from_db_template": tpl.name},
+                                    )
+                                )
+            except Exception as e:
+                logger.debug(f"加载 DB 进化模板库跳过: {e}")
+
+        # 10. 符号语法树自由杂交引擎自主进化生成 (无需预置模板)
+        try:
+            breeder = SymbolicTreeBreeder(BreederConfig(seed=self.config.seed))
+            symbolic_tasks = breeder.breed_task_cohort(
+                fields=fields,
+                default_decay=self.config.decay,
+                neutralization=self.config.neutralization,
+            )
+            categorized_tasks["symbolic_evolution"] = symbolic_tasks
+        except Exception as e:
+            logger.warning(f"符号语法树杂交引擎执行异常: {e}")
 
         # 过滤命中现有剪枝规则的表达式
         prune_rules = self.db.get_active_prune_rules() if hasattr(self.db, "get_active_prune_rules") else []
@@ -628,6 +776,49 @@ class StratifiedCarpetMiner:
 
         return opt_results
 
+    def distill_and_persist_winning_templates(
+        self,
+        final_reports: List[JudgeReport],
+    ) -> List[str]:
+        """从回测终审胜出的高分 Alpha 中反向抽象骨架，并自动沉淀至 template_library 知识库."""
+        winning_exprs: List[str] = []
+        for rep in final_reports:
+            m = rep.metrics if hasattr(rep, "metrics") and rep.metrics else {}
+            sharpe = float(m.get("sharpe") or (getattr(m, "sharpe", 0.0) if hasattr(m, "sharpe") else 0.0) or 0.0)
+            verdict_str = str(rep.verdict.value if hasattr(rep.verdict, "value") else rep.verdict)
+            if sharpe >= 1.0 or rep.priority_score >= 60.0 or verdict_str == "ACCEPTED":
+                if rep.expression and rep.expression not in winning_exprs:
+                    winning_exprs.append(rep.expression)
+
+        if not winning_exprs:
+            logger.info("本轮未发现达到蒸馏门槛 (Sharpe>=1.0) 的胜出 Alpha，跳过模板抽象")
+            return []
+
+        # 执行反向语法骨架抽象
+        abstractions = abstract_templates(winning_exprs, min_support=1)
+        distilled_skeletons: List[str] = []
+
+        if self.db and hasattr(self.db, "save_abstracted_template"):
+            for abs_tpl in abstractions:
+                saved = self.db.save_abstracted_template(
+                    expression_template=abs_tpl.expression_template,
+                    family="evolved_distillation",
+                    title="自主进化高阶模板",
+                    description=f"由地毯式挖掘胜出因子自动蒸馏生成 (支撑度: {abs_tpl.support})",
+                    support_count=abs_tpl.support,
+                    source="autonomous_distillation",
+                    example_expression=abs_tpl.source_expressions[0] if abs_tpl.source_expressions else "",
+                )
+                if saved:
+                    distilled_skeletons.append(abs_tpl.expression_template)
+
+        if distilled_skeletons:
+            print(f"\n✨ [知识沉淀] 成功从本轮胜出因子中自主反向蒸馏出 {len(distilled_skeletons)} 个高阶模板并写入知识库:")
+            for idx, skel in enumerate(distilled_skeletons[:5], 1):
+                print(f"   {idx}. `{skel}`")
+
+        return distilled_skeletons
+
     def run(self) -> CarpetMiningResult:
         """执行完整的一键分层地毯式挖掘全流程."""
         start_time = time.time()
@@ -659,6 +850,9 @@ class StratifiedCarpetMiner:
         judge = AlphaJudge()
         final_reports = judge.rank_candidates(all_details) if all_details else []
 
+        # 8. ★ 自动反向抽象蒸馏与知识库沉淀
+        distilled_templates = self.distill_and_persist_winning_templates(final_reports)
+
         all_ids = [r.alpha_id for r in (first_gen_results + opt_results) if r.alpha_id and not r.alpha_id.startswith("FAILED_")]
         elapsed = time.time() - start_time
 
@@ -689,6 +883,7 @@ class StratifiedCarpetMiner:
             all_persisted_ids=all_ids,
             ranked_reports=final_reports,
             elapsed_seconds=elapsed,
+            distilled_templates=distilled_templates,
         )
 
 

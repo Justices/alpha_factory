@@ -41,6 +41,10 @@ from .pipeline import (
     ingest_literature_to_alphas,
     run_literature_research_pipeline,
 )
+from .reflexion_engine import (
+    LLMReflexionEngine,
+    ReflexionIteration,
+)
 
 __all__ = [
     "DocumentType",
@@ -68,4 +72,6 @@ __all__ = [
     "ResearchPipelineResult",
     "ingest_literature_to_alphas",
     "run_literature_research_pipeline",
+    "LLMReflexionEngine",
+    "ReflexionIteration",
 ]

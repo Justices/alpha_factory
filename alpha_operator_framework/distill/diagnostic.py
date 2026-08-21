@@ -48,6 +48,13 @@ class FailureDiagnosis:
             FailureMode.NEGATIVE_SHARPE,
         )
 
+    @property
+    def summary(self) -> str:
+        """诊断总结描述."""
+        recs = ", ".join(self.repair_recommendations) if self.repair_recommendations else "保持观察"
+        p_val = self.primary_cause.value if hasattr(self.primary_cause, "value") else str(self.primary_cause)
+        return f"主因: {p_val}; 建议: {recs}"
+
 
 def diagnose_alpha_failure(
     alpha_row: Dict[str, Any],
@@ -62,13 +69,20 @@ def diagnose_alpha_failure(
     Returns:
         FailureDiagnosis 诊断报告
     """
-    alpha_id = str(alpha_row.get("alpha_id") or "")
-    expr = str(alpha_row.get("expression") or "")
-
-    sharpe = float(alpha_row.get("sharpe") or (alpha_row.get("is", {}) or {}).get("sharpe") or 0.0)
-    fitness = float(alpha_row.get("fitness") or (alpha_row.get("is", {}) or {}).get("fitness") or 0.0)
-    turnover = float(alpha_row.get("turnover") or (alpha_row.get("is", {}) or {}).get("turnover") or 0.0)
-    pc = float(alpha_row.get("pc_value") or alpha_row.get("prodCorrelation") or 0.0)
+    if isinstance(alpha_row, dict):
+        alpha_id = str(alpha_row.get("alpha_id") or "")
+        expr = str(alpha_row.get("expression") or "")
+        sharpe = float(alpha_row.get("sharpe") or (alpha_row.get("is", {}) or {}).get("sharpe") or 0.0)
+        fitness = float(alpha_row.get("fitness") or (alpha_row.get("is", {}) or {}).get("fitness") or 0.0)
+        turnover = float(alpha_row.get("turnover") or (alpha_row.get("is", {}) or {}).get("turnover") or 0.0)
+        pc = float(alpha_row.get("pc_value") or alpha_row.get("prodCorrelation") or 0.0)
+    else:
+        alpha_id = str(getattr(alpha_row, "alpha_id", "") or "")
+        expr = str(getattr(alpha_row, "expression", "") or "")
+        sharpe = float(getattr(alpha_row, "sharpe", 0.0) or 0.0)
+        fitness = float(getattr(alpha_row, "fitness", 0.0) or 0.0)
+        turnover = float(getattr(alpha_row, "turnover", 0.0) or 0.0)
+        pc = float(getattr(alpha_row, "pc_value", 0.0) or 0.0)
 
     modes: List[FailureMode] = []
     recs: List[str] = []

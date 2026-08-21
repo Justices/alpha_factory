@@ -23,6 +23,7 @@ from .validator import (
     extract_ast_fields,
     validate_expression,
 )
+from .breeder import BreederConfig, SymbolicTreeBreeder
 
 __all__ = [
     # 节点
@@ -46,4 +47,7 @@ __all__ = [
     "ValidationResult",
     "validate_expression",
     "extract_ast_fields",
+    # 符号杂交进化
+    "BreederConfig",
+    "SymbolicTreeBreeder",
 ]

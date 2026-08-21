@@ -193,7 +193,8 @@ _KNOWN_OPS = frozenset(
     set(basic_ops) | set(ts_ops) | set(group_ops) | set(vec_ops) | set(extended_ops)
     | set(ACCESS_LIMITED_OPS)
     | {"winsorize", "ts_backfill", "densify", "bucket", "s_log_1p", "ts_step",
-       "std", "limit_volume", "rettype", "weight", "range", "if_else"}
+       "std", "limit_volume", "rettype", "weight", "range", "if_else",
+       "subindustry", "industry", "sector", "market", "country", "exchange"}
 )
 
 

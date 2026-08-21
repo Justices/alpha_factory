@@ -5,9 +5,9 @@
   - template_prune_rules (负向自进化淘汰规则)
 """
 
-from __future__ import annotations
-
+import hashlib
 import json
+import re
 import sqlite3
 from datetime import datetime
 from pathlib import Path
@@ -177,3 +177,48 @@ class TemplateRepository(BaseRepository):
         from alpha_operator_framework.generation.template_library import seed_template_library as _seed
         return _seed(self, force=force, include_knowledge_base=include_knowledge_base,
                      knowledge_base_dir=knowledge_base_dir)
+
+    def save_abstracted_template(
+        self,
+        expression_template: str,
+        *,
+        family: str = "evolved_distillation",
+        title: str = "自主进化蒸馏模板",
+        description: str = "",
+        support_count: int = 1,
+        source: str = "autonomous_distillation",
+        example_expression: str = "",
+        overwrite: bool = False,
+    ) -> bool:
+        """从回测胜出因子反向抽象出的模板骨架持久化至 template_library."""
+        tpl_clean = expression_template.strip()
+        if not tpl_clean:
+            return False
+
+        # 提取槽位数 ({a}, {b}, {c})
+        slots = sorted(list(set(re.findall(r"\{([a-z])\}", tpl_clean))))
+        slot_count = max(len(slots), 1)
+
+        # 生成确定性模板名
+        tpl_hash = hashlib.sha256(tpl_clean.encode("utf-8")).hexdigest()[:12]
+        tpl_name = f"evolved_{tpl_hash}"
+
+        tpl_model = Template(
+            name=tpl_name,
+            title=title,
+            family=family,
+            template_type="expression",
+            expression_template=tpl_clean,
+            template_index=999,
+            fields_per_alpha=slot_count,
+            expression_origin=source,
+            slot_count=slot_count,
+            placeholders={s: "scalar" for s in slots},
+            description=description or f"由平台回测胜出因子自主蒸馏沉淀的高阶骨架 (Support: {support_count})",
+            example_expression=example_expression,
+            source={"type": source, "support": support_count, "hash": tpl_hash},
+            active=1,
+        )
+
+        inserted = self.upsert_templates([tpl_model], overwrite=overwrite)
+        return inserted > 0

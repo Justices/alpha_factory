@@ -66,7 +66,7 @@ mindmap
 
 ### 3. 功能与专项指南 (`docs/guides/`)
 
-| 文档 | 核心内容 |
+| [**production_deployment_guide.md**](file:///d:/quant/alpha_factory/docs/guides/production_deployment_guide.md) | **生产环境部署与高可用运维手册**: Systemd 守护进程、Crontab 定时矩阵巡检、容灾恢复与零数据丢失保障。 |
 | [**autonomous_evolution_guide.md**](file:///d:/quant/alpha_factory/docs/guides/autonomous_evolution_guide.md) | **全自主进化与高阶因子挖掘实战指南**: 符号语法树自由杂交、大模型自反思、模板自动蒸馏与知识库闭环。 |
 | [**ai_integration.md**](file:///d:/quant/alpha_factory/docs/guides/ai_integration.md) | 面向大模型与自主 Agent 的结构化 API 接口、参数控制与异步调用范式。 |
 | [**alpha_filtering.md**](file:///d:/quant/alpha_factory/docs/guides/alpha_filtering.md) | 候选 Alpha 多维条件过滤、高质量/边缘池筛选与优化队列分派。 |

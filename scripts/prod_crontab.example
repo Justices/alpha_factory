@@ -1,0 +1,10 @@
+# ==============================================================================
+# Alpha Factory 生产环境 Crontab 定时调度配置示例
+# 编辑方法: crontab -e
+# ==============================================================================
+
+# 1. 每天凌晨 02:00 自动执行全市场多数据集矩阵式自主挖掘与自进化
+0 2 * * * /bin/bash /opt/alpha_factory/scripts/prod_pipeline_matrix.sh > /dev/null 2>&1
+
+# 2. 每周日凌晨 05:00 执行数据库深度整理与备份
+0 5 * * 0 /opt/alpha_factory/.venv/bin/python /opt/alpha_factory/alpha_machine.py clean-db --mode stale > /dev/null 2>&1

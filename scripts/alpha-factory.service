@@ -1,0 +1,23 @@
+[Unit]
+Description=Alpha Factory Autonomous Quantitative Research Daemon
+After=network.target network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=root
+WorkingDirectory=/opt/alpha_factory
+ExecStart=/opt/alpha_factory/scripts/prod_pipeline_matrix.sh
+Restart=on-failure
+RestartSec=60s
+StandardOutput=append:/opt/alpha_factory/runs/logs/systemd_stdout.log
+StandardError=append:/opt/alpha_factory/runs/logs/systemd_stderr.log
+Environment=PYTHONUNBUFFERED=1
+Environment=ALPHA_DATABASE_DIR=/opt/alpha_factory/data
+
+# 生产环境安全资源限制
+LimitNOFILE=65536
+TimeoutStopSec=120s
+
+[Install]
+WantedBy=multi-user.target

@@ -77,3 +77,36 @@ def test_template_distillation_and_dynamic_instantiation_loop():
         evolved_expressions = [t.expression for t in evolved_tasks]
         assert any("gross_profit_margin" in e for e in evolved_expressions)
         assert any("operating_cash_flow" in e for e in evolved_expressions)
+
+
+def test_full_meta_placeholder_template_resolution():
+    """验证全占位符/元语法模板 ({op_ts}, {op_group}, {group}, {w}, {a}, {b}) 的全自动解析与展开."""
+    with tempfile.TemporaryDirectory(ignore_cleanup_errors=True) as tmp:
+        db_path = Path(tmp) / "test_meta_tpl.db"
+        db = AlphaDatabase(db_path)
+        tpl_repo = TemplateRepository(db.manager)
+
+        # 写入一个纯由元占位符构成的三层高阶元模板
+        db.save_abstracted_template(
+            expression_template="{op_ts}({op_group}({a}, {group}), {w})",
+            family="meta_grammar",
+            title="三层全占位符元模板",
+            description="算子、分组、窗口与特征全动态占位",
+        )
+
+        config = CarpetMiningConfig(region="GBR", universe="TOP700", datasets=["analyst7"], execute=False)
+        miner = StratifiedCarpetMiner(config=config, db=db)
+
+        fields = [
+            {"id": "est_eps", "dataset_id": "analyst7", "type": "MATRIX"},
+        ]
+
+        categorized = miner.generate_candidate_expressions_by_category(fields)
+        evolved_tasks = categorized.get("evolved_distillation", [])
+        assert len(evolved_tasks) > 0
+
+        evolved_expressions = [t.expression for t in evolved_tasks]
+        # 验证算子占位符已自动展开为具体算子 (ts_scale, ts_rank, group_rank 等)
+        assert any("ts_scale(group_rank(est_eps, subindustry), 20)" in e for e in evolved_expressions)
+        assert any("ts_zscore(group_neutralize(est_eps, subindustry), 20)" in e for e in evolved_expressions)
+

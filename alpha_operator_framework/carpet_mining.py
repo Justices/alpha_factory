@@ -440,44 +440,125 @@ class StratifiedCarpetMiner:
                                 )
                             )
 
-        # 9. 动态从数据库 template_library 加载并实例化自主进化模板
+        # 9. 动态从数据库 template_library 加载并实例化自主进化与用户自定义模板
         if self.db and hasattr(self.db, "list_templates"):
             try:
                 db_templates = self.db.list_templates(active_only=True)
                 for tpl in db_templates:
                     raw_tpl = tpl.expression_template
-                    if not raw_tpl or "{" not in raw_tpl:
+                    if not raw_tpl or ("{" not in raw_tpl and "<" not in raw_tpl):
                         continue
-                    slots = sorted(list(set(re.findall(r"\{([a-z])\}", raw_tpl))))
-                    if len(slots) == 1:
-                        for fid, atom, ds in atomic_fields:
-                            inst_expr = raw_tpl.replace("{a}", atom).replace("{group}", neut_group).replace("{decay}", str(self.config.decay))
-                            categorized_tasks["evolved_distillation"].append(
-                                Task(
-                                    family=tpl.family or "evolved_distillation",
-                                    template_index=tpl.template_index or 999,
-                                    fields_per_alpha=1,
-                                    expression=inst_expr,
-                                    decay=self.config.decay,
-                                    meta={"dataset": ds, "field": fid, "from_db_template": tpl.name},
-                                )
-                            )
-                    elif len(slots) == 2 and len(atomic_fields) >= 2:
-                        for i in range(min(len(atomic_fields), 8)):
-                            fid1, atom1, ds1 = atomic_fields[i]
-                            for j in range(i + 1, min(len(atomic_fields), 10)):
-                                fid2, atom2, ds2 = atomic_fields[j]
-                                inst_expr = raw_tpl.replace("{a}", atom1).replace("{b}", atom2).replace("{group}", neut_group).replace("{decay}", str(self.config.decay))
+
+                    # 1. 递归展开算子元占位符 ({op_ts}, {op_group}, {op_cross} 等)
+                    tpl_variants = [raw_tpl]
+                    if "{op_ts}" in raw_tpl or "<op_ts>" in raw_tpl:
+                        new_vars = []
+                        for op in ["ts_scale", "ts_rank", "ts_zscore", "ts_decay_linear", "ts_delta"]:
+                            for v in tpl_variants:
+                                new_vars.append(v.replace("{op_ts}", op).replace("<op_ts>", op))
+                        tpl_variants = new_vars
+
+                    if "{op_group}" in raw_tpl or "<op_group>" in raw_tpl:
+                        new_vars = []
+                        for op in ["group_rank", "group_neutralize", "group_zscore", "group_scale"]:
+                            for v in tpl_variants:
+                                new_vars.append(v.replace("{op_group}", op).replace("<op_group>", op))
+                        tpl_variants = new_vars
+
+                    if "{op_cross}" in raw_tpl or "<op_cross>" in raw_tpl:
+                        new_vars = []
+                        for op in ["vector_neut", "regression_neut", "ts_corr"]:
+                            for v in tpl_variants:
+                                new_vars.append(v.replace("{op_cross}", op).replace("<op_cross>", op))
+                        tpl_variants = new_vars
+
+                    def _instantiate_params(expr_str: str) -> str:
+                        res = expr_str.replace("{group}", neut_group).replace("<group>", neut_group)
+                        res = res.replace("{decay}", str(self.config.decay)).replace("<decay>", str(self.config.decay))
+                        res = res.replace("{window}", "20").replace("<window>", "20").replace("{w}", "20")
+                        res = res.replace("{w1}", "20").replace("{w2}", "40")
+                        return res
+
+                    # 2. 遍历展开后的变体并填入特征字段
+                    for sub_tpl in tpl_variants:
+                        feature_slots = sorted(list(set(re.findall(r"\{([a-d])\}", sub_tpl))))
+                        num_slots = len(feature_slots)
+
+                        if num_slots == 1:
+                            for fid, atom, ds in atomic_fields:
+                                inst_expr = _instantiate_params(sub_tpl.replace("{a}", atom).replace("<a>", atom))
                                 categorized_tasks["evolved_distillation"].append(
                                     Task(
                                         family=tpl.family or "evolved_distillation",
                                         template_index=tpl.template_index or 999,
-                                        fields_per_alpha=2,
+                                        fields_per_alpha=1,
                                         expression=inst_expr,
                                         decay=self.config.decay,
-                                        meta={"dataset": f"{ds1}+{ds2}", "fields": [fid1, fid2], "from_db_template": tpl.name},
+                                        meta={"dataset": ds, "field": fid, "from_db_template": tpl.name},
                                     )
                                 )
+                        elif num_slots == 2 and len(atomic_fields) >= 2:
+                            for i in range(min(len(atomic_fields), 8)):
+                                fid1, atom1, ds1 = atomic_fields[i]
+                                for j in range(i + 1, min(len(atomic_fields), 10)):
+                                    fid2, atom2, ds2 = atomic_fields[j]
+                                    inst_expr = _instantiate_params(
+                                        sub_tpl.replace("{a}", atom1).replace("<a>", atom1)
+                                               .replace("{b}", atom2).replace("<b>", atom2)
+                                    )
+                                    categorized_tasks["evolved_distillation"].append(
+                                        Task(
+                                            family=tpl.family or "evolved_distillation",
+                                            template_index=tpl.template_index or 999,
+                                            fields_per_alpha=2,
+                                            expression=inst_expr,
+                                            decay=self.config.decay,
+                                            meta={"dataset": f"{ds1}+{ds2}", "fields": [fid1, fid2], "from_db_template": tpl.name},
+                                        )
+                                    )
+                        elif num_slots == 3 and len(atomic_fields) >= 3:
+                            for i in range(min(len(atomic_fields), 4)):
+                                fid1, atom1, ds1 = atomic_fields[i]
+                                for j in range(i + 1, min(len(atomic_fields), 5)):
+                                    fid2, atom2, ds2 = atomic_fields[j]
+                                    for k_idx in range(j + 1, min(len(atomic_fields), 6)):
+                                        fid3, atom3, ds3 = atomic_fields[k_idx]
+                                        inst_expr = _instantiate_params(
+                                            sub_tpl.replace("{a}", atom1).replace("<a>", atom1)
+                                                   .replace("{b}", atom2).replace("<b>", atom2)
+                                                   .replace("{c}", atom3).replace("<c>", atom3)
+                                        )
+                                        categorized_tasks["evolved_distillation"].append(
+                                            Task(
+                                                family=tpl.family or "evolved_distillation",
+                                                template_index=tpl.template_index or 999,
+                                                fields_per_alpha=3,
+                                                expression=inst_expr,
+                                                decay=self.config.decay,
+                                                meta={"dataset": f"{ds1}+{ds2}+{ds3}", "fields": [fid1, fid2, fid3], "from_db_template": tpl.name},
+                                            )
+                                        )
+                        elif num_slots == 4 and len(atomic_fields) >= 4:
+                            fid1, atom1, _ = atomic_fields[0]
+                            fid2, atom2, _ = atomic_fields[1]
+                            fid3, atom3, _ = atomic_fields[2]
+                            fid4, atom4, _ = atomic_fields[3]
+                            inst_expr = _instantiate_params(
+                                sub_tpl.replace("{a}", atom1).replace("<a>", atom1)
+                                       .replace("{b}", atom2).replace("<b>", atom2)
+                                       .replace("{c}", atom3).replace("<c>", atom3)
+                                       .replace("{d}", atom4).replace("<d>", atom4)
+                            )
+                            categorized_tasks["evolved_distillation"].append(
+                                Task(
+                                    family=tpl.family or "evolved_distillation",
+                                    template_index=tpl.template_index or 999,
+                                    fields_per_alpha=4,
+                                    expression=inst_expr,
+                                    decay=self.config.decay,
+                                    meta={"dataset": "multi_dataset", "fields": [fid1, fid2, fid3, fid4], "from_db_template": tpl.name},
+                                )
+                            )
             except Exception as e:
                 logger.debug(f"加载 DB 进化模板库跳过: {e}")
 

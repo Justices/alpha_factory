@@ -781,14 +781,51 @@ def cmd_submit(args) -> None:
         db.close()
 
     if not args.execute:
-        print("\n  [DRY RUN] 未触发平台 check。确认候选后加 --execute 运行 trigger_submission_checks")
-        print("  后续提交请人工决策(直接 submit_alpha 需用户在平台确认)。")
+        print("\n  [DRY RUN] 未触发平台 check。确认候选后加 --execute 运行完整提交终审。")
+        print("  所有提交候选均需经过 DecisionApprovalEngine 6 维证据核验与人工决策。")
         return
 
-    # 触发check
-    print(f"\n  触发 trigger_submission_checks for {len(alpha_ids)} 个 alpha (仅 check, 不自动 submit)...")
-    # TODO: 调用 trigger_submission_checks.py
-    # subprocess.run([str(TRIGGER_CHECK), "--db", "data/alpha_research.db"] + alpha_ids)
+    # 触发 6 维决策终审治理
+    print(f"\n  🛡️ 正在对 {len(alpha_ids)} 个 Alpha 执行 DecisionApprovalEngine 提交前 6 维证据审计...")
+    from alpha_operator_framework.domain.evidence import DecisionApprovalEngine, EvidenceLevel
+    from alpha_operator_framework.domain.judge.evaluator import AlphaJudge
+
+    db = AlphaDatabase(db_path=args.db)
+    try:
+        ready_count = 0
+        for aid in alpha_ids:
+            details = db.get_alpha_details(aid)
+            if not details:
+                continue
+            is_m = {
+                "sharpe": getattr(details, "sharpe", 0.0),
+                "fitness": getattr(details, "fitness", 0.0),
+                "turnover": getattr(details, "turnover", 0.0),
+                "margin": getattr(details, "margin", 0.0),
+            }
+            checks = db.get_alpha_checks(aid)
+            checks_dicts = [{"name": c.check_name, "result": c.result, "value": c.value} for c in checks] if checks else []
+            rep = DecisionApprovalEngine.evaluate(
+                alpha_id=aid,
+                evidence_level=EvidenceLevel.PLATFORM_IS,
+                is_metrics=is_m,
+                checks=checks_dicts,
+                sc_value=getattr(details, "sc_value", None),
+                pc_value=getattr(details, "pc_value", None),
+                judge_verdict="READY" if getattr(details, "grade", "") == "READY" else "REVIEW",
+            )
+            if rep.approved:
+                ready_count += 1
+                db.update_wf_stage(aid, "submission_ready")
+                print(f"    ✅ Alpha {aid}: 通过 6 维证据终审，已标记为 submission_ready")
+            else:
+                db.update_wf_stage(aid, "needs_optimization")
+                print(f"    ⚠️ Alpha {aid}: 终审未通过 (原因: {'; '.join(rep.rejection_reasons)})")
+
+        print(f"\n  📊 提交终审审计完成: {ready_count}/{len(alpha_ids)} 个 Alpha 达标 SUBMISSION_READY。")
+    finally:
+        db.close()
+
 
 
 def cmd_run_all(args) -> None:

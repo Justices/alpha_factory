@@ -48,6 +48,7 @@ runs/*.db
 Thumbs.db
 .idea/*
 .brain_session.json
+.brain_session.json.lock
 .brain.json
 .claude
 __pycache__

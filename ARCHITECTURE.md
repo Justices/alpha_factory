@@ -1,249 +1,160 @@
-# Alpha Factor Operator Framework 架构与技术全景设计文档
+# Alpha Factory 架构与技术全景设计文档 (System Architecture)
 
-本文档详细阐述 **Alpha Factor Operator Framework** 的系统架构、设计哲学、分层模型、数据流转机制与关键算法实现。
+本文档系统性阐述 **Alpha Factory** 的整体架构、设计哲学、领域分层模型、事件溯源内核、6 维证据边界与防过拟合防御体系。
 
 ---
 
 ## 一、 系统架构总览 (System Architecture Overview)
 
-框架采用**领域驱动设计 (Domain-Driven Design, DDD)**，解耦量化因果逻辑、AST语法编译、多阶算子组合、真实平台回测网关与五层防御评级体系。
+框架采用**领域驱动设计 (Domain-Driven Design, DDD)** 结合 **事件溯源 (Event Sourcing)** 架构模式，解耦量化因果逻辑、AST语法编译、多阶算子组合、真实平台回测网关与提交治理体系。
 
 ```mermaid
 flowchart TD
     subgraph INPUT["一、 输入层 (Multi-Modal Inputs)"]
         P1["前沿学术研报 / 论文 (PDF / Markdown / TXT)"]
         P2["指定市场与另类数据集 (Region / Universe / Datasets)"]
-        P3["本地与平台字段池 (Field Metadata / Coverage)"]
+        P3["字段质量与冷门度画像 (Field Quality Profiling)"]
     end
 
-    subgraph ENGINE["二、 核心引擎层 (Core Processing Engines)"]
-        subgraph RESEARCH["1. 文献认知提炼流水线 (Research Pipeline)"]
-            R1["LLM 假说提取器 (Hypothesis Distiller)"]
-            R2["动态字段对齐器 (Field Dynamic Mapper)"]
-        end
-
-        subgraph MINING["2. 分层地毯式挖掘引擎 (Stratified Carpet Miner)"]
-            M1["海量多阶生成 (5,000+ 候选 AST 表达式)"]
-            M2["6 大语义模板族分类 (Category Grouping)"]
-            M3["分层均衡抽样 (Stratified Sampling)"]
-        end
-
-        subgraph AST["3. AST 规范编译器 (AST Compiler)"]
-            A1["AST 语法解析与校验 (Parser & Type Checker)"]
-            A2["FASTEXPR 规范化转译 (Canonicalizer)"]
-            A3["表达式去重 SHA256 引擎"]
-        end
-
-        subgraph SIM["4. 真实平台仿真网关 (Platform Simulator)"]
-            S1["WorldQuant BRAIN 会话管理器 (Cookie Cache)"]
-            S2["异步批量提交与限流轮询 (POST /simulations)"]
-            S3["子任务级异常隔离与指数退避重试"]
-        end
-
-        subgraph JUDGE["5. 五层防御评级系统 (AlphaJudge 5-Layer Defense)"]
-            J1["Layer 1: 平台硬门禁 (Sharpe/Fitness/Turnover/Margin)"]
-            J2["Layer 2: 统计防过拟合 (DSR / PSR / Haircut Sharpe)"]
-            J3["Layer 3: 18 项平台 Checks 审计 (Sub-Universe/2Y/Overlap)"]
-            J4["Layer 4: 优先级综合打分 (Priority Scoring)"]
-            J5["Layer 5: 异构正交化 & HRP 资产配置 (Super Alpha)"]
-        end
-
-        subgraph EVOLUTION["6. 自进化与闭环淘汰 (Distill & Evolution)"]
-            E1["零信号智能剪枝 (Template Pruning / Negative Learning)"]
-            E2["正向信号诊断与 AST 变异 (AlphaMutator / Smoothing)"]
-            E3["二代因子优化增量回测 (2nd Generation Evolution)"]
-        end
+    subgraph EVENT_CORE["二、 事件溯源研究内核 (Event-Sourced Research Core)"]
+        EV1["不可变事实流 (Append-Only Event Store)"]
+        EV2["CAS 乐观锁与并发控制 (Optimistic Lock)"]
+        EV3["内容寻址工件库 (ArtifactStore CAS SHA256)"]
+        EV4["Outbox Saga 平台网关 (Crash Resilient Worker)"]
+        EV5["物化视图重放引擎 (Projection Engine 100% Replay)"]
+        EV6["Fail-Closed A/B 分支科学对照 (Yield per Budget)"]
     end
 
-    subgraph STORAGE["三、 存储与交付层 (Persistence & Delivery)"]
-        DB[("单一主库 SQLite (data/alpha_research.db)\n• alpha_expressions\n• alpha_details\n• alpha_checks\n• template_prune_rules")]
-        OUT1["📄 自动化 Markdown 研报 (Executive Summary)"]
-        OUT2["🚀 WorldQuant BRAIN 平台一键提交候选池"]
+    subgraph DOMAIN["三、 领域与治理层 (Domain & Governance)"]
+        D1["AST 规范编译器 (Parser / Canonicalizer / SHA)"]
+        D2["6 维提交证据审批引擎 (SubmissionApprovalEngine)"]
+        D3["持久化试验账本 (Persistent TrialLedger)"]
+        D4["结构族内相关性折损 (Effective Trials Neff)"]
+        D5["动态统计防过拟合 (DSR / PSR / Haircut Sharpe / PBO)"]
     end
 
-    INPUT --> ENGINE
-    RESEARCH --> AST
-    MINING --> AST
-    AST --> SIM
-    SIM --> JUDGE
-    JUDGE --> EVOLUTION
-    SIM --> DB
-    JUDGE --> DB
-    EVOLUTION --> DB
-    DB --> STORAGE
+    subgraph PIPELINES["四、 业务流水线 (Research Pipelines)"]
+        PL1["文献认知提炼流水线 (Literature Pipeline)"]
+        PL2["分层地毯式挖掘流水线 (Stratified Carpet Miner)"]
+        PL3["组合与正交化超级因子 (Gram-Schmidt & HRP)"]
+        PL4["自进化闭环与负向剪枝 (Negative Learning & Mutation)"]
+    end
+
+    subgraph STORAGE["五、 持久化与运维 (Persistence & Tooling)"]
+        DB[("SQLite 单一主库 data/alpha_research.db\n• 17 张核心数据表/视图\n• schema_version / event_log / trial_ledger")]
+        OPS["运维工具箱:\n• init_db.py (全新初始化/重置)\n• clean_db.py (数据清理与 VACUUM 释放空间)"]
+    end
+
+    INPUT --> EVENT_CORE
+    EVENT_CORE --> DOMAIN
+    DOMAIN --> PIPELINES
+    PIPELINES --> STORAGE
 ```
 
 ---
 
-## 二、 核心分层与模块详解
+## 二、 事件溯源研究内核 (Event-Sourced Research Core)
 
-### 1. AST 抽象语法树与规范编译器 (`domain/ast/`)
+位于 `alpha_operator_framework/core/`，是整个研究平台的**唯一事实来源 (Single Source of Truth)**：
 
-#### 核心职责
-- 解析原始字符串表达式为强类型 AST 节点树；
-- 校验操作符语法、嵌套层级深度、中性化结构合法性；
-- 消除表达式表面差异（如空格、括号、操作数顺序），生成全局唯一标准规范化字符串（Canonical String）与 SHA256 指纹；
-- 从 AST 中自动提取所引用的原子字段列表（`extract_ast_fields`）和首层操作符（`extract_first_operator`）。
+### 1. 不可变事件事实 (`events.py`)
+- 所有研究活动均表示为不可篡改的事件实体 `Event(event_id, stream_id, event_type, payload, payload_ref, actor, created_at)`。
+- 事件类型覆盖 6 大生命周期：
+  - **策略与实验图**：`PolicyCreated`, `PartitionLocked`, `FieldSnapshotCaptured`, `HypothesisRegistered`
+  - **候选生成与打分**：`CandidateGenerated`, `CandidateRejectedByRule`, `CandidateScored`
+  - **平台仿真 Outbox**：`BatchAllocated`, `SimulationRequested`, `SimulationAccepted`, `SimulationPolled`, `SimulationCompleted`
+  - **验证与相关性**：`ValidationComputed`, `CorrelationChecked`
+  - **决策与审批**：`DecisionProposed`, `DecisionApproved`, `DecisionRejected`
+  - **提交与监控**：`SubmissionRequested`, `SubmissionConfirmed`, `CandidateRetired`
 
-#### 关键实现：
-- `parse_expression(code: str) -> ASTNode`：将表达式递归解析为树形结构。
-- `to_canonical_string(node: ASTNode) -> str`：转译为规范 FASTEXPR 格式。
-- `compute_expression_sha(code: str) -> str`：生成精准的哈希去重签名。
+### 2. 内容寻址工件库 (`artifacts.py`)
+- 大体积回测 JSON、LLM 生成元数据、策略配置等全部通过 SHA256 哈希作为键存入 `ArtifactStore`；
+- 事件日志中仅记录工件引用指针 `payload_ref: "art:sha256..."`，确保事件流轻量高效。
 
----
+### 3. 追加写入事件存储 (`event_store.py`)
+- 基于 SQLite `event_log` 表的只追加存储，支持流读取、全局读取与快照版本控制。
 
-### 2. 算子库与多阶模板组合体系 (`domain/operators/` & `domain/families.py`)
+### 4. 平台 Outbox 异步 Worker (`outbox_worker.py`)
+- 采用 **Outbox + 幂等键 Saga 模式** 与平台交互；
+- **崩溃断点恢复**：`SIMULATION_ACCEPTED` 保持幂等键处于进行中并持久化 Location，Worker 重启自动从挂起任务断点续传；仅终态（`COMPLETED` / `FAILED`）关闭幂等键；
+- **Mock 净化**：内置 Mock 强制仅产出 `synthetic` 等级；升级 `platform_is` 必须严格核验真实平台 `alpha_id`。
 
-#### 核心职责
-- 维护涵盖 **时序算子 (ts_ops)**、**截面算子 (cs_ops)**、**分组算子 (group_ops)**、**算术与非线性算子 (math_ops)** 的标准算子全集；
-- 提供 **86 个正交结构模板族**（涵盖一元时序、二元配对、三元差分比率、四元细分行业中性化）；
-- 支持原子字段的安全包装（如针对稀疏矩阵的 `winsorize(ts_backfill(x, 120), std=4.0)` 与事件向量的 `vec_avg` / `vec_stddev` 提取）。
+### 5. 物化视图重放与投影 (`projections.py`)
+- 具备 **100% 确定性重放一致性**：从任意时间点的原始事件流重放，即可完整重建当前因子池、候选状态、因子族表现统计与实验图谱。
 
----
-
-### 3. 分层地毯式挖掘引擎 (`carpet_mining.py`)
-
-针对全市场或特定另类数据集进行无死角覆盖与自进化，包含六大阶段：
-1. **海量生成**：0.1 秒内从目标数据集中生成 5,000+ 条多阶候选 AST 表达式；
-2. **分类分层抽样 (Stratified Sampling)**：按 6 大语义模板族分类（`ts_momentum`, `mean_reversion`, `macd_velocity`, `relative_ratio`, `asymmetric_risk`, `cross_interaction`），每类随机抽选固定数量（如 4 条）代表因子，杜绝模式单一化；
-3. **分批回测与流式落库**：按安全并发批次提交回测，每批跑完立刻落库；
-4. **零信号智能剪枝**：评估模板族胜率密度，零信号模板写入 `template_prune_rules` 永久剪枝；
-5. **正向信号自进化**：对具备潜力的因子自动触发 AST 变异（降换手/调衰减/反义反转），提交二代优化回测并落库。
+### 6. Fail-Closed A/B 科学对照引擎 (`engine.py`)
+- 严格校验两分支的基础配置：若 `discovery_is` / `validation` / `locked_oos` 锁死时间分区、市场区域或股票宇宙不一致，直接拦截并拒绝比较；
+- 主指标采用 **单位预算合格 Locked-OOS 因子产出率 (`yield_per_budget`)** 与 **因子族多样性**，彻底消除基于 IS 夏普判胜导致的过拟合伪胜出。
 
 ---
 
-### 4. 前沿学术研报端到端研发流水线 (`research/`)
+## 三、 证据边界与 6 维提交治理体系
 
-直接将学术论文（PDF / Markdown）转化为在线实测 Alpha：
-- **`HypothesisDistiller`**：利用大模型或规则引擎提炼文献因果逻辑与经济学假设；
-- **`DynamicFieldLoader`**：根据目标区域（如 GBR TOP700），自动检索匹配最佳真实数据集（如 `model30`, `risk71`, `insider_agg_matrix`）；
-- **`FormulaCompiler`**：将文字假设无缝编译为 BRAIN FASTEXPR AST；
-- **`AutonomousPipeline`**：自动提交在线回测、执行 AlphaJudge 终审并输出研报。
+位于 `alpha_operator_framework/domain/evidence.py`：
 
----
-
-### 5. 真实平台仿真网关 (`platform/platform_simulator.py`)
-
-#### 核心职责
-- 封装 WorldQuant BRAIN 官方 REST API；
-- 实现会话持久化与 Cookie 免密重连；
-- 具备指数退避重试（Backoff Retry）与 90s 超时保护，确保网络代理抖动时不中断批次；
-- 隔离单个语法错误的 Alpha 任务，保证批次中其他正常任务顺利完成。
-
----
-
-### 6. 五层防御评级系统 (`domain/judge/evaluator.py`)
-
-```mermaid
-graph TD
-    A["平台实测原始结果 (IS Metrics)"] --> L1["Layer 1: 基础质量门 (Quality Gate)\n• Sharpe >= 1.25, Fitness >= 1.0\n• Turnover 1%~70%, Margin >= 5bp"]
-    L1 --> L2["Layer 2: 统计防过拟合 (Anti-Overfitting)\n• Bailey Deflated Sharpe Ratio (DSR > 0.95)\n• Probabilistic Sharpe Ratio (PSR > 0.95)\n• Harvey-Liu-Zhu Haircut Sharpe"]
-    L2 --> L3["Layer 3: 平台 18 项 Checks 终审\n• Sub-Universe Pass, 2Y Sharpe Pass\n• Concentrated Weight, Overlap Checks"]
-    L3 --> L4["Layer 4: AlphaJudge 优先级综合评分\n• 综合收益风险比、换手稳定性、衰减半衰期"]
-    L4 --> L5["Layer 5: 正交化与 Super Alpha 组合\n• Gram-Schmidt 信号正交化\n• HRP 分层风险平价权重配置"]
-    L5 --> OUT["🏆 最终评级: SUBMIT / CONDITIONAL / REJECT"]
+### 1. 严格的证据可信度等级 (`EvidenceLevel`)
 ```
-
----
-
-### 7. 统一主数据库存储设计 (`database/`)
-
-所有研究流水线、地毯式挖掘、回测指标与 Checks 结果统一沉淀至单一大主库 [`data/alpha_research.db`](file:///d:/quant/alpha_factory/data/alpha_research.db)。
-
-#### 核心表结构映射关系：
-```mermaid
-erDiagram
-    alpha_expressions ||--o{ alpha_details : "1 : N (通过 expression_sha 关联)"
-    alpha_details ||--o{ alpha_checks : "1 : 18 (通过 alpha_id 关联)"
-    template_library ||--o{ template_prune_rules : "负向淘汰关联"
-
-    alpha_expressions {
-        int id PK
-        string expression_sha UK
-        string expression
-        string expression_origin "来源 (carpet_mining / paper / evolution / super_alpha)"
-        string settings
-        string fields "使用的字段 JSON"
-        string status "completed / pending / failed / pruned"
-        string created_at
-    }
-
-    alpha_details {
-        int id PK
-        string alpha_id UK
-        string expression_sha FK
-        float sharpe
-        float fitness
-        float turnover
-        float returns "年化收益率"
-        float drawdown "最大回撤"
-        float pnl
-        string wf_stage "workflow 阶段"
-        string created_at
-    }
-
-    alpha_checks {
-        int id PK
-        string alpha_id FK
-        string check_name "如 LOW_SHARPE, SUB_UNIVERSE_SHARPE"
-        string status "PASS / FAIL / WARN"
-        string details
-    }
-
-    template_prune_rules {
-        int id PK
-        string pattern "淘汰模式前缀/正则"
-        string family "模板族名称"
-        string reason "剪枝淘汰原因"
-        int active
-    }
+1. SYNTHETIC (语法/合成测试)
+      ↓
+2. SANDBOX_DIAGNOSTIC (本地快速截面 IC 与单调性诊断)
+      ↓
+3. PLATFORM_IS (WorldQuant BRAIN 官方服务器样本内真实回测)
+      ↓
+4. PLATFORM_OS (平台锁死样本外 Locked-OOS 测试)
+      ↓
+5. SUBMISSION_READY (通过 6 维证据终审的正式提交候选)
 ```
+- **提交资格红线**：`EvidenceLevel.is_eligible_for_submission` 仅对 `SUBMISSION_READY` 开放，彻底杜绝 `platform_is` 绕过 OOS 门禁直接提交。
 
-#### Windows 并发与性能保障：
-- 启用 `PRAGMA journal_mode = WAL` 与 `PRAGMA synchronous = NORMAL`；
-- 连接级 `busy_timeout = 30000`（30秒等待锁释放）；
-- 初始化 DDL 幂等守卫，避免重复执行 `CREATE TABLE` 产生表级死锁。
+### 2. 显式有向状态机 (`DecisionState` & `STATE_TRANSITIONS`)
+严格执行单向拓扑流转，禁止跨阶段越级：
+$$\text{DRAFT} \longrightarrow \text{SIMULATED} \longrightarrow \text{DIAGNOSED} \longrightarrow \text{CHECKS\_VERIFIED} \longrightarrow \text{SUBMISSION\_READY} \longrightarrow \text{SUBMITTED}$$
+任何阶段均可因不达标流转至 $\text{REJECTED}$。
 
----
-
-## 三、 系统执行时序与数据流转
-
-```mermaid
-sequenceDiagram
-    autonumber
-    actor User as 用户 / CLI
-    participant Pipeline as 挖掘 / 研发引擎
-    participant AST as AST 规范编译器
-    participant Brain as BRAIN 平台服务器
-    participant DB as SQLite 主库
-    participant Judge as AlphaJudge 评级器
-
-    User->>Pipeline: 启动一键挖掘 (mine) 或文献研发 (research)
-    Pipeline->>Pipeline: 加载字段池并生成海量表达式
-    Pipeline->>AST: 规范化解析、类型检查与 SHA 去重
-    AST-->>Pipeline: 返回规范 Task 队列
-    Pipeline->>Brain: 批量提交回测 (POST /simulations)
-    loop 轮询回测进度
-        Pipeline->>Brain: GET /simulations/{batch_id}
-        Brain-->>Pipeline: 返回回测进度与结果
-    end
-    Pipeline->>DB: ★ 实时流式持久化 (alpha_expressions, alpha_details, alpha_checks)
-    Pipeline->>Judge: 执行 5 层防御终审与优先级打分
-    Judge-->>Pipeline: 返回综合裁决报告
-    opt 触发自进化
-        Pipeline->>Pipeline: 针对高换手/边缘因子生成 AST 突变
-        Pipeline->>Brain: 提交二代优化因子回测并落库
-    end
-    Pipeline-->>User: 终端打印排行榜并输出 Markdown 总结研报
-```
+### 3. 6 维提交证据审批引擎 (`SubmissionApprovalEngine`)
+候选因子要提升至 `SUBMISSION_READY`，必须同时通过 6 大维度的严格核验：
+1. **Locked-OOS 证据**：具备 `PLATFORM_OS` 或通过锁死 OOS 样本检验（$\text{Sharpe}_{\text{OOS}} \ge 1.25$）；
+2. **18 项 Checks 全部 PASS**；
+3. **相关性门槛**：自相关 $\text{SC} \le 0.70$，母本相关性 $\text{PC} \le 0.70$；
+4. **交易摩擦与容量**：换手率 $\in [1\%, 70\%]$，Margin $\ge 4.0\text{bp}$；
+5. **谱系 DAG 完整性**：具备完整的父级变异与演进溯源图；
+6. **终审裁决**：AlphaJudge / 人工评级为 `READY`。
 
 ---
 
-## 四、 总结与扩展指南
+## 四、 统计防过拟合防御体系 (Anti-Overfitting Defense)
 
-Alpha Factor Operator Framework 实现了从理论假设到工业级落地的完整飞轮：
-1. **零硬编码**：字段动态提取与自适应中性化；
-2. **极速生成**：0.1 秒内生成数千条多阶 AST 表达式；
-3. **安全并发**：单批流式落库保护，防网络中断与额度浪费；
-4. **严苛防过拟合**：DSR/PSR 与 18 项平台 Checks 双重把关；
-5. **闭环自进化**：坏模板智能剪枝 + 优胜因子针对性基因突变。
+位于 `alpha_operator_framework/domain/overfitting.py`：
+
+### 1. 持久化试验账本 (`TrialLedger`)
+- 自动持久化至 SQLite `trial_ledger` 表，记录全生命周期所有生成、变异、规则剪枝与回测试验，支持跨进程与跨分支累计。
+
+### 2. 结构族内相关性折损
+根据同模板族内的结构同质性，计算真实有效试验次数：
+$$N_{eff} = 1 + (N - 1)(1 - \bar{\rho}_{family})$$
+（默认族内相关性 $\bar{\rho} \approx 0.35$）。
+
+### 3. 纯 Python / NumPy 原生统计指标
+- **Deflated Sharpe Ratio (DSR)**：基于极值理论校正多重测试偏差与非正态偏度/峰度；
+- **Probabilistic Sharpe Ratio (PSR)**：超越基准夏普的统计显著性概率；
+- **Haircut Sharpe Ratio**：Harvey & Liu 多重测试惩罚折损夏普；
+- **CPCV / PBO**：组合净化交叉验证计算过拟合概率。
+
+---
+
+## 五、 AST 规范编译器与字段合规
+
+位于 `alpha_operator_framework/domain/ast/`：
+- **AST 语法解析与校验**：递归构建语法树，校验数据类型与算子兼容性；
+- **FASTEXPR 规范化转译**：消除空格、括号、操作数顺序等表面差异，生成全局唯一标准规范化字符串与 SHA256 哈希；
+- **废弃字段全面拦截**：在 AST 编译与字段摄取阶段**全面拦截 `close`、`open`、`high`、`low`**，强制采用 `returns`、`vwap`、`volume`、`market_cap`、`sharesout` 等标准字段。
+
+---
+
+## 六、 数据库全景架构与运维
+
+位于 `alpha_operator_framework/database/`：
+- **单一主库架构**：`data/alpha_research.db` 统一管理 17 张核心表/视图；
+- **零提交规范 (Zero-Commit Policy)**：`.db` 严格加入 `.gitignore`，通过 `python init_db.py` 自动化创建与种子填充；
+- **WAL 并发调优**：启用 `journal_mode = WAL`、`synchronous = NORMAL`、`busy_timeout = 30000`；
+- **自动化存储回收 (`DatabaseCleaner`)**：支持按失败状态清理废弃记录，并在 autocommit 模式下执行 `PRAGMA wal_checkpoint(TRUNCATE)` 与 `VACUUM` 彻底释放磁盘空间。

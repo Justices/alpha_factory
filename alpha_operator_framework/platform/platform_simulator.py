@@ -290,15 +290,23 @@ class BrainPlatformSimulator:
         all_platform_results: List[PlatformAlphaResult] = []
 
         task_list = list(tasks)
-        for t in task_list:
-            expr = t.expression if isinstance(t, Task) else t["expression"]
+        total_tasks = len(task_list)
+        eff_batch_size = max(1, batch_size)
+
+        for i in range(0, total_tasks, eff_batch_size):
+            chunk = task_list[i : i + eff_batch_size]
+            chunk_exprs = [
+                (t.expression if isinstance(t, Task) else t.get("expression", ""))
+                for t in chunk
+            ]
             try:
-                location = self.submit_batch([t], settings)
+                location = self.submit_batch(chunk, settings)
                 raw_details_list = self.poll_batch(location, max_wait_seconds=max_wait_seconds)
 
-                for details in raw_details_list:
+                for idx, details in enumerate(raw_details_list):
                     aid = str(details.get("id") or "")
-                    expr_code = str(details.get("regular", {}).get("code") or details.get("expression") or expr)
+                    expr_fallback = chunk_exprs[idx] if idx < len(chunk_exprs) else ""
+                    expr_code = str(details.get("regular", {}).get("code") or details.get("expression") or expr_fallback)
                     is_metrics = details.get("is", {})
                     checks = details.get("is", {}).get("checks", [])
 
@@ -323,17 +331,18 @@ class BrainPlatformSimulator:
                     all_platform_results.append(p_res)
 
             except Exception as e:
-                logger.error(f"平台真实回测任务失败 ({expr[:40]}): {e}")
-                all_platform_results.append(
-                    PlatformAlphaResult(
-                        alpha_id="FAILED_SUBMISSION",
-                        expression=expr,
-                        is_valid=False,
-                        status="FAILED",
-                        checks_passed=False,
-                        failed_checks=[str(e)],
+                logger.error(f"平台并发批次回测失败 (批次大小={len(chunk)}): {e}")
+                for exp in chunk_exprs:
+                    all_platform_results.append(
+                        PlatformAlphaResult(
+                            alpha_id="FAILED_SUBMISSION",
+                            expression=exp,
+                            is_valid=False,
+                            status="FAILED",
+                            checks_passed=False,
+                            failed_checks=[str(e)],
+                        )
                     )
-                )
 
         return all_platform_results
 

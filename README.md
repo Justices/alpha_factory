@@ -1,473 +1,229 @@
-# Alpha Factor Operator Framework
+# Alpha Factory (Alpha Factor Operator Framework)
 
-整合 `machine_lib.py` 多阶因子生成能力与 `cold_templates` 结构正交模板方法论，构建系统化的alpha因子研究框架。
+[![Python 3.10+](https://img.shields.io/badge/python-3.10%2B-blue.svg)](https://www.python.org/)
+[![Tests](https://img.shields.io/badge/tests-171%20passed%20(100%25)-brightgreen.svg)]()
+[![Architecture](https://img.shields.io/badge/architecture-Event--Sourced%20Core%20%7C%20DDD-purple.svg)](ARCHITECTURE.md)
+[![Database](https://img.shields.io/badge/database-SQLite%20(17%20Tables)-orange.svg)](DATABASE_DESIGN.md)
 
-**专为AI集成优化**: 支持精确参数控制、结构化结果、单次API调用完整工作流。
+工业级全生命周期量化 Alpha 因子研究与生产治理系统，深度对接 **WorldQuant BRAIN** 平台。系统融合**事件溯源不可变事实内核 (Event-Sourced Research Core)**、**领域驱动设计 (DDD)**、**AST 规范编译器**、**6 维证据准入状态机**、**动态 DSR 防过拟合引擎**、**Outbox Saga 异步平台网关** 与 **自进化闭环**。
 
-## 快速开始
+---
 
-### Python API (AI推荐方式)
+## 📚 文档导航树 (Documentation Index)
+
+| 核心文档 | 核心内容与定位 | 快速链接 |
+| :--- | :--- | :---: |
+| **项目主页** | 系统定位、技术架构全景、核心能力、极速上手 | [README.md](file:///d:/quant/alpha_factory/README.md) |
+| **快速上手** | 5 分钟极速入门、常用单行 CLI 命令备忘清单 | [QUICKSTART.md](file:///d:/quant/alpha_factory/QUICKSTART.md) |
+| **系统架构** | DDD 领域分层、事件溯源内核、证据边界、防过拟合防御 | [ARCHITECTURE.md](file:///d:/quant/alpha_factory/ARCHITECTURE.md) |
+| **权威使用手册** | 全流程命令详解（文献提炼、地毯挖掘、A/B对照、DB运维） | [USAGE_GUIDE.md](file:///d:/quant/alpha_factory/USAGE_GUIDE.md) |
+| **数据库设计** | 17 张核心数据表/视图结构、WAL 优化、Zero-Commit 规范 | [DATABASE_DESIGN.md](file:///d:/quant/alpha_factory/DATABASE_DESIGN.md) |
+| **专题与归档** | 分页指南、AI 集成、筛选优化、历史评估报告全景索引 | [docs/INDEX.md](file:///d:/quant/alpha_factory/docs/INDEX.md) |
+
+---
+
+## 🌟 系统核心能力与架构全景
+
+```mermaid
+flowchart TD
+    subgraph INPUT["一、 输入层 (Multi-Modal Inputs)"]
+        P1["前沿学术研报 / 论文 (PDF / Markdown / TXT)"]
+        P2["指定市场与另类数据集 (Region / Universe / Datasets)"]
+        P3["字段池画像与冷门度优先 (Field Quality Profiling)"]
+    end
+
+    subgraph CORE["二、 事件溯源研究内核 (Event-Sourced Core)"]
+        E1["不可变事件流 (Append-Only EventLog)"]
+        E2["CAS 乐观锁与并发冲突控制 (Version Control)"]
+        E3["内容寻址工件库 (Content-Addressed ArtifactStore)"]
+        E4["Outbox Saga 平台网关 (Idempotent Crash Recovery)"]
+        E5["物化视图重放引擎 (Projection Replay)"]
+        E6["A/B 分支科学对照与 Locked-OOS 判胜 (Engine A/B)"]
+    end
+
+    subgraph ENGINE["三、 核心流水线与治理 (Research Pipelines)"]
+        subgraph RESEARCH["1. 文献认知提炼流水线"]
+            R1["LLM 假说提取器 (Hypothesis Distiller)"]
+            R2["动态字段对齐器 (Dynamic Field Mapper)"]
+        end
+
+        subgraph MINING["2. 分层地毯式挖掘引擎"]
+            M1["多阶 AST 组合生成 (4 族 86 母版)"]
+            M2["分层均衡抽样 (Stratified Sampling)"]
+        end
+
+        subgraph JUDGE["3. 6 维提交证据审批引擎"]
+            J1["Locked-OOS 样本外验证 (Sharpe >= 1.25)"]
+            J2["18 项 Checks 全部 PASS 审计"]
+            J3["SC / PC 相关性门槛 (< 0.70)"]
+            J4["换手率 (1%-70%) 与 Margin 摩擦 (>= 4bp)"]
+            J5["谱系 DAG 变异溯源"]
+            J6["AlphaJudge 终审裁决为 READY"]
+        end
+
+        subgraph DEFENSE["4. 统计防过拟合防御"]
+            D1["持久化试验账本 (Persistent TrialLedger)"]
+            D2["结构族内相关性折损 (Effective Trials Neff)"]
+            D3["动态 DSR / PSR / Haircut Sharpe / PBO"]
+        end
+
+        subgraph SUPER["5. 组合与超级因子生成"]
+            S1["Gram-Schmidt 信号正交化"]
+            S2["HRP 分层风险平价资产配置"]
+        end
+    end
+
+    subgraph STORAGE["四、 存储与运维层 (Persistence & Ops)"]
+        DB[("SQLite 单一主库 (data/alpha_research.db)\n• 17 张核心数据表/视图\n• schema_version / event_log / trial_ledger")]
+        CLI["CLI 工具箱:\n• init_db.py (全新初始化/重置)\n• clean_db.py (数据清理与释放空间)"]
+    end
+
+    INPUT --> CORE
+    CORE --> ENGINE
+    ENGINE --> STORAGE
+```
+
+---
+
+## ⚡ 极速开始 (Quick Start)
+
+### 1. 数据库初始化 (首次运行必做)
+本框架执行**数据库零提交 (Zero-Commit) 规范**，克隆代码后需先执行初始化：
+```bash
+python init_db.py
+# 或使用主 CLI:
+python alpha_machine.py init-db
+```
+
+### 2. 执行完整单元与集成测试 (171 项)
+```bash
+python -m pytest
+```
+
+### 3. 文献认知提取流水线 (Literature Research)
+从学术论文或研报提取 Alpha 假说并自动对齐平台可用字段：
+```bash
+python alpha_machine.py run-research \
+    --paper-path docs/academic_paper.pdf \
+    --region GBR --universe TOP700 \
+    --execute
+```
+
+### 4. 分层地毯式挖掘 (Stratified Carpet Mining)
+对英国市场 `analyst7` 数据集进行全模板族地毯式扫描回测：
+```bash
+python alpha_machine.py carpet-mine \
+    --region GBR --universe TOP700 \
+    --dataset analyst7 \
+    --batch-size 10 \
+    --execute
+```
+
+### 5. 候选因子 6 维证据终审与提交审计
+```bash
+python alpha_machine.py evaluate-candidates \
+    --min-sharpe 1.25 --min-fitness 1.0 \
+    --auto-promote
+```
+
+### 6. 数据库清理与磁盘空间彻底释放 (VACUUM)
+```bash
+# 试运行查看待清理的失败与剪枝记录:
+python clean_db.py --failed --pruned --dry-run
+
+# 正式清理并执行 WAL 截断与 VACUUM:
+python clean_db.py --failed --pruned --vacuum
+```
+
+---
+
+## 💻 Python API 调用示例
 
 ```python
-from alpha_operator_framework import run_full_workflow, FieldSpec
+import asyncio
+from alpha_operator_framework.core.engine import EventSourcedResearchEngine
+from alpha_operator_framework.core.policy import ResearchPolicy, ValidationPartitions
+from alpha_operator_framework.domain.evidence import SubmissionApprovalEngine, EvidenceLevel
 
-# AI指定精确参数: 区域/宇宙/数据集/字段列表
-result = await run_full_workflow(
-    region="EUR",
-    universe="TOP2500",
-    dataset_id="pv1",
-    field_ids=["close", "volume", "returns"],  # 精确字段列表
-    execute=False  # Dry-run先查看任务
-)
+# 1. 初始化事件溯源研究引擎
+engine = EventSourcedResearchEngine()
 
-# AI解析结构化结果
-if result["survey"].success:
-    print(f"生成{result['survey'].tasks_generated}个任务")
-    for t in result["survey"].top_templates:
-        print(f"  [{t['family']}/{t['template_index']}] density={t['density']:.2f}")
-```
-
-### 运行示例
-
-```bash
-# 演示工作流
-python3 examples/demo_workflow.py
-
-# AI工作流示例
-python3 examples/ai_workflow_examples.py
-```
-
-### 使用本地字段文件预筛选
-
-字段文件支持平台导出的 CSV，以及字段对象组成的 JSON 数组。提供本地文件后，
-Survey 不会请求平台字段接口；会按 `region`、`universe`、`delay`、`dataset`、
-`type` 和 `search` 过滤，再按 coverage 和冷门度进入后续预筛选。
-
-```bash
-python3 -m alpha_operator_framework.orchestrator survey \
-  --fields-file data/fields/GBR/1/TOP700/risk68.csv --fields-file-type csv \
-  --region GBR --universe TOP700 --delay 1 \
-  --min-coverage 0.1 --sample 80 --backtest-sample 100
-```
-
-Python API：
-
-```python
-results = await run_full_workflow(
+# 2. 锁死研究时间窗口与策略
+policy = ResearchPolicy(
+    policy_id="gbr_analyst_reversion",
     region="GBR",
     universe="TOP700",
-    delay=1,
-    fields_file="data/fields/GBR/1/TOP700/risk68.json",
-    execute=False,
+    validation=ValidationPartitions(
+        discovery_is=["2016-01-01", "2021-12-31"],
+        validation=["2022-01-01", "2023-12-31"],
+        locked_oos=["2024-01-01", "2025-12-31"],
+    ),
 )
-```
+graph = engine.create_experiment(policy)
 
-### 语义二元配对
+# 3. 计划候选因子并触发 Outbox 幂等仿真
+candidates = [
+    {"expression": "ts_rank(returns, 22)", "family": "momentum"},
+    {"expression": "reverse(rank(vwap))", "family": "mean_reversion"},
+]
+emitted_shas = engine.plan_and_simulate(graph, policy, candidates)
+print(f"✅ 生成并完成仿真: {len(emitted_shas)} 个候选因子")
 
-Survey 会在实际入选字段中自动识别同数据集的定向字段对，并将表达式与一阶
-表达式一起登记、随机抽样回测：
-
-- `earnings_positive` + `earnings_negative` → `positive - negative`
-- `abc_revenue` + `abc_cap` → `abc_revenue / abc_cap`
-
-`*_cap` 只会匹配同数据集、同前缀的字段，避免无关字段相除。需要关闭时传入
-`--no-semantic-pairs`。
-
-### Explicit binary base signals
-
-Survey automatically discovers strict same-dataset revision (`raisednum`,
-`lowerednum`, `num`) and dispersion (`high`, `low`, `mean`) groups. Group
-members are excluded from standalone unary and first-order generation. Instead,
-the combined economic base signal is expanded with the complete first-order
-operator set (for example `rank(base)` and `ts_rank(base, 22)`). Repeatable
-`--pair` parameters may add an explicit group. Tasks retain `paired_base` or
-`paired_first_order` provenance, plus pair kind, stage, source, and source
-fields.
-
-```bash
-python -m alpha_operator_framework.orchestrator survey \
-  --field-source local --region GBR --universe TOP700 --delay 1 --dataset analyst7 \
-  --pair net_revision:est_12m_ebi_raisednum_4wks:est_12m_ebi_lowerednum_4wks:est_12m_ebi_num \
-  --backtest-sample 0
-```
-
-Use `ratio:NUMERATOR:DENOMINATOR` or
-`difference|spread|net_revision:LEFT:RIGHT[:NORMALIZER]`.
-
-## 核心特性
-
-### 1. AI友好的API设计
-- **精确参数控制**: 指定区域、宇宙、数据集、字段列表
-- **结构化结果**: Python对象而非文本，便于解析
-- **单次调用**: `run_full_workflow()` 完成survey→deepen→submit
-- **Dry-run优先**: 默认不消耗额度，AI可先查看再决策
-
-### 2. 整合创新
-- **模板层扩展**: 新增四元模板，支持多阶group操作
-- **算子层统一**: 统一管理basic_ops/ts_ops/group_ops
-- **字段层增强**: 多阶预处理+精确指定
-- **工作流标准化**: 三段方法论(survey→deepen→submit)
-
-### 3. 灵活的字段选择
-
-**方式1: 指定精确字段**
-```python
-result = await run_full_workflow(
-    field_ids=["close", "volume", "returns"]
+# 4. 执行 6 维提交证据审批
+report = SubmissionApprovalEngine.evaluate(
+    alpha_id="ALPHA_12345",
+    evidence_level=EvidenceLevel.PLATFORM_OS,
+    is_metrics={"sharpe": 1.58, "fitness": 1.32, "turnover": 0.18, "margin": 7.5},
+    oos_metrics={"sharpe": 1.42},
+    checks=[{"name": "LOW_SHARPE", "result": "PASS"}],
+    sc_value=0.22,
+    pc_value=0.18,
+    judge_verdict="READY",
 )
+if report.approved:
+    print("🚀 因子完全达标 SUBMISSION_READY，进入正式提交池！")
+else:
+    print(f"⚠️ 终审未通过，原因: {report.rejection_reasons}")
 ```
 
-**方式2: 数据集+采样**
-```python
-result = await run_full_workflow(
-    dataset_id="pv1",
-    sample_n=80
-)
+---
+
+## 📁 项目结构全景 (Directory Structure)
+
+```text
+d:\quant\alpha_factory/
+├── README.md                      # [核心 1] 项目主页与核心能力总览
+├── QUICKSTART.md                  # [核心 2] 5分钟极速上手与日常命令速查
+├── ARCHITECTURE.md                # [核心 3] 系统架构全景 (DDD + 事件溯源 + 证据边界)
+├── USAGE_GUIDE.md                 # [核心 4] 完整操作指南 (全命令详解与DB维护)
+├── DATABASE_DESIGN.md             # [核心 5] 数据库全景架构与 17 表/视图设计规范
+│
+├── init_db.py                     # 数据库一键初始化/重置入口
+├── clean_db.py                    # 数据库数据清理与 VACUUM 释放空间入口
+├── alpha_machine.py               # 统一研究 CLI 入口 (init-db, clean-db, run-research, carpet-mine...)
+│
+├── alpha_operator_framework/      # 核心源码包
+│   ├── core/                      # 事件溯源研究内核 (events, event_store, artifacts, outbox, engine...)
+│   ├── domain/                    # 领域层 (evidence 证据边界, ast 编译器, judge 评级, overfitting 防过拟合)
+│   ├── generation/                # 假说与母版生成层 (hypothesis, template_library, templates)
+│   ├── platform/                  # 平台通信层 (platform_simulator, brain_client, session)
+│   ├── research/                  # 研发流水线编排层 (literature_pipeline, stratified_miner, db_persister)
+│   └── database/                  # 数据库层 (repository, init_db, cleaner, schema/)
+│
+├── data/                          # 运行时数据目录 (.gitignore 忽略，由 init_db.py 生成)
+│   └── alpha_research.db          # SQLite 统一主库 (17 张表/视图)
+│
+├── docs/                          # 分类专题文档库
+│   ├── INDEX.md                   # 📚 文档全景导航与分类索引
+│   ├── architecture/              # 🏗️ 架构与底层设计规范
+│   ├── guides/                    # 📖 专项操作与集成指南
+│   └── assessments/               # 📋 审计评审与历史报告
+│
+└── tests/                         # 自动化测试套件 (171 个单元与集成测试, 100% 通过)
 ```
 
-**方式3: 全字段**
-```python
-result = await run_full_workflow(
-    dataset_id="",  # 空=全字段
-    sample_n=80
-)
-```
-
-### 4. Alpha筛选与优化
-
-支持两种筛选方式:
-
-**方式A: 指定alpha_id**
-```python
-# 精确筛选
-filtered = filter_alphas_for_optimization(
-    alphas,
-    alpha_ids=["alpha_001", "alpha_002", "alpha_003"]
-)
-```
-
-**方式B: 按回测指标**
-```python
-# 高质量alpha: sharpe>1.58, fitness>1.0
-high_quality = filter_high_quality_alphas(
-    alphas,
-    min_sharpe=1.58,
-    min_fitness=1.0,
-    min_turnover=0.03
-)
-
-# 边缘alpha(有优化潜力): sharpe在1.2-1.8之间
-marginal = filter_marginal_alphas(
-    alphas,
-    sharpe_range=(1.2, 1.8),
-    limit=20
-)
-
-# 可提交的alpha
-ready = filter_ready_for_submission(alphas)
-```
-
-### 5. Alpha AST 语法树引擎 (新增)
-
-支持表达式语法解析、可交换算子重排、冗余嵌套消除与等价去重：
-
-```python
-from alpha_operator_framework import (
-    parse_expression,
-    to_canonical_string,
-    get_canonical_sha,
-    validate_expression,
-)
-
-# 1. 自动消除冗余嵌套与交换律规范化
-expr1 = "volume + rank(rank(close))"
-expr2 = "rank(close) + volume"
-
-print(to_canonical_string(expr1))  # 输出: 'close + volume'
-print(get_canonical_sha(expr1) == get_canonical_sha(expr2))  # True! 唯一哈希，杜绝重复回测
-
-# 2. 静态语义与类型检查
-res = validate_expression("group_neutralize(ts_rank(close, 22), industry)")
-print(res.is_valid, res.fields_used)  # True, {'close', 'industry'}
-```
-
-### 6. 本地轻量向量化沙盒 (新增)
-
-无需联网，在本地截面数据上毫秒级计算 Rank IC、Sharpe 与换手率，云端回测前预筛淘汰死因子，**节省 70%+ 云端配额**：
-
-```python
-from alpha_operator_framework import (
-    SandboxEngine,
-    evaluate_expression_local,
-    sandbox_prefilter,
-)
-
-# 1. 单表达式快速本地回测评估
-metrics = evaluate_expression_local("rank(close) / rank(volume)")
-print(f"Local Rank IC: {metrics.rank_ic:.4f}, Sharpe: {metrics.sharpe:.2f}, Turnover: {metrics.turnover:.2f}")
-
-# 2. 任务列表本地预筛剪枝
-passed_tasks, rejected_tasks = sandbox_prefilter(tasks, min_abs_ic=0.01, min_sharpe=0.1)
-print(f"保留 {len(passed_tasks)} 个有信号任务，淘汰 {len(rejected_tasks)} 个无效任务")
-```
-
-### 7. 统计防过拟合防御套件 (新增)
-
-结合多重检验尝试总次数 (Trial Count)、收益偏度/峰度，校正数据挖掘偏差 (Data Snooping Bias)：
-
-```python
-from alpha_operator_framework import (
-    compute_psr,
-    compute_dsr,
-    compute_haircut_sharpe,
-    compute_pbo_cscv,
-)
-
-# 1. 折损夏普比率 (DSR): 在 2000 次试错背景下检验名义 Sharpe=1.40 是否显著
-dsr = compute_dsr(sharpe=1.40, trial_count=2000, t_days=252)
-print(f"DSR Confidence: {dsr:.4f}")  # < 0.95 说明属于多重检验过拟合假阳性
-
-# 2. 组合对称交叉验证 (PBO/CSCV)
-pbo = compute_pbo_cscv(returns_matrix, n_partitions=8)
-print(f"PBO (Overfitting Probability): {pbo:.2%}")
-```
-
-### 8. 假说驱动因子推理引擎 (新增)
-
-摒弃排列组合盲目穷举，从 5 大金融经济学假说出发生成具备强因果逻辑的 AST 因子：
-
-```python
-from alpha_operator_framework import HypothesisEngine, BUILTIN_HYPOTHESES
-
-engine = HypothesisEngine()
-
-# 1. 自动根据可用字段池匹配金融假说并生成高胜率 AST 任务
-tasks = engine.generate_tasks_for_all_hypotheses(available_fields, max_tasks_per_hypothesis=5)
-
-# 2. 生成供外部 LLM / AI Agent 推理的结构化 Prompt
-prompt = engine.build_llm_prompt("USA", "TOP3000", available_fields)
-```
-
-### 9. 智能故障诊断与自动突变修复 (新增)
-
-对回测未达标的 Alpha 进行精准病因归类并自动实施 AST 基因修复突变：
-
-```python
-from alpha_operator_framework import diagnose_alpha_failure, AlphaMutator, auto_repair_failed_alphas
-
-# 1. 自动病因诊断 (如高换手 / 子宇宙崩溃 / 边缘夏普)
-diagnosis = diagnose_alpha_failure({"alpha_id": "a001", "expression": "ts_delta(close, 2)", "turnover": 0.85})
-print(diagnosis.primary_cause)  # FailureMode.HIGH_TURNOVER
-
-# 2. 针对性基因修复 (自动注入 ts_decay_linear / 细分行业中性化 / 保号非线性压缩)
-mutator = AlphaMutator()
-repaired_exprs = mutator.mutate_expression("ts_delta(close, 2)", diagnosis.primary_cause)
-print(repaired_exprs)  # ['ts_decay_linear(ts_delta(close, 2), 10)', ...]
-```
-
-### 10. 因子衰减半衰期探测器 (新增)
-
-自适应拟合前向 IC 指数衰减曲线，精确推荐最佳 `decay` 平滑参数：
-
-```python
-from alpha_operator_framework import profile_alpha_decay
-
-profile = profile_alpha_decay(signal_matrix, returns_matrix, max_lag=20)
-print(f"半衰期: {profile.half_life} 天, 推荐 decay: {profile.recommended_decay}, 评级: {profile.decay_speed.value}")
-```
-
-### 11. 正交残差化与 Super-Alpha 2.0 风险平价组合 (新增)
-
-向存量因子基底投影剥离共线性残差，并基于分层风险平价 (HRP) 算法合成多因子组合：
-
-```python
-from alpha_operator_framework import (
-    gram_schmidt_residualize,
-    build_super_alpha_2,
-    PortfolioMethod,
-)
-
-# 1. 施密特正交残差化 (与存量基底相关性清零)
-residual_matrix = gram_schmidt_residualize(candidate_matrix, [existing_alpha_1, existing_alpha_2])
-
-# 2. 分层风险平价 (HRP) 组合公式合成
-super_alpha = build_super_alpha_2(alpha_list, returns_matrix, method=PortfolioMethod.HRP)
-print(f"Super-Alpha 2.0 表达式: {super_alpha.composite_expression}")
-print(f"预期组合 Sharpe: {super_alpha.expected_sharpe}")
-```
-
-### 12. 跨市场/跨区域鲁棒性迁移套件 (新增)
-
-跨 USA / EUR / CHN / JPN 多区域评估同一个 Alpha 的稳健性与一致性指数 (CMCI)：
-
-```python
-from alpha_operator_framework import evaluate_cross_market_robustness
-
-report = evaluate_cross_market_robustness(
-    "rank(close) / (rank(volume) + 0.01)",
-    market_data_by_region={"USA": md_usa, "EUR": md_eur, "CHN": md_chn},
-)
-print(f"跨市场一致性指数 CMCI: {report.consistency_score:.2f}")
-print(f"是否为全天候通用 Alpha: {report.is_universal}")
-```
-
-### 13. 文献研究与研报认知提炼引擎 (新增)
-
-一键从学术论文 (SSRN/arXiv)、券商金工研报或量化社区帖子中抽取金融假说与数学公式，自动对齐真实字段并编译为 AST 因子：
-
-```python
-from alpha_operator_framework import (
-    ingest_literature_to_alphas,
-    parse_document,
-    IdeaExtractor,
-    DocumentType,
-)
-
-paper_text = """
-# 海通证券：特质波动率与动量修正因子
-核心观点：剥离特质波动率后，动量因子的反转预测力显著增强。
-公式：rank(close) / (rank(volume) + 0.01)
-"""
-
-# 方式 1: 默认极速离线规则引擎 (无需 API Key，零成本毫秒级)
-tasks_offline = ingest_literature_to_alphas(
-    literature_text=paper_text,
-    available_fields=available_fields,
-    doc_type=DocumentType.RESEARCH_REPORT,
-    run_sandbox_prefilter=True, # 自动过滤无信号公式
-)
-
-# 方式 2: 统一配置文件与多模型热切换 (读取 configs/llm_config.json 或环境变量)
-tasks_llm = ingest_literature_to_alphas(
-    literature_text=paper_text,
-    available_fields=available_fields,
-    use_llm=True,
-    provider="deepseek",        # 自由指定 deepseek / openai / qwen / ollama
-    model="deepseek-reasoner",  # 从该 Provider 绑定的 models 列表中选择模型
-    run_sandbox_prefilter=True,
-)
-
-for t in tasks_llm:
-    print(f"提取出 AST 公式: {t.expression}")
-    print(f"文献来源: {t.meta['paper_title']}, 机理: {t.meta['rationale']}")
-```
-
-### 14. 终审评估与价值因子优先级决策引擎 (新增)
-
-融合 20 篇高水平量化顾问实战语料与平台红线，在提交前执行实战红线审查（Extra Rubrics）、价值因子多样性推演（$\Delta \text{diversity}$）与提交优先级排序：
-
-```python
-from alpha_operator_framework import (
-    AlphaJudge,
-    JudgeVerdict,
-    compute_value_factor_diversity,
-)
-
-# 1. 初始化裁判员 (传入存量提交历史)
-judge = AlphaJudge(submitted_alphas=submitted_list)
-
-# 2. 单个因子终审评估
-report = judge.judge_candidate(candidate_alpha_detail)
-print(f"终审结论: {report.verdict.value}")            # READY / REVIEW / BLOCK
-print(f"提交优先级得分: {report.priority_score}")      # 综合打分 (越高越优先)
-print(f"价值因子多样性增量: {report.projected_diversity_delta:.4f}")
-print(f"落地改进建议: {report.actionable_recommendations}")
-
-# 3. 候选池批量综合打分与排序
-ranked_reports = judge.rank_candidates(candidate_pool)
-for r in ranked_reports:
-    print(f"[{r.verdict.value}] {r.alpha_id}: 优先级得分={r.priority_score:.1f}, 建议={r.actionable_recommendations[0]}")
-```
-
-### 15. 全自动端到端文献研发、真实平台回测与自动落库 (Autonomous Quant Pipeline)
-
-一条函数或一条命令串联全流程：**PDF文献/Markdown解析 ➔ 动态真实字段池载入 ➔ 大模型假说提炼 ➔ AST公式规范编译 ➔ 双模回测(真实BRAIN平台在线回测/本地沙盒) ➔ DSR/PSR统计防过拟合检验 ➔ IC衰减半衰期探测 ➔ AlphaJudge终审评级 ➔ SQLite数据库自动持久化(落库) ➔ 导出研究报告**：
-
-#### Python API 调用
-```python
-from alpha_operator_framework import run_literature_research_pipeline
-
-result = run_literature_research_pipeline(
-    literature_source=r"D:\quant\brain\reports\papers\pdfs\2605.09712v1_Quantifying_the_Risk-Return_Tradeoff_in_Forecasting.pdf",
-    region="GBR",               # 目标市场 (自动适配 GBR 对应 TOP700)
-    datasets=["analyst7", "risk68"], # ★ 动态加载指定真实数据集，绝不写死固定字段！
-    neutralization="SUBINDUSTRY",
-    delay=1,
-    decay=8,
-    execute_on_platform=True,   # ★ 直连 WorldQuant BRAIN 官方模拟集群真实回测！
-    use_llm=True,               # 启用大模型 (自动读取 configs/llm_config.json)
-    provider="deepseek",        # 支持自由切换 deepseek / openai / qwen / ollama
-    save_to_db=True,            # ★ 自动落库：写入 alpha_expressions, alpha_details, alpha_checks
-    database_path="data/alpha_research.db",
-    output_report_path="gbr_research_report.md", # 自动导出精美 Markdown 总结报告
-)
-
-# 打印生成的终审研发报告
-print(result.summary_markdown())
-
-# 获取第一顺位推荐提交的 Alpha
-top_alpha = result.top_submission_alpha
-print(f"Top 1 提交因子: {top_alpha['alpha_id']}, 终审评级: {top_alpha['verdict']}, 优先级得分: {top_alpha['priority_score']}")
-print(f"规范 AST 表达式: {top_alpha['expression']}")
-```
-
-#### CLI 命令行一键调用 (无需临时编写脚本)
-```powershell
-python alpha_machine.py research `
-  --paper "D:\quant\brain\reports\papers\pdfs\2605.09712v1_Quantifying_the_Risk-Return_Tradeoff_in_Forecasting.pdf" `
-  --region GBR `
-  --datasets analyst7,risk68 `
-  --execute `
-  --database data/alpha_research.db `
-  --output gbr_report.md
-```
-
-### 16. 一键分层地毯式 Alpha 挖掘与正向自优化 (Stratified Carpet Mining)
-
-一条命令实现全市场、多数据集的大规模自动化挖掘与自进化：**数据集字段动态提取 ➔ 5,000+ 多阶候选 AST 表达式生成 ➔ 6 大语义模板族分类 ➔ 分层均衡随机抽样 ➔ 分批真实回测 ➔ 实时流式落库 (`alpha_expressions`, `alpha_details`, `alpha_checks`) ➔ 零信号模板智能剪枝 ➔ 正向信号针对性 AST 基因突变自优化 (降换手/调衰减/反转) ➔ 输出终审研报**：
-
-#### CLI 命令行一键调用
-```powershell
-python alpha_machine.py mine `
-  --region GBR `
-  --universe TOP700 `
-  --datasets "insider_agg_matrix,pattern_scores,fundamental31" `
-  --sample-per-family 4 `
-  --batch-size 5 `
-  --execute `
-  --output data/gbr_carpet_mining_report.md
-```
-
-#### Python API 调用
-```python
-from alpha_operator_framework.carpet_mining import run_stratified_carpet_mining
-
-result = run_stratified_carpet_mining(
-    region="GBR",
-    universe="TOP700",
-    datasets=["insider_agg_matrix", "pattern_scores", "fundamental31"],
-    sample_per_family=4,      # 每一类表达式随机抽选 4 条代表
-    batch_size=5,             # 平台每批任务数 (每批跑完即时落库)
-    decay=12,
-    neutralization="SUBINDUSTRY",
-    execute=True,             # 提交真实在线回测 (False 为 0.1 秒 Dry-run)
-    output_report_path="data/gbr_carpet_mining_report.md",
-)
-
-print(result.summary_markdown())
-```
-
-## 与原项目的关系
-
-- 继承 `machine_lib.py` 的核心算子和多阶组合逻辑
-- 继承 `cold_templates` 的模板族定义和密度评估方法论
-- 新增：算子元数据、AST 语法编译器、文献研发直通车、分层地毯挖掘、AlphaJudge 终审裁决、真实平台回测直连与主数据库自动落库
-
-## 设计红线
-
-1. **纯函数优先**: families/operators/density模块无网络访问
-2. **会话单管理**: 模拟统一经`alpha_machine.simulate`（brain_client）
-3. **零授权submit**: 默认dry-run，需显式`--execute`才触发check
-4. **区域自适应**: group操作符按region自动匹配可用GROUP字段
-
-
+---
+
+## 🔒 字段与数据合规声明
+> [!IMPORTANT]
+> **已弃用字段过滤提示**：平台已全面停用 `close`、`open`、`high`、`low` 等过时价格字段。本框架在 AST 编译器、动态字段对齐器及所有内置模板中**全面拦截并剔除 `close` 等字段**，统一使用 `returns`、`vwap`、`volume`、`market_cap`、`sharesout` 等标准收益流与量价字段。

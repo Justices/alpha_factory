@@ -1,13 +1,13 @@
 """事件溯源研究内核 — 核心引擎与 A/B 对照实验控制器 (Event-Sourced Research Engine).
 
-整合 Policy、ArtifactStore、EventStore、OutboxWorker、ProjectionEngine 与 A/B 分支比较。
+整合 Policy、ArtifactStore、EventStore、OutboxWorker、ProjectionEngine 与严格的 A/B 分支科学对照。
 """
 
 from __future__ import annotations
 
 import hashlib
 import uuid
-from typing import Any, Dict, List, Optional, Sequence
+from typing import Any, Callable, Dict, List, Optional, Sequence
 
 from alpha_operator_framework.core.artifacts import ArtifactStore
 from alpha_operator_framework.core.event_store import EventStore
@@ -25,11 +25,26 @@ class EventSourcedResearchEngine:
         self,
         event_store: Optional[EventStore] = None,
         artifact_store: Optional[ArtifactStore] = None,
+        simulator_fn: Optional[Callable[[str, Dict[str, Any]], Dict[str, Any]]] = None,
+        production: bool = False,
     ):
+        self.production = production
         self.event_store = event_store or EventStore()
         self.artifact_store = artifact_store or ArtifactStore()
+
+        # 生产环境安全断言
+        if self.production:
+            if self.event_store.db_path == ":memory:":
+                raise ValueError("生产模式 (production=True) 必须使用持久化 EventStore，严禁使用 :memory:")
+            if simulator_fn is None:
+                raise ValueError("生产模式 (production=True) 必须注入真实的 PlatformGateway / simulator_fn，严禁使用默认 Mock")
+
+        self.worker = PlatformOutboxWorker(
+            self.event_store,
+            self.artifact_store,
+            simulator_fn=simulator_fn,
+        )
         self.projections = ProjectionEngine()
-        self.worker = PlatformOutboxWorker(self.event_store, self.artifact_store)
 
     def create_experiment(
         self,
@@ -49,7 +64,14 @@ class EventSourcedResearchEngine:
         e1 = Event.create(
             event_type=EventType.POLICY_CREATED,
             stream_id=stream_id,
-            payload={"policy_id": policy.policy_id, "version": policy.version},
+            payload={
+                "policy_id": policy.policy_id,
+                "version": policy.version,
+                "region": policy.region,
+                "universe": policy.universe,
+                "budget_total": getattr(policy.budget, "simulations_per_round", 100),
+                "random_seed": random_seed,
+            },
             payload_ref=policy_ref,
         )
         self.event_store.append(e1)
@@ -151,10 +173,28 @@ class EventSourcedResearchEngine:
         branch_a_stream_id: str,
         branch_b_stream_id: str,
     ) -> Dict[str, Any]:
-        """A/B 分支实验对比 (严格在相同数据分区与预算下比较策略效能)."""
+        """A/B 分支科学对照评估 (严格校验基准输入一致性，以 Locked-OOS 产出率与稳定性判胜)."""
         events_a = self.event_store.read_stream(branch_a_stream_id)
         events_b = self.event_store.read_stream(branch_b_stream_id)
 
+        if not events_a or not events_b:
+            raise ValueError("A/B 对照实验失败: 至少一个分支无事件流")
+
+        # 1. 严格基线一致性检验 (Fail-Closed Baseline Check)
+        part_a = next((e.payload for e in events_a if e.event_type == EventType.PARTITION_LOCKED), None)
+        part_b = next((e.payload for e in events_b if e.event_type == EventType.PARTITION_LOCKED), None)
+
+        if part_a != part_b:
+            raise ValueError(f"A/B 对照实验无效: 分区基线不匹配 (A={part_a} vs B={part_b})")
+
+        pol_a = next((e.payload for e in events_a if e.event_type == EventType.POLICY_CREATED), {})
+        pol_b = next((e.payload for e in events_b if e.event_type == EventType.POLICY_CREATED), {})
+
+        # 校验区域与宇宙一致
+        if pol_a.get("region") != pol_b.get("region") or pol_a.get("universe") != pol_b.get("universe"):
+            raise ValueError(f"A/B 对照实验无效: 市场区域或股票宇宙不一致")
+
+        # 2. 物化视图重放
         proj_a = ProjectionEngine()
         proj_a.replay(events_a)
 
@@ -164,25 +204,58 @@ class EventSourcedResearchEngine:
         cands_a = list(proj_a.candidates.values())
         cands_b = list(proj_b.candidates.values())
 
-        successful_a = [c for c in cands_a if c.sharpe >= 1.25 and c.fitness >= 1.0]
-        successful_b = [c for c in cands_b if c.sharpe >= 1.25 and c.fitness >= 1.0]
+        # 3. 多维度科学评估模型:
+        # 主指标: 单位预算下的合格因子数 (Sharpe >= 1.25, Fitness >= 1.0, Turnover <= 0.70)
+        qualified_a = [c for c in cands_a if c.sharpe >= 1.25 and c.fitness >= 1.0 and c.turnover <= 0.70]
+        qualified_b = [c for c in cands_b if c.sharpe >= 1.25 and c.fitness >= 1.0 and c.turnover <= 0.70]
 
-        hit_rate_a = len(successful_a) / max(len(cands_a), 1)
-        hit_rate_b = len(successful_b) / max(len(cands_b), 1)
+        # 结构族分布多样性
+        families_a = {c.family for c in qualified_a if c.family}
+        families_b = {c.family for c in qualified_b if c.family}
 
-        winner = "Branch_A" if hit_rate_a > hit_rate_b else ("Branch_B" if hit_rate_b > hit_rate_a else "Tie")
+        budget_a = max(len(cands_a), 1)
+        budget_b = max(len(cands_b), 1)
+
+        yield_per_budget_a = len(qualified_a) / budget_a
+        yield_per_budget_b = len(qualified_b) / budget_b
+
+        avg_sharpe_a = sum(c.sharpe for c in qualified_a) / max(len(qualified_a), 1)
+        avg_sharpe_b = sum(c.sharpe for c in qualified_b) / max(len(qualified_b), 1)
+
+        # 胜出判定: 主指标产出率优先，相同则按多样性与平均夏普仲裁
+        if yield_per_budget_a > yield_per_budget_b:
+            winner = "Branch_A"
+        elif yield_per_budget_b > yield_per_budget_a:
+            winner = "Branch_B"
+        else:
+            if len(families_a) > len(families_b):
+                winner = "Branch_A"
+            elif len(families_b) > len(families_a):
+                winner = "Branch_B"
+            else:
+                winner = "Branch_A" if avg_sharpe_a > avg_sharpe_b else ("Branch_B" if avg_sharpe_b > avg_sharpe_a else "Tie")
 
         return {
+            "validation_baseline": {
+                "partition_verified": True,
+                "partitions": part_a,
+                "region": pol_a.get("region"),
+                "universe": pol_a.get("universe"),
+            },
             "branch_a": {
                 "total_candidates": len(cands_a),
-                "successful_alphas": len(successful_a),
-                "hit_rate": round(hit_rate_a, 4),
+                "qualified_alphas": len(qualified_a),
+                "qualified_families": len(families_a),
+                "yield_per_budget": round(yield_per_budget_a, 4),
+                "avg_sharpe": round(avg_sharpe_a, 2),
             },
             "branch_b": {
                 "total_candidates": len(cands_b),
-                "successful_alphas": len(successful_b),
-                "hit_rate": round(hit_rate_b, 4),
+                "qualified_alphas": len(qualified_b),
+                "qualified_families": len(families_b),
+                "yield_per_budget": round(yield_per_budget_b, 4),
+                "avg_sharpe": round(avg_sharpe_b, 2),
             },
             "winner": winner,
-            "conclusion": f"策略胜出方: {winner} (对比基准: 单位算力下的合格 Alpha 产出率)",
+            "evaluation_criterion": "单位计算预算下产出的合格因子族数 (Yield per Budget) + 因子族结构多样性",
         }

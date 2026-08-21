@@ -70,7 +70,18 @@ python init_db.py --verify  # 校验数据库完整性与已应用的 Schema 版
 
 针对指定市场（如英国 GBR）与纯另类数据集（如高管交易、形态识别、基本面等），实现全自动地毯式生成、均衡分层抽样、分批安全回测与正信号自进化：
 
-### 3.1 极速 Dry-Run 任务预览 (0.1秒，零额度消耗)
+> 📖 **进阶必读**: 详细原理解析请参阅 [**《全自主进化与高阶因子挖掘实战指导手册》**](file:///d:/quant/alpha_factory/docs/guides/autonomous_evolution_guide.md)。
+
+### 3.1 跨平台一键无人值守启动 (推荐)
+```bash
+# Linux / macOS / Git Bash
+./run_autopilot.sh GBR TOP700 "analyst7,fundamental31" 12 5 SUBINDUSTRY
+
+# Windows PowerShell (带实时日志与高亮)
+.\run_autopilot.ps1 -Region GBR -Universe TOP700 -Datasets "analyst7,fundamental31" -SamplePerFamily 5 -Decay 12
+```
+
+### 3.2 极速 Dry-Run 任务预览 (0.1秒，零额度消耗)
 ```powershell
 python alpha_machine.py mine `
   --region GBR `
@@ -79,7 +90,7 @@ python alpha_machine.py mine `
   --sample-per-family 3
 ```
 
-### 3.2 真实在线分批回测与全闭环自优化 (消耗额度)
+### 3.3 真实在线分批回测与全闭环自优化 (消耗额度)
 ```powershell
 python alpha_machine.py mine `
   --region GBR `
@@ -90,12 +101,25 @@ python alpha_machine.py mine `
   --decay 12 `
   --neutralization SUBINDUSTRY `
   --execute `
-  --output data/gbr_carpet_mining_report.md
+  --output runs/reports/gbr_carpet_mining_report.md
 ```
 
-### 3.3 关键参数详解
+### 3.4 关键参数与 10 大生成族群详解
 - `--datasets, -d`：指定要挖掘的数据集 ID（支持以逗号分隔传入多个另类数据集）；
-- `--sample-per-family, -s`：**每一类表达式随机抽选的数量**（系统将表达式自动归为动量、均值回归、MACD、相对比率、不对称风险、跨源协同 6 大族）；
+- `--sample-per-family, -s`：**每一类表达式随机抽选的数量**。系统自动并行调度 **10 大族群**：
+  1. `ts_momentum`（时序动量）
+  2. `mean_reversion`（均值反转）
+  3. `macd_velocity`（MACD 加速度）
+  4. `relative_ratio`（截面相对比率）
+  5. `asymmetric_risk`（不对称波动风险）
+  6. `sector_decomposition`（**行业-特质正交分解**）
+  7. `three_tier_scaling`（**三层架构尺度标准化**）
+  8. `cross_interaction`（多源跨数据集协同）
+  9. `symbolic_evolution`（**Phase 3 递归 AST 符号自由杂交**）
+  10. `evolved_distillation`（**Phase 2 数据库沉淀模板动态实例化**）
+- `--seed`：随机种子（默认 `None`：**自动优先从未回测过的空间抽取**，避免重复消耗平台配额）；
+- `--decay`：时序衰减周期（推荐设为 `12` 或 `15`）；
+- `--neutralization, -n`：行业中性化基准（默认为 `SUBINDUSTRY`，可选 `INDUSTRY` 或 `SECTOR`）；
 - `--batch-size, -b`：**平台回测每批任务数**（每跑完 1 批，立刻自动完成数据库存储，不怕网络意外中断）；
 - `--execute, -e`：指定后正式向 BRAIN 官方服务器提交模拟。
 

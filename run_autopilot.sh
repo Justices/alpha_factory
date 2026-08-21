@@ -49,6 +49,8 @@ UNIVERSE="${2:-TOP700}"
 DATASETS="${3:-analyst7}"
 SAMPLE_PER_FAMILY="${4:-4}"
 BATCH_SIZE="${5:-5}"
+DECAY="${6:-12}"
+NEUTRALIZATION="${7:-SUBINDUSTRY}"
 
 # 执行一键流水线
 python3 alpha_machine.py auto-pilot \
@@ -57,6 +59,8 @@ python3 alpha_machine.py auto-pilot \
     --datasets "$DATASETS" \
     --sample-per-family "$SAMPLE_PER_FAMILY" \
     --batch-size "$BATCH_SIZE" \
+    --decay "$DECAY" \
+    --neutralization "$NEUTRALIZATION" \
     --min-sharpe 1.25 \
     --min-fitness 1.0 \
     --execute \

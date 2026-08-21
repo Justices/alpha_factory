@@ -8,6 +8,8 @@ param (
     [string]$Datasets = "analyst7",
     [int]$SamplePerFamily = 4,
     [int]$BatchSize = 5,
+    [int]$Decay = 12,
+    [string]$Neutralization = "SUBINDUSTRY",
     [switch]$DryRun = $false
 )
 
@@ -43,6 +45,8 @@ $ArgsList = @(
     "--datasets", $Datasets,
     "--sample-per-family", $SamplePerFamily,
     "--batch-size", $BatchSize,
+    "--decay", $Decay,
+    "--neutralization", $Neutralization,
     "--min-sharpe", "1.25",
     "--min-fitness", "1.0"
 )

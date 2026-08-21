@@ -904,6 +904,34 @@ def test_alpha_machine_poll_command_is_available():
         sys.argv = previous
 
 
+def test_alpha_machine_poll_command_marks_stale_batch_when_ttl_is_set():
+    """An expired stored Location is escalated before polling can clear its stale state."""
+    import alpha_machine
+
+    class Tracker:
+        def __init__(self):
+            self.calls = []
+
+        def mark_stalled_if_expired(self, batch_id, max_idle_seconds):
+            self.calls.append((batch_id, max_idle_seconds))
+            return True
+
+    tracker = Tracker()
+    assert alpha_machine.mark_stalled_before_poll(tracker, 7, 300.0) is True
+    assert tracker.calls == [(7, 300.0)]
+    assert alpha_machine.mark_stalled_before_poll(tracker, 7, None) is False
+
+
+def test_alpha_machine_rejects_non_positive_stale_ttl():
+    """A watchdog TTL must be positive so an operator cannot stall every batch by mistake."""
+    import alpha_machine
+    import pytest
+
+    assert alpha_machine.positive_seconds("300") == 300.0
+    with pytest.raises(argparse.ArgumentTypeError):
+        alpha_machine.positive_seconds("0")
+
+
 def test_alpha_machine_prepare_super_command_is_available():
     """The CLI exposes a non-network Super Alpha preparation command."""
     source = (ROOT / "alpha_machine.py").read_text(encoding="utf-8")
@@ -956,6 +984,19 @@ def test_fields():
     )
     exprs = preprocess_field(vec_field)
     assert len(exprs) == len(vec_ops), f"VECTOR字段应为每个VEC算子生成表达式, 实际{len(exprs)}"
+
+    event_field = FieldSpec(
+        id="short_interest_event", dataset_id="shortinterest3", type="EVENT", coverage=0.80
+    )
+    event_exprs = preprocess_field(event_field)
+    assert event_exprs == ["winsorize(ts_backfill(vec_avg(short_interest_event), 120), std=4.0)"]
+
+    from alpha_machine import FieldSpec as MachineFieldSpec
+    from alpha_machine import preprocess_field as machine_preprocess_field
+    machine_event_exprs = machine_preprocess_field(
+        MachineFieldSpec(id="short_interest_event", dataset_id="shortinterest3", type="EVENT")
+    )
+    assert machine_event_exprs == ["winsorize(ts_backfill(vec_avg(short_interest_event), 120), std=4)"]
 
     # sample_scalar_expressions测试
     fields = [field, vec_field]

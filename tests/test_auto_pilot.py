@@ -36,3 +36,12 @@ def test_auto_pilot_dry_run(tmp_path):
     assert report_file.exists()
     content = report_file.read_text(encoding="utf-8")
     assert "Alpha Factory 无人值守投研报告" in content
+
+
+def test_auto_pilot_does_not_convert_non_ready_grade_to_ready_verdict():
+    """IS rows only receive a READY verdict when the stored review grade is READY."""
+    from alpha_machine import judge_verdict_from_grade
+
+    assert judge_verdict_from_grade("READY") == "READY"
+    assert judge_verdict_from_grade("REJECTED") is None
+    assert judge_verdict_from_grade(None) is None

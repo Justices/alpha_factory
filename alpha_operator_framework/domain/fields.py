@@ -84,6 +84,7 @@ def preprocess_field(
 
     MATRIX字段: 直接winsorize + ts_backfill
     VECTOR 字段: 对每个配置的 VEC 算子归约后，再预处理
+    EVENT 字段: 固定以 vec_avg 归约后，再预处理
     GROUP字段: 不做预处理(不作为原子信号)
 
     Args:
@@ -116,6 +117,10 @@ def preprocess_field(
             vec_expr = f"{vec_op}({field.id})"
             expr = f"winsorize(ts_backfill({vec_expr}, {backfill}), std={winsorize_std})"
             expressions.append(expr)
+
+    elif field.type == "EVENT":
+        vec_expr = f"vec_avg({field.id})"
+        expressions.append(f"winsorize(ts_backfill({vec_expr}, {backfill}), std={winsorize_std})")
 
     return expressions
 

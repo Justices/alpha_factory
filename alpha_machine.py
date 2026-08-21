@@ -757,10 +757,16 @@ def main() -> None:
 
 def command_init_db(args: argparse.Namespace) -> None:
     from alpha_operator_framework.database.init_db import init_database, verify_database
+    db_file = Path(args.database)
     if args.verify:
-        success = verify_database(Path(args.database))
+        if not db_file.exists():
+            print(f"ℹ️  数据库文件未创建: {db_file}，正在自动为您全新初始化...")
+            success, _ = init_database(db_path=db_file, reset=False)
+            if not success:
+                sys.exit(1)
+        success = verify_database(db_file)
         sys.exit(0 if success else 1)
-    success, _ = init_database(db_path=Path(args.database), reset=args.reset)
+    success, _ = init_database(db_path=db_file, reset=args.reset)
     sys.exit(0 if success else 1)
 
 

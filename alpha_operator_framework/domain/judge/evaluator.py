@@ -49,6 +49,7 @@ class JudgeReport:
     projected_diversity_delta: float            # 提交本因子带来的多样性增量 Δdiversity
     actionable_recommendations: List[str]       # 具象化改进建议
     metrics: Dict[str, Any] = field(default_factory=dict)
+    family: str = "mining"                      # 来源族群或策略类型
 
 
 class AlphaJudge:
@@ -165,6 +166,7 @@ class AlphaJudge:
                 "pc_value": pc,
                 "sc_value": sc,
             },
+            family=str(candidate_detail.get("family") or (meta.get("family") if meta else "") or "mining"),
         )
 
     def rank_candidates(

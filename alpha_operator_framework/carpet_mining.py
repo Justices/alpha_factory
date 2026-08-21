@@ -99,21 +99,49 @@ class CarpetMiningResult:
 
         for idx, rep in enumerate(self.ranked_reports[:10], 1):
             icon = "🥇" if idx == 1 else ("🥈" if idx == 2 else ("🥉" if idx == 3 else f"{idx}"))
-            m = rep.metrics
+            m = rep.metrics if hasattr(rep, "metrics") and rep.metrics else {}
+            if isinstance(m, dict):
+                sharpe = float(m.get("sharpe") or 0.0)
+                fitness = float(m.get("fitness") or 0.0)
+                turnover = float(m.get("turnover") or 0.0)
+                returns = float(m.get("returns") or m.get("annualized_return") or 0.0)
+                drawdown = float(m.get("drawdown") or m.get("max_drawdown") or 0.0)
+            else:
+                sharpe = float(getattr(m, "sharpe", 0.0))
+                fitness = float(getattr(m, "fitness", 0.0))
+                turnover = float(getattr(m, "turnover", 0.0))
+                returns = float(getattr(m, "returns", getattr(m, "annualized_return", 0.0)))
+                drawdown = float(getattr(m, "drawdown", getattr(m, "max_drawdown", 0.0)))
+
+            family = getattr(rep, "family", None) or (m.get("family") if isinstance(m, dict) else getattr(m, "family", "mining")) or "mining"
+            verdict_val = rep.verdict.value if hasattr(rep.verdict, "value") else str(rep.verdict)
             rec = rep.actionable_recommendations[0] if rep.actionable_recommendations else "保持观察"
             lines.append(
-                f"| {icon} | `{rep.alpha_id}` | `{rep.family or 'mining'}` | **{m.sharpe:.2f}** | {m.fitness:.2f} | {m.turnover:.1%} | **{m.annualized_return:.2%}** | {m.max_drawdown:.1%} | `{rep.verdict.value}` | {rec} |"
+                f"| {icon} | `{rep.alpha_id}` | `{family}` | **{sharpe:.2f}** | {fitness:.2f} | {turnover:.1%} | **{returns:.2%}** | {drawdown:.1%} | `{verdict_val}` | {rec} |"
             )
 
         if self.ranked_reports:
             best = self.ranked_reports[0]
+            m = best.metrics if hasattr(best, "metrics") and best.metrics else {}
+            if isinstance(m, dict):
+                b_sharpe = float(m.get("sharpe") or 0.0)
+                b_fitness = float(m.get("fitness") or 0.0)
+                b_turnover = float(m.get("turnover") or 0.0)
+                b_returns = float(m.get("returns") or m.get("annualized_return") or 0.0)
+                b_drawdown = float(m.get("drawdown") or m.get("max_drawdown") or 0.0)
+            else:
+                b_sharpe = float(getattr(m, "sharpe", 0.0))
+                b_fitness = float(getattr(m, "fitness", 0.0))
+                b_turnover = float(getattr(m, "turnover", 0.0))
+                b_returns = float(getattr(m, "returns", getattr(m, "annualized_return", 0.0)))
+                b_drawdown = float(getattr(m, "drawdown", getattr(m, "max_drawdown", 0.0)))
             lines.extend([
                 f"",
                 f"## 二、 重点优胜 Alpha 详情",
                 f"",
                 f"- **平台 Alpha ID**: `{best.alpha_id}`",
                 f"- **规范 AST 表达式**: `{best.expression}`",
-                f"- **综合表现**: Sharpe **{best.metrics.sharpe:.2f}**, 年化收益 **{best.metrics.annualized_return:.2%}**, 最大回撤 **{best.metrics.max_drawdown:.1%}**, 换手率 **{best.metrics.turnover:.1%}**",
+                f"- **综合表现**: Sharpe **{b_sharpe:.2f}**, Fitness **{b_fitness:.2f}**, 年化收益 **{b_returns:.2%}**, 最大回撤 **{b_drawdown:.1%}**, 换手率 **{b_turnover:.1%}**",
             ])
 
         return "\n".join(lines)

@@ -14,6 +14,7 @@ from .models import (
     SubmissionCase,
 )
 from ..experiment_governance.models import NormalizedBacktestResult
+from ..experiment_governance.models import PostPruneDecision
 
 
 class SignalDistiller:
@@ -66,7 +67,7 @@ class SelectionFeedbackBuilder:
         self,
         results: Sequence[NormalizedBacktestResult],
         distilled_templates: List[SignalDistillationEvidence],
-        prune_rules: List[PruneRuleEvidence],
+        post_prunes: Sequence[PostPruneDecision] = (),
     ) -> SelectionFeedback:
         field_deltas: Dict[str, float] = {}
         fam_deltas: Dict[str, float] = {}
@@ -80,6 +81,18 @@ class SelectionFeedbackBuilder:
             for f in tokens - exclude:
                 if not f.isdigit():
                     field_deltas[f] = field_deltas.get(f, 0.0) + delta
+
+        prune_rules = [
+            PruneRuleEvidence(
+                pattern=str(decision.evidence.get("template_id") or decision.evidence.get("skeleton") or ""),
+                pattern_type="template_id",
+                reason=decision.reason_code,
+                failure_rate=1.0,
+                sample_n=1,
+            )
+            for decision in post_prunes
+            if decision.is_pruned and (decision.evidence.get("template_id") or decision.evidence.get("skeleton"))
+        ]
 
         return SelectionFeedback(
             field_weight_deltas=field_deltas,

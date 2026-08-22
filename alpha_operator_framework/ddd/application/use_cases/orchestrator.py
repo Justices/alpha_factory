@@ -314,7 +314,7 @@ class BuildSelectionFeedbackUseCase:
         feedback = self.feedback_builder.build_feedback(
             results=list(batch.results.values()),
             distilled_templates=distilled,
-            prune_rules=[],
+            post_prunes=list(batch.post_prune_decisions.values()),
         )
 
         # Apply field weight feedback

@@ -5,7 +5,7 @@ from __future__ import annotations
 from collections import defaultdict
 from typing import Any, Dict, List, Sequence
 from .base import SelectionPolicy
-from ..models import Candidate, ResearchPolicy, SelectionDecision
+from ..models import Candidate, ResearchPolicy, SelectionDecision, SelectionKnowledgeSnapshot
 from ...ports import RandomSource
 
 
@@ -23,21 +23,27 @@ class WeightedStratifiedSelectionPolicy(SelectionPolicy):
         if not candidates:
             return decisions
 
-        # Group by family
+        knowledge = context_knowledge if isinstance(context_knowledge, SelectionKnowledgeSnapshot) else SelectionKnowledgeSnapshot()
+
+        # Group non-pruned candidates by family.
         by_family: Dict[str, List[Candidate]] = defaultdict(list)
+        rejected_ids: set[str] = set()
         for c in candidates:
-            by_family[c.family].append(c)
+            if knowledge.rejects(c):
+                rejected_ids.add(c.candidate_id)
+            else:
+                by_family[c.family].append(c)
 
         target_per_family = max(1, policy.budget.max_backtested // max(1, len(by_family)))
         selected_candidates: List[Candidate] = []
 
         for fam, fam_cands in by_family.items():
             quota = policy.family_quotas.get(fam, target_per_family)
-            if len(fam_cands) <= quota:
-                sampled = list(fam_cands)
-            else:
-                sampled = random_source.sample(fam_cands, quota)
-            selected_candidates.extend(sampled)
+            scored = sorted(
+                ((self._score(candidate, policy, knowledge), candidate) for candidate in fam_cands),
+                key=lambda pair: (-pair[0], pair[1].candidate_id),
+            )
+            selected_candidates.extend(candidate for _, candidate in scored[:quota])
 
         # Enforce hard budget
         if len(selected_candidates) > policy.budget.max_backtested:
@@ -47,16 +53,46 @@ class WeightedStratifiedSelectionPolicy(SelectionPolicy):
 
         for c in candidates:
             is_sel = c.candidate_id in selected_ids
+            components = self._components(c, policy, knowledge)
+            if c.candidate_id in rejected_ids:
+                reason = "Rejected by distilled prune rule"
+            elif is_sel:
+                reason = "Highest weighted score within family quota"
+            else:
+                reason = "Exceeded weighted family quota"
             decisions.append(
                 SelectionDecision(
                     candidate_id=c.candidate_id,
                     is_selected=is_sel,
-                    score_components={"stratified_weight": 1.0 if is_sel else 0.0},
+                    score_components=components,
                     algorithm="weighted_stratified",
                     policy_version=policy.version,
                     seed=getattr(random_source, "seed", 42),
-                    reason="Stratified family quota match" if is_sel else "Exceeded family quota",
+                    reason=reason,
                 )
             )
 
         return decisions
+
+    @staticmethod
+    def _components(
+        candidate: Candidate,
+        policy: ResearchPolicy,
+        knowledge: SelectionKnowledgeSnapshot,
+    ) -> Dict[str, float]:
+        return {
+            "field": policy.weights.field * knowledge.field_score(candidate.fields),
+            "operator": policy.weights.operator * knowledge.operator_score(candidate.operators),
+            "template": policy.weights.template * knowledge.template_score(candidate.template_id),
+            "novelty": policy.weights.novelty * candidate.novelty_score,
+            "uncertainty": policy.weights.uncertainty * knowledge.uncertainty(candidate),
+        }
+
+    @classmethod
+    def _score(
+        cls,
+        candidate: Candidate,
+        policy: ResearchPolicy,
+        knowledge: SelectionKnowledgeSnapshot,
+    ) -> float:
+        return sum(cls._components(candidate, policy, knowledge).values())

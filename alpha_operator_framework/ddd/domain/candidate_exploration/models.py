@@ -3,7 +3,7 @@
 from __future__ import annotations
 
 import hashlib
-from dataclasses import dataclass, field
+from dataclasses import asdict, dataclass, field
 from datetime import datetime
 from typing import Any, Dict, List, Optional, Sequence
 
@@ -16,6 +16,57 @@ class Budget:
     max_backtested: int = 50
     max_optimized: int = 10
     max_submitted: int = 5
+
+
+@dataclass(frozen=True)
+class SamplingWeights:
+    """Configurable weights applied by candidate selection policies."""
+    field: float = 1.0
+    operator: float = 1.0
+    template: float = 1.0
+    novelty: float = 1.0
+    uncertainty: float = 1.0
+
+
+@dataclass(frozen=True)
+class PruningRules:
+    """Immutable pre-backtest rule configuration captured with a round."""
+    prohibited_patterns: tuple[str, ...] = ()
+    max_expression_length: int = 4_000
+
+
+@dataclass(frozen=True)
+class SelectionKnowledgeSnapshot:
+    """Immutable evidence consumed by a single selection round."""
+    version: int = 0
+    field_stats: Dict[str, Dict[str, float]] = field(default_factory=dict)
+    operator_stats: Dict[str, Dict[str, float]] = field(default_factory=dict)
+    template_stats: Dict[str, Dict[str, float]] = field(default_factory=dict)
+    prune_rules: tuple[str, ...] = ()
+
+    @staticmethod
+    def _score(stats: Dict[str, Dict[str, float]], keys: Sequence[str]) -> float:
+        values = [float(stats.get(key, {}).get("score", 0.0)) for key in keys]
+        return sum(values) / len(values) if values else 0.0
+
+    def field_score(self, fields: Sequence[str]) -> float:
+        return self._score(self.field_stats, fields)
+
+    def operator_score(self, operators: Sequence[str]) -> float:
+        return self._score(self.operator_stats, operators)
+
+    def template_score(self, template_id: str) -> float:
+        return float(self.template_stats.get(template_id, {}).get("score", 0.0))
+
+    def uncertainty(self, candidate: "Candidate") -> float:
+        trials = sum(
+            float(self.field_stats.get(field, {}).get("trials", 0.0))
+            for field in candidate.fields
+        )
+        return 1.0 / (1.0 + trials)
+
+    def rejects(self, candidate: "Candidate") -> bool:
+        return candidate.template_id in self.prune_rules
 
 
 @dataclass(frozen=True)
@@ -34,6 +85,22 @@ class ResearchPolicy:
     family_quotas: Dict[str, int] = field(default_factory=dict)
     min_distinct_fields: int = 2
     pre_prune_rules: List[str] = field(default_factory=list)
+    weights: SamplingWeights = field(default_factory=SamplingWeights)
+    pruning: PruningRules = field(default_factory=PruningRules)
+
+    def to_dict(self) -> Dict[str, Any]:
+        return asdict(self)
+
+    @classmethod
+    def from_dict(cls, value: Dict[str, Any]) -> "ResearchPolicy":
+        payload = dict(value)
+        payload["budget"] = Budget(**payload.get("budget", {}))
+        payload["weights"] = SamplingWeights(**payload.get("weights", {}))
+        pruning = dict(payload.get("pruning", {}))
+        if "prohibited_patterns" in pruning:
+            pruning["prohibited_patterns"] = tuple(pruning["prohibited_patterns"])
+        payload["pruning"] = PruningRules(**pruning)
+        return cls(**payload)
 
 
 @dataclass
@@ -43,6 +110,9 @@ class Candidate:
     expression: str
     family: str
     fields: List[str]
+    operators: List[str] = field(default_factory=list)
+    template_id: str = ""
+    novelty_score: float = 0.0
     decay: int = 12
     canonical_hash: str = ""
     lineage_parent_id: Optional[str] = None
@@ -50,9 +120,10 @@ class Candidate:
     created_at: str = field(default_factory=lambda: datetime.now().isoformat())
 
     def compute_canonical_hash(self) -> str:
-        # Standardize whitespaces
-        norm = "".join(self.expression.split())
-        self.canonical_hash = hashlib.sha256(norm.encode("utf-8")).hexdigest()
+        from alpha_operator_framework.domain.ast import to_canonical_string
+
+        canonical = to_canonical_string(self.expression)
+        self.canonical_hash = hashlib.sha256(canonical.encode("utf-8")).hexdigest()
         return self.canonical_hash
 
 

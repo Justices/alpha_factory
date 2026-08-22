@@ -4,9 +4,12 @@ import pytest
 
 from alpha_operator_framework.ddd.domain.field_research.models import FieldSnapshot, FieldUniverse
 from alpha_operator_framework.ddd.domain.candidate_exploration.models import (
+    Budget,
     Candidate,
     PrePruneDecision,
+    PruningRules,
     ResearchPolicy,
+    SamplingWeights,
     SelectionDecision,
     SelectionRound,
 )
@@ -68,6 +71,25 @@ def test_sqlite_selection_round_persistence():
         assert loaded.round_id == "r100"
         assert "c1" in loaded.candidate_pool
         assert loaded.selection_decisions["c1"].is_selected is True
+
+
+def test_sqlite_selection_round_preserves_complete_policy_snapshot():
+    with tempfile.TemporaryDirectory(ignore_cleanup_errors=True) as tmp:
+        repo = SqliteDddRepository(Path(tmp) / "test_ddd.db")
+        policy = ResearchPolicy(
+            region="GBR",
+            universe="TOP700",
+            budget=Budget(max_backtested=7),
+            weights=SamplingWeights(field=2.0, operator=0.25, template=1.5),
+            pruning=PruningRules(prohibited_patterns=("bad_pattern",), max_expression_length=77),
+            selection_params={"exploration": 0.3},
+        )
+        repo.save_round(SelectionRound(round_id="r-policy", policy=policy, seed=11))
+
+        loaded = repo.load_round("r-policy")
+
+        assert loaded is not None
+        assert loaded.policy == policy
 
 
 def test_sqlite_experiment_batch_persistence():

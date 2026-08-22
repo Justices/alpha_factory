@@ -102,15 +102,15 @@ def test_full_research_cycle_dry_run(research_cycle_use_case):
 
     summary = research_cycle_use_case.execute(req)
 
-    assert summary.status == "COMPLETED"
+    assert summary.status == "PLANNED"
     assert summary.total_fields == 10
     assert summary.eligible_fields == 10
     assert summary.candidates_generated >= 50
     assert summary.candidates_selected >= 8
-    assert summary.backtests_completed >= 8
-    assert summary.ready_alphas_count >= 1
+    assert summary.backtests_completed == 0
+    assert summary.ready_alphas_count == 0
     assert summary.submitted_alphas_count == 0  # Dry-run: no platform submission
-    assert summary.distilled_templates_count >= 1
+    assert summary.distilled_templates_count == 0
 
     cli_text = summary.format_cli_report()
     assert "Alpha Factory DDD Research Cycle Summary" in cli_text

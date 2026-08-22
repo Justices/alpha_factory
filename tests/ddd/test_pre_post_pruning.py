@@ -27,9 +27,32 @@ def test_pre_pruning_service_syntax_and_duplicates():
     d4 = service.evaluate_candidate(c_dup, seen, policy)
 
     assert d1.is_rejected is False
-    assert d2.is_rejected is True and d2.reason_code == "SYNTAX_UNBALANCED_PARENS"
+    assert d2.is_rejected is True and d2.reason_code == "AST_INVALID"
     assert d3.is_rejected is True and d3.reason_code == "PROHIBITED_SYNTAX_PATTERN"
-    assert d4.is_rejected is True and d4.reason_code == "EXACT_CANONICAL_DUPLICATE"
+    assert d4.is_rejected is True and d4.reason_code == "AST_CANONICAL_DUPLICATE"
+
+
+def test_pre_pruning_rejects_ast_equivalent_candidates():
+    service = PrePruningService()
+    policy = ResearchPolicy()
+    seen = set()
+
+    nested = Candidate(candidate_id="nested", expression="rank(rank(close))", family="f", fields=["close"])
+    canonical = Candidate(candidate_id="canonical", expression="rank(close)", family="f", fields=["close"])
+
+    assert service.evaluate_candidate(nested, seen, policy).is_rejected is False
+    decision = service.evaluate_candidate(canonical, seen, policy)
+
+    assert decision.is_rejected is True
+    assert decision.reason_code == "AST_CANONICAL_DUPLICATE"
+
+
+def test_research_policy_round_trip_preserves_full_decision_inputs():
+    policy = ResearchPolicy()
+
+    restored = ResearchPolicy.from_dict(policy.to_dict())
+
+    assert restored == policy
 
 
 def test_post_backtest_pruner_gold_shield():

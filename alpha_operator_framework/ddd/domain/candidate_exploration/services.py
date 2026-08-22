@@ -5,6 +5,7 @@ from __future__ import annotations
 import re
 from typing import Dict, List, Sequence, Set
 from .models import Candidate, PrePruneDecision, ResearchPolicy
+from alpha_operator_framework.domain.ast import to_canonical_string, validate_expression
 
 
 class AstCanonicalizer:
@@ -31,17 +32,20 @@ class PrePruningService:
         seen_canonical_hashes: Set[str],
         policy: ResearchPolicy,
     ) -> PrePruneDecision:
-        # 1. Syntax check
-        if not candidate.expression or candidate.expression.count("(") != candidate.expression.count(")"):
+        # 1. AST syntax and semantic validation
+        validation = validate_expression(candidate.expression)
+        if not validation.is_valid:
             return PrePruneDecision(
                 candidate_id=candidate.candidate_id,
                 is_rejected=True,
-                reason_code="SYNTAX_UNBALANCED_PARENS",
+                reason_code="AST_INVALID",
+                evidence={"errors": validation.errors},
                 policy_version=policy.version,
             )
 
         # 2. Prohibited patterns check (e.g. division by zero or nesting ts_delta)
-        for pat in self.prohibited_patterns:
+        prohibited_patterns = tuple(self.prohibited_patterns) + policy.pruning.prohibited_patterns
+        for pat in prohibited_patterns:
             if pat in candidate.expression:
                 return PrePruneDecision(
                     candidate_id=candidate.candidate_id,
@@ -52,12 +56,14 @@ class PrePruningService:
                 )
 
         # 3. Canonical duplicate check
-        chash = candidate.canonical_hash or candidate.compute_canonical_hash()
+        canonical = to_canonical_string(candidate.expression)
+        chash = __import__("hashlib").sha256(canonical.encode("utf-8")).hexdigest()
+        candidate.canonical_hash = chash
         if chash in seen_canonical_hashes:
             return PrePruneDecision(
                 candidate_id=candidate.candidate_id,
                 is_rejected=True,
-                reason_code="EXACT_CANONICAL_DUPLICATE",
+                reason_code="AST_CANONICAL_DUPLICATE",
                 evidence={"hash": chash},
                 policy_version=policy.version,
             )

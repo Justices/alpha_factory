@@ -135,12 +135,7 @@ class SqliteDddRepository(
         cands = {k: v.__dict__ for k, v in selection_round.candidate_pool.items()}
         pre_prunes = {k: v.__dict__ for k, v in selection_round.pre_prune_decisions.items()}
         sels = {k: v.__dict__ for k, v in selection_round.selection_decisions.items()}
-        policy_dict = {
-            "version": selection_round.policy.version,
-            "region": selection_round.policy.region,
-            "universe": selection_round.policy.universe,
-            "selection_algorithm": selection_round.policy.selection_algorithm,
-        }
+        policy_dict = selection_round.policy.to_dict()
         with self._get_conn() as conn:
             conn.execute(
                 """INSERT INTO ddd_selection_rounds (round_id, region, universe, policy_json, seed, status, candidate_pool_json, pre_prune_decisions_json, selection_decisions_json, created_at)
@@ -170,11 +165,7 @@ class SqliteDddRepository(
             if not row:
                 return None
             p_dict = json.loads(row["policy_json"])
-            policy = ResearchPolicy(
-                region=p_dict["region"],
-                universe=p_dict["universe"],
-                selection_algorithm=p_dict["selection_algorithm"],
-            )
+            policy = ResearchPolicy.from_dict(p_dict)
             sr = SelectionRound(round_id=round_id, policy=policy, seed=row["seed"], status=row["status"])
             for k, v in json.loads(row["candidate_pool_json"]).items():
                 sr.candidate_pool[k] = Candidate(**v)

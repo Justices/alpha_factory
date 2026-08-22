@@ -779,7 +779,94 @@ def main() -> None:
     auto_p.add_argument("--no-clean", action="store_true", help="回测完成后跳过数据库清理")
     auto_p.add_argument("--output", "-o", default=None, help="指定生产汇总报告输出路径")
     auto_p.set_defaults(func=command_auto_pilot)
+    status_p = sub.add_parser("status", help="查看生产投研状态看板、达标Alpha、回测进度与模板沉淀")
+    status_p.add_argument("--database", "--db", default=None, help="数据库路径 (默认: data/alpha_research.db)")
+    status_p.set_defaults(func=command_status)
     args = parser.parse_args(); args.func(args)
+
+
+def command_status(args: argparse.Namespace) -> None:
+    """展示生产环境投研状态综合看板."""
+    from alpha_operator_framework.database.repository import AlphaDatabase
+    from alpha_operator_framework.database.config import get_database_path
+
+    db_path = Path(args.database) if args.database else get_database_path()
+    if not db_path.exists():
+        print(f"❌ 生产数据库未就绪: {db_path.resolve()}")
+        print("💡 请先执行: python init_db.py")
+        return
+
+    db = AlphaDatabase(db_path=str(db_path))
+    try:
+        db_size_mb = db_path.stat().st_size / (1024 * 1024)
+        print("=" * 75)
+        print(f"📊 【Alpha Factory 生产投研与自进化状态看板】")
+        print(f"📁 数据库路径: {db_path.resolve()} ({db_size_mb:.2f} MB)")
+        print("=" * 75)
+
+        # 1. 表达式池统计
+        with db.transaction() as conn:
+            cur = conn.cursor()
+            cur.execute("SELECT status, COUNT(*) FROM alpha_expressions GROUP BY status")
+            expr_stats = dict(cur.fetchall())
+            total_exprs = sum(expr_stats.values())
+            completed_exprs = expr_stats.get("completed", 0)
+            pending_exprs = expr_stats.get("pending", 0)
+            failed_exprs = expr_stats.get("failed", 0)
+
+            cur.execute("SELECT COUNT(*), AVG(sharpe), MAX(sharpe), AVG(turnover) FROM alpha_details")
+            row = cur.fetchone()
+            total_sims = row[0] or 0
+            avg_sharpe = row[1] or 0.0
+            max_sharpe = row[2] or 0.0
+            avg_turnover = row[3] or 0.0
+
+            cur.execute("SELECT wf_stage, COUNT(*) FROM alpha_details GROUP BY wf_stage")
+            stage_stats = dict(cur.fetchall())
+
+            # 达标提交因子
+            cur.execute("SELECT alpha_id, expression, sharpe, fitness, turnover, margin FROM alpha_details WHERE wf_stage = 'submission_ready' ORDER BY sharpe DESC LIMIT 5")
+            sub_ready = cur.fetchall()
+
+            # 沉淀模板
+            cur.execute("SELECT id, name, family, expression_template FROM template_library WHERE active = 1 ORDER BY id DESC LIMIT 5")
+            templates = cur.fetchall()
+
+        print(f"\n1️⃣ 【表达式池与回测统计】")
+        print(f"   • 生成候选总数: {total_exprs} (已测: {completed_exprs}, 挂起: {pending_exprs}, 失败: {failed_exprs})")
+        print(f"   • 实测 Alpha 数量: {total_sims} 条")
+        print(f"   • 最高 Sharpe: {max_sharpe:.2f} | 平均 Sharpe: {avg_sharpe:.2f} | 平均换手: {avg_turnover:.1%}")
+        print(f"   • 状态机分布: 达标待提交={stage_stats.get('submission_ready', 0)}, 需优化={stage_stats.get('needs_optimization', 0)}, 待校验={stage_stats.get('pending_validation', 0)}")
+
+        print(f"\n2️⃣ 【达标待提交 Alpha (Top 5)】")
+        if sub_ready:
+            print(f"   | {'Alpha ID':<20} | {'Sharpe':<8} | {'Fitness':<8} | {'Margin':<8} | {'Expression'}")
+            print(f"   | {'-'*20} | {'-'*8} | {'-'*8} | {'-'*8} | {'-'*30}")
+            for r in sub_ready:
+                print(f"   | {r[0]:<20} | {r[2]:<8.2f} | {r[3]:<8.2f} | {r[5]:<6.1f}bp | {r[1]}")
+        else:
+            print("   (暂无达标 submission_ready 因子)")
+
+        print(f"\n3️⃣ 【自进化沉淀的高阶模板 (最新 5 个)】")
+        if templates:
+            for t in templates:
+                print(f"   • [ID={t[0]} / {t[2]}] `{t[3]}`")
+        else:
+            print("   (暂无沉淀模板)")
+
+        # 4. 最近日志文件
+        log_files = sorted(Path("runs/logs").glob("*.log"), key=lambda p: p.stat().st_mtime, reverse=True)
+        print(f"\n4️⃣ 【最近日志文件】")
+        if log_files:
+            latest = log_files[0]
+            mtime_str = datetime.fromtimestamp(latest.stat().st_mtime).strftime("%Y-%m-%d %H:%M:%S")
+            print(f"   • 最新日志: {latest} ({latest.stat().st_size / 1024:.1f} KB, 更新于 {mtime_str})")
+        else:
+            print("   (暂无运行日志)")
+
+        print("\n" + "=" * 75)
+    finally:
+        db.close()
 
 
 def command_init_db(args: argparse.Namespace) -> None:

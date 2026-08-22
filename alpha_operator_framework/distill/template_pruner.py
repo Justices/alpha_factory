@@ -11,6 +11,7 @@
 
 from __future__ import annotations
 
+from dataclasses import dataclass, field
 import re
 from typing import Any, Dict, List, Sequence
 
@@ -140,23 +141,15 @@ def prune_templates_by_density(
         t for t in db.list_templates(active_only=True)
         if (t.family, t.template_index) in low_quality
     ]
-    if not targets:
-        return []
     names = [t.name for t in targets]
     db.deactivate_templates(names=names)
     return names
 
 
 def _template_to_pattern(expression_template: str) -> str:
-    """把模板骨架转成前缀匹配模式: 截断到第一个占位符 ``{`` 之前.
-
-    例如 ``ts_delta(ts_delta({a}, 252), 500)`` → ``ts_delta(ts_delta(``。
-    这个前缀能匹配该模板的所有实例 (不管 {a} 被替换成什么字段表达式), 且天然
-    把「增长率二阶」和「差分层叠」归并成同一条规则 (噪声本质相同)。
-    """
+    """把模板骨架转成前缀匹配模式: 截断到第一个占位符 ``{`` 之前."""
     idx = expression_template.find("{")
     if idx <= 0:
-        # 无占位符 (fixed 模板) → 用完整表达式做前缀
         return expression_template
     return expression_template[:idx]
 
@@ -168,26 +161,7 @@ def distill_prune_rules_from_density(
     min_density: float = 0.0,
     min_sample_n: int = 1,
 ) -> List[str]:
-    """从回测密度数据自动生成淘汰规则 (淘汰规则自生长).
-
-    对「被回测过 (sample_n >= min_sample_n) 但零信号 (density <= min_density)」的
-    **模板库模板**, 提取其表达式骨架的算子前缀, 写入 template_prune_rules
-    (source='distilled')。下一轮 survey 生成表达式时, 规则库匹配过滤这些模式的所有变体。
-
-    与 prune_templates_by_density 的区别: 那个标记模板 active=0 (只淘汰固定模板),
-    这个把模板骨架抽象成「模式」写入规则库 (淘汰所有变体, 且规则可跨族复用)。
-
-    Args:
-        db: AlphaDatabase 实例
-        density_rows: compute_density 的输出行 (含 expression_origin/family/template_index/sample_n/density)
-        min_density: 密度阈值, <= 此值视为低质量
-        min_sample_n: 最小回测样本数, 低于此值视为「未充分采样」不淘汰
-
-    Returns:
-        写入的规则 pattern 列表
-    """
-    # 只处理模板库模板 (expression_origin != 'first_order' 排除一阶算子);
-    # 否则一阶算子的 template_index 与模板库 index 混淆, 会误伤一阶算子。
+    """从回测密度数据自动生成淘汰规则 (淘汰规则自生长)."""
     low_quality = {
         (str(r.get("family", "")), int(r.get("template_index", -1)))
         for r in density_rows
@@ -198,7 +172,6 @@ def distill_prune_rules_from_density(
     if not low_quality:
         return []
 
-    # 匹配 template_library 的模板 (含已 active=0 的, 基于它们的骨架提取模式)
     patterns = set()
     for t in db.list_templates(active_only=False):
         if (t.family, t.template_index) in low_quality:
@@ -218,7 +191,231 @@ def distill_prune_rules_from_density(
     return written
 
 
+@dataclass
+class ConsensusPruningResult:
+    """二维共识剪枝执行结果."""
+    pruned_patterns: List[str] = field(default_factory=list)
+    deactivated_templates: List[str] = field(default_factory=list)
+    immune_templates: List[str] = field(default_factory=list)
+    audit_logs: List[str] = field(default_factory=list)
+
+
+@dataclass
+class FieldSignalProfile:
+    """单特征字段在多算子族中的信号纯度画像."""
+    field_id: str
+    tier: str  # "Alpha" | "Neutral" | "Noise"
+    max_sharpe: float
+    avg_sharpe: float
+    families_tested: List[str]
+    total_tests: int
+    is_noise: bool = False
+
+
+def evaluate_and_prune_templates_2d(
+    db,
+    results: Sequence[Any],
+    *,
+    min_distinct_fields: int = 3,
+    failure_rate_threshold: float = 0.80,
+    max_avg_sharpe: float = 0.10,
+    min_sample_n: int = 4,
+) -> ConsensusPruningResult:
+    """【二维正交解耦智能剪枝引擎】: 基于多字段共识判定与金牌豁免机制淘汰结构失效模板.
+
+    核心原则:
+      1. 多字段共识保底: 模板必须跨越 >= min_distinct_fields 个不同特征实测且全面失败，才可判定为结构缺陷；
+      2. 金牌豁免盾 (Gold Shield Immunity): 只要模板在任一字段上产生过 Sharpe >= 1.0 或 Fitness >= 1.0，
+         立即享有豁免保护，绝对不予剪枝；
+      3. 结构与字段解耦: 严防因单一噪声字段拉低均值而误杀优质模板骨架。
+
+    Args:
+        db: AlphaDatabase 实例
+        results: 回测结果列表 (PlatformAlphaResult 或 dict)
+        min_distinct_fields: 判定模板缺陷所需的最小相异字段数 (默认: 3)
+        failure_rate_threshold: 判定失效的最小失败比例 (默认: 80%)
+        max_avg_sharpe: 判定失效的最大平均夏普门槛 (默认: 0.10)
+        min_sample_n: 判定失效所需的最小总样本量 (默认: 4)
+
+    Returns:
+        ConsensusPruningResult: 包含淘汰模式、停用模板、豁免名单与审计日志
+    """
+    from collections import defaultdict
+    from alpha_operator_framework.distill.template_abstractor import abstract_templates
+
+    ret = ConsensusPruningResult()
+    if not results:
+        return ret
+
+    # 1. 规范化回测条目提取 (expression, sharpe, fitness, turnover)
+    records: List[Dict[str, Any]] = []
+    for r in results:
+        expr = getattr(r, "expression", "") or (r.get("expression") if isinstance(r, dict) else "")
+        shp = float(getattr(r, "sharpe", 0.0) if hasattr(r, "sharpe") else (r.get("sharpe", 0.0) if isinstance(r, dict) else 0.0))
+        fit = float(getattr(r, "fitness", 0.0) if hasattr(r, "fitness") else (r.get("fitness", 0.0) if isinstance(r, dict) else 0.0))
+        fam = getattr(r, "family", "") or (r.get("family") if isinstance(r, dict) else "")
+        if expr:
+            records.append({
+                "expression": expr,
+                "sharpe": shp,
+                "fitness": fit,
+                "family": fam,
+            })
+
+    # 2. 按模板骨架 (Skeleton) 聚合回测结果
+    skeleton_groups: Dict[str, List[Dict[str, Any]]] = defaultdict(list)
+    skeleton_fields: Dict[str, set] = defaultdict(set)
+    skeleton_winners: Dict[str, bool] = defaultdict(bool)
+
+    for item in records:
+        expr = item["expression"]
+        # 抽象为骨架
+        skels = abstract_templates([expr])
+        if skels:
+            skel = skels[0].expression_template if hasattr(skels[0], "expression_template") else str(skels[0])
+        else:
+            skel = expr
+        skeleton_groups[skel].append(item)
+
+        # 提取字段
+        fields_in_expr = set(re.findall(r"\b[a-zA-Z_][a-zA-Z0-9_]*\b", expr))
+        exclude = {
+            "rank", "group_rank", "group_neutralize", "group_zscore", "group_scale",
+            "ts_scale", "ts_rank", "ts_zscore", "ts_decay_linear", "ts_delta", "ts_mean", "ts_std_dev",
+            "subindustry", "industry", "sector", "market", "cap", "winsorize", "ts_backfill",
+            "vec_avg", "vec_sum", "vec_min", "vec_max", "vec_stddev", "vec_range", "std",
+            "a", "b", "c", "d", "group", "decay", "window", "w"
+        }
+        actual_fields = {f for f in fields_in_expr if f not in exclude and not f.isdigit()}
+        skeleton_fields[skel].update(actual_fields)
+
+        # 检查是否胜出 (Sharpe >= 1.0 或 Fitness >= 1.0)
+        if item["sharpe"] >= 1.0 or item["fitness"] >= 1.0:
+            skeleton_winners[skel] = True
+
+    # 3. 逐骨架执行多字段共识评估
+    for skel, group in skeleton_groups.items():
+        # 金牌豁免校验
+        if skeleton_winners[skel]:
+            ret.immune_templates.append(skel)
+            ret.audit_logs.append(f"🛡️ [豁免保护] 模板骨架 `{skel}` 曾产生高夏普胜出因子，享有剪枝豁免权")
+            continue
+
+        distinct_fields = skeleton_fields[skel]
+        total_tests = len(group)
+        sharpes = [g["sharpe"] for g in group]
+        avg_sharpe = sum(sharpes) / total_tests if total_tests > 0 else 0.0
+
+        # 统计失败次数 (Sharpe <= 0.10)
+        failure_count = sum(1 for s in sharpes if s <= 0.10)
+        failure_rate = failure_count / total_tests if total_tests > 0 else 0.0
+
+        # 核心共识条件: 多字段充分采样 + 高失败率 + 低均值
+        if len(distinct_fields) >= min_distinct_fields and total_tests >= min_sample_n:
+            if failure_rate >= failure_rate_threshold and avg_sharpe <= max_avg_sharpe:
+                pattern = _template_to_pattern(skel)
+                reason = (
+                    f"二维多字段共识淘汰: 跨 {len(distinct_fields)} 个特征实测 {total_tests} 次, "
+                    f"失败率 {failure_rate:.0%}, 均值 Sharpe {avg_sharpe:.2f}"
+                )
+                
+                # 写入剪枝规则库
+                if db and hasattr(db, "upsert_prune_rule"):
+                    try:
+                        db.upsert_prune_rule(
+                            pattern=pattern,
+                            pattern_type="prefix",
+                            family=group[0]["family"],
+                            reason=reason,
+                            source="consensus_pruning",
+                        )
+                    except Exception as e:
+                        pass
+
+                # 软删除 template_library 中的对应模板
+                if db and hasattr(db, "deactivate_templates"):
+                    try:
+                        db.deactivate_templates(expression_like=f"{pattern}%")
+                    except Exception:
+                        pass
+
+                ret.pruned_patterns.append(pattern)
+                ret.deactivated_templates.append(skel)
+                ret.audit_logs.append(f"🚫 [共识剪枝] 淘汰模式 `{pattern}`: {reason}")
+        elif total_tests >= min_sample_n and len(distinct_fields) < min_distinct_fields:
+            ret.audit_logs.append(
+                f"ℹ️ [保留观察] 模板骨架 `{skel}` 测试 {total_tests} 次但仅涉及 {len(distinct_fields)} 个字段，"
+                f"未达 {min_distinct_fields} 个不同特征的共识门槛，暂不予剪枝 (防止字段误杀)"
+            )
+
+    return ret
+
+
+def analyze_field_signal_quality(
+    results: Sequence[Any],
+    *,
+    min_distinct_families: int = 3,
+) -> Dict[str, FieldSignalProfile]:
+    """【特征字段信号纯度画像分析】: 跨算子族解耦评估字段的固有预测力与信噪比."""
+    from collections import defaultdict
+    field_records: Dict[str, List[Dict[str, Any]]] = defaultdict(list)
+
+    exclude = {
+        "rank", "group_rank", "group_neutralize", "group_zscore", "group_scale",
+        "ts_scale", "ts_rank", "ts_zscore", "ts_decay_linear", "ts_delta", "ts_mean", "ts_std_dev",
+        "subindustry", "industry", "sector", "market", "cap", "winsorize", "ts_backfill",
+        "vec_avg", "vec_sum", "vec_min", "vec_max", "vec_stddev", "vec_range", "std",
+        "a", "b", "c", "d", "group", "decay", "window", "w"
+    }
+
+    for r in results:
+        expr = getattr(r, "expression", "") or (r.get("expression") if isinstance(r, dict) else "")
+        shp = float(getattr(r, "sharpe", 0.0) if hasattr(r, "sharpe") else (r.get("sharpe", 0.0) if isinstance(r, dict) else 0.0))
+        fam = getattr(r, "family", "") or (r.get("family") if isinstance(r, dict) else "")
+
+        tokens = set(re.findall(r"\b[a-zA-Z_][a-zA-Z0-9_]*\b", expr))
+        actual_fields = [t for t in tokens if t not in exclude and not t.isdigit()]
+
+        for f in actual_fields:
+            field_records[f].append({"sharpe": shp, "family": fam})
+
+    profiles: Dict[str, FieldSignalProfile] = {}
+    for f, recs in field_records.items():
+        total_tests = len(recs)
+        sharpes = [rec["sharpe"] for rec in recs]
+        families = list({rec["family"] for rec in recs if rec["family"]})
+        max_s = max(sharpes) if sharpes else -1.0
+        avg_s = sum(sharpes) / total_tests if total_tests > 0 else 0.0
+
+        # 分层判别
+        if max_s >= 0.8:
+            tier = "Alpha"
+            is_noise = False
+        elif len(families) >= min_distinct_families and max_s <= 0.0:
+            tier = "Noise"
+            is_noise = True
+        else:
+            tier = "Neutral"
+            is_noise = False
+
+        profiles[f] = FieldSignalProfile(
+            field_id=f,
+            tier=tier,
+            max_sharpe=max_s,
+            avg_sharpe=avg_s,
+            families_tested=families,
+            total_tests=total_tests,
+            is_noise=is_noise,
+        )
+
+    return profiles
+
+
 __all__ = [
+    "ConsensusPruningResult",
+    "FieldSignalProfile",
+    "evaluate_and_prune_templates_2d",
+    "analyze_field_signal_quality",
     "deactivate_noisy_templates",
     "prune_templates_by_density",
     "DEFAULT_PRUNE_RULES",

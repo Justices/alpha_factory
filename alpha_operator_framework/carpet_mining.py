@@ -164,6 +164,32 @@ class CarpetMiningResult:
         return "\n".join(lines)
 
 
+def _extract_task_fields(t: Task) -> List[str]:
+    """提取 Task 中涉及的全部原子特征字段."""
+    if t.meta:
+        if "field" in t.meta and isinstance(t.meta["field"], str):
+            return [t.meta["field"]]
+        if "fields" in t.meta and isinstance(t.meta["fields"], (list, tuple)):
+            return list(t.meta["fields"])
+    if t.base_fields:
+        return list(t.base_fields)
+    try:
+        fields = extract_ast_fields(t.expression)
+        if fields:
+            return list(fields)
+    except Exception:
+        pass
+    # Regex fallback
+    tokens = re.findall(r"\b[a-zA-Z_][a-zA-Z0-9_]*\b", t.expression)
+    exclude = {
+        "rank", "group_rank", "group_neutralize", "group_zscore", "group_scale",
+        "ts_scale", "ts_rank", "ts_zscore", "ts_decay_linear", "ts_delta", "ts_mean", "ts_std_dev",
+        "subindustry", "industry", "sector", "market", "cap", "winsorize", "ts_backfill",
+        "vec_avg", "vec_sum", "vec_min", "vec_max", "vec_stddev", "vec_range", "std"
+    }
+    return [tok for tok in tokens if tok not in exclude and not tok.isdigit()]
+
+
 class StratifiedCarpetMiner:
     """分层地毯式 Alpha 挖掘器."""
 
@@ -591,8 +617,9 @@ class StratifiedCarpetMiner:
         self,
         categorized_tasks: Dict[str, List[Task]],
     ) -> List[Task]:
-        """从各个表达式类别中进行分层增量抽样 (自动优先未测空间，防止重复回测)."""
+        """从各个表达式类别中进行【字段-算子双轴均衡正交抽样】(保障字段全覆盖 + 算子均衡 + 未测空间优先)."""
         import hashlib
+        from collections import defaultdict
         cohort: List[Task] = []
         k = self.config.sample_per_family
 
@@ -610,36 +637,104 @@ class StratifiedCarpetMiner:
 
         rng = random.Random(self.config.seed) if self.config.seed is not None else random
 
+        # 2. 统计当前候选池中涉及的所有唯一字段，用于全局覆盖度跟踪与轮转保底
+        all_unique_fields: set[str] = set()
+        for cat, task_list in categorized_tasks.items():
+            for t in task_list:
+                for f in _extract_task_fields(t):
+                    all_unique_fields.add(f)
+
+        unique_fields_list = sorted(list(all_unique_fields))
+        # 全局字段采样频次计数器 (确保每个字段得到公平回测机会，防止字段饥饿)
+        field_sampled_counts: Dict[str, int] = defaultdict(int)
+
+        # 3. 逐分类进行【字段-算子双轴正交分层抽样】
         for cat, task_list in categorized_tasks.items():
             if not task_list:
                 continue
 
-            # 区分已回测与未回测候选
-            untested = []
-            tested = []
+            # 区分已回测与未回测候选，并按主字段分桶
+            untested_by_field: Dict[str, List[Task]] = defaultdict(list)
+            tested_by_field: Dict[str, List[Task]] = defaultdict(list)
+            all_untested: List[Task] = []
+            all_tested: List[Task] = []
+
             for t in task_list:
                 t_sha = self.db.compute_sha(t.expression) if self.db else hashlib.sha256(t.expression.strip().encode()).hexdigest()
+                t_fields = _extract_task_fields(t)
+                primary_f = t_fields[0] if t_fields else "unknown"
+
                 if t_sha in existing_shas:
-                    tested.append(t)
+                    tested_by_field[primary_f].append(t)
+                    all_tested.append(t)
                 else:
-                    untested.append(t)
+                    untested_by_field[primary_f].append(t)
+                    all_untested.append(t)
 
-            # 优先从全新未回测候选中抽取
-            if len(untested) >= k:
-                sampled = rng.sample(untested, k)
-            elif untested:
-                sampled = list(untested)
-                needed = k - len(untested)
-                if needed > 0 and tested:
-                    sampled.extend(rng.sample(tested, min(needed, len(tested))))
-                logger.info(f"[{cat}] 未回测候选仅剩 {len(untested)} 条，已补充 {min(needed, len(tested))} 条历史条目")
-            else:
-                sampled = rng.sample(tested, min(k, len(tested)))
-                logger.info(f"[{cat}] 该分类全量 {len(task_list)} 条候选均已在数据库中回测过，按随机抽取")
+            cat_sampled: List[Task] = []
 
-            cohort.extend(sampled)
+            # ------------------------------------------------------------------
+            # Phase A: 字段公平轮转保底 (Field-Fairness Round-Robin)
+            # 优先从各字段的未测候选 (untested) 中按全局采样频次升序抽取
+            # ------------------------------------------------------------------
+            # 字段排序准则: 优先全局被抽样次数最少的字段 (防饥饿) + 打乱同频次字段
+            sorted_fields = sorted(
+                unique_fields_list,
+                key=lambda f: (field_sampled_counts[f], rng.random())
+            )
 
-        logger.info(f"分层抽样完成: 从 {len(categorized_tasks)} 类中抽样出 {len(cohort)} 条代表性 Alpha 任务 (已优先未测空间)")
+            # 第一轮：为最饥饿的字段各分配 1 条该算子族的未测表达式
+            for f in sorted_fields:
+                if len(cat_sampled) >= k:
+                    break
+                if untested_by_field[f]:
+                    # 从该字段的未测候选中随机选 1 条
+                    chosen_task = rng.choice(untested_by_field[f])
+                    cat_sampled.append(chosen_task)
+                    untested_by_field[f].remove(chosen_task)
+                    if chosen_task in all_untested:
+                        all_untested.remove(chosen_task)
+                    for tf in _extract_task_fields(chosen_task):
+                        field_sampled_counts[tf] += 1
+
+            # ------------------------------------------------------------------
+            # Phase B: 族群剩余配额未测空间补充 (Quota Top-up from Untested)
+            # ------------------------------------------------------------------
+            if len(cat_sampled) < k and all_untested:
+                needed = k - len(cat_sampled)
+                rng.shuffle(all_untested)
+                top_up = all_untested[:needed]
+                for chosen_task in top_up:
+                    cat_sampled.append(chosen_task)
+                    for tf in _extract_task_fields(chosen_task):
+                        field_sampled_counts[tf] += 1
+
+            # ------------------------------------------------------------------
+            # Phase C: 未测空间耗尽时的历史回测条目回退 (Tested Fallback)
+            # ------------------------------------------------------------------
+            if len(cat_sampled) < k:
+                needed = k - len(cat_sampled)
+                if all_tested:
+                    rng.shuffle(all_tested)
+                    top_up_tested = all_tested[:min(needed, len(all_tested))]
+                    for chosen_task in top_up_tested:
+                        cat_sampled.append(chosen_task)
+                        for tf in _extract_task_fields(chosen_task):
+                            field_sampled_counts[tf] += 1
+                    logger.info(f"[{cat}] 未回测候选不足，已补充 {len(top_up_tested)} 条历史条目")
+
+            cohort.extend(cat_sampled)
+
+        # 4. 计算并输出双轴覆盖度指标
+        covered_fields = {f for f, cnt in field_sampled_counts.items() if cnt > 0 and f in all_unique_fields}
+        coverage_pct = (len(covered_fields) / len(all_unique_fields) * 100.0) if all_unique_fields else 100.0
+        
+        logger.info(
+            f"🎯 【双轴正交分层抽样完成】:\n"
+            f"   • 字段覆盖度: 覆盖了 {len(covered_fields)}/{len(all_unique_fields)} 个原子特征 (覆盖率: {coverage_pct:.1f}%)\n"
+            f"   • 族群均衡度: 10 大算子族共抽样 {len(cohort)} 条任务\n"
+            f"   • 平均每字段测试频次: {sum(field_sampled_counts.values()) / max(1, len(covered_fields)):.1f} 次"
+        )
         return cohort
 
     def run_batch_simulation_and_persist(
@@ -722,34 +817,35 @@ class StratifiedCarpetMiner:
         cohort: List[Task],
         results: List[PlatformAlphaResult],
     ) -> List[str]:
-        """评估模板族密度，对全部失败/零信号的模板族自动生成剪枝规则写库."""
-        pruned: List[str] = []
-        family_scores: Dict[str, List[float]] = {}
+        """【二维解耦智能剪枝】: 结合多字段共识与金牌豁免机制，淘汰真正失效的结构模式 (杜绝误杀与漏判)."""
+        from alpha_operator_framework.distill.template_pruner import (
+            evaluate_and_prune_templates_2d,
+            analyze_field_signal_quality,
+        )
 
-        for task, res in zip(cohort, results):
-            fam = task.family or "general"
-            sh = res.sharpe if res.is_valid else -1.0
-            family_scores.setdefault(fam, []).append(sh)
+        # 1. 执行二维多字段共识剪枝
+        prune_res = evaluate_and_prune_templates_2d(
+            db=self.db,
+            results=results,
+            min_distinct_fields=2,
+            failure_rate_threshold=0.80,
+            max_avg_sharpe=0.10,
+            min_sample_n=3,
+        )
 
-        for fam, sharpes in family_scores.items():
-            max_sh = max(sharpes) if sharpes else -1.0
-            avg_sh = sum(sharpes) / len(sharpes) if sharpes else -1.0
-            if max_sh <= 0.0 and avg_sh <= -0.2:
-                pruned.append(fam)
-                logger.info(f"🚫 剪枝淘汰模板族 {fam}: 样本数 {len(sharpes)}, 最高 Sharpe {max_sh:.2f}, 平均 {avg_sh:.2f}")
-                # 记录淘汰规则入库
-                try:
-                    if hasattr(self.db, "insert_template_prune_rule"):
-                        self.db.insert_template_prune_rule(
-                            pattern=f"family:{fam}",
-                            pattern_type="prefix",
-                            family=fam,
-                            reason=f"地毯式挖掘零信号淘汰 (max_sharpe={max_sh:.2f})",
-                        )
-                except Exception as e:
-                    logger.warning(f"写入剪枝规则失败: {e}")
+        for log in prune_res.audit_logs:
+            logger.info(log)
 
-        return pruned
+        # 2. 评估字段级信号画像 (噪声字段 vs Alpha 字段)
+        field_profiles = analyze_field_signal_quality(results)
+        noise_fields = [f for f, p in field_profiles.items() if p.is_noise]
+        alpha_fields = [f for f, p in field_profiles.items() if p.tier == "Alpha"]
+        if noise_fields:
+            logger.info(f"⚠️ [字段画像] 识别到 {len(noise_fields)} 个跨族纯白噪声字段 (暂不误杀对应模板): {noise_fields}")
+        if alpha_fields:
+            logger.info(f"✨ [字段画像] 识别到 {len(alpha_fields)} 个高信噪比 Alpha 特征: {alpha_fields}")
+
+        return prune_res.pruned_patterns
 
     def optimize_positive_signals(
         self,

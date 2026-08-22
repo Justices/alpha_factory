@@ -786,7 +786,7 @@ def main() -> None:
     rc_p = sub.add_parser("research-cycle", help="全新 DDD 架构 10 阶段全流程投研生命周期 (支持 4 大抽样算法 & 二维共识剪枝)")
     add_settings(rc_p)
     rc_p.add_argument("--datasets", "-d", default=None, help="指定数据集列表 (逗号分隔)")
-    rc_p.add_argument("--algorithm", "-a", choices=["stratified", "d_optimal", "thompson", "ucb", "nsga2"], default="stratified", help="抽样算法 (默认: stratified)")
+    rc_p.add_argument("--algorithm", "-a", choices=["stratified", "d_optimal", "thompson", "ucb"], default="stratified", help="抽样算法 (默认: stratified)")
     rc_p.add_argument("--sample-per-family", "-s", type=int, default=4, help="每类抽样数量 (默认: 4)")
     rc_p.add_argument("--decay", type=int, default=12, help="Decay (默认: 12)")
     rc_p.add_argument("--neutralization", "-n", default="SUBINDUSTRY", help="中性化 (默认: SUBINDUSTRY)")
@@ -800,38 +800,16 @@ def main() -> None:
 
 
 def command_research_cycle(args: argparse.Namespace) -> None:
-    """运行全新 DDD 架构 10 阶段全流程投研生命周期."""
-    from alpha_operator_framework.ddd.application.models import ResearchCycleRequest, validate_execution_flags
-    from alpha_operator_framework.ddd.application.use_cases.orchestrator import (
-        RefreshFieldUniverseUseCase,
-        ResearchFieldsUseCase,
-        GenerateCandidatesUseCase,
-        SelectBacktestBatchUseCase,
-        RunBacktestsUseCase,
-        PruneAndEvaluateResultsUseCase,
-        OptimizeCandidatesUseCase,
-        SubmitApprovedCandidatesUseCase,
-        DistillKnowledgeUseCase,
-        BuildSelectionFeedbackUseCase,
-        ResearchCycleUseCase,
-    )
-    from alpha_operator_framework.ddd.domain.field_research.services import FieldProfiler, FieldEligibilityService, FieldWeightUpdater
-    from alpha_operator_framework.ddd.domain.field_research.models import FieldSnapshot
-    from alpha_operator_framework.ddd.domain.candidate_exploration.services import CandidateFactory, PrePruningService
-    from alpha_operator_framework.ddd.domain.experiment_governance.services import PostBacktestPruner, CandidateEvaluator, ParetoOptimizer
-    from alpha_operator_framework.ddd.domain.knowledge_and_submission.services import SignalDistiller, SelectionFeedbackBuilder, SubmissionApprovalService
-    from alpha_operator_framework.ddd.infrastructure.persistence.sqlite_repositories import SqliteDddRepository
-    from alpha_operator_framework.ddd.infrastructure.gateways.in_memory_gateways import DryRunBacktestGateway, InMemoryFieldCatalog
+    """Compose one new ResearchRound from local fields and explicit execution intent."""
+    from alpha_operator_framework.application.research_cycle import ResearchCycleRequest, ResearchCycleUseCase
+    from alpha_operator_framework.infrastructure.brain import build_backtest_gateway
+    from alpha_operator_framework.infrastructure.sqlite import SqliteResearchRepository
+    from alpha_operator_framework.knowledge.models import KnowledgeBase
     from alpha_operator_framework.research.field_loader import load_real_market_fields
+    from alpha_operator_framework.research.construction import AstCandidateBuilder, ConstructionTemplate
+    from alpha_operator_framework.research.round import ResearchPolicy
 
-    validate_execution_flags(
-        execute_platform=args.execute,
-        authorize_submission=args.authorize_submission,
-    )
-    db_path = Path(args.database) if getattr(args, "database", None) else None
-    sqlite_repo = SqliteDddRepository(db_path)
-
-    # 1. Load catalog fields
+    db_path = Path(args.database) if getattr(args, "database", None) else DEFAULT_DATABASE_PATH
     datasets_list = args.datasets.split(",") if getattr(args, "datasets", None) else None
     field_specs = load_real_market_fields(
         region=args.region,
@@ -839,55 +817,32 @@ def command_research_cycle(args: argparse.Namespace) -> None:
         delay=getattr(args, "delay", 1),
         datasets=datasets_list,
     )
-    snapshots = [
-        FieldSnapshot(
-            field_id=f.id,
-            dataset_id=f.dataset_id or "default",
-            data_type=f.type or "MATRIX",
-            category=f.category or "",
-            coverage=f.coverage or 1.0,
-            user_count=f.user_count or 0,
-            alpha_count=f.alpha_count or 0,
-            region=args.region,
-        )
-        for f in field_specs
-    ]
-    catalog = InMemoryFieldCatalog(snapshots)
-    if args.execute:
-        from alpha_operator_framework.ddd.infrastructure.gateways.brain_gateway import BrainPlatformGateway
-        gateway = BrainPlatformGateway()
-    else:
-        gateway = DryRunBacktestGateway()
-
-    # 2. Wire orchestrator
-    use_case = ResearchCycleUseCase(
-        refresh_fields_uc=RefreshFieldUniverseUseCase(catalog, sqlite_repo),
-        research_fields_uc=ResearchFieldsUseCase(FieldProfiler(), FieldEligibilityService(), sqlite_repo),
-        generate_cands_uc=GenerateCandidatesUseCase(CandidateFactory(), sqlite_repo),
-        select_batch_uc=SelectBacktestBatchUseCase(PrePruningService(), sqlite_repo),
-        run_backtests_uc=RunBacktestsUseCase(gateway, sqlite_repo),
-        prune_eval_uc=PruneAndEvaluateResultsUseCase(PostBacktestPruner(), CandidateEvaluator(), sqlite_repo),
-        optimize_cands_uc=OptimizeCandidatesUseCase(ParetoOptimizer(), sqlite_repo),
-        submit_uc=SubmitApprovedCandidatesUseCase(SubmissionApprovalService(), gateway),
-        distill_uc=DistillKnowledgeUseCase(SignalDistiller(), sqlite_repo),
-        feedback_uc=BuildSelectionFeedbackUseCase(SelectionFeedbackBuilder(), FieldWeightUpdater(), sqlite_repo),
-    )
-
-    req = ResearchCycleRequest(
+    matrix_fields = [field.id for field in field_specs if (field.type or "MATRIX").upper() == "MATRIX"]
+    candidates = AstCandidateBuilder().build(matrix_fields, (
+        ConstructionTemplate("rank_field", "rank({field})", "cross_sectional", ("rank",)),
+        ConstructionTemplate("ts_rank_22", "ts_rank({field}, 22)", "time_series", ("ts_rank",)),
+    ))
+    quotas = {candidate.family: args.sample_per_family for candidate in candidates}
+    policy = ResearchPolicy(
         region=args.region,
         universe=args.universe,
-        dataset_ids=args.datasets.split(",") if getattr(args, "datasets", None) else None,
-        selection_algorithm=args.algorithm,
-        sample_per_family=args.sample_per_family,
-        decay=args.decay,
-        neutralization=args.neutralization,
-        execute_platform=args.execute,
-        authorize_submission=args.authorize_submission,
-        seed=args.seed or 42,
+        max_backtests=sum(quotas.values()),
+        family_quotas=quotas,
     )
-
-    summary = use_case.execute(req)
-    print(summary.format_cli_report())
+    knowledge = KnowledgeBase()
+    summary = ResearchCycleUseCase(
+        SqliteResearchRepository(db_path),
+        build_backtest_gateway(execute_platform=args.execute),
+        knowledge,
+    ).execute(ResearchCycleRequest(
+        round_id=f"research-{args.region}-{args.universe}-{args.seed or 42}",
+        seed=args.seed or 42,
+        policy=policy,
+        knowledge=knowledge.snapshot(),
+        candidates=candidates,
+        execute_platform=args.execute,
+    ))
+    print(json.dumps(asdict(summary), ensure_ascii=False, sort_keys=True))
 
 
 def command_status(args: argparse.Namespace) -> None:

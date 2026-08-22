@@ -1,1 +1,0 @@
-"""DDD Application Layer."""

@@ -6,6 +6,7 @@ from dataclasses import dataclass, field
 from typing import Mapping, Sequence
 
 from alpha_operator_framework.research.round import Candidate, ResearchPolicy
+from .lifecycle import BatchState, BatchTransition
 
 
 @dataclass(frozen=True)
@@ -48,9 +49,11 @@ class MutationProposal:
 class ExperimentBatch:
     batch_id: str
     idempotency_key: str
+    state: BatchState = BatchState.PLANNED
     tasks: dict[str, BacktestTask] = field(default_factory=dict)
     results: dict[str, BacktestResult] = field(default_factory=dict)
     evaluations: dict[str, EvaluationRecord] = field(default_factory=dict)
+    transitions: list[BatchTransition] = field(default_factory=list)
 
     def create_tasks(self, cohort: Sequence[Candidate], policy: ResearchPolicy) -> list[BacktestTask]:
         created: list[BacktestTask] = []

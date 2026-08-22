@@ -17,3 +17,4 @@ def test_pruned_template_is_unavailable_in_next_snapshot() -> None:
 
     assert snapshot.rejects(candidate)
     assert snapshot.field_scores["close"] < 0
+    assert snapshot.operator_scores["rank"] < 0

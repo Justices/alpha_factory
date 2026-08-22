@@ -216,46 +216,75 @@ CREATE TABLE IF NOT EXISTS alpha_details (
 
 ---
 
-## 五、 SQL 常用投研分析查询范例
+## 六、 DDD 领域驱动设计持久化表结构 (DDD Persistence Tables)
 
-### 1. 查询通过 6 维证据审批的 SUBMISSION_READY 候选
+为了支持全新 DDD 限界上下文的快照隔离、状态还原与审计，主数据库新增如下 4 张持久化表：
+
+### 1. `ddd_field_universes` (字段宇宙与画像快照)
 ```sql
-SELECT 
-    d.alpha_id,
-    d.expression,
-    d.sharpe,
-    d.fitness,
-    d.turnover,
-    d.margin,
-    d.sc_value,
-    d.pc_value,
-    d.created_at
-FROM alpha_details d
-WHERE d.wf_stage = 'submission_ready'
-ORDER BY d.sharpe DESC;
+CREATE TABLE IF NOT EXISTS ddd_field_universes (
+    region TEXT NOT NULL,
+    universe TEXT NOT NULL,
+    version INTEGER NOT NULL,
+    snapshots_json TEXT NOT NULL,  -- 平台字段快照字典
+    profiles_json TEXT NOT NULL,   -- 动态研究画像与权重
+    updated_at TEXT NOT NULL,
+    PRIMARY KEY (region, universe)
+);
 ```
 
-### 2. 查询各模板族的有效试验数与平均夏普
+### 2. `ddd_selection_rounds` (候选探索轮次与抽样决策)
 ```sql
-SELECT 
-    t.family,
-    COUNT(t.id) AS total_trials,
-    AVG(CAST(json_extract(t.metrics_json, '$.sharpe') AS REAL)) AS avg_sharpe,
-    MAX(CAST(json_extract(t.metrics_json, '$.sharpe') AS REAL)) AS max_sharpe
-FROM trial_ledger t
-GROUP BY t.family
-ORDER BY total_trials DESC;
+CREATE TABLE IF NOT EXISTS ddd_selection_rounds (
+    round_id TEXT PRIMARY KEY,
+    region TEXT NOT NULL,
+    universe TEXT NOT NULL,
+    policy_json TEXT NOT NULL,             -- 不可变 ResearchPolicy 快照
+    seed INTEGER NOT NULL,
+    status TEXT NOT NULL,
+    candidate_pool_json TEXT NOT NULL,     -- 候选池表达式
+    pre_prune_decisions_json TEXT NOT NULL,-- 语法/类型/重复预剪枝决策
+    selection_decisions_json TEXT NOT NULL,-- 4 大算法抽样入选决策
+    created_at TEXT NOT NULL
+);
 ```
 
-### 3. 查询最新的不可变事件日志
+### 3. `ddd_experiment_batches` (回测批次与 6 维证据评估)
 ```sql
-SELECT 
-    event_id,
-    stream_id,
-    event_type,
-    actor,
-    created_at
-FROM event_log
-ORDER BY id DESC
-LIMIT 20;
+CREATE TABLE IF NOT EXISTS ddd_experiment_batches (
+    batch_id TEXT PRIMARY KEY,
+    idempotency_key TEXT NOT NULL,
+    status TEXT NOT NULL,
+    tasks_json TEXT NOT NULL,         -- 不可变回测任务
+    results_json TEXT NOT NULL,       -- 标准化回测绩效
+    post_prune_json TEXT NOT NULL,    -- 2D 共识剪枝决策
+    evaluations_json TEXT NOT NULL,   -- 6 维证据裁决
+    created_at TEXT NOT NULL
+);
 ```
+
+### 4. `ddd_knowledge_base` (自进化知识库与泛化母版)
+```sql
+CREATE TABLE IF NOT EXISTS ddd_knowledge_base (
+    id INTEGER PRIMARY KEY CHECK (id = 1),
+    version INTEGER NOT NULL,
+    templates_json TEXT NOT NULL,     -- 蒸馏泛化模板骨架
+    prune_rules_json TEXT NOT NULL,   -- 结构失效模式规则
+    field_signals_json TEXT NOT NULL, -- 字段信号强度
+    updated_at TEXT NOT NULL
+);
+```
+
+---
+
+## 七、 生产环境数据库多路径合并与去重工具 (`scripts/merge_databases.py`)
+
+在多服务器或从不同目录启动（如 `runs/`）导致历史数据库碎片化时，可使用自动合并脚本：
+```bash
+# 自动扫描所有历史碎片数据库并去重合并入 data/alpha_research.db
+python scripts/merge_databases.py
+
+# 指定目标数据库合并
+python scripts/merge_databases.py --target data/alpha_research.db
+```
+

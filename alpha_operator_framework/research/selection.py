@@ -70,3 +70,24 @@ class WeightedStratifiedSelector:
     @classmethod
     def score(cls, candidate: Candidate, policy: ResearchPolicy, knowledge: KnowledgeSnapshot) -> float:
         return sum(cls.components(candidate, policy, knowledge).values())
+
+
+class UcbSelector(WeightedStratifiedSelector):
+    """Exploration selector that rewards low-trial fields deterministically."""
+
+    name = "ucb"
+
+    @classmethod
+    def score(cls, candidate: Candidate, policy: ResearchPolicy, knowledge: KnowledgeSnapshot) -> float:
+        components = cls.components(candidate, policy, knowledge)
+        return sum(components.values()) + 2.0 * knowledge.uncertainty(candidate)
+
+
+class ThompsonSelector(UcbSelector):
+    """Deterministic posterior-mean approximation; randomness remains injected at the boundary."""
+
+    name = "thompson"
+
+
+class DiversitySelector(UcbSelector):
+    name = "diversity"

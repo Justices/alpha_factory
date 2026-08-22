@@ -4,7 +4,10 @@ from __future__ import annotations
 
 from alpha_operator_framework.application.research_cycle import ResearchCycleRequest, ResearchCycleUseCase
 from alpha_operator_framework.experiment.models import BacktestResult
+from alpha_operator_framework.experiment.lifecycle import BatchState
 from alpha_operator_framework.infrastructure.brain import DryRunGateway
+from alpha_operator_framework.infrastructure.sqlite import SqliteExperimentRepository
+from alpha_operator_framework.infrastructure.telemetry import ResearchTelemetry
 from alpha_operator_framework.knowledge.models import KnowledgeBase
 from alpha_operator_framework.research.round import Candidate, KnowledgeSnapshot, ResearchPolicy
 
@@ -60,4 +63,40 @@ def test_live_cycle_normalizes_results_and_updates_knowledge() -> None:
     assert summary.completed_backtests == 1
     assert summary.knowledge_version == 1
     assert summary.distilled_template_count == 1
+    assert [proposal.parent_task_id for proposal in summary.mutation_proposals] == ["round-live:0"]
     assert knowledge_base.field_scores["close"] > 0
+
+
+def test_live_cycle_persists_evaluated_batch(tmp_path) -> None:
+    repository = MemoryRepository()
+    experiment_repository = SqliteExperimentRepository(tmp_path / "rounds.db")
+    use_case = ResearchCycleUseCase(repository, CompletedGateway(), KnowledgeBase(), experiment_repository)
+    request = ResearchCycleRequest(
+        round_id="round-persisted", seed=9,
+        policy=ResearchPolicy("GBR", "TOP700", 1), knowledge=KnowledgeSnapshot(version=0),
+        candidates=[Candidate("candidate", "rank(close)", "family", ("close",), ("rank",), "template")],
+        execute_platform=True,
+    )
+
+    use_case.execute(request)
+
+    batch = experiment_repository.load_batch("round-persisted")
+    assert batch.state == BatchState.EVALUATED
+    assert [entry.to_state for entry in batch.transitions][-1] == BatchState.EVALUATED
+
+
+def test_live_cycle_records_operational_telemetry() -> None:
+    telemetry = ResearchTelemetry()
+    use_case = ResearchCycleUseCase(MemoryRepository(), CompletedGateway(), KnowledgeBase(), telemetry=telemetry)
+    request = ResearchCycleRequest(
+        round_id="round-metrics", seed=9, policy=ResearchPolicy("GBR", "TOP700", 1),
+        knowledge=KnowledgeSnapshot(version=0),
+        candidates=[Candidate("candidate", "rank(close)", "family", ("close",), ("rank",), "template")],
+        execute_platform=True,
+    )
+
+    use_case.execute(request)
+
+    metrics = telemetry.snapshot()
+    assert metrics["batch_transitions"]["EVALUATED"] == 1
+    assert metrics["backtests_completed"] == 1

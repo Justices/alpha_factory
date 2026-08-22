@@ -7,6 +7,7 @@ from dataclasses import dataclass, field
 from typing import Mapping
 
 from alpha_operator_framework.experiment.models import ExperimentBatch
+from alpha_operator_framework.domain.ast import validate_expression
 from alpha_operator_framework.research.round import Candidate, KnowledgeSnapshot
 
 
@@ -33,6 +34,8 @@ class KnowledgeBase:
             for field_id in fields:
                 self.field_scores[field_id] = self.field_scores.get(field_id, 0.0) + reward
                 self.field_trials[field_id] = self.field_trials.get(field_id, 0) + 1
+            for operator in validate_expression(result.expression).operators_used:
+                self.operator_scores[operator] = self.operator_scores.get(operator, 0.0) + reward
             evaluation = batch.evaluations.get(task_id)
             template_id = task_templates.get(task_id)
             if template_id:

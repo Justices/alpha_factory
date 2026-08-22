@@ -828,6 +828,10 @@ def command_research_cycle(args: argparse.Namespace) -> None:
         universe=args.universe,
         max_backtests=sum(quotas.values()),
         family_quotas=quotas,
+        policy_version=getattr(args, "policy_version", "cli-v1"),
+        selection_strategy={"stratified": "weighted_stratified"}.get(
+            getattr(args, "algorithm", "weighted_stratified"), getattr(args, "algorithm", "weighted_stratified"),
+        ),
     )
     knowledge = KnowledgeBase()
     summary = ResearchCycleUseCase(

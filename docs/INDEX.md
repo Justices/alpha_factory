@@ -77,7 +77,17 @@ mindmap
 
 ---
 
-### 4. 审计与历史评估报告 (`docs/assessments/`)
+### 4. 架构规范与设计白皮书 (`docs/superpowers/specs/`)
+
+| 文档 | 核心内容 |
+| :--- | :--- |
+| [**2026-08-23-ddd-research-cycle-design.md**](file:///d:/quant/alpha_factory/docs/superpowers/specs/2026-08-23-ddd-research-cycle-design.md) | **DDD 领域驱动设计投研生命周期全景架构规范**: 4 大限界上下文、10 阶段流水线、4 大纯抽样算法与 2D 跨字段共识后剪枝。 |
+| [**2026-08-21-event-sourced-research-core-design.md**](file:///d:/quant/alpha_factory/docs/superpowers/specs/2026-08-21-event-sourced-research-core-design.md) | 事件溯源研究内核与 Outbox Saga 异步平台网关架构设计。 |
+| [**2026-08-21-prior-driven-research-layered-design.md**](file:///d:/quant/alpha_factory/docs/superpowers/specs/2026-08-21-prior-driven-research-layered-design.md) | 先验驱动的分层地毯式挖掘与多阶 AST 组合架构设计。 |
+
+---
+
+### 5. 审计与历史评估报告 (`docs/assessments/`)
 
 | 文档 | 核心内容 |
 | :--- | :--- |
@@ -88,3 +98,4 @@ mindmap
 | [**improvement_summary.md**](file:///d:/quant/alpha_factory/docs/assessments/improvement_summary.md) | 核心算法演进与系统效能提升历史总结。 |
 | [**project_summary.md**](file:///d:/quant/alpha_factory/docs/assessments/project_summary.md) | 项目阶段里程碑成果汇总。 |
 | [**strategy_summary.md**](file:///d:/quant/alpha_factory/docs/assessments/strategy_summary.md) | 模板族策略覆盖度与有效性统计分析。 |
+

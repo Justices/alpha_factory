@@ -28,6 +28,8 @@ class ResearchPolicy:
     uncertainty_weight: float = 1.0
     family_quotas: Mapping[str, int] = field(default_factory=dict)
     prohibited_patterns: tuple[str, ...] = ()
+    policy_version: str = "default"
+    selection_strategy: str = "weighted_stratified"
 
 
 @dataclass(frozen=True)

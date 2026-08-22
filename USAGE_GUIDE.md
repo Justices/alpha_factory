@@ -51,12 +51,13 @@ python init_db.py --verify  # 校验数据库完整性与已应用的 Schema 版
 
 | 子命令 | 命令类型 | 核心功能 | 是否消耗回测额度 |
 | :--- | :---: | :--- | :---: |
-| **`init-db`** 🛠️ | 运维与环境 | 一键初始化/校验 SQLite 研究数据库 17 张核心数据表与索引 | ❌ 零消耗 (本地操作) |
-| **`clean-db`** 🧹 | 运维与环境 | 清理失败任务、剪枝表达式或历史数据，并执行 VACUUM 释放物理空间 | ❌ 零消耗 (本地操作) |
-| **`drill-recovery`** 🛡️ | 治理与演练 | 执行事件溯源小批崩溃恢复与 6 维提交证据审批全流程演练 | ❌ 零消耗 (隔离沙盒) |
+| **`research-cycle`** 🌟 | 工业级流水线 | 全新 DDD 10 阶段标准化投研生命周期 (4 大纯抽样算法 & 2D 跨字段共识后剪枝) | 仅在指定 `--execute` 时消耗 |
 | **`auto-pilot`** 🚀 | 无人值守流水线 | 一键串联: 预检 ➔ 真实并发挖掘 ➔ 6 维证据终审 ➔ 空间清理 ➔ 生产研报汇总 | 仅在指定 `--execute` 时消耗 |
 | **`mine`** 🌟 | 工业级流水线 | 一键海量生成、6 大模板族分层抽样、分批回测、实时流式落库、智能剪枝与正向自优化 | 仅在指定 `--execute` 时消耗 |
 | **`research`** 🌟 | 工业级流水线 | 一键解析 PDF/Markdown 论文，提取因果假说，动态映射真实字段，在线回测与 AlphaJudge 终审落库 | 仅在指定 `--execute` 时消耗 |
+| **`init-db`** 🛠️ | 运维与环境 | 一键初始化/校验 SQLite 研究数据库 17 张核心数据表与索引 | ❌ 零消耗 (本地操作) |
+| **`clean-db`** 🧹 | 运维与环境 | 清理失败任务、剪枝表达式或历史数据，并执行 VACUUM 释放物理空间 | ❌ 零消耗 (本地操作) |
+| **`drill-recovery`** 🛡️ | 治理与演练 | 执行事件溯源小批崩溃恢复与 6 维提交证据审批全流程演练 | ❌ 零消耗 (隔离沙盒) |
 | **`discover`** | 基础探索 | 检索目标市场全量可用字段（按覆盖度、用户数、类型筛选） | ❌ 零消耗 (只读) |
 | **`prepare`** | 基础生成 | 字段原子包装、一阶特征矩阵展开、配置多重 Decay 生成任务池 | ❌ 零消耗 (本地计算) |
 | **`simulate`** | 平台仿真 | 安全并发提交回测任务并轮询 IS 绩效与 18 项 Checks | 仅在指定 `--execute` 时消耗 |
@@ -66,7 +67,35 @@ python init_db.py --verify  # 校验数据库完整性与已应用的 Schema 版
 
 ---
 
-## 3. 核心场景 1: 一键分层地毯式挖掘与自优化 (`mine`)
+## 3. 核心场景 0: 全新 DDD 10 阶段投研生命周期 (`research-cycle`) 🌟
+
+严格遵循领域驱动设计 4 大限界上下文与 10 阶段流水线，提供 4 大纯抽样算法与 2D 跨字段共识剪枝：
+
+```bash
+# 1. 默认试运行 (Dry-run, 推荐使用 D-Optimal 最大信息增益覆盖抽样)
+python alpha_machine.py research-cycle \
+    --region GBR --universe TOP700 \
+    --algorithm d_optimal \
+    --sample-per-family 4
+
+# 2. 使用 Thompson 贝叶斯自适应多臂老虎机探索
+python alpha_machine.py research-cycle \
+    --region GBR --universe TOP700 \
+    --algorithm thompson \
+    --sample-per-family 4
+
+# 3. 在线并发执行真实平台回测并授权达标因子自动提交上线
+python alpha_machine.py research-cycle \
+    --region GBR --universe TOP700 \
+    --algorithm d_optimal \
+    --sample-per-family 4 \
+    --execute \
+    --authorize-submission
+```
+
+---
+
+## 4. 核心场景 1: 一键分层地毯式挖掘与自优化 (`mine`)
 
 针对指定市场（如英国 GBR）与纯另类数据集（如高管交易、形态识别、基本面等），实现全自动地毯式生成、均衡分层抽样、分批安全回测与正信号自进化：
 

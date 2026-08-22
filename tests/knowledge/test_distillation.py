@@ -21,3 +21,11 @@ def test_distillation_uses_only_ready_non_pruned_results() -> None:
     assert templates[0].expression_template == "rank({a})"
     assert templates[0].support == 2
     assert templates[0].source_task_ids == ("ready-a", "ready-b")
+
+
+def test_distillation_does_not_promote_template_below_support_threshold() -> None:
+    batch = ExperimentBatch("batch", "key")
+    batch.record_result(BacktestResult("ready", "rank(returns)", 1.5, 1.1, 0.2, 5.0, True, "a"))
+    batch.record_evaluation(EvaluationRecord("ready", "READY", 1, False))
+
+    assert distill_templates(batch, min_support=2) == []

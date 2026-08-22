@@ -137,7 +137,24 @@ flowchart LR
 ### 4.3 Python CLI 原生指令
 
 ```powershell
-# 1. 执行全自动地毯式挖掘
+# 1. 运行全新 DDD 10 阶段投研生命周期 (推荐: D-Optimal 多样性探索)
+python alpha_machine.py research-cycle `
+  --region GBR `
+  --universe TOP700 `
+  --algorithm d_optimal `
+  --sample-per-family 4 `
+  --execute
+
+# 2. 运行 Thompson 贝叶斯自适应探索并授权达标因子上线
+python alpha_machine.py research-cycle `
+  --region GBR `
+  --universe TOP700 `
+  --algorithm thompson `
+  --sample-per-family 4 `
+  --execute `
+  --authorize-submission
+
+# 3. 执行传统全自动地毯式挖掘
 python alpha_machine.py auto-pilot `
   --region GBR `
   --universe TOP700 `
@@ -148,17 +165,6 @@ python alpha_machine.py auto-pilot `
   --neutralization SUBINDUSTRY `
   --min-sharpe 1.25 `
   --execute
-
-# 2. 仅执行符号杂交与自进化挖掘并输出 Markdown 研报
-python alpha_machine.py mine `
-  --region GBR `
-  --universe TOP700 `
-  --datasets "analyst7,fundamental31" `
-  --sample-per-family 5 `
-  --decay 12 `
-  --neutralization SUBINDUSTRY `
-  --execute `
-  --output runs/reports/gbr_carpet_mining.md
 ```
 
 ---

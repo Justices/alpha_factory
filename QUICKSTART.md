@@ -39,7 +39,27 @@ python alpha_machine.py drill-recovery
 
 ## 🚀 2. 核心 CLI 命令备忘清单
 
-### 2.0 全自动无人值守投研流水线 (`auto-pilot`) 🌟
+### 2.0 全新 DDD 10 阶段投研生命周期 (`research-cycle`) 🌟
+严格遵循领域驱动设计 4 大限界上下文与 10 阶段不可变事实流水线，内置 4 大纯抽样算法与二维共识剪枝：
+```bash
+# 1. 使用 D-Optimal 最大特征空间覆盖算法进行探索 (默认 Dry-run 试运行)
+python alpha_machine.py research-cycle \
+    --region GBR --universe TOP700 \
+    --algorithm d_optimal --sample-per-family 4
+
+# 2. 使用 Thompson / UCB 贝叶斯多臂老虎机自适应探索
+python alpha_machine.py research-cycle \
+    --region GBR --universe TOP700 \
+    --algorithm thompson --sample-per-family 4
+
+# 3. 真实并发回测并授权达标因子正式提交上线
+python alpha_machine.py research-cycle \
+    --region GBR --universe TOP700 \
+    --algorithm d_optimal --sample-per-family 4 \
+    --execute --authorize-submission
+```
+
+### 2.1 全自动无人值守投研流水线 (`auto-pilot`)
 一键串联：环境自检 ➔ 真实并发回测 ➔ 6 维证据终审 ➔ 空间释放 (VACUUM) ➔ 汇总研报生成：
 ```bash
 # 云端/后台一键全自动生产运行 (推荐)

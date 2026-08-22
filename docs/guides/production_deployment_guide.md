@@ -54,6 +54,9 @@ chmod 600 .brain.json
 
 # 一键初始化生产表结构与索引
 python init_db.py --verify
+
+# (可选) 若生产机上存在旧版本残留的 runs/ 或其他分散库，一键合流无损归一化:
+python scripts/merge_databases.py --cleanup
 ```
 
 ---

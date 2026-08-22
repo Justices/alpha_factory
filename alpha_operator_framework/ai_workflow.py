@@ -26,7 +26,7 @@ from alpha_operator_framework.domain import fields
 from alpha_operator_framework.domain import density
 from alpha_operator_framework.domain import operators
 from alpha_operator_framework.domain import optimize  # 新增
-from alpha_operator_framework.database import AlphaDatabase, persist_workflow_row
+from alpha_operator_framework.database import AlphaDatabase, persist_workflow_row, get_database_path
 
 
 # ---------------------------------------------------------------------------
@@ -341,7 +341,7 @@ async def run_signal_branches(
                 "results": results,
             })
 
-            db = AlphaDatabase(output_dir / "alpha_research.db")
+            db = AlphaDatabase(get_database_path(database))
             settings = {
                 "region": survey_config.region,
                 "universe": survey_config.universe,
@@ -398,25 +398,19 @@ async def run_survey_with_fields(
         config: Survey配置
         output_dir: 输出目录 (任务/结果文件)
         execute: 是否实际执行模拟(False则dry-run)
-        database: 数据库文件路径; 缺省用 output_dir / "alpha_research.db"。
-            研究闭环 (loop) 里必须与蒸馏沉淀库一致, 否则模板淘汰/蒸馏回填与
-            survey 消费的模板不在同一个库, 回流管道断裂。
+        database: 数据库文件路径; 缺省为全局主库 `data/alpha_research.db`。
 
     Returns:
         WorkflowResult: 包含任务、结果、密度等信息
-
-    Example:
-        >>> from alpha_operator_framework import FieldSpec, SurveyConfig
-        >>> fields_list = [
-        ...     FieldSpec(id="close", dataset_id="pv1", type="MATRIX", coverage=0.95),
-        ...     FieldSpec(id="volume", dataset_id="pv1", type="MATRIX", coverage=0.92)
-        ... ]
-        >>> config = SurveyConfig(region="EUR", universe="TOP2500")
-        >>> result = await run_survey_with_fields(fields_list, config)
     """
     output_dir.mkdir(parents=True, exist_ok=True)
-    # 统一数据库路径: catalog/模板库消费/结果持久化 都写同一个库
-    db_path = database or (output_dir / "alpha_research.db")
+    # 统一全局主数据库路径 (支持测试传入自定义 output_dir 隔离)
+    if database is not None:
+        db_path = Path(database)
+    elif str(output_dir) not in ("runs", ".", ""):
+        db_path = output_dir / "alpha_research.db"
+    else:
+        db_path = get_database_path()
 
     try:
         # 1. 字段预处理

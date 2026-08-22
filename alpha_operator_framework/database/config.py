@@ -12,8 +12,9 @@ from pathlib import Path
 from typing import Any, Dict, Optional, Union
 from urllib.parse import urlparse
 
-# 默认全局 SQLite 存储路径
-DEFAULT_SQLITE_PATH = Path("data") / "alpha_research.db"
+# 自动探测并绝对锚定到项目根目录下的 data/alpha_research.db (防止工作目录切换时错位)
+PROJECT_ROOT = Path(__file__).resolve().parent.parent.parent
+DEFAULT_SQLITE_PATH = PROJECT_ROOT / "data" / "alpha_research.db"
 
 
 @dataclass

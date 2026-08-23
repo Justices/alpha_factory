@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import random
 import json
+import pytest
 
 from alpha_operator_framework.research.policy import PolicySnapshot, build_selector, load_policy
 from alpha_operator_framework.research.round import Candidate, KnowledgeSnapshot
@@ -35,3 +36,19 @@ def test_load_policy_reads_versioned_json_configuration(tmp_path) -> None:
     policy = load_policy(path).to_research_policy()
 
     assert (policy.policy_version, policy.selection_strategy, policy.max_backtests) == ("p2", "thompson", 3)
+
+
+def test_load_policy_reads_versioned_yaml_configuration(tmp_path) -> None:
+    path = tmp_path / "policy.yaml"
+    path.write_text("version: p3\nregion: GBR\nuniverse: TOP700\nmax_backtests: 4\nselection_strategy: diversity\n", encoding="utf-8")
+
+    policy = load_policy(path).to_research_policy()
+
+    assert (policy.policy_version, policy.selection_strategy, policy.max_backtests) == ("p3", "diversity", 4)
+
+
+def test_policy_rejects_unknown_selector_and_nonpositive_budget() -> None:
+    with pytest.raises(ValueError, match="selection_strategy"):
+        PolicySnapshot.from_mapping({"region": "GBR", "universe": "TOP700", "max_backtests": 1, "selection_strategy": "unknown"})
+    with pytest.raises(ValueError, match="max_backtests"):
+        PolicySnapshot.from_mapping({"region": "GBR", "universe": "TOP700", "max_backtests": 0})

@@ -81,7 +81,9 @@ mindmap
 
 | 文档 | 核心内容 |
 | :--- | :--- |
-| [**2026-08-23-ddd-research-cycle-design.md**](file:///d:/quant/alpha_factory/docs/superpowers/specs/2026-08-23-ddd-research-cycle-design.md) | **DDD 领域驱动设计投研生命周期全景架构规范**: 4 大限界上下文、10 阶段流水线、4 大纯抽样算法与 2D 跨字段共识后剪枝。 |
+| [**2026-08-23-research-round-domain-design.md**](file:///d:/quant/alpha_factory/docs/superpowers/specs/2026-08-23-research-round-domain-design.md) | **三大核心领域聚合架构设计**: `ResearchRound`、`ExperimentBatch` 与 `KnowledgeBase` 领域模型与纯策略规范。 |
+| [**2026-08-23-production-research-loop-design.md**](file:///d:/quant/alpha_factory/docs/superpowers/specs/2026-08-23-production-research-loop-design.md) | **生产投研闭环高可用设计**: 幂等回测批次、显式状态机生命周期、Pareto 突变与安全上线外箱。 |
+| [**2026-08-23-ddd-research-cycle-design.md**](file:///d:/quant/alpha_factory/docs/superpowers/specs/2026-08-23-ddd-research-cycle-design.md) | **DDD 领域驱动设计投研生命周期架构规范**: 纯抽样算法族与 2D 跨字段共识后剪枝规范。 |
 | [**2026-08-21-event-sourced-research-core-design.md**](file:///d:/quant/alpha_factory/docs/superpowers/specs/2026-08-21-event-sourced-research-core-design.md) | 事件溯源研究内核与 Outbox Saga 异步平台网关架构设计。 |
 | [**2026-08-21-prior-driven-research-layered-design.md**](file:///d:/quant/alpha_factory/docs/superpowers/specs/2026-08-21-prior-driven-research-layered-design.md) | 先验驱动的分层地毯式挖掘与多阶 AST 组合架构设计。 |
 

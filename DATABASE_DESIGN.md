@@ -218,62 +218,28 @@ CREATE TABLE IF NOT EXISTS alpha_details (
 
 ## 六、 DDD 领域驱动设计持久化表结构 (DDD Persistence Tables)
 
-为了支持全新 DDD 限界上下文的快照隔离、状态还原与审计，主数据库新增如下 4 张持久化表：
+为支持全新 DDD 架构三大领域聚合的**快照隔离、100% 确定性回放与断点续传**，主数据库引入了如下高内聚快照存储模型：
 
-### 1. `ddd_field_universes` (字段宇宙与画像快照)
+### 1. `research_round_snapshots` (探索轮次完整事实快照)
 ```sql
-CREATE TABLE IF NOT EXISTS ddd_field_universes (
-    region TEXT NOT NULL,
-    universe TEXT NOT NULL,
-    version INTEGER NOT NULL,
-    snapshots_json TEXT NOT NULL,  -- 平台字段快照字典
-    profiles_json TEXT NOT NULL,   -- 动态研究画像与权重
-    updated_at TEXT NOT NULL,
-    PRIMARY KEY (region, universe)
-);
-```
-
-### 2. `ddd_selection_rounds` (候选探索轮次与抽样决策)
-```sql
-CREATE TABLE IF NOT EXISTS ddd_selection_rounds (
+CREATE TABLE IF NOT EXISTS research_round_snapshots (
     round_id TEXT PRIMARY KEY,
-    region TEXT NOT NULL,
-    universe TEXT NOT NULL,
-    policy_json TEXT NOT NULL,             -- 不可变 ResearchPolicy 快照
-    seed INTEGER NOT NULL,
-    status TEXT NOT NULL,
-    candidate_pool_json TEXT NOT NULL,     -- 候选池表达式
-    pre_prune_decisions_json TEXT NOT NULL,-- 语法/类型/重复预剪枝决策
-    selection_decisions_json TEXT NOT NULL,-- 4 大算法抽样入选决策
-    created_at TEXT NOT NULL
+    payload TEXT NOT NULL  -- 完整包含 ResearchPolicy, Field/Knowledge Snapshots, Candidate Pool, PrePruning Decisions, Selection Decisions
 );
 ```
 
-### 3. `ddd_experiment_batches` (回测批次与 6 维证据评估)
+### 2. `experiment_batch_snapshots` (实验批次状态机与结果快照)
 ```sql
-CREATE TABLE IF NOT EXISTS ddd_experiment_batches (
+CREATE TABLE IF NOT EXISTS experiment_batch_snapshots (
     batch_id TEXT PRIMARY KEY,
-    idempotency_key TEXT NOT NULL,
-    status TEXT NOT NULL,
-    tasks_json TEXT NOT NULL,         -- 不可变回测任务
-    results_json TEXT NOT NULL,       -- 标准化回测绩效
-    post_prune_json TEXT NOT NULL,    -- 2D 共识剪枝决策
-    evaluations_json TEXT NOT NULL,   -- 6 维证据裁决
-    created_at TEXT NOT NULL
+    payload TEXT NOT NULL  -- 完整包含 BatchState, IdempotencyKey, BacktestTasks, NormalizedResults, 6D Evaluations, State Transitions
 );
 ```
 
-### 4. `ddd_knowledge_base` (自进化知识库与泛化母版)
-```sql
-CREATE TABLE IF NOT EXISTS ddd_knowledge_base (
-    id INTEGER PRIMARY KEY CHECK (id = 1),
-    version INTEGER NOT NULL,
-    templates_json TEXT NOT NULL,     -- 蒸馏泛化模板骨架
-    prune_rules_json TEXT NOT NULL,   -- 结构失效模式规则
-    field_signals_json TEXT NOT NULL, -- 字段信号强度
-    updated_at TEXT NOT NULL
-);
-```
+**快照与审计保证**：
+- 写入原子性：每次聚合状态跃迁通过事务写入不可变 JSON Payload，并附带审计事件；
+- 单查询可答性 (Auditability)：给定 `round_id` 或 `batch_id` 即可在单次查询中完全还原从假说产生、抽样判定、回测绩效到 Pareto 变异的完整谱系链条。
+
 
 ---
 

@@ -66,6 +66,10 @@ class ResearchCycleUseCase:
     def execute(self, request: ResearchCycleRequest) -> ResearchCycleSummary:
         round_ = ResearchRound(request.round_id, request.policy, request.seed, list(request.candidates))
         round_.pruning_decisions = AstPrePruner().evaluate(round_.candidates, request.policy)
+        if self.telemetry is not None:
+            for decision in round_.pruning_decisions:
+                if decision.rejected:
+                    self.telemetry.record_pruning_reason(decision.reason_code)
         rejected = {decision.candidate_id for decision in round_.pruning_decisions if decision.rejected}
         round_.candidates = [candidate for candidate in round_.candidates if candidate.candidate_id not in rejected]
         decisions = round_.select(build_selector(request.policy), request.knowledge, random.Random(request.seed))
@@ -88,6 +92,8 @@ class ResearchCycleUseCase:
         cohort = [candidate for candidate in round_.candidates if candidate.candidate_id in selected_ids]
         batch = ExperimentBatch(batch_id=round_.round_id, idempotency_key=round_.round_id)
         tasks = batch.create_tasks(cohort, request.policy)
+        if self.telemetry is not None:
+            self.telemetry.record_quota(planned=request.policy.max_backtests, consumed=len(tasks))
         self._transition(batch, BatchState.SUBMITTED)
         self._transition(batch, BatchState.RUNNING)
         for result in self.backtest_gateway.run_backtests(tasks):

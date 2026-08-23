@@ -168,56 +168,62 @@ $$N_{eff} = 1 + (N - 1)(1 - \bar{\rho}_{family})$$
 
 ---
 
+---
+
 ## 八、 DDD 领域驱动设计投研生命周期 (DDD Research Cycle Architecture)
 
-位于 `alpha_operator_framework/ddd/`，依据 [`docs/superpowers/specs/2026-08-23-ddd-research-cycle-design.md`](docs/superpowers/specs/2026-08-23-ddd-research-cycle-design.md) 构建，确立了**零 I/O 纯业务领域内核**与**10 阶段不可变事实投研流水线**：
+系统依据 [`docs/superpowers/specs/2026-08-23-research-round-domain-design.md`](docs/superpowers/specs/2026-08-23-research-round-domain-design.md) 与 [`docs/superpowers/specs/2026-08-23-production-research-loop-design.md`](docs/superpowers/specs/2026-08-23-production-research-loop-design.md) 构建，确立了**三大真实领域聚合内核**、**轻量应用编排层**与**强保证基础设施层**：
 
 ```mermaid
 flowchart TD
-    subgraph APP["应用层 (Application Layer: 10 阶段 Orchestrator)"]
-        U1["1. RefreshFieldUniverse"] --> U2["2. ResearchFields"]
-        U2 --> U3["3. GenerateCandidates"]
-        U3 --> U4["4. SelectBacktestBatch<br>(Pre-Prune + 4 大纯抽样算法)"]
-        U4 --> U5["5. RunBacktests (BacktestGateway)"]
-        U5 --> U6["6. PruneAndEvaluateResults<br>(2D共识剪枝 + Gold Shield)"]
-        U6 --> U7["7. OptimizeCandidates (NSGA-II Pareto)"]
-        U7 --> U8["8. SubmitApprovedCandidates (Fail-Closed)"]
-        U8 --> U9["9. DistillKnowledge (模板骨架抽象)"]
-        U9 --> U10["10. BuildSelectionFeedback (权重自适应更新)"]
+    subgraph APP["应用层 (Application Layer: 薄用例编排)"]
+        RC["ResearchCycleUseCase<br>• 控制 8 阶段标准时序<br>• 绝不包含平台/评分硬编码规则"]
     end
 
-    subgraph DOMAIN["DDD 4 大限界上下文 (Zero I/O Domain Layer)"]
-        BC1["1. 字段画像 (Field Research)<br>聚合根: FieldUniverse<br>服务: FieldProfiler / FieldEligibility / FieldWeightUpdater"]
-        BC2["2. 候选探索 (Candidate Exploration)<br>聚合根: SelectionRound<br>算法: Stratified | D-Optimal | Thompson/UCB | NSGA-II<br>服务: AstCanonicalizer / PrePruningService"]
-        BC3["3. 实验治理 (Experiment Governance)<br>聚合根: ExperimentBatch<br>服务: ResultNormalizer / PostBacktestPruner / Evaluator / ParetoOptimizer"]
-        BC4["4. 知识与准入 (Knowledge & Submission)<br>聚合根: KnowledgeBase / SubmissionCase<br>服务: SignalDistiller / FeedbackBuilder / SubmissionApproval"]
+    subgraph DOMAIN["DDD 3 大核心领域聚合 (Zero I/O Pure Domain Layer)"]
+        R1["1. 探索轮次 (ResearchRound)<br>聚合根: ResearchRound, ResearchPolicy<br>职责: 候选构造、语法预剪枝、4大选择策略<br>模块: research/round.py, selection.py, pruning.py"]
+        R2["2. 实验批次 (ExperimentBatch)<br>聚合根: ExperimentBatch, BatchState<br>职责: 幂等回测、状态机流转、6维评估、Pareto排序、NSGA突变<br>模块: experiment/models.py, lifecycle.py, evaluation.py, mutation.py"]
+        R3["3. 知识库 (KnowledgeBase)<br>聚合根: KnowledgeBase, KnowledgeSnapshot, SubmissionCase<br>职责: 胜出母版蒸馏、先验差量反馈、Fail-Closed上线审批<br>模块: knowledge/models.py, distillation.py, submission.py"]
     end
 
-    subgraph INFRA["基础设施层 (Infrastructure Layer)"]
-        I1["SqliteDddRepository (快照隔离持久化)"]
-        I2["BrainPlatformGateway (并发模拟与提交网关)"]
-        I3["DeterministicRandomSource (确定性随机数端口)"]
+    subgraph INFRA["基础设施与适配器层 (Infrastructure Layer)"]
+        I1["SqliteResearchRepository / SqliteExperimentRepository (快照与审计回放)"]
+        I2["BrainBacktestGateway / BrainSubmissionGateway (平台网关与 Dry-run 防护)"]
+        I3["SubmissionOutboxWorker / ResearchTelemetry (Saga 异步外箱与度量指标)"]
     end
 
     APP --> DOMAIN
-    INFRA -.->|实现端口 Ports| DOMAIN
+    INFRA -.->|实现端口 ApplicationPorts| DOMAIN
 ```
 
-### 1. 四大限界上下文 (Bounded Contexts) 与聚合根
-- **字段画像上下文 (`field_research`)**：聚合根 `FieldUniverse`，管理平台字段快照，评估覆盖度（Coverage $\ge 70\%$）与拥挤度，计算初始采样权重并在回测完成后接收动态增量反馈；
-- **候选探索上下文 (`candidate_exploration`)**：聚合根 `SelectionRound`，管理探索轮次与不可变 `ResearchPolicy` 规范快照，基于 AST 合成候选因子池，执行语法预剪枝，并运行 4 大纯抽样算法；
-- **实验治理上下文 (`experiment_governance`)**：聚合根 `ExperimentBatch`，管理批量回测任务生命周期与不可变结果 `NormalizedBacktestResult`，执行 2D 跨字段共识后剪枝与 Gold Shield 金牌豁免盾，评估 6 维证据指标，并计算非支配 Pareto 前沿排序；
-- **知识与准入上下文 (`knowledge_and_submission`)**：聚合根 `KnowledgeBase` 与 `SubmissionCase`，执行获胜因子通用骨架抽象提炼（`{a}`, `{b}`），生成跨轮次反馈差量，并对正式上线实行严格 Fail-Closed 准入审批。
+### 1. 三大领域聚合根 (Domain Aggregates)
+- **`ResearchRound` (`alpha_operator_framework/research/`)**：
+  - 核心问题：**哪些假说值得分配平台回测预算？**
+  - 管理不可变 `ResearchPolicy`、输入特征字段画像与 AST 候选因子池。
+  - **双重剪枝时刻**：在回测前执行 `AstPrePruner`（拦截语法错误、类型不兼容、规范等价重复与已知失效模式）；在回测后配合后剪枝规则。
+  - 内置 4 大纯抽样算法：`WeightedStratifiedSelector`（分层基准）、`DiversitySelector`（D-Optimal 最大特征空间覆盖）、`ThompsonSelector` / `UCBSelector`（贝叶斯多臂老虎机自适应探索）。
+- **`ExperimentBatch` (`alpha_operator_framework/experiment/`)**：
+  - 核心问题：**平台实际回测结果如何，哪些因子处于 Pareto 最优前沿并值得变异？**
+  - 管理显式状态机流转：`SUBMITTED` $\to$ `ACCEPTED` $\to$ `EVALUATED` $\to$ `MUTATED`（或 `FAILED`）。
+  - 执行 6 维证据硬门禁与非支配 Pareto 排序（Sharpe / Fitness / Turnover / Drawdown）。
+  - 对 Rank-1 优胜候选由 `NSGA2Mutator` 生成带有谱系追踪的下一轮变异提议（`MutationProposal`）。
+- **`KnowledgeBase` (`alpha_operator_framework/knowledge/`)**：
+  - 核心问题：**系统从历史回测中沉淀了什么通用智慧，如何安全上线？**
+  - 提炼胜出表达式为去标识化泛化骨架（`{a}`, `{b}`），持久化至知识库并导出不可变 `KnowledgeSnapshot` 供下一轮探索消费。
+  - 管理 `SubmissionCase`，执行严格的 Fail-Closed 证据链核验（样本外证据、18项 Checks、自相关/母相关 $\le 0.70$、容量与换手率限制）。
 
-### 2. 四大纯抽样选择算法 (Selection Policies)
-- **`WeightedStratifiedSelectionPolicy`**：基准分层抽样，保证 10 大算子族配额均衡与字段公平轮转；
-- **`DOptimalDiversitySelectionPolicy`**：信息论 D-Optimal 最大特征空间覆盖算法，最大化字段正交度与算子多样性熵值；
-- **`ThompsonCombinatorialSelectionPolicy` / `UCBCombinatorialSelectionPolicy`**：贝叶斯多臂老虎机自适应探索，在胜率不确定性与高收益之间智能权衡；
-- **`NSGA2CandidateEvolutionPolicy`**：基于非支配排序遗传算法（NSGA-II）的多目标前沿变异进化。
+### 2. 标准化应用流转时序
+```text
+刷新 FieldSnapshot + KnowledgeSnapshot
+  → 构建 ResearchRound 聚合
+  → AST 候选构造与语法预剪枝 (PrePruner)
+  → 执行选定策略抽样入选 (SelectionPolicy)
+  → 构建 ExperimentBatch 并提交回测 (SUBMITTED ➔ ACCEPTED)
+  → 后剪枝、6 维评估与 Pareto 排序 (EVALUATED)
+  → 优胜因子 NSGA-II 变异提议 (MUTATED)
+  → 沉淀知识蒸馏与先验反馈更新 (KnowledgeBase)
+  → (可选) 显式授权下的 Fail-Closed 正式上线提交 (SubmissionCase)
+```
 
-### 3. 2D 跨字段共识后剪枝与金牌豁免盾 (Gold Shield Immunity)
-- **跨字段共识判定**：只有当某一结构母版在 $\ge 3$ 个不同独立字段上测试均以 $\ge 80\%$ 概率失败且平均夏普 $\le 0.10$ 时，才判定为失效模式进行后剪枝；
-- **金牌豁免盾 (Gold Shield Immunity)**：任何母版只要在任意字段上取得 $\text{Sharpe} \ge 1.0$ 或 $\text{Fitness} \ge 1.0$，永久赋予金牌豁免盾，免疫结构剪枝；
-- **字段信号隔离**：有效隔离白噪声字段，杜绝因噪声字段失败而误杀优质结构母版。
 
 

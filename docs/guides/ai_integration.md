@@ -399,12 +399,80 @@ A: AI可以这样解释:
 - "密度越高,该模板对当前数据集越有效"
 - "通常密度>0.1就可以继续深挖"
 
+## 核心API (DDD 架构推荐)
+
+### 0. ResearchCycleUseCase - 10 阶段标准化投研生命周期 ★ (新一代标准)
+
+**用途**: AI Agent 一键执行具备完整快照隔离、抽样决策可解释与 100% 确定性回放的投研闭环。
+
+**调用范式**:
+```python
+from pathlib import Path
+from alpha_operator_framework.application.research_cycle import (
+    ResearchCycleRequest,
+    ResearchCycleUseCase,
+)
+from alpha_operator_framework.infrastructure.brain import build_backtest_gateway
+from alpha_operator_framework.infrastructure.sqlite import SqliteResearchRepository
+from alpha_operator_framework.knowledge.models import KnowledgeBase
+from alpha_operator_framework.research.construction import AstCandidateBuilder, ConstructionTemplate
+from alpha_operator_framework.research.field_loader import load_real_market_fields
+from alpha_operator_framework.research.round import ResearchPolicy
+
+# 1. 动态加载真实市场字段
+field_specs = load_real_market_fields(region="GBR", universe="TOP700", datasets=["analyst7"])
+matrix_fields = [f.id for f in field_specs if (f.type or "MATRIX").upper() == "MATRIX"]
+
+# 2. 构造 AST 候选池
+candidates = AstCandidateBuilder().build(matrix_fields, (
+    ConstructionTemplate("rank_field", "rank({field})", "cross_sectional", ("rank",)),
+    ConstructionTemplate("ts_rank_22", "ts_rank({field}, 22)", "time_series", ("ts_rank",)),
+))
+
+# 3. 定义不可变策略 (支持 stratified, diversity, thompson, ucb)
+quotas = {cand.family: 4 for cand in candidates}
+policy = ResearchPolicy(
+    region="GBR",
+    universe="TOP700",
+    max_backtests=sum(quotas.values()),
+    family_quotas=quotas,
+    selection_strategy="diversity",  # D-Optimal 最大信息增益覆盖
+)
+
+# 4. 执行用例 (默认 Dry-run，完全零平台配额消耗)
+knowledge = KnowledgeBase()
+use_case = ResearchCycleUseCase(
+    research_repository=SqliteResearchRepository(Path("data/alpha_research.db")),
+    backtest_gateway=build_backtest_gateway(execute_platform=False),
+    knowledge_base=knowledge,
+)
+
+req = ResearchCycleRequest(
+    round_id="ai_round_001",
+    seed=42,
+    policy=policy,
+    knowledge=knowledge.snapshot(),
+    candidates=candidates,
+    execute_platform=False,
+)
+
+summary = use_case.execute(req)
+
+# AI 解析结构化 Summary
+print(f"状态: {summary.status}")
+print(f"入选回测任务数: {len(summary.selection_audit)}")
+print(f"完成回测: {summary.completed_backtests}")
+print(f"沉淀模板数: {summary.distilled_template_count}")
+print(f"生成变异提议: {len(summary.mutation_proposals)}")
+```
+
+---
+
 ## 总结
 
 本框架专为AI集成设计:
-- ✅ 精确参数控制(区域/宇宙/数据集/字段)
-- ✅ 结构化结果(便于解析)
-- ✅ Dry-run优先(不消耗额度)
-- ✅ 单次调用完整工作流
-- ✅ 支持AI决策循环
-- ✅ 批量处理能力
+- ✅ DDD 领域聚合与结构化 Summary (便于 AI Agent 消费与决策)
+- ✅ 4 大纯抽样算法与精确配额控制 (区域/宇宙/数据集/字段/算子族)
+- ✅ 100% 确定性回放与断点可恢复性
+- ✅ Dry-run 优先 (默认零配额消耗)
+- ✅ 变异提案 (MutationProposal) 支持 AI 自主进化循环

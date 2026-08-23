@@ -14,74 +14,59 @@
 
 ```
 alpha_factory/
-├── alpha_machine.py                    # 平台回测入口 (brain_client 单例) —— 稳定，不动
+├── alpha_machine.py                    # 统一 CLI 入口 (auto-pilot / research-cycle / init-db / clean-db)
 │
-├── alpha_operator_framework/           # 核心包
-│   ├── __init__.py                     # 稳定 API：统一 re-export（兼容旧 import）
+├── alpha_operator_framework/           # 核心框架包
+│   ├── application/                    # 应用编排层 (薄用例时序控制，无硬编码业务逻辑) ★ DDD
+│   │   ├── ports.py                    #   抽象端口定义
+│   │   └── research_cycle.py           #   ResearchCycleUseCase (串联 8 阶段标准时序)
 │   │
-│   ├── research/                       # 文献研究与前沿认知提炼层 (NLP Literature Engine) ★ 新增
-│   │   ├── document_parser.py          #   文献/研报结构化清洗分段与公式提取
-│   │   ├── idea_extractor.py           #   LLM 论文逻辑与异象假说抽取器
-│   │   ├── field_grounder.py           #   抽象变量到真实 FieldSpec 字段语义对齐器
-│   │   ├── ast_translator.py           #   论文公式到 AST 语法树编译器
-│   │   └── pipeline.py                 #   研报直通一键流水线 (ingest_literature_to_alphas)
+│   ├── research/                       # 探索轮次与候选构造领域层 ★ DDD
+│   │   ├── round.py                    #   ResearchRound, ResearchPolicy, Candidate 聚合
+│   │   ├── policy.py                   #   ResearchPolicy 与抽样算法工厂
+│   │   ├── selection.py                #   4 大纯抽样算法 (Stratified / Diversity / Thompson / UCB)
+│   │   ├── pruning.py                  #   AstPrePruner 语法与规范重复预剪枝
+│   │   ├── construction.py             #   AstCandidateBuilder 候选生成
+│   │   ├── field_loader.py             #   真实市场字段动态加载
+│   │   └── pipeline.py                 #   文献研发流水线 (ingest_literature_to_alphas)
 │   │
-│   ├── domain/                         # 领域层（纯函数，无网络）
-│   │   ├── ast/                        #   AST 语法树引擎 (解析/规范化/等价去重/校验) (阶段一)
-│   │   ├── sandbox/                    #   本地向量化快速预筛沙盒 (毫秒级 Rank IC/Sharpe) (阶段一)
-│   │   ├── overfitting.py              #   统计防过拟合 (DSR / PSR / PBO / CSCV / Haircut) (阶段二)
-│   │   ├── decay.py                    #   因子衰减半衰期探测器 (IC Decay Profiler) (阶段三)
-│   │   ├── orthogonalization.py        #   施密特正交残差化与投影 (阶段三)
-│   │   ├── cross_market.py             #   跨市场/跨资产一致性评估套件 (阶段三)
-│   │   ├── fields.py                   #   字段建模 + 采样          (第1步)
-│   │   ├── economic_rules.py           #   字段经济可采性规则       (第1步)
-│   │   ├── operators.py                #   算子库                  (第2步)
-│   │   ├── families.py                 #   模板族 1/2/3/4 元       (第2步)
-│   │   ├── semantic_pairs.py           #   语义配对                (第2步)
-│   │   ├── paired_bases.py             #   配对基准                (第2步)
-│   │   ├── density.py                  #   密度/信号门评估         (第4步)
-│   │   ├── pruning.py                  #   三阶段剪枝 + AST/沙盒预筛 (第1/4步)
-│   │   ├── evaluation.py               #   Alpha 评价/Failed Gate  (第4/5步)
-│   │   └── optimize.py                 #   筛选                    (第4步)
+│   ├── experiment/                     # 实验批次与评估治理领域层 ★ DDD
+│   │   ├── models.py                   #   ExperimentBatch, BacktestTask, BacktestResult, EvaluationRecord
+│   │   ├── lifecycle.py                #   ExperimentBatchStateMachine (SUBMITTED ➔ ACCEPTED ➔ EVALUATED ➔ MUTATED)
+│   │   ├── evaluation.py               #   6 维证据硬门禁与 ParetoRank 非支配排序
+│   │   └── mutation.py                 #   NSGA2Mutator 优胜候选变异提议生成
 │   │
-│   ├── generation/                     # 生成层（表达式 → Task）
-│   │   ├── hypothesis/                 #   假说驱动因子推理引擎 (5大经济学假说库) (阶段二)
-│   │   ├── portfolio.py                #   Super-Alpha 2.0 (HRP 风险平价组合优化) (阶段三)
-│   │   ├── creation_strategy.py
-│   │   ├── template_library.py         #   模板注册表（沉淀容器）
-│   │   └── super_alpha.py              #   Super Alpha 构建        (第4步)
+│   ├── knowledge/                      # 知识蒸馏与准入领域层 ★ DDD
+│   │   ├── models.py                   #   KnowledgeBase, KnowledgeSnapshot, PruneRuleEvidence
+│   │   ├── distillation.py             #   SignalDistiller 泛化母版抽象 ({a}, {b})
+│   │   └── submission.py               #   SubmissionApprovalService & SubmissionCase (Fail-Closed 审批)
 │   │
-│   ├── distill/                        # 蒸馏层（闭环沉淀与自动修复）
-│   │   ├── diagnostic.py               #   失败 Alpha 病因智能诊断 (阶段二)
-│   │   ├── mutation.py                 #   针对性 AST 基因修复突变 (阶段二)
-│   │   ├── field_signals.py            #   字段级信号聚合 + 加权采样 (第6→1)
-│   │   ├── template_abstractor.py      #   模板骨架抽象             (第6→2)
-│   │   └── template_pruner.py          #   坏模板负向淘汰剪枝       (第6→2)
+│   ├── infrastructure/                 # 基础设施与外部适配器层 ★ DDD
+│   │   ├── sqlite.py                   #   SqliteResearchRepository, SqliteExperimentRepository (快照与审计)
+│   │   ├── brain.py                    #   BrainBacktestGateway, BrainSubmissionGateway (平台网关与 Dry-run 防护)
+│   │   ├── submission.py               #   SubmissionOutboxWorker (Saga 异步外箱)
+│   │   └── telemetry.py                #   ResearchTelemetry 度量指标
 │   │
-│   ├── platform/                       # 平台交互与调度层
-│   │   ├── rate_limiter.py             #   异步自适应令牌桶流控 (AIMD 拥塞控制) (阶段一)
-│   │   ├── task_scheduler.py           #   优先级并发任务调度队列 (阶段一)
-│   │   ├── alpha_source.py             #   alpha 获取
-│   │   ├── datafield_ingest.py         #   字段采集（节流防429）
-│   │   ├── local_fields.py             #   本地字段读取
-│   │   ├── platform_config.py
-│   │   └── simulation_tracker.py
+│   ├── core/                           # 底层事件溯源内核 (Event Sourced Research Core)
+│   │   ├── events.py                   #   不可变事件定义
+│   │   ├── event_store.py              #   EventStore 追加流
+│   │   └── artifacts.py                #   ArtifactStore 内容寻址工件
 │   │
-│   ├── database/                       # 存储与连接层 (SQLite WAL 模式 + 线程安全连接池) (阶段一)
-│   ├── cache/                          # 平台元数据缓存
-│   ├── strategies/                     # 策略组件
+│   ├── domain/                         # 纯函数量化领域组件 (AST/沙盒/防过拟合)
+│   │   ├── ast/                        #   AST 语法树引擎 (解析/规范化/等价去重/校验)
+│   │   ├── sandbox/                    #   本地向量化快速预筛沙盒 (毫秒级 Rank IC/Sharpe)
+│   │   ├── overfitting.py              #   统计防过拟合 (DSR / PSR / PBO / CSCV / Haircut)
+│   │   └── orthogonalization.py        #   施密特正交残差化与 HRP 组合
 │   │
-│   ├── orchestrator.py                 # CLI 三段工作流 (survey/deepen/submit)
-│   ├── ai_workflow.py                  # run_full_workflow 单次全流程
-│   └── loop.py                         # 研究闭环编排
+│   ├── platform/                       # 平台交互与并发调度
+│   ├── database/                       # 存储与连接层 (SQLite WAL 模式)
+│   └── cache/                          # 平台元数据缓存
 │
-├── cnhkmcp/                            # 平台连接器（本地，不动）
-├── data/                               # 数据资产
-├── docs/                               # 文档（本文件 + architecture 等）
-├── examples/                           # 示例脚本
-├── runs/                               # 运行输出
-├── tests/                              # 测试
-└── tools/                              # 辅助脚本
+├── cnhkmcp/                            # 平台底层通信连接器
+├── data/                               # 数据资产 (主库 data/alpha_research.db)
+├── docs/                               # 完整架构与指南文档
+├── runs/                               # 运行输出与研报
+└── tests/                              # 全套自动化测试 (226+ 项测试 100% 通过)
 ```
 
 ## 三、现状 → 目标映射

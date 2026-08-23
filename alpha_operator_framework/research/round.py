@@ -30,6 +30,10 @@ class ResearchPolicy:
     prohibited_patterns: tuple[str, ...] = ()
     policy_version: str = "default"
     selection_strategy: str = "weighted_stratified"
+    min_sharpe: float = 1.0
+    min_fitness: float = 0.8
+    min_margin: float = 4.0
+    max_turnover: float = 0.70
 
 
 @dataclass(frozen=True)

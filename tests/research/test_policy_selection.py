@@ -52,3 +52,20 @@ def test_policy_rejects_unknown_selector_and_nonpositive_budget() -> None:
         PolicySnapshot.from_mapping({"region": "GBR", "universe": "TOP700", "max_backtests": 1, "selection_strategy": "unknown"})
     with pytest.raises(ValueError, match="max_backtests"):
         PolicySnapshot.from_mapping({"region": "GBR", "universe": "TOP700", "max_backtests": 0})
+
+
+def test_policy_validates_nested_weights_templates_pruning_and_evaluation() -> None:
+    snapshot = PolicySnapshot.from_mapping({
+        "region": "GBR", "universe": "TOP700", "max_backtests": 2,
+        "weights": {"field": 2.0, "operator": 1.5},
+        "templates": ["rank_field", "ts_rank_22"],
+        "pruning": {"prohibited_patterns": ["group_rank("]},
+        "evaluation": {"min_sharpe": 1.2, "min_fitness": 0.9, "min_margin": 4.5, "max_turnover": 0.6},
+    })
+
+    policy = snapshot.to_research_policy()
+
+    assert policy.field_weight == 2.0
+    assert policy.prohibited_patterns == ("group_rank(",)
+    assert policy.min_sharpe == 1.2
+    assert snapshot.templates == ("rank_field", "ts_rank_22")

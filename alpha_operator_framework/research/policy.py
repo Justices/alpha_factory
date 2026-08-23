@@ -18,6 +18,10 @@ class PolicySnapshot:
     universe: str
     max_backtests: int
     selection_strategy: str = "weighted_stratified"
+    weights: Mapping[str, float] = None  # type: ignore[assignment]
+    templates: tuple[str, ...] = ()
+    prohibited_patterns: tuple[str, ...] = ()
+    evaluation: Mapping[str, float] = None  # type: ignore[assignment]
 
     @classmethod
     def from_mapping(cls, data: Mapping[str, Any]) -> "PolicySnapshot":
@@ -30,10 +34,31 @@ class PolicySnapshot:
             raise ValueError("max_backtests must be positive")
         if strategy not in {"weighted_stratified", "thompson", "ucb", "diversity"}:
             raise ValueError("selection_strategy is invalid")
-        return cls(str(data.get("version", "default")), region, universe, budget, strategy)
+        weights = dict(data.get("weights", {}))
+        evaluation = dict(data.get("evaluation", {}))
+        pruning = dict(data.get("pruning", {}))
+        if any(key not in {"field", "operator", "template", "novelty", "uncertainty"} or float(value) < 0 for key, value in weights.items()):
+            raise ValueError("weights are invalid")
+        if any(key not in {"min_sharpe", "min_fitness", "min_margin", "max_turnover"} for key in evaluation):
+            raise ValueError("evaluation is invalid")
+        if float(evaluation.get("max_turnover", 0.70)) <= 0 or float(evaluation.get("max_turnover", 0.70)) > 1:
+            raise ValueError("evaluation.max_turnover is invalid")
+        templates = tuple(str(item) for item in data.get("templates", ()))
+        if any(not item for item in templates):
+            raise ValueError("templates are invalid")
+        patterns = tuple(str(item) for item in pruning.get("prohibited_patterns", ()))
+        return cls(str(data.get("version", "default")), region, universe, budget, strategy, weights, templates, patterns, evaluation)
 
     def to_research_policy(self) -> ResearchPolicy:
-        return ResearchPolicy(self.region, self.universe, self.max_backtests, policy_version=self.version, selection_strategy=self.selection_strategy)
+        weights = self.weights or {}
+        evaluation = self.evaluation or {}
+        return ResearchPolicy(self.region, self.universe, self.max_backtests,
+            field_weight=float(weights.get("field", 1.0)), operator_weight=float(weights.get("operator", 1.0)),
+            template_weight=float(weights.get("template", 1.0)), novelty_weight=float(weights.get("novelty", 1.0)),
+            uncertainty_weight=float(weights.get("uncertainty", 1.0)), prohibited_patterns=self.prohibited_patterns,
+            policy_version=self.version, selection_strategy=self.selection_strategy,
+            min_sharpe=float(evaluation.get("min_sharpe", 1.0)), min_fitness=float(evaluation.get("min_fitness", 0.8)),
+            min_margin=float(evaluation.get("min_margin", 4.0)), max_turnover=float(evaluation.get("max_turnover", 0.70)))
 
 
 def build_selector(policy: ResearchPolicy):

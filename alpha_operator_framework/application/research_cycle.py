@@ -98,7 +98,7 @@ class ResearchCycleUseCase:
         self._transition(batch, BatchState.RUNNING)
         for result in self.backtest_gateway.run_backtests(tasks):
             batch.record_result(result)
-        for evaluation in evaluate_batch(batch):
+        for evaluation in evaluate_batch(batch, request.policy):
             batch.record_evaluation(evaluation)
         terminal_state = BatchState.COMPLETED if len(batch.results) == len(tasks) else BatchState.PARTIAL_FAILED
         self._transition(batch, terminal_state)

@@ -5,10 +5,14 @@ from __future__ import annotations
 from alpha_operator_framework.experiment.models import BacktestResult, EvaluationRecord, ExperimentBatch
 
 
-def evaluate_result(result: BacktestResult) -> EvaluationRecord:
+def evaluate_result(result: BacktestResult, policy=None) -> EvaluationRecord:
     """Classify one normalized result without any platform dependency."""
-    pruned = not result.checks_passed or result.sharpe < 0.0 or result.turnover > 0.70
-    ready = not pruned and result.sharpe >= 1.0 and result.fitness >= 0.8 and result.margin >= 4.0
+    max_turnover = policy.max_turnover if policy else 0.70
+    min_sharpe = policy.min_sharpe if policy else 1.0
+    min_fitness = policy.min_fitness if policy else 0.8
+    min_margin = policy.min_margin if policy else 4.0
+    pruned = not result.checks_passed or result.sharpe < 0.0 or result.turnover > max_turnover
+    ready = not pruned and result.sharpe >= min_sharpe and result.fitness >= min_fitness and result.margin >= min_margin
     return EvaluationRecord(
         task_id=result.task_id,
         verdict="READY" if ready else "PRUNED" if pruned else "REVIEW",
@@ -33,9 +37,9 @@ def _dominates(left: BacktestResult, right: BacktestResult) -> bool:
     return no_worse and strictly_better
 
 
-def evaluate_batch(batch: ExperimentBatch) -> list[EvaluationRecord]:
+def evaluate_batch(batch: ExperimentBatch, policy=None) -> list[EvaluationRecord]:
     """Apply hard gates then assign deterministic non-dominated Pareto ranks."""
-    records = {task_id: evaluate_result(result) for task_id, result in batch.results.items()}
+    records = {task_id: evaluate_result(result, policy) for task_id, result in batch.results.items()}
     eligible = [
         result for task_id, result in batch.results.items()
         if records[task_id].verdict == "READY" and not records[task_id].pruned

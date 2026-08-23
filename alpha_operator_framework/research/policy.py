@@ -62,7 +62,14 @@ class PolicySnapshot:
 
 
 def build_selector(policy: ResearchPolicy):
-    selectors = {"weighted_stratified": WeightedStratifiedSelector, "thompson": ThompsonSelector, "ucb": UcbSelector, "diversity": DiversitySelector}
+    selectors = {
+        "weighted_stratified": WeightedStratifiedSelector,
+        "stratified": WeightedStratifiedSelector,
+        "thompson": ThompsonSelector,
+        "ucb": UcbSelector,
+        "diversity": DiversitySelector,
+        "d_optimal": DiversitySelector,
+    }
     try:
         return selectors[policy.selection_strategy]()
     except KeyError as error:

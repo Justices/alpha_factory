@@ -44,15 +44,14 @@ for target in "${TARGET_MATRIX[@]}"; do
     echo "" | tee -a "$MAIN_LOG"
     echo "🎯 [生产任务] 正在执行: 市场=$REGION, Universe=$UNIVERSE, 数据集=$DATASETS, Decay=$DECAY, 样本=$SAMPLES" | tee -a "$MAIN_LOG"
     
-    python alpha_machine.py auto-pilot \
+    python alpha_machine.py research-cycle \
         --region "$REGION" \
         --universe "$UNIVERSE" \
         --datasets "$DATASETS" \
         --sample-per-family "$SAMPLES" \
-        --batch-size 5 \
-        --decay "$DECAY" \
-        --neutralization SUBINDUSTRY \
-        --min-sharpe 1.25 \
+        --algorithm diversity \
+        --database "data/research_${REGION}_${UNIVERSE}.db" \
+        --telemetry-file "runs/logs/research_${REGION}_${UNIVERSE}.jsonl" \
         --execute >> "$MAIN_LOG" 2>&1 || {
             echo "⚠️ [WARN] 任务 ($REGION / $UNIVERSE) 发生异常，已记录日志并自动切入下一目标" | tee -a "$MAIN_LOG"
         }

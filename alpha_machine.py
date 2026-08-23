@@ -794,6 +794,8 @@ def main() -> None:
     rc_p.add_argument("--authorize-submission", action="store_true", help="显式授权达标 Alpha 自动提交上线")
     rc_p.add_argument("--seed", type=int, default=42, help="随机种子 (默认: 42)")
     rc_p.add_argument("--database", "--db", default=None, help="数据库路径")
+    rc_p.add_argument("--policy-file", default=None, help="版本化 JSON/YAML 策略文件")
+    rc_p.add_argument("--telemetry-file", default=None, help="JSONL 遥测输出路径")
     rc_p.set_defaults(func=command_research_cycle)
 
     args = parser.parse_args(); args.func(args)
@@ -803,11 +805,13 @@ def command_research_cycle(args: argparse.Namespace) -> None:
     """Compose one new ResearchRound from local fields and explicit execution intent."""
     from alpha_operator_framework.application.research_cycle import ResearchCycleRequest, ResearchCycleUseCase
     from alpha_operator_framework.infrastructure.brain import build_backtest_gateway
-    from alpha_operator_framework.infrastructure.sqlite import SqliteResearchRepository
+    from alpha_operator_framework.infrastructure.sqlite import SqliteExperimentRepository, SqliteResearchRepository
+    from alpha_operator_framework.infrastructure.telemetry import JsonLinesTelemetrySink, ResearchTelemetry
     from alpha_operator_framework.knowledge.models import KnowledgeBase
     from alpha_operator_framework.research.field_loader import load_real_market_fields
     from alpha_operator_framework.research.construction import AstCandidateBuilder, ConstructionTemplate
     from alpha_operator_framework.research.round import ResearchPolicy
+    from alpha_operator_framework.research.policy import load_policy
 
     db_path = Path(args.database) if getattr(args, "database", None) else DEFAULT_DATABASE_PATH
     datasets_list = args.datasets.split(",") if getattr(args, "datasets", None) else None
@@ -823,21 +827,20 @@ def command_research_cycle(args: argparse.Namespace) -> None:
         ConstructionTemplate("ts_rank_22", "ts_rank({field}, 22)", "time_series", ("ts_rank",)),
     ))
     quotas = {candidate.family: args.sample_per_family for candidate in candidates}
-    policy = ResearchPolicy(
-        region=args.region,
-        universe=args.universe,
-        max_backtests=sum(quotas.values()),
-        family_quotas=quotas,
-        policy_version=getattr(args, "policy_version", "cli-v1"),
-        selection_strategy={"stratified": "weighted_stratified"}.get(
-            getattr(args, "algorithm", "weighted_stratified"), getattr(args, "algorithm", "weighted_stratified"),
-        ),
+    strategy = {"stratified": "weighted_stratified", "d_optimal": "diversity"}.get(
+        getattr(args, "algorithm", "weighted_stratified"), getattr(args, "algorithm", "weighted_stratified"),
     )
+    policy = load_policy(Path(args.policy_file)).to_research_policy() if getattr(args, "policy_file", None) else ResearchPolicy(
+        region=args.region, universe=args.universe, max_backtests=sum(quotas.values()), family_quotas=quotas,
+        policy_version=getattr(args, "policy_version", "cli-v1"), selection_strategy=strategy)
     knowledge = KnowledgeBase()
+    telemetry = ResearchTelemetry()
     summary = ResearchCycleUseCase(
         SqliteResearchRepository(db_path),
         build_backtest_gateway(execute_platform=args.execute),
         knowledge,
+        SqliteExperimentRepository(db_path),
+        telemetry,
     ).execute(ResearchCycleRequest(
         round_id=f"research-{args.region}-{args.universe}-{args.seed or 42}",
         seed=args.seed or 42,
@@ -846,7 +849,21 @@ def command_research_cycle(args: argparse.Namespace) -> None:
         candidates=candidates,
         execute_platform=args.execute,
     ))
-    print(json.dumps(asdict(summary), ensure_ascii=False, sort_keys=True))
+    if getattr(args, "telemetry_file", None):
+        JsonLinesTelemetrySink(Path(args.telemetry_file)).publish(telemetry)
+
+    print("=" * 70)
+    print(f"🚀 [Alpha Factory DDD Research Cycle Summary] - Round {summary.round_id}")
+    print("=" * 70)
+    print(f"• 目标市场: {args.region} / {args.universe}")
+    print(f"• 抽样策略: {args.algorithm} ({strategy})")
+    print(f"• 特征字段: {len(matrix_fields)} 个 (MATRIX)")
+    print(f"• 候选生成: {len(candidates)} 条")
+    print(f"• 策略入选: {len(summary.selection_audit)} 条进入回测批次")
+    print(f"• 回测完成: {summary.completed_backtests} 条")
+    print(f"• 沉淀模板: {summary.distilled_template_count} 个")
+    print(f"• 变异提议: {len(summary.mutation_proposals)} 个")
+    print("=" * 70)
 
 
 def command_status(args: argparse.Namespace) -> None:

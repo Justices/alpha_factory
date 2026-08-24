@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import random
+from datetime import UTC, datetime, timedelta
 from typing import Any
 
 from alpha_operator_framework.application.research_cycle import ResearchCycleSummary
@@ -86,12 +87,24 @@ class ResearchBatchWorker:
         if batch.state is not BatchState.RUNNING:
             raise ValueError(f"batch {round_id} is not runnable: {batch.state}")
 
+        now = datetime.now(UTC)
         missing = [task for task in batch.tasks.values() if task.task_id not in batch.results]
+        due = [task for task in missing if task.next_retry_at is None or datetime.fromisoformat(task.next_retry_at) <= now]
+        if not due:
+            return self._summary(batch, "RETRY_SCHEDULED")
         try:
-            results = self.backtest_gateway.run_backtests(missing)
-        except Exception:
+            results = self.backtest_gateway.run_backtests(due)
+        except (TimeoutError, ConnectionError) as error:
+            attempts = max(task.attempts for task in due) + 1
+            if attempts >= 3:
+                batch.record_retry([task.task_id for task in due], next_retry_at=now.isoformat(), error=str(error))
+                self._transition(batch, BatchState.FAILED)
+                self._event(EventType.MONITORING_OBSERVED, round_id, {"alert": "retry_budget_exhausted", "error": str(error)[:1000]})
+                return self._summary(batch, "FAILED")
+            retry_at = now + timedelta(seconds=(30, 60, 120)[attempts - 1])
+            batch.record_retry([task.task_id for task in due], next_retry_at=retry_at.isoformat(), error=str(error))
             self._transition(batch, BatchState.PARTIAL_FAILED)
-            return self._summary(batch, "PARTIAL_FAILED")
+            return self._summary(batch, "RETRY_SCHEDULED")
         for result in results:
             batch.record_result(result)
             task = batch.tasks[result.task_id]

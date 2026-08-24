@@ -70,3 +70,25 @@ def test_worker_persists_distilled_template_promotions() -> None:
     ResearchBatchWorker(events, rounds, batches, knowledge, Gateway(), template_repository=promotions).process_round("promotion-round")
 
     assert [template.expression_template for template in promotions.promoted] == ["rank({a})"]
+
+
+def test_worker_persists_retry_state_after_rate_limit() -> None:
+    class RateLimitedGateway:
+        def run_backtests(self, _tasks):
+            raise TimeoutError("429 rate limited")
+
+    events, rounds, batches, knowledge = EventStore(), RoundRepository(), BatchRepository(), KnowledgeBase()
+    ResearchCycleUseCase(rounds, RateLimitedGateway(), knowledge, batches, event_store=events).execute(
+        ResearchCycleRequest(
+            "retry-round", 9, ResearchPolicy("GBR", "TOP700", 1), KnowledgeSnapshot(version=0),
+            [Candidate("a", "rank(close)", "family", ("close",), ("rank",), "template")], True,
+        )
+    )
+
+    summary = ResearchBatchWorker(events, rounds, batches, knowledge, RateLimitedGateway()).process_round("retry-round")
+
+    task = next(iter(batches.batch.tasks.values()))
+    assert summary.status == "RETRY_SCHEDULED"
+    assert task.attempts == 1
+    assert task.next_retry_at is not None
+    assert task.last_error == "429 rate limited"

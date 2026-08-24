@@ -128,6 +128,8 @@ class SqliteExperimentRepository:
                 task_id=value["task_id"], candidate_id=value["candidate_id"],
                 expression=value["expression"], settings=value["settings"],
                 idempotency_key=value["idempotency_key"],
+                attempts=value.get("attempts", 0), next_retry_at=value.get("next_retry_at"),
+                last_error=value.get("last_error"),
             )
             for task_id, value in payload["tasks"].items()
         }

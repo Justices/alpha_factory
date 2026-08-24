@@ -20,6 +20,7 @@ from alpha_operator_framework.domain.fields import ScalarField
 class TestStrategyConfig(StrategyConfig):
     """测试策略配置."""
 
+    __test__ = False
     name: str = "test"
     test_operators: Tuple[str, ...] = ("rank", "quantile", "winsorize")
     quantile_bins: Tuple[int, ...] = (5, 10, 20, 50)
@@ -29,6 +30,8 @@ class TestStrategyConfig(StrategyConfig):
 
 class TestStrategy(CreationStrategy):
     """测试类型策略 — 横截面算子测试因子信号."""
+
+    __test__ = False
 
     def __init__(self, config: Optional[TestStrategyConfig] = None):
         self.config = config or TestStrategyConfig()

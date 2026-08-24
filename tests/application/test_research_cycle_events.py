@@ -54,7 +54,7 @@ def test_live_cycle_defers_approval_until_worker_execution() -> None:
     class Gateway:
         def run_backtests(self, tasks): return [BacktestResult(tasks[0].task_id, tasks[0].expression, 1.5, 1.1, 0.2, 5.0, True, "alpha-1")]
     class EvidenceGateway:
-        def evidence_for(self, result): return SubmissionEvidence(True, True, True, True)
+        def evidence_for(self, result): return SubmissionEvidence(True, True, True, True, True)
     events = EventStore()
     use_case = ResearchCycleUseCase(Repository(), Gateway(), KnowledgeBase(), BatchRepository(), event_store=events, evidence_gateway=EvidenceGateway())
     request = ResearchCycleRequest("approved-event-round", 7, ResearchPolicy("GBR", "TOP700", 1), KnowledgeSnapshot(version=0),
@@ -69,7 +69,7 @@ def test_planner_never_enqueues_submission_without_worker_execution() -> None:
     class Gateway:
         def run_backtests(self, tasks): return [BacktestResult(tasks[0].task_id, tasks[0].expression, 1.5, 1.1, 0.2, 5.0, True, "alpha-1")]
     class EvidenceGateway:
-        def evidence_for(self, result): return SubmissionEvidence(True, True, True, True)
+        def evidence_for(self, result): return SubmissionEvidence(True, True, True, True, True)
     class Outbox:
         def __init__(self): self.cases = []
         def enqueue(self, case): self.cases.append(case)

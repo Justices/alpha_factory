@@ -72,8 +72,8 @@ def ts_factory(op: str, field: str, windows: Sequence[int] = None) -> List[str]:
         表达式列表, 每个窗口一个表达式
 
     Example:
-        >>> ts_factory("ts_rank", "close")
-        ['ts_rank(close, 5)', 'ts_rank(close, 22)', ...]
+        >>> ts_factory("ts_rank", "returns")
+        ['ts_rank(returns, 5)', 'ts_rank(returns, 22)', ...]
     """
     if windows is None:
         windows = [5, 22, 66, 120, 240]
@@ -107,8 +107,8 @@ def group_factory(
         实际可用分组需从 alpha_machine.group_candidates 获取.
 
     Example:
-        >>> group_factory("group_rank", "close", "USA")
-        ['group_rank(close, densify(sector))', ...]
+        >>> group_factory("group_rank", "returns", "USA")
+        ['group_rank(returns, densify(sector))', ...]
     """
     # 默认分组 (所有地区通用)
     default_groups = ["market", "sector", "industry", "subindustry"]
@@ -143,8 +143,8 @@ def first_order_factory(
         表达式列表, 每个字段×算子组合一个表达式
 
     Example:
-        >>> first_order_factory(["close", "volume"], ["rank", "ts_rank"])
-        ['rank(close)', 'ts_rank(close, 5)', ...]
+        >>> first_order_factory(["returns", "volume"], ["rank", "ts_rank"])
+        ['rank(returns)', 'ts_rank(returns, 5)', ...]
     """
     if ops_set is None:
         ops_set = basic_ops + ts_ops

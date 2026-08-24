@@ -161,7 +161,7 @@ def unary_factory(
         Task列表, 每个字段×模板一个任务
 
     Example:
-        >>> tasks = unary_factory(["close", "volume"])
+        >>> tasks = unary_factory(["returns", "volume"])
         >>> len(tasks)
         20  # 2 fields × 10 templates
     """
@@ -233,7 +233,7 @@ def raw_first_order_task_factory(
     base_fields=(字段id,)。
 
     Args:
-        field_ids: 原始字段id列表 (如 ["close", "volume"])
+        field_ids: 原始字段id列表 (如 ["returns", "volume"])
         ops_set: 一阶算子集合, 缺省 basic_ops + ts_ops
         decay: 衰减
 
@@ -241,8 +241,8 @@ def raw_first_order_task_factory(
         Task列表, 每个字段×算子一个任务
 
     Example:
-        >>> tasks = raw_first_order_task_factory(["close"])
-        >>> any(t.expression == "rank(close)" for t in tasks)
+        >>> tasks = raw_first_order_task_factory(["returns"])
+        >>> any(t.expression == "rank(returns)" for t in tasks)
         True
     """
     from alpha_operator_framework.domain.operators import first_order_factory
@@ -314,7 +314,7 @@ def binary_factory(
         Task列表, 每对字段×模板一个任务
 
     Example:
-        >>> tasks = binary_factory(["close", "volume", "returns"])
+        >>> tasks = binary_factory(["returns", "volume", "vwap"])
         >>> len(tasks)
         24  # C(3,2)=3 pairs × 8 templates
     """
@@ -354,7 +354,7 @@ def ternary_factory(
         Task列表, 每个三元组×模板一个任务
 
     Example:
-        >>> tasks = ternary_factory(["close", "volume", "returns", "cap"])
+        >>> tasks = ternary_factory(["returns", "volume", "vwap", "market_cap"])
         >>> len(tasks)
         28  # C(4,3)=4 triples × 7 templates
     """
@@ -399,7 +399,7 @@ def quaternary_factory(
 
     Example:
         >>> tasks = quaternary_factory(
-        ...     ["close", "volume", "returns"],
+        ...     ["returns", "volume", "vwap"],
         ...     ["sector", "industry"]
         ... )
         >>> len(tasks)  # C(3,2)=3 pairs × 2 groups × 5 templates

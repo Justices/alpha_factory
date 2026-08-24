@@ -52,3 +52,25 @@ def test_submission_authorization_requires_execute_and_evidence_file(monkeypatch
 
     with pytest.raises(ValueError, match="requires --execute"):
         alpha_machine.command_research_cycle(args)
+
+
+def test_policy_settings_are_used_when_loading_fields(monkeypatch, tmp_path) -> None:
+    policy_path = tmp_path / "policy.json"
+    policy_path.write_text(
+        '{"region":"USA","universe":"TOP3000","max_backtests":1,"settings":{"delay":0}}',
+        encoding="utf-8",
+    )
+    captured = {}
+    monkeypatch.setattr(
+        "alpha_operator_framework.research.field_loader.load_real_market_fields",
+        lambda **kwargs: captured.update(kwargs) or [FieldSpec(id="returns", dataset_id="pv1", type="MATRIX")],
+    )
+    args = SimpleNamespace(
+        region="USA", universe="TOP3000", delay=None, datasets=None, sample_per_family=1,
+        execute=False, seed=9, database=str(tmp_path / "rounds.db"), policy_file=str(policy_path),
+        telemetry_file=None, algorithm=None, decay=None, neutralization=None, truncation=None,
+    )
+
+    alpha_machine.command_research_cycle(args)
+
+    assert captured == {"region": "USA", "universe": "TOP3000", "delay": 0, "datasets": None}

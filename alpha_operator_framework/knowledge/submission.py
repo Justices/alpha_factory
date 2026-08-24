@@ -19,6 +19,7 @@ class SubmissionEvidence:
     capacity_checked: bool = False
     lineage_verified: bool = False
     authorized: bool = False
+    record_verified: bool = False
 
 
 @dataclass(frozen=True)
@@ -45,6 +46,8 @@ class SubmissionCase:
             return ApprovalDecision(False, "MISSING_CAPACITY_EVIDENCE")
         if not self.evidence.lineage_verified:
             return ApprovalDecision(False, "MISSING_LINEAGE_EVIDENCE")
+        if not self.evidence.record_verified:
+            return ApprovalDecision(False, "MISSING_VERIFIED_EVIDENCE_RECORD")
         if not self.evidence.authorized:
             return ApprovalDecision(False, "SUBMISSION_NOT_AUTHORIZED")
         return ApprovalDecision(True, "APPROVED")

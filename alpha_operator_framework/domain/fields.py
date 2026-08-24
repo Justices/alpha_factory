@@ -97,9 +97,9 @@ def preprocess_field(
         预处理后的标量表达式列表
 
     Example:
-        >>> spec = FieldSpec(id="close", dataset_id="pv1", type="MATRIX")
+        >>> spec = FieldSpec(id="returns", dataset_id="pv1", type="MATRIX")
         >>> preprocess_field(spec)
-        ['winsorize(ts_backfill(close, 120), std=4)']
+        ['winsorize(ts_backfill(returns, 120), std=4)']
     """
     if field.type == "GROUP":
         return []  # GROUP字段不作为原子信号

@@ -835,7 +835,7 @@ async def run_full_workflow(
         ...     region="EUR",
         ...     universe="TOP2500",
         ...     dataset_id="pv1",
-        ...     field_ids=["close", "volume", "returns"],
+        ...     field_ids=["vwap", "volume", "returns"],
         ...     execute=False
         ... )
     """

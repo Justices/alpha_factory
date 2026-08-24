@@ -87,5 +87,5 @@ alpha_factory/
 ├── data/                               # 运行时数据资产 (主库 data/alpha_research.db)
 ├── docs/                               # 完整架构与指南文档
 ├── runs/                               # 运行输出与研报
-└── tests/                              # 全套自动化测试 (254 项测试 100% 通过)
+└── tests/                              # 全套自动化测试 (242 项测试 100% 通过)
 ```

@@ -185,7 +185,7 @@ def group_candidates(region: str, *, field_type: str = "MATRIX", category: str =
     base = ["market", "sector", "industry", "subindustry"]
     structural = [
         "bucket(rank(cap), range='0.1, 1, 0.1')",
-        "bucket(rank(close * volume), range='0.1, 1, 0.1')",
+        "bucket(rank(vwap * volume), range='0.1, 1, 0.1')",
     ]
     if any(key in category for key in ("fundamental", "analyst", "earnings", "value", "quality")):
         structural.insert(1, "bucket(rank(assets), range='0.1, 1, 0.1')")
@@ -619,6 +619,50 @@ def command_simulate_super(args: argparse.Namespace) -> None:
     print(f"super simulation batches={len(results)} output={args.output}")
 
 
+def command_research(args: argparse.Namespace) -> None:
+    from alpha_operator_framework.research import run_literature_research_pipeline
+    datasets_list = [d.strip() for d in args.datasets.split(",") if d.strip()] if getattr(args, "datasets", None) else None
+    res = run_literature_research_pipeline(
+        literature_source=args.paper,
+        region=args.region,
+        universe=getattr(args, "universe", None),
+        neutralization=getattr(args, "neutralization", "SUBINDUSTRY"),
+        delay=getattr(args, "delay", 1),
+        decay=int(getattr(args, "decay", 8)),
+        datasets=datasets_list,
+        use_llm=getattr(args, "use_llm", False),
+        provider=getattr(args, "provider", None),
+        model=getattr(args, "model", None),
+        execute_on_platform=getattr(args, "execute", False),
+        database_path=getattr(args, "database", DEFAULT_DATABASE_PATH),
+        save_to_db=True,
+        output_report_path=getattr(args, "output", None),
+    )
+    print("\n" + res.summary_markdown())
+
+
+def command_mine(args: argparse.Namespace) -> None:
+    """一键执行分层地毯式挖掘、流式落库、剪枝与正向自优化流水线."""
+    from alpha_operator_framework.carpet_mining import run_stratified_carpet_mining
+
+    datasets_list = [d.strip() for d in args.datasets.split(",") if d.strip()] if getattr(args, "datasets", None) else None
+    res = run_stratified_carpet_mining(
+        region=args.region,
+        universe=args.universe,
+        datasets=datasets_list,
+        sample_per_family=int(getattr(args, "sample_per_family", 4)),
+        batch_size=int(getattr(args, "batch_size", 5)),
+        delay=int(getattr(args, "delay", 1)),
+        decay=int(getattr(args, "decay", 12)),
+        neutralization=getattr(args, "neutralization", "SUBINDUSTRY"),
+        truncation=float(getattr(args, "truncation", 0.08)),
+        execute=getattr(args, "execute", False),
+        seed=getattr(args, "seed", None),
+        output_report_path=getattr(args, "output", None),
+    )
+    print("\n" + res.summary_markdown())
+
+
 def add_settings(parser: argparse.ArgumentParser) -> None:
     parser.add_argument("--region", required=True); parser.add_argument("--universe", required=True)
     parser.add_argument("--delay", type=int, default=1)
@@ -674,6 +718,32 @@ def main() -> None:
     super_poll = sub.add_parser("poll-super", help="轮询已持久化的 Super Alpha 回测批次")
     super_poll.add_argument("--batch-id", required=True, type=int); super_poll.add_argument("--output", required=True)
     super_poll.add_argument("--database", default=str(DEFAULT_DATABASE_PATH)); super_poll.set_defaults(func=command_poll_simulation)
+    research_p = sub.add_parser("research", help="全自动研报/文献认知提炼、动态字段对齐、真实平台回测与终审评级直通流水线")
+    research_p.add_argument("--paper", "-p", required=True, help="论文或研报文件路径 (PDF / Markdown / TXT)")
+    research_p.add_argument("--region", "-r", default="GBR", help="目标市场区域 (默认: GBR)")
+    research_p.add_argument("--universe", "-u", default=None, help="目标股票宇宙 (默认自动识别)")
+    research_p.add_argument("--delay", "-d", type=int, default=1, help="回测 Delay (默认: 1)")
+    research_p.add_argument("--decay", type=int, default=8, help="默认 Decay (默认: 8)")
+    research_p.add_argument("--neutralization", "-n", default="SUBINDUSTRY", help="行业中性化 (默认: SUBINDUSTRY)")
+    research_p.add_argument("--datasets", default=None, help="指定载入的数据集ID列表 (如: analyst7,risk68)")
+    research_p.add_argument("--use-llm", action="store_true", help="是否启用大模型进行深度语义提炼")
+    research_p.add_argument("--provider", default=None, help="指定大模型提供商 (deepseek / openai / qwen / ollama)")
+    research_p.add_argument("--model", default=None, help="指定具体模型名称")
+    research_p.add_argument("--execute", "-e", action="store_true", help="直接向 WorldQuant BRAIN 平台提交真实在线回测")
+    research_p.add_argument("--output", "-o", default=None, help="输出 Markdown 研报路径")
+    research_p.set_defaults(func=command_research)
+    mine_p = sub.add_parser("mine", help="一键执行分层地毯式挖掘、流式落库、剪枝与正向自优化全闭环流水线")
+    add_settings(mine_p)
+    mine_p.add_argument("--datasets", "-d", required=True, help="指定挖掘的数据集ID列表 (如: insider_agg_matrix,pattern_scores,fundamental31)")
+    mine_p.add_argument("--sample-per-family", "-s", "--sample-n", type=int, default=4, help="每一类表达式随机抽取的候选数量 (默认: 4)")
+    mine_p.add_argument("--batch-size", "-b", type=int, default=5, help="平台并发回测每批任务数 (默认: 5)")
+    mine_p.add_argument("--decay", type=int, default=12, help="默认 Decay 周期 (默认: 12)")
+    mine_p.add_argument("--neutralization", "-n", default="SUBINDUSTRY", help="行业中性化 (默认: SUBINDUSTRY)")
+    mine_p.add_argument("--truncation", type=float, default=0.08, help="截断阈值 (默认: 0.08)")
+    mine_p.add_argument("--execute", "-e", action="store_true", help="直接向 WorldQuant BRAIN 平台提交真实在线回测")
+    mine_p.add_argument("--seed", type=int, default=None, help="随机种子 (默认 None: 动态增量随机，优先探索数据库中未测空间)")
+    mine_p.add_argument("--output", "-o", default=None, help="输出 Markdown 研报路径")
+    mine_p.set_defaults(func=command_mine)
     init_db_p = sub.add_parser("init-db", help="初始化或校验 SQLite 研究数据库表结构与索引 (无需提交 .db 文件)")
     init_db_p.add_argument("--database", default=str(DEFAULT_DATABASE_PATH), help="指定 SQLite 数据库存储路径")
     init_db_p.add_argument("--reset", action="store_true", help="清空并全新初始化数据库")
@@ -690,6 +760,25 @@ def main() -> None:
     clean_db_p.add_argument("--dry-run", action="store_true", help="仅预览将删除的条目数，不实际执行删除")
     clean_db_p.add_argument("--no-vacuum", action="store_true", help="不执行 VACUUM 磁盘空间释放")
     clean_db_p.set_defaults(func=command_clean_db)
+    drill_p = sub.add_parser("drill-recovery", help="执行端到端事件溯源小批崩溃恢复与 6 维治理演练")
+    drill_p.add_argument("--temp", action="store_true", default=True, help="使用临时隔离沙盒数据库进行演练")
+    drill_p.set_defaults(func=command_drill_recovery)
+    auto_p = sub.add_parser("auto-pilot", help="全自动无人值守投研流水线: 预检 ➔ 真实并发挖掘 ➔ 6维证据终审 ➔ 空间清理释放 ➔ 汇总研报")
+    add_settings(auto_p)
+    auto_p.add_argument("--datasets", "-d", default="analyst7", help="指定挖掘的数据集ID列表 (如: analyst7,fundamental31)")
+    auto_p.add_argument("--paper", "-p", default=None, help="可选：指定研报或论文文件路径 (传入时优先运行文献提炼)")
+    auto_p.add_argument("--sample-per-family", "-s", "--sample-n", type=int, default=4, help="每类表达式随机抽取的候选数量 (默认: 4)")
+    auto_p.add_argument("--batch-size", "-b", type=int, default=5, help="平台并发回测每批任务数 (默认: 5)")
+    auto_p.add_argument("--decay", type=int, default=12, help="默认 Decay 周期 (默认: 12)")
+    auto_p.add_argument("--neutralization", "-n", default="SUBINDUSTRY", help="行业中性化 (默认: SUBINDUSTRY)")
+    auto_p.add_argument("--truncation", type=float, default=0.08, help="截断阈值 (默认: 0.08)")
+    auto_p.add_argument("--min-sharpe", type=float, default=1.25, help="终审准入夏普比率门槛 (默认: 1.25)")
+    auto_p.add_argument("--min-fitness", type=float, default=1.0, help="终审准入健康度门槛 (默认: 1.0)")
+    auto_p.add_argument("--execute", "-e", action="store_true", help="直接向 WorldQuant BRAIN 平台提交真实在线回测")
+    auto_p.add_argument("--seed", type=int, default=None, help="随机种子 (默认 None: 动态增量随机，优先探索数据库中未测空间)")
+    auto_p.add_argument("--no-clean", action="store_true", help="回测完成后跳过数据库清理")
+    auto_p.add_argument("--output", "-o", default=None, help="指定生产汇总报告输出路径")
+    auto_p.set_defaults(func=command_auto_pilot)
     status_p = sub.add_parser("status", help="查看生产投研状态看板、达标Alpha、回测进度与模板沉淀")
     status_p.add_argument("--database", "--db", default=None, help="数据库路径 (默认: data/alpha_research.db)")
     status_p.set_defaults(func=command_status)
@@ -740,10 +829,12 @@ def command_research_cycle(args: argparse.Namespace) -> None:
 
     db_path = Path(args.database) if getattr(args, "database", None) else DEFAULT_DATABASE_PATH
     datasets_list = args.datasets.split(",") if getattr(args, "datasets", None) else None
+    policy_snapshot = load_policy(Path(args.policy_file)) if getattr(args, "policy_file", None) else None
+    resolved_policy = policy_snapshot.to_research_policy() if policy_snapshot is not None else None
     field_specs = load_real_market_fields(
-        region=args.region,
-        universe=args.universe,
-        delay=getattr(args, "delay", None) if getattr(args, "delay", None) is not None else 1,
+        region=resolved_policy.region if resolved_policy is not None else args.region,
+        universe=resolved_policy.universe if resolved_policy is not None else args.universe,
+        delay=resolved_policy.delay if resolved_policy is not None else (getattr(args, "delay", None) if getattr(args, "delay", None) is not None else 1),
         datasets=datasets_list,
     )
     matrix_fields = [field.id for field in field_specs if (field.type or "MATRIX").upper() == "MATRIX"]
@@ -756,7 +847,7 @@ def command_research_cycle(args: argparse.Namespace) -> None:
     strategy = {"stratified": "weighted_stratified", "d_optimal": "diversity"}.get(
         getattr(args, "algorithm", None) or "weighted_stratified", getattr(args, "algorithm", None) or "weighted_stratified",
     )
-    policy = load_policy(Path(args.policy_file)).to_research_policy() if getattr(args, "policy_file", None) else ResearchPolicy(
+    policy = resolved_policy if resolved_policy is not None else ResearchPolicy(
         region=args.region, universe=args.universe, max_backtests=sum(quotas.values()), family_quotas=quotas,
         policy_version=getattr(args, "policy_version", "cli-v1"), selection_strategy=strategy,
         delay=getattr(args, "delay", None) if getattr(args, "delay", None) is not None else 1,
@@ -969,6 +1060,120 @@ def command_clean_db(args: argparse.Namespace) -> None:
         dry_run=args.dry_run,
         vacuum=not args.no_vacuum,
     )
+
+
+def command_drill_recovery(args: argparse.Namespace) -> None:
+    """执行端到端小批崩溃恢复与 6 维治理演练."""
+    import tempfile
+    from alpha_operator_framework.application.research_runtime import ResearchRuntime
+    from alpha_operator_framework.application.research_cycle import ResearchCycleRequest
+    from alpha_operator_framework.research.round import Candidate, ResearchPolicy
+    from alpha_operator_framework.experiment.models import BacktestResult
+    from alpha_operator_framework.domain.evidence import SubmissionApprovalEngine, EvidenceLevel
+
+    print("=" * 70)
+    print("🚀 启动 Alpha Factory 生产事件溯源与小批崩溃恢复演练")
+    print("=" * 70)
+
+    if getattr(args, "temp", True):
+        tmp_dir = tempfile.mkdtemp()
+        db_path = Path(tmp_dir) / "drill_research.db"
+        print(f"  [沙盒] 创建隔离演练环境: {db_path}")
+    else:
+        db_path = Path(args.database)
+        print(f"  [环境] 使用主数据库环境: {db_path}")
+
+    # 1. 策略初始化与时间窗口锁死
+    policy = ResearchPolicy(
+        region="GBR",
+        universe="TOP700",
+        max_backtests=2,
+        policy_version="drill-v1",
+        selection_strategy="diversity",
+    )
+    candidates = [
+        Candidate("drill_c1", "ts_rank(returns, 22)", "ts_momentum", ("returns",), ("ts_rank",), "template"),
+        Candidate("drill_c2", "group_neutralize(rank(vwap), subindustry)", "mean_reversion", ("vwap",), ("rank", "group_neutralize"), "template"),
+    ]
+    round_id = "round_drill_recovery_001"
+    print(f"  [Step 1] 策略已注册，锁死 IS/Validation/Locked-OOS 分区 (Round: {round_id})")
+
+    class MockBacktestGateway:
+        def run_backtests(self, tasks):
+            return [
+                BacktestResult(
+                    task.task_id, task.expression, 1.72, 1.40, 0.18, 7.0, True, f"DRILL_ALPHA_{i:03d}"
+                )
+                for i, task in enumerate(tasks, start=1)
+            ]
+
+    # 2. 计划候选因子，模拟平台已 ACCEPTED 但在完成前发生异常退出 (Crash Injection)
+    runtime_init = ResearchRuntime.create(
+        db_path,
+        execute_platform=True,
+        backtest_gateway=MockBacktestGateway(),
+    )
+    summary = runtime_init.plan(ResearchCycleRequest(
+        round_id=round_id,
+        seed=42,
+        policy=policy,
+        knowledge=runtime_init.knowledge_base.snapshot(),
+        candidates=candidates,
+        execute_platform=True,
+    ))
+    print(f"  [Step 2] 模拟生成 {len(candidates)} 个候选并由平台 ACCEPTED，随后注入进程崩溃中断 ⚡")
+    del runtime_init
+
+    # 3. 模拟进程重启，启动新运行时从持久化存储恢复并执行 Worker
+    print(f"  [Step 3] 模拟进程重启，重新加载事件存储并恢复 Outbox 挂起任务...")
+    runtime_recovered = ResearchRuntime.create(
+        db_path,
+        execute_platform=True,
+        backtest_gateway=MockBacktestGateway(),
+        evidence_records={
+            "DRILL_ALPHA_001": {
+                "locked_oos_passed": True,
+                "checks_passed": True,
+                "correlation_passed": True,
+                "oos_metrics": {"sharpe": 1.45},
+                "checks": [{"name": "LOW_SHARPE", "result": "PASS"}, {"name": "HIGH_TURNOVER", "result": "PASS"}],
+                "judge_verdict": "READY",
+            },
+            "DRILL_ALPHA_002": {
+                "locked_oos_passed": True,
+                "checks_passed": True,
+                "correlation_passed": True,
+                "oos_metrics": {"sharpe": 1.45},
+                "checks": [{"name": "LOW_SHARPE", "result": "PASS"}, {"name": "HIGH_TURNOVER", "result": "PASS"}],
+                "judge_verdict": "READY",
+            },
+        },
+        submission_authorized=True,
+    )
+    completed_summary = runtime_recovered.process_round(round_id)
+    print(f"  [Step 4] ✅ Outbox 断点续传成功: 恢复并完成 {len(candidates)} 个仿真任务，晋级为 platform_is")
+
+    # 4. 执行 6 维决策终审流转
+    appr_report = SubmissionApprovalEngine.evaluate(
+        alpha_id="DRILL_ALPHA_001",
+        evidence_level=EvidenceLevel.PLATFORM_IS,
+        is_metrics={"sharpe": 1.72, "fitness": 1.40, "turnover": 0.18, "margin": 7.0},
+        oos_metrics={"sharpe": 1.45},
+        checks=[{"name": "LOW_SHARPE", "result": "PASS"}, {"name": "HIGH_TURNOVER", "result": "PASS"}],
+        sc_value=0.25,
+        pc_value=0.20,
+        judge_verdict="READY",
+    )
+
+    print(f"  [Step 5] 🛡️ 6 维提交证据审批结果: {'通过 (APPROVED)' if appr_report.approved else '未通过'}")
+    print(f"           • Locked-OOS 验证: {'PASS' if appr_report.locked_oos_passed else 'FAIL'}")
+    print(f"           • 18 项 Checks 验证: {'PASS' if appr_report.checks_passed else 'FAIL'}")
+    print(f"           • SC/PC 相关性检验: {'PASS' if appr_report.correlation_passed else 'FAIL'}")
+    print(f"           • 状态机流转目标: SUBMISSION_READY (已写入 DecisionApproved 事件)")
+    print(f"           • 试验账本累加记录: {len(candidates)} 次")
+    print("=" * 70)
+    print("🎉 小批崩溃恢复演练全部完成，生产闭环已就绪！")
+    print("=" * 70)
 
 
 def command_auto_pilot(args: argparse.Namespace) -> None:

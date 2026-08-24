@@ -20,7 +20,7 @@ def test_submission_requires_complete_evidence_and_explicit_authorization() -> N
     incomplete = SubmissionCase.from_result(result).approve()
     complete = SubmissionCase.from_result(
         result,
-        SubmissionEvidence(correlation_checked=True, capacity_checked=True, lineage_verified=True, authorized=True),
+        SubmissionEvidence(correlation_checked=True, capacity_checked=True, lineage_verified=True, authorized=True, record_verified=True),
     ).approve()
 
     assert incomplete.reason == "MISSING_CORRELATION_EVIDENCE"

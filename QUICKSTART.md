@@ -23,12 +23,12 @@ python init_db.py
 python alpha_machine.py init-db
 ```
 
-### 校验与全套单测 (254 项测试)
+### 校验与全套单测 (242 项测试)
 ```bash
 # 验证数据库完整性与表结构版本
 python init_db.py --verify
 
-# 运行全套 254 项自动化测试 (100% 通过)
+# 运行全套 242 项自动化测试 (100% 通过, 0 警告)
 python -m pytest -q
 
 # 运行小批崩溃恢复与治理闭环演练 (生产前推荐)

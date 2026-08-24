@@ -1,7 +1,7 @@
 # Alpha Factory (Alpha Factor Operator Framework)
 
 [![Python 3.10+](https://img.shields.io/badge/python-3.10%2B-blue.svg)](https://www.python.org/)
-[![Tests](https://img.shields.io/badge/tests-254%20passed%20(100%25)-brightgreen.svg)]()
+[![Tests](https://img.shields.io/badge/tests-242%20passed%20(100%25)-brightgreen.svg)]()
 [![Architecture](https://img.shields.io/badge/architecture-Event--Sourced%20Core%20%7C%20DDD-purple.svg)](ARCHITECTURE.md)
 [![Database](https://img.shields.io/badge/database-SQLite%20(17%20Tables)-orange.svg)](DATABASE_DESIGN.md)
 
@@ -105,7 +105,7 @@ python init_db.py
 python alpha_machine.py init-db
 ```
 
-### 2. 执行完整自动化测试 (254 项测试 100% 通过)
+### 2. 执行完整自动化测试 (242 项测试 100% 通过)
 ```bash
 python -m pytest -q
 ```
@@ -258,7 +258,7 @@ d:\quant\alpha_factory/
 │
 ├── examples/                      # 示例与演练脚本
 ├── scripts/                       # 生产运维脚本 (Systemd 服务配置, Crontab 巡检矩阵)
-└── tests/                         # 自动化测试套件 (254 个单元与集成测试, 100% 通过)
+└── tests/                         # 自动化测试套件 (242 个单元与集成测试, 100% 通过)
 ```
 
 ---

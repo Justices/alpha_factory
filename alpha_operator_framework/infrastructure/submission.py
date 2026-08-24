@@ -26,12 +26,28 @@ class ConfiguredSubmissionEvidenceGateway:
 
     def evidence_for(self, result: Any) -> SubmissionEvidence:
         record = self.records.get(result.platform_alpha_id or "", {})
+        verified = self._valid_record(record)
         return SubmissionEvidence(
             correlation_checked=bool(record.get("correlation_checked", False)),
             capacity_checked=bool(record.get("capacity_checked", False)),
             lineage_verified=bool(record.get("lineage_verified", False)),
             authorized=self.authorized,
+            record_verified=verified,
         )
+
+    @staticmethod
+    def _valid_record(record: Mapping[str, Any]) -> bool:
+        required = ("source", "verified_at", "expires_at", "receipt_ref", "summary")
+        if not all(isinstance(record.get(key), str) and record[key].strip() for key in required):
+            return False
+        try:
+            verified_at = datetime.fromisoformat(record["verified_at"])
+            expires_at = datetime.fromisoformat(record["expires_at"])
+        except ValueError:
+            return False
+        if verified_at.tzinfo is None or expires_at.tzinfo is None:
+            return False
+        return verified_at <= datetime.now(UTC) < expires_at
 
 
 @dataclass(frozen=True)

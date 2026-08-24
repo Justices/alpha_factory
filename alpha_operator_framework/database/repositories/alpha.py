@@ -896,6 +896,34 @@ class AlphaRepository(BaseRepository):
             for r in rows
         ]
 
+    def dashboard_snapshot(self) -> Dict[str, Any]:
+        """Return the read-only production dashboard aggregate."""
+        conn = self._get_connection()
+        expression_status = {row[0]: int(row[1]) for row in conn.execute(
+            "SELECT status, COUNT(*) FROM alpha_expressions GROUP BY status"
+        ).fetchall()}
+        simulation_row = conn.execute(
+            "SELECT COUNT(*), AVG(sharpe), MAX(sharpe), AVG(turnover) FROM alpha_details"
+        ).fetchone()
+        workflow_status = {row[0]: int(row[1]) for row in conn.execute(
+            "SELECT wf_stage, COUNT(*) FROM alpha_details GROUP BY wf_stage"
+        ).fetchall()}
+        submission_ready = [dict(row) for row in conn.execute(
+            "SELECT alpha_id, expression, sharpe, fitness, turnover, margin FROM alpha_details "
+            "WHERE wf_stage = 'submission_ready' ORDER BY sharpe DESC LIMIT 5"
+        ).fetchall()]
+        templates = [dict(row) for row in conn.execute(
+            "SELECT id, name, family, expression_template FROM template_library "
+            "WHERE active = 1 ORDER BY id DESC LIMIT 5"
+        ).fetchall()]
+        return {
+            "expression_status": expression_status,
+            "simulation": {"total": int(simulation_row[0] or 0), "avg_sharpe": float(simulation_row[1] or 0), "max_sharpe": float(simulation_row[2] or 0), "avg_turnover": float(simulation_row[3] or 0)},
+            "workflow_status": workflow_status,
+            "submission_ready": submission_ready,
+            "templates": templates,
+        }
+
     def get_total_alpha_details_count(self) -> int:
         """获取已回测记录的 Alpha 总数."""
         conn = self._get_connection()

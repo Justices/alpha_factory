@@ -49,6 +49,8 @@ class LiveBrainGateway:
             margin=float(value("margin", 0.0)),
             checks_passed=checks_passed,
             platform_alpha_id=str(alpha_id) if alpha_id else None,
+            self_correlation=value("sc_value", value("self_correlation")),
+            production_correlation=value("pc_value", value("production_correlation")),
         )
 
 

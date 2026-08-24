@@ -53,7 +53,7 @@ class PolicySnapshot:
             raise ValueError("settings are invalid")
         if not 0 < float(settings.get("truncation", 0.08)) <= 1:
             raise ValueError("settings are invalid")
-        if set(promotion) - {"min_support", "min_sharpe", "min_fitness", "max_correlation", "observation_window"}:
+        if set(promotion) - {"min_support", "min_sharpe", "min_fitness", "max_correlation", "structural_max_correlation", "platform_max_correlation", "observation_window"}:
             raise ValueError("template_promotion is invalid")
         if int(promotion.get("min_support", 1)) < 1 or int(promotion.get("observation_window", 1)) < 1:
             raise ValueError("template_promotion is invalid")
@@ -94,6 +94,8 @@ class PolicySnapshot:
             neutralization=str(settings.get("neutralization", "SUBINDUSTRY")), truncation=float(settings.get("truncation", 0.08)),
             template_min_support=int(promotion.get("min_support", 1)), template_min_sharpe=float(promotion.get("min_sharpe", 1.0)),
             template_min_fitness=float(promotion.get("min_fitness", 0.8)), template_max_correlation=float(promotion.get("max_correlation", 0.70)),
+            template_structural_max_correlation=float(promotion.get("structural_max_correlation", promotion.get("max_correlation", 0.70))),
+            template_platform_max_correlation=float(promotion.get("platform_max_correlation", promotion.get("max_correlation", 0.70))),
             template_observation_window=int(promotion.get("observation_window", 1)))
 
 

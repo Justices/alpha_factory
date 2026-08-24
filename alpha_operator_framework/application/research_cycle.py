@@ -89,6 +89,17 @@ class ResearchCycleUseCase:
                     self.telemetry.record_pruning_reason(decision.reason_code)
         rejected = {decision.candidate_id for decision in round_.pruning_decisions if decision.rejected}
         round_.candidates = [candidate for candidate in round_.candidates if candidate.candidate_id not in rejected]
+        from alpha_operator_framework.research.template_correlation import structural_similarity
+        retained = []
+        for candidate in round_.candidates:
+            comparable = [other for other in retained if other.template_id == candidate.template_id]
+            similarity = max((structural_similarity(candidate.expression, other.expression) for other in comparable), default=0.0)
+            if similarity > request.policy.template_structural_max_correlation:
+                if self.event_store is not None:
+                    self._event(EventType.CANDIDATE_REJECTED_BY_RULE, round_.round_id, {"candidate_id": candidate.candidate_id, "reason": "structural_correlation", "similarity": similarity, "threshold": request.policy.template_structural_max_correlation})
+                continue
+            retained.append(candidate)
+        round_.candidates = retained
         decisions = round_.select(build_selector(request.policy), request.knowledge, random.Random(request.seed))
         if self.event_store is not None:
             from alpha_operator_framework.core.events import EventType

@@ -18,6 +18,14 @@ def storage_path(config_path: Path) -> Path | None:
     return Path(database).resolve() if database else None
 
 
+def storage_display_location(config_path: Path) -> str:
+    """Return a safe human-readable storage location without credentials."""
+    path = storage_path(config_path)
+    if path is not None:
+        return str(path)
+    return make_url(storage_config(config_path).url).render_as_string(hide_password=True)
+
+
 def open_alpha_database(config_path: Path):
     from alpha_operator_framework.database.repository import AlphaDatabase
 

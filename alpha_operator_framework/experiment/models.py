@@ -31,6 +31,8 @@ class BacktestResult:
     margin: float
     checks_passed: bool
     platform_alpha_id: str | None = None
+    self_correlation: float | None = None
+    production_correlation: float | None = None
 
 
 @dataclass(frozen=True)

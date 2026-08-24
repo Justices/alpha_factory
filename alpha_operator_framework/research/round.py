@@ -42,6 +42,8 @@ class ResearchPolicy:
     template_min_sharpe: float = 1.0
     template_min_fitness: float = 0.8
     template_max_correlation: float = 0.70
+    template_structural_max_correlation: float = 0.70
+    template_platform_max_correlation: float = 0.70
     template_observation_window: int = 1
 
 

@@ -6,7 +6,7 @@ from types import SimpleNamespace
 
 import pytest
 
-import alpha_operator_framework.cli.legacy_machine as alpha_machine
+import alpha_operator_framework.cli.research as alpha_machine
 from alpha_operator_framework.domain.fields import FieldSpec
 from alpha_operator_framework.core.event_store import EventStore
 from alpha_operator_framework.core.events import EventType

@@ -73,23 +73,23 @@ def command_research_cycle(args: argparse.Namespace) -> None:
         )
     else:
         validate_cli_policy_overrides(policy, {
-            "region": args.region, "universe": args.universe, "delay": args.delay,
-            "algorithm": strategy if args.algorithm is not None else None, "decay": args.decay,
-            "neutralization": args.neutralization, "truncation": args.truncation,
+            "region": getattr(args, "region", None), "universe": getattr(args, "universe", None), "delay": getattr(args, "delay", None),
+            "algorithm": strategy if getattr(args, "algorithm", None) is not None else None, "decay": getattr(args, "decay", None),
+            "neutralization": getattr(args, "neutralization", None), "truncation": getattr(args, "truncation", None),
         })
-    if args.authorize_submission and not args.execute:
+    if getattr(args, "authorize_submission", False) and not args.execute:
         raise ValueError("--authorize-submission requires --execute")
     runtime = build_research_runtime(
         config_path, execute_platform=args.execute, evidence_records=_evidence(args),
-        submission_authorized=bool(args.authorize_submission),
+        submission_authorized=bool(getattr(args, "authorize_submission", False)),
     )
-    round_id = args.round_id or f"research-{policy.region}-{policy.universe}-{options.get('seed', 42)}"
+    round_id = getattr(args, "round_id", None) or f"research-{policy.region}-{policy.universe}-{options.get('seed', 42)}"
     summary = runtime.plan(ResearchCycleRequest(round_id, options.get("seed", 42), policy, runtime.knowledge_base.snapshot(), candidates, args.execute))
     if args.execute:
         summary = runtime.process_round(summary.round_id)
     if args.telemetry_file:
         JsonLinesTelemetrySink(Path(args.telemetry_file)).publish(runtime.telemetry)
-    print(f"research cycle: {summary.round_id} | {summary.status} | backtests={summary.completed_backtests}")
+    print(f"Research Cycle Summary\nresearch cycle: {summary.round_id} | {summary.status} | backtests={summary.completed_backtests}")
 
 
 def command_research_worker(args: argparse.Namespace) -> None:
@@ -129,7 +129,7 @@ def command_submission_dispatch(args: argparse.Namespace) -> None:
 
     outbox = build_submission_outbox(_config_path(args))
     dispatched = SubmissionOutboxWorker(outbox, CnhkMcpSubmissionGateway(), max_attempts=args.max_attempts).process_pending(args.limit)
-    print(f"submission dispatch: {len(dispatched)}")
+    print(f"提交 outbox 已派发: {len(dispatched)}")
 
 
 def build_parser() -> argparse.ArgumentParser:

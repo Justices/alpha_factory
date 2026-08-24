@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import random
 import time
+from dataclasses import replace
 from collections.abc import Callable
 from datetime import UTC, datetime, timedelta
 from typing import Any
@@ -153,7 +154,21 @@ class ResearchBatchWorker:
             return self._summary(batch, "PARTIAL_FAILED")
 
         self._transition(batch, BatchState.COMPLETED)
+        from alpha_operator_framework.research.template_correlation import platform_correlation
+        correlation_rejected: set[str] = set()
+        for task_id, result in batch.results.items():
+            correlation = platform_correlation(result.self_correlation, result.production_correlation)
+            passed = correlation <= policy.template_platform_max_correlation
+            self._event(EventType.CORRELATION_CHECKED, round_id, {"task_id": task_id, "alpha_id": result.platform_alpha_id, "self_correlation": result.self_correlation, "production_correlation": result.production_correlation, "max_abs_correlation": correlation, "threshold": policy.template_platform_max_correlation, "passed": passed})
+            if not passed:
+                correlation_rejected.add(task_id)
+                evaluation = batch.evaluations.get(task_id)
+                if evaluation is not None:
+                    batch.record_evaluation(replace(evaluation, pruned=True))
+                self._event(EventType.CANDIDATE_RETIRED, round_id, {"task_id": task_id, "reason": "platform_correlation", "max_abs_correlation": correlation, "threshold": policy.template_platform_max_correlation})
         for evaluation in evaluate_batch(batch, policy):
+            if evaluation.task_id in correlation_rejected:
+                evaluation = replace(evaluation, pruned=True)
             batch.record_evaluation(evaluation)
             self._event(EventType.VALIDATION_COMPUTED, round_id, {
                 "task_id": evaluation.task_id, "verdict": evaluation.verdict,

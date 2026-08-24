@@ -37,7 +37,7 @@ def test_legacy_maintenance_commands_do_not_read_database_cli_argument() -> None
 
 
 def test_simulation_commands_hide_database_implementation_from_cli() -> None:
-    source = (Path(__file__).parents[2] / "alpha_operator_framework" / "cli" / "legacy_machine.py").read_text(encoding="utf-8")
+    source = (Path(__file__).parents[2] / "alpha_operator_framework" / "cli" / "maintenance.py").read_text(encoding="utf-8")
 
     assert "sim.add_argument(\"--database\"" not in source
     assert "super_prepare.add_argument(\"--output\", required=True); super_prepare.add_argument(\"--database\"" not in source
@@ -45,14 +45,14 @@ def test_simulation_commands_hide_database_implementation_from_cli() -> None:
 
 
 def test_status_uses_storage_verification_instead_of_assuming_a_database_file() -> None:
-    source = (Path(__file__).parents[2] / "alpha_operator_framework" / "cli" / "legacy_machine.py").read_text(encoding="utf-8")
-    section = source[source.index("def command_status"):source.index("def command_init_db")]
+    source = (Path(__file__).parents[2] / "alpha_operator_framework" / "cli" / "status.py").read_text(encoding="utf-8")
 
-    assert "verify_storage(config_path)" in section
-    assert "db_path is not None and not db_path.exists()" in section
+    assert "verify_storage(config_path)" in source
+    assert "database_file is not None and not database_file.exists()" in source
+    assert ".execute(" not in source
 
 
 def test_recovery_drill_writes_the_standard_storage_shape() -> None:
-    source = (Path(__file__).parents[2] / "alpha_operator_framework" / "cli" / "legacy_machine.py").read_text(encoding="utf-8")
+    source = (Path(__file__).parents[2] / "alpha_operator_framework" / "cli" / "recovery.py").read_text(encoding="utf-8")
 
     assert "connection_type: file" in source

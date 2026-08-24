@@ -57,3 +57,10 @@ def test_database_config_from_env(monkeypatch, tmp_path):
 
     cfg = DatabaseConfig.from_env()
     assert cfg.sqlite_path == env_db
+
+
+def test_default_database_configuration_does_not_implicitly_read_environment(monkeypatch, tmp_path):
+    monkeypatch.setenv("ALPHA_DATABASE_PATH", str(tmp_path / "ignored.db"))
+    set_database_config(DEFAULT_SQLITE_PATH)
+
+    assert get_database_path() == DEFAULT_SQLITE_PATH

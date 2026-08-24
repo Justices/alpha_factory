@@ -81,7 +81,7 @@ class ResearchCycleUseCase:
             self._event(EventType.POLICY_CREATED, round_.round_id, {"policy": asdict(request.policy), "seed": request.seed})
             self._event(EventType.FIELD_SNAPSHOT_CAPTURED, round_.round_id, {"fields": sorted({field for candidate in round_.candidates for field in candidate.fields}), "knowledge_version": request.knowledge.version})
             for candidate in round_.candidates:
-                self._event(EventType.CANDIDATE_GENERATED, round_.round_id, {"candidate_id": candidate.candidate_id, "expression": candidate.expression, "template_id": candidate.template_id})
+                self._event(EventType.CANDIDATE_GENERATED, round_.round_id, {"candidate": asdict(candidate)})
         round_.pruning_decisions = AstPrePruner().evaluate(round_.candidates, request.policy)
         if self.telemetry is not None:
             for decision in round_.pruning_decisions:

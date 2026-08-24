@@ -1,8 +1,8 @@
 """Legacy compatibility for direct programmatic repository construction.
 
 CLI and production composition use ``configs/alpha-factory.yaml`` through
-``infrastructure.storage.StorageConfig``. New code must not use this module
-as an independent configuration source.
+``infrastructure.storage.StorageConfig``. This module never implicitly loads
+environment configuration; ``from_env`` remains an explicit legacy helper.
 """
 
 from __future__ import annotations
@@ -106,7 +106,7 @@ def get_database_config() -> DatabaseConfig:
     """获取当前生效的全局数据库配置."""
     global _GLOBAL_DB_CONFIG
     if _GLOBAL_DB_CONFIG is None:
-        _GLOBAL_DB_CONFIG = DatabaseConfig.from_env()
+        _GLOBAL_DB_CONFIG = DatabaseConfig()
     return _GLOBAL_DB_CONFIG
 
 

@@ -38,6 +38,11 @@ class ResearchPolicy:
     decay: int = 8
     neutralization: str = "SUBINDUSTRY"
     truncation: float = 0.08
+    template_min_support: int = 1
+    template_min_sharpe: float = 1.0
+    template_min_fitness: float = 0.8
+    template_max_correlation: float = 0.70
+    template_observation_window: int = 1
 
 
 @dataclass(frozen=True)

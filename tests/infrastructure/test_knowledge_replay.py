@@ -28,3 +28,15 @@ def test_repository_retains_immutable_version_history(tmp_path) -> None:
 
     assert repository.load_version(1).field_scores == {"close": 0.2}
     assert repository.load_version(2).field_scores == {"open": 0.4}
+
+
+def test_repository_records_queryable_knowledge_lineage(tmp_path) -> None:
+    engine = create_storage_engine(StorageConfig.from_mapping({"driver": "sqlite", "path": "knowledge.db"}, base_path=tmp_path)); migrate(engine)
+    repository = SqlAlchemyKnowledgeRepository(engine)
+
+    repository.save(KnowledgeBase(version=1), round_id="round-1", policy_version="policy-7", event_offset=42)
+
+    history = repository.history_for_round("round-1")
+    assert history[0]["policy_version"] == "policy-7"
+    assert history[0]["event_offset"] == 42
+    assert history[0]["created_at"]

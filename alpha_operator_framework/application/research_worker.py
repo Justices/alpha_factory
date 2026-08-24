@@ -3,6 +3,8 @@
 from __future__ import annotations
 
 import random
+import time
+from collections.abc import Callable
 from datetime import UTC, datetime, timedelta
 from typing import Any
 
@@ -13,6 +15,34 @@ from alpha_operator_framework.experiment.lifecycle import BatchState, transition
 from alpha_operator_framework.experiment.mutation import propose_mutations
 from alpha_operator_framework.knowledge.models import KnowledgeBase
 from alpha_operator_framework.research.round import ResearchPolicy
+
+
+class ResearchWorkerScheduler:
+    """Runs due-batch scans once or continuously without owning persistence details."""
+
+    def __init__(self, worker: Any) -> None:
+        self.worker = worker
+
+    def run_once(self) -> list[ResearchCycleSummary]:
+        return self.worker.process_due_batches()
+
+    def watch(
+        self,
+        *,
+        poll_seconds: int = 30,
+        sleep: Callable[[float], None] = time.sleep,
+        max_cycles: int | None = None,
+    ) -> list[ResearchCycleSummary]:
+        if poll_seconds < 1:
+            raise ValueError("poll_seconds must be positive")
+        completed: list[ResearchCycleSummary] = []
+        cycles = 0
+        while max_cycles is None or cycles < max_cycles:
+            completed.extend(self.run_once())
+            cycles += 1
+            if max_cycles is None or cycles < max_cycles:
+                sleep(poll_seconds)
+        return completed
 
 
 class ResearchBatchWorker:
@@ -42,8 +72,8 @@ class ResearchBatchWorker:
         self.evidence_gateway = evidence_gateway
         self.submission_outbox = submission_outbox
 
-    def _event(self, event_type: EventType, round_id: str, payload: dict[str, Any]) -> None:
-        self.event_store.append(Event.create(event_type, round_id, payload, actor="worker:research-batch"))
+    def _event(self, event_type: EventType, round_id: str, payload: dict[str, Any]) -> int:
+        return self.event_store.append(Event.create(event_type, round_id, payload, actor="worker:research-batch"))
 
     def _policy(self, round_id: str) -> ResearchPolicy:
         for event in self.event_store.read_stream(round_id):
@@ -71,6 +101,10 @@ class ResearchBatchWorker:
             distilled_template_count=templates,
             mutation_proposals=[],
         )
+
+    def process_due_batches(self) -> list[ResearchCycleSummary]:
+        """One scheduler tick: process each persisted batch whose retry is due."""
+        return [self.process_round(batch.batch_id) for batch in self.experiment_repository.list_due_batches()]
 
     def process_round(self, round_id: str) -> ResearchCycleSummary:
         batch = self.experiment_repository.load_batch(round_id)
@@ -147,8 +181,19 @@ class ResearchBatchWorker:
         templates = {task.task_id: templates_by_candidate[task.candidate_id] for task in batch.tasks.values()}
         knowledge = self.knowledge_base.apply_batch(batch, templates)
         distilled = self.knowledge_base.distill_batch(batch)
+        knowledge_offset = self._event(EventType.MONITORING_OBSERVED, round_id, {"knowledge": {
+            "version": self.knowledge_base.version,
+            "field_scores": self.knowledge_base.field_scores,
+            "operator_scores": self.knowledge_base.operator_scores,
+            "template_scores": self.knowledge_base.template_scores,
+            "rejected_templates": sorted(self.knowledge_base.rejected_templates),
+            "field_trials": self.knowledge_base.field_trials,
+        }})
         if self.knowledge_repository is not None:
-            self.knowledge_repository.save(self.knowledge_base)
+            self.knowledge_repository.save(
+                self.knowledge_base, round_id=round_id, policy_version=policy.policy_version,
+                event_offset=knowledge_offset,
+            )
         if self.template_repository is not None:
             self.template_repository.promote(distilled)
         self._transition(batch, BatchState.EVALUATED)

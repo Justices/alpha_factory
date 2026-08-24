@@ -19,10 +19,11 @@ class PolicySnapshot:
     max_backtests: int
     selection_strategy: str = "weighted_stratified"
     weights: Mapping[str, float] = None  # type: ignore[assignment]
-    templates: tuple[str, ...] = ()
+    templates: tuple[Any, ...] = ()
     prohibited_patterns: tuple[str, ...] = ()
     evaluation: Mapping[str, float] = None  # type: ignore[assignment]
     settings: Mapping[str, Any] = None  # type: ignore[assignment]
+    template_promotion: Mapping[str, Any] = None  # type: ignore[assignment]
 
     @classmethod
     def from_mapping(cls, data: Mapping[str, Any]) -> "PolicySnapshot":
@@ -39,6 +40,7 @@ class PolicySnapshot:
         evaluation = dict(data.get("evaluation", {}))
         pruning = dict(data.get("pruning", {}))
         settings = dict(data.get("settings", {}))
+        promotion = dict(data.get("template_promotion", {}))
         if any(key not in {"field", "operator", "template", "novelty", "uncertainty"} or float(value) < 0 for key, value in weights.items()):
             raise ValueError("weights are invalid")
         if any(key not in {"min_sharpe", "min_fitness", "min_margin", "max_turnover"} for key in evaluation):
@@ -51,16 +53,36 @@ class PolicySnapshot:
             raise ValueError("settings are invalid")
         if not 0 < float(settings.get("truncation", 0.08)) <= 1:
             raise ValueError("settings are invalid")
-        templates = tuple(str(item) for item in data.get("templates", ()))
+        if set(promotion) - {"min_support", "min_sharpe", "min_fitness", "max_correlation", "observation_window"}:
+            raise ValueError("template_promotion is invalid")
+        if int(promotion.get("min_support", 1)) < 1 or int(promotion.get("observation_window", 1)) < 1:
+            raise ValueError("template_promotion is invalid")
+        templates = tuple(data.get("templates", ()))
         if any(not item for item in templates):
             raise ValueError("templates are invalid")
         patterns = tuple(str(item) for item in pruning.get("prohibited_patterns", ()))
-        return cls(str(data.get("version", "default")), region, universe, budget, strategy, weights, templates, patterns, evaluation, settings)
+        return cls(str(data.get("version", "default")), region, universe, budget, strategy, weights, templates, patterns, evaluation, settings, promotion)
+
+    def construction_templates(self):
+        from .construction import ConstructionTemplate
+
+        templates = []
+        for item in self.templates:
+            if not isinstance(item, Mapping):
+                raise ValueError("policy templates must be mappings with id, expression, family, and operators")
+            required = {"id", "expression", "family", "operators"}
+            if not required <= item.keys() or "{field}" not in str(item["expression"]):
+                raise ValueError("policy template is invalid")
+            templates.append(ConstructionTemplate(
+                str(item["id"]), str(item["expression"]), str(item["family"]), tuple(str(value) for value in item["operators"]),
+            ))
+        return tuple(templates)
 
     def to_research_policy(self) -> ResearchPolicy:
         weights = self.weights or {}
         evaluation = self.evaluation or {}
         settings = self.settings or {}
+        promotion = self.template_promotion or {}
         return ResearchPolicy(self.region, self.universe, self.max_backtests,
             field_weight=float(weights.get("field", 1.0)), operator_weight=float(weights.get("operator", 1.0)),
             template_weight=float(weights.get("template", 1.0)), novelty_weight=float(weights.get("novelty", 1.0)),
@@ -69,7 +91,10 @@ class PolicySnapshot:
             min_sharpe=float(evaluation.get("min_sharpe", 1.0)), min_fitness=float(evaluation.get("min_fitness", 0.8)),
             min_margin=float(evaluation.get("min_margin", 4.0)), max_turnover=float(evaluation.get("max_turnover", 0.70)),
             delay=int(settings.get("delay", 1)), decay=int(settings.get("decay", 8)),
-            neutralization=str(settings.get("neutralization", "SUBINDUSTRY")), truncation=float(settings.get("truncation", 0.08)))
+            neutralization=str(settings.get("neutralization", "SUBINDUSTRY")), truncation=float(settings.get("truncation", 0.08)),
+            template_min_support=int(promotion.get("min_support", 1)), template_min_sharpe=float(promotion.get("min_sharpe", 1.0)),
+            template_min_fitness=float(promotion.get("min_fitness", 0.8)), template_max_correlation=float(promotion.get("max_correlation", 0.70)),
+            template_observation_window=int(promotion.get("observation_window", 1)))
 
 
 def build_selector(policy: ResearchPolicy):

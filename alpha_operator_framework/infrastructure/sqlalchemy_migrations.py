@@ -47,6 +47,10 @@ knowledge_snapshot_history = Table(
     "knowledge_snapshot_history", metadata,
     Column("version", Integer, primary_key=True),
     Column("payload", Text, nullable=False),
+    Column("round_id", String(128)),
+    Column("policy_version", String(128)),
+    Column("created_at", String(64)),
+    Column("event_offset", Integer),
 )
 template_promotions = Table(
     "template_promotions", metadata,

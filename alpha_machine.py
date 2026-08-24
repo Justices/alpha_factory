@@ -811,7 +811,13 @@ def main() -> None:
     worker_p.add_argument("--telemetry-file", default=None, help="JSONL 遥测输出路径")
     worker_p.add_argument("--authorize-submission", action="store_true", help="显式允许已核验证据的候选进入提交 outbox")
     worker_p.add_argument("--submission-evidence-file", default=None, help="已核验证据 JSON（按平台 Alpha ID 映射）")
+    worker_p.add_argument("--watch", action="store_true", help="常驻扫描并执行到期 research batch")
+    worker_p.add_argument("--poll-seconds", type=int, default=30, help="--watch 的扫描间隔秒数")
     worker_p.set_defaults(func=command_research_worker)
+    rebuild_p = sub.add_parser("research-rebuild", help="仅从事件重建研究投影，不调用平台")
+    rebuild_p.add_argument("--round-id", required=True)
+    rebuild_p.add_argument("--config", default=str(DEFAULT_RUNTIME_CONFIG_PATH), help="运行时 YAML 配置文件")
+    rebuild_p.set_defaults(func=command_research_rebuild)
     submission_p = sub.add_parser("submission-dispatch", help="派发已审批的提交 outbox；不会重新评估或自动授权")
     submission_p.add_argument("--config", default=str(DEFAULT_RUNTIME_CONFIG_PATH), help="运行时 YAML 配置文件")
     submission_p.add_argument("--limit", type=int, default=100, help="单次最多派发数量")
@@ -847,10 +853,15 @@ def command_research_cycle(args: argparse.Namespace) -> None:
         datasets=datasets_list,
     )
     matrix_fields = [field.id for field in field_specs if (field.type or "MATRIX").upper() == "MATRIX"]
-    candidates = AstCandidateBuilder().build(matrix_fields, (
-        ConstructionTemplate("rank_field", "rank({field})", "cross_sectional", ("rank",)),
-        ConstructionTemplate("ts_rank_22", "ts_rank({field}, 22)", "time_series", ("ts_rank",)),
-    ))
+    construction_templates = (
+        policy_snapshot.construction_templates()
+        if policy_snapshot is not None and policy_snapshot.templates
+        else (
+            ConstructionTemplate("rank_field", "rank({field})", "cross_sectional", ("rank",)),
+            ConstructionTemplate("ts_rank_22", "ts_rank({field}, 22)", "time_series", ("ts_rank",)),
+        )
+    )
+    candidates = AstCandidateBuilder().build(matrix_fields, construction_templates)
     sample_per_family = options.get("sample_per_family", 4)
     quotas = {candidate.family: sample_per_family for candidate in candidates}
     strategy = {"stratified": "weighted_stratified", "d_optimal": "diversity"}.get(
@@ -936,10 +947,33 @@ def command_research_worker(args: argparse.Namespace) -> None:
         evidence_records=evidence_records,
         submission_authorized=authorized,
     )
+    if getattr(args, "watch", False):
+        from alpha_operator_framework.application.research_worker import ResearchWorkerScheduler
+
+        summaries = ResearchWorkerScheduler(runtime.worker()).watch(
+            poll_seconds=int(getattr(args, "poll_seconds", 30)),
+        )
+        for summary in summaries:
+            print(f"research worker completed: {summary.round_id} | {summary.status} | backtests={summary.completed_backtests}")
+        if getattr(args, "telemetry_file", None):
+            JsonLinesTelemetrySink(Path(args.telemetry_file)).publish(runtime.telemetry)
+        return
     summary = runtime.process_round(args.round_id)
     if getattr(args, "telemetry_file", None):
         JsonLinesTelemetrySink(Path(args.telemetry_file)).publish(runtime.telemetry)
     print(f"研究 worker 完成: {summary.round_id} | {summary.status} | 回测={summary.completed_backtests}")
+
+
+def command_research_rebuild(args: argparse.Namespace) -> None:
+    from alpha_operator_framework.application.research_rebuild import ResearchProjectionRebuilder
+    from alpha_operator_framework.infrastructure.runtime_factory import build_research_runtime
+
+    runtime = build_research_runtime(Path(getattr(args, "config", DEFAULT_RUNTIME_CONFIG_PATH)), execute_platform=False)
+    ResearchProjectionRebuilder(
+        runtime.event_store, runtime.research_repository, runtime.experiment_repository,
+        runtime.knowledge_base, runtime.knowledge_repository,
+    ).rebuild(args.round_id)
+    print(f"research projections rebuilt: {args.round_id}")
 
 
 def command_submission_dispatch(args: argparse.Namespace) -> None:

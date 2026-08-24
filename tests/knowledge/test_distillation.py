@@ -29,3 +29,11 @@ def test_distillation_does_not_promote_template_below_support_threshold() -> Non
     batch.record_evaluation(EvaluationRecord("ready", "READY", 1, False))
 
     assert distill_templates(batch, min_support=2) == []
+
+
+def test_distillation_enforces_quality_thresholds() -> None:
+    batch = ExperimentBatch("batch", "key")
+    batch.record_result(BacktestResult("weak", "rank(returns)", 1.1, 0.7, 0.2, 5.0, True, "a"))
+    batch.record_evaluation(EvaluationRecord("weak", "READY", 1, False))
+
+    assert distill_templates(batch, min_sharpe=1.2, min_fitness=0.8) == []

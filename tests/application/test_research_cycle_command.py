@@ -13,6 +13,21 @@ from alpha_operator_framework.core.events import EventType
 from alpha_operator_framework.infrastructure.runtime_factory import build_research_runtime
 
 
+def test_research_rebuild_command_uses_runtime_projections_only(monkeypatch, tmp_path) -> None:
+    called = []
+    runtime = SimpleNamespace(event_store=object(), research_repository=object(), experiment_repository=object(), knowledge_base=object(), knowledge_repository=object())
+    monkeypatch.setattr("alpha_operator_framework.infrastructure.runtime_factory.build_research_runtime", lambda *_a, **_k: runtime)
+
+    class Rebuilder:
+        def __init__(self, *args): assert args == (runtime.event_store, runtime.research_repository, runtime.experiment_repository, runtime.knowledge_base, runtime.knowledge_repository)
+        def rebuild(self, round_id): called.append(round_id)
+
+    monkeypatch.setattr("alpha_operator_framework.application.research_rebuild.ResearchProjectionRebuilder", Rebuilder)
+    alpha_machine.command_research_rebuild(SimpleNamespace(round_id="r1", config=str(tmp_path / "config.yaml")))
+
+    assert called == ["r1"]
+
+
 def test_research_cycle_command_uses_new_dry_run_cycle(monkeypatch, tmp_path, capsys) -> None:
     monkeypatch.setattr(
         "alpha_operator_framework.research.field_loader.load_real_market_fields",

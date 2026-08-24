@@ -53,3 +53,22 @@ class JsonLinesTelemetrySink:
         self.path.parent.mkdir(parents=True, exist_ok=True)
         with self.path.open("a", encoding="utf-8") as stream:
             stream.write(telemetry.export_json() + "\n")
+
+
+class PrometheusTelemetryAdapter:
+    """Render the in-memory snapshot in Prometheus exposition format."""
+
+    def __init__(self, telemetry: ResearchTelemetry) -> None:
+        self.telemetry = telemetry
+
+    def render(self) -> str:
+        snapshot = self.telemetry.snapshot()
+        lines = [f"alpha_factory_backtests_completed {snapshot['backtests_completed']}"]
+        for reason, count in sorted(snapshot["pruning_reasons"].items()):
+            lines.append(f'alpha_factory_pruning_reasons{{reason="{reason}"}} {count}')
+        for state, count in sorted(snapshot["batch_transitions"].items()):
+            lines.append(f'alpha_factory_batch_transitions{{state="{state}"}} {count}')
+        for name, count in sorted(snapshot["quota"].items()):
+            lines.append(f'alpha_factory_quota{{kind="{name}"}} {count}')
+        lines.append(f"alpha_factory_retryable_batches {snapshot['retryable_batches']}")
+        return "\n".join(lines) + "\n"

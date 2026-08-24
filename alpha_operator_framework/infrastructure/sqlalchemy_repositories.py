@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import json
 from dataclasses import asdict
+from datetime import UTC, datetime
 from typing import Any
 
 from sqlalchemy import Engine, delete, insert, select, update
@@ -112,12 +113,27 @@ class SqlAlchemyExperimentRepository(_SnapshotRepository):
         payload = self._load(batch_id)
         return _batch(payload) if payload is not None else None
 
+    def list_due_batches(self) -> list[ExperimentBatch]:
+        """Return non-terminal batches with at least one task ready to run."""
+        now = datetime.now(UTC)
+        with self.engine.connect() as connection:
+            batches = [_batch(payload) for payload in connection.execute(select(self.table.c.payload)).scalars()]
+        return [
+            batch for batch in batches
+            if batch.state in {BatchState.SUBMITTED, BatchState.PARTIAL_FAILED}
+            and any(
+                task.task_id not in batch.results
+                and (task.next_retry_at is None or datetime.fromisoformat(task.next_retry_at) <= now)
+                for task in batch.tasks.values()
+            )
+        ]
+
 
 class SqlAlchemyKnowledgeRepository:
     def __init__(self, engine: Engine) -> None:
         self.engine = engine
 
-    def save(self, knowledge: KnowledgeBase) -> None:
+    def save(self, knowledge: KnowledgeBase, *, round_id: str | None = None, policy_version: str | None = None, event_offset: int | None = None) -> None:
         payload = _json({"version": knowledge.version, "field_scores": knowledge.field_scores,
                          "operator_scores": knowledge.operator_scores, "template_scores": knowledge.template_scores,
                          "rejected_templates": sorted(knowledge.rejected_templates), "field_trials": knowledge.field_trials})
@@ -125,7 +141,11 @@ class SqlAlchemyKnowledgeRepository:
             if connection.execute(update(knowledge_snapshot).where(knowledge_snapshot.c.id == 1).values(payload=payload)).rowcount == 0:
                 connection.execute(insert(knowledge_snapshot).values(id=1, payload=payload))
             if connection.execute(select(knowledge_snapshot_history.c.version).where(knowledge_snapshot_history.c.version == knowledge.version)).scalar_one_or_none() is None:
-                connection.execute(insert(knowledge_snapshot_history).values(version=knowledge.version, payload=payload))
+                connection.execute(insert(knowledge_snapshot_history).values(
+                    version=knowledge.version, payload=payload, round_id=round_id,
+                    policy_version=policy_version, event_offset=event_offset,
+                    created_at=datetime.now(UTC).isoformat(),
+                ))
 
     def load(self) -> KnowledgeBase:
         with self.engine.connect() as connection:
@@ -138,6 +158,13 @@ class SqlAlchemyKnowledgeRepository:
         if payload is None:
             raise KeyError(version)
         return _knowledge(payload)
+
+    def history_for_round(self, round_id: str) -> list[dict[str, Any]]:
+        with self.engine.connect() as connection:
+            return [dict(row) for row in connection.execute(
+                select(knowledge_snapshot_history).where(knowledge_snapshot_history.c.round_id == round_id)
+                .order_by(knowledge_snapshot_history.c.version)
+            ).mappings()]
 
 
 class SqlAlchemyTemplatePromotionRepository:

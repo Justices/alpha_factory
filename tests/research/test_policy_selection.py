@@ -80,6 +80,29 @@ def test_policy_settings_are_applied_to_experiment_tasks() -> None:
     assert (policy.delay, policy.decay, policy.neutralization, policy.truncation) == (0, 15, "INDUSTRY", 0.05)
 
 
+def test_policy_parses_declarative_construction_templates() -> None:
+    snapshot = PolicySnapshot.from_mapping({
+        "region": "GBR", "universe": "TOP700", "max_backtests": 1,
+        "templates": [{"id": "rank_field", "expression": "rank({field})", "family": "cross_sectional", "operators": ["rank"]}],
+    })
+
+    templates = snapshot.construction_templates()
+
+    assert templates[0].template_id == "rank_field"
+    assert templates[0].expression_template == "rank({field})"
+
+
+def test_policy_parses_template_promotion_thresholds() -> None:
+    snapshot = PolicySnapshot.from_mapping({
+        "region": "GBR", "universe": "TOP700", "max_backtests": 1,
+        "template_promotion": {"min_support": 3, "min_sharpe": 1.2, "min_fitness": 0.9, "max_correlation": 0.7, "observation_window": 2},
+    })
+
+    policy = snapshot.to_research_policy()
+
+    assert (policy.template_min_support, policy.template_observation_window) == (3, 2)
+
+
 def test_policy_file_rejects_conflicting_explicit_cli_override() -> None:
     policy = PolicySnapshot.from_mapping({
         "region": "GBR", "universe": "TOP700", "max_backtests": 2,

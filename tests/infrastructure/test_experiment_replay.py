@@ -27,3 +27,23 @@ def test_repository_replays_tasks_results_evaluations_and_transitions(tmp_path) 
     repository.save_batch(batch)
 
     assert repository.load_batch("batch") == batch
+
+
+def test_repository_lists_due_nonterminal_batches(tmp_path) -> None:
+    batch = ExperimentBatch("due", "key")
+    batch.create_tasks(
+        [Candidate("candidate", "rank(returns)", "family", ("returns",), ("rank",), "template")],
+        ResearchPolicy("GBR", "TOP700", 1),
+    )
+    transition(batch, BatchState.SUBMITTED)
+    terminal = ExperimentBatch("done", "done")
+    transition(terminal, BatchState.SUBMITTED)
+    transition(terminal, BatchState.RUNNING)
+    transition(terminal, BatchState.COMPLETED)
+    transition(terminal, BatchState.EVALUATED)
+    engine = create_storage_engine(StorageConfig.from_mapping({"driver": "sqlite", "path": "rounds.db"}, base_path=tmp_path)); migrate(engine)
+    repository = SqlAlchemyExperimentRepository(engine)
+    repository.save_batch(batch)
+    repository.save_batch(terminal)
+
+    assert [item.batch_id for item in repository.list_due_batches()] == ["due"]

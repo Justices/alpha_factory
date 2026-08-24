@@ -746,12 +746,12 @@ def main() -> None:
     mine_p.add_argument("--seed", type=int, default=None, help="随机种子 (默认 None: 动态增量随机，优先探索数据库中未测空间)")
     mine_p.add_argument("--output", "-o", default=None, help="输出 Markdown 研报路径")
     mine_p.set_defaults(func=command_mine)
-    init_db_p = sub.add_parser("init-db", help="初始化或校验 SQLite 研究数据库表结构与索引 (无需提交 .db 文件)")
+    init_db_p = sub.add_parser("init-db", help="初始化或校验配置数据库的表结构与索引")
     init_db_p.add_argument("--config", default=str(DEFAULT_RUNTIME_CONFIG_PATH), help="运行时 YAML 配置文件")
     init_db_p.add_argument("--reset", action="store_true", help="清空并全新初始化数据库")
     init_db_p.add_argument("--verify", action="store_true", help="仅校验现有数据库完整性")
     init_db_p.set_defaults(func=command_init_db)
-    clean_db_p = sub.add_parser("clean-db", help="清理与维护 SQLite 研究数据库 (清理失败项、剪枝项或释放空间)")
+    clean_db_p = sub.add_parser("clean-db", help="清理与维护配置数据库（清理失败项、剪枝项或释放空间）")
     clean_db_p.add_argument("--config", default=str(DEFAULT_RUNTIME_CONFIG_PATH), help="运行时 YAML 配置文件")
     clean_db_p.add_argument(
         "--mode",
@@ -961,21 +961,28 @@ def command_submission_dispatch(args: argparse.Namespace) -> None:
 
 def command_status(args: argparse.Namespace) -> None:
     """展示生产环境投研状态综合看板."""
-    from alpha_operator_framework.infrastructure.maintenance import open_alpha_database, storage_path
+    from sqlalchemy import make_url
+    from alpha_operator_framework.infrastructure.maintenance import open_alpha_database, storage_path, verify_storage
+    from alpha_operator_framework.infrastructure.runtime_factory import storage_config
 
     config_path = Path(getattr(args, "config", DEFAULT_RUNTIME_CONFIG_PATH))
+    storage = storage_config(config_path)
     db_path = storage_path(config_path)
-    if not db_path.exists():
+    if db_path is not None and not db_path.exists():
         print(f"❌ 生产数据库未就绪: {db_path.resolve()}")
         print("💡 请先执行: python init_db.py")
+        return
+    if not verify_storage(config_path):
+        print("storage verification failed; run init-db first")
         return
 
     db = open_alpha_database(config_path)
     try:
-        db_size_mb = db_path.stat().st_size / (1024 * 1024)
+        db_size_mb = db_path.stat().st_size / (1024 * 1024) if db_path is not None else None
+        db_location = str(db_path.resolve()) if db_path is not None else make_url(storage.url).render_as_string(hide_password=True)
         print("=" * 75)
         print(f"📊 【Alpha Factory 生产投研与自进化状态看板】")
-        print(f"📁 数据库路径: {db_path.resolve()} ({db_size_mb:.2f} MB)")
+        print(f"Database: {db_location}" + (f" ({db_size_mb:.2f} MB)" if db_size_mb is not None else ""))
         print("=" * 75)
 
         # 1. 表达式池统计
@@ -1049,14 +1056,16 @@ def command_init_db(args: argparse.Namespace) -> None:
     config_path = Path(getattr(args, "config", DEFAULT_RUNTIME_CONFIG_PATH))
     db_file = storage_path(config_path)
     if args.verify:
-        if not db_file.exists():
+        if db_file is not None and not db_file.exists():
             print(f"ℹ️  数据库文件未创建: {db_file}，正在自动为您全新初始化...")
             success = initialize_storage(config_path, reset=False)
             if not success:
                 sys.exit(1)
         success = verify_storage(config_path)
+        print("storage verification passed" if success else "storage verification failed")
         sys.exit(0 if success else 1)
     success = initialize_storage(config_path, reset=args.reset)
+    print("storage migration completed" if success else "storage migration failed")
     sys.exit(0 if success else 1)
 
 
@@ -1086,7 +1095,10 @@ def command_drill_recovery(args: argparse.Namespace) -> None:
     if getattr(args, "temp", True):
         tmp_dir = tempfile.mkdtemp()
         config_path = Path(tmp_dir) / "alpha-factory.yaml"
-        config_path.write_text("storage:\n  driver: sqlite\n  path: drill_research.db\nresearch:\n  execute_platform: true\n", encoding="utf-8")
+        config_path.write_text(
+            "storage:\n  database_type: sqlite\n  driver: sqlite\n  connection_type: file\n  path: drill_research.db\nresearch:\n  execute_platform: true\n",
+            encoding="utf-8",
+        )
         print(f"  [沙盒] 创建隔离演练配置: {config_path}")
     else:
         config_path = Path(getattr(args, "config", DEFAULT_RUNTIME_CONFIG_PATH))

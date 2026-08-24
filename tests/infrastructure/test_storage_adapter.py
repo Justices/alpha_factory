@@ -25,13 +25,18 @@ def test_storage_engine_uses_generic_database_driver_connection_and_url_settings
             "database_type": "mysql",
             "driver": "pymysql",
             "connection_type": "url",
-            "url": "mysql+pymysql://root:${ALPHA_FACTORY_DB_PASSWORD}@db/mps_ai",
+            "username": "root",
+            "password": "${ALPHA_FACTORY_DB_PASSWORD}",
+            "path": "db:3306",
+            "database": "mps_ai",
         },
         base_path=tmp_path,
     )
 
     assert config.driver == "mysql"
-    assert config.url.endswith("@db/mps_ai")
+    assert make_url(config.url).host == "db"
+    assert make_url(config.url).port == 3306
+    assert make_url(config.url).database == "mps_ai"
 
 
 def test_sqlite_url_is_resolved_relative_to_the_yaml_file(tmp_path: Path) -> None:
@@ -45,7 +50,7 @@ def test_sqlite_url_is_resolved_relative_to_the_yaml_file(tmp_path: Path) -> Non
 
 def test_sqlite_file_connection_uses_the_url_value_as_a_relative_path(tmp_path: Path) -> None:
     config = StorageConfig.from_mapping(
-        {"database_type": "sqlite", "driver": "sqlite", "connection_type": "file", "url": "research.db"},
+        {"database_type": "sqlite", "driver": "sqlite", "connection_type": "file", "path": "research.db"},
         base_path=tmp_path,
     )
 
@@ -68,11 +73,21 @@ def test_storage_config_preserves_driver_connect_options() -> None:
 
 
 def test_storage_config_resolves_database_password_from_environment(monkeypatch) -> None:
-    monkeypatch.setenv("ALPHA_FACTORY_DB_PASSWORD", "password")
+    monkeypatch.setenv("ALPHA_FACTORY_DB_PASSWORD", "Lbx@mysql123456")
 
-    config = StorageConfig.from_mapping({"driver": "mysql", "url": "mysql+pymysql://root:${ALPHA_FACTORY_DB_PASSWORD}@db/mps_ai"})
+    config = StorageConfig.from_mapping({"database_type": "mysql", "driver": "pymysql", "connection_type": "url", "username": "root", "password": "${ALPHA_FACTORY_DB_PASSWORD}", "path": "db:3306", "database": "mps_ai"})
 
-    assert config.url.endswith("@db/mps_ai")
+    assert make_url(config.url).password == "Lbx@mysql123456"
+    assert make_url(config.url).host == "db"
+
+
+def test_structured_url_connection_accepts_a_complete_host_endpoint_url() -> None:
+    config = StorageConfig.from_mapping(
+        {"database_type": "mysql", "driver": "pymysql", "connection_type": "url", "path": "mysql://db:3307", "database": "mps_ai"}
+    )
+
+    assert make_url(config.url).host == "db"
+    assert make_url(config.url).port == 3307
 
 
 def test_storage_config_rejects_unresolved_environment_variables() -> None:

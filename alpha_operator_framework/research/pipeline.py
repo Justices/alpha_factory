@@ -68,7 +68,7 @@ from alpha_operator_framework.research.llm_client import (
 )
 
 logger = logging.getLogger(__name__)
-DEFAULT_DB_PATH = Path("data") / "alpha_research.db"
+DEFAULT_RUNTIME_CONFIG_PATH = Path(__file__).resolve().parents[2] / "configs" / "alpha-factory.yaml"
 
 
 @dataclass
@@ -235,6 +235,7 @@ def run_literature_research_pipeline(
     run_decay_profiler: bool = True,
     run_judge_review: bool = True,
     save_to_db: bool = True,
+    config_path: Optional[Union[str, Path]] = None,
     output_report_path: Optional[Union[str, Path]] = None,
 ) -> ResearchPipelineResult:
     """全自动端到端文献研发与终审评级直通流水线 (End-to-End Autonomous Quant Pipeline).
@@ -471,7 +472,9 @@ def run_literature_research_pipeline(
     db_persisted = False
     db_stats = {}
     if save_to_db:
-        db = AlphaDatabase()
+        from alpha_operator_framework.infrastructure.runtime_factory import storage_config
+
+        db = AlphaDatabase(storage_config(Path(config_path) if config_path is not None else DEFAULT_RUNTIME_CONFIG_PATH))
         try:
             settings_dict = {
                 "region": region,
@@ -538,7 +541,7 @@ def main():
     parser.add_argument("--provider", default=None, help="指定大模型提供商 (deepseek / openai / qwen / ollama)")
     parser.add_argument("--model", default=None, help="指定具体模型名称")
     parser.add_argument("--execute", "-e", action="store_true", help="直接向 WorldQuant BRAIN 平台提交真实在线回测")
-    parser.add_argument("--database", default=str(DEFAULT_DB_PATH), help="指定 SQLite 数据库存储路径")
+    parser.add_argument("--config", default=str(DEFAULT_RUNTIME_CONFIG_PATH), help="运行时 YAML 配置文件")
     parser.add_argument("--report", default=None, help="输出 Markdown 研报路径")
 
     args = parser.parse_args()
@@ -548,7 +551,7 @@ def main():
     print(f"   文献: {args.paper}")
     print(f"   市场: {args.region} | 中性化: {args.neutralization} | 延迟: {args.delay}")
     print(f"   回测模式: {'🌐 WorldQuant BRAIN 真实平台在线回测' if args.execute else '💻 本地向量化沙盒高速仿真'}")
-    print(f"   数据落库: SQLite [{args.database}]")
+    print(f"   数据落库配置: {args.config}")
 
     res = run_literature_research_pipeline(
         literature_source=args.paper,
@@ -562,7 +565,7 @@ def main():
         provider=args.provider,
         model=args.model,
         execute_on_platform=args.execute,
-        database_path=args.database,
+        config_path=args.config,
         save_to_db=True,
         output_report_path=args.report,
     )

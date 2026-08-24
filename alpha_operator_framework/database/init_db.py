@@ -34,9 +34,11 @@ def init_database(db_path: Path | StorageConfig = DEFAULT_DB_PATH, reset: bool =
         migrate_legacy_schema(engine)
         tables = sorted(inspect(engine).get_table_names())
         if verbose:
-            print(f"initialized {storage.url}: {len(tables)} tables")
+            print(f"initialized {engine.url.render_as_string(hide_password=True)}: {len(tables)} tables")
         return True, tables
-    except Exception:
+    except Exception as error:
+        if verbose:
+            print(f"initialization failed: {type(error).__name__}: {error}")
         return False, []
     finally:
         engine.dispose()
@@ -48,7 +50,8 @@ def verify_database(db_path: Path | StorageConfig = DEFAULT_DB_PATH) -> bool:
     try:
         tables = set(inspect(engine).get_table_names())
         return {"schema_version", "alpha_expressions", "event_log"} <= tables
-    except Exception:
+    except Exception as error:
+        print(f"verification failed: {type(error).__name__}: {error}")
         return False
     finally:
         engine.dispose()

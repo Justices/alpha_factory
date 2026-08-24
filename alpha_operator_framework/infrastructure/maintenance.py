@@ -4,13 +4,18 @@ from __future__ import annotations
 
 from pathlib import Path
 
+from sqlalchemy import make_url
+
 from alpha_operator_framework.infrastructure.runtime_factory import load_runtime_config, storage_config
 
 
-def storage_path(config_path: Path) -> Path:
-    storage = load_runtime_config(config_path)["storage"]
-    path = Path(str(storage["path"]))
-    return path if path.is_absolute() else (config_path.parent / path).resolve()
+def storage_path(config_path: Path) -> Path | None:
+    """Return a filesystem path only for file-backed storage."""
+    storage = storage_config(config_path)
+    if storage.driver != "sqlite":
+        return None
+    database = make_url(storage.url).database
+    return Path(database).resolve() if database else None
 
 
 def open_alpha_database(config_path: Path):

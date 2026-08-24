@@ -1,7 +1,8 @@
-"""全局数据库配置与存储介质抽象模块 (Database Configuration & Storage Abstraction).
+"""Legacy compatibility for direct programmatic repository construction.
 
-集中管理数据库连接配置、存储驱动 (SQLite / MySQL / PostgreSQL) 与环境变量适配，
-为后续平滑迁移至 MySQL / PostgreSQL 或分布式存储介质提供统一配置中心与解耦支持。
+CLI and production composition use ``configs/alpha-factory.yaml`` through
+``infrastructure.storage.StorageConfig``. New code must not use this module
+as an independent configuration source.
 """
 
 from __future__ import annotations

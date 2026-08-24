@@ -1,8 +1,11 @@
 storage:
-  database_type: sqlite
-  driver: sqlite
-  connection_type: file
-  url: ../data/alpha_research.db
+  database_type: mysql
+  driver: pymysql
+  connection_type: url
+  username: root
+  password: ${ALPHA_FACTORY_DB_PASSWORD}
+  path: 10.254.5.36:6366
+  database: brain
 research:
   execute_platform: false
   region: GBR

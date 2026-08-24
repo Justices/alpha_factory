@@ -2,6 +2,8 @@
 
 from pathlib import Path
 
+from sqlalchemy import make_url
+
 from alpha_operator_framework.infrastructure.storage import StorageConfig, create_storage_engine
 from alpha_operator_framework.database.connection import DatabaseConnectionManager, _Cursor, translate_sql
 from alpha_operator_framework.database.repository import AlphaDatabase
@@ -14,6 +16,40 @@ def test_storage_engine_selects_sqlite_from_relative_yaml_path(tmp_path: Path) -
 
     assert engine.url.drivername == "sqlite"
     assert Path(engine.url.database) == tmp_path / "research.db"
+
+
+def test_storage_engine_uses_generic_database_driver_connection_and_url_settings(tmp_path: Path, monkeypatch) -> None:
+    monkeypatch.setenv("ALPHA_FACTORY_DB_PASSWORD", "password")
+    config = StorageConfig.from_mapping(
+        {
+            "database_type": "mysql",
+            "driver": "pymysql",
+            "connection_type": "url",
+            "url": "mysql+pymysql://root:${ALPHA_FACTORY_DB_PASSWORD}@db/mps_ai",
+        },
+        base_path=tmp_path,
+    )
+
+    assert config.driver == "mysql"
+    assert config.url.endswith("@db/mps_ai")
+
+
+def test_sqlite_url_is_resolved_relative_to_the_yaml_file(tmp_path: Path) -> None:
+    config = StorageConfig.from_mapping(
+        {"database_type": "sqlite", "driver": "sqlite", "connection_type": "url", "url": "sqlite:///research.db"},
+        base_path=tmp_path,
+    )
+
+    assert Path(make_url(config.url).database) == tmp_path / "research.db"
+
+
+def test_sqlite_file_connection_uses_the_url_value_as_a_relative_path(tmp_path: Path) -> None:
+    config = StorageConfig.from_mapping(
+        {"database_type": "sqlite", "driver": "sqlite", "connection_type": "file", "url": "research.db"},
+        base_path=tmp_path,
+    )
+
+    assert Path(make_url(config.url).database) == tmp_path / "research.db"
 
 
 def test_storage_engine_selects_mysql_without_connecting() -> None:
@@ -29,6 +65,23 @@ def test_storage_config_preserves_driver_connect_options() -> None:
     config = StorageConfig.from_mapping({"driver": "mysql", "url": "mysql+pymysql://user:pass@db/alpha", "connect_args": {"ssl": {"ca": "ca.pem"}}})
 
     assert config.connect_args == {"ssl": {"ca": "ca.pem"}}
+
+
+def test_storage_config_resolves_database_password_from_environment(monkeypatch) -> None:
+    monkeypatch.setenv("ALPHA_FACTORY_DB_PASSWORD", "password")
+
+    config = StorageConfig.from_mapping({"driver": "mysql", "url": "mysql+pymysql://root:${ALPHA_FACTORY_DB_PASSWORD}@db/mps_ai"})
+
+    assert config.url.endswith("@db/mps_ai")
+
+
+def test_storage_config_rejects_unresolved_environment_variables() -> None:
+    try:
+        StorageConfig.from_mapping({"driver": "mysql", "url": "mysql+pymysql://root:${MISSING_DB_PASSWORD}@db/mps_ai"})
+    except ValueError as error:
+        assert "unresolved" in str(error)
+    else:
+        raise AssertionError("expected unresolved database environment variable to fail")
 
 
 def test_legacy_connection_manager_uses_shared_storage_config_without_connecting() -> None:

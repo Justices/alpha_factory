@@ -1,6 +1,8 @@
 storage:
+  database_type: sqlite
   driver: sqlite
-  path: ../data/alpha_research.db
+  connection_type: file
+  url: ../data/alpha_research.db
 research:
   execute_platform: false
   region: GBR

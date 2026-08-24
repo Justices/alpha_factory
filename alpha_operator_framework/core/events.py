@@ -47,6 +47,8 @@ class EventType(str, Enum):
     SUBMISSION_CONFIRMED = "SubmissionConfirmed"
     MONITORING_OBSERVED = "MonitoringObserved"
     CANDIDATE_RETIRED = "CandidateRetired"
+    TEMPLATE_PROMOTED = "TemplatePromoted"
+    TEMPLATE_DEMOTED = "TemplateDemoted"
 
 
 @dataclass(frozen=True)

@@ -71,6 +71,7 @@ def test_worker_persists_distilled_template_promotions() -> None:
     ResearchBatchWorker(events, rounds, batches, knowledge, Gateway(), template_repository=promotions).process_round("promotion-round")
 
     assert [template.expression_template for template in promotions.promoted] == ["rank({a})"]
+    assert EventType.TEMPLATE_PROMOTED in [event.event_type for event in events.read_stream("promotion-round")]
 
 
 def test_worker_persists_retry_state_after_rate_limit() -> None:

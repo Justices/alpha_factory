@@ -180,7 +180,11 @@ class ResearchBatchWorker:
         templates_by_candidate = {candidate.candidate_id: candidate.template_id for candidate in round_.candidates}
         templates = {task.task_id: templates_by_candidate[task.candidate_id] for task in batch.tasks.values()}
         knowledge = self.knowledge_base.apply_batch(batch, templates)
-        distilled = self.knowledge_base.distill_batch(batch)
+        from alpha_operator_framework.knowledge.distillation import distill_templates
+        distilled = distill_templates(
+            batch, min_support=policy.template_min_support,
+            min_sharpe=policy.template_min_sharpe, min_fitness=policy.template_min_fitness,
+        )
         knowledge_offset = self._event(EventType.MONITORING_OBSERVED, round_id, {"knowledge": {
             "version": self.knowledge_base.version,
             "field_scores": self.knowledge_base.field_scores,
@@ -196,6 +200,13 @@ class ResearchBatchWorker:
             )
         if self.template_repository is not None:
             self.template_repository.promote(distilled)
+        for template in distilled:
+            self._event(EventType.TEMPLATE_PROMOTED, round_id, {
+                "expression_template": template.expression_template,
+                "support": template.support,
+                "source_task_ids": list(template.source_task_ids),
+                "policy_version": policy.policy_version,
+            })
         self._transition(batch, BatchState.EVALUATED)
         if self.telemetry is not None:
             self.telemetry.record_backtests_completed(len(batch.results))

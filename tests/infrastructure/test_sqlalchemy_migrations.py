@@ -23,6 +23,7 @@ def test_migrate_is_idempotent(tmp_path) -> None:
 
     with engine.connect() as connection:
         assert connection.exec_driver_sql("SELECT COUNT(*) FROM schema_migrations").scalar_one() == 1
+        assert connection.exec_driver_sql("SELECT checksum FROM schema_migrations").scalar_one()
 
 
 def test_portable_schema_compiles_for_virtual_mysql() -> None:

@@ -3,8 +3,9 @@
 from __future__ import annotations
 
 from datetime import UTC, datetime
+import hashlib
 
-from sqlalchemy import Column, Integer, MetaData, String, Table, Text, select
+from sqlalchemy import Column, Integer, MetaData, String, Table, Text, inspect, select, text
 from sqlalchemy.engine import Engine
 
 
@@ -14,6 +15,7 @@ schema_migrations = Table(
     "schema_migrations", metadata,
     Column("version", String(64), primary_key=True),
     Column("applied_at", String(64), nullable=False),
+    Column("checksum", String(64), nullable=False),
 )
 event_log = Table(
     "event_log", metadata,
@@ -69,11 +71,15 @@ submission_outbox = Table(
 )
 
 RUNTIME_SCHEMA_VERSION = "001_research_runtime"
+RUNTIME_SCHEMA_CHECKSUM = hashlib.sha256(RUNTIME_SCHEMA_VERSION.encode("utf-8")).hexdigest()
 
 
 def migrate(engine: Engine) -> None:
     """Apply the portable runtime schema exactly once per database."""
     metadata.create_all(engine)
+    if "checksum" not in {column["name"] for column in inspect(engine).get_columns("schema_migrations")}:
+        with engine.begin() as connection:
+            connection.execute(text("ALTER TABLE schema_migrations ADD COLUMN checksum VARCHAR(64) NOT NULL DEFAULT ''"))
     with engine.begin() as connection:
         exists = connection.execute(
             select(schema_migrations.c.version).where(schema_migrations.c.version == RUNTIME_SCHEMA_VERSION)
@@ -82,4 +88,5 @@ def migrate(engine: Engine) -> None:
             connection.execute(schema_migrations.insert().values(
                 version=RUNTIME_SCHEMA_VERSION,
                 applied_at=datetime.now(UTC).isoformat(),
+                checksum=RUNTIME_SCHEMA_CHECKSUM,
             ))

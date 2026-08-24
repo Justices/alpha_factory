@@ -12,7 +12,6 @@ import hashlib
 import json
 import random
 import re
-import sqlite3
 from datetime import datetime
 from typing import Any, Dict, List, Optional, Sequence, Tuple, Union
 
@@ -63,7 +62,9 @@ class AlphaRepository(BaseRepository):
             if commit:
                 conn.commit()
             return cursor.lastrowid
-        except sqlite3.IntegrityError:
+        except Exception as error:
+            if error.__class__.__name__ != "IntegrityError":
+                raise
             cursor.execute("""
                 UPDATE alpha_expressions
                 SET expression_origin = CASE WHEN expression_origin = '' THEN ? ELSE expression_origin END,
@@ -564,7 +565,7 @@ class AlphaRepository(BaseRepository):
         """标记回测/校验失败."""
         self.update_wf_stage(alpha_id, "failed")
 
-    def _upsert_detail(self, cursor: sqlite3.Cursor, detail: AlphaDetail, now: str) -> None:
+    def _upsert_detail(self, cursor: Any, detail: AlphaDetail, now: str) -> None:
         """内部: 插入或更新 alpha_details."""
         cursor.execute("""
             INSERT INTO alpha_details (
@@ -666,7 +667,7 @@ class AlphaRepository(BaseRepository):
         rows = cursor.fetchall()
         return [self._row_to_detail(row) for row in rows]
 
-    def _row_to_detail(self, row: sqlite3.Row) -> AlphaDetail:
+    def _row_to_detail(self, row: Any) -> AlphaDetail:
         """将数据库行转换为 AlphaDetail 对象."""
         return AlphaDetail(
             id=row['id'],
@@ -724,7 +725,7 @@ class AlphaRepository(BaseRepository):
             })
         return rows
 
-    def _write_checks(self, cursor: sqlite3.Cursor, alpha_id: str, checks: List[Dict], now: str) -> None:
+    def _write_checks(self, cursor: Any, alpha_id: str, checks: List[Dict], now: str) -> None:
         """内部: 替换式写入 checks."""
         cursor.execute("DELETE FROM alpha_checks WHERE alpha_id = ?", (alpha_id,))
         for row in self.check_array_to_rows(checks, alpha_id):

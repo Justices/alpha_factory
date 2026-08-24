@@ -7,11 +7,12 @@ from __future__ import annotations
 
 import argparse
 import logging
-import sqlite3
 import sys
 from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Any, Dict, List, Optional, Tuple
+
+from sqlalchemy import inspect
 
 if hasattr(sys.stdout, "reconfigure"):
     sys.stdout.reconfigure(encoding="utf-8")
@@ -19,6 +20,8 @@ if hasattr(sys.stderr, "reconfigure"):
     sys.stderr.reconfigure(encoding="utf-8")
 
 from alpha_operator_framework.database.config import get_database_path
+from alpha_operator_framework.database.connection import DatabaseConnectionManager
+from alpha_operator_framework.infrastructure.storage import StorageConfig
 
 logger = logging.getLogger("clean_db")
 
@@ -63,12 +66,15 @@ class CleanReport:
 class DatabaseCleaner:
     """数据库清理与维护器."""
 
-    def __init__(self, db_path: Path = DEFAULT_DB_PATH):
-        self.db_path = Path(db_path)
+    def __init__(self, db_path: Path | StorageConfig = DEFAULT_DB_PATH):
+        self.storage = db_path if isinstance(db_path, StorageConfig) else StorageConfig.from_mapping({"driver": "sqlite", "path": str(db_path)})
+        self.db_path = Path(self.storage.url.removeprefix("sqlite:///")) if self.storage.driver == "sqlite" else None
 
     def _get_size(self) -> int:
         total = 0
         for ext in ("", "-wal", "-shm"):
+            if self.db_path is None:
+                return 0
             f = Path(str(self.db_path) + ext)
             if f.exists():
                 total += f.stat().st_size
@@ -99,19 +105,20 @@ class DatabaseCleaner:
             vacuum: 清理后是否执行 VACUUM 释放物理磁盘空间
             verbose: 是否打印输出
         """
-        if not self.db_path.exists():
+        if self.db_path is not None and not self.db_path.exists():
             if verbose:
                 print(f"❌ 数据库文件不存在: {self.db_path}")
             return CleanReport()
 
         report = CleanReport(size_before_bytes=self._get_size())
-        conn = sqlite3.connect(self.db_path)
-        conn.execute("PRAGMA foreign_keys = ON")
+        manager = DatabaseConnectionManager(self.storage)
+        conn = manager.get_connection()
+        if self.storage.driver == "sqlite":
+            conn.execute("PRAGMA foreign_keys = ON")
 
         try:
             cursor = conn.cursor()
-            cursor.execute("SELECT name FROM sqlite_master WHERE type='table'")
-            existing_tables = {r[0] for r in cursor.fetchall()}
+            existing_tables = set(inspect(manager.engine).get_table_names())
 
             if mode == "vacuum":
                 # 仅整理空间，不删除任何数据
@@ -230,11 +237,11 @@ class DatabaseCleaner:
                 print(f"❌ 清理失败: {e}", file=sys.stderr)
             return report
         finally:
-            conn.close()
+            manager.close_all()
 
 
 def clean_alpha_research_db(
-    db_path: Path = DEFAULT_DB_PATH,
+    db_path: Path | StorageConfig = DEFAULT_DB_PATH,
     mode: str = "failed",
     dry_run: bool = False,
     vacuum: bool = True,
@@ -246,7 +253,7 @@ def clean_alpha_research_db(
 
 
 def vacuum_database(
-    db_path: Path = DEFAULT_DB_PATH,
+    db_path: Path | StorageConfig = DEFAULT_DB_PATH,
     verbose: bool = True,
 ) -> CleanReport:
     """便捷释放 SQLite 磁盘物理空间接口 (不删除任何业务数据)."""

@@ -10,7 +10,7 @@ import alpha_machine
 from alpha_operator_framework.domain.fields import FieldSpec
 from alpha_operator_framework.core.event_store import EventStore
 from alpha_operator_framework.core.events import EventType
-from alpha_operator_framework.infrastructure.sqlite import SqliteResearchRepository
+from alpha_operator_framework.infrastructure.runtime_factory import build_research_runtime
 
 
 def test_research_cycle_command_uses_new_dry_run_cycle(monkeypatch, tmp_path, capsys) -> None:
@@ -18,19 +18,22 @@ def test_research_cycle_command_uses_new_dry_run_cycle(monkeypatch, tmp_path, ca
         "alpha_operator_framework.research.field_loader.load_real_market_fields",
         lambda **_: [FieldSpec(id="returns", dataset_id="pv1", type="MATRIX")],
     )
+    config = tmp_path / "alpha-factory.yaml"
+    config.write_text(f"storage:\n  driver: sqlite\n  path: {tmp_path / 'rounds.db'}\n", encoding="utf-8")
     args = SimpleNamespace(
         region="GBR", universe="TOP700", delay=1, datasets=None,
-        sample_per_family=1, execute=False, seed=9, database=str(tmp_path / "rounds.db"),
+        sample_per_family=1, execute=False, seed=9, config=str(config),
         policy_file=None, telemetry_file=str(tmp_path / "metrics.jsonl"), algorithm="stratified",
     )
 
     alpha_machine.command_research_cycle(args)
 
     assert "Research Cycle Summary" in capsys.readouterr().out
-    round_ = SqliteResearchRepository(tmp_path / "rounds.db").load_round("research-GBR-TOP700-9")
+    runtime = build_research_runtime(config)
+    round_ = runtime.research_repository.load_round("research-GBR-TOP700-9")
     assert [candidate.expression for candidate in round_.candidates] == ["rank(returns)", "ts_rank(returns, 22)"]
     assert EventType.BATCH_ALLOCATED in [
-        event.event_type for event in EventStore(db_path=tmp_path / "rounds.db").read_stream("research-GBR-TOP700-9")
+        event.event_type for event in runtime.event_store.read_stream("research-GBR-TOP700-9")
     ]
     assert (tmp_path / "metrics.jsonl").exists()
 
@@ -69,6 +72,28 @@ def test_policy_settings_are_used_when_loading_fields(monkeypatch, tmp_path) -> 
         region="USA", universe="TOP3000", delay=None, datasets=None, sample_per_family=1,
         execute=False, seed=9, database=str(tmp_path / "rounds.db"), policy_file=str(policy_path),
         telemetry_file=None, algorithm=None, decay=None, neutralization=None, truncation=None,
+    )
+
+    alpha_machine.command_research_cycle(args)
+
+    assert captured == {"region": "USA", "universe": "TOP3000", "delay": 0, "datasets": None}
+
+
+def test_research_cycle_uses_yaml_defaults_when_cli_options_are_omitted(monkeypatch, tmp_path) -> None:
+    config = tmp_path / "alpha-factory.yaml"
+    config.write_text(
+        f"storage:\n  driver: sqlite\n  path: {tmp_path / 'rounds.db'}\nresearch:\n  region: USA\n  universe: TOP3000\n  delay: 0\n  sample_per_family: 1\n",
+        encoding="utf-8",
+    )
+    captured = {}
+    monkeypatch.setattr(
+        "alpha_operator_framework.research.field_loader.load_real_market_fields",
+        lambda **kwargs: captured.update(kwargs) or [FieldSpec(id="returns", dataset_id="pv1", type="MATRIX")],
+    )
+    args = SimpleNamespace(
+        region=None, universe=None, delay=None, datasets=None, sample_per_family=None,
+        execute=False, seed=9, config=str(config), policy_file=None, telemetry_file=None,
+        algorithm=None, decay=None, neutralization=None, truncation=None,
     )
 
     alpha_machine.command_research_cycle(args)

@@ -886,8 +886,8 @@ def test_alpha_machine_uses_durable_data_database_by_default():
     """Run artifacts and the long-lived simulation database have separate locations."""
     import alpha_machine
 
-    assert Path(alpha_machine.DEFAULT_DATABASE_PATH).resolve() == (Path(alpha_machine.__file__).parent / "data" / "alpha_research.db").resolve()
-    assert alpha_machine.database_path(argparse.Namespace(database="custom/state.db")) == Path("custom/state.db")
+    default_config = Path(alpha_machine.DEFAULT_RUNTIME_CONFIG_PATH)
+    assert alpha_machine.database_path(argparse.Namespace(config=str(default_config))).resolve() == (Path(alpha_machine.__file__).parent / "data" / "alpha_research.db").resolve()
 
 
 def test_alpha_machine_poll_command_is_available():

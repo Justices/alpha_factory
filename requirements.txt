@@ -9,6 +9,8 @@ PyYAML==6.0.2 # 版本化策略的嵌套 YAML 配置解析
 
 # cnhkmcp 为 WorldQuant BRAIN 平台连接器（本地已安装，非 PyPI 包），
 cnhkmcp==4.2.9
+SQLAlchemy==2.0.52
+PyMySQL==1.1.2
 # 提供 brain_client / session_manager 能力，依赖上述 requests。
 # 如在新环境部署，需单独安装 cnhkmcp 连接器。
 

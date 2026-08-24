@@ -1,126 +1,159 @@
-"""数据库连接管理模块 — SQLite WAL 模式、连接池与事务管理器.
-
-功能:
-  1. 开启 SQLite WAL 模式 (Write-Ahead Logging): 支持非阻塞并发读与串行写
-  2. 线程安全连接管理 (Thread-Local): 每个线程拥有独立 Connection，杜绝跨线程操作冲突
-  3. 连接级 PRAGMA 性能调优 (busy_timeout=30s, synchronous=NORMAL, 64MB 缓存)
-  4. 事务上下文管理器: 异常自动 ROLLBACK，正常退出自动 COMMIT
-"""
+"""Driver-neutral connection lifecycle for legacy aggregate repositories."""
 
 from __future__ import annotations
 
-import os
-import sqlite3
 import threading
+import re
 from contextlib import contextmanager
 from pathlib import Path
-from typing import Any, Callable, Generator, List, Optional, Set
+from typing import Any, Generator, Set
+
+from alpha_operator_framework.infrastructure.storage import StorageConfig, create_storage_engine
+
+
+def translate_sql(statement: str, driver: str) -> str:
+    """Keep legacy repositories portable without leaking dialect branches into them."""
+    if driver != "mysql":
+        return statement
+    translated = statement.replace("?", "%s").replace("INSERT OR IGNORE", "INSERT IGNORE").replace("INSERT OR REPLACE", "REPLACE")
+    translated = re.sub(r"\s+ON\s+CONFLICT\s*\([^)]*\)\s+DO\s+NOTHING", " ON DUPLICATE KEY UPDATE id=id", translated, flags=re.IGNORECASE)
+    translated = re.sub(r"\s+ON\s+CONFLICT\s*\([^)]*\)\s+DO\s+UPDATE\s+SET\s+(.+)$", lambda match: " ON DUPLICATE KEY UPDATE " + re.sub(r"excluded\.([A-Za-z_]+)", r"VALUES(\1)", match.group(1)), translated, flags=re.IGNORECASE | re.DOTALL)
+    return translated
+
+
+class _Cursor:
+    def __init__(self, cursor: Any, driver: str) -> None:
+        self._cursor, self._driver = cursor, driver
+
+    def execute(self, statement: str, parameters: Any = None):
+        self._cursor.execute(translate_sql(statement, self._driver), () if parameters is None else parameters)
+        return self
+
+    def executemany(self, statement: str, parameters: Any):
+        self._cursor.executemany(translate_sql(statement, self._driver), parameters)
+        return self
+
+    def _map_row(self, row: Any) -> Any:
+        if row is None or not isinstance(row, tuple):
+            return row
+        columns = [column[0] for column in self._cursor.description or ()]
+        return _MappingRow(columns, row)
+
+    def fetchone(self):
+        return self._map_row(self._cursor.fetchone())
+
+    def fetchall(self):
+        return [self._map_row(row) for row in self._cursor.fetchall()]
+
+    def __iter__(self):
+        return (self._map_row(row) for row in self._cursor)
+
+    def __getattr__(self, name: str) -> Any:
+        return getattr(self._cursor, name)
+
+
+class _MappingRow(dict):
+    """Expose tuple-returning DB-API rows through the legacy mapping contract."""
+
+    def __init__(self, columns: list[str], values: tuple[Any, ...]) -> None:
+        super().__init__(zip(columns, values))
+        self._values = values
+
+    def __getitem__(self, key: Any) -> Any:
+        return self._values[key] if isinstance(key, int) else super().__getitem__(key)
+
+
+class _Connection:
+    def __init__(self, connection: Any, driver: str) -> None:
+        self._connection, self._driver = connection, driver
+
+    def cursor(self) -> _Cursor:
+        return _Cursor(self._connection.cursor(), self._driver)
+
+    def execute(self, statement: str, parameters: Any = None) -> _Cursor:
+        return self.cursor().execute(statement, parameters)
+
+    def executemany(self, statement: str, parameters: Any) -> _Cursor:
+        return self.cursor().executemany(statement, parameters)
+
+    def __getattr__(self, name: str) -> Any:
+        return getattr(self._connection, name)
 
 
 class DatabaseConnectionManager:
-    """线程安全、WAL 模式优化的 SQLite 连接管理器."""
+    """Own one SQLAlchemy engine and open DB-API connections lazily per thread."""
 
-    def __init__(
-        self,
-        db_path: Path | str,
-        timeout: float = 30.0,
-        wal_mode: bool = True,
-        cache_size_mb: int = 64,
-    ):
-        self.db_path = Path(db_path)
-        self.db_path.parent.mkdir(parents=True, exist_ok=True)
-        self.timeout = timeout
-        self.wal_mode = wal_mode
-        self.cache_size_mb = cache_size_mb
-
+    def __init__(self, storage: StorageConfig | Path | str, timeout: float = 30.0, wal_mode: bool = True, cache_size_mb: int = 64) -> None:
+        self.storage = storage if isinstance(storage, StorageConfig) else StorageConfig.from_mapping(
+            {"driver": "sqlite", "path": str(storage)}
+        )
+        self.engine = create_storage_engine(self.storage)
+        self.db_path = Path(self.engine.url.database) if self.storage.driver == "sqlite" else self.storage.url
+        self.timeout, self.wal_mode, self.cache_size_mb = timeout, wal_mode, cache_size_mb
         self._local = threading.local()
-        self._all_connections: Set[sqlite3.Connection] = set()
+        self._all_connections: Set[Any] = set()
         self._lock = threading.Lock()
 
-        # 确保初始主连接建立
-        self.get_connection()
-
-    def _init_pragmas(self, conn: sqlite3.Connection) -> None:
-        """为连接配置关键 PRAGMA 参数."""
-        cursor = conn.cursor()
+    def _init_connection(self, connection: Any) -> None:
+        if self.storage.driver != "sqlite":
+            return
+        driver_connection = getattr(connection, "driver_connection", connection)
+        row_factory = getattr(getattr(self.engine.dialect, "dbapi", None), "Row", None)
+        if row_factory is not None and hasattr(driver_connection, "row_factory"):
+            driver_connection.row_factory = row_factory
+        cursor = connection.cursor()
         try:
             if self.wal_mode:
-                try:
-                    current_mode = cursor.execute("PRAGMA journal_mode;").fetchone()
-                    if current_mode and str(current_mode[0]).lower() != "wal":
-                        cursor.execute("PRAGMA journal_mode = WAL;")
-                except Exception:
-                    pass
-            try:
-                cursor.execute(f"PRAGMA busy_timeout = {int(self.timeout * 1000)};")
-                cursor.execute("PRAGMA synchronous = NORMAL;")
-                cursor.execute(f"PRAGMA cache_size = -{int(self.cache_size_mb * 1000)};")
-                cursor.execute("PRAGMA temp_store = MEMORY;")
-                cursor.execute("PRAGMA foreign_keys = ON;")
-            except Exception:
-                pass
+                cursor.execute("PRAGMA journal_mode = WAL;")
+            cursor.execute(f"PRAGMA busy_timeout = {int(self.timeout * 1000)};")
+            cursor.execute("PRAGMA synchronous = NORMAL;")
+            cursor.execute(f"PRAGMA cache_size = -{int(self.cache_size_mb * 1000)};")
+            cursor.execute("PRAGMA temp_store = MEMORY;")
+            cursor.execute("PRAGMA foreign_keys = ON;")
         finally:
             cursor.close()
 
-    def get_connection(self) -> sqlite3.Connection:
-        """获取当前线程专属的数据库连接."""
-        conn = getattr(self._local, "conn", None)
-        if conn is None:
-            # 创建新连接
-            conn = sqlite3.connect(
-                self.db_path,
-                timeout=self.timeout,
-                check_same_thread=False,
-            )
-            conn.row_factory = sqlite3.Row
-            self._init_pragmas(conn)
-            self._local.conn = conn
-
+    def get_connection(self) -> Any:
+        connection = getattr(self._local, "conn", None)
+        if connection is None:
+            raw_connection = self.engine.raw_connection()
+            self._init_connection(raw_connection)
+            connection = _Connection(raw_connection, self.storage.driver)
+            self._local.conn = connection
             with self._lock:
-                self._all_connections.add(conn)
-
-        return conn
+                self._all_connections.add(connection)
+        return connection
 
     @contextmanager
-    def cursor(self) -> Generator[sqlite3.Cursor, None, None]:
-        """获取当前线程连接的 Cursor 上下文."""
-        conn = self.get_connection()
-        cur = conn.cursor()
+    def cursor(self) -> Generator[Any, None, None]:
+        cursor = self.get_connection().cursor()
         try:
-            yield cur
+            yield cursor
         finally:
-            cur.close()
+            cursor.close()
 
     @contextmanager
-    def transaction(self) -> Generator[sqlite3.Connection, None, None]:
-        """事务上下文管理器: 正常退出自动 COMMIT，异常自动 ROLLBACK."""
-        conn = self.get_connection()
+    def transaction(self) -> Generator[Any, None, None]:
+        connection = self.get_connection()
         try:
-            yield conn
-            conn.commit()
+            yield connection
+            connection.commit()
         except Exception:
-            conn.rollback()
+            connection.rollback()
             raise
 
     def close_current_thread(self) -> None:
-        """关闭当前线程持有的连接."""
-        conn = getattr(self._local, "conn", None)
-        if conn is not None:
-            try:
-                conn.close()
-            except Exception:
-                pass
+        connection = getattr(self._local, "conn", None)
+        if connection is not None:
+            connection.close()
             self._local.conn = None
             with self._lock:
-                self._all_connections.discard(conn)
+                self._all_connections.discard(connection)
 
     def close_all(self) -> None:
-        """关闭所有线程已注册的活跃连接."""
         with self._lock:
-            for conn in list(self._all_connections):
-                try:
-                    conn.close()
-                except Exception:
-                    pass
+            for connection in list(self._all_connections):
+                connection.close()
             self._all_connections.clear()
         self._local.conn = None
+        self.engine.dispose()

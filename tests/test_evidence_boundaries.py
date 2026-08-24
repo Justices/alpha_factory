@@ -112,7 +112,7 @@ def test_alpha_judge_rejects_unverified_candidates():
 
 def test_trial_ledger_dynamic_effective_trials():
     """测试试验账本真实累计与有效试验自由度对 DSR 的统计衰减."""
-    ledger = TrialLedger()
+    ledger = TrialLedger(persistent=False)
 
     for i in range(10):
         ledger.record_trial(f"expr_{i}", family="momentum")

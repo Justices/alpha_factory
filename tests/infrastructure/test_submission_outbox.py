@@ -12,15 +12,23 @@ from alpha_operator_framework.infrastructure.submission import (
     CnhkMcpSubmissionGateway,
     SubmissionNotAvailable,
     SubmissionOutboxWorker,
-    SqliteSubmissionOutbox,
+    SqlAlchemySubmissionOutbox,
 )
+from alpha_operator_framework.infrastructure.sqlalchemy_migrations import migrate
+from alpha_operator_framework.infrastructure.storage import StorageConfig, create_storage_engine
 from alpha_operator_framework.knowledge.submission import SubmissionCase, SubmissionEvidence
+
+
+def outbox_for(tmp_path) -> SqlAlchemySubmissionOutbox:
+    engine = create_storage_engine(StorageConfig.from_mapping({"driver": "sqlite", "path": "outbox.db"}, base_path=tmp_path))
+    migrate(engine)
+    return SqlAlchemySubmissionOutbox(engine)
 
 
 def test_outbox_persists_only_approved_submission_case(tmp_path) -> None:
     result = BacktestResult("task", "rank(returns)", 1.6, 1.1, 0.2, 5.0, True, "alpha-1")
     case = SubmissionCase.from_result(result, SubmissionEvidence(True, True, True, True, True))
-    outbox = SqliteSubmissionOutbox(tmp_path / "outbox.db")
+    outbox = outbox_for(tmp_path)
 
     receipt = outbox.enqueue(case)
 
@@ -44,7 +52,7 @@ def test_submission_worker_dispatches_pending_receipt_once(tmp_path) -> None:
         BacktestResult("task", "rank(returns)", 1.6, 1.1, 0.2, 5.0, True, "alpha-1"),
         SubmissionEvidence(True, True, True, True, True),
     )
-    outbox = SqliteSubmissionOutbox(tmp_path / "outbox.db")
+    outbox = outbox_for(tmp_path)
     outbox.enqueue(case)
     submitted = []
 
@@ -94,7 +102,7 @@ def test_submission_worker_retries_transient_failures_with_a_bounded_budget(tmp_
         BacktestResult("task", "rank(returns)", 1.6, 1.1, 0.2, 5.0, True, "alpha-1"),
         SubmissionEvidence(True, True, True, True, True),
     )
-    outbox = SqliteSubmissionOutbox(tmp_path / "outbox.db")
+    outbox = outbox_for(tmp_path)
     outbox.enqueue(case)
     worker = SubmissionOutboxWorker(
         outbox,
@@ -111,7 +119,7 @@ def test_submission_worker_retries_transient_failures_with_a_bounded_budget(tmp_
 
 
 def test_outbox_claim_prevents_two_workers_from_dispatching_the_same_case(tmp_path) -> None:
-    outbox = SqliteSubmissionOutbox(tmp_path / "outbox.db")
+    outbox = outbox_for(tmp_path)
     outbox.enqueue(SubmissionCase.from_result(
         BacktestResult("task", "rank(returns)", 1.6, 1.1, 0.2, 5.0, True, "alpha-1"),
         SubmissionEvidence(True, True, True, True, True),

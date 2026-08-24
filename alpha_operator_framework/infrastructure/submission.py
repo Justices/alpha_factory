@@ -2,13 +2,13 @@
 
 from __future__ import annotations
 
-import sqlite3
 import asyncio
 import inspect
 from dataclasses import dataclass
 from datetime import UTC, datetime, timedelta
-from pathlib import Path
 from typing import Any, Callable, Mapping
+
+from sqlalchemy import Engine, func, insert, select, update
 
 from alpha_operator_framework.knowledge.submission import SubmissionCase, SubmissionEvidence
 
@@ -56,90 +56,66 @@ class SubmissionReceipt:
     expression: str
 
 
-class SqliteSubmissionOutbox:
-    def __init__(self, path: Path) -> None:
-        self.path = path
-        with sqlite3.connect(path) as connection:
-            connection.execute(
-                "CREATE TABLE IF NOT EXISTS submission_outbox "
-                "(platform_alpha_id TEXT PRIMARY KEY, expression TEXT NOT NULL, status TEXT NOT NULL, "
-                "attempts INTEGER NOT NULL DEFAULT 0, last_error TEXT, lease_until TEXT)"
-            )
-            columns = {row[1] for row in connection.execute("PRAGMA table_info(submission_outbox)")}
-            if "attempts" not in columns:
-                connection.execute("ALTER TABLE submission_outbox ADD COLUMN attempts INTEGER NOT NULL DEFAULT 0")
-            if "last_error" not in columns:
-                connection.execute("ALTER TABLE submission_outbox ADD COLUMN last_error TEXT")
-            if "lease_until" not in columns:
-                connection.execute("ALTER TABLE submission_outbox ADD COLUMN lease_until TEXT")
+class SqlAlchemySubmissionOutbox:
+    """Database-neutral outbox used by the configured research runtime."""
+
+    def __init__(self, engine: Engine) -> None:
+        self.engine = engine
+        from alpha_operator_framework.infrastructure.sqlalchemy_migrations import submission_outbox
+
+        self.table = submission_outbox
 
     def pending(self, limit: int = 100) -> list[SubmissionReceipt]:
-        """Read, but do not claim, submissions awaiting a dedicated dispatch worker."""
-        with sqlite3.connect(self.path) as connection:
-            rows = connection.execute(
-                "SELECT platform_alpha_id, expression FROM submission_outbox "
-                "WHERE status = 'PENDING' ORDER BY platform_alpha_id LIMIT ?",
-                (limit,),
-            ).fetchall()
+        with self.engine.connect() as connection:
+            rows = connection.execute(select(self.table.c.platform_alpha_id, self.table.c.expression).where(
+                self.table.c.status == "PENDING").order_by(self.table.c.platform_alpha_id).limit(limit)).all()
         return [SubmissionReceipt(*row) for row in rows]
 
     def claim_pending(self, limit: int = 100, lease_seconds: int = 300) -> list[SubmissionReceipt]:
-        """Atomically lease pending rows so concurrent workers cannot dispatch them twice."""
         now = datetime.now(UTC)
         lease_until = (now + timedelta(seconds=lease_seconds)).isoformat()
-        now_text = now.isoformat()
-        with sqlite3.connect(self.path) as connection:
-            connection.execute("BEGIN IMMEDIATE")
-            connection.execute(
-                "UPDATE submission_outbox SET status = 'PENDING', lease_until = NULL "
-                "WHERE status = 'DISPATCHING' AND (lease_until IS NULL OR lease_until <= ?)",
-                (now_text,),
-            )
-            rows = connection.execute(
-                "SELECT platform_alpha_id, expression FROM submission_outbox "
-                "WHERE status = 'PENDING' ORDER BY platform_alpha_id LIMIT ?",
-                (limit,),
-            ).fetchall()
-            connection.executemany(
-                "UPDATE submission_outbox SET status = 'DISPATCHING', lease_until = ? "
-                "WHERE platform_alpha_id = ? AND status = 'PENDING'",
-                [(lease_until, row[0]) for row in rows],
-            )
-        return [SubmissionReceipt(*row) for row in rows]
+        with self.engine.begin() as connection:
+            connection.execute(update(self.table).where(
+                self.table.c.status == "DISPATCHING",
+                (self.table.c.lease_until.is_(None)) | (self.table.c.lease_until <= now.isoformat()),
+            ).values(status="PENDING", lease_until=None))
+            rows = connection.execute(select(self.table.c.platform_alpha_id, self.table.c.expression).where(
+                self.table.c.status == "PENDING").order_by(self.table.c.platform_alpha_id).limit(limit)).all()
+            claimed = []
+            for row in rows:
+                result = connection.execute(update(self.table).where(
+                    self.table.c.platform_alpha_id == row.platform_alpha_id, self.table.c.status == "PENDING",
+                ).values(status="DISPATCHING", lease_until=lease_until))
+                if result.rowcount:
+                    claimed.append(SubmissionReceipt(*row))
+        return claimed
 
     def mark_submitted(self, receipt: SubmissionReceipt) -> None:
-        with sqlite3.connect(self.path) as connection:
-            connection.execute(
-                "UPDATE submission_outbox SET status = 'SUBMITTED', lease_until = NULL WHERE platform_alpha_id = ?",
-                (receipt.platform_alpha_id,),
-            )
+        with self.engine.begin() as connection:
+            connection.execute(update(self.table).where(self.table.c.platform_alpha_id == receipt.platform_alpha_id).values(
+                status="SUBMITTED", lease_until=None))
 
     def record_failure(self, receipt: SubmissionReceipt, error: Exception, max_attempts: int) -> None:
-        """Keep a transient failure pending until its bounded retry budget is exhausted."""
-        with sqlite3.connect(self.path) as connection:
-            connection.execute(
-                "UPDATE submission_outbox SET attempts = attempts + 1, last_error = ?, lease_until = NULL, "
-                "status = CASE WHEN attempts + 1 < ? THEN 'PENDING' ELSE 'FAILED' END "
-                "WHERE platform_alpha_id = ?",
-                (str(error)[:1000], max_attempts, receipt.platform_alpha_id),
-            )
+        with self.engine.begin() as connection:
+            row = connection.execute(select(self.table.c.attempts).where(
+                self.table.c.platform_alpha_id == receipt.platform_alpha_id)).one()
+            attempts = row.attempts + 1
+            connection.execute(update(self.table).where(self.table.c.platform_alpha_id == receipt.platform_alpha_id).values(
+                attempts=attempts, last_error=str(error)[:1000], lease_until=None,
+                status="PENDING" if attempts < max_attempts else "FAILED"))
 
     def status_of(self, platform_alpha_id: str) -> tuple[str, int, str | None]:
-        with sqlite3.connect(self.path) as connection:
-            row = connection.execute(
-                "SELECT status, attempts, last_error FROM submission_outbox WHERE platform_alpha_id = ?",
-                (platform_alpha_id,),
-            ).fetchone()
+        with self.engine.connect() as connection:
+            row = connection.execute(select(self.table.c.status, self.table.c.attempts, self.table.c.last_error).where(
+                self.table.c.platform_alpha_id == platform_alpha_id)).one_or_none()
         if row is None:
             raise KeyError(platform_alpha_id)
-        return row[0], row[1], row[2]
+        return row.status, row.attempts, row.last_error
 
     def status_counts(self) -> dict[str, int]:
-        with sqlite3.connect(self.path) as connection:
-            rows = connection.execute(
-                "SELECT status, COUNT(*) FROM submission_outbox GROUP BY status"
-            ).fetchall()
-        return {status: count for status, count in rows}
+        with self.engine.connect() as connection:
+            rows = connection.execute(select(self.table.c.status, func.count()).group_by(self.table.c.status)).all()
+        return {str(status): int(count) for status, count in rows}
 
     def enqueue(self, case: SubmissionCase) -> SubmissionReceipt:
         approval = case.approve()
@@ -147,11 +123,12 @@ class SqliteSubmissionOutbox:
             raise ValueError(f"Submission case is not approved: {approval.reason}")
         alpha_id = case.result.platform_alpha_id
         assert alpha_id is not None
-        with sqlite3.connect(self.path) as connection:
-            connection.execute(
-                "INSERT OR IGNORE INTO submission_outbox(platform_alpha_id, expression, status) VALUES (?, ?, 'PENDING')",
-                (alpha_id, case.result.expression),
-            )
+        with self.engine.begin() as connection:
+            exists = connection.execute(select(self.table.c.platform_alpha_id).where(
+                self.table.c.platform_alpha_id == alpha_id)).scalar_one_or_none()
+            if exists is None:
+                connection.execute(insert(self.table).values(
+                    platform_alpha_id=alpha_id, expression=case.result.expression, status="PENDING", attempts=0))
         return SubmissionReceipt(alpha_id, case.result.expression)
 
     def dispatch(self, receipt: SubmissionReceipt) -> None:
@@ -186,7 +163,7 @@ class SubmissionOutboxWorker:
 
     def __init__(
         self,
-        outbox: SqliteSubmissionOutbox,
+        outbox: Any,
         gateway: CnhkMcpSubmissionGateway,
         max_attempts: int = 3,
     ) -> None:

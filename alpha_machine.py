@@ -21,10 +21,9 @@ from dataclasses import asdict, dataclass
 from pathlib import Path
 from typing import Any, Iterable, Sequence
 
-from alpha_operator_framework.database.config import get_database_path
 
 ROOT = Path(__file__).resolve().parents[1]
-DEFAULT_DATABASE_PATH = get_database_path()
+DEFAULT_RUNTIME_CONFIG_PATH = Path(__file__).with_name("configs") / "alpha-factory.yaml"
 STANDARD_WINDOWS = (5, 22, 66, 120, 252, 504)
 FIRST_ORDER_OPS = ("rank", "zscore", "quantile", "normalize", "ts_rank", "ts_zscore",
                    "ts_delta", "ts_mean", "ts_std_dev", "ts_sum", "ts_delay")
@@ -92,9 +91,10 @@ def write_json(path: Path, value: Any) -> None:
 
 
 def database_path(args: argparse.Namespace) -> Path:
-    """Return the durable simulation database, optionally overridden by the CLI."""
-    configured = getattr(args, "database", None)
-    return Path(configured) if configured else DEFAULT_DATABASE_PATH
+    """Resolve storage through the infrastructure YAML configuration."""
+    from alpha_operator_framework.infrastructure.maintenance import storage_path
+
+    return storage_path(Path(getattr(args, "config", DEFAULT_RUNTIME_CONFIG_PATH)))
 
 
 def prepare_super_candidates(database: Any, settings: dict[str, Any], *, max_candidates: int = 6) -> list[dict[str, Any]]:
@@ -368,7 +368,7 @@ async def simulate(tasks: Sequence[dict[str, Any]], args: argparse.Namespace,
     Returns:
         List of result dicts (with alpha_id/sharpe/fitness if waited)
     """
-    from alpha_operator_framework.database import AlphaDatabase
+    from alpha_operator_framework.infrastructure.maintenance import open_alpha_database
     from alpha_operator_framework.platform.simulation_tracker import SimulationTracker
     from cnhkmcp.untracked.platform_functions import brain_client
     await brain_client.ensure_authenticated()
@@ -385,7 +385,7 @@ async def simulate(tasks: Sequence[dict[str, Any]], args: argparse.Namespace,
             settings = {"region": args.region, "universe": args.universe, "delay": args.delay,
                         "decay": decay, "neutralization": args.neutralization, "truncation": args.truncation,
                         "nan_handling": args.nan_handling, "test_period": args.test_period}
-            db = AlphaDatabase(database_path(args))
+            db = open_alpha_database(Path(getattr(args, "config", DEFAULT_RUNTIME_CONFIG_PATH)))
             try:
                 def submit(batch_tasks):
                     payload = [{"type": "REGULAR", "settings": {
@@ -462,14 +462,14 @@ async def _wait_for_batch(tracker, batch_id: int, db,
         await asyncio.sleep(poll_interval)
 
 
-async def poll_simulation_batch(batch_id: int, database: Path = DEFAULT_DATABASE_PATH) -> dict[str, Any]:
+async def poll_simulation_batch(batch_id: int, config_path: Path) -> dict[str, Any]:
     """Poll one persisted platform batch without submitting a new simulation."""
-    from alpha_operator_framework.database import AlphaDatabase
+    from alpha_operator_framework.infrastructure.maintenance import open_alpha_database
     from alpha_operator_framework.platform.simulation_tracker import SimulationTracker
     from cnhkmcp.untracked.platform_functions import brain_client
 
     await brain_client.ensure_authenticated()
-    db = AlphaDatabase(database)
+    db = open_alpha_database(config_path)
     try:
         def fetch(location):
             url = _normalize_platform_url(brain_client.base_url, location)
@@ -491,7 +491,7 @@ async def poll_simulation_batch(batch_id: int, database: Path = DEFAULT_DATABASE
 
 async def simulate_super(candidates: Sequence[dict[str, Any]], args: argparse.Namespace) -> list[dict[str, Any]]:
     """Submit each durable SUPER hypothesis once; polling is a separate command."""
-    from alpha_operator_framework.database import AlphaDatabase
+    from alpha_operator_framework.infrastructure.maintenance import open_alpha_database
     from alpha_operator_framework.platform.simulation_tracker import SimulationTracker
     from alpha_operator_framework.generation.super_alpha import super_simulation_payload
     from cnhkmcp.untracked.platform_functions import brain_client
@@ -503,7 +503,7 @@ async def simulate_super(candidates: Sequence[dict[str, Any]], args: argparse.Na
     results = []
     for candidate in candidates:
         task = {**candidate, "expression": candidate["candidate_sha"], "decay": args.decay}
-        db = AlphaDatabase(database_path(args))
+        db = open_alpha_database(Path(getattr(args, "config", DEFAULT_RUNTIME_CONFIG_PATH)))
         try:
             def submit(tasks):
                 payload = super_simulation_payload(tasks[0], {"instrumentType": "EQUITY", **settings,
@@ -590,17 +590,17 @@ def command_simulate(args: argparse.Namespace) -> None:
 
 
 def command_poll_simulation(args: argparse.Namespace) -> None:
-    payload = asyncio.run(poll_simulation_batch(args.batch_id, database_path(args)))
+    payload = asyncio.run(poll_simulation_batch(args.batch_id, Path(getattr(args, "config", DEFAULT_RUNTIME_CONFIG_PATH))))
     write_json(Path(args.output), payload)
     batch = payload["batch"]
     print(f"batch={args.batch_id} status={batch['status']} completed={batch['completed_count']} failed={batch['failed_count']}")
 
 
 def command_prepare_super(args: argparse.Namespace) -> None:
-    from alpha_operator_framework.database import AlphaDatabase
+    from alpha_operator_framework.infrastructure.maintenance import open_alpha_database
     settings = {"region": args.region, "universe": args.universe, "delay": args.delay, "decay": args.decay,
                 "neutralization": args.neutralization, "truncation": args.truncation, "nan_handling": args.nan_handling}
-    db = AlphaDatabase(database_path(args))
+    db = open_alpha_database(Path(getattr(args, "config", DEFAULT_RUNTIME_CONFIG_PATH)))
     try:
         candidates = prepare_super_candidates(db, settings, max_candidates=args.max_candidates)
     finally:
@@ -634,7 +634,7 @@ def command_research(args: argparse.Namespace) -> None:
         provider=getattr(args, "provider", None),
         model=getattr(args, "model", None),
         execute_on_platform=getattr(args, "execute", False),
-        database_path=getattr(args, "database", DEFAULT_DATABASE_PATH),
+        database_path=database_path(args),
         save_to_db=True,
         output_report_path=getattr(args, "output", None),
     )
@@ -663,9 +663,10 @@ def command_mine(args: argparse.Namespace) -> None:
     print("\n" + res.summary_markdown())
 
 
-def add_settings(parser: argparse.ArgumentParser) -> None:
-    parser.add_argument("--region", required=True); parser.add_argument("--universe", required=True)
-    parser.add_argument("--delay", type=int, default=1)
+def add_settings(parser: argparse.ArgumentParser, *, required: bool = True) -> None:
+    parser.add_argument("--region", required=required, default=None if not required else None)
+    parser.add_argument("--universe", required=required, default=None if not required else None)
+    parser.add_argument("--delay", type=int, default=None if not required else 1)
 
 
 def main() -> None:
@@ -696,28 +697,28 @@ def main() -> None:
     add_settings(sim); sim.add_argument("--tasks", required=True); sim.add_argument("--output", required=True); sim.add_argument("--execute", action="store_true")
     sim.add_argument("--batch-size", type=int, default=8); sim.add_argument("--neutralization", default="SUBINDUSTRY"); sim.add_argument("--truncation", type=float, default=0.08)
     sim.add_argument("--nan-handling", default="OFF"); sim.add_argument("--test-period", default="P0Y0M")
-    sim.add_argument("--database", default=str(DEFAULT_DATABASE_PATH), help="持久化回测状态的 SQLite 文件")
+    sim.add_argument("--config", default=str(DEFAULT_RUNTIME_CONFIG_PATH), help="运行时 YAML 配置文件")
     sim.set_defaults(func=command_simulate)
     poll = sub.add_parser("poll-simulation", help="Poll an existing persisted BRAIN simulation batch")
     poll.add_argument("--batch-id", required=True, type=int)
     poll.add_argument("--output", required=True)
-    poll.add_argument("--database", default=str(DEFAULT_DATABASE_PATH), help="持久化回测状态的 SQLite 文件")
+    poll.add_argument("--config", default=str(DEFAULT_RUNTIME_CONFIG_PATH), help="运行时 YAML 配置文件")
     poll.set_defaults(func=command_poll_simulation)
     super_prepare = sub.add_parser("prepare-super", help="从已回测普通 Alpha 构造并持久化 Super Alpha 候选")
     add_settings(super_prepare)
-    super_prepare.add_argument("--output", required=True); super_prepare.add_argument("--database", default=str(DEFAULT_DATABASE_PATH))
+    super_prepare.add_argument("--output", required=True); super_prepare.add_argument("--config", default=str(DEFAULT_RUNTIME_CONFIG_PATH), help="运行时 YAML 配置文件")
     super_prepare.add_argument("--max-candidates", type=int, default=6); super_prepare.add_argument("--decay", type=float, default=6)
     super_prepare.add_argument("--neutralization", default="SUBINDUSTRY"); super_prepare.add_argument("--truncation", type=float, default=0.08)
     super_prepare.add_argument("--nan-handling", default="OFF"); super_prepare.set_defaults(func=command_prepare_super)
     super_sim = sub.add_parser("simulate-super", help="异步提交已准备的 Super Alpha 候选")
     add_settings(super_sim); super_sim.add_argument("--candidates", required=True); super_sim.add_argument("--output", required=True)
-    super_sim.add_argument("--execute", action="store_true"); super_sim.add_argument("--database", default=str(DEFAULT_DATABASE_PATH))
+    super_sim.add_argument("--execute", action="store_true"); super_sim.add_argument("--config", default=str(DEFAULT_RUNTIME_CONFIG_PATH), help="运行时 YAML 配置文件")
     super_sim.add_argument("--decay", type=float, default=6); super_sim.add_argument("--neutralization", default="SUBINDUSTRY")
     super_sim.add_argument("--truncation", type=float, default=0.08); super_sim.add_argument("--nan-handling", default="OFF")
     super_sim.set_defaults(func=command_simulate_super)
     super_poll = sub.add_parser("poll-super", help="轮询已持久化的 Super Alpha 回测批次")
     super_poll.add_argument("--batch-id", required=True, type=int); super_poll.add_argument("--output", required=True)
-    super_poll.add_argument("--database", default=str(DEFAULT_DATABASE_PATH)); super_poll.set_defaults(func=command_poll_simulation)
+    super_poll.add_argument("--config", default=str(DEFAULT_RUNTIME_CONFIG_PATH), help="运行时 YAML 配置文件"); super_poll.set_defaults(func=command_poll_simulation)
     research_p = sub.add_parser("research", help="全自动研报/文献认知提炼、动态字段对齐、真实平台回测与终审评级直通流水线")
     research_p.add_argument("--paper", "-p", required=True, help="论文或研报文件路径 (PDF / Markdown / TXT)")
     research_p.add_argument("--region", "-r", default="GBR", help="目标市场区域 (默认: GBR)")
@@ -731,6 +732,7 @@ def main() -> None:
     research_p.add_argument("--model", default=None, help="指定具体模型名称")
     research_p.add_argument("--execute", "-e", action="store_true", help="直接向 WorldQuant BRAIN 平台提交真实在线回测")
     research_p.add_argument("--output", "-o", default=None, help="输出 Markdown 研报路径")
+    research_p.add_argument("--config", default=str(DEFAULT_RUNTIME_CONFIG_PATH), help="运行时 YAML 配置文件")
     research_p.set_defaults(func=command_research)
     mine_p = sub.add_parser("mine", help="一键执行分层地毯式挖掘、流式落库、剪枝与正向自优化全闭环流水线")
     add_settings(mine_p)
@@ -745,12 +747,12 @@ def main() -> None:
     mine_p.add_argument("--output", "-o", default=None, help="输出 Markdown 研报路径")
     mine_p.set_defaults(func=command_mine)
     init_db_p = sub.add_parser("init-db", help="初始化或校验 SQLite 研究数据库表结构与索引 (无需提交 .db 文件)")
-    init_db_p.add_argument("--database", default=str(DEFAULT_DATABASE_PATH), help="指定 SQLite 数据库存储路径")
+    init_db_p.add_argument("--config", default=str(DEFAULT_RUNTIME_CONFIG_PATH), help="运行时 YAML 配置文件")
     init_db_p.add_argument("--reset", action="store_true", help="清空并全新初始化数据库")
     init_db_p.add_argument("--verify", action="store_true", help="仅校验现有数据库完整性")
     init_db_p.set_defaults(func=command_init_db)
     clean_db_p = sub.add_parser("clean-db", help="清理与维护 SQLite 研究数据库 (清理失败项、剪枝项或释放空间)")
-    clean_db_p.add_argument("--database", default=str(DEFAULT_DATABASE_PATH), help="指定 SQLite 数据库存储路径")
+    clean_db_p.add_argument("--config", default=str(DEFAULT_RUNTIME_CONFIG_PATH), help="运行时 YAML 配置文件")
     clean_db_p.add_argument(
         "--mode",
         choices=["failed", "pruned", "pending", "stale", "all_data"],
@@ -762,8 +764,10 @@ def main() -> None:
     clean_db_p.set_defaults(func=command_clean_db)
     drill_p = sub.add_parser("drill-recovery", help="执行端到端事件溯源小批崩溃恢复与 6 维治理演练")
     drill_p.add_argument("--temp", action="store_true", default=True, help="使用临时隔离沙盒数据库进行演练")
+    drill_p.add_argument("--config", default=str(DEFAULT_RUNTIME_CONFIG_PATH), help="运行时 YAML 配置文件（仅 --temp 关闭时使用）")
     drill_p.set_defaults(func=command_drill_recovery)
     auto_p = sub.add_parser("auto-pilot", help="全自动无人值守投研流水线: 预检 ➔ 真实并发挖掘 ➔ 6维证据终审 ➔ 空间清理释放 ➔ 汇总研报")
+    auto_p.add_argument("--config", default=str(DEFAULT_RUNTIME_CONFIG_PATH), help="运行时 YAML 配置文件")
     add_settings(auto_p)
     auto_p.add_argument("--datasets", "-d", default="analyst7", help="指定挖掘的数据集ID列表 (如: analyst7,fundamental31)")
     auto_p.add_argument("--paper", "-p", default=None, help="可选：指定研报或论文文件路径 (传入时优先运行文献提炼)")
@@ -780,11 +784,11 @@ def main() -> None:
     auto_p.add_argument("--output", "-o", default=None, help="指定生产汇总报告输出路径")
     auto_p.set_defaults(func=command_auto_pilot)
     status_p = sub.add_parser("status", help="查看生产投研状态看板、达标Alpha、回测进度与模板沉淀")
-    status_p.add_argument("--database", "--db", default=None, help="数据库路径 (默认: data/alpha_research.db)")
+    status_p.add_argument("--config", default=str(DEFAULT_RUNTIME_CONFIG_PATH), help="运行时 YAML 配置文件")
     status_p.set_defaults(func=command_status)
 
     rc_p = sub.add_parser("research-cycle", help="全新 DDD 架构 10 阶段全流程投研生命周期 (支持 4 大抽样算法 & 二维共识剪枝)")
-    add_settings(rc_p)
+    add_settings(rc_p, required=False)
     rc_p.add_argument("--datasets", "-d", default=None, help="指定数据集列表 (逗号分隔)")
     rc_p.add_argument("--algorithm", "-a", choices=["stratified", "d_optimal", "thompson", "ucb", "diversity"], default=None, help="抽样算法；策略文件存在时必须一致")
     rc_p.add_argument("--sample-per-family", "-s", type=int, default=None, help="每类抽样数量；策略文件存在时不得另行指定")
@@ -797,19 +801,19 @@ def main() -> None:
     rc_p.add_argument("--submission-evidence-file", default=None, help="已核验证据 JSON（按平台 Alpha ID 映射）；与 --authorize-submission 一起使用")
     rc_p.add_argument("--seed", type=int, default=42, help="随机种子 (默认: 42)")
     rc_p.add_argument("--round-id", default=None, help="可追溯的投研轮次标识；生产调度应显式提供")
-    rc_p.add_argument("--database", "--db", default=None, help="数据库路径")
+    rc_p.add_argument("--config", default=str(DEFAULT_RUNTIME_CONFIG_PATH), help="运行时 YAML 配置文件")
     rc_p.add_argument("--policy-file", default=None, help="版本化 JSON/YAML 策略文件")
     rc_p.add_argument("--telemetry-file", default=None, help="JSONL 遥测输出路径")
     rc_p.set_defaults(func=command_research_cycle)
     worker_p = sub.add_parser("research-worker", help="恢复并执行已提交、未终态的 event-led 研究批次")
     worker_p.add_argument("--round-id", required=True, help="待恢复的研究轮次")
-    worker_p.add_argument("--database", "--db", default=None, help="研究数据库路径")
+    worker_p.add_argument("--config", default=str(DEFAULT_RUNTIME_CONFIG_PATH), help="运行时 YAML 配置文件")
     worker_p.add_argument("--telemetry-file", default=None, help="JSONL 遥测输出路径")
     worker_p.add_argument("--authorize-submission", action="store_true", help="显式允许已核验证据的候选进入提交 outbox")
     worker_p.add_argument("--submission-evidence-file", default=None, help="已核验证据 JSON（按平台 Alpha ID 映射）")
     worker_p.set_defaults(func=command_research_worker)
     submission_p = sub.add_parser("submission-dispatch", help="派发已审批的提交 outbox；不会重新评估或自动授权")
-    submission_p.add_argument("--database", "--db", default=None, help="研究数据库路径")
+    submission_p.add_argument("--config", default=str(DEFAULT_RUNTIME_CONFIG_PATH), help="运行时 YAML 配置文件")
     submission_p.add_argument("--limit", type=int, default=100, help="单次最多派发数量")
     submission_p.add_argument("--max-attempts", type=int, default=3, help="单个提交的最多派发尝试次数")
     submission_p.set_defaults(func=command_submission_dispatch)
@@ -820,21 +824,26 @@ def main() -> None:
 def command_research_cycle(args: argparse.Namespace) -> None:
     """Compose one new ResearchRound from local fields and explicit execution intent."""
     from alpha_operator_framework.application.research_cycle import ResearchCycleRequest
-    from alpha_operator_framework.application.research_runtime import ResearchRuntime
+    from alpha_operator_framework.infrastructure.runtime_factory import build_research_runtime, resolve_research_options
     from alpha_operator_framework.infrastructure.telemetry import JsonLinesTelemetrySink
     from alpha_operator_framework.research.field_loader import load_real_market_fields
     from alpha_operator_framework.research.construction import AstCandidateBuilder, ConstructionTemplate
     from alpha_operator_framework.research.round import ResearchPolicy
     from alpha_operator_framework.research.policy import load_policy
 
-    db_path = Path(args.database) if getattr(args, "database", None) else DEFAULT_DATABASE_PATH
+    config_path = Path(getattr(args, "config", DEFAULT_RUNTIME_CONFIG_PATH))
+    cli_options = {name: getattr(args, name, None) for name in (
+        "region", "universe", "delay", "decay", "neutralization", "truncation",
+        "sample_per_family", "seed",
+    )}
+    options = resolve_research_options(config_path, cli_options)
     datasets_list = args.datasets.split(",") if getattr(args, "datasets", None) else None
     policy_snapshot = load_policy(Path(args.policy_file)) if getattr(args, "policy_file", None) else None
     resolved_policy = policy_snapshot.to_research_policy() if policy_snapshot is not None else None
     field_specs = load_real_market_fields(
-        region=resolved_policy.region if resolved_policy is not None else args.region,
-        universe=resolved_policy.universe if resolved_policy is not None else args.universe,
-        delay=resolved_policy.delay if resolved_policy is not None else (getattr(args, "delay", None) if getattr(args, "delay", None) is not None else 1),
+        region=resolved_policy.region if resolved_policy is not None else options["region"],
+        universe=resolved_policy.universe if resolved_policy is not None else options["universe"],
+        delay=resolved_policy.delay if resolved_policy is not None else options.get("delay", 1),
         datasets=datasets_list,
     )
     matrix_fields = [field.id for field in field_specs if (field.type or "MATRIX").upper() == "MATRIX"]
@@ -842,17 +851,16 @@ def command_research_cycle(args: argparse.Namespace) -> None:
         ConstructionTemplate("rank_field", "rank({field})", "cross_sectional", ("rank",)),
         ConstructionTemplate("ts_rank_22", "ts_rank({field}, 22)", "time_series", ("ts_rank",)),
     ))
-    sample_per_family = args.sample_per_family if args.sample_per_family is not None else 4
+    sample_per_family = options.get("sample_per_family", 4)
     quotas = {candidate.family: sample_per_family for candidate in candidates}
     strategy = {"stratified": "weighted_stratified", "d_optimal": "diversity"}.get(
-        getattr(args, "algorithm", None) or "weighted_stratified", getattr(args, "algorithm", None) or "weighted_stratified",
+        getattr(args, "algorithm", None) or options.get("selection_strategy", "weighted_stratified"), getattr(args, "algorithm", None) or options.get("selection_strategy", "weighted_stratified"),
     )
     policy = resolved_policy if resolved_policy is not None else ResearchPolicy(
-        region=args.region, universe=args.universe, max_backtests=sum(quotas.values()), family_quotas=quotas,
+        region=options["region"], universe=options["universe"], max_backtests=sum(quotas.values()), family_quotas=quotas,
         policy_version=getattr(args, "policy_version", "cli-v1"), selection_strategy=strategy,
-        delay=getattr(args, "delay", None) if getattr(args, "delay", None) is not None else 1,
-        decay=getattr(args, "decay", None) if getattr(args, "decay", None) is not None else 8,
-        neutralization=getattr(args, "neutralization", None) or "SUBINDUSTRY", truncation=getattr(args, "truncation", None) if getattr(args, "truncation", None) is not None else 0.08)
+        delay=options.get("delay", 1), decay=options.get("decay", 8),
+        neutralization=options.get("neutralization", "SUBINDUSTRY"), truncation=options.get("truncation", 0.08))
     if getattr(args, "policy_file", None):
         from alpha_operator_framework.research.policy import validate_cli_policy_overrides
         validate_cli_policy_overrides(policy, {
@@ -873,15 +881,15 @@ def command_research_cycle(args: argparse.Namespace) -> None:
         evidence_records = json.loads(Path(evidence_file).read_text(encoding="utf-8"))
         if not isinstance(evidence_records, dict):
             raise ValueError("submission evidence JSON must map platform alpha IDs to evidence records")
-    runtime = ResearchRuntime.create(
-        db_path,
+    runtime = build_research_runtime(
+        config_path,
         execute_platform=args.execute,
         evidence_records=evidence_records,
         submission_authorized=authorize_submission,
     )
     summary = runtime.plan(ResearchCycleRequest(
-        round_id=getattr(args, "round_id", None) or f"research-{args.region}-{args.universe}-{args.seed or 42}",
-        seed=args.seed or 42,
+        round_id=getattr(args, "round_id", None) or f"research-{policy.region}-{policy.universe}-{options.get('seed', 42)}",
+        seed=options.get("seed", 42),
         policy=policy,
         knowledge=runtime.knowledge_base.snapshot(),
         candidates=candidates,
@@ -908,10 +916,9 @@ def command_research_cycle(args: argparse.Namespace) -> None:
 
 def command_research_worker(args: argparse.Namespace) -> None:
     """Resume a submitted round through the same composition root as planning."""
-    from alpha_operator_framework.application.research_runtime import ResearchRuntime
+    from alpha_operator_framework.infrastructure.runtime_factory import build_research_runtime
     from alpha_operator_framework.infrastructure.telemetry import JsonLinesTelemetrySink
 
-    db_path = Path(args.database) if getattr(args, "database", None) else DEFAULT_DATABASE_PATH
     authorized = bool(getattr(args, "authorize_submission", False))
     evidence_file = getattr(args, "submission_evidence_file", None)
     if authorized and not evidence_file:
@@ -923,8 +930,8 @@ def command_research_worker(args: argparse.Namespace) -> None:
         evidence_records = json.loads(Path(evidence_file).read_text(encoding="utf-8"))
         if not isinstance(evidence_records, dict):
             raise ValueError("submission evidence JSON must map platform alpha IDs to evidence records")
-    runtime = ResearchRuntime.create(
-        db_path,
+    runtime = build_research_runtime(
+        Path(getattr(args, "config", DEFAULT_RUNTIME_CONFIG_PATH)),
         execute_platform=True,
         evidence_records=evidence_records,
         submission_authorized=authorized,
@@ -939,12 +946,11 @@ def command_submission_dispatch(args: argparse.Namespace) -> None:
     """Dispatch only cases already approved and durably queued by a prior cycle."""
     from alpha_operator_framework.infrastructure.submission import (
         CnhkMcpSubmissionGateway,
-        SqliteSubmissionOutbox,
         SubmissionOutboxWorker,
     )
+    from alpha_operator_framework.infrastructure.runtime_factory import build_submission_outbox
 
-    db_path = Path(args.database) if getattr(args, "database", None) else DEFAULT_DATABASE_PATH
-    outbox = SqliteSubmissionOutbox(db_path)
+    outbox = build_submission_outbox(Path(getattr(args, "config", DEFAULT_RUNTIME_CONFIG_PATH)))
     dispatched = SubmissionOutboxWorker(
         outbox,
         CnhkMcpSubmissionGateway(),
@@ -955,16 +961,16 @@ def command_submission_dispatch(args: argparse.Namespace) -> None:
 
 def command_status(args: argparse.Namespace) -> None:
     """展示生产环境投研状态综合看板."""
-    from alpha_operator_framework.database.repository import AlphaDatabase
-    from alpha_operator_framework.database.config import get_database_path
+    from alpha_operator_framework.infrastructure.maintenance import open_alpha_database, storage_path
 
-    db_path = Path(args.database) if args.database else get_database_path()
+    config_path = Path(getattr(args, "config", DEFAULT_RUNTIME_CONFIG_PATH))
+    db_path = storage_path(config_path)
     if not db_path.exists():
         print(f"❌ 生产数据库未就绪: {db_path.resolve()}")
         print("💡 请先执行: python init_db.py")
         return
 
-    db = AlphaDatabase(db_path=str(db_path))
+    db = open_alpha_database(config_path)
     try:
         db_size_mb = db_path.stat().st_size / (1024 * 1024)
         print("=" * 75)
@@ -1038,24 +1044,26 @@ def command_status(args: argparse.Namespace) -> None:
 
 
 def command_init_db(args: argparse.Namespace) -> None:
-    from alpha_operator_framework.database.init_db import init_database, verify_database
-    db_file = Path(args.database)
+    from alpha_operator_framework.infrastructure.maintenance import initialize_storage, storage_path, verify_storage
+
+    config_path = Path(getattr(args, "config", DEFAULT_RUNTIME_CONFIG_PATH))
+    db_file = storage_path(config_path)
     if args.verify:
         if not db_file.exists():
             print(f"ℹ️  数据库文件未创建: {db_file}，正在自动为您全新初始化...")
-            success, _ = init_database(db_path=db_file, reset=False)
+            success = initialize_storage(config_path, reset=False)
             if not success:
                 sys.exit(1)
-        success = verify_database(db_file)
+        success = verify_storage(config_path)
         sys.exit(0 if success else 1)
-    success, _ = init_database(db_path=db_file, reset=args.reset)
+    success = initialize_storage(config_path, reset=args.reset)
     sys.exit(0 if success else 1)
 
 
 def command_clean_db(args: argparse.Namespace) -> None:
-    from alpha_operator_framework.database.cleaner import clean_alpha_research_db
-    clean_alpha_research_db(
-        db_path=Path(args.database),
+    from alpha_operator_framework.infrastructure.maintenance import clean_storage
+    clean_storage(
+        Path(getattr(args, "config", DEFAULT_RUNTIME_CONFIG_PATH)),
         mode=args.mode,
         dry_run=args.dry_run,
         vacuum=not args.no_vacuum,
@@ -1065,7 +1073,7 @@ def command_clean_db(args: argparse.Namespace) -> None:
 def command_drill_recovery(args: argparse.Namespace) -> None:
     """执行端到端小批崩溃恢复与 6 维治理演练."""
     import tempfile
-    from alpha_operator_framework.application.research_runtime import ResearchRuntime
+    from alpha_operator_framework.infrastructure.runtime_factory import build_research_runtime
     from alpha_operator_framework.application.research_cycle import ResearchCycleRequest
     from alpha_operator_framework.research.round import Candidate, ResearchPolicy
     from alpha_operator_framework.experiment.models import BacktestResult
@@ -1077,11 +1085,12 @@ def command_drill_recovery(args: argparse.Namespace) -> None:
 
     if getattr(args, "temp", True):
         tmp_dir = tempfile.mkdtemp()
-        db_path = Path(tmp_dir) / "drill_research.db"
-        print(f"  [沙盒] 创建隔离演练环境: {db_path}")
+        config_path = Path(tmp_dir) / "alpha-factory.yaml"
+        config_path.write_text("storage:\n  driver: sqlite\n  path: drill_research.db\nresearch:\n  execute_platform: true\n", encoding="utf-8")
+        print(f"  [沙盒] 创建隔离演练配置: {config_path}")
     else:
-        db_path = Path(args.database)
-        print(f"  [环境] 使用主数据库环境: {db_path}")
+        config_path = Path(getattr(args, "config", DEFAULT_RUNTIME_CONFIG_PATH))
+        print(f"  [环境] 使用配置: {config_path}")
 
     # 1. 策略初始化与时间窗口锁死
     policy = ResearchPolicy(
@@ -1108,8 +1117,8 @@ def command_drill_recovery(args: argparse.Namespace) -> None:
             ]
 
     # 2. 计划候选因子，模拟平台已 ACCEPTED 但在完成前发生异常退出 (Crash Injection)
-    runtime_init = ResearchRuntime.create(
-        db_path,
+    runtime_init = build_research_runtime(
+        config_path,
         execute_platform=True,
         backtest_gateway=MockBacktestGateway(),
     )
@@ -1126,8 +1135,8 @@ def command_drill_recovery(args: argparse.Namespace) -> None:
 
     # 3. 模拟进程重启，启动新运行时从持久化存储恢复并执行 Worker
     print(f"  [Step 3] 模拟进程重启，重新加载事件存储并恢复 Outbox 挂起任务...")
-    runtime_recovered = ResearchRuntime.create(
-        db_path,
+    runtime_recovered = build_research_runtime(
+        config_path,
         execute_platform=True,
         backtest_gateway=MockBacktestGateway(),
         evidence_records={
@@ -1180,14 +1189,12 @@ def command_auto_pilot(args: argparse.Namespace) -> None:
     """全自动无人值守投研流水线: 预检 ➔ 真实并发挖掘 ➔ 6 维证据终审 ➔ 磁盘清理释放 ➔ 汇总研报."""
     import time
     from datetime import datetime
-    from alpha_operator_framework.database.init_db import verify_database, init_database
-    from alpha_operator_framework.database.cleaner import clean_alpha_research_db
-    from alpha_operator_framework.database.repository import AlphaDatabase
+    from alpha_operator_framework.infrastructure.maintenance import clean_storage, initialize_storage, open_alpha_database, verify_storage
     from alpha_operator_framework.domain.evidence import SubmissionApprovalEngine, EvidenceLevel
 
     start_time = time.time()
     timestamp_str = datetime.now().strftime("%Y%m%d_%H%M%S")
-    db_path = Path(getattr(args, "database", DEFAULT_DATABASE_PATH))
+    config_path = Path(getattr(args, "config", DEFAULT_RUNTIME_CONFIG_PATH))
 
     print("=" * 75)
     print("🚀 启动 Alpha Factory 全自动无人值守投研流水线 (Auto-Pilot Pipeline)")
@@ -1198,14 +1205,9 @@ def command_auto_pilot(args: argparse.Namespace) -> None:
 
     # Phase 1: 预检与数据库就绪
     print("\n[Phase 1/4] 数据库与环境自检...")
-    if not db_path.exists():
-        print(f"  数据库不存在，正在初始化主库: {db_path}")
-        init_database(db_path=db_path)
-    else:
-        verified = verify_database(db_path)
-        if not verified:
-            print(f"  数据库结构升级修复中...")
-            init_database(db_path=db_path)
+    if not verify_storage(config_path):
+        print(f"  数据库结构升级修复中...")
+        initialize_storage(config_path, reset=False)
 
     # Phase 2: 执行真实回测/挖掘
     print(f"\n[Phase 2/4] 启动因子生产与回测 (Mode: {'Literature' if getattr(args, 'paper', None) else 'Carpet Mining'})...")
@@ -1216,7 +1218,7 @@ def command_auto_pilot(args: argparse.Namespace) -> None:
 
     # Phase 3: 6 维提交证据终审与流转
     print("\n[Phase 3/4] 执行 6 维提交证据终审与状态机流转 (Locked-OOS, 18 Checks, SC/PC, 摩擦)...")
-    db = AlphaDatabase(db_path)
+    db = open_alpha_database(config_path)
     approved_alphas = []
     audited_count = 0
     try:
@@ -1268,7 +1270,7 @@ def command_auto_pilot(args: argparse.Namespace) -> None:
     # Phase 4: 数据库清理与空间彻底释放
     if not getattr(args, "no_clean", False) and args.execute:
         print("\n[Phase 4/4] 执行数据库维护与磁盘物理空间释放 (VACUUM)...")
-        clean_alpha_research_db(db_path=db_path, mode="stale", dry_run=False, vacuum=True)
+        clean_storage(config_path, mode="stale", dry_run=False, vacuum=True)
     else:
         print("\n[Phase 4/4] 跳过数据库清理 (--no-clean 或 Dry-Run 模式)")
 

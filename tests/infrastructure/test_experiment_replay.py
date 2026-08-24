@@ -4,7 +4,9 @@ from __future__ import annotations
 
 from alpha_operator_framework.experiment.lifecycle import BatchState, transition
 from alpha_operator_framework.experiment.models import BacktestResult, EvaluationRecord, ExperimentBatch
-from alpha_operator_framework.infrastructure.sqlite import SqliteExperimentRepository
+from alpha_operator_framework.infrastructure.sqlalchemy_migrations import migrate
+from alpha_operator_framework.infrastructure.sqlalchemy_repositories import SqlAlchemyExperimentRepository
+from alpha_operator_framework.infrastructure.storage import StorageConfig, create_storage_engine
 from alpha_operator_framework.research.round import Candidate, ResearchPolicy
 
 
@@ -19,7 +21,8 @@ def test_repository_replays_tasks_results_evaluations_and_transitions(tmp_path) 
     batch.record_result(BacktestResult(task.task_id, task.expression, 1.5, 1.1, 0.2, 5.0, True, "alpha-1"))
     batch.record_evaluation(EvaluationRecord(task.task_id, "READY", 1, False))
     transition(batch, BatchState.COMPLETED)
-    repository = SqliteExperimentRepository(tmp_path / "rounds.db")
+    engine = create_storage_engine(StorageConfig.from_mapping({"driver": "sqlite", "path": "rounds.db"}, base_path=tmp_path)); migrate(engine)
+    repository = SqlAlchemyExperimentRepository(engine)
 
     repository.save_batch(batch)
 

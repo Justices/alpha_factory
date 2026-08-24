@@ -7,7 +7,9 @@ from alpha_operator_framework.core.event_store import EventStore
 from alpha_operator_framework.experiment.models import BacktestResult, ExperimentBatch
 from alpha_operator_framework.experiment.lifecycle import BatchState, transition
 from alpha_operator_framework.infrastructure.brain import DryRunGateway
-from alpha_operator_framework.infrastructure.sqlite import SqliteExperimentRepository
+from alpha_operator_framework.infrastructure.sqlalchemy_migrations import migrate
+from alpha_operator_framework.infrastructure.sqlalchemy_repositories import SqlAlchemyExperimentRepository
+from alpha_operator_framework.infrastructure.storage import StorageConfig, create_storage_engine
 from alpha_operator_framework.infrastructure.telemetry import ResearchTelemetry
 from alpha_operator_framework.knowledge.models import KnowledgeBase
 from alpha_operator_framework.research.round import Candidate, KnowledgeSnapshot, ResearchPolicy
@@ -125,7 +127,8 @@ def test_live_cycle_only_submits_work_for_the_worker() -> None:
 
 def test_live_cycle_persists_submitted_batch(tmp_path) -> None:
     repository = MemoryRepository()
-    experiment_repository = SqliteExperimentRepository(tmp_path / "rounds.db")
+    engine = create_storage_engine(StorageConfig.from_mapping({"driver": "sqlite", "path": "rounds.db"}, base_path=tmp_path)); migrate(engine)
+    experiment_repository = SqlAlchemyExperimentRepository(engine)
     use_case = ResearchCycleUseCase(repository, CompletedGateway(), KnowledgeBase(), experiment_repository, event_store=EventStore())
     request = ResearchCycleRequest(
         round_id="round-persisted", seed=9,

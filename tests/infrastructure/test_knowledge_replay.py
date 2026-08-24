@@ -1,13 +1,16 @@
 """SQLite knowledge persistence tests."""
 
-from alpha_operator_framework.infrastructure.sqlite import SqliteKnowledgeRepository
+from alpha_operator_framework.infrastructure.sqlalchemy_migrations import migrate
+from alpha_operator_framework.infrastructure.sqlalchemy_repositories import SqlAlchemyKnowledgeRepository
+from alpha_operator_framework.infrastructure.storage import StorageConfig, create_storage_engine
 from alpha_operator_framework.knowledge.models import KnowledgeBase
 
 
 def test_repository_reloads_latest_knowledge_snapshot(tmp_path) -> None:
     knowledge = KnowledgeBase(version=3, field_scores={"returns": 0.4}, operator_scores={"rank": 0.2},
                               template_scores={"rank_field": 0.1}, rejected_templates={"bad"}, field_trials={"returns": 2})
-    repository = SqliteKnowledgeRepository(tmp_path / "rounds.db")
+    engine = create_storage_engine(StorageConfig.from_mapping({"driver": "sqlite", "path": "rounds.db"}, base_path=tmp_path)); migrate(engine)
+    repository = SqlAlchemyKnowledgeRepository(engine)
 
     repository.save(knowledge)
 
@@ -15,7 +18,8 @@ def test_repository_reloads_latest_knowledge_snapshot(tmp_path) -> None:
 
 
 def test_repository_retains_immutable_version_history(tmp_path) -> None:
-    repository = SqliteKnowledgeRepository(tmp_path / "knowledge.db")
+    engine = create_storage_engine(StorageConfig.from_mapping({"driver": "sqlite", "path": "knowledge.db"}, base_path=tmp_path)); migrate(engine)
+    repository = SqlAlchemyKnowledgeRepository(engine)
     first = KnowledgeBase(version=1, field_scores={"close": 0.2})
     second = KnowledgeBase(version=2, field_scores={"open": 0.4})
 

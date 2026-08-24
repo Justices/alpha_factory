@@ -7,13 +7,13 @@ from __future__ import annotations
 
 import json
 import re
-import sqlite3
 from datetime import datetime
 from pathlib import Path
 from typing import Any, Dict, List, Optional, Sequence, Tuple, Union
 
 from .config import get_database_path, DEFAULT_SQLITE_PATH
 from .connection import DatabaseConnectionManager
+from alpha_operator_framework.infrastructure.storage import StorageConfig
 
 
 def _num(data: Dict, key: str) -> Optional[float]:
@@ -89,20 +89,23 @@ class BaseRepository:
 
     def __init__(
         self,
-        db_path: Optional[Union[str, Path, DatabaseConnectionManager]] = None,
+        db_path: Optional[Union[str, Path, StorageConfig, DatabaseConnectionManager]] = None,
         timeout: float = 30.0,
         wal_mode: bool = True,
     ):
         if isinstance(db_path, DatabaseConnectionManager):
             self.manager = db_path
             self.db_path = getattr(self.manager, "db_path", get_database_path(None))
+        elif isinstance(db_path, StorageConfig):
+            self.manager = DatabaseConnectionManager(db_path, timeout=timeout, wal_mode=wal_mode)
+            self.db_path = self.manager.db_path
         else:
             self.db_path = get_database_path(db_path)
             self.db_path.parent.mkdir(parents=True, exist_ok=True)
             self.manager = DatabaseConnectionManager(self.db_path, timeout=timeout, wal_mode=wal_mode)
 
     @property
-    def conn(self) -> sqlite3.Connection:
+    def conn(self) -> Any:
         """保持向后兼容的当前线程连接访问."""
         return self.manager.get_connection()
 
@@ -110,7 +113,7 @@ class BaseRepository:
     def conn(self, value: Any) -> None:
         pass
 
-    def _get_connection(self) -> sqlite3.Connection:
+    def _get_connection(self) -> Any:
         """获取当前线程数据库连接."""
         return self.manager.get_connection()
 

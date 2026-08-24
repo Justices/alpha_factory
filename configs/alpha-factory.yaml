@@ -1,0 +1,14 @@
+storage:
+  driver: sqlite
+  path: ../data/alpha_research.db
+research:
+  execute_platform: false
+  region: GBR
+  universe: TOP700
+  delay: 1
+  decay: 8
+  neutralization: SUBINDUSTRY
+  truncation: 0.08
+  sample_per_family: 4
+  selection_strategy: weighted_stratified
+  seed: 42

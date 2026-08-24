@@ -3,66 +3,24 @@
 from __future__ import annotations
 
 from dataclasses import dataclass
-from pathlib import Path
-from typing import Any, Mapping
+from typing import Any
 
 from alpha_operator_framework.application.research_cycle import ResearchCycleRequest, ResearchCycleSummary, ResearchCycleUseCase
 from alpha_operator_framework.application.research_worker import ResearchBatchWorker
-from alpha_operator_framework.core.event_store import EventStore
-from alpha_operator_framework.infrastructure.brain import build_backtest_gateway
-from alpha_operator_framework.infrastructure.sqlite import (
-    SqliteExperimentRepository,
-    SqliteKnowledgeRepository,
-    SqliteResearchRepository,
-    SqliteTemplatePromotionRepository,
-)
-from alpha_operator_framework.infrastructure.telemetry import ResearchTelemetry
 
 
 @dataclass
 class ResearchRuntime:
-    event_store: EventStore
-    research_repository: SqliteResearchRepository
-    experiment_repository: SqliteExperimentRepository
-    knowledge_repository: SqliteKnowledgeRepository
-    template_repository: SqliteTemplatePromotionRepository
+    event_store: Any
+    research_repository: Any
+    experiment_repository: Any
+    knowledge_repository: Any
+    template_repository: Any
     knowledge_base: Any
     backtest_gateway: Any
-    telemetry: ResearchTelemetry
+    telemetry: Any
     evidence_gateway: Any | None = None
     submission_outbox: Any | None = None
-
-    @classmethod
-    def create(
-        cls,
-        db_path: Path,
-        *,
-        execute_platform: bool,
-        evidence_records: Mapping[str, Mapping[str, Any]] | None = None,
-        submission_authorized: bool = False,
-        backtest_gateway: Any | None = None,
-    ) -> "ResearchRuntime":
-        knowledge_repository = SqliteKnowledgeRepository(db_path)
-        evidence_gateway = submission_outbox = None
-        if evidence_records is not None:
-            from alpha_operator_framework.infrastructure.submission import (
-                ConfiguredSubmissionEvidenceGateway,
-                SqliteSubmissionOutbox,
-            )
-            evidence_gateway = ConfiguredSubmissionEvidenceGateway(evidence_records, submission_authorized)
-            submission_outbox = SqliteSubmissionOutbox(db_path)
-        return cls(
-            event_store=EventStore(db_path=db_path),
-            research_repository=SqliteResearchRepository(db_path),
-            experiment_repository=SqliteExperimentRepository(db_path),
-            knowledge_repository=knowledge_repository,
-            template_repository=SqliteTemplatePromotionRepository(db_path),
-            knowledge_base=knowledge_repository.load(),
-            backtest_gateway=backtest_gateway or build_backtest_gateway(execute_platform=execute_platform),
-            telemetry=ResearchTelemetry(),
-            evidence_gateway=evidence_gateway,
-            submission_outbox=submission_outbox,
-        )
 
     def plan(self, request: ResearchCycleRequest) -> ResearchCycleSummary:
         return ResearchCycleUseCase(

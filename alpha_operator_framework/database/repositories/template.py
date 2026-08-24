@@ -8,7 +8,6 @@
 import hashlib
 import json
 import re
-import sqlite3
 from datetime import datetime
 from pathlib import Path
 from typing import Any, Dict, List, Optional, Sequence
@@ -60,7 +59,7 @@ class TemplateRepository(BaseRepository):
         return count
 
     @staticmethod
-    def _row_to_template(row: sqlite3.Row) -> Template:
+    def _row_to_template(row: Any) -> Template:
         return Template(
             id=row["id"], name=row["name"], title=row["title"], family=row["family"],
             template_type=row["template_type"], expression_template=row["expression_template"],

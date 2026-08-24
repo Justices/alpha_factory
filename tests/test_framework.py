@@ -729,7 +729,7 @@ def test_super_alpha_candidate_and_batch_are_durable():
 
 def test_super_alpha_preparation_reads_regular_details():
     """The command adapter builds stored SUPER hypotheses from the regular-alpha ledger."""
-    import alpha_machine
+import alpha_operator_framework.cli.legacy_machine as alpha_machine
     with tempfile.TemporaryDirectory() as tmp:
         db = AlphaDatabase(Path(tmp) / "super-prepare.db")
         try:
@@ -934,7 +934,7 @@ def test_alpha_machine_rejects_non_positive_stale_ttl():
 
 def test_alpha_machine_prepare_super_command_is_available():
     """The CLI exposes a non-network Super Alpha preparation command."""
-    source = (ROOT / "alpha_machine.py").read_text(encoding="utf-8")
+    source = (ROOT / "alpha_operator_framework" / "cli" / "legacy_machine.py").read_text(encoding="utf-8")
     assert 'add_parser("prepare-super"' in source
     assert "prepare_super_candidates" in source
     assert 'add_parser("simulate-super"' in source

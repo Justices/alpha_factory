@@ -70,23 +70,57 @@ submission_outbox = Table(
     Column("lease_until", String(64)),
 )
 
-RUNTIME_SCHEMA_VERSION = "001_research_runtime"
-RUNTIME_SCHEMA_CHECKSUM = hashlib.sha256(RUNTIME_SCHEMA_VERSION.encode("utf-8")).hexdigest()
+def _checksum(version: str) -> str:
+    return hashlib.sha256(version.encode("utf-8")).hexdigest()
 
 
-def migrate(engine: Engine) -> None:
-    """Apply the portable runtime schema exactly once per database."""
+MIGRATION_VERSIONS = ("001_research_runtime", "002_migration_checksums")
+
+
+def _apply_runtime_schema(engine: Engine) -> None:
+    """The initial, portable schema migration."""
     metadata.create_all(engine)
+
+
+def _apply_migration_checksums(engine: Engine) -> None:
+    """Upgrade databases created before migration checksums were introduced."""
     if "checksum" not in {column["name"] for column in inspect(engine).get_columns("schema_migrations")}:
         with engine.begin() as connection:
             connection.execute(text("ALTER TABLE schema_migrations ADD COLUMN checksum VARCHAR(64) NOT NULL DEFAULT ''"))
     with engine.begin() as connection:
-        exists = connection.execute(
-            select(schema_migrations.c.version).where(schema_migrations.c.version == RUNTIME_SCHEMA_VERSION)
-        ).scalar_one_or_none()
-        if exists is None:
+        for version in MIGRATION_VERSIONS:
+            connection.execute(
+                text("UPDATE schema_migrations SET checksum = :checksum WHERE version = :version AND checksum = ''"),
+                {"version": version, "checksum": _checksum(version)},
+            )
+
+
+def _migration_records(engine: Engine) -> dict[str, str]:
+    with engine.connect() as connection:
+        return dict(connection.execute(select(schema_migrations.c.version, schema_migrations.c.checksum)).all())
+
+
+def migrate(engine: Engine) -> None:
+    """Apply ordered migrations and reject an altered applied migration."""
+    # Bootstrap is deliberately limited to the migration ledger.  All runtime
+    # tables are created by the first named migration below.
+    schema_migrations.create(engine, checkfirst=True)
+    _apply_migration_checksums(engine)
+    for version in MIGRATION_VERSIONS:
+        if version == "002_migration_checksums":
+            _apply_migration_checksums(engine)
+        records = _migration_records(engine)
+        recorded_checksum = records.get(version)
+        expected_checksum = _checksum(version)
+        if recorded_checksum is not None:
+            if recorded_checksum != expected_checksum:
+                raise RuntimeError(f"schema migration checksum mismatch: {version}")
+            continue
+        if version == "001_research_runtime":
+            _apply_runtime_schema(engine)
+        with engine.begin() as connection:
             connection.execute(schema_migrations.insert().values(
-                version=RUNTIME_SCHEMA_VERSION,
+                version=version,
                 applied_at=datetime.now(UTC).isoformat(),
-                checksum=RUNTIME_SCHEMA_CHECKSUM,
+                checksum=expected_checksum,
             ))

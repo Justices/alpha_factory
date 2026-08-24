@@ -6,11 +6,17 @@ from types import SimpleNamespace
 
 import pytest
 
-import alpha_machine
+import alpha_operator_framework.cli.legacy_machine as alpha_machine
 from alpha_operator_framework.domain.fields import FieldSpec
 from alpha_operator_framework.core.event_store import EventStore
 from alpha_operator_framework.core.events import EventType
 from alpha_operator_framework.infrastructure.runtime_factory import build_research_runtime
+
+
+def _config(tmp_path):
+    config = tmp_path / "alpha-factory.yaml"
+    config.write_text(f"storage:\n  driver: sqlite\n  path: {tmp_path / 'rounds.db'}\n", encoding="utf-8")
+    return config
 
 
 def test_research_rebuild_command_uses_runtime_projections_only(monkeypatch, tmp_path) -> None:
@@ -54,7 +60,7 @@ def test_research_cycle_command_uses_new_dry_run_cycle(monkeypatch, tmp_path, ca
 
 
 def test_submission_dispatch_command_is_safe_with_an_empty_outbox(tmp_path, capsys) -> None:
-    alpha_machine.command_submission_dispatch(SimpleNamespace(database=str(tmp_path / "rounds.db"), limit=5))
+    alpha_machine.command_submission_dispatch(SimpleNamespace(config=str(_config(tmp_path)), limit=5, max_attempts=3))
 
     assert "提交 outbox 已派发: 0" in capsys.readouterr().out
 
@@ -63,7 +69,7 @@ def test_submission_authorization_requires_execute_and_evidence_file(monkeypatch
     monkeypatch.setattr("alpha_operator_framework.research.field_loader.load_real_market_fields", lambda **_: [])
     args = SimpleNamespace(
         region="GBR", universe="TOP700", delay=1, datasets=None, sample_per_family=1,
-        execute=False, seed=9, database=str(tmp_path / "rounds.db"), policy_file=None,
+        execute=False, seed=9, config=str(_config(tmp_path)), policy_file=None,
         telemetry_file=None, algorithm="stratified", authorize_submission=True,
         submission_evidence_file=None,
     )
@@ -85,7 +91,7 @@ def test_policy_settings_are_used_when_loading_fields(monkeypatch, tmp_path) -> 
     )
     args = SimpleNamespace(
         region="USA", universe="TOP3000", delay=None, datasets=None, sample_per_family=1,
-        execute=False, seed=9, database=str(tmp_path / "rounds.db"), policy_file=str(policy_path),
+        execute=False, seed=9, config=str(_config(tmp_path)), policy_file=str(policy_path),
         telemetry_file=None, algorithm=None, decay=None, neutralization=None, truncation=None,
     )
 

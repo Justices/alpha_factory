@@ -1,5 +1,6 @@
 """Portable schema migration tests for the research runtime."""
 
+import pytest
 from sqlalchemy import create_mock_engine, inspect
 
 from alpha_operator_framework.infrastructure.sqlalchemy_migrations import migrate
@@ -22,8 +23,18 @@ def test_migrate_is_idempotent(tmp_path) -> None:
     migrate(engine)
 
     with engine.connect() as connection:
-        assert connection.exec_driver_sql("SELECT COUNT(*) FROM schema_migrations").scalar_one() == 1
-        assert connection.exec_driver_sql("SELECT checksum FROM schema_migrations").scalar_one()
+        assert connection.exec_driver_sql("SELECT COUNT(*) FROM schema_migrations").scalar_one() == 2
+        assert connection.exec_driver_sql("SELECT COUNT(*) FROM schema_migrations WHERE checksum = ''").scalar_one() == 0
+
+
+def test_migrate_rejects_a_recorded_checksum_that_does_not_match(tmp_path) -> None:
+    engine = create_storage_engine(StorageConfig.from_mapping({"driver": "sqlite", "path": "research.db"}, base_path=tmp_path))
+    migrate(engine)
+    with engine.begin() as connection:
+        connection.exec_driver_sql("UPDATE schema_migrations SET checksum = 'tampered' WHERE version = '001_research_runtime'")
+
+    with pytest.raises(RuntimeError, match="checksum mismatch"):
+        migrate(engine)
 
 
 def test_portable_schema_compiles_for_virtual_mysql() -> None:

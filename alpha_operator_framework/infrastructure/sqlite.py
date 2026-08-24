@@ -9,6 +9,8 @@ from pathlib import Path
 
 from alpha_operator_framework.experiment.lifecycle import BatchState, BatchTransition
 from alpha_operator_framework.experiment.models import BacktestResult, BacktestTask, EvaluationRecord, ExperimentBatch
+from alpha_operator_framework.knowledge.distillation import DistilledTemplate
+from alpha_operator_framework.knowledge.models import KnowledgeBase
 from alpha_operator_framework.research.round import (
     Candidate,
     PruningDecision,
@@ -145,3 +147,65 @@ class SqliteExperimentRepository:
             for value in payload["transitions"]
         ]
         return batch
+
+
+class SqliteKnowledgeRepository:
+    """Persist the single latest cross-round knowledge aggregate."""
+
+    def __init__(self, path: Path) -> None:
+        self.path = path
+        with sqlite3.connect(path) as connection:
+            connection.execute("CREATE TABLE IF NOT EXISTS knowledge_snapshot (id INTEGER PRIMARY KEY CHECK(id=1), payload TEXT NOT NULL)")
+
+    def save(self, knowledge: KnowledgeBase) -> None:
+        payload = json.dumps({"version": knowledge.version, "field_scores": knowledge.field_scores,
+                              "operator_scores": knowledge.operator_scores, "template_scores": knowledge.template_scores,
+                              "rejected_templates": sorted(knowledge.rejected_templates), "field_trials": knowledge.field_trials}, sort_keys=True)
+        with sqlite3.connect(self.path) as connection:
+            connection.execute("INSERT INTO knowledge_snapshot(id, payload) VALUES (1, ?) ON CONFLICT(id) DO UPDATE SET payload=excluded.payload", (payload,))
+
+    def load(self) -> KnowledgeBase:
+        with sqlite3.connect(self.path) as connection:
+            row = connection.execute("SELECT payload FROM knowledge_snapshot WHERE id=1").fetchone()
+        if row is None:
+            return KnowledgeBase()
+        payload = json.loads(row[0])
+        return KnowledgeBase(version=payload["version"], field_scores=payload["field_scores"], operator_scores=payload["operator_scores"],
+                             template_scores=payload["template_scores"], rejected_templates=set(payload["rejected_templates"]), field_trials=payload["field_trials"])
+
+
+class SqliteTemplatePromotionRepository:
+    """Durable projection of reusable templates and their source-task lineage."""
+
+    def __init__(self, path: Path) -> None:
+        self.path = path
+        with sqlite3.connect(path) as connection:
+            connection.execute(
+                "CREATE TABLE IF NOT EXISTS template_promotions "
+                "(expression_template TEXT PRIMARY KEY, support INTEGER NOT NULL, source_task_ids TEXT NOT NULL)"
+            )
+
+    def promote(self, templates: list[DistilledTemplate]) -> None:
+        with sqlite3.connect(self.path) as connection:
+            for template in templates:
+                row = connection.execute(
+                    "SELECT support, source_task_ids FROM template_promotions WHERE expression_template = ?",
+                    (template.expression_template,),
+                ).fetchone()
+                source_ids = set(template.source_task_ids)
+                support = template.support
+                if row is not None:
+                    support = max(support, row[0])
+                    source_ids.update(json.loads(row[1]))
+                connection.execute(
+                    "INSERT INTO template_promotions(expression_template, support, source_task_ids) VALUES (?, ?, ?) "
+                    "ON CONFLICT(expression_template) DO UPDATE SET support=excluded.support, source_task_ids=excluded.source_task_ids",
+                    (template.expression_template, support, json.dumps(sorted(source_ids))),
+                )
+
+    def list_promoted(self) -> list[DistilledTemplate]:
+        with sqlite3.connect(self.path) as connection:
+            rows = connection.execute(
+                "SELECT expression_template, support, source_task_ids FROM template_promotions ORDER BY expression_template"
+            ).fetchall()
+        return [DistilledTemplate(row[0], row[1], tuple(json.loads(row[2]))) for row in rows]

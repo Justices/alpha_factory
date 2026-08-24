@@ -69,3 +69,12 @@ def test_policy_validates_nested_weights_templates_pruning_and_evaluation() -> N
     assert policy.prohibited_patterns == ("group_rank(",)
     assert policy.min_sharpe == 1.2
     assert snapshot.templates == ("rank_field", "ts_rank_22")
+
+
+def test_policy_settings_are_applied_to_experiment_tasks() -> None:
+    policy = PolicySnapshot.from_mapping({
+        "region": "GBR", "universe": "TOP700", "max_backtests": 2,
+        "settings": {"delay": 0, "decay": 15, "neutralization": "INDUSTRY", "truncation": 0.05},
+    }).to_research_policy()
+
+    assert (policy.delay, policy.decay, policy.neutralization, policy.truncation) == (0, 15, "INDUSTRY", 0.05)

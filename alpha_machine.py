@@ -786,28 +786,41 @@ def main() -> None:
     rc_p = sub.add_parser("research-cycle", help="全新 DDD 架构 10 阶段全流程投研生命周期 (支持 4 大抽样算法 & 二维共识剪枝)")
     add_settings(rc_p)
     rc_p.add_argument("--datasets", "-d", default=None, help="指定数据集列表 (逗号分隔)")
-    rc_p.add_argument("--algorithm", "-a", choices=["stratified", "d_optimal", "thompson", "ucb"], default="stratified", help="抽样算法 (默认: stratified)")
+    rc_p.add_argument("--algorithm", "-a", choices=["stratified", "d_optimal", "thompson", "ucb", "diversity"], default="stratified", help="抽样算法 (默认: stratified)")
     rc_p.add_argument("--sample-per-family", "-s", type=int, default=4, help="每类抽样数量 (默认: 4)")
     rc_p.add_argument("--decay", type=int, default=12, help="Decay (默认: 12)")
     rc_p.add_argument("--neutralization", "-n", default="SUBINDUSTRY", help="中性化 (默认: SUBINDUSTRY)")
+    rc_p.add_argument("--truncation", type=float, default=0.08, help="截断阈值 (默认: 0.08)")
     rc_p.add_argument("--execute", "-e", action="store_true", help="向 BRAIN 平台提交真实在线回测")
     rc_p.add_argument("--authorize-submission", action="store_true", help="显式授权达标 Alpha 自动提交上线")
+    rc_p.add_argument("--submission-evidence-file", default=None, help="已核验证据 JSON（按平台 Alpha ID 映射）；与 --authorize-submission 一起使用")
     rc_p.add_argument("--seed", type=int, default=42, help="随机种子 (默认: 42)")
+    rc_p.add_argument("--round-id", default=None, help="可追溯的投研轮次标识；生产调度应显式提供")
     rc_p.add_argument("--database", "--db", default=None, help="数据库路径")
     rc_p.add_argument("--policy-file", default=None, help="版本化 JSON/YAML 策略文件")
     rc_p.add_argument("--telemetry-file", default=None, help="JSONL 遥测输出路径")
     rc_p.set_defaults(func=command_research_cycle)
+    worker_p = sub.add_parser("research-worker", help="恢复并执行已提交、未终态的 event-led 研究批次")
+    worker_p.add_argument("--round-id", required=True, help="待恢复的研究轮次")
+    worker_p.add_argument("--database", "--db", default=None, help="研究数据库路径")
+    worker_p.add_argument("--telemetry-file", default=None, help="JSONL 遥测输出路径")
+    worker_p.add_argument("--authorize-submission", action="store_true", help="显式允许已核验证据的候选进入提交 outbox")
+    worker_p.add_argument("--submission-evidence-file", default=None, help="已核验证据 JSON（按平台 Alpha ID 映射）")
+    worker_p.set_defaults(func=command_research_worker)
+    submission_p = sub.add_parser("submission-dispatch", help="派发已审批的提交 outbox；不会重新评估或自动授权")
+    submission_p.add_argument("--database", "--db", default=None, help="研究数据库路径")
+    submission_p.add_argument("--limit", type=int, default=100, help="单次最多派发数量")
+    submission_p.add_argument("--max-attempts", type=int, default=3, help="单个提交的最多派发尝试次数")
+    submission_p.set_defaults(func=command_submission_dispatch)
 
     args = parser.parse_args(); args.func(args)
 
 
 def command_research_cycle(args: argparse.Namespace) -> None:
     """Compose one new ResearchRound from local fields and explicit execution intent."""
-    from alpha_operator_framework.application.research_cycle import ResearchCycleRequest, ResearchCycleUseCase
-    from alpha_operator_framework.infrastructure.brain import build_backtest_gateway
-    from alpha_operator_framework.infrastructure.sqlite import SqliteExperimentRepository, SqliteResearchRepository
-    from alpha_operator_framework.infrastructure.telemetry import JsonLinesTelemetrySink, ResearchTelemetry
-    from alpha_operator_framework.knowledge.models import KnowledgeBase
+    from alpha_operator_framework.application.research_cycle import ResearchCycleRequest
+    from alpha_operator_framework.application.research_runtime import ResearchRuntime
+    from alpha_operator_framework.infrastructure.telemetry import JsonLinesTelemetrySink
     from alpha_operator_framework.research.field_loader import load_real_market_fields
     from alpha_operator_framework.research.construction import AstCandidateBuilder, ConstructionTemplate
     from alpha_operator_framework.research.round import ResearchPolicy
@@ -832,25 +845,40 @@ def command_research_cycle(args: argparse.Namespace) -> None:
     )
     policy = load_policy(Path(args.policy_file)).to_research_policy() if getattr(args, "policy_file", None) else ResearchPolicy(
         region=args.region, universe=args.universe, max_backtests=sum(quotas.values()), family_quotas=quotas,
-        policy_version=getattr(args, "policy_version", "cli-v1"), selection_strategy=strategy)
-    knowledge = KnowledgeBase()
-    telemetry = ResearchTelemetry()
-    summary = ResearchCycleUseCase(
-        SqliteResearchRepository(db_path),
-        build_backtest_gateway(execute_platform=args.execute),
-        knowledge,
-        SqliteExperimentRepository(db_path),
-        telemetry,
-    ).execute(ResearchCycleRequest(
-        round_id=f"research-{args.region}-{args.universe}-{args.seed or 42}",
+        policy_version=getattr(args, "policy_version", "cli-v1"), selection_strategy=strategy,
+        delay=getattr(args, "delay", 1), decay=getattr(args, "decay", 8),
+        neutralization=getattr(args, "neutralization", "SUBINDUSTRY"), truncation=getattr(args, "truncation", 0.08))
+    authorize_submission = bool(getattr(args, "authorize_submission", False))
+    evidence_file = getattr(args, "submission_evidence_file", None)
+    if authorize_submission and not args.execute:
+        raise ValueError("--authorize-submission requires --execute")
+    if authorize_submission and not evidence_file:
+        raise ValueError("--authorize-submission requires --submission-evidence-file")
+    if evidence_file and not authorize_submission:
+        raise ValueError("--submission-evidence-file requires --authorize-submission")
+    evidence_records = None
+    if authorize_submission:
+        evidence_records = json.loads(Path(evidence_file).read_text(encoding="utf-8"))
+        if not isinstance(evidence_records, dict):
+            raise ValueError("submission evidence JSON must map platform alpha IDs to evidence records")
+    runtime = ResearchRuntime.create(
+        db_path,
+        execute_platform=args.execute,
+        evidence_records=evidence_records,
+        submission_authorized=authorize_submission,
+    )
+    summary = runtime.plan(ResearchCycleRequest(
+        round_id=getattr(args, "round_id", None) or f"research-{args.region}-{args.universe}-{args.seed or 42}",
         seed=args.seed or 42,
         policy=policy,
-        knowledge=knowledge.snapshot(),
+        knowledge=runtime.knowledge_base.snapshot(),
         candidates=candidates,
         execute_platform=args.execute,
     ))
+    if args.execute:
+        summary = runtime.process_round(summary.round_id)
     if getattr(args, "telemetry_file", None):
-        JsonLinesTelemetrySink(Path(args.telemetry_file)).publish(telemetry)
+        JsonLinesTelemetrySink(Path(args.telemetry_file)).publish(runtime.telemetry)
 
     print("=" * 70)
     print(f"🚀 [Alpha Factory DDD Research Cycle Summary] - Round {summary.round_id}")
@@ -864,6 +892,53 @@ def command_research_cycle(args: argparse.Namespace) -> None:
     print(f"• 沉淀模板: {summary.distilled_template_count} 个")
     print(f"• 变异提议: {len(summary.mutation_proposals)} 个")
     print("=" * 70)
+
+
+def command_research_worker(args: argparse.Namespace) -> None:
+    """Resume a submitted round through the same composition root as planning."""
+    from alpha_operator_framework.application.research_runtime import ResearchRuntime
+    from alpha_operator_framework.infrastructure.telemetry import JsonLinesTelemetrySink
+
+    db_path = Path(args.database) if getattr(args, "database", None) else DEFAULT_DATABASE_PATH
+    authorized = bool(getattr(args, "authorize_submission", False))
+    evidence_file = getattr(args, "submission_evidence_file", None)
+    if authorized and not evidence_file:
+        raise ValueError("--authorize-submission requires --submission-evidence-file")
+    if evidence_file and not authorized:
+        raise ValueError("--submission-evidence-file requires --authorize-submission")
+    evidence_records = None
+    if evidence_file:
+        evidence_records = json.loads(Path(evidence_file).read_text(encoding="utf-8"))
+        if not isinstance(evidence_records, dict):
+            raise ValueError("submission evidence JSON must map platform alpha IDs to evidence records")
+    runtime = ResearchRuntime.create(
+        db_path,
+        execute_platform=True,
+        evidence_records=evidence_records,
+        submission_authorized=authorized,
+    )
+    summary = runtime.process_round(args.round_id)
+    if getattr(args, "telemetry_file", None):
+        JsonLinesTelemetrySink(Path(args.telemetry_file)).publish(runtime.telemetry)
+    print(f"研究 worker 完成: {summary.round_id} | {summary.status} | 回测={summary.completed_backtests}")
+
+
+def command_submission_dispatch(args: argparse.Namespace) -> None:
+    """Dispatch only cases already approved and durably queued by a prior cycle."""
+    from alpha_operator_framework.infrastructure.submission import (
+        CnhkMcpSubmissionGateway,
+        SqliteSubmissionOutbox,
+        SubmissionOutboxWorker,
+    )
+
+    db_path = Path(args.database) if getattr(args, "database", None) else DEFAULT_DATABASE_PATH
+    outbox = SqliteSubmissionOutbox(db_path)
+    dispatched = SubmissionOutboxWorker(
+        outbox,
+        CnhkMcpSubmissionGateway(),
+        max_attempts=getattr(args, "max_attempts", 3),
+    ).process_pending(getattr(args, "limit", 100))
+    print(f"提交 outbox 已派发: {len(dispatched)}；队列状态: {outbox.status_counts()}")
 
 
 def command_status(args: argparse.Namespace) -> None:

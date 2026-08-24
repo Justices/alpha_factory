@@ -34,7 +34,7 @@ _ALLOWED: dict[BatchState, frozenset[BatchState]] = {
     BatchState.SUBMITTED: frozenset({BatchState.RUNNING, BatchState.FAILED}),
     BatchState.RUNNING: frozenset({BatchState.COMPLETED, BatchState.PARTIAL_FAILED, BatchState.FAILED}),
     BatchState.COMPLETED: frozenset({BatchState.EVALUATED}),
-    BatchState.PARTIAL_FAILED: frozenset({BatchState.EVALUATED}),
+    BatchState.PARTIAL_FAILED: frozenset({BatchState.RUNNING, BatchState.EVALUATED}),
     BatchState.FAILED: frozenset(),
     BatchState.EVALUATED: frozenset(),
 }

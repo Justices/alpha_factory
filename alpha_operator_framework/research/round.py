@@ -34,6 +34,10 @@ class ResearchPolicy:
     min_fitness: float = 0.8
     min_margin: float = 4.0
     max_turnover: float = 0.70
+    delay: int = 1
+    decay: int = 8
+    neutralization: str = "SUBINDUSTRY"
+    truncation: float = 0.08
 
 
 @dataclass(frozen=True)

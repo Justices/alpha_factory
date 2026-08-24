@@ -22,6 +22,7 @@ class PolicySnapshot:
     templates: tuple[str, ...] = ()
     prohibited_patterns: tuple[str, ...] = ()
     evaluation: Mapping[str, float] = None  # type: ignore[assignment]
+    settings: Mapping[str, Any] = None  # type: ignore[assignment]
 
     @classmethod
     def from_mapping(cls, data: Mapping[str, Any]) -> "PolicySnapshot":
@@ -37,28 +38,38 @@ class PolicySnapshot:
         weights = dict(data.get("weights", {}))
         evaluation = dict(data.get("evaluation", {}))
         pruning = dict(data.get("pruning", {}))
+        settings = dict(data.get("settings", {}))
         if any(key not in {"field", "operator", "template", "novelty", "uncertainty"} or float(value) < 0 for key, value in weights.items()):
             raise ValueError("weights are invalid")
         if any(key not in {"min_sharpe", "min_fitness", "min_margin", "max_turnover"} for key in evaluation):
             raise ValueError("evaluation is invalid")
         if float(evaluation.get("max_turnover", 0.70)) <= 0 or float(evaluation.get("max_turnover", 0.70)) > 1:
             raise ValueError("evaluation.max_turnover is invalid")
+        if set(settings) - {"delay", "decay", "neutralization", "truncation"}:
+            raise ValueError("settings are invalid")
+        if int(settings.get("delay", 1)) < 0 or int(settings.get("decay", 8)) < 0:
+            raise ValueError("settings are invalid")
+        if not 0 < float(settings.get("truncation", 0.08)) <= 1:
+            raise ValueError("settings are invalid")
         templates = tuple(str(item) for item in data.get("templates", ()))
         if any(not item for item in templates):
             raise ValueError("templates are invalid")
         patterns = tuple(str(item) for item in pruning.get("prohibited_patterns", ()))
-        return cls(str(data.get("version", "default")), region, universe, budget, strategy, weights, templates, patterns, evaluation)
+        return cls(str(data.get("version", "default")), region, universe, budget, strategy, weights, templates, patterns, evaluation, settings)
 
     def to_research_policy(self) -> ResearchPolicy:
         weights = self.weights or {}
         evaluation = self.evaluation or {}
+        settings = self.settings or {}
         return ResearchPolicy(self.region, self.universe, self.max_backtests,
             field_weight=float(weights.get("field", 1.0)), operator_weight=float(weights.get("operator", 1.0)),
             template_weight=float(weights.get("template", 1.0)), novelty_weight=float(weights.get("novelty", 1.0)),
             uncertainty_weight=float(weights.get("uncertainty", 1.0)), prohibited_patterns=self.prohibited_patterns,
             policy_version=self.version, selection_strategy=self.selection_strategy,
             min_sharpe=float(evaluation.get("min_sharpe", 1.0)), min_fitness=float(evaluation.get("min_fitness", 0.8)),
-            min_margin=float(evaluation.get("min_margin", 4.0)), max_turnover=float(evaluation.get("max_turnover", 0.70)))
+            min_margin=float(evaluation.get("min_margin", 4.0)), max_turnover=float(evaluation.get("max_turnover", 0.70)),
+            delay=int(settings.get("delay", 1)), decay=int(settings.get("decay", 8)),
+            neutralization=str(settings.get("neutralization", "SUBINDUSTRY")), truncation=float(settings.get("truncation", 0.08)))
 
 
 def build_selector(policy: ResearchPolicy):

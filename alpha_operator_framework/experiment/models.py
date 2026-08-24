@@ -57,7 +57,9 @@ class ExperimentBatch:
 
     def create_tasks(self, cohort: Sequence[Candidate], policy: ResearchPolicy) -> list[BacktestTask]:
         created: list[BacktestTask] = []
-        settings = {"region": policy.region, "universe": policy.universe}
+        settings = {"region": policy.region, "universe": policy.universe, "delay": policy.delay,
+                    "decay": policy.decay, "neutralization": policy.neutralization,
+                    "truncation": policy.truncation}
         for index, candidate in enumerate(cohort):
             task = BacktestTask(
                 task_id=f"{self.batch_id}:{index}",

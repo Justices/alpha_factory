@@ -50,6 +50,8 @@ for target in "${TARGET_MATRIX[@]}"; do
         --datasets "$DATASETS" \
         --sample-per-family "$SAMPLES" \
         --algorithm diversity \
+        --decay "$DECAY" \
+        --round-id "research_${LOG_TIME}_${REGION}_${UNIVERSE}" \
         --database "data/research_${REGION}_${UNIVERSE}.db" \
         --telemetry-file "runs/logs/research_${REGION}_${UNIVERSE}.jsonl" \
         --execute >> "$MAIN_LOG" 2>&1 || {

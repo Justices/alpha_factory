@@ -3,13 +3,11 @@
 from __future__ import annotations
 
 import random
-from dataclasses import dataclass, field
+from dataclasses import asdict, dataclass, field
 from typing import Any, Sequence
 
-from alpha_operator_framework.experiment.evaluation import evaluate_batch
 from alpha_operator_framework.experiment.lifecycle import BatchState, transition
 from alpha_operator_framework.experiment.models import ExperimentBatch, MutationProposal
-from alpha_operator_framework.experiment.mutation import propose_mutations
 from alpha_operator_framework.knowledge.models import KnowledgeBase
 from alpha_operator_framework.research.pruning import AstPrePruner
 from alpha_operator_framework.research.policy import build_selector
@@ -46,12 +44,23 @@ class ResearchCycleUseCase:
         knowledge_base: KnowledgeBase | None = None,
         experiment_repository: Any | None = None,
         telemetry: Any | None = None,
+        event_store: Any | None = None,
+        evidence_gateway: Any | None = None,
+        submission_outbox: Any | None = None,
     ) -> None:
         self.research_repository = research_repository
         self.backtest_gateway = backtest_gateway
         self.knowledge_base = knowledge_base or KnowledgeBase()
         self.experiment_repository = experiment_repository
         self.telemetry = telemetry
+        self.event_store = event_store
+        self.evidence_gateway = evidence_gateway
+        self.submission_outbox = submission_outbox
+
+    def _event(self, event_type: Any, stream_id: str, payload: dict[str, Any]) -> None:
+        if self.event_store is not None:
+            from alpha_operator_framework.core.events import Event
+            self.event_store.append(Event.create(event_type, stream_id, payload, actor="application:research-cycle"))
 
     def _save_batch(self, batch: ExperimentBatch) -> None:
         if self.experiment_repository is not None:
@@ -64,7 +73,15 @@ class ResearchCycleUseCase:
         self._save_batch(batch)
 
     def execute(self, request: ResearchCycleRequest) -> ResearchCycleSummary:
+        if request.execute_platform and (self.event_store is None or self.experiment_repository is None):
+            raise ValueError("live research requires an event store and experiment repository")
         round_ = ResearchRound(request.round_id, request.policy, request.seed, list(request.candidates))
+        if self.event_store is not None:
+            from alpha_operator_framework.core.events import EventType
+            self._event(EventType.POLICY_CREATED, round_.round_id, {"policy": asdict(request.policy), "seed": request.seed})
+            self._event(EventType.FIELD_SNAPSHOT_CAPTURED, round_.round_id, {"fields": sorted({field for candidate in round_.candidates for field in candidate.fields}), "knowledge_version": request.knowledge.version})
+            for candidate in round_.candidates:
+                self._event(EventType.CANDIDATE_GENERATED, round_.round_id, {"candidate_id": candidate.candidate_id, "expression": candidate.expression, "template_id": candidate.template_id})
         round_.pruning_decisions = AstPrePruner().evaluate(round_.candidates, request.policy)
         if self.telemetry is not None:
             for decision in round_.pruning_decisions:
@@ -73,6 +90,11 @@ class ResearchCycleUseCase:
         rejected = {decision.candidate_id for decision in round_.pruning_decisions if decision.rejected}
         round_.candidates = [candidate for candidate in round_.candidates if candidate.candidate_id not in rejected]
         decisions = round_.select(build_selector(request.policy), request.knowledge, random.Random(request.seed))
+        if self.event_store is not None:
+            from alpha_operator_framework.core.events import EventType
+            for decision in decisions:
+                self._event(EventType.CANDIDATE_SCORED, round_.round_id, {"candidate_id": decision.candidate_id, "selected": decision.selected, "score_components": dict(decision.score_components)})
+            self._event(EventType.BATCH_ALLOCATED, round_.round_id, {"selected_count": sum(decision.selected for decision in decisions), "max_backtests": request.policy.max_backtests})
         self.research_repository.save_round(round_)
         audit = [
             {
@@ -90,38 +112,18 @@ class ResearchCycleUseCase:
 
         selected_ids = {decision.candidate_id for decision in decisions if decision.selected}
         cohort = [candidate for candidate in round_.candidates if candidate.candidate_id in selected_ids]
-        batch = ExperimentBatch(batch_id=round_.round_id, idempotency_key=round_.round_id)
-        tasks = batch.create_tasks(cohort, request.policy)
-        if self.telemetry is not None:
-            self.telemetry.record_quota(planned=request.policy.max_backtests, consumed=len(tasks))
-        self._transition(batch, BatchState.SUBMITTED)
-        self._transition(batch, BatchState.RUNNING)
-        for result in self.backtest_gateway.run_backtests(tasks):
-            batch.record_result(result)
-        for evaluation in evaluate_batch(batch, request.policy):
-            batch.record_evaluation(evaluation)
-        terminal_state = BatchState.COMPLETED if len(batch.results) == len(tasks) else BatchState.PARTIAL_FAILED
-        self._transition(batch, terminal_state)
-        templates = {
-            task.task_id: next(candidate.template_id for candidate in cohort if candidate.candidate_id == task.candidate_id)
-            for task in tasks
-        }
-        knowledge = self.knowledge_base.apply_batch(batch, templates)
-        distilled_templates = self.knowledge_base.distill_batch(batch)
-        mutation_proposals = propose_mutations(
-            batch,
-            max_proposals=request.policy.max_backtests,
-            random_source=random.Random(request.seed),
-        )
-        self._transition(batch, BatchState.EVALUATED)
-        if self.telemetry is not None:
-            self.telemetry.record_backtests_completed(len(batch.results))
-        return ResearchCycleSummary(
-            "COMPLETED",
-            round_.round_id,
-            audit,
-            completed_backtests=len(batch.results),
-            knowledge_version=knowledge.version,
-            distilled_template_count=len(distilled_templates),
-            mutation_proposals=mutation_proposals,
-        )
+        batch = self.experiment_repository.load_batch(round_.round_id) if self.experiment_repository is not None else None
+        is_new_batch = batch is None
+        if batch is not None:
+            tasks = list(batch.tasks.values())
+        else:
+            batch = ExperimentBatch(batch_id=round_.round_id, idempotency_key=round_.round_id)
+            tasks = batch.create_tasks(cohort, request.policy)
+            if self.telemetry is not None:
+                self.telemetry.record_quota(planned=request.policy.max_backtests, consumed=len(tasks))
+            self._transition(batch, BatchState.SUBMITTED)
+        if self.event_store is not None and is_new_batch:
+            from alpha_operator_framework.core.events import EventType
+            for task in tasks:
+                self._event(EventType.SIMULATION_REQUESTED, round_.round_id, {"task_id": task.task_id, "candidate_id": task.candidate_id, "expression": task.expression, "settings": dict(task.settings), "idempotency_key": task.idempotency_key})
+        return ResearchCycleSummary("SUBMITTED", round_.round_id, audit)

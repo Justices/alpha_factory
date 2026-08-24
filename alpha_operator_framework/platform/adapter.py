@@ -36,7 +36,7 @@ class BrainPlatformAdapter:
         )
 
     def simulate_single(self, expression: str, settings: Dict[str, Any]) -> Dict[str, Any]:
-        """单任务仿真接口 (供 Outbox Worker 与 EventSourcedResearchEngine 调用)."""
+        """单任务仿真接口，供事件化研究 worker 调用。"""
         results = self.simulate_batch([{"expression": expression}], settings, batch_size=1)
         if results:
             return results[0]

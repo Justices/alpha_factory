@@ -1,236 +1,119 @@
-# 创建策略组件化架构
+# 因子生成策略与多族架构设计 (Strategy Architecture)
 
-## 架构总览
+> **定位**: 阐述 Alpha Factory 因子表达式生成策略体系、10 大母版族群、AST 符号自由杂交与 DDD 抽样探索架构。
 
-```
-┌─────────────────────────────────────────────────────────────┐
-│                      CLI Layer                               │
-│  python alpha_machine.py survey --strategy template          │
-└────────────────────────┬────────────────────────────────────┘
-                         │
-                         ▼
-┌─────────────────────────────────────────────────────────────┐
-│                  Orchestrator Layer                          │
-│  orchestrator.py: _run_all() / survey()                     │
-│  - 解析CLI参数                                              │
-│  - 调用策略工厂                                             │
-│  - 执行策略生成任务                                          │
-└────────────────────────┬────────────────────────────────────┘
-                         │
-                         ▼
-┌─────────────────────────────────────────────────────────────┐
-│                  Strategy Factory Layer                      │
-│  creation_strategy.py: create_strategy()                    │
-│  - 根据策略类型创建实例                                      │
-│  - 注入配置参数                                             │
-└────────────────────────┬────────────────────────────────────┘
-                         │
-                         ▼
-        ┌────────────────┴────────────────┐
-        │                                 │
-        ▼                                 ▼
-┌───────────────┐                 ┌───────────────┐
-│   Concrete    │                 │   Composite   │
-│   Strategies  │                 │   Strategy    │
-└───────┬───────┘                 └───────┬───────┘
-        │                                 │
-        ├─ MultiStageStrategy             │ 组合多个策略
-        ├─ TemplateStrategy               │ - serial: 串行执行
-        ├─ TestStrategy                   │ - parallel: 并行执行
-        ├─ MultivariateStrategy           │
-        │                                 │
-        └────────────────┬────────────────┘
-                         │
-                         ▼
-┌─────────────────────────────────────────────────────────────┐
-│                    Data Layer                                │
-│  - ScalarField (fields.py)                                  │
-│  - Template (database/models.py)                            │
-│  - AlphaDatabase (database/repository.py)                   │
-└────────────────────────┬────────────────────────────────────┘
-                         │
-                         ▼
-┌─────────────────────────────────────────────────────────────┐
-│                    Output Layer                              │
-│  - List[Task] (families.py)                                 │
-│  - 每个Task包含:                                            │
-│    * expression: 表达式                                      │
-│    * template_index: 模板索引                                │
-│    * family: 模板族                                          │
-│    * decay: decay值                                          │
-│    * meta: 元数据                                            │
-└─────────────────────────────────────────────────────────────┘
+---
+
+## 一、 策略架构总览
+
+框架的因子生成已从早期的“硬编码字符串拼接”全面演进为 **AST 语法树驱动 + 10 大母版族群 + 符号语法树自由杂交 + DDD 多算法自适应抽样**：
+
+```mermaid
+flowchart TD
+    subgraph INPUT["一、 输入层 (Field Inputs)"]
+        F1["真实市场字段 (Matrix / Vector / Group)"]
+        F2["稀疏/事件字段安全包装 (winsorize + ts_backfill)"]
+        F3["合规拦截 (过滤 close / open 等废弃字段)"]
+    end
+
+    subgraph STRATEGIES["二、 生成策略体系 (Creation Strategies)"]
+        S1["1. 模板库策略 (TemplateCreationStrategy)"]
+        S2["2. 多阶工厂策略 (MultiStageCreationStrategy)"]
+        S3["3. 递归 AST 符号杂交 (SymbolicTreeBreeder)"]
+        S4["4. 知识库反向蒸馏回填 (DistilledCreationStrategy)"]
+        S5["5. 组合多元策略 (CompositeCreationStrategy)"]
+    end
+
+    subgraph FAMILIES["三、 10 大表达式生成族群"]
+        FM1["ts_momentum (时序动量)"]
+        FM2["mean_reversion (均值反转)"]
+        FM3["macd_velocity (MACD加速度)"]
+        FM4["relative_ratio (相对比率)"]
+        FM5["asymmetric_risk (不对称波动)"]
+        FM6["sector_decomposition (行业-特质正交分解)"]
+        FM7["three_tier_scaling (三层架构尺度标准化)"]
+        FM8["cross_interaction (跨源协同)"]
+        FM9["symbolic_evolution (递归AST自由杂交)"]
+        FM10["evolved_distillation (数据库沉淀模板)"]
+    end
+
+    subgraph SAMPLING["四、 DDD 纯抽样探索 (Selection Policies)"]
+        SP1["D-Optimal (特征空间最大行列式覆盖)"]
+        SP2["Thompson Sampling (贝叶斯后验多臂老虎机)"]
+        SP3["UCB (置信区间上界探索)"]
+        SP4["Stratified (分层均衡抽样)"]
+        SP5["Diversity (结构差异度最大化)"]
+    end
+
+    subgraph COMPILER["五、 AST 编译与规范化 (Alpha AST)"]
+        C1["ASTValidator 语义与类型校验"]
+        C2["FASTEXPR 规范化转译 (消除空格/冗余)"]
+        C3["SHA256 唯一指纹计算与等价去重"]
+        C4["AstPrePruner 结构冗余预剪枝"]
+    end
+
+    INPUT --> STRATEGIES
+    STRATEGIES --> FAMILIES
+    FAMILIES --> SAMPLING
+    SAMPLING --> COMPILER
 ```
 
-## 策略类型对比
+---
 
+## 二、 10 大生成族群核心机理
+
+| 族群名称 | 标识符 (Family) | 核心数学形态示例 | 捕获的金融异象 / 机制 |
+| :--- | :--- | :--- | :--- |
+| **1. 时序动量族** | `ts_momentum` | `group_neutralize(rank(ts_delta(A, 20)), subindustry)` | 价格与预期基本面的中期趋势持续性 |
+| **2. 均值反转族** | `mean_reversion` | `-1.0 * group_neutralize(rank(A), subindustry)` | 短期过度反应与流动性冲击后的均值回归 |
+| **3. MACD加速度族**| `macd_velocity` | `group_neutralize(rank(ts_decay(A, 5) - ts_decay(A, 20)), subindustry)` | 短期预期均线相对于长期均线的加速度突破 |
+| **4. 相对比率溢价族**| `relative_ratio` | `group_neutralize(rank(A) / (0.01 + rank(B)), subindustry)` | 跨特征估值溢价与相对质量比率 |
+| **5. 不对称波动族** | `asymmetric_risk`| `group_neutralize(rank(ts_std_dev(A, 20) / (0.01 + ts_mean(A, 20))), subindustry)` | 波动率异象与下行风险补偿 |
+| **6. 行业-特质正交分解**| `sector_decomposition` | `ts_zscore(A, 20) - ts_zscore(group_neutralize(A, sector), 20)` | 剥离行业 Beta 后的特质纯 Alpha 剪刀差 |
+| **7. 三层尺度架构** | `three_tier_scaling` | `ts_scale(group_rank(A, subindustry), 30)` | 内层特征、中层行业分箱、外层滚动时序标准化 |
+| **8. 跨源多数据协同**| `cross_interaction` | `group_neutralize(rank(A) * rank(B), subindustry)` | 另类情绪与基本面之间的多源非线性协同 |
+| **9. 符号杂交进化** | `symbolic_evolution` | 递归 AST 1~4 层深度树生成 | 摆脱人工模板，自动生成高阶现代量化形态 |
+| **10. 沉淀知识蒸馏**| `evolved_distillation` | 动态加载 `template_library` 骨架并注入新字段 | 站在历史成功因子的肩膀上跨数据集复用 |
+
+---
+
+## 三、 DDD 抽样探索算法
+
+位于 `alpha_operator_framework/research/selection.py`：
+
+1. **`D-Optimal`（推荐默认）**：
+   - 构建候选因子的特征矩阵（操作符指纹、窗口跨度、分组维度）；
+   - 最大化信息矩阵行列式 $\det(X^T X)$，确保在有限回测配额下覆盖最大化的假设特征空间。
+2. **`Thompson Sampling`**：
+   - 为每个模板族维护 Beta 分布后验胜率；
+   - 每次回测时从后验分布抽样，自适应将更多配额倾斜给历史高夏普族群，同时保留探索能力。
+3. **`UCB (Upper Confidence Bound)`**：
+   - 平衡族群平均胜率与试验不确定性；
+   - 优先尝试高潜力且试验次数较少的新兴结构族。
+4. **`Stratified`**：
+   - 严格分层均衡抽样，保证每个模板族均匀分配回测任务，适合全景摸底。
+5. **`Diversity`**：
+   - 基于 AST 树结构编辑距离最大化候选多样性，剔除同质化候选。
+
+---
+
+## 四、 策略组件化 Python API
+
+```python
+from alpha_operator_framework.generation import create_strategy
+from alpha_operator_framework.domain.fields import FieldSpec
+
+# 1. 创建策略实例
+strategy = create_strategy("template", {
+    "families": ("unary", "binary", "distilled"),
+    "decay": 12.0,
+})
+
+# 2. 生成任务
+fields = [
+    FieldSpec(id="returns", dataset_id="pv1", type="MATRIX"),
+    FieldSpec(id="volume", dataset_id="pv1", type="MATRIX"),
+]
+tasks = strategy.generate_tasks(fields, group_fields=["subindustry", "sector"])
+print(f"✅ 生成 {len(tasks)} 个策略任务")
 ```
-┌──────────────────┬──────────────────┬──────────────────┐
-│  MultiStage      │   Template       │      Test        │
-│  多阶工厂         │   模板库         │     测试类型      │
-├──────────────────┼──────────────────┼──────────────────┤
-│ first_order      │ placeholder      │ rank             │
-│ + unary_template │ + fixed          │ quantile         │
-│                  │                  │ winsorize        │
-│                  │ 从数据库加载      │ neutralize       │
-├──────────────────┼──────────────────┼──────────────────┤
-│ 经典方法          │ 已验证模板        │ 信号稳定性测试    │
-│ 快速基线          │ 按category过滤   │ 参数扫描          │
-└──────────────────┴──────────────────┴──────────────────┘
-
-┌──────────────────┬──────────────────┐
-│  Multivariate    │    Composite     │
-│  多元字段         │     组合策略      │
-├──────────────────┼──────────────────┤
-│ 多字段组合        │ 串行/并行组合    │
-│ 跨category       │ 多策略融合        │
-│ 复合因子          │ 灵活扩展         │
-├──────────────────┼──────────────────┤
-│ 创新探索          │ 复杂工作流        │
-│ 因子融合          │ 最佳实践          │
-└──────────────────┴──────────────────┘
-```
-
-## 数据流向
-
-```
-CLI参数
-  │
-  ├─ --strategy template
-  ├─ --template-categories analyst pv
-  └─ --decay 6.0
-  │
-  ▼
-create_strategy("template", config)
-  │
-  ▼
-TemplateStrategy.generate_tasks()
-  │
-  ├─ 从数据库加载模板
-  │  SELECT * FROM template_library
-  │  WHERE family IN ('unary', 'binary')
-  │    AND active = 1
-  │
-  ├─ 按categories过滤字段
-  │  scalar_fields.filter(category in template_categories)
-  │
-  ├─ 槽位分类与渲染
-  │  - scalar槽: 标量字段组合
-  │  - group槽: GROUP字段
-  │  - fixed槽: 固定值
-  │  - enum槽: 枚举值
-  │
-  └─ 组合展开
-     combinations(scalar_fields, slot_count)
-  │
-  ▼
-List[Task]
-  │
-  ├─ Task(expression="rank(close)", ...)
-  ├─ Task(expression="ts_delta(volume, 5)", ...)
-  └─ ...
-  │
-  ▼
-提交到BRAIN平台进行回测
-```
-
-## 配置继承关系
-
-```
-StrategyConfig (基类)
-  ├─ decay: float
-  └─ name: str
-      │
-      ├─ MultiStageConfig
-      │  ├─ include_first_order: bool
-      │  ├─ include_unary_template: bool
-      │  ├─ first_order_ops: Tuple[str, ...]
-      │  └─ unary_template_indices: Tuple[int, ...]
-      │
-      ├─ TemplateStrategyConfig
-      │  ├─ families: Tuple[str, ...]
-      │  ├─ all_combinations: bool
-      │  ├─ sample_n: int
-      │  ├─ template_categories: Tuple[str, ...]
-      │  └─ templates: Optional[Sequence[Template]]
-      │
-      ├─ TestStrategyConfig
-      │  ├─ test_operators: Tuple[str, ...]
-      │  ├─ quantile_bins: Tuple[int, ...]
-      │  ├─ winsorize_limits: Tuple[float, ...]
-      │  └─ include_neutralize: bool
-      │
-      ├─ MultivariateConfig
-      │  ├─ min_fields: int
-      │  ├─ max_fields: int
-      │  ├─ combination_limit: int
-      │  └─ cross_category: bool
-      │
-      └─ CompositeConfig
-         ├─ strategies: Tuple[str, ...]
-         └─ mode: str (serial | parallel)
-```
-
-## 扩展新策略
-
-```
-步骤1: 定义配置类
-  ┌─────────────────────────────────┐
-  │ @dataclass                      │
-  │ class MyStrategyConfig(         │
-  │     StrategyConfig              │
-  │ ):                              │
-  │     my_param: str = "default"   │
-  └─────────────────────────────────┘
-
-步骤2: 实现策略类
-  ┌─────────────────────────────────┐
-  │ class MyStrategy(               │
-  │     CreationStrategy            │
-  │ ):                              │
-  │   def generate_tasks(           │
-  │       self, fields, groups      │
-  │   ) -> List[Task]:              │
-  │       # 实现你的逻辑            │
-  │       return tasks              │
-  └─────────────────────────────────┘
-
-步骤3: 注册到工厂
-  ┌─────────────────────────────────┐
-  │ strategy_map = {                │
-  │   ...                           │
-  │   "my_strategy": MyStrategy,    │
-  │ }                               │
-  └─────────────────────────────────┘
-```
-
-## 最佳实践
-
-```
-探索阶段 → template策略
-  ├─ 从已验证模板开始
-  ├─ 按category过滤字段
-  └─ 快速生成baseline
-
-优化阶段 → test策略
-  ├─ 测试不同参数
-  ├─ 评估稳定性
-  └─ 找到最优配置
-
-创新阶段 → multivariate策略
-  ├─ 探索新组合
-  ├─ 跨category融合
-  └─ 发现新因子
-
-基线对比 → multi_stage策略
-  ├─ 经典一阶方法
-  ├─ 快速baseline
-  └─ 性能对比参考
-
-复杂工作流 → composite策略
-  ├─ 多策略组合
-  ├─ 串行/并行执行
-  └─ 最佳实践融合
-```
-
-这个架构设计提供了灵活、可扩展的策略系统，支持你提出的多阶工厂、多元字段、模板构建等不同流程的组件化实现。

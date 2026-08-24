@@ -1,6 +1,6 @@
 # Alpha 研究主数据库架构与设计规范 (Database Design Document)
 
-本文档定义 **Alpha Factor Operator Framework** 主数据库 [`data/alpha_research.db`](file:///d:/quant/alpha_factory/data/alpha_research.db) 的全量 17 张核心表/视图结构、索引规划、关联模型、并发调优与运维指南。
+本文档定义 **Alpha Factor Operator Framework** 主数据库 [`data/alpha_research.db`](file:///d:/quant/alpha_factory/data/alpha_research.db) 的全量核心数据表/视图结构、索引规划、关联模型、并发调优与运维指南。
 
 ---
 
@@ -35,7 +35,7 @@
   python clean_db.py                  # 清理失败/异常任务并执行 VACUUM 释放空间 (默认)
   python clean_db.py --mode stale     # 清理失败项、被剪枝项与孤儿数据
   python clean_db.py --mode all_data  # 清空所有历史回测数据 (保留表结构与模板库)
-  python clean_db.py --dry-run        # 仅预览预计清理条目数，不实际删除
+  python clean_db.py --mode stale --dry-run  # 仅预览预计清理条目数，不实际删除
   # 或通过统一 CLI:
   python alpha_machine.py clean-db --mode stale
   ```
@@ -45,12 +45,8 @@
 - **统一单例与默认路径**：默认指向 `data/alpha_research.db`，所有模块（Repository、EventStore、TrialLedger、CLI）统一通过 `get_database_path()` / `get_database_config()` 获取；
 - **环境变量一键覆盖**：
   - `ALPHA_DATABASE_PATH`: 自定义 SQLite 数据库文件绝对/相对路径；
-  - `ALPHA_DATABASE_URL`: 标准数据库连接 URL，如：
-    - `sqlite:///data/alpha_research.db`
-    - `mysql://user:password@localhost:3306/alpha_db`
-    - `postgresql://user:password@localhost:5432/alpha_db`
-- **极高内聚与低耦合封装**：所有数据库连接管理、驱动适配（SQLite / MySQL / Postgres）、SQL 语句、事务提交与 PRAGMA 调优 100% 严格封装在 `alpha_operator_framework/database/` 模块内部。
-- **业务/领域/内核零 SQL 泄漏**：上层业务（`core/EventStore`、`domain/TrialLedger`、`research/pipeline`、`loop`、`orchestrator`、`alpha_machine`）完全没有任何 `import sqlite3` 或原生 SQL 拼接，所有数据读写统一委托给 `AlphaDatabase` 仓储高阶接口，实现真正的透明持久化与后端无缝切换。
+  - `ALPHA_DATABASE_URL`: 标准数据库连接 URL（支持 `sqlite:///`、`mysql://`、`postgresql://`）。
+- **极高内聚与低耦合封装**：所有数据库连接管理、驱动适配、SQL 语句与事务提交 100% 封装在 `alpha_operator_framework/database/` 模块内部。上层领域与应用层完全不直接接触原生 SQL。
 
 ---
 
@@ -94,15 +90,15 @@ erDiagram
     }
 
     event_log {
-        INTEGER id PK "自增序列"
+        INTEGER global_offset PK "自增序列"
         TEXT event_id UK "全局唯一事件 UUID"
-        TEXT stream_id "聚合根 ID (实验图 ID / 因子 SHA)"
+        TEXT stream_id "聚合根 ID"
         TEXT event_type "事件类型枚举"
-        INTEGER version "事件版本"
-        TEXT payload_json "轻量业务数据 JSON"
+        INTEGER schema_version "事件版本"
+        TEXT payload "轻量业务数据 JSON"
         TEXT payload_ref "工件库 CAS 指针"
         TEXT actor "操作者 / Worker 标识"
-        TEXT created_at "事件发生时间 ISO"
+        TEXT occurred_at "事件发生时间 ISO"
     }
 
     trial_ledger {
@@ -119,138 +115,54 @@ erDiagram
 
 ---
 
-## 三、 全量 17 张核心数据表/视图清单
+## 三、 核心数据表结构清单
 
-| 序号 | 表 / 视图名 | 核心定位 | 核心索引 |
-| :---: | :--- | :--- | :--- |
-| 1 | **`alpha_expressions`** | 规范化表达式主索引与去重指纹池 | `idx_expr_sha`, `idx_expr_status`, `idx_expr_batch` |
-| 2 | **`alpha_details`** | 真实平台回测绩效明细库 (IS Sharpe/Fitness/Turnover/Margin/Returns/Drawdown) | `idx_detail_sha`, `idx_detail_sharpe`, `idx_detail_fitness`, `idx_detail_wf_stage` |
-| 3 | **`alpha_checks`** | 平台 18 项 Checks 终审审计结果子表 (1:18 关联) | `idx_checks_alpha`, `idx_checks_name` |
-| 4 | **`template_library`** | 4 族 86 类基础表达式母版库 (含 30+ 预置种子) | `idx_tpl_family`, `idx_tpl_active` |
-| 5 | **`template_prune_rules`**| 负向淘汰规则与模式过滤库 (Negative Learning) | `UNIQUE(pattern, pattern_type)` |
-| 6 | **`event_log`** | 事件溯源内核不可变事实流表 (Append-Only) | `UNIQUE(event_id)`, `idx_event_stream` |
-| 7 | **`trial_ledger`** | 持久化试验账本与搜索空间自由度累加表 (DSR 输入) | `UNIQUE(trial_id)`, `idx_trial_family` |
-| 8 | **`simulation_batches`** | 异步并发回测批次生命周期与进度追踪表 | `idx_sim_batch_status`, `platform_batch_id` |
-| 9 | **`simulation_results`** | 单个表达式回测结果与任务映射关系表 | `idx_sim_result_batch`, `idx_sim_result_alpha` |
-| 10 | **`alpha_submission_candidates`** | 经过 6 维证据终审达标的正式提交候选池 | `idx_sub_cand_alpha`, `idx_sub_cand_sharpe`, `idx_sub_cand_submitted` |
-| 11 | **`alpha_optimization_queue`** | 待修复/自进化突变优化队列 | `idx_opt_queue_alpha`, `idx_opt_queue_status`, `idx_opt_queue_priority` |
-| 12 | **`super_alpha_candidates`** | Gram-Schmidt 正交化 / HRP 超级因子合成池 | `idx_super_candidate_status` |
-| 13 | **`field_signal_stats`** | 字段级历史信号击中率与夏普表现画像表 | `idx_field_signal_hit`, `idx_field_signal_field` |
-| 14 | **`pair_signal_stats`** | 跨字段语义二元配对交互表现统计表 | `idx_pair_signal_hit`, `idx_pair_signal_spec` |
-| 15 | **`operator_signal_stats`** | 算子级历史胜率与表现沉淀表 | `UNIQUE(operator, region, universe, delay, round)` |
-| 16 | **`datafields`** | 平台全量可用数据字段元数据与覆盖率缓存表 | `idx_datafields_region`, `idx_datafields_dataset`, `idx_datafields_type` |
-| 17 | **`backtest_dataset_records`** | 数据集已回测防重记录表 | `UNIQUE(region, universe, delay, dataset_id, strategy)` |
-| 18 | **`schema_version`** | 数据库 Schema 迁移版本追踪表 (`010_event_core`) | `PRIMARY KEY(version)` |
+### 1. 表达式与回测表
+- **`alpha_expressions`**: 存储所有经过 AST 编译器规范化的候选表达式、哈希指纹、来源与状态；
+- **`alpha_details`**: 记录从 WorldQuant BRAIN 平台获取的真实回测指标（Sharpe, Fitness, Turnover, Margin, Returns, Drawdown 等）；
+- **`alpha_checks`**: 记录每个 Alpha 的 18 项平台硬性 Checks（如 LOW_SHARPE, LOW_FITNESS, HIGH_TURNOVER 等）审计结果。
 
----
+### 2. 批次调度与平台仿真表
+- **`simulation_batches`**: 记录向平台提交的多仿真批次（`platform_batch_id`、`platform_location`、批次状态与进度）；
+- **`simulation_results`**: 批次中每个子任务的执行明细与关联 `alpha_id`；
+- **`super_alpha_candidates`**: 记录通过正交化与 HRP 算法生成的超级组合因子候选。
 
-## 四、 核心数据表详细字段字典
+### 3. 自进化知识库与剪枝表
+- **`template_library`**: 模板库，包含预置种子母版以及通过 `TemplateAbstractor` 自动反向蒸馏生成的 `{a}`, `{b}` 骨架；
+- **`template_prune_rules`**: 2D 跨字段共识剪枝规则库，记录多字段连续失败的模板模式；
+- **`field_signal_stats` / `pair_signal_stats` / `operator_signal_stats`**: 统计各字段、字段对与算子的实测命中率与平均绩效。
 
-### 1. `event_log` (事件溯源事实流)
-```sql
-CREATE TABLE IF NOT EXISTS event_log (
-    id INTEGER PRIMARY KEY AUTOINCREMENT,
-    event_id TEXT NOT NULL UNIQUE,
-    stream_id TEXT NOT NULL,
-    event_type TEXT NOT NULL,
-    version INTEGER NOT NULL DEFAULT 1,
-    payload_json TEXT NOT NULL DEFAULT '{}',
-    payload_ref TEXT,
-    actor TEXT NOT NULL DEFAULT 'system',
-    created_at TEXT NOT NULL
-);
-```
-
-### 2. `trial_ledger` (持久化试验账本)
-```sql
-CREATE TABLE IF NOT EXISTS trial_ledger (
-    id INTEGER PRIMARY KEY AUTOINCREMENT,
-    trial_id TEXT NOT NULL UNIQUE,
-    expression TEXT NOT NULL,
-    family TEXT NOT NULL DEFAULT 'default',
-    region TEXT NOT NULL DEFAULT 'GBR',
-    universe TEXT NOT NULL DEFAULT 'TOP700',
-    metrics_json TEXT NOT NULL DEFAULT '{}',
-    created_at TEXT NOT NULL
-);
-```
-
-### 3. `alpha_details` (平台实测明细)
-```sql
-CREATE TABLE IF NOT EXISTS alpha_details (
-    id INTEGER PRIMARY KEY AUTOINCREMENT,
-    alpha_id TEXT NOT NULL UNIQUE,
-    expression_sha TEXT NOT NULL,
-    alpha_sha TEXT NOT NULL DEFAULT '',
-    expression TEXT NOT NULL,
-    region TEXT,
-    universe TEXT,
-    delay INTEGER DEFAULT 1,
-    decay REAL DEFAULT 0,
-    neutralization TEXT,
-    truncation REAL DEFAULT 0,
-    sharpe REAL DEFAULT 0,
-    fitness REAL DEFAULT 0,
-    turnover REAL DEFAULT 0,
-    margin REAL DEFAULT 0,
-    pnl REAL DEFAULT 0,
-    returns REAL DEFAULT 0,
-    drawdown REAL DEFAULT 0,
-    long_count INTEGER DEFAULT 0,
-    short_count INTEGER DEFAULT 0,
-    grade TEXT,
-    stage_platform TEXT,
-    status_platform TEXT,
-    wf_stage TEXT NOT NULL DEFAULT 'pending_validation',
-    sc_result TEXT,
-    sc_value REAL,
-    pc_result TEXT,
-    pc_value REAL,
-    checks_json TEXT,
-    ra_failed INTEGER NOT NULL DEFAULT 0,
-    ppa_failed INTEGER NOT NULL DEFAULT 0,
-    created_at TEXT NOT NULL,
-    updated_at TEXT NOT NULL
-);
-```
+### 4. 事件溯源与试验账本表
+- **`event_log`**: 事件溯源不可变事实流，记录全生命周期所有状态流转事件；
+- **`trial_ledger`**: 持久化试验账本，记录所有回测与剪枝尝试，为 DSR/PSR/PBO 统计防过拟合提供多重检验基础；
+- **`schema_version`**: 记录已应用的数据库版本与迁移时间戳。
 
 ---
 
-## 六、 DDD 领域驱动设计持久化表结构 (DDD Persistence Tables)
+## 四、 常用分析 SQL 查询速查
 
-为支持全新 DDD 架构三大领域聚合的**快照隔离、100% 确定性回放与断点续传**，主数据库引入了如下高内聚快照存储模型：
-
-### 1. `research_round_snapshots` (探索轮次完整事实快照)
+### 1. 查询 IS 夏普最高的前 10 个 Alpha
 ```sql
-CREATE TABLE IF NOT EXISTS research_round_snapshots (
-    round_id TEXT PRIMARY KEY,
-    payload TEXT NOT NULL  -- 完整包含 ResearchPolicy, Field/Knowledge Snapshots, Candidate Pool, PrePruning Decisions, Selection Decisions
-);
+SELECT alpha_id, expression, sharpe, fitness, turnover, returns, drawdown, wf_stage
+FROM alpha_details
+ORDER BY sharpe DESC
+LIMIT 10;
 ```
 
-### 2. `experiment_batch_snapshots` (实验批次状态机与结果快照)
+### 2. 查询各生成族群 (Family) 的胜率与平均夏普
 ```sql
-CREATE TABLE IF NOT EXISTS experiment_batch_snapshots (
-    batch_id TEXT PRIMARY KEY,
-    payload TEXT NOT NULL  -- 完整包含 BatchState, IdempotencyKey, BacktestTasks, NormalizedResults, 6D Evaluations, State Transitions
-);
+SELECT e.expression_origin, COUNT(*) AS total_alphas,
+       AVG(d.sharpe) AS avg_sharpe, MAX(d.sharpe) AS max_sharpe
+FROM alpha_details d
+JOIN alpha_expressions e ON d.expression_sha = e.expression_sha
+GROUP BY e.expression_origin
+ORDER BY avg_sharpe DESC;
 ```
 
-**快照与审计保证**：
-- 写入原子性：每次聚合状态跃迁通过事务写入不可变 JSON Payload，并附带审计事件；
-- 单查询可答性 (Auditability)：给定 `round_id` 或 `batch_id` 即可在单次查询中完全还原从假说产生、抽样判定、回测绩效到 Pareto 变异的完整谱系链条。
-
-
----
-
-## 七、 生产环境数据库多路径合并与去重工具 (`scripts/merge_databases.py`)
-
-在多服务器或从不同目录启动（如 `runs/`）导致历史数据库碎片化时，可使用自动合并脚本：
-```bash
-# 自动扫描所有历史碎片数据库并去重合并入 data/alpha_research.db
-python scripts/merge_databases.py
-
-# 指定目标数据库合并
-python scripts/merge_databases.py --target data/alpha_research.db
+### 3. 查看指定 Alpha 的 18 项 Checks 详细状态
+```sql
+SELECT check_name, result, value, "limit"
+FROM alpha_checks
+WHERE alpha_id = 'ALPHA_12345'
+ORDER BY result ASC;
 ```
-

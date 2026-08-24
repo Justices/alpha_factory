@@ -115,7 +115,7 @@ def demo_task_generation():
 
     # 二元任务 (需要至少2个字段)
     scalars2 = [
-        "winsorize(ts_backfill(close, 120), std=4)",
+        "winsorize(ts_backfill(returns, 120), std=4)",
         "winsorize(ts_backfill(volume, 120), std=4)"
     ]
     tasks = binary_factory(scalars2, max_pairs=1)
@@ -132,7 +132,7 @@ def demo_density():
     # 模拟结果
     results = [
         {
-            "expression": "ts_rank(close, 5)",
+            "expression": "ts_rank(returns, 5)",
             "family": "unary",
             "template_index": 0,
             "source_freq": "unknown",

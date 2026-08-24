@@ -42,7 +42,7 @@ async def example_precise_fields():
 
     # AI或用户提供精确的字段列表
     field_specs = [
-        FieldSpec(id="close", dataset_id="pv1", type="MATRIX", coverage=0.95),
+        FieldSpec(id="vwap", dataset_id="pv1", type="MATRIX", coverage=0.95),
         FieldSpec(id="volume", dataset_id="pv1", type="MATRIX", coverage=0.92),
         FieldSpec(id="returns", dataset_id="pv1", type="MATRIX", coverage=0.99),
         FieldSpec(id="cap", dataset_id="pv1", type="MATRIX", coverage=0.95),
@@ -54,7 +54,7 @@ async def example_precise_fields():
         universe="TOP2500",
         delay=1,
         dataset_id="pv1",
-        field_ids=["close", "volume", "returns"],  # 只用这3个字段
+        field_ids=["vwap", "volume", "returns"],  # 只用这3个字段
         include_unary=True,
         include_binary=True,
         include_ternary=False,
@@ -92,7 +92,7 @@ async def example_full_workflow():
 
     # 指定参数
     field_specs = [
-        FieldSpec(id="close", dataset_id="pv1", type="MATRIX", coverage=0.95),
+        FieldSpec(id="vwap", dataset_id="pv1", type="MATRIX", coverage=0.95),
         FieldSpec(id="volume", dataset_id="pv1", type="MATRIX", coverage=0.92),
     ]
 
@@ -102,7 +102,7 @@ async def example_full_workflow():
         universe="TOP2500",
         delay=1,
         dataset_id="pv1",
-        field_ids=["close", "volume"],  # 指定字段
+        field_ids=["vwap", "volume"],  # 指定字段
         field_specs=field_specs,        # 提供字段规格(避免查询平台)
         sample_n=80,
         top_n=3,
@@ -147,13 +147,13 @@ async def example_ai_decision_loop():
     # 第一步: 先用少量字段快速调研
     print("\n第一步: 快速调研(2个字段)")
     field_specs_1 = [
-        FieldSpec(id="close", dataset_id="pv1", type="MATRIX", coverage=0.95),
+        FieldSpec(id="vwap", dataset_id="pv1", type="MATRIX", coverage=0.95),
         FieldSpec(id="volume", dataset_id="pv1", type="MATRIX", coverage=0.92),
     ]
 
     result_1 = await run_survey_with_fields(
         field_specs_1,
-        SurveyConfig(region="EUR", universe="TOP2500", field_ids=["close", "volume"]),
+        SurveyConfig(region="EUR", universe="TOP2500", field_ids=["vwap", "volume"]),
         execute=False
     )
 
@@ -171,7 +171,7 @@ async def example_ai_decision_loop():
 
         result_2 = await run_survey_with_fields(
             field_specs_2,
-            SurveyConfig(region="EUR", universe="TOP2500", field_ids=["close", "volume", "returns"]),
+            SurveyConfig(region="EUR", universe="TOP2500", field_ids=["vwap", "volume", "returns"]),
             execute=False
         )
 
@@ -197,9 +197,9 @@ async def example_batch_regions():
 
     # AI指定要处理的地区和参数
     targets = [
-        {"region": "EUR", "universe": "TOP2500", "fields": ["close", "volume"]},
-        {"region": "USA", "universe": "TOP3000", "fields": ["close", "volume"]},
-        {"region": "CHN", "universe": "TOP3000", "fields": ["close", "volume"]},
+        {"region": "EUR", "universe": "TOP2500", "fields": ["vwap", "volume"]},
+        {"region": "USA", "universe": "TOP3000", "fields": ["vwap", "volume"]},
+        {"region": "CHN", "universe": "TOP3000", "fields": ["vwap", "volume"]},
     ]
 
     results = {}

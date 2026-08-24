@@ -760,9 +760,6 @@ def main() -> None:
     clean_db_p.add_argument("--dry-run", action="store_true", help="仅预览将删除的条目数，不实际执行删除")
     clean_db_p.add_argument("--no-vacuum", action="store_true", help="不执行 VACUUM 磁盘空间释放")
     clean_db_p.set_defaults(func=command_clean_db)
-    drill_p = sub.add_parser("drill-recovery", help="执行端到端事件溯源小批崩溃恢复与 6 维治理演练")
-    drill_p.add_argument("--temp", action="store_true", default=True, help="使用临时隔离沙盒数据库进行演练")
-    drill_p.set_defaults(func=command_drill_recovery)
     auto_p = sub.add_parser("auto-pilot", help="全自动无人值守投研流水线: 预检 ➔ 真实并发挖掘 ➔ 6维证据终审 ➔ 空间清理释放 ➔ 汇总研报")
     add_settings(auto_p)
     auto_p.add_argument("--datasets", "-d", default="analyst7", help="指定挖掘的数据集ID列表 (如: analyst7,fundamental31)")
@@ -786,11 +783,12 @@ def main() -> None:
     rc_p = sub.add_parser("research-cycle", help="全新 DDD 架构 10 阶段全流程投研生命周期 (支持 4 大抽样算法 & 二维共识剪枝)")
     add_settings(rc_p)
     rc_p.add_argument("--datasets", "-d", default=None, help="指定数据集列表 (逗号分隔)")
-    rc_p.add_argument("--algorithm", "-a", choices=["stratified", "d_optimal", "thompson", "ucb", "diversity"], default="stratified", help="抽样算法 (默认: stratified)")
-    rc_p.add_argument("--sample-per-family", "-s", type=int, default=4, help="每类抽样数量 (默认: 4)")
-    rc_p.add_argument("--decay", type=int, default=12, help="Decay (默认: 12)")
-    rc_p.add_argument("--neutralization", "-n", default="SUBINDUSTRY", help="中性化 (默认: SUBINDUSTRY)")
-    rc_p.add_argument("--truncation", type=float, default=0.08, help="截断阈值 (默认: 0.08)")
+    rc_p.add_argument("--algorithm", "-a", choices=["stratified", "d_optimal", "thompson", "ucb", "diversity"], default=None, help="抽样算法；策略文件存在时必须一致")
+    rc_p.add_argument("--sample-per-family", "-s", type=int, default=None, help="每类抽样数量；策略文件存在时不得另行指定")
+    rc_p.add_argument("--decay", type=int, default=None, help="Decay；策略文件存在时必须一致")
+    rc_p.add_argument("--neutralization", "-n", default=None, help="中性化；策略文件存在时必须一致")
+    rc_p.add_argument("--truncation", type=float, default=None, help="截断阈值；策略文件存在时必须一致")
+    rc_p.set_defaults(delay=None)
     rc_p.add_argument("--execute", "-e", action="store_true", help="向 BRAIN 平台提交真实在线回测")
     rc_p.add_argument("--authorize-submission", action="store_true", help="显式授权达标 Alpha 自动提交上线")
     rc_p.add_argument("--submission-evidence-file", default=None, help="已核验证据 JSON（按平台 Alpha ID 映射）；与 --authorize-submission 一起使用")
@@ -831,7 +829,7 @@ def command_research_cycle(args: argparse.Namespace) -> None:
     field_specs = load_real_market_fields(
         region=args.region,
         universe=args.universe,
-        delay=getattr(args, "delay", 1),
+        delay=getattr(args, "delay", None) if getattr(args, "delay", None) is not None else 1,
         datasets=datasets_list,
     )
     matrix_fields = [field.id for field in field_specs if (field.type or "MATRIX").upper() == "MATRIX"]
@@ -839,15 +837,24 @@ def command_research_cycle(args: argparse.Namespace) -> None:
         ConstructionTemplate("rank_field", "rank({field})", "cross_sectional", ("rank",)),
         ConstructionTemplate("ts_rank_22", "ts_rank({field}, 22)", "time_series", ("ts_rank",)),
     ))
-    quotas = {candidate.family: args.sample_per_family for candidate in candidates}
+    sample_per_family = args.sample_per_family if args.sample_per_family is not None else 4
+    quotas = {candidate.family: sample_per_family for candidate in candidates}
     strategy = {"stratified": "weighted_stratified", "d_optimal": "diversity"}.get(
-        getattr(args, "algorithm", "weighted_stratified"), getattr(args, "algorithm", "weighted_stratified"),
+        getattr(args, "algorithm", None) or "weighted_stratified", getattr(args, "algorithm", None) or "weighted_stratified",
     )
     policy = load_policy(Path(args.policy_file)).to_research_policy() if getattr(args, "policy_file", None) else ResearchPolicy(
         region=args.region, universe=args.universe, max_backtests=sum(quotas.values()), family_quotas=quotas,
         policy_version=getattr(args, "policy_version", "cli-v1"), selection_strategy=strategy,
-        delay=getattr(args, "delay", 1), decay=getattr(args, "decay", 8),
-        neutralization=getattr(args, "neutralization", "SUBINDUSTRY"), truncation=getattr(args, "truncation", 0.08))
+        delay=getattr(args, "delay", None) if getattr(args, "delay", None) is not None else 1,
+        decay=getattr(args, "decay", None) if getattr(args, "decay", None) is not None else 8,
+        neutralization=getattr(args, "neutralization", None) or "SUBINDUSTRY", truncation=getattr(args, "truncation", None) if getattr(args, "truncation", None) is not None else 0.08)
+    if getattr(args, "policy_file", None):
+        from alpha_operator_framework.research.policy import validate_cli_policy_overrides
+        validate_cli_policy_overrides(policy, {
+            "region": args.region, "universe": args.universe, "delay": args.delay,
+            "algorithm": strategy if args.algorithm is not None else None,
+            "decay": args.decay, "neutralization": args.neutralization, "truncation": args.truncation,
+        })
     authorize_submission = bool(getattr(args, "authorize_submission", False))
     evidence_file = getattr(args, "submission_evidence_file", None)
     if authorize_submission and not args.execute:

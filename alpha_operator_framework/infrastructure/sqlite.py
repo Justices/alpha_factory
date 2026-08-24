@@ -156,6 +156,7 @@ class SqliteKnowledgeRepository:
         self.path = path
         with sqlite3.connect(path) as connection:
             connection.execute("CREATE TABLE IF NOT EXISTS knowledge_snapshot (id INTEGER PRIMARY KEY CHECK(id=1), payload TEXT NOT NULL)")
+            connection.execute("CREATE TABLE IF NOT EXISTS knowledge_snapshot_history (version INTEGER PRIMARY KEY, payload TEXT NOT NULL)")
 
     def save(self, knowledge: KnowledgeBase) -> None:
         payload = json.dumps({"version": knowledge.version, "field_scores": knowledge.field_scores,
@@ -163,12 +164,22 @@ class SqliteKnowledgeRepository:
                               "rejected_templates": sorted(knowledge.rejected_templates), "field_trials": knowledge.field_trials}, sort_keys=True)
         with sqlite3.connect(self.path) as connection:
             connection.execute("INSERT INTO knowledge_snapshot(id, payload) VALUES (1, ?) ON CONFLICT(id) DO UPDATE SET payload=excluded.payload", (payload,))
+            connection.execute("INSERT OR IGNORE INTO knowledge_snapshot_history(version, payload) VALUES (?, ?)", (knowledge.version, payload))
 
     def load(self) -> KnowledgeBase:
         with sqlite3.connect(self.path) as connection:
             row = connection.execute("SELECT payload FROM knowledge_snapshot WHERE id=1").fetchone()
         if row is None:
             return KnowledgeBase()
+        payload = json.loads(row[0])
+        return KnowledgeBase(version=payload["version"], field_scores=payload["field_scores"], operator_scores=payload["operator_scores"],
+                             template_scores=payload["template_scores"], rejected_templates=set(payload["rejected_templates"]), field_trials=payload["field_trials"])
+
+    def load_version(self, version: int) -> KnowledgeBase:
+        with sqlite3.connect(self.path) as connection:
+            row = connection.execute("SELECT payload FROM knowledge_snapshot_history WHERE version=?", (version,)).fetchone()
+        if row is None:
+            raise KeyError(version)
         payload = json.loads(row[0])
         return KnowledgeBase(version=payload["version"], field_scores=payload["field_scores"], operator_scores=payload["operator_scores"],
                              template_scores=payload["template_scores"], rejected_templates=set(payload["rejected_templates"]), field_trials=payload["field_trials"])

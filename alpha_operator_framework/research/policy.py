@@ -87,6 +87,17 @@ def build_selector(policy: ResearchPolicy):
         raise ValueError(f"Unknown selection strategy: {policy.selection_strategy}") from error
 
 
+def validate_cli_policy_overrides(policy: ResearchPolicy, overrides: Mapping[str, Any]) -> None:
+    """Reject ambiguous policy-file/CLI combinations instead of silently ignoring a value."""
+    aliases = {"algorithm": "selection_strategy"}
+    for name, value in overrides.items():
+        if value is None:
+            continue
+        attribute = aliases.get(name, name)
+        if getattr(policy, attribute) != value:
+            raise ValueError(f"CLI override conflicts with policy file: {name}")
+
+
 def load_policy(path: Path) -> PolicySnapshot:
     """Load a versioned JSON or YAML policy snapshot without ambient configuration."""
     content = path.read_text(encoding="utf-8")

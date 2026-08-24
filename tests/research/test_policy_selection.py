@@ -6,7 +6,7 @@ import random
 import json
 import pytest
 
-from alpha_operator_framework.research.policy import PolicySnapshot, build_selector, load_policy
+from alpha_operator_framework.research.policy import PolicySnapshot, build_selector, load_policy, validate_cli_policy_overrides
 from alpha_operator_framework.research.round import Candidate, KnowledgeSnapshot
 
 
@@ -78,3 +78,13 @@ def test_policy_settings_are_applied_to_experiment_tasks() -> None:
     }).to_research_policy()
 
     assert (policy.delay, policy.decay, policy.neutralization, policy.truncation) == (0, 15, "INDUSTRY", 0.05)
+
+
+def test_policy_file_rejects_conflicting_explicit_cli_override() -> None:
+    policy = PolicySnapshot.from_mapping({
+        "region": "GBR", "universe": "TOP700", "max_backtests": 2,
+        "settings": {"decay": 15},
+    }).to_research_policy()
+
+    with pytest.raises(ValueError, match="decay"):
+        validate_cli_policy_overrides(policy, {"decay": 12})

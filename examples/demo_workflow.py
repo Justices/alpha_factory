@@ -67,8 +67,8 @@ def demo_operators():
     print(f"分组算子: {group_ops}")
 
     # 生成时间序列表达式
-    print("\n示例: 对close字段应用ts_rank算子")
-    exprs = first_order_factory(["close"], ["ts_rank"])
+    print("\n示例: 对returns字段应用ts_rank算子")
+    exprs = first_order_factory(["returns"], ["ts_rank"])
     for expr in exprs[:3]:
         print(f"  {expr}")
 
@@ -81,7 +81,7 @@ def demo_fields():
 
     # 构造模拟字段
     fields = [
-        FieldSpec(id="close", dataset_id="pv1", type="MATRIX", coverage=0.95, user_count=300),
+        FieldSpec(id="returns", dataset_id="pv1", type="MATRIX", coverage=0.95, user_count=300),
         FieldSpec(id="volume", dataset_id="pv1", type="MATRIX", coverage=0.92, user_count=200),
         FieldSpec(id="sentiment", dataset_id="nws82", type="VECTOR", coverage=0.80, user_count=50),
     ]
@@ -106,7 +106,7 @@ def demo_task_generation():
     print("="*70)
 
     # 模拟标量字段
-    scalars = ["winsorize(ts_backfill(close, 120), std=4)"]
+    scalars = ["winsorize(ts_backfill(returns, 120), std=4)"]
 
     # 一元任务
     tasks = unary_factory(scalars)

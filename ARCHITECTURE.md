@@ -1,19 +1,19 @@
 # Alpha Factory 架构与技术全景设计文档 (System Architecture)
 
-本文档系统性阐述 **Alpha Factory** 的整体架构、设计哲学、领域分层模型、事件溯源内核、6 维证据边界与防过拟合防御体系。
+本文档系统性阐述 **Alpha Factory** 的整体架构、设计哲学、领域驱动设计 (DDD) 分层模型、事件溯源内核、6 维证据边界、统计防过拟合体系与自进化知识库。
 
 ---
 
 ## 一、 系统架构总览 (System Architecture Overview)
 
-框架采用**领域驱动设计 (Domain-Driven Design, DDD)** 结合 **事件溯源 (Event Sourcing)** 架构模式，解耦量化因果逻辑、AST语法编译、多阶算子组合、真实平台回测网关与提交治理体系。
+框架采用**领域驱动设计 (Domain-Driven Design, DDD)** 结合 **事件溯源不可变事实内核 (Event Sourced Research Core)** 架构模式，彻底解耦量化因果逻辑、AST 语法编译、多阶算子组合、真实平台回测调度与提交治理体系。
 
 ```mermaid
 flowchart TD
-    subgraph INPUT["一、 输入层 (Multi-Modal Inputs)"]
-        P1["前沿学术研报 / 论文 (PDF / Markdown / TXT)"]
-        P2["指定市场与另类数据集 (Region / Universe / Datasets)"]
-        P3["字段质量与冷门度画像 (Field Quality Profiling)"]
+    subgraph INPUT["一、 输入与特征画像 (Field Discovery & Profiling)"]
+        P1["真实市场字段动态加载 (load_real_market_fields)"]
+        P2["稀疏/事件字段安全包装 (winsorize + ts_backfill)"]
+        P3["废弃价格字段强制拦截 (拦截 close / open / high / low)"]
     end
 
     subgraph EVENT_CORE["二、 事件溯源研究内核 (Event-Sourced Research Core)"]
@@ -25,30 +25,33 @@ flowchart TD
         EV6["Fail-Closed A/B 分支科学对照 (Yield per Budget)"]
     end
 
-    subgraph DOMAIN["三、 领域与治理层 (Domain & Governance)"]
+    subgraph DOMAIN["三、 DDD 领域与治理层 (Domain & Governance)"]
         D1["AST 规范编译器 (Parser / Canonicalizer / SHA)"]
-        D2["6 维提交证据审批引擎 (SubmissionApprovalEngine)"]
-        D3["持久化试验账本 (Persistent TrialLedger)"]
-        D4["结构族内相关性折损 (Effective Trials Neff)"]
-        D5["动态统计防过拟合 (DSR / PSR / Haircut Sharpe / PBO)"]
+        D2["4 大纯抽样算法 (D-Optimal / Thompson / UCB / Stratified)"]
+        D3["6 维提交证据审批引擎 (SubmissionApprovalEngine)"]
+        D4["持久化试验账本 (Persistent TrialLedger)"]
+        D5["结构族内相关性折损 (Effective Trials Neff)"]
+        D6["动态统计防过拟合 (DSR / PSR / Haircut Sharpe / PBO)"]
     end
 
-    subgraph PIPELINES["四、 业务流水线 (Research Pipelines)"]
-        PL1["文献认知提炼流水线 (Literature Pipeline)"]
+    subgraph PIPELINES["四、 业务流水线与自进化 (Pipelines & Evolution)"]
+        PL1["文献认知提炼流水线 (Literature Pipeline & LLM Grounder)"]
         PL2["分层地毯式挖掘流水线 (Stratified Carpet Miner)"]
-        PL3["组合与正交化超级因子 (Gram-Schmidt & HRP)"]
-        PL4["自进化闭环与负向剪枝 (Negative Learning & Mutation)"]
+        PL3["符号语法树自由杂交与大模型反思 (Symbolic Tree Breeding & Reflexion)"]
+        PL4["反向模板蒸馏与知识库闭环 (Auto-Distillation & Transfer)"]
+        PL5["组合与正交化超级因子 (Gram-Schmidt & HRP)"]
     end
 
-    subgraph STORAGE["五、 持久化与运维 (Persistence & Tooling)"]
+    subgraph STORAGE["五、 持久化与生产运维 (Persistence & Ops)"]
         DB[("SQLite 单一主库 data/alpha_research.db\n• 17 张核心数据表/视图\n• schema_version / event_log / trial_ledger")]
-        OPS["运维工具箱:\n• init_db.py (全新初始化/重置)\n• clean_db.py (数据清理与 VACUUM 释放空间)"]
+        OPS["运维与调度工具箱:\n• init_db.py (全新初始化/重置)\n• clean_db.py (数据清理与 VACUUM 释放物理空间)\n• auto-pilot / research-worker / submission-dispatch"]
     end
 
     INPUT --> EVENT_CORE
     EVENT_CORE --> DOMAIN
     DOMAIN --> PIPELINES
     PIPELINES --> STORAGE
+    PL4 -.->|知识回流| PIPELINES
 ```
 
 ---
@@ -88,9 +91,47 @@ flowchart TD
 
 ---
 
-## 三、 证据边界与 6 维提交治理体系
+## 三、 DDD 领域驱动设计分层架构
 
-位于 `alpha_operator_framework/domain/evidence.py`：
+框架按 DDD 限界上下文组织为以下清晰的分层架构：
+
+### 1. 应用编排层 (`alpha_operator_framework/application/`)
+- `ports.py`: 定义领域外部端口规范；
+- `research_cycle.py`: `ResearchCycleUseCase`，串联 10 阶段标准投研生命周期；
+- `research_runtime.py`: 运行时上下文与调度环境；
+- `research_worker.py`: 异步事件驱动 Worker，负责断点恢复与未完成批次轮询。
+
+### 2. 探索轮次与候选构造领域 (`alpha_operator_framework/research/`)
+- `round.py`: `ResearchRound` 聚合根；
+- `policy.py`: `ResearchPolicy` 策略配置与抽样算法工厂；
+- `selection.py`: **4 大纯抽样算法**（`Stratified`、`D-Optimal`、`Thompson`、`UCB`、`Diversity`）；
+- `pruning.py`: `AstPrePruner` 语法规范预剪枝；
+- `construction.py`: `AstCandidateBuilder` 候选表达式生成；
+- `field_loader.py`: 真实市场字段动态加载与画像；
+- `pipeline.py`: 文献认知提炼端到端流水线。
+
+### 3. 实验批次与评估治理领域 (`alpha_operator_framework/experiment/`)
+- `models.py`: `ExperimentBatch`, `BacktestTask`, `BacktestResult`, `EvaluationRecord`；
+- `lifecycle.py`: `ExperimentBatchStateMachine` (DRAFT $\to$ SUBMITTED $\to$ ACCEPTED $\to$ EVALUATED $\to$ MUTATED $\to$ COMPLETED)；
+- `evaluation.py`: 6 维证据硬门禁核验与 Pareto 非支配排序；
+- `mutation.py`: `NSGA2Mutator` 优胜候选遗传变异提议生成。
+
+### 4. 知识蒸馏与准入领域 (`alpha_operator_framework/knowledge/`)
+- `models.py`: `KnowledgeBase`, `KnowledgeSnapshot`, `PruneRuleEvidence`；
+- `distillation.py`: `SignalDistiller`，负责将胜出因子反向蒸馏为去标识化母版骨架（`{a}`, `{b}`）；
+- `submission.py`: `SubmissionApprovalService`，Fail-Closed 提交准入审计。
+
+### 5. 基础设施适配器层 (`alpha_operator_framework/infrastructure/`)
+- `sqlite.py`: `SqliteResearchRepository`, `SqliteExperimentRepository`, `SqliteKnowledgeRepository`；
+- `brain.py`: `BrainBacktestGateway`（带 Dry-run 防护与真实平台调度）；
+- `submission.py`: `SubmissionOutboxWorker` 与 `BrainSubmissionGateway`；
+- `telemetry.py`: `JsonLinesTelemetrySink` 遥测指标收集。
+
+---
+
+## 四、 证据边界与 6 维提交治理体系
+
+位于 `alpha_operator_framework/domain/evidence.py` 与 `knowledge/submission.py`：
 
 ### 1. 严格的证据可信度等级 (`EvidenceLevel`)
 ```
@@ -106,7 +147,7 @@ flowchart TD
 ```
 - **提交资格红线**：`EvidenceLevel.is_eligible_for_submission` 仅对 `SUBMISSION_READY` 开放，彻底杜绝 `platform_is` 绕过 OOS 门禁直接提交。
 
-### 2. 显式有向状态机 (`DecisionState` & `STATE_TRANSITIONS`)
+### 2. 显式有向状态机 (`DecisionState`)
 严格执行单向拓扑流转，禁止跨阶段越级：
 $$\text{DRAFT} \longrightarrow \text{SIMULATED} \longrightarrow \text{DIAGNOSED} \longrightarrow \text{CHECKS\_VERIFIED} \longrightarrow \text{SUBMISSION\_READY} \longrightarrow \text{SUBMITTED}$$
 任何阶段均可因不达标流转至 $\text{REJECTED}$。
@@ -118,11 +159,11 @@ $$\text{DRAFT} \longrightarrow \text{SIMULATED} \longrightarrow \text{DIAGNOSED}
 3. **相关性门槛**：自相关 $\text{SC} \le 0.70$，母本相关性 $\text{PC} \le 0.70$；
 4. **交易摩擦与容量**：换手率 $\in [1\%, 70\%]$，Margin $\ge 4.0\text{bp}$；
 5. **谱系 DAG 完整性**：具备完整的父级变异与演进溯源图；
-6. **终审裁决**：AlphaJudge / 人工评级为 `READY`。
+6. **终审裁决**：AlphaJudge / 专家评级为 `READY`。
 
 ---
 
-## 四、 统计防过拟合防御体系 (Anti-Overfitting Defense)
+## 五、 统计防过拟合防御体系 (Anti-Overfitting Defense)
 
 位于 `alpha_operator_framework/domain/overfitting.py`：
 
@@ -138,92 +179,31 @@ $$N_{eff} = 1 + (N - 1)(1 - \bar{\rho}_{family})$$
 - **Deflated Sharpe Ratio (DSR)**：基于极值理论校正多重测试偏差与非正态偏度/峰度；
 - **Probabilistic Sharpe Ratio (PSR)**：超越基准夏普的统计显著性概率；
 - **Haircut Sharpe Ratio**：Harvey & Liu 多重测试惩罚折损夏普；
-- **CPCV / PBO**：组合净化交叉验证计算过拟合概率。
+- **CPCV / PBO**：组合对称交叉验证计算过拟合概率。
 
 ---
 
-## 五、 AST 规范编译器与字段合规
+## 六、 AST 规范编译器与字段合规
 
 位于 `alpha_operator_framework/domain/ast/`：
 - **AST 语法解析与校验**：递归构建语法树，校验数据类型与算子兼容性；
 - **FASTEXPR 规范化转译**：消除空格、括号、操作数顺序等表面差异，生成全局唯一标准规范化字符串与 SHA256 哈希；
 - **废弃字段全面拦截**：在 AST 编译与字段摄取阶段**全面拦截 `close`、`open`、`high`、`low`**，强制采用 `returns`、`vwap`、`volume`、`market_cap`、`sharesout` 等标准字段。
 
-## 六、 数据库全景架构与运维
+---
 
-位于 `alpha_operator_framework/database/`：
-- **单一主库架构**：`data/alpha_research.db` 统一管理 17 张核心表/视图；
-- **零提交规范 (Zero-Commit Policy)**：`.db` 严格加入 `.gitignore`，通过 `python init_db.py` 自动化创建与种子填充；
-- **WAL 并发调优**：启用 `journal_mode = WAL`、`synchronous = NORMAL`、`busy_timeout = 30000`；
-- **自动化存储回收 (`DatabaseCleaner`)**：支持按失败状态清理废弃记录，并在 autocommit 模式下执行 `PRAGMA wal_checkpoint(TRUNCATE)` 与 `VACUUM` 彻底释放磁盘空间。
+## 七、 符号语法树自由杂交与自进化闭环
+
+位于 `alpha_operator_framework/domain/ast/breeder.py` 与 `distill/`：
+1. **递归 AST 符号杂交 (`SymbolicTreeBreeder`)**：无需人工模板，基于算子文法规则自由递归生成 1~4 层深度树，重点生成 **三层尺度架构 (Three-Tier Scaling)** 与 **行业-特质正交分解 (Sector-Idiosyncratic Decomposition)**；
+2. **反向模板蒸馏 (`TemplateAbstractor`)**：优胜因子自动提炼为通用槽位 `{a}`, `{b}` 模板并沉淀入 `template_library`，支持新数据集零样本迁移；
+3. **大模型假说与反思闭环 (`LLMReflexionEngine`)**：失败因子自动归因诊断并反馈给 LLM 生成二代变异公式；
+4. **2D 跨字段共识后剪枝 (`template_prune_rules`)**：多字段连续失败的模板模式自动降权淘汰。
 
 ---
 
-## 七、 平台网关追踪、看门狗与无人值守架构
+## 八、 投资组合与超级因子生成 (Super Alpha 2.0)
 
-### 1. 真实平台仿真追踪器与看门狗 (`SimulationTracker`)
-位于 `alpha_operator_framework/platform/simulation_tracker.py`：
-- **终态语义一致性**：将子任务平台错误（`ERROR`、`FAILED`、`CANCELLED`）直接映射为失败终态，避免顶层失败而子任务卡在 `running`；
-- **无重提交超时看门狗 (`mark_stalled_if_expired`)**：当批次在平台长期停滞超过 TTL 时，标记为 `stalled` 状态并写入告警日志，**严禁自动重提**，仅允许重试轮询既有 Location 或人工介入，杜绝平台配额浪费。
-
----
-
----
-
-## 八、 DDD 领域驱动设计投研生命周期 (DDD Research Cycle Architecture)
-
-系统依据 [`docs/superpowers/specs/2026-08-23-research-round-domain-design.md`](docs/superpowers/specs/2026-08-23-research-round-domain-design.md) 与 [`docs/superpowers/specs/2026-08-23-production-research-loop-design.md`](docs/superpowers/specs/2026-08-23-production-research-loop-design.md) 构建，确立了**三大真实领域聚合内核**、**轻量应用编排层**与**强保证基础设施层**：
-
-```mermaid
-flowchart TD
-    subgraph APP["应用层 (Application Layer: 薄用例编排)"]
-        RC["ResearchCycleUseCase<br>• 控制 8 阶段标准时序<br>• 绝不包含平台/评分硬编码规则"]
-    end
-
-    subgraph DOMAIN["DDD 3 大核心领域聚合 (Zero I/O Pure Domain Layer)"]
-        R1["1. 探索轮次 (ResearchRound)<br>聚合根: ResearchRound, ResearchPolicy<br>职责: 候选构造、语法预剪枝、4大选择策略<br>模块: research/round.py, selection.py, pruning.py"]
-        R2["2. 实验批次 (ExperimentBatch)<br>聚合根: ExperimentBatch, BatchState<br>职责: 幂等回测、状态机流转、6维评估、Pareto排序、NSGA突变<br>模块: experiment/models.py, lifecycle.py, evaluation.py, mutation.py"]
-        R3["3. 知识库 (KnowledgeBase)<br>聚合根: KnowledgeBase, KnowledgeSnapshot, SubmissionCase<br>职责: 胜出母版蒸馏、先验差量反馈、Fail-Closed上线审批<br>模块: knowledge/models.py, distillation.py, submission.py"]
-    end
-
-    subgraph INFRA["基础设施与适配器层 (Infrastructure Layer)"]
-        I1["SqliteResearchRepository / SqliteExperimentRepository (快照与审计回放)"]
-        I2["BrainBacktestGateway / BrainSubmissionGateway (平台网关与 Dry-run 防护)"]
-        I3["SubmissionOutboxWorker / ResearchTelemetry (Saga 异步外箱与度量指标)"]
-    end
-
-    APP --> DOMAIN
-    INFRA -.->|实现端口 ApplicationPorts| DOMAIN
-```
-
-### 1. 三大领域聚合根 (Domain Aggregates)
-- **`ResearchRound` (`alpha_operator_framework/research/`)**：
-  - 核心问题：**哪些假说值得分配平台回测预算？**
-  - 管理不可变 `ResearchPolicy`、输入特征字段画像与 AST 候选因子池。
-  - **双重剪枝时刻**：在回测前执行 `AstPrePruner`（拦截语法错误、类型不兼容、规范等价重复与已知失效模式）；在回测后配合后剪枝规则。
-  - 内置 4 大纯抽样算法：`WeightedStratifiedSelector`（分层基准）、`DiversitySelector`（D-Optimal 最大特征空间覆盖）、`ThompsonSelector` / `UCBSelector`（贝叶斯多臂老虎机自适应探索）。
-- **`ExperimentBatch` (`alpha_operator_framework/experiment/`)**：
-  - 核心问题：**平台实际回测结果如何，哪些因子处于 Pareto 最优前沿并值得变异？**
-  - 管理显式状态机流转：`SUBMITTED` $\to$ `ACCEPTED` $\to$ `EVALUATED` $\to$ `MUTATED`（或 `FAILED`）。
-  - 执行 6 维证据硬门禁与非支配 Pareto 排序（Sharpe / Fitness / Turnover / Drawdown）。
-  - 对 Rank-1 优胜候选由 `NSGA2Mutator` 生成带有谱系追踪的下一轮变异提议（`MutationProposal`）。
-- **`KnowledgeBase` (`alpha_operator_framework/knowledge/`)**：
-  - 核心问题：**系统从历史回测中沉淀了什么通用智慧，如何安全上线？**
-  - 提炼胜出表达式为去标识化泛化骨架（`{a}`, `{b}`），持久化至知识库并导出不可变 `KnowledgeSnapshot` 供下一轮探索消费。
-  - 管理 `SubmissionCase`，执行严格的 Fail-Closed 证据链核验（样本外证据、18项 Checks、自相关/母相关 $\le 0.70$、容量与换手率限制）。
-
-### 2. 标准化应用流转时序
-```text
-刷新 FieldSnapshot + KnowledgeSnapshot
-  → 构建 ResearchRound 聚合
-  → AST 候选构造与语法预剪枝 (PrePruner)
-  → 执行选定策略抽样入选 (SelectionPolicy)
-  → 构建 ExperimentBatch 并提交回测 (SUBMITTED ➔ ACCEPTED)
-  → 后剪枝、6 维评估与 Pareto 排序 (EVALUATED)
-  → 优胜因子 NSGA-II 变异提议 (MUTATED)
-  → 沉淀知识蒸馏与先验反馈更新 (KnowledgeBase)
-  → (可选) 显式授权下的 Fail-Closed 正式上线提交 (SubmissionCase)
-```
-
-
-
+位于 `alpha_operator_framework/generation/super_alpha.py` 与 `domain/orthogonalization.py`：
+1. **Gram-Schmidt 正交残差化**：将待组合因子依次投影到已有成熟因子的正交补空间上，彻底消除多重共线性；
+2. **HRP 分层风险平价配置**：基于层次聚类树状图进行拟准对角化和方差倒数递归分配，输出兼具高夏普与超低回撤的超级合成因子。

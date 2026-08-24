@@ -1,6 +1,6 @@
 # Alpha Factory 快速入门指南 (Quickstart Guide)
 
-欢迎使用 **Alpha Factory**。本指南帮助您在 5 分钟内完成环境就绪、数据库初始化、执行单测并启动首次因子挖掘。
+欢迎使用 **Alpha Factory**。本指南帮助您在 5 分钟内完成环境就绪、数据库初始化、执行全套单测并启动首次因子挖掘。
 
 ---
 
@@ -14,7 +14,7 @@
   ```
 
 ### 数据库初始化 (首次运行必做)
-本框架执行**数据库零提交规范**（`.db` 文件不提交 Git），新环境需先初始化：
+本框架执行**数据库零提交规范**（`.db` 文件不提交 Git），新环境需先在本地初始化：
 ```bash
 # 全新初始化 SQLite 主库并注入 30+ 模板种子
 python init_db.py
@@ -23,13 +23,13 @@ python init_db.py
 python alpha_machine.py init-db
 ```
 
-### 校验与全套单测
+### 校验与全套单测 (254 项测试)
 ```bash
-# 验证数据库完整性
+# 验证数据库完整性与表结构版本
 python init_db.py --verify
 
-# 运行全套 180 项测试
-python -m pytest
+# 运行全套 254 项自动化测试 (100% 通过)
+python -m pytest -q
 
 # 运行小批崩溃恢复与治理闭环演练 (生产前推荐)
 python alpha_machine.py drill-recovery
@@ -40,7 +40,7 @@ python alpha_machine.py drill-recovery
 ## 🚀 2. 核心 CLI 命令备忘清单
 
 ### 2.0 全新 DDD 投研生命周期 (`research-cycle`) 🌟
-严格遵循领域驱动设计 4 大限界上下文。默认仅生成可审计的回测计划，不会创建或调用 BRAIN 客户端；`--execute` 才授权真实回测：
+严格遵循领域驱动设计 4 大限界上下文与 10 阶段流水线。默认仅生成可审计的回测计划（Dry-run 试运行），不会创建或调用 BRAIN 客户端；`--execute` 才授权真实回测：
 ```bash
 # 1. 使用 D-Optimal 最大特征空间覆盖算法进行探索 (默认 Dry-run 试运行)
 python alpha_machine.py research-cycle \
@@ -52,19 +52,17 @@ python alpha_machine.py research-cycle \
     --region GBR --universe TOP700 \
     --algorithm thompson --sample-per-family 4
 
-# 3. 授权真实并发回测
+# 3. 授权真实并发回测与遥测输出
 python alpha_machine.py research-cycle \
     --region GBR --universe TOP700 \
     --algorithm d_optimal --sample-per-family 4 \
-    --execute
+    --execute --telemetry-file runs/telemetry.jsonl
 ```
 
-`--authorize-submission` 目前会被保留为显式安全开关，但 BRAIN 正式提交适配器尚未接入，使用它会明确失败，不会伪造提交成功。
-
-### 2.1 全自动无人值守投研流水线 (`auto-pilot`)
+### 2.1 全自动无人值守投研流水线 (`auto-pilot`) 🚀
 一键串联：环境自检 ➔ 真实并发回测 ➔ 6 维证据终审 ➔ 空间释放 (VACUUM) ➔ 汇总研报生成：
 ```bash
-# 云端/后台一键全自动生产运行 (推荐)
+# Python 命令行一键全自动生产运行:
 python alpha_machine.py auto-pilot \
     --region GBR --universe TOP700 \
     --datasets analyst7 \
@@ -72,56 +70,64 @@ python alpha_machine.py auto-pilot \
     --execute
 
 # 或直接运行后台一键启动脚本 (自动保存日志):
+# Linux / macOS / Git Bash:
 bash run_autopilot.sh GBR TOP700 analyst7 4 5
-```
-从学术研报或论文 PDF 中自动提取量化逻辑，对齐平台字段并执行真实回测与终审：
-```bash
-# 试运行 (Dry-run, 不消耗平台回测额度)
-python alpha_machine.py run-research \
-    --paper-path docs/academic_paper.pdf \
-    --region GBR --universe TOP700
-
-# 正式执行并生成研报
-python alpha_machine.py run-research \
-    --paper-path docs/academic_paper.pdf \
-    --region GBR --universe TOP700 \
-    --execute --output data/paper_research_report.md
+# Windows PowerShell:
+.\run_autopilot.ps1 -Region GBR -Universe TOP700 -Datasets "analyst7" -SamplePerFamily 4 -BatchSize 5
 ```
 
-### 2.2 分层地毯式 Alpha 挖掘 (`carpet-mine`)
-对指定市场与另类数据集进行多模板族分层均衡抽样，自动并行回测：
+### 2.2 分层地毯式 Alpha 挖掘 (`mine`) 🌟
+对指定市场与另类数据集进行多模板族分层均衡抽样，自动并行回测与流式落库：
 ```bash
 # 对英国市场 TOP700 与 analyst7 数据集进行地毯式挖掘
-python alpha_machine.py carpet-mine \
+python alpha_machine.py mine \
     --region GBR --universe TOP700 \
-    --dataset analyst7 \
-    --sample-per-family 5 \
-    --batch-size 10 \
+    --datasets "insider_agg_matrix,pattern_scores,fundamental31" \
+    --sample-per-family 4 \
+    --batch-size 5 \
+    --decay 12 \
+    --neutralization SUBINDUSTRY \
     --execute
 ```
 
-### 2.3 事件溯源 A/B 分支科学对照 (`compare-branches`)
-严格在相同锁死时间分区与计算预算下，比较两套生成策略的 Locked-OOS 产出率：
+### 2.3 文献认知提炼流水线 (`research`)
+从学术研报或论文 PDF 中自动提取量化逻辑，对齐平台可用字段并执行真实回测与 AlphaJudge 终审：
 ```bash
-python alpha_machine.py compare-branches \
-    --branch-a exp_momentum_prior \
-    --branch-b exp_reversion_prior
+# 试运行 (Dry-run, 不消耗平台回测额度)
+python alpha_machine.py research \
+    --paper docs/academic_paper.pdf \
+    --region GBR --universe TOP700
+
+# 启用大模型 (DeepSeek/OpenAI/Qwen) 正式执行并生成 Markdown 研报
+python alpha_machine.py research \
+    --paper docs/academic_paper.pdf \
+    --region GBR --universe TOP700 \
+    --use-llm --provider deepseek --model deepseek-chat \
+    --execute --output data/paper_research_report.md
 ```
 
-### 2.4 候选因子 6 维证据终审与提交审计 (`evaluate-candidates`)
+### 2.4 查看生产投研看板 (`status`)
 ```bash
-python alpha_machine.py evaluate-candidates \
-    --min-sharpe 1.25 --min-fitness 1.0 \
-    --auto-promote
+python alpha_machine.py status
 ```
 
 ### 2.5 数据库维护与磁盘空间释放 (`clean-db`)
 ```bash
 # 试运行预览待清理数据
-python clean_db.py --failed --pruned --dry-run
+python clean_db.py --mode stale --dry-run
 
 # 正式清理失败/剪枝记录并释放空间 (VACUUM)
-python clean_db.py --failed --pruned --vacuum
+python clean_db.py --mode stale
+```
+
+### 2.6 投研任务恢复与断点续传 (`research-worker`)
+```bash
+python alpha_machine.py research-worker --round-id <ROUND_ID>
+```
+
+### 2.7 达标因子上线外箱派发 (`submission-dispatch`)
+```bash
+python alpha_machine.py submission-dispatch --limit 50
 ```
 
 ---
@@ -155,6 +161,7 @@ for t in tasks[:3]:
 ## 📖 更多详细文档
 
 - [系统架构设计全景](file:///d:/quant/alpha_factory/ARCHITECTURE.md)
-- [完整用户操作手册](file:///d:/quant/alpha_factory/USAGE_GUIDE.md)
+- [权威用户操作手册](file:///d:/quant/alpha_factory/USAGE_GUIDE.md)
+- [全自主进化与高阶挖掘实战指南](file:///d:/quant/alpha_factory/docs/guides/autonomous_evolution_guide.md)
 - [数据库 17 表/视图设计规范](file:///d:/quant/alpha_factory/DATABASE_DESIGN.md)
 - [文档全景导航索引](file:///d:/quant/alpha_factory/docs/INDEX.md)

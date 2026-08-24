@@ -46,14 +46,14 @@ async def example_from_workflow():
 
     # 运行工作流(dry-run)
     field_specs = [
-        FieldSpec(id="close", dataset_id="pv1", type="MATRIX", coverage=0.95),
+        FieldSpec(id="vwap", dataset_id="pv1", type="MATRIX", coverage=0.95),
         FieldSpec(id="volume", dataset_id="pv1", type="MATRIX", coverage=0.92),
     ]
 
     result = await run_full_workflow(
         region="EUR",
         universe="TOP2500",
-        field_ids=["close", "volume"],
+        field_ids=["vwap", "volume"],
         field_specs=field_specs,
         execute=False  # dry-run
     )
@@ -222,14 +222,14 @@ async def example_ai_workflow():
     from alpha_operator_framework import run_full_workflow, FieldSpec
 
     field_specs = [
-        FieldSpec(id="close", dataset_id="pv1", type="MATRIX"),
+        FieldSpec(id="vwap", dataset_id="pv1", type="MATRIX"),
         FieldSpec(id="volume", dataset_id="pv1", type="MATRIX"),
     ]
 
     result = await run_full_workflow(
         region="EUR",
         universe="TOP2500",  # 添加universe参数
-        field_ids=["close", "volume"],
+        field_ids=["vwap", "volume"],
         field_specs=field_specs,
         execute=False  # AI先dry-run
     )

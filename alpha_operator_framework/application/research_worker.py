@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import logging
 import random
 import time
 from dataclasses import replace
@@ -10,6 +11,8 @@ from datetime import UTC, datetime, timedelta
 from email.utils import parsedate_to_datetime
 from math import isfinite
 from typing import Any
+
+logger = logging.getLogger(__name__)
 
 from alpha_operator_framework.application.research_cycle import ResearchCycleSummary
 from alpha_operator_framework.core.events import Event, EventType
@@ -24,9 +27,19 @@ class ResearchWorkerScheduler:
     """Runs due-batch scans once or continuously without owning persistence details."""
 
     def __init__(self, worker: Any) -> None:
+        """初始化调度器。
+
+        Args:
+            worker: 实际执行批次处理的 ResearchBatchWorker 实例。
+        """
         self.worker = worker
 
     def run_once(self) -> list[ResearchCycleSummary]:
+        """执行一次扫描并处理所有到期批次。
+
+        Returns:
+            本次扫描处理完成的 ResearchCycleSummary 列表。
+        """
         return self.worker.process_due_batches()
 
     def watch(
@@ -36,11 +49,25 @@ class ResearchWorkerScheduler:
         sleep: Callable[[float], None] = time.sleep,
         max_cycles: int | None = None,
     ) -> list[ResearchCycleSummary]:
+        """持续轮询，直到达到最大循环次数为止。
+
+        Args:
+            poll_seconds: 每次轮询之间的休眠秒数，必须为正整数。
+            sleep: 休眠函数，默认使用 time.sleep，可在测试中替换。
+            max_cycles: 最大轮询次数；为 None 时无限循环。
+
+        Returns:
+            所有轮次中处理完成的 ResearchCycleSummary 列表。
+
+        Raises:
+            ValueError: 当 poll_seconds 小于 1 时抛出。
+        """
         if poll_seconds < 1:
             raise ValueError("poll_seconds must be positive")
         completed: list[ResearchCycleSummary] = []
         cycles = 0
         while max_cycles is None or cycles < max_cycles:
+            logger.debug("轮询第 %d 轮开始，poll_seconds=%d", cycles + 1, poll_seconds)
             completed.extend(self.run_once())
             cycles += 1
             if max_cycles is None or cycles < max_cycles:

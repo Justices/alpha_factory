@@ -2,14 +2,28 @@
 
 from __future__ import annotations
 
+import logging
 from collections import defaultdict
 from typing import Any, Sequence
 
 from .round import Candidate, KnowledgeSnapshot, ResearchPolicy, SelectionDecision
 
+logger = logging.getLogger(__name__)
+
 
 class WeightedStratifiedSelector:
-    """Select the highest evidence-weighted candidates within structural quotas."""
+    """基于加权证据评分、在结构配额约束下选出最优候选因子的选择器。
+
+    算法分三阶段执行：
+    1. **过滤**：利用 KnowledgeSnapshot 剔除已被历史知识否决的候选。
+    2. **族内排名**：按加权综合评分（field / operator / template / novelty / uncertainty
+       五个维度）降序排列各族成员，取前 ``quota`` 个进入初选池。
+    3. **全局裁剪**：若初选池总数超过 ``policy.max_backtests``，再按全局评分降序保留
+       最高分的 ``max_backtests`` 个候选，确保回测预算不被突破。
+
+    Attributes:
+        name: 策略标识符，用于在工厂函数中按名称查找该选择器。
+    """
 
     name = "weighted_stratified"
 
@@ -20,27 +34,66 @@ class WeightedStratifiedSelector:
         knowledge: KnowledgeSnapshot,
         random_source: Any,
     ) -> list[SelectionDecision]:
+        """对候选因子执行加权分层选择，返回每个候选的决策结果。
+
+        Args:
+            candidates: 本轮待评估的全部候选因子序列。
+            policy: 当前研究策略配置，包含权重、配额、预算等参数。
+            knowledge: 当前知识快照，用于计算各维度评分及判断是否应拒绝候选。
+            random_source: 随机源（接口预留，本实现为确定性算法，不实际使用）。
+
+        Returns:
+            与 ``candidates`` 等长的 :class:`SelectionDecision` 列表，每条记录包含
+            是否被选中、评分分量、拒绝/选中原因，以及所用策略名称。
+        """
         grouped: dict[str, list[Candidate]] = defaultdict(list)
         rejected_ids: set[str] = set()
+        # 第一阶段：按知识剪枝规则过滤，并将通过的候选按族分组
         for candidate in candidates:
             if knowledge.rejects(candidate):
                 rejected_ids.add(candidate.candidate_id)
             else:
                 grouped[candidate.family].append(candidate)
 
+        logger.debug(
+            "候选过滤完成：总候选=%d，被知识规则拒绝=%d，有效族数=%d",
+            len(candidates), len(rejected_ids), len(grouped),
+        )
+
         selected_ids: set[str] = set()
+        # 均分回测预算到各族；至少保证每族 1 个配额，避免小族全部丢失
         per_family = max(1, policy.max_backtests // max(1, len(grouped)))
         for family, members in grouped.items():
+            # 优先使用策略中显式配置的族配额，否则退回到均分值
             quota = policy.family_quotas.get(family, per_family)
+            # 按综合评分降序排列族内成员，候选 ID 作为同分时的稳定决胜字段
             ranked = sorted(members, key=lambda candidate: (-self.score(candidate, policy, knowledge), candidate.candidate_id))
             selected_ids.update(candidate.candidate_id for candidate in ranked[:quota])
+            logger.debug(
+                "族 '%s'：成员=%d，配额=%d，进入初选池=%d",
+                family, len(members), quota, min(quota, len(members)),
+            )
 
+        # 第三阶段：若各族初选池合并后仍超出全局回测预算，按全局评分降序再次裁剪
         if len(selected_ids) > policy.max_backtests:
+            logger.debug(
+                "初选池 %d 超过 max_backtests=%d，执行全局裁剪",
+                len(selected_ids), policy.max_backtests,
+            )
             ranked_all = sorted(
                 (candidate for candidate in candidates if candidate.candidate_id in selected_ids),
                 key=lambda candidate: (-self.score(candidate, policy, knowledge), candidate.candidate_id),
             )
             selected_ids = {candidate.candidate_id for candidate in ranked_all[:policy.max_backtests]}
+
+        logger.info(
+            "选择完成：最终入选=%d，被拒绝=%d，未入选=%d（策略=%s，预算=%d）",
+            len(selected_ids),
+            len(rejected_ids),
+            len(candidates) - len(selected_ids) - len(rejected_ids),
+            self.name,
+            policy.max_backtests,
+        )
 
         return [
             SelectionDecision(

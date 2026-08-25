@@ -4,6 +4,7 @@ from pathlib import Path
 
 from alpha_operator_framework.database.init_db import init_database
 from alpha_operator_framework.infrastructure.maintenance import storage_path
+from alpha_operator_framework.infrastructure.runtime_factory import build_research_runtime
 
 
 def test_storage_path_is_read_from_yaml(tmp_path: Path) -> None:
@@ -25,6 +26,18 @@ def test_initialization_reports_a_sanitized_result(tmp_path: Path, capsys) -> No
 
     assert success is True
     assert "initialized sqlite" in capsys.readouterr().out
+
+
+def test_research_runtime_provides_the_primary_simulation_batch_repository(tmp_path: Path) -> None:
+    config = tmp_path / "alpha-factory.yaml"
+    config.write_text("storage:\n  driver: sqlite\n  path: state.db\n", encoding="utf-8")
+
+    runtime = build_research_runtime(config)
+
+    try:
+        assert callable(runtime.alpha_database.create_simulation_batch)
+    finally:
+        runtime.close()
 
 
 def test_reset_replaces_a_corrupt_sqlite_file(tmp_path: Path) -> None:

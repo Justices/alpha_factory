@@ -22,7 +22,7 @@ from alpha_operator_framework.infrastructure.storage import StorageConfig, creat
 from sqlalchemy import inspect
 from alpha_operator_framework.infrastructure.telemetry import ResearchTelemetry
 from alpha_operator_framework.database.connection import DatabaseConnectionManager
-from alpha_operator_framework.database.repositories import AlphaRepository
+from alpha_operator_framework.database.repository import AlphaDatabase
 from alpha_operator_framework.database.schema import migrate_legacy_schema
 
 
@@ -106,7 +106,7 @@ def build_research_runtime(
         migrate(engine)
     else:
         migrate_legacy_schema(engine)
-    alpha_database = AlphaRepository(DatabaseConnectionManager(storage))
+    alpha_database = AlphaDatabase(DatabaseConnectionManager(storage))
     research = config.get("research", {})
     platform_execution = bool(research.get("execute_platform", False)) if execute_platform is None else execute_platform
     knowledge_repository = SqlAlchemyKnowledgeRepository(engine)

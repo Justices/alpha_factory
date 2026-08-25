@@ -23,6 +23,7 @@ from alpha_operator_framework.quality.ratchet import (  # noqa: E402
     baseline_payload,
     collect_snapshot,
     compare,
+    validate_baseline,
     write_baseline_atomic,
 )
 
@@ -76,6 +77,7 @@ def _safe_reason(error: Exception) -> str:
 def _run_check(path: Path, runner: CommandRunner, root: Path) -> int:
     try:
         baseline = _load_baseline(path)
+        validate_baseline(baseline)
         snapshot = collect_snapshot(runner, root=root)
         result = compare(snapshot, baseline)
     except (BaselineError, ToolFailure) as error:

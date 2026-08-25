@@ -3,6 +3,8 @@
 from collections.abc import Mapping, Sequence
 from dataclasses import dataclass
 import json
+import math
+from numbers import Real
 import os
 from pathlib import Path
 import re
@@ -14,6 +16,7 @@ from typing import Any, Protocol
 SCHEMA_VERSION = 1
 _TOOLS = ("ruff", "mypy", "vulture")
 _REQUIRED = (*_TOOLS, "coverage", "file_count")
+_VERSIONED_TOOLS = (*_TOOLS, "coverage")
 
 
 class BaselineError(ValueError):
@@ -259,7 +262,8 @@ def run_coverage(
 
 
 _VULTURE_LINE = re.compile(
-    r"^(?P<path>.+):(?P<line>\d+): (?P<message>unused .+ \(\d+% confidence\))$"
+    r"^(?P<path>.+):(?P<line>\d+): "
+    r"(?P<message>(?P<description>.+) \((?P<confidence>\d+)% confidence\))$"
 )
 
 
@@ -280,7 +284,7 @@ def run_vulture(
         "80",
     )
     result = _execute(runner, command, "vulture")
-    if result.returncode not in (0, 1):
+    if result.returncode not in (0, 3):
         raise ToolFailure(f"vulture failed with exit code {result.returncode}")
     issues: list[Issue] = []
     for line in result.stdout.splitlines():
@@ -289,16 +293,22 @@ def run_vulture(
         match = _VULTURE_LINE.match(line.strip())
         if match is None:
             raise ToolFailure("vulture produced unparseable output")
+        confidence = int(match.group("confidence"))
+        if confidence > 100:
+            raise ToolFailure("vulture produced an invalid confidence")
+        description = match.group("description").strip()
+        if not description:
+            raise ToolFailure("vulture produced unparseable output")
         issues.append(
             Issue(
                 "vulture",
                 _normalize_path(match.group("path"), root),
-                "unused",
+                description.split(maxsplit=1)[0].casefold(),
                 int(match.group("line")),
                 match.group("message"),
             )
         )
-    if result.returncode == 1 and not issues:
+    if result.returncode == 3 and not issues:
         raise ToolFailure("vulture reported findings without parseable output")
     return _deduplicate(issues)
 
@@ -335,7 +345,8 @@ def baseline_payload(
     versions: Mapping[str, str],
 ) -> dict[str, Any]:
     """Convert an in-memory snapshot into deterministic schema-v1 JSON data."""
-    _validate(snapshot, "snapshot")
+    _validate(snapshot, "snapshot", allow_issues=True)
+    _validate_versions(versions, "tool_versions")
     return {
         "schema_version": SCHEMA_VERSION,
         "tool_versions": dict(sorted(versions.items())),
@@ -360,11 +371,11 @@ def write_baseline_atomic(path: Path, payload: Mapping[str, Any]) -> None:
             delete=False,
             newline="\n",
         ) as handle:
+            temporary = Path(handle.name)
             json.dump(payload, handle, indent=2, sort_keys=True)
             handle.write("\n")
             handle.flush()
             os.fsync(handle.fileno())
-            temporary = Path(handle.name)
         temporary.replace(path)
     finally:
         if temporary is not None and temporary.exists():
@@ -387,32 +398,70 @@ class ComparisonResult:
         }
 
 
-def _validate(snapshot: Mapping[str, Any], label: str) -> None:
+def _validate_versions(versions: object, label: str) -> None:
+    if not isinstance(versions, Mapping):
+        raise BaselineError(f"{label} must be a string map")
+    if set(versions) != set(_VERSIONED_TOOLS):
+        raise BaselineError(f"{label} must contain exactly: {', '.join(sorted(_VERSIONED_TOOLS))}")
+    if not all(isinstance(key, str) and isinstance(value, str) for key, value in versions.items()):
+        raise BaselineError(f"{label} must be a string map")
+
+
+def _validate(
+    snapshot: Mapping[str, Any],
+    label: str,
+    *,
+    allow_issues: bool,
+    require_versions: bool = False,
+) -> None:
     missing = [key for key in _REQUIRED if key not in snapshot]
     if missing:
         raise BaselineError(f"{label} missing required key(s): {', '.join(missing)}")
-    if snapshot.get("schema_version") != SCHEMA_VERSION:
+    schema_version = snapshot.get("schema_version")
+    if type(schema_version) is not int or schema_version != SCHEMA_VERSION:
         raise BaselineError(f"{label} schema version must be {SCHEMA_VERSION}")
-    if not isinstance(snapshot["coverage"], (int, float)):
-        raise BaselineError(f"{label} coverage must be numeric")
-    if not isinstance(snapshot["file_count"], int) or snapshot["file_count"] < 0:
+    coverage = snapshot["coverage"]
+    if isinstance(coverage, bool) or not isinstance(coverage, Real) or not math.isfinite(float(coverage)):
+        raise BaselineError(f"{label} coverage must be a finite real number")
+    file_count = snapshot["file_count"]
+    if type(file_count) is not int or file_count < 0:
         raise BaselineError(f"{label} file_count must be a non-negative integer")
+    for tool in _TOOLS:
+        values = snapshot[tool]
+        if not isinstance(values, (list, tuple)):
+            raise BaselineError(f"{tool} output must be a list or tuple")
+        allowed = (str, Issue) if allow_issues else (str,)
+        if not all(isinstance(value, allowed) for value in values):
+            expected = "strings or Issue objects" if allow_issues else "strings"
+            raise BaselineError(f"{tool} output must contain only {expected}")
+    if require_versions:
+        if "tool_versions" not in snapshot:
+            raise BaselineError(f"{label} missing required key(s): tool_versions")
+        _validate_versions(snapshot["tool_versions"], "tool_versions")
+
+
+def validate_baseline(snapshot: Mapping[str, Any]) -> None:
+    """Reject malformed persisted baseline data before running external tools."""
+    _validate(snapshot, "baseline", allow_issues=False, require_versions=True)
 
 
 def _issues(snapshot: Mapping[str, Any], tool: str) -> set[str]:
     values = snapshot[tool]
-    if isinstance(values, (str, bytes)) or not isinstance(values, Sequence):
-        raise BaselineError(f"{tool} output must be a collection")
     result = set()
     for value in values:
-        result.add(fingerprint(value) if isinstance(value, Issue) else str(value))
+        if isinstance(value, Issue):
+            result.add(fingerprint(value))
+        elif isinstance(value, str):
+            result.add(value)
+        else:
+            raise BaselineError(f"{tool} output contains an invalid value")
     return result
 
 
 def compare(current: Mapping[str, Any], baseline: Mapping[str, Any]) -> ComparisonResult:
     """Compare two validated snapshots without mutating either input."""
-    _validate(current, "current")
-    _validate(baseline, "baseline")
+    _validate(current, "current", allow_issues=True)
+    validate_baseline(baseline)
     if current["file_count"] < baseline["file_count"]:
         raise BaselineError("current file_count is below baseline; scan target is missing")
 

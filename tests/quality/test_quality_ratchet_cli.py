@@ -15,6 +15,7 @@ from alpha_operator_framework.quality.ratchet import (
     run_mypy,
     run_ruff,
     run_vulture,
+    write_baseline_atomic,
 )
 from tools.quality_ratchet import main
 
@@ -137,7 +138,7 @@ def test_vulture_output_becomes_issue(tmp_path: Path):
     runner = _Runner(
         {
             "vulture": CommandResult(
-                1,
+                3,
                 "alpha_operator_framework/module_0.py:9: unused variable 'answer' (80% confidence)\n",
                 "",
             )
@@ -155,16 +156,76 @@ def test_vulture_output_becomes_issue(tmp_path: Path):
     )
 
 
-@pytest.mark.parametrize("adapter", [run_ruff, run_vulture])
-def test_parseable_finding_exit_code_is_accepted(adapter, tmp_path: Path):
+@pytest.mark.parametrize(
+    ("adapter", "module", "finding_exit_code"),
+    [(run_ruff, "ruff", 1), (run_vulture, "vulture", 3)],
+)
+def test_parseable_finding_exit_code_is_accepted(
+    adapter,
+    module,
+    finding_exit_code,
+    tmp_path: Path,
+):
     root = _root_with_python_files(tmp_path)
     outputs = {
         "ruff": '[{"filename":"x.py","location":{"row":1},"code":"F1","message":"bad"}]',
         "vulture": "x.py:1: unused variable 'x' (80% confidence)",
     }
-    module = "ruff" if adapter is run_ruff else "vulture"
+    assert adapter(
+        _Runner({module: CommandResult(finding_exit_code, outputs[module], "")}),
+        root=root,
+    )
 
-    assert adapter(_Runner({module: CommandResult(1, outputs[module], "")}), root=root)
+
+@pytest.mark.parametrize("exit_code", [1, 2])
+def test_vulture_rejects_nonstandard_exit_codes(exit_code: int, tmp_path: Path):
+    root = _root_with_python_files(tmp_path)
+    output = "x.py:1: unused variable 'x' (80% confidence)"
+
+    with pytest.raises(ToolFailure, match="exit code"):
+        run_vulture(
+            _Runner({"vulture": CommandResult(exit_code, output, "")}),
+            root=root,
+        )
+
+
+def test_vulture_accepts_unreachable_and_unsatisfiable_findings(tmp_path: Path):
+    root = _root_with_python_files(tmp_path)
+    output = "\n".join(
+        [
+            "alpha_operator_framework/module_0.py:7: unreachable code after 'return' (100% confidence)",
+            "alpha_operator_framework/module_1.py:8: unsatisfiable 'if' condition (100% confidence)",
+        ]
+    )
+    assert run_vulture(
+        _Runner({"vulture": CommandResult(3, output, "")}),
+        root=root,
+    ) == (
+        Issue(
+            "vulture",
+            "alpha_operator_framework/module_0.py",
+            "unreachable",
+            7,
+            "unreachable code after 'return' (100% confidence)",
+        ),
+        Issue(
+            "vulture",
+            "alpha_operator_framework/module_1.py",
+            "unsatisfiable",
+            8,
+            "unsatisfiable 'if' condition (100% confidence)",
+        ),
+    )
+
+
+def test_vulture_rejects_blank_finding_description_as_tool_failure(tmp_path: Path):
+    root = _root_with_python_files(tmp_path)
+
+    with pytest.raises(ToolFailure, match="unparseable"):
+        run_vulture(
+            _Runner({"vulture": CommandResult(3, "x.py:1:   (80% confidence)", "")}),
+            root=root,
+        )
 
 
 def test_timeout_and_traceback_raise_tool_failure(tmp_path: Path):
@@ -248,6 +309,20 @@ def test_check_rejects_malformed_baseline_without_running_tools(tmp_path: Path, 
     assert capsys.readouterr().out.startswith("[QUALITY] FAIL")
 
 
+def test_check_rejects_semantically_malformed_baseline_without_running_tools(
+    tmp_path: Path,
+    capsys,
+):
+    root = _root_with_python_files(tmp_path)
+    baseline = root / "quality-baseline.json"
+    baseline.write_text(json.dumps(_baseline(coverage=True)), encoding="utf-8")
+    runner = _Runner()
+
+    assert main(["check", "--baseline", str(baseline)], runner=runner, root=root) == 1
+    assert runner.commands == []
+    assert "coverage" in capsys.readouterr().out
+
+
 def test_baseline_update_writes_deterministic_schema_v1_json_atomically(tmp_path: Path, capsys):
     root = _root_with_python_files(tmp_path)
     baseline = root / "nested" / "quality-baseline.json"
@@ -289,6 +364,17 @@ def test_baseline_update_writes_deterministic_schema_v1_json_atomically(tmp_path
     }
     assert not list(baseline.parent.glob("*.tmp"))
     assert all(line.startswith("[QUALITY]") for line in capsys.readouterr().out.splitlines())
+
+
+def test_atomic_writer_removes_temporary_file_when_serialization_fails(tmp_path: Path):
+    baseline = tmp_path / "quality-baseline.json"
+    baseline.write_text("original\n", encoding="utf-8")
+
+    with pytest.raises(TypeError):
+        write_baseline_atomic(baseline, {"not_json_serializable": object()})
+
+    assert baseline.read_text(encoding="utf-8") == "original\n"
+    assert not list(tmp_path.glob(".quality-baseline.json.*.tmp"))
 
 
 def test_script_help_runs_from_the_repository_root():

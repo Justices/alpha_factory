@@ -74,7 +74,7 @@ def _checksum(version: str) -> str:
     return hashlib.sha256(version.encode("utf-8")).hexdigest()
 
 
-MIGRATION_VERSIONS = ("001_research_runtime", "002_migration_checksums")
+MIGRATION_VERSIONS = ("001_research_runtime", "002_migration_checksums", "003_knowledge_snapshot_provenance")
 
 
 def _apply_runtime_schema(engine: Engine) -> None:
@@ -93,6 +93,21 @@ def _apply_migration_checksums(engine: Engine) -> None:
                 text("UPDATE schema_migrations SET checksum = :checksum WHERE version = :version AND checksum = ''"),
                 {"version": version, "checksum": _checksum(version)},
             )
+
+
+def _apply_knowledge_snapshot_provenance(engine: Engine) -> None:
+    """Add provenance columns omitted by the first runtime schema release."""
+    existing = {column["name"] for column in inspect(engine).get_columns("knowledge_snapshot_history")}
+    additions = {
+        "round_id": "VARCHAR(128)",
+        "policy_version": "VARCHAR(128)",
+        "created_at": "VARCHAR(64)",
+        "event_offset": "INTEGER",
+    }
+    with engine.begin() as connection:
+        for name, sql_type in additions.items():
+            if name not in existing:
+                connection.execute(text(f"ALTER TABLE knowledge_snapshot_history ADD COLUMN {name} {sql_type}"))
 
 
 def _migration_records(engine: Engine) -> dict[str, str]:
@@ -118,6 +133,8 @@ def migrate(engine: Engine) -> None:
             continue
         if version == "001_research_runtime":
             _apply_runtime_schema(engine)
+        elif version == "003_knowledge_snapshot_provenance":
+            _apply_knowledge_snapshot_provenance(engine)
         with engine.begin() as connection:
             connection.execute(schema_migrations.insert().values(
                 version=version,

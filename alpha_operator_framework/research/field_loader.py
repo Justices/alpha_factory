@@ -41,6 +41,7 @@ def load_real_market_fields(
     max_fields: int = 500,
     include_base_fields: bool = True,
     allow_scope_fallback: bool = True,
+    category: str | None = None,
 ) -> List[FieldSpec]:
     """动态加载真实市场字段池 (严格过滤 close 等平台不推荐/不支持字段).
 
@@ -94,6 +95,8 @@ def load_real_market_fields(
                     cat = row.get("category") or ""
                     if isinstance(cat, dict):
                         cat = str(cat.get("id") or "")
+                    if category and str(cat).casefold() != category.casefold():
+                        continue
 
                     spec = FieldSpec(
                         id=fid,

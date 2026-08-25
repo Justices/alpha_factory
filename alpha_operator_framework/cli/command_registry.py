@@ -179,6 +179,7 @@ def configure_research(parser: argparse.ArgumentParser) -> None:
     parser.add_argument("--neutralization", default="SUBINDUSTRY")
     parser.add_argument("--decay", type=int, default=8)
     parser.add_argument("--datasets")
+    parser.add_argument("--category")
     parser.add_argument("--use-llm", action="store_true")
     parser.add_argument("--provider")
     parser.add_argument("--model")

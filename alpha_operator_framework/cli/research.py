@@ -56,7 +56,7 @@ def command_research_cycle(args: argparse.Namespace) -> None:
     fields = load_real_market_fields(
         **field_scope,
         datasets=args.datasets.split(",") if args.datasets else None,
-        include_base_fields=False, allow_scope_fallback=False,
+        include_base_fields=False, allow_scope_fallback=False, category=getattr(args, "category", None),
     )
     if not fields:
         import asyncio
@@ -66,7 +66,7 @@ def command_research_cycle(args: argparse.Namespace) -> None:
         cache_platform_fields(asyncio.run(fetch_datafields(**field_scope)), **field_scope)
         fields = load_real_market_fields(
             **field_scope, datasets=args.datasets.split(",") if args.datasets else None,
-            include_base_fields=False, allow_scope_fallback=False,
+            include_base_fields=False, allow_scope_fallback=False, category=getattr(args, "category", None),
         )
     if not fields:
         raise ValueError(f"no BRAIN data fields available for {field_scope['region']}/{field_scope['universe']}/delay={field_scope['delay']}")
@@ -170,6 +170,7 @@ def build_parser() -> argparse.ArgumentParser:
     for name, kind in (("region", str), ("universe", str), ("delay", int), ("decay", int), ("neutralization", str), ("truncation", float)):
         cycle.add_argument(f"--{name}", type=kind)
     cycle.add_argument("--datasets")
+    cycle.add_argument("--category")
     cycle.add_argument("--algorithm", choices=["stratified", "d_optimal", "thompson", "ucb", "diversity"])
     cycle.add_argument("--sample-per-family", type=int)
     cycle.add_argument("--seed", type=int, default=42)

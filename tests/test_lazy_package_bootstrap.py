@@ -125,6 +125,61 @@ def cold_cli_help_seconds() -> tuple[float, str]:
     return elapsed, completed.stdout
 
 
+def cli_help_loaded_modules() -> set[str]:
+    """Inspect modules loaded while rendering root CLI help in isolation."""
+    allowed_system_keys = ("COMSPEC", "PATH", "PATHEXT", "SYSTEMROOT", "WINDIR")
+    with tempfile.TemporaryDirectory() as isolated_root:
+        isolated = Path(isolated_root)
+        home = isolated / "home"
+        config = isolated / "config"
+        temp = isolated / "temp"
+        for directory in (home, config, temp):
+            directory.mkdir()
+        env = {key: os.environ[key] for key in allowed_system_keys if key in os.environ}
+        env.update(
+            {
+                "APPDATA": str(config),
+                "HOME": str(home),
+                "LOCALAPPDATA": str(config),
+                "PYTHONDONTWRITEBYTECODE": "1",
+                "PYTHONNOUSERSITE": "1",
+                "TEMP": str(temp),
+                "TMP": str(temp),
+                "USERPROFILE": str(home),
+                "XDG_CACHE_HOME": str(config / "cache"),
+                "XDG_CONFIG_HOME": str(config),
+                "XDG_DATA_HOME": str(config / "data"),
+            }
+        )
+        program = textwrap.dedent(
+            """
+            import runpy
+            import sys
+
+            sys.argv = ["alpha_machine.py", "--help"]
+            try:
+                runpy.run_path("alpha_machine.py", run_name="__main__")
+            except SystemExit as error:
+                if error.code not in (None, 0):
+                    raise
+            print("LOADED_MODULES=" + ",".join(sorted(sys.modules)))
+            """
+        )
+        completed = subprocess.run(
+            [sys.executable, "-c", program],
+            cwd=ROOT,
+            env=env,
+            capture_output=True,
+            text=True,
+            check=False,
+            timeout=15,
+        )
+    assert completed.returncode == 0, completed.stderr
+    marker = "LOADED_MODULES="
+    loaded_line = next(line for line in completed.stdout.splitlines() if line.startswith(marker))
+    return set(filter(None, loaded_line.removeprefix(marker).split(",")))
+
+
 def test_package_root_matches_frozen_export_snapshot():
     package = importlib.import_module("alpha_operator_framework")
     expected = json.loads(FIXTURE.read_text(encoding="utf-8"))
@@ -196,3 +251,19 @@ def test_cli_help_cold_start_stays_under_ci_budget_and_lists_all_commands():
     assert statistics.median(samples) < 2.5
     assert len(expected_commands) == 22
     assert all(command in output for command in expected_commands)
+
+
+def test_cli_help_does_not_import_command_handler_modules():
+    loaded_modules = cli_help_loaded_modules()
+
+    assert not {
+        "alpha_operator_framework.cli.analysis",
+        "alpha_operator_framework.cli.autopilot",
+        "alpha_operator_framework.cli.field_pipeline",
+        "alpha_operator_framework.cli.maintenance",
+        "alpha_operator_framework.cli.recovery",
+        "alpha_operator_framework.cli.research",
+        "alpha_operator_framework.cli.simulation",
+        "alpha_operator_framework.cli.status",
+        "alpha_operator_framework.cli.super_alpha",
+    } & loaded_modules

@@ -5,15 +5,31 @@ from __future__ import annotations
 import argparse
 from collections.abc import Callable
 from dataclasses import dataclass
+from importlib import import_module
+from pathlib import Path
 from typing import Any
-
-from alpha_operator_framework.application.task_construction import STANDARD_WINDOWS
-from alpha_operator_framework.cli import analysis, autopilot, field_pipeline, maintenance, recovery, research, simulation, status, super_alpha
-from alpha_operator_framework.cli.research import DEFAULT_CONFIG_PATH
-
 
 ParserConfigurer = Callable[[argparse.ArgumentParser], None]
 CommandHandler = Callable[[argparse.Namespace], Any]
+STANDARD_WINDOWS = (5, 22, 66, 120, 252, 504)
+DEFAULT_CONFIG_PATH = Path(__file__).resolve().parents[2] / "configs" / "alpha-factory.yaml"
+
+
+@dataclass(frozen=True)
+class LazyCommandHandler:
+    """Resolve a command implementation only when the router dispatches it."""
+
+    module_name: str
+    attribute: str
+
+    @property
+    def __name__(self) -> str:
+        """Preserve the function-name introspection used by CLI callers."""
+        return self.attribute
+
+    def __call__(self, args: argparse.Namespace) -> Any:
+        handler = getattr(import_module(self.module_name), self.attribute)
+        return handler(args)
 
 
 @dataclass(frozen=True)
@@ -242,26 +258,26 @@ def configure_submission_dispatch(parser: argparse.ArgumentParser) -> None:
 def command_specs() -> tuple[CommandSpec, ...]:
     """Return the complete, immutable command catalog in help-display order."""
     return (
-        CommandSpec("discover", "fields", configure_discover, field_pipeline.command_discover),
-        CommandSpec("prepare", "fields", configure_prepare, field_pipeline.command_prepare),
-        CommandSpec("filter", "fields", configure_filter, field_pipeline.command_filter),
-        CommandSpec("second-order", "fields", configure_second_order, field_pipeline.command_second_order),
-        CommandSpec("simulate", "simulation", configure_simulate, simulation.command_simulate),
-        CommandSpec("poll-simulation", "simulation", configure_poll_simulation, simulation.command_poll_simulation),
-        CommandSpec("prepare-super", "super_alpha", configure_prepare_super, super_alpha.command_prepare_super),
-        CommandSpec("simulate-super", "super_alpha", configure_simulate_super, super_alpha.command_simulate_super),
-        CommandSpec("poll-super", "super_alpha", configure_poll_simulation, simulation.command_poll_simulation),
-        CommandSpec("init-db", "operations", configure_init_db, maintenance.command_init_db),
-        CommandSpec("clean-db", "operations", configure_clean_db, maintenance.command_clean_db),
-        CommandSpec("storage-backup", "operations", configure_storage_backup, maintenance.command_storage_backup),
-        CommandSpec("storage-restore", "operations", configure_storage_restore, maintenance.command_storage_restore),
-        CommandSpec("drill-recovery", "operations", configure_drill_recovery, recovery.command_drill_recovery),
-        CommandSpec("status", "operations", configure_config_only, status.command_status),
-        CommandSpec("research", "research", configure_research, analysis.command_research),
-        CommandSpec("mine", "research", configure_mine, analysis.command_mine),
-        CommandSpec("auto-pilot", "research", configure_auto_pilot, autopilot.command_auto_pilot),
-        CommandSpec("research-cycle", "research", configure_research_cycle, research.command_research_cycle, "handler"),
-        CommandSpec("research-worker", "research", configure_research_worker, research.command_research_worker, "handler"),
-        CommandSpec("research-rebuild", "research", configure_research_rebuild, research.command_research_rebuild, "handler"),
-        CommandSpec("submission-dispatch", "submission", configure_submission_dispatch, research.command_submission_dispatch, "handler"),
+        CommandSpec("discover", "fields", configure_discover, LazyCommandHandler("alpha_operator_framework.cli.field_pipeline", "command_discover")),
+        CommandSpec("prepare", "fields", configure_prepare, LazyCommandHandler("alpha_operator_framework.cli.field_pipeline", "command_prepare")),
+        CommandSpec("filter", "fields", configure_filter, LazyCommandHandler("alpha_operator_framework.cli.field_pipeline", "command_filter")),
+        CommandSpec("second-order", "fields", configure_second_order, LazyCommandHandler("alpha_operator_framework.cli.field_pipeline", "command_second_order")),
+        CommandSpec("simulate", "simulation", configure_simulate, LazyCommandHandler("alpha_operator_framework.cli.simulation", "command_simulate")),
+        CommandSpec("poll-simulation", "simulation", configure_poll_simulation, LazyCommandHandler("alpha_operator_framework.cli.simulation", "command_poll_simulation")),
+        CommandSpec("prepare-super", "super_alpha", configure_prepare_super, LazyCommandHandler("alpha_operator_framework.cli.super_alpha", "command_prepare_super")),
+        CommandSpec("simulate-super", "super_alpha", configure_simulate_super, LazyCommandHandler("alpha_operator_framework.cli.super_alpha", "command_simulate_super")),
+        CommandSpec("poll-super", "super_alpha", configure_poll_simulation, LazyCommandHandler("alpha_operator_framework.cli.simulation", "command_poll_simulation")),
+        CommandSpec("init-db", "operations", configure_init_db, LazyCommandHandler("alpha_operator_framework.cli.maintenance", "command_init_db")),
+        CommandSpec("clean-db", "operations", configure_clean_db, LazyCommandHandler("alpha_operator_framework.cli.maintenance", "command_clean_db")),
+        CommandSpec("storage-backup", "operations", configure_storage_backup, LazyCommandHandler("alpha_operator_framework.cli.maintenance", "command_storage_backup")),
+        CommandSpec("storage-restore", "operations", configure_storage_restore, LazyCommandHandler("alpha_operator_framework.cli.maintenance", "command_storage_restore")),
+        CommandSpec("drill-recovery", "operations", configure_drill_recovery, LazyCommandHandler("alpha_operator_framework.cli.recovery", "command_drill_recovery")),
+        CommandSpec("status", "operations", configure_config_only, LazyCommandHandler("alpha_operator_framework.cli.status", "command_status")),
+        CommandSpec("research", "research", configure_research, LazyCommandHandler("alpha_operator_framework.cli.analysis", "command_research")),
+        CommandSpec("mine", "research", configure_mine, LazyCommandHandler("alpha_operator_framework.cli.analysis", "command_mine")),
+        CommandSpec("auto-pilot", "research", configure_auto_pilot, LazyCommandHandler("alpha_operator_framework.cli.autopilot", "command_auto_pilot")),
+        CommandSpec("research-cycle", "research", configure_research_cycle, LazyCommandHandler("alpha_operator_framework.cli.research", "command_research_cycle"), "handler"),
+        CommandSpec("research-worker", "research", configure_research_worker, LazyCommandHandler("alpha_operator_framework.cli.research", "command_research_worker"), "handler"),
+        CommandSpec("research-rebuild", "research", configure_research_rebuild, LazyCommandHandler("alpha_operator_framework.cli.research", "command_research_rebuild"), "handler"),
+        CommandSpec("submission-dispatch", "submission", configure_submission_dispatch, LazyCommandHandler("alpha_operator_framework.cli.research", "command_submission_dispatch"), "handler"),
     )

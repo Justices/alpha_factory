@@ -15,6 +15,7 @@ import json
 import logging
 import os
 import time
+from collections.abc import Mapping
 from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Any, Callable, Dict, List, Optional, Sequence, Union
@@ -39,6 +40,26 @@ def _normalize_platform_url(base_url: str, location: str) -> str:
     if location.startswith("/"):
         return f"{clean_base}{location}"
     return f"{clean_base}/{location}"
+
+
+def _failure_details(payload: Mapping[str, Any]) -> str:
+    """Keep actionable platform failure fields without dumping an arbitrary payload."""
+    details: list[str] = []
+
+    def collect(value: Any) -> None:
+        if isinstance(value, Mapping):
+            for name in ("code", "message", "reason", "detail", "error"):
+                if value.get(name) not in (None, ""):
+                    nested = value[name]
+                    if isinstance(nested, Mapping):
+                        collect(nested)
+                    else:
+                        details.append(f"{name}={str(nested)[:300]}")
+        elif value not in (None, ""):
+            details.append(str(value)[:300])
+
+    collect(payload)
+    return "; ".join(dict.fromkeys(details)) or "no platform error detail"
 
 
 @dataclass
@@ -225,7 +246,9 @@ class BrainPlatformSimulator:
             if status in ("COMPLETE", "COMPLETED", "DONE", "FINISHED", "WARNING") or progress_val >= 1.0:
                 break
             elif status in ("FAILED", "ERROR"):
-                raise RuntimeError(f"平台模拟任务执行失败: {progress_data.get('message', 'Unknown error')}")
+                raise RuntimeError(
+                    f"平台模拟任务执行失败: status={status}; location={location}; {_failure_details(progress_data)}"
+                )
 
             # 等待建议重试时间
             time.sleep(max(1.0, min(retry_after, 5.0)))

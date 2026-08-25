@@ -46,12 +46,30 @@ def command_research_cycle(args: argparse.Namespace) -> None:
     })
     policy_snapshot = load_policy(Path(args.policy_file)) if args.policy_file else None
     policy = policy_snapshot.to_research_policy() if policy_snapshot else None
+    if getattr(args, "authorize_submission", False) and not args.execute:
+        raise ValueError("--authorize-submission requires --execute")
+    field_scope = {
+        "region": policy.region if policy else options["region"],
+        "universe": policy.universe if policy else options["universe"],
+        "delay": policy.delay if policy else options.get("delay", 1),
+    }
     fields = load_real_market_fields(
-        region=policy.region if policy else options["region"],
-        universe=policy.universe if policy else options["universe"],
-        delay=policy.delay if policy else options.get("delay", 1),
+        **field_scope,
         datasets=args.datasets.split(",") if args.datasets else None,
+        include_base_fields=False, allow_scope_fallback=False,
     )
+    if not fields:
+        import asyncio
+        from alpha_operator_framework.platform.datafields import fetch_datafields
+        from alpha_operator_framework.research.field_loader import cache_platform_fields
+
+        cache_platform_fields(asyncio.run(fetch_datafields(**field_scope, max_rows=500)), **field_scope)
+        fields = load_real_market_fields(
+            **field_scope, datasets=args.datasets.split(",") if args.datasets else None,
+            include_base_fields=False, allow_scope_fallback=False,
+        )
+    if not fields:
+        raise ValueError(f"no BRAIN data fields available for {field_scope['region']}/{field_scope['universe']}/delay={field_scope['delay']}")
     templates = policy_snapshot.construction_templates() if policy_snapshot and policy_snapshot.templates else (
         ConstructionTemplate("rank_field", "rank({field})", "cross_sectional", ("rank",)),
         ConstructionTemplate("ts_rank_22", "ts_rank({field}, 22)", "time_series", ("ts_rank",)),
@@ -77,8 +95,6 @@ def command_research_cycle(args: argparse.Namespace) -> None:
             "algorithm": strategy if getattr(args, "algorithm", None) is not None else None, "decay": getattr(args, "decay", None),
             "neutralization": getattr(args, "neutralization", None), "truncation": getattr(args, "truncation", None),
         })
-    if getattr(args, "authorize_submission", False) and not args.execute:
-        raise ValueError("--authorize-submission requires --execute")
     runtime = build_research_runtime(
         config_path, execute_platform=args.execute, evidence_records=_evidence(args),
         submission_authorized=bool(getattr(args, "authorize_submission", False)),

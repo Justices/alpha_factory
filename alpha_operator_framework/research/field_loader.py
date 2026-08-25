@@ -39,6 +39,8 @@ def load_real_market_fields(
     datasets: Optional[Sequence[str]] = None,
     custom_dir: Optional[Union[str, Path]] = None,
     max_fields: int = 500,
+    include_base_fields: bool = True,
+    allow_scope_fallback: bool = True,
 ) -> List[FieldSpec]:
     """动态加载真实市场字段池 (严格过滤 close 等平台不推荐/不支持字段).
 
@@ -53,10 +55,10 @@ def load_real_market_fields(
     Returns:
         FieldSpec 规格对象列表 (去重且包含基准字段)
     """
-    fields_map: Dict[str, FieldSpec] = {f.id.lower(): f for f in BASE_CORE_FIELDS}
+    fields_map: Dict[str, FieldSpec] = {f.id.lower(): f for f in BASE_CORE_FIELDS} if include_base_fields else {}
 
     target_dir = Path(custom_dir) if custom_dir else (DATAFIELDS_DIR / region / str(delay) / universe)
-    if not target_dir.exists():
+    if allow_scope_fallback and not target_dir.exists():
         # 尝试查找不同 delay 或 fallback 目录
         alt_dirs = list(DATAFIELDS_DIR.glob(f"{region}/*/{universe}"))
         if alt_dirs:
@@ -115,3 +117,18 @@ def load_real_market_fields(
                 break
 
     return list(fields_map.values())
+
+
+def cache_platform_fields(rows: Sequence[dict[str, Any]], *, region: str, universe: str, delay: int) -> Path:
+    """Persist fields fetched for one exact BRAIN research scope."""
+    target_dir = DATAFIELDS_DIR / region / str(delay) / universe
+    target_dir.mkdir(parents=True, exist_ok=True)
+    grouped: dict[str, list[dict[str, Any]]] = {}
+    for row in rows:
+        dataset = row.get("dataset") or {}
+        dataset_id = str(row.get("dataset_id") or (dataset.get("id") if isinstance(dataset, dict) else "") or "platform")
+        grouped.setdefault(dataset_id, []).append(dict(row))
+    for dataset_id, items in grouped.items():
+        safe_name = "".join(char for char in dataset_id if char.isalnum() or char in "-_") or "platform"
+        (target_dir / f"{safe_name}.json").write_text(json.dumps(items, ensure_ascii=False), encoding="utf-8")
+    return target_dir

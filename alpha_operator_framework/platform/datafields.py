@@ -19,7 +19,7 @@ def retry_after_seconds(response: Any, *, fallback: float) -> float:
             return fallback
 
 
-async def fetch_datafields(region: str, universe: str, delay: int, dataset_id: str = "", search: str = "", data_type: str = "", page_delay: float = 0.5, max_retries: int = 5) -> list[dict[str, Any]]:
+async def fetch_datafields(region: str, universe: str, delay: int, dataset_id: str = "", search: str = "", data_type: str = "", page_delay: float = 0.5, max_retries: int = 5, max_rows: int | None = None) -> list[dict[str, Any]]:
     from cnhkmcp.untracked.platform_functions import brain_client
 
     await brain_client.ensure_authenticated()
@@ -29,7 +29,7 @@ async def fetch_datafields(region: str, universe: str, delay: int, dataset_id: s
     if data_type: params["type"] = data_type.upper()
     rows: list[dict[str, Any]] = []
     total: int | None = None
-    while total is None or len(rows) < total:
+    while (total is None or len(rows) < total) and (max_rows is None or len(rows) < max_rows):
         if rows and page_delay > 0:
             await asyncio.sleep(page_delay)
         params["offset"] = str(len(rows))
@@ -44,5 +44,5 @@ async def fetch_datafields(region: str, universe: str, delay: int, dataset_id: s
         page = payload.get("results") or []
         if not page:
             break
-        rows.extend(page)
+        rows.extend(page[:max_rows - len(rows)] if max_rows is not None else page)
     return rows

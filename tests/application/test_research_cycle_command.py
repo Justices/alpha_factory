@@ -97,7 +97,8 @@ def test_policy_settings_are_used_when_loading_fields(monkeypatch, tmp_path) -> 
 
     alpha_machine.command_research_cycle(args)
 
-    assert captured == {"region": "USA", "universe": "TOP3000", "delay": 0, "datasets": None}
+    assert captured == {"region": "USA", "universe": "TOP3000", "delay": 0, "datasets": None,
+                        "include_base_fields": False, "allow_scope_fallback": False}
 
 
 def test_research_cycle_uses_yaml_defaults_when_cli_options_are_omitted(monkeypatch, tmp_path) -> None:
@@ -119,4 +120,5 @@ def test_research_cycle_uses_yaml_defaults_when_cli_options_are_omitted(monkeypa
 
     alpha_machine.command_research_cycle(args)
 
-    assert captured == {"region": "USA", "universe": "TOP3000", "delay": 0, "datasets": None}
+    assert captured == {"region": "USA", "universe": "TOP3000", "delay": 0, "datasets": None,
+                        "include_base_fields": False, "allow_scope_fallback": False}

@@ -22,6 +22,7 @@
 - Mypy: passed (`Success: no issues found in 26 source files`).
 - Compileall: passed.
 - Diff check: passed.
+- Reviewer P2 follow-up: extended the package-root AST guard to reject exact `ast.Import` aliases such as `import alpha_operator_framework as af`, while allowing submodule imports; focused command `D:\quant-venv\Scripts\python.exe -m pytest tests/test_dependency_direction.py tests/test_lazy_package_bootstrap.py tests/cli/test_command_registry.py -q -p no:cacheprovider` passed (13 tests).
 
 ## Full verification
 

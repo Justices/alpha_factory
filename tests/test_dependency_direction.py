@@ -20,6 +20,19 @@ FORBIDDEN_LAZY_EXPORT_TARGETS = {
 TEMPORARY_PRUNING_TARGET = "alpha_operator_framework.domain.pruning"
 
 
+def package_root_import_violations(tree: ast.AST) -> list[int]:
+    """Return lines importing the package root instead of a defining submodule."""
+    violations: list[int] = []
+    for node in ast.walk(tree):
+        if isinstance(node, ast.ImportFrom) and node.module == "alpha_operator_framework":
+            violations.append(node.lineno)
+        elif isinstance(node, ast.Import) and any(
+            alias.name == "alpha_operator_framework" for alias in node.names
+        ):
+            violations.append(node.lineno)
+    return violations
+
+
 def test_framework_modules_do_not_import_root_alpha_machine() -> None:
     """The root CLI facade must not be an internal production dependency."""
     violations: list[str] = []
@@ -42,11 +55,23 @@ def test_production_modules_do_not_import_package_root() -> None:
         if path in ALLOWED_PACKAGE_ROOT_IMPORT_FILES:
             continue
         tree = ast.parse(path.read_text(encoding="utf-8"), filename=str(path))
-        for node in ast.walk(tree):
-            if isinstance(node, ast.ImportFrom) and node.module == "alpha_operator_framework":
-                violations.append(f"{path.relative_to(PROJECT_ROOT)}:{node.lineno}")
+        violations.extend(
+            f"{path.relative_to(PROJECT_ROOT)}:{line}"
+            for line in package_root_import_violations(tree)
+        )
 
     assert not violations, "production imports of package root: " + ", ".join(violations)
+
+
+def test_package_root_import_guard_rejects_aliased_root_import_fixture() -> None:
+    """An aliased root import is forbidden, while actual submodule imports remain valid."""
+    source = """
+import alpha_operator_framework as af
+import alpha_operator_framework.domain.fields
+from alpha_operator_framework.domain import fields
+"""
+
+    assert package_root_import_violations(ast.parse(source)) == [2]
 
 
 def test_lazy_exports_reject_legacy_monolith_targets_and_allow_only_pruning_compatibility() -> None:

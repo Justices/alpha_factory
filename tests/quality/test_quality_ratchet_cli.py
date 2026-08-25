@@ -1,4 +1,5 @@
 import json
+import os
 import subprocess
 from pathlib import Path
 import sys
@@ -9,6 +10,7 @@ from alpha_operator_framework.quality.ratchet import (
     SCHEMA_VERSION,
     CommandResult,
     Issue,
+    SubprocessRunner,
     ToolFailure,
     collect_snapshot,
     run_coverage,
@@ -125,6 +127,10 @@ def test_mypy_parses_windows_drive_paths_and_shards_each_file_once(tmp_path: Pat
         "alpha_operator_framework/module_2.py",
     ]
     assert all("--no-incremental" in command for command in mypy_commands)
+    assert all(
+        command[command.index("--cache-dir") + 1] == os.devnull
+        for command in mypy_commands
+    )
 
 
 def test_coverage_reads_total_percent_from_json_report(tmp_path: Path):
@@ -253,6 +259,20 @@ def test_unexpected_runner_crash_raises_tool_failure(tmp_path: Path):
         run_ruff(crashing_runner, root=root)
 
 
+def test_subprocess_runner_decodes_tool_output_as_utf8(tmp_path: Path):
+    runner = SubprocessRunner(tmp_path)
+
+    result = runner(
+        (
+            sys.executable,
+            "-c",
+            "import sys; sys.stdout.buffer.write('quality £ 中文'.encode('utf-8'))",
+        )
+    )
+
+    assert result.stdout == "quality £ 中文"
+
+
 def test_invalid_ruff_json_and_missing_coverage_report_raise_tool_failure(tmp_path: Path):
     root = _root_with_python_files(tmp_path)
 
@@ -273,6 +293,16 @@ def test_collect_snapshot_rejects_missing_scan_target(tmp_path: Path):
 
     with pytest.raises(ToolFailure, match="Python files"):
         collect_snapshot(_Runner(), root=root)
+
+
+def test_collect_snapshot_uses_the_current_python_interpreter_by_default(tmp_path: Path):
+    root = _root_with_python_files(tmp_path)
+    runner = _Runner()
+
+    collect_snapshot(runner, root=root)
+
+    assert runner.commands
+    assert all(command[0] == sys.executable for command in runner.commands)
 
 
 @pytest.mark.parametrize(
@@ -306,6 +336,31 @@ def test_check_rejects_malformed_baseline_without_running_tools(tmp_path: Path, 
 
     assert main(["check", "--baseline", str(baseline)], runner=runner, root=root) == 1
     assert runner.commands == []
+    assert capsys.readouterr().out.startswith("[QUALITY] FAIL")
+
+
+def test_check_rejects_combined_fingerprint_and_coverage_regression(
+    tmp_path: Path,
+    capsys,
+):
+    root = _root_with_python_files(tmp_path)
+    baseline = root / "quality-baseline.json"
+    original = json.dumps(_baseline())
+    baseline.write_text(original, encoding="utf-8")
+    runner = _Runner(
+        {
+            "ruff": CommandResult(
+                1,
+                '[{"filename":"new.py","location":{"row":1},'
+                '"code":"F1","message":"new regression"}]',
+                "",
+            )
+        },
+        coverage=72.4,
+    )
+
+    assert main(["check", "--baseline", str(baseline)], runner=runner, root=root) == 1
+    assert baseline.read_text(encoding="utf-8") == original
     assert capsys.readouterr().out.startswith("[QUALITY] FAIL")
 
 
@@ -354,7 +409,7 @@ def test_baseline_update_writes_deterministic_schema_v1_json_atomically(tmp_path
     ) == 0
     assert baseline.read_text(encoding="utf-8") == first
     assert json.loads(first) == {
-        "coverage": 72.5,
+        "coverage": 72,
         "file_count": 2,
         "mypy": [],
         "ruff": ["a.py|F1|a", "z.py|F2|z"],

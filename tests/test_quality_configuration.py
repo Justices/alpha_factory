@@ -22,6 +22,8 @@ QUALITY_MODULES = [
     "alpha_operator_framework/platform/alpha_source.py",
     "alpha_operator_framework/platform/datafield_ingest.py",
     "alpha_operator_framework/platform/simulation_gateway.py",
+    "alpha_operator_framework/quality/**/*.py",
+    "tools/quality_ratchet.py",
 ]
 
 

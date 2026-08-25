@@ -9,6 +9,7 @@ import os
 from pathlib import Path
 import re
 import subprocess
+import sys
 import tempfile
 from types import MappingProxyType
 from typing import Any, Protocol
@@ -64,6 +65,7 @@ class SubprocessRunner:
             cwd=self._root,
             capture_output=True,
             text=True,
+            encoding="utf-8",
             timeout=self._timeout_seconds,
             check=False,
         )
@@ -225,6 +227,8 @@ def run_mypy(
             "skip",
             "--ignore-missing-imports",
             "--no-incremental",
+            "--cache-dir",
+            os.devnull,
         )
         result = _execute(runner, command, "mypy")
         if result.returncode not in (0, 1):
@@ -317,7 +321,7 @@ def collect_snapshot(
     runner: CommandRunner,
     *,
     root: Path,
-    python_executable: str = "python",
+    python_executable: str = sys.executable,
 ) -> dict[str, Any]:
     """Collect all quality signals without retaining raw tool output."""
     package = root / "alpha_operator_framework"
@@ -353,7 +357,7 @@ def baseline_payload(
         "ruff": sorted(_issues(snapshot, "ruff")),
         "mypy": sorted(_issues(snapshot, "mypy")),
         "vulture": sorted(_issues(snapshot, "vulture")),
-        "coverage": float(snapshot["coverage"]),
+        "coverage": math.floor(float(snapshot["coverage"])),
         "file_count": snapshot["file_count"],
     }
 

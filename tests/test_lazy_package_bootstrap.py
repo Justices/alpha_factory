@@ -11,6 +11,7 @@ import subprocess
 import sys
 import tempfile
 import textwrap
+import time
 
 import pytest
 
@@ -83,6 +84,47 @@ def cold_import_seconds(statement: str) -> float:
     return float(completed.stdout.strip())
 
 
+def cold_cli_help_seconds() -> tuple[float, str]:
+    """Measure one isolated CLI help process and return elapsed time and output."""
+    allowed_system_keys = ("COMSPEC", "PATH", "PATHEXT", "SYSTEMROOT", "WINDIR")
+    with tempfile.TemporaryDirectory() as isolated_root:
+        isolated = Path(isolated_root)
+        home = isolated / "home"
+        config = isolated / "config"
+        temp = isolated / "temp"
+        for directory in (home, config, temp):
+            directory.mkdir()
+        env = {key: os.environ[key] for key in allowed_system_keys if key in os.environ}
+        env.update(
+            {
+                "APPDATA": str(config),
+                "HOME": str(home),
+                "LOCALAPPDATA": str(config),
+                "PYTHONDONTWRITEBYTECODE": "1",
+                "PYTHONNOUSERSITE": "1",
+                "TEMP": str(temp),
+                "TMP": str(temp),
+                "USERPROFILE": str(home),
+                "XDG_CACHE_HOME": str(config / "cache"),
+                "XDG_CONFIG_HOME": str(config),
+                "XDG_DATA_HOME": str(config / "data"),
+            }
+        )
+        started = time.perf_counter()
+        completed = subprocess.run(
+            [sys.executable, str(ROOT / "alpha_machine.py"), "--help"],
+            cwd=ROOT,
+            env=env,
+            capture_output=True,
+            text=True,
+            check=False,
+            timeout=15,
+        )
+        elapsed = time.perf_counter() - started
+    assert completed.returncode == 0, completed.stderr
+    return elapsed, completed.stdout
+
+
 def test_package_root_matches_frozen_export_snapshot():
     package = importlib.import_module("alpha_operator_framework")
     expected = json.loads(FIXTURE.read_text(encoding="utf-8"))
@@ -139,3 +181,18 @@ def test_package_root_cold_import_stays_under_ci_budget():
     samples = [cold_import_seconds("import alpha_operator_framework") for _ in range(3)]
 
     assert statistics.median(samples) < 2.5
+
+
+def test_cli_help_cold_start_stays_under_ci_budget_and_lists_all_commands():
+    import alpha_machine
+
+    expected_commands = sorted(
+        command for commands in alpha_machine.command_domains().values() for command in commands
+    )
+    samples_and_output = [cold_cli_help_seconds() for _ in range(3)]
+    samples = [elapsed for elapsed, _ in samples_and_output]
+    output = samples_and_output[0][1]
+
+    assert statistics.median(samples) < 2.5
+    assert len(expected_commands) == 22
+    assert all(command in output for command in expected_commands)

@@ -28,7 +28,6 @@ from alpha_operator_framework.quality.ratchet import (  # noqa: E402
 )
 
 _TOOL_DISTRIBUTIONS = {
-    "coverage": "coverage",
     "mypy": "mypy",
     "ruff": "ruff",
     "vulture": "vulture",
@@ -92,8 +91,7 @@ def _run_check(path: Path, runner: CommandRunner, root: Path) -> int:
     status = "PASS" if result.passed else "FAIL"
     print(
         f"[QUALITY] {status} new={len(new_fingerprints)} "
-        f"coverage={float(snapshot['coverage']):.3f} "
-        f"baseline={float(baseline['coverage']):.3f} files={snapshot['file_count']}"
+        f"files={snapshot['file_count']} baseline_files={baseline['file_count']}"
     )
     for value in new_fingerprints[:10]:
         print(f"[QUALITY] NEW {value}")
@@ -114,8 +112,7 @@ def _run_baseline(
         print(f"[QUALITY] FAIL reason={_safe_reason(error)}")
         return 1
     print(
-        f"[QUALITY] BASELINE coverage={float(payload['coverage']):.3f} "
-        f"files={payload['file_count']} ruff={len(payload['ruff'])} "
+        f"[QUALITY] BASELINE files={payload['file_count']} ruff={len(payload['ruff'])} "
         f"mypy={len(payload['mypy'])} vulture={len(payload['vulture'])}"
     )
     return 0

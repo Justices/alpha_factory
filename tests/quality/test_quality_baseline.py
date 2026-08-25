@@ -3,12 +3,13 @@
 from __future__ import annotations
 
 import json
-import math
 import subprocess
 import tomllib
 from pathlib import Path
 
-from alpha_operator_framework.quality.ratchet import baseline_payload
+import alpha_operator_framework.quality as quality_api
+from alpha_operator_framework.quality import ratchet
+from alpha_operator_framework.quality.ratchet import SCHEMA_VERSION, baseline_payload
 
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -18,67 +19,54 @@ EXPECTED_KEYS = {
     "ruff",
     "mypy",
     "vulture",
-    "coverage",
     "file_count",
 }
 EXPECTED_VERSIONS = {
-    "coverage": "7.15.4",
     "mypy": "1.17.1",
     "ruff": "0.12.11",
     "vulture": "2.16",
 }
 
 
-def test_coverage_and_dead_code_dependencies_are_pinned_once() -> None:
+def test_quality_dependencies_exclude_coverage_and_pin_dead_code_once() -> None:
     lines = (ROOT / "requirements-dev.txt").read_text(encoding="utf-8").splitlines()
 
-    assert lines.count("coverage==7.15.4") == 1
+    assert not any("coverage" in line.casefold() for line in lines)
     assert lines.count("vulture==2.16") == 1
 
 
-def test_branch_coverage_configuration_targets_the_package() -> None:
+def test_quality_configuration_excludes_coverage() -> None:
     with (ROOT / "pyproject.toml").open("rb") as config_file:
         config = tomllib.load(config_file)
 
-    assert config["tool"]["coverage"]["run"] == {
-        "branch": True,
-        "source": ["alpha_operator_framework"],
-    }
-    assert config["tool"]["coverage"]["report"] == {
-        "show_missing": True,
-        "skip_covered": True,
-    }
+    assert "coverage" not in config["tool"]
 
 
-def test_baseline_payload_rounds_coverage_floor_down() -> None:
+def test_baseline_payload_contains_only_schema_v2_quality_fields() -> None:
     snapshot = {
-        "schema_version": 1,
-        "tool_versions": EXPECTED_VERSIONS,
+        "schema_version": SCHEMA_VERSION,
         "ruff": (),
         "mypy": (),
         "vulture": (),
-        "coverage": 72.999,
         "file_count": 1,
     }
 
     payload = baseline_payload(snapshot, versions=EXPECTED_VERSIONS)
 
-    assert payload["coverage"] == math.floor(snapshot["coverage"])
+    assert set(payload) == EXPECTED_KEYS
+    assert payload["schema_version"] == 2
 
 
-def test_repository_baseline_has_normalized_schema_v1() -> None:
+def test_repository_baseline_has_normalized_schema_v2() -> None:
     baseline = json.loads((ROOT / "quality-baseline.json").read_text(encoding="utf-8"))
 
     assert set(baseline) == EXPECTED_KEYS
-    assert baseline["schema_version"] == 1
+    assert baseline["schema_version"] == 2
     assert baseline["tool_versions"] == EXPECTED_VERSIONS
     for tool in ("ruff", "mypy", "vulture"):
         fingerprints = baseline[tool]
         assert fingerprints == sorted(set(fingerprints))
         assert all(isinstance(value, str) and value.count("|") >= 2 for value in fingerprints)
-    assert type(baseline["coverage"]) is int
-    assert baseline["coverage"] >= 0
-
     completed = subprocess.run(
         ["rg", "--files", "alpha_operator_framework", "-g", "*.py"],
         cwd=ROOT,
@@ -88,3 +76,8 @@ def test_repository_baseline_has_normalized_schema_v1() -> None:
     )
     package_files = [line for line in completed.stdout.splitlines() if line]
     assert baseline["file_count"] == len(package_files)
+
+
+def test_quality_public_api_excludes_coverage_adapter() -> None:
+    assert not hasattr(ratchet, "run_coverage")
+    assert not hasattr(quality_api, "run_coverage")

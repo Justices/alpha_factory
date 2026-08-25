@@ -3,8 +3,6 @@
 from collections.abc import Mapping, Sequence
 from dataclasses import dataclass
 import json
-import math
-from numbers import Real
 import os
 from pathlib import Path
 import re
@@ -14,10 +12,10 @@ import tempfile
 from types import MappingProxyType
 from typing import Any, Protocol
 
-SCHEMA_VERSION = 1
+SCHEMA_VERSION = 2
 _TOOLS = ("ruff", "mypy", "vulture")
-_REQUIRED = (*_TOOLS, "coverage", "file_count")
-_VERSIONED_TOOLS = (*_TOOLS, "coverage")
+_REQUIRED = ("schema_version", *_TOOLS, "file_count")
+_VERSIONED_TOOLS = _TOOLS
 
 
 class BaselineError(ValueError):
@@ -240,31 +238,6 @@ def run_mypy(
     return _deduplicate(issues)
 
 
-def run_coverage(
-    runner: CommandRunner,
-    *,
-    root: Path,
-    python_executable: str = "python",
-) -> float:
-    """Read the total coverage percentage from a transient JSON report."""
-    with tempfile.TemporaryDirectory(prefix="alpha-quality-") as directory:
-        report = Path(directory) / "coverage.json"
-        command = (python_executable, "-m", "coverage", "json", "-o", str(report))
-        result = _execute(runner, command, "coverage")
-        if result.returncode != 0:
-            raise ToolFailure(f"coverage failed with exit code {result.returncode}")
-        if not report.is_file():
-            raise ToolFailure("coverage report is missing")
-        try:
-            payload = json.loads(report.read_text(encoding="utf-8"))
-            percent = payload["totals"]["percent_covered"]
-            if isinstance(percent, bool) or not isinstance(percent, (int, float)):
-                raise TypeError
-            return float(percent)
-        except (json.JSONDecodeError, KeyError, TypeError) as error:
-            raise ToolFailure("coverage report is invalid") from error
-
-
 _VULTURE_LINE = re.compile(
     r"^(?P<path>.+):(?P<line>\d+): "
     r"(?P<message>(?P<description>.+) \((?P<confidence>\d+)% confidence\))$"
@@ -338,7 +311,6 @@ def collect_snapshot(
             python_executable=python_executable,
         ),
         "vulture": run_vulture(runner, root=root, python_executable=python_executable),
-        "coverage": run_coverage(runner, root=root, python_executable=python_executable),
         "file_count": len(files),
     }
 
@@ -348,7 +320,7 @@ def baseline_payload(
     *,
     versions: Mapping[str, str],
 ) -> dict[str, Any]:
-    """Convert an in-memory snapshot into deterministic schema-v1 JSON data."""
+    """Convert an in-memory snapshot into deterministic schema-v2 JSON data."""
     _validate(snapshot, "snapshot", allow_issues=True)
     _validate_versions(versions, "tool_versions")
     return {
@@ -357,7 +329,6 @@ def baseline_payload(
         "ruff": sorted(_issues(snapshot, "ruff")),
         "mypy": sorted(_issues(snapshot, "mypy")),
         "vulture": sorted(_issues(snapshot, "vulture")),
-        "coverage": math.floor(float(snapshot["coverage"])),
         "file_count": snapshot["file_count"],
     }
 
@@ -389,14 +360,12 @@ def write_baseline_atomic(path: Path, payload: Mapping[str, Any]) -> None:
 @dataclass(frozen=True, slots=True)
 class ComparisonResult:
     new_issues: Mapping[str, tuple[str, ...]]
-    coverage_delta: float
-    coverage_ok: bool
+    file_count_ok: bool
     passed: bool
 
     def as_dict(self) -> dict[str, Any]:
         return {
-            "coverage_delta": self.coverage_delta,
-            "coverage_ok": self.coverage_ok,
+            "file_count_ok": self.file_count_ok,
             "new_issues": {tool: list(values) for tool, values in self.new_issues.items()},
             "passed": self.passed,
         }
@@ -421,12 +390,17 @@ def _validate(
     missing = [key for key in _REQUIRED if key not in snapshot]
     if missing:
         raise BaselineError(f"{label} missing required key(s): {', '.join(missing)}")
+    expected_keys = set(_REQUIRED)
+    if require_versions:
+        expected_keys.add("tool_versions")
+    else:
+        expected_keys.update(set(snapshot) & {"tool_versions"})
+    unexpected = sorted(set(snapshot) - expected_keys)
+    if unexpected:
+        raise BaselineError(f"{label} has unexpected key(s): {', '.join(unexpected)}")
     schema_version = snapshot.get("schema_version")
     if type(schema_version) is not int or schema_version != SCHEMA_VERSION:
         raise BaselineError(f"{label} schema version must be {SCHEMA_VERSION}")
-    coverage = snapshot["coverage"]
-    if isinstance(coverage, bool) or not isinstance(coverage, Real) or not math.isfinite(float(coverage)):
-        raise BaselineError(f"{label} coverage must be a finite real number")
     file_count = snapshot["file_count"]
     if type(file_count) is not int or file_count < 0:
         raise BaselineError(f"{label} file_count must be a non-negative integer")
@@ -436,8 +410,8 @@ def _validate(
             raise BaselineError(f"{tool} output must be a list or tuple")
         allowed = (str, Issue) if allow_issues else (str,)
         if not all(isinstance(value, allowed) for value in values):
-            expected = "strings or Issue objects" if allow_issues else "strings"
-            raise BaselineError(f"{tool} output must contain only {expected}")
+            expected_values = "strings or Issue objects" if allow_issues else "strings"
+            raise BaselineError(f"{tool} output must contain only {expected_values}")
     if require_versions:
         if "tool_versions" not in snapshot:
             raise BaselineError(f"{label} missing required key(s): tool_versions")
@@ -466,19 +440,14 @@ def compare(current: Mapping[str, Any], baseline: Mapping[str, Any]) -> Comparis
     """Compare two validated snapshots without mutating either input."""
     _validate(current, "current", allow_issues=True)
     validate_baseline(baseline)
-    if current["file_count"] < baseline["file_count"]:
-        raise BaselineError("current file_count is below baseline; scan target is missing")
-
     new = {
         tool: tuple(sorted(_issues(current, tool) - _issues(baseline, tool)))
         for tool in _TOOLS
     }
     new = {tool: values for tool, values in new.items() if values}
-    delta = float(current["coverage"]) - float(baseline["coverage"])
-    coverage_ok = delta >= 0
+    file_count_ok = current["file_count"] >= baseline["file_count"]
     return ComparisonResult(
         new_issues=MappingProxyType(new),
-        coverage_delta=delta,
-        coverage_ok=coverage_ok,
-        passed=not new and coverage_ok,
+        file_count_ok=file_count_ok,
+        passed=not new and file_count_ok,
     )

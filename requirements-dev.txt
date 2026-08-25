@@ -2,5 +2,4 @@
 pytest==8.4.2
 ruff==0.12.11
 mypy==1.17.1
-coverage==7.15.4
 vulture==2.16

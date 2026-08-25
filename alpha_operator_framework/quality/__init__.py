@@ -1,4 +1,4 @@
-"""Pure models for comparing quality-tool snapshots."""
+"""Public models for the Ruff, Mypy, and Vulture quality ratchet."""
 
 from .ratchet import (
     SCHEMA_VERSION,

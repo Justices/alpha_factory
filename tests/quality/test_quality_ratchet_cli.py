@@ -13,7 +13,6 @@ from alpha_operator_framework.quality.ratchet import (
     SubprocessRunner,
     ToolFailure,
     collect_snapshot,
-    run_coverage,
     run_mypy,
     run_ruff,
     run_vulture,
@@ -23,21 +22,14 @@ from tools.quality_ratchet import main
 
 
 class _Runner:
-    def __init__(self, responses=None, *, coverage=72.5):
+    def __init__(self, responses=None):
         self.responses = responses or {}
-        self.coverage = coverage
         self.commands = []
 
     def __call__(self, command):
         command = tuple(command)
         self.commands.append(command)
         module = command[2]
-        if module == "coverage":
-            report = Path(command[command.index("-o") + 1])
-            report.write_text(
-                json.dumps({"totals": {"percent_covered": self.coverage}}),
-                encoding="utf-8",
-            )
         default_stdout = "[]" if module == "ruff" else ""
         return self.responses.get(module, CommandResult(0, default_stdout, ""))
 
@@ -56,11 +48,10 @@ def _root_with_python_files(tmp_path: Path, count: int = 2) -> Path:
 def _baseline(**overrides):
     value = {
         "schema_version": SCHEMA_VERSION,
-        "tool_versions": {"coverage": "test", "mypy": "test", "ruff": "test", "vulture": "test"},
+        "tool_versions": {"mypy": "test", "ruff": "test", "vulture": "test"},
         "ruff": [],
         "mypy": [],
         "vulture": [],
-        "coverage": 72.5,
         "file_count": 2,
     }
     value.update(overrides)
@@ -131,12 +122,6 @@ def test_mypy_parses_windows_drive_paths_and_shards_each_file_once(tmp_path: Pat
         command[command.index("--cache-dir") + 1] == os.devnull
         for command in mypy_commands
     )
-
-
-def test_coverage_reads_total_percent_from_json_report(tmp_path: Path):
-    root = _root_with_python_files(tmp_path)
-
-    assert run_coverage(_Runner(coverage=83.125), root=root) == pytest.approx(83.125)
 
 
 def test_vulture_output_becomes_issue(tmp_path: Path):
@@ -273,18 +258,11 @@ def test_subprocess_runner_decodes_tool_output_as_utf8(tmp_path: Path):
     assert result.stdout == "quality £ 中文"
 
 
-def test_invalid_ruff_json_and_missing_coverage_report_raise_tool_failure(tmp_path: Path):
+def test_invalid_ruff_json_raises_tool_failure(tmp_path: Path):
     root = _root_with_python_files(tmp_path)
 
     with pytest.raises(ToolFailure, match="JSON"):
         run_ruff(_Runner({"ruff": CommandResult(1, "not-json", "")}), root=root)
-
-    class MissingReportRunner:
-        def __call__(self, command):
-            return CommandResult(0, "", "")
-
-    with pytest.raises(ToolFailure, match="report"):
-        run_coverage(MissingReportRunner(), root=root)
 
 
 def test_collect_snapshot_rejects_missing_scan_target(tmp_path: Path):
@@ -303,6 +281,7 @@ def test_collect_snapshot_uses_the_current_python_interpreter_by_default(tmp_pat
 
     assert runner.commands
     assert all(command[0] == sys.executable for command in runner.commands)
+    assert {command[2] for command in runner.commands} == {"mypy", "ruff", "vulture"}
 
 
 @pytest.mark.parametrize(
@@ -310,7 +289,6 @@ def test_collect_snapshot_uses_the_current_python_interpreter_by_default(tmp_pat
     [
         ({}, _Runner(), 0),
         ({}, _Runner({"ruff": CommandResult(1, '[{"filename":"new.py","location":{"row":1},"code":"F1","message":"bad"}]', "")}), 1),
-        ({}, _Runner(coverage=72.4), 1),
         ({"file_count": 3}, _Runner(), 1),
         ({}, _Runner({"ruff": CommandResult(2, "", "tool crashed")}), 1),
     ],
@@ -325,6 +303,7 @@ def test_check_exit_semantics(tmp_path: Path, capsys, baseline_overrides, runner
     assert result == expected
     lines = capsys.readouterr().out.splitlines()
     assert lines[0].startswith("[QUALITY]")
+    assert "coverage" not in "\n".join(lines).casefold()
     assert len(lines) <= 11
 
 
@@ -339,7 +318,7 @@ def test_check_rejects_malformed_baseline_without_running_tools(tmp_path: Path, 
     assert capsys.readouterr().out.startswith("[QUALITY] FAIL")
 
 
-def test_check_rejects_combined_fingerprint_and_coverage_regression(
+def test_check_rejects_fingerprint_regression_without_rewriting_baseline(
     tmp_path: Path,
     capsys,
 ):
@@ -355,8 +334,7 @@ def test_check_rejects_combined_fingerprint_and_coverage_regression(
                 '"code":"F1","message":"new regression"}]',
                 "",
             )
-        },
-        coverage=72.4,
+        }
     )
 
     assert main(["check", "--baseline", str(baseline)], runner=runner, root=root) == 1
@@ -370,15 +348,15 @@ def test_check_rejects_semantically_malformed_baseline_without_running_tools(
 ):
     root = _root_with_python_files(tmp_path)
     baseline = root / "quality-baseline.json"
-    baseline.write_text(json.dumps(_baseline(coverage=True)), encoding="utf-8")
+    baseline.write_text(json.dumps(_baseline(coverage=72)), encoding="utf-8")
     runner = _Runner()
 
     assert main(["check", "--baseline", str(baseline)], runner=runner, root=root) == 1
     assert runner.commands == []
-    assert "coverage" in capsys.readouterr().out
+    assert "unexpected" in capsys.readouterr().out
 
 
-def test_baseline_update_writes_deterministic_schema_v1_json_atomically(tmp_path: Path, capsys):
+def test_baseline_update_writes_deterministic_schema_v2_json_atomically(tmp_path: Path, capsys):
     root = _root_with_python_files(tmp_path)
     baseline = root / "nested" / "quality-baseline.json"
     baseline.parent.mkdir()
@@ -398,27 +376,28 @@ def test_baseline_update_writes_deterministic_schema_v1_json_atomically(tmp_path
         ["baseline", "--update", "--baseline", str(baseline)],
         runner=runner,
         root=root,
-        versions={"vulture": "2", "ruff": "1", "coverage": "3", "mypy": "4"},
+        versions={"vulture": "2", "ruff": "1", "mypy": "4"},
     ) == 0
     first = baseline.read_text(encoding="utf-8")
     assert main(
         ["baseline", "--update", "--baseline", str(baseline)],
         runner=runner,
         root=root,
-        versions={"vulture": "2", "ruff": "1", "coverage": "3", "mypy": "4"},
+        versions={"vulture": "2", "ruff": "1", "mypy": "4"},
     ) == 0
     assert baseline.read_text(encoding="utf-8") == first
     assert json.loads(first) == {
-        "coverage": 72,
         "file_count": 2,
         "mypy": [],
         "ruff": ["a.py|F1|a", "z.py|F2|z"],
-        "schema_version": 1,
-        "tool_versions": {"coverage": "3", "mypy": "4", "ruff": "1", "vulture": "2"},
+        "schema_version": 2,
+        "tool_versions": {"mypy": "4", "ruff": "1", "vulture": "2"},
         "vulture": [],
     }
     assert not list(baseline.parent.glob("*.tmp"))
-    assert all(line.startswith("[QUALITY]") for line in capsys.readouterr().out.splitlines())
+    output = capsys.readouterr().out
+    assert "coverage" not in output.casefold()
+    assert all(line.startswith("[QUALITY]") for line in output.splitlines())
 
 
 def test_atomic_writer_removes_temporary_file_when_serialization_fails(tmp_path: Path):

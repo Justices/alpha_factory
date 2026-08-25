@@ -1,5 +1,4 @@
 import json
-import math
 
 import pytest
 
@@ -15,11 +14,10 @@ from alpha_operator_framework.quality.ratchet import (
 def _snapshot(**overrides):
     value = {
         "schema_version": SCHEMA_VERSION,
-        "tool_versions": {"coverage": "test", "mypy": "test", "ruff": "test", "vulture": "test"},
+        "tool_versions": {"mypy": "test", "ruff": "test", "vulture": "test"},
         "ruff": (),
         "mypy": (),
         "vulture": (),
-        "coverage": 72.0,
         "file_count": 10,
     }
     value.update(overrides)
@@ -38,11 +36,10 @@ def test_compare_rejects_only_new_issue_fingerprints():
     assert not result.passed
 
 
-def test_compare_rejects_coverage_drop():
-    result = compare(_snapshot(coverage=71.9), _snapshot(coverage=72.0))
+def test_compare_rejects_file_count_regression():
+    result = compare(_snapshot(file_count=9), _snapshot(file_count=10))
 
-    assert result.coverage_delta == pytest.approx(-0.1)
-    assert not result.coverage_ok
+    assert not result.file_count_ok
     assert not result.passed
 
 
@@ -55,7 +52,7 @@ def test_fingerprint_normalizes_paths_lines_and_message_whitespace():
 
 def test_compare_requires_schema_and_all_scan_outputs():
     with pytest.raises(BaselineError, match="schema"):
-        compare(_snapshot(schema_version=2), _snapshot())
+        compare(_snapshot(schema_version=1), _snapshot())
 
     missing = _snapshot()
     del missing["vulture"]
@@ -76,9 +73,6 @@ def test_compare_rejects_missing_schema_version():
     [
         ("schema_version", True, "schema"),
         ("schema_version", 1.0, "schema"),
-        ("coverage", True, "coverage"),
-        ("coverage", math.inf, "coverage"),
-        ("coverage", math.nan, "coverage"),
         ("file_count", True, "file_count"),
         ("file_count", 1.0, "file_count"),
         ("file_count", -1, "file_count"),
@@ -106,9 +100,12 @@ def test_compare_accepts_issue_objects_only_in_current_snapshot():
     assert result.new_issues == {"ruff": ("a.py|F1|bad",)}
 
 
-def test_compare_rejects_missing_scan_target():
-    with pytest.raises(BaselineError, match="file_count"):
-        compare(_snapshot(file_count=0), _snapshot(file_count=10))
+def test_compare_rejects_unexpected_baseline_fields():
+    baseline = _snapshot()
+    baseline["coverage"] = 72
+
+    with pytest.raises(BaselineError, match="unexpected"):
+        compare(_snapshot(), baseline)
 
 
 def test_result_is_immutable_and_serializes_with_stable_order():
@@ -121,6 +118,10 @@ def test_result_is_immutable_and_serializes_with_stable_order():
         result.passed = True
     assert result.new_issues == {"mypy": ("z.py|E2|z",), "ruff": ("a.py|E1|a",)}
     assert json.dumps(result.as_dict(), sort_keys=True) == (
-        '{"coverage_delta": 0.0, "coverage_ok": true, "new_issues": '
-        '{"mypy": ["z.py|E2|z"], "ruff": ["a.py|E1|a"]}, "passed": false}'
+        '{"file_count_ok": true, "new_issues": {"mypy": ["z.py|E2|z"], '
+        '"ruff": ["a.py|E1|a"]}, "passed": false}'
     )
+
+
+def test_schema_version_is_two():
+    assert SCHEMA_VERSION == 2

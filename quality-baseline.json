@@ -1,5 +1,4 @@
 {
-  "coverage": 65,
   "file_count": 181,
   "mypy": [
     "alpha_operator_framework/application/research_cycle.py|var-annotated|Need type annotation for \"retained\" (hint: \"retained: list[<type>] = ...\")",
@@ -311,9 +310,8 @@
     "tests/test_trial_ledger_persistence.py|F401|`pytest` imported but unused",
     "tools/webdata_quality.py|F541|f-string without any placeholders"
   ],
-  "schema_version": 1,
+  "schema_version": 2,
   "tool_versions": {
-    "coverage": "7.15.4",
     "mypy": "1.17.1",
     "ruff": "0.12.11",
     "vulture": "2.16"

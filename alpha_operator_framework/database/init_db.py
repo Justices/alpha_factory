@@ -26,8 +26,9 @@ def init_database(db_path: Path | StorageConfig = DEFAULT_DB_PATH, reset: bool =
         database = make_url(storage.url).database
         if database:
             target = Path(database)
-            if target.exists():
-                target.unlink()
+            for candidate in (target, target.with_name(f"{target.name}-wal"), target.with_name(f"{target.name}-shm")):
+                if candidate.exists():
+                    candidate.unlink()
     engine = create_storage_engine(storage)
     try:
         if reset and storage.driver != "sqlite":

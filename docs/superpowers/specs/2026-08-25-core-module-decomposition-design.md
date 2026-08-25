@@ -2,7 +2,7 @@
 
 ## 目标
 
-拆分 `database/repositories/alpha.py`、`carpet/miner.py` 与 `domain/pruning.py`，并让框架内部消费者使用新规范模块。旧路径只承担外部兼容，不改变数据库事务、采矿阶段顺序、剪枝算法或平台调用语义。
+拆分 `database/repositories/alpha.py`、`carpet/miner.py` 与 `domain/pruning.py`，并让全部消费者使用新规范模块。删除旧兼容模块，不改变数据库事务、采矿阶段顺序、剪枝算法或平台调用语义。
 
 ## AlphaRepository
 
@@ -10,21 +10,20 @@
 
 ## Carpet Miner
 
-`StratifiedCarpetMiner` 保留协调器身份，将字段加载、候选生成、分层采样和阶段状态迁移分别抽到服务模块；现有 simulation、optimization、distillation 服务继续复用。协调器只保存依赖、调用顺序和公开兼容方法。目标是 `miner.py` 少于 300 行，且 facade monkeypatch seam 继续有效。
+`StratifiedCarpetMiner` 保留协调器身份，将字段加载、候选生成、分层采样和阶段状态迁移分别抽到服务模块；现有 simulation、optimization、distillation 服务继续复用。协调器只保存依赖、调用顺序和规范公开方法。目标是 `miner.py` 少于 300 行；旧 `carpet_mining.py` 删除。
 
 ## Pruning
 
-按算法边界拆为 `pruning/semantic.py`、`field_topk.py`、`self_correlation.py`、`correlation.py`、`canonical.py` 与 `sandbox.py`；`domain/pruning.py` 变为显式兼容门面。算法代码移动时不改阈值、排序稳定性、异步轮询、缓存和持久化格式。
+按算法边界拆入 `pruning_components/semantic.py`、`field_topk.py`、`self_correlation.py`、`correlation.py`、`canonical.py` 与 `sandbox.py`；迁移完成后删除 `domain/pruning.py`。算法代码移动时不改阈值、排序稳定性、异步轮询、缓存和持久化格式。
 
 ## 内部依赖迁移
 
-`loop.py`、`application/autopilot.py`、`cli/analysis.py` 及其他生产代码改为导入新规范模块；兼容路径仅保留给外部调用和兼容测试。使用 AST 依赖测试防止生产代码重新依赖 `ai_workflow.py`、`carpet_mining.py`、`orchestrator.py` 或新的 `domain/pruning.py` 门面。
+`loop.py`、`application/autopilot.py`、`cli/analysis.py`、测试与示例全部改为导入新规范模块。`ai_workflow.py`、`carpet_mining.py`、`orchestrator.py`、`domain/pruning.py` 删除；各自 CLI 入口迁入规范包的 `__main__.py`。使用 AST 和文件存在性测试防止旧模块重新出现。
 
 ## 验收
 
-- 旧类、函数、方法签名和对象 identity 保持兼容。
+- 规范模块中的类、函数和方法签名保持不变；旧模块导入明确失效。
 - 数据库 SQL/事务、采矿顺序与剪枝结果使用黄金测试证明等价。
-- 三个目标文件分别达到少于 180、300、150 行的门面/协调层目标。
-- 无新循环导入，内部生产代码不依赖兼容门面。
+- `alpha.py` 少于 180 行、`carpet/miner.py` 少于 300 行，四个旧兼容模块不存在。
+- 无新循环导入，代码库不再引用已删除模块。
 - 全量测试、质量棘轮、Ruff、Mypy、compileall 通过。
-

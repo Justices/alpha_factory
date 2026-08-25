@@ -50,7 +50,7 @@ def load_real_market_fields(
         universe: 股票宇宙 (如 TOP700, TOP3000)
         delay: 延迟 (0 或 1)
         datasets: 指定加载的数据集 ID 列表 (如 ["analyst7", "risk68"])，若为 None 则加载全部本地可用数据集
-        custom_dir: 自定义字段目录，默认为 data/fields/{region}/{delay}/{universe}
+        custom_dir: 自定义字段目录，默认为 data/{region}/{delay}/{universe}/datafields
         max_fields: 最大载入字段数量
 
     Returns:
@@ -58,10 +58,10 @@ def load_real_market_fields(
     """
     fields_map: Dict[str, FieldSpec] = {f.id.lower(): f for f in BASE_CORE_FIELDS} if include_base_fields else {}
 
-    target_dir = Path(custom_dir) if custom_dir else (DATAFIELDS_DIR / region / str(delay) / universe)
+    target_dir = Path(custom_dir) if custom_dir else (DATAFIELDS_DIR / region / str(delay) / universe / "datafields")
     if allow_scope_fallback and not target_dir.exists():
         # 尝试查找不同 delay 或 fallback 目录
-        alt_dirs = list(DATAFIELDS_DIR.glob(f"{region}/*/{universe}"))
+        alt_dirs = list(DATAFIELDS_DIR.glob(f"{region}/*/{universe}/datafields"))
         if alt_dirs:
             target_dir = alt_dirs[0]
 
@@ -124,8 +124,9 @@ def load_real_market_fields(
 
 def cache_platform_fields(rows: Sequence[dict[str, Any]], *, region: str, universe: str, delay: int) -> Path:
     """Persist fields fetched for one exact BRAIN research scope."""
-    target_dir = DATAFIELDS_DIR / region / str(delay) / universe
-    target_dir.mkdir(parents=True, exist_ok=True)
+    from alpha_operator_framework.cache.datafields import DataFieldCache
+
+    cache = DataFieldCache()
     grouped: dict[str, list[dict[str, Any]]] = {}
     for row in rows:
         dataset = row.get("dataset") or {}
@@ -133,5 +134,5 @@ def cache_platform_fields(rows: Sequence[dict[str, Any]], *, region: str, univer
         grouped.setdefault(dataset_id, []).append(dict(row))
     for dataset_id, items in grouped.items():
         safe_name = "".join(char for char in dataset_id if char.isalnum() or char in "-_") or "platform"
-        (target_dir / f"{safe_name}.json").write_text(json.dumps(items, ensure_ascii=False), encoding="utf-8")
-    return target_dir
+        cache.save_dataset(region, delay, universe, safe_name, items)
+    return DATAFIELDS_DIR / region / str(delay) / universe / "datafields"

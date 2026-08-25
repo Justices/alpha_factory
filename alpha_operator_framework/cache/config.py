@@ -17,9 +17,12 @@ UNIVERSES_CACHE = CACHE_ROOT / "universes"
 OPERATORS_CACHE = CACHE_ROOT / "operators.json"
 DATASETS_CACHE = CACHE_ROOT / "datasets"
 
-# 数据字段目录（复用现有结构）
-# 格式: data/fields/{region}/{delay}/{universe}/{dataset}.json
-DATAFIELDS_DIR = DATA_DIR / "fields"
+# 数据字段目录
+# 格式: data/{region}/{delay}/universe.json
+#       data/{region}/{delay}/{universe}/dataset.json
+#       data/{region}/{delay}/{universe}/datafields/{dataset}.json
+DATAFIELDS_DIR = DATA_DIR
+LEGACY_DATAFIELDS_DIR = DATA_DIR / "fields"
 
 # 默认缓存过期时间（秒），0 表示永不过期
 DEFAULT_TTL = 0
@@ -31,6 +34,7 @@ __all__ = [
     "PYRAMIDS_CACHE",
     "UNIVERSES_CACHE",
     "DATAFIELDS_DIR",
+    "LEGACY_DATAFIELDS_DIR",
     "OPERATORS_CACHE",
     "DATASETS_CACHE",
     "DEFAULT_TTL",

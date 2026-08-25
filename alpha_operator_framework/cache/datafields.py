@@ -26,12 +26,22 @@ class DataFieldCache(DataCache):
     cache_name = "datafields"
     cache_file = DATAFIELDS_DIR / "_all.json"
 
-    def __init__(self):
-        super().__init__(DATAFIELDS_DIR)
+    def __init__(self, root: Path | None = None):
+        self.root = root or DATAFIELDS_DIR
+        super().__init__(self.root)
 
     def _get_dir(self, region: str, delay: int, universe: str) -> Path:
         """获取字段目录路径."""
-        return DATAFIELDS_DIR / region / str(delay) / universe
+        return self.root / region / str(delay) / universe
+
+    def _datafields_dir(self, region: str, delay: int, universe: str) -> Path:
+        return self._get_dir(region, delay, universe) / "datafields"
+
+    def _universe_index_path(self, region: str, delay: int) -> Path:
+        return self.root / region / str(delay) / "universe.json"
+
+    def _dataset_index_path(self, region: str, delay: int, universe: str) -> Path:
+        return self._get_dir(region, delay, universe) / "dataset.json"
 
     def _cache_path(self, region: str, delay: int, universe: str, dataset_id: str = "") -> Path:
         """获取缓存文件路径.
@@ -45,7 +55,7 @@ class DataFieldCache(DataCache):
         Returns:
             缓存文件路径
         """
-        dir_path = self._get_dir(region, delay, universe)
+        dir_path = self._datafields_dir(region, delay, universe)
         if dataset_id:
             return dir_path / f"{dataset_id}.json"
         return dir_path
@@ -69,10 +79,24 @@ class DataFieldCache(DataCache):
         path = self._cache_path(region, delay, universe, dataset_id)
         path.parent.mkdir(parents=True, exist_ok=True)
         path.write_text(json.dumps(items, ensure_ascii=False, indent=2), encoding="utf-8")
+        universe_index = self._universe_index_path(region, delay)
+        universe_index.parent.mkdir(parents=True, exist_ok=True)
+        universes = json.loads(universe_index.read_text(encoding="utf-8")) if universe_index.exists() else []
+        if universe not in universes:
+            universes.append(universe)
+            universe_index.write_text(json.dumps(sorted(universes), ensure_ascii=False, indent=2), encoding="utf-8")
+        dataset_index = self._dataset_index_path(region, delay, universe)
+        datasets = json.loads(dataset_index.read_text(encoding="utf-8")) if dataset_index.exists() else []
+        dataset = next((item.get("dataset") for item in items if isinstance(item.get("dataset"), dict)), {})
+        entry = {"id": dataset_id, "name": str(dataset.get("name") or "")} if dataset else {"id": dataset_id, "name": ""}
+        datasets = [item for item in datasets if item.get("id") != dataset_id]
+        datasets.append(entry)
+        dataset_index.parent.mkdir(parents=True, exist_ok=True)
+        dataset_index.write_text(json.dumps(sorted(datasets, key=lambda item: item["id"]), ensure_ascii=False, indent=2), encoding="utf-8")
 
     def load_all_datasets(self, region: str, delay: int, universe: str) -> Optional[Dict[str, List[Dict[str, Any]]]]:
         """加载目录下所有数据集."""
-        dir_path = self._get_dir(region, delay, universe)
+        dir_path = self._datafields_dir(region, delay, universe)
         if not dir_path.exists():
             return None
 
@@ -261,10 +285,10 @@ class DataFieldCache(DataCache):
 
     def get_dataset_ids(self, region: str, delay: int, universe: str) -> List[str]:
         """获取目录下所有数据集ID."""
-        dir_path = self._get_dir(region, delay, universe)
-        if not dir_path.exists():
+        index = self._dataset_index_path(region, delay, universe)
+        if not index.exists():
             return []
-        return [p.stem for p in dir_path.glob("*.json") if not p.stem.startswith("_")]
+        return [str(item.get("id") or "") for item in json.loads(index.read_text(encoding="utf-8")) if item.get("id")]
 
 
 def get_datafields(

@@ -6,7 +6,7 @@ import argparse
 from pathlib import Path
 from typing import List, Tuple
 
-from sqlalchemy import inspect
+from sqlalchemy import inspect, make_url
 
 from alpha_operator_framework.database.config import get_database_path
 from alpha_operator_framework.database.schema import migrate_legacy_schema
@@ -22,9 +22,15 @@ def _storage(value: Path | StorageConfig) -> StorageConfig:
 
 def init_database(db_path: Path | StorageConfig = DEFAULT_DB_PATH, reset: bool = False, verbose: bool = True) -> Tuple[bool, List[str]]:
     storage = _storage(db_path)
+    if reset and storage.driver == "sqlite":
+        database = make_url(storage.url).database
+        if database:
+            target = Path(database)
+            if target.exists():
+                target.unlink()
     engine = create_storage_engine(storage)
     try:
-        if reset:
+        if reset and storage.driver != "sqlite":
             # Reset is deliberately schema-level so it has identical semantics for every configured driver.
             from alpha_operator_framework.database.schema import metadata
             from alpha_operator_framework.infrastructure.sqlalchemy_migrations import metadata as runtime_metadata

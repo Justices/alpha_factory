@@ -19,6 +19,7 @@ from alpha_operator_framework.infrastructure.sqlalchemy_repositories import (
     SqlAlchemyTemplatePromotionRepository,
 )
 from alpha_operator_framework.infrastructure.storage import StorageConfig, create_storage_engine
+from sqlalchemy import inspect
 from alpha_operator_framework.infrastructure.telemetry import ResearchTelemetry
 from alpha_operator_framework.database.connection import DatabaseConnectionManager
 from alpha_operator_framework.database.repositories import AlphaRepository
@@ -101,8 +102,10 @@ def build_research_runtime(
     config = load_runtime_config(config_path)
     storage = storage_config(config_path)
     engine = create_storage_engine(storage)
-    migrate(engine)
-    migrate_legacy_schema(engine)
+    if inspect(engine).has_table("alpha_expressions"):
+        migrate(engine)
+    else:
+        migrate_legacy_schema(engine)
     alpha_database = AlphaRepository(DatabaseConnectionManager(storage))
     research = config.get("research", {})
     platform_execution = bool(research.get("execute_platform", False)) if execute_platform is None else execute_platform

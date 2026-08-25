@@ -27,6 +27,17 @@ def test_initialization_reports_a_sanitized_result(tmp_path: Path, capsys) -> No
     assert "initialized sqlite" in capsys.readouterr().out
 
 
+def test_reset_replaces_a_corrupt_sqlite_file(tmp_path: Path) -> None:
+    database = tmp_path / "state.db"
+    database.write_bytes(b"not a sqlite database")
+
+    success, tables = init_database(database, reset=True, verbose=False)
+
+    assert success is True
+    assert {"alpha_expressions", "event_log"} <= set(tables)
+    assert database.read_bytes().startswith(b"SQLite format 3\x00")
+
+
 def test_legacy_maintenance_commands_do_not_read_database_cli_argument() -> None:
     source = (Path(__file__).parents[2] / "alpha_operator_framework" / "cli" / "maintenance.py").read_text(encoding="utf-8")
     for name in ("command_init_db", "command_clean_db"):

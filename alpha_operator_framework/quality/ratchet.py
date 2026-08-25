@@ -1,11 +1,15 @@
-"""Deterministic, side-effect-free quality baseline comparison."""
+"""Deterministic quality-tool adapters and baseline comparison."""
 
 from collections.abc import Mapping, Sequence
 from dataclasses import dataclass
+import json
+import os
 from pathlib import Path
-from types import MappingProxyType
 import re
-from typing import Any
+import subprocess
+import tempfile
+from types import MappingProxyType
+from typing import Any, Protocol
 
 SCHEMA_VERSION = 1
 _TOOLS = ("ruff", "mypy", "vulture")
@@ -14,6 +18,10 @@ _REQUIRED = (*_TOOLS, "coverage", "file_count")
 
 class BaselineError(ValueError):
     """Raised when a quality snapshot cannot be safely compared."""
+
+
+class ToolFailure(RuntimeError):
+    """Raised when a quality tool does not produce trustworthy output."""
 
 
 @dataclass(frozen=True, slots=True)
@@ -25,11 +33,342 @@ class Issue:
     message: str
 
 
+@dataclass(frozen=True, slots=True)
+class CommandResult:
+    """Small subprocess result contract used by injectable tool runners."""
+
+    returncode: int
+    stdout: str
+    stderr: str
+
+
+class CommandRunner(Protocol):
+    """Execute one command and return captured text without raising on exit status."""
+
+    def __call__(self, command: Sequence[str]) -> CommandResult: ...
+
+
+class SubprocessRunner:
+    """Production runner with a fixed working directory and timeout."""
+
+    def __init__(self, root: Path, timeout_seconds: float = 300.0) -> None:
+        self._root = root
+        self._timeout_seconds = timeout_seconds
+
+    def __call__(self, command: Sequence[str]) -> CommandResult:
+        completed = subprocess.run(
+            command,
+            cwd=self._root,
+            capture_output=True,
+            text=True,
+            timeout=self._timeout_seconds,
+            check=False,
+        )
+        return CommandResult(completed.returncode, completed.stdout, completed.stderr)
+
+
 def fingerprint(issue: Issue) -> str:
     """Return a stable issue identity, intentionally independent of line number."""
     path = Path(issue.path.replace("\\", "/")).as_posix()
     message = re.sub(r"\s+", " ", issue.message).strip()
     return f"{path}|{issue.code.strip()}|{message}"
+
+
+def _normalize_path(value: str, root: Path) -> str:
+    path = value.strip().replace("\\", "/")
+    root_text = str(root.resolve()).replace("\\", "/").rstrip("/")
+    if path.casefold() == root_text.casefold():
+        return "."
+    prefix = f"{root_text}/"
+    if path.casefold().startswith(prefix.casefold()):
+        path = path[len(prefix) :]
+    while path.startswith("./"):
+        path = path[2:]
+    return Path(path).as_posix()
+
+
+def _issue_key(issue: Issue) -> tuple[str, str, str, int, str]:
+    return (issue.tool, issue.path, issue.code, issue.line or -1, issue.message)
+
+
+def _deduplicate(issues: Sequence[Issue]) -> tuple[Issue, ...]:
+    unique = {fingerprint(issue): issue for issue in issues}
+    return tuple(sorted(unique.values(), key=_issue_key))
+
+
+def _execute(runner: CommandRunner, command: Sequence[str], tool: str) -> CommandResult:
+    try:
+        result = runner(tuple(command))
+    except (subprocess.TimeoutExpired, TimeoutError) as error:
+        raise ToolFailure(f"{tool} timed out") from error
+    except OSError as error:
+        raise ToolFailure(f"{tool} could not start") from error
+    except Exception as error:
+        raise ToolFailure(f"{tool} runner crashed") from error
+    combined = f"{result.stdout}\n{result.stderr}".casefold()
+    if "traceback (most recent call last)" in combined:
+        raise ToolFailure(f"{tool} produced a traceback")
+    return result
+
+
+def run_ruff(
+    runner: CommandRunner,
+    *,
+    root: Path,
+    python_executable: str = "python",
+) -> tuple[Issue, ...]:
+    """Run Ruff and normalize its JSON findings."""
+    command = (
+        python_executable,
+        "-m",
+        "ruff",
+        "check",
+        "--isolated",
+        "--output-format",
+        "json",
+        "alpha_operator_framework",
+        "tests",
+        "tools",
+    )
+    result = _execute(runner, command, "ruff")
+    if result.returncode not in (0, 1):
+        raise ToolFailure(f"ruff failed with exit code {result.returncode}")
+    try:
+        rows = json.loads(result.stdout)
+    except (json.JSONDecodeError, TypeError) as error:
+        raise ToolFailure("ruff produced invalid JSON") from error
+    if not isinstance(rows, list):
+        raise ToolFailure("ruff JSON report must be a list")
+
+    issues: list[Issue] = []
+    try:
+        for row in rows:
+            location = row["location"]
+            issues.append(
+                Issue(
+                    "ruff",
+                    _normalize_path(str(row["filename"]), root),
+                    str(row["code"]),
+                    int(location["row"]),
+                    str(row["message"]),
+                )
+            )
+    except (KeyError, TypeError, ValueError) as error:
+        raise ToolFailure("ruff JSON report has an invalid finding") from error
+    return _deduplicate(issues)
+
+
+_MYPY_LINE = re.compile(
+    r"^(?P<path>.+):(?P<line>\d+)(?::\d+)?: "
+    r"(?P<severity>error|warning|note): (?P<message>.+)$"
+)
+_MYPY_CODE = re.compile(r" \[(?P<code>[^\]]+)\]$")
+
+
+def _parse_mypy(output: str, root: Path) -> tuple[list[Issue], list[str]]:
+    issues: list[Issue] = []
+    invalid: list[str] = []
+    for line in output.splitlines():
+        stripped = line.strip()
+        if not stripped or stripped.startswith(("Found ", "Success: ")):
+            continue
+        match = _MYPY_LINE.match(stripped)
+        if match is None:
+            invalid.append(stripped)
+            continue
+        if match.group("severity") != "error":
+            continue
+        message = match.group("message")
+        code_match = _MYPY_CODE.search(message)
+        code = code_match.group("code") if code_match else "error"
+        if code_match:
+            message = message[: code_match.start()]
+        issues.append(
+            Issue(
+                "mypy",
+                _normalize_path(match.group("path"), root),
+                code,
+                int(match.group("line")),
+                message,
+            )
+        )
+    return issues, invalid
+
+
+def run_mypy(
+    runner: CommandRunner,
+    *,
+    files: Sequence[Path],
+    root: Path,
+    shard_size: int = 40,
+    python_executable: str = "python",
+) -> tuple[Issue, ...]:
+    """Run Mypy over deterministic bounded shards of explicit Python files."""
+    if shard_size < 1:
+        raise ValueError("shard_size must be positive")
+    relative_files = sorted(_normalize_path(str(path), root) for path in files)
+    if not relative_files:
+        raise ToolFailure("mypy scan found no Python files")
+
+    issues: list[Issue] = []
+    for start in range(0, len(relative_files), shard_size):
+        shard = relative_files[start : start + shard_size]
+        command = (
+            python_executable,
+            "-m",
+            "mypy",
+            *shard,
+            "--follow-imports",
+            "skip",
+            "--ignore-missing-imports",
+            "--no-incremental",
+        )
+        result = _execute(runner, command, "mypy")
+        if result.returncode not in (0, 1):
+            raise ToolFailure(f"mypy failed with exit code {result.returncode}")
+        parsed, invalid = _parse_mypy(result.stdout, root)
+        if invalid or (result.returncode == 1 and not parsed):
+            raise ToolFailure("mypy produced unparseable output")
+        issues.extend(parsed)
+    return _deduplicate(issues)
+
+
+def run_coverage(
+    runner: CommandRunner,
+    *,
+    root: Path,
+    python_executable: str = "python",
+) -> float:
+    """Read the total coverage percentage from a transient JSON report."""
+    with tempfile.TemporaryDirectory(prefix="alpha-quality-") as directory:
+        report = Path(directory) / "coverage.json"
+        command = (python_executable, "-m", "coverage", "json", "-o", str(report))
+        result = _execute(runner, command, "coverage")
+        if result.returncode != 0:
+            raise ToolFailure(f"coverage failed with exit code {result.returncode}")
+        if not report.is_file():
+            raise ToolFailure("coverage report is missing")
+        try:
+            payload = json.loads(report.read_text(encoding="utf-8"))
+            percent = payload["totals"]["percent_covered"]
+            if isinstance(percent, bool) or not isinstance(percent, (int, float)):
+                raise TypeError
+            return float(percent)
+        except (json.JSONDecodeError, KeyError, TypeError) as error:
+            raise ToolFailure("coverage report is invalid") from error
+
+
+_VULTURE_LINE = re.compile(
+    r"^(?P<path>.+):(?P<line>\d+): (?P<message>unused .+ \(\d+% confidence\))$"
+)
+
+
+def run_vulture(
+    runner: CommandRunner,
+    *,
+    root: Path,
+    python_executable: str = "python",
+) -> tuple[Issue, ...]:
+    """Run Vulture and normalize its line-oriented findings."""
+    command = (
+        python_executable,
+        "-m",
+        "vulture",
+        "alpha_operator_framework",
+        "tools",
+        "--min-confidence",
+        "80",
+    )
+    result = _execute(runner, command, "vulture")
+    if result.returncode not in (0, 1):
+        raise ToolFailure(f"vulture failed with exit code {result.returncode}")
+    issues: list[Issue] = []
+    for line in result.stdout.splitlines():
+        if not line.strip():
+            continue
+        match = _VULTURE_LINE.match(line.strip())
+        if match is None:
+            raise ToolFailure("vulture produced unparseable output")
+        issues.append(
+            Issue(
+                "vulture",
+                _normalize_path(match.group("path"), root),
+                "unused",
+                int(match.group("line")),
+                match.group("message"),
+            )
+        )
+    if result.returncode == 1 and not issues:
+        raise ToolFailure("vulture reported findings without parseable output")
+    return _deduplicate(issues)
+
+
+def collect_snapshot(
+    runner: CommandRunner,
+    *,
+    root: Path,
+    python_executable: str = "python",
+) -> dict[str, Any]:
+    """Collect all quality signals without retaining raw tool output."""
+    package = root / "alpha_operator_framework"
+    files = tuple(sorted(package.rglob("*.py"))) if package.is_dir() else ()
+    if not files:
+        raise ToolFailure("quality scan found no Python files")
+    return {
+        "schema_version": SCHEMA_VERSION,
+        "ruff": run_ruff(runner, root=root, python_executable=python_executable),
+        "mypy": run_mypy(
+            runner,
+            files=files,
+            root=root,
+            python_executable=python_executable,
+        ),
+        "vulture": run_vulture(runner, root=root, python_executable=python_executable),
+        "coverage": run_coverage(runner, root=root, python_executable=python_executable),
+        "file_count": len(files),
+    }
+
+
+def baseline_payload(
+    snapshot: Mapping[str, Any],
+    *,
+    versions: Mapping[str, str],
+) -> dict[str, Any]:
+    """Convert an in-memory snapshot into deterministic schema-v1 JSON data."""
+    _validate(snapshot, "snapshot")
+    return {
+        "schema_version": SCHEMA_VERSION,
+        "tool_versions": dict(sorted(versions.items())),
+        "ruff": sorted(_issues(snapshot, "ruff")),
+        "mypy": sorted(_issues(snapshot, "mypy")),
+        "vulture": sorted(_issues(snapshot, "vulture")),
+        "coverage": float(snapshot["coverage"]),
+        "file_count": snapshot["file_count"],
+    }
+
+
+def write_baseline_atomic(path: Path, payload: Mapping[str, Any]) -> None:
+    """Write baseline JSON through a same-directory temporary replacement."""
+    temporary: Path | None = None
+    try:
+        with tempfile.NamedTemporaryFile(
+            mode="w",
+            encoding="utf-8",
+            dir=path.parent,
+            prefix=f".{path.name}.",
+            suffix=".tmp",
+            delete=False,
+            newline="\n",
+        ) as handle:
+            json.dump(payload, handle, indent=2, sort_keys=True)
+            handle.write("\n")
+            handle.flush()
+            os.fsync(handle.fileno())
+            temporary = Path(handle.name)
+        temporary.replace(path)
+    finally:
+        if temporary is not None and temporary.exists():
+            temporary.unlink()
 
 
 @dataclass(frozen=True, slots=True)

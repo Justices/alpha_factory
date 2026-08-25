@@ -7,10 +7,13 @@
 from __future__ import annotations
 
 import json
+import logging
 import threading
 from typing import Any, Dict, List, Optional, Sequence, Union
 
 from alpha_operator_framework.core.events import Event, EventType
+
+logger = logging.getLogger(__name__)
 
 
 class EventStore:
@@ -27,10 +30,21 @@ class EventStore:
         db_path: Optional[Any] = None,
         in_memory: bool = False,
     ):
+        """初始化事件存储引擎.
+
+        Args:
+            persistent: 若为 True，则启用持久化模式，事件将落库保存。
+            repository: 可选，直接传入外部仓储对象（优先于 db_path）。
+            db_path: 可选，数据库路径；传入 ":memory:" 则强制走内存模式。
+            in_memory: 显式强制使用纯内存模式，优先级最高（覆盖 persistent）。
+        """
+        # 使用线程锁保证并发 append 时事件序列的线性一致性（内存列表非线程安全）
         self._lock = threading.Lock()
         self._memory_events: List[Event] = []
+        # 综合多路参数判断是否启用持久化；repository 非空或 db_path 有效均视为持久化
         self._persistent = persistent or (repository is not None) or (bool(db_path) and str(db_path) != ":memory:")
         if in_memory or str(db_path) == ":memory:":
+            # in_memory 标志或 ":memory:" 路径均表示用户明确要求纯内存，强制关闭持久化
             self._persistent = False
 
         self._repository = None
@@ -40,6 +54,12 @@ class EventStore:
             else:
                 from alpha_operator_framework.database.repository import AlphaDatabase
                 self._repository = AlphaDatabase(db_path=db_path)
+
+        logger.info(
+            "EventStore 初始化完成：persistent=%s, db_path=%s",
+            self._persistent,
+            db_path,
+        )
 
     @property
     def is_persistent(self) -> bool:
@@ -54,7 +74,14 @@ class EventStore:
         return str(getattr(self._repository, "db_path", "persistent"))
 
     def append(self, event: Event) -> int:
-        """追加单个事件到事件流，返回全局递增 Offset."""
+        """追加单个事件到事件流，返回全局递增 Offset.
+
+        Args:
+            event: 要写入的事件对象，包含 stream_id、event_type 等完整信息。
+
+        Returns:
+            事件在全局事件流中的递增 Offset（持久化模式由数据库分配，内存模式自增）。
+        """
         with self._lock:
             if self._persistent and self._repository:
                 offset = self._repository.append_event(
@@ -71,10 +98,23 @@ class EventStore:
             else:
                 offset = len(self._memory_events) + 1
             self._memory_events.append(event)
+            logger.debug(
+                "事件已追加：event_type=%s, stream_id=%s, offset=%d",
+                event.event_type,
+                event.stream_id,
+                offset,
+            )
             return offset
 
     def append_batch(self, events: Sequence[Event]) -> List[int]:
-        """批量追加事件到事件流."""
+        """批量追加事件到事件流.
+
+        Args:
+            events: 要批量写入的事件序列，顺序对应返回的 offset 序列。
+
+        Returns:
+            与 events 顺序一一对应的全局 Offset 列表；若输入为空则返回空列表。
+        """
         if not events:
             return []
         with self._lock:
@@ -98,6 +138,12 @@ class EventStore:
                 base = len(self._memory_events)
                 offsets = [base + i + 1 for i in range(len(events))]
             self._memory_events.extend(events)
+            logger.info(
+                "批量追加事件完成：批次大小=%d, offset 范围=[%d, %d]",
+                len(events),
+                offsets[0] if offsets else 0,
+                offsets[-1] if offsets else 0,
+            )
             return offsets
 
     def read_stream(self, stream_id: str, from_offset: int = 0) -> List[Event]:

@@ -63,7 +63,7 @@ def command_research_cycle(args: argparse.Namespace) -> None:
         from alpha_operator_framework.platform.datafields import fetch_datafields
         from alpha_operator_framework.research.field_loader import cache_platform_fields
 
-        cache_platform_fields(asyncio.run(fetch_datafields(**field_scope, max_rows=500)), **field_scope)
+        cache_platform_fields(asyncio.run(fetch_datafields(**field_scope)), **field_scope)
         fields = load_real_market_fields(
             **field_scope, datasets=args.datasets.split(",") if args.datasets else None,
             include_base_fields=False, allow_scope_fallback=False,

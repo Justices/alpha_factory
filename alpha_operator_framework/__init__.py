@@ -103,7 +103,7 @@ from alpha_operator_framework.domain.density import (
     top_templates,
 )
 
-from alpha_operator_framework.ai_workflow import (
+from alpha_operator_framework.workflow import (
     SurveyConfig,
     DeepenConfig,
     SignalBranchConfig,

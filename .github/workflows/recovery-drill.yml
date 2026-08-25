@@ -13,10 +13,8 @@ jobs:
         with:
           python-version: '3.12'
       - run: python -m pip install -r requirements.txt
-      - run: >-
-          python -m pytest
-          tests/infrastructure/test_sqlalchemy_migrations.py
-          tests/infrastructure/test_storage_backup.py
-          tests/application/test_research_worker.py
-          tests/application/test_research_rebuild.py
-          -q
+      - run: python -m pip install -r requirements-dev.txt
+      - run: python -m compileall -q alpha_operator_framework alpha_machine.py
+      - run: python -m ruff check .
+      - run: python -m mypy
+      - run: python -m pytest -q

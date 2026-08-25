@@ -11,7 +11,12 @@ from __future__ import annotations
 
 import asyncio
 import random
-from typing import Any, Optional, Sequence
+from typing import TYPE_CHECKING, Any, Optional, Sequence
+
+from alpha_operator_framework.platform.datafields import fetch_datafields
+
+if TYPE_CHECKING:
+    from alpha_operator_framework.database import AlphaDatabase
 
 
 async def ingest_random_datafield(
@@ -49,8 +54,6 @@ async def ingest_random_datafield(
     Returns:
         写入的原始行; 无候选/无写入返回 None
     """
-    import alpha_machine  # lazy: 避免顶层循环依赖
-
     if candidates is not None:
         pool = list(candidates)
     else:
@@ -63,7 +66,7 @@ async def ingest_random_datafield(
 
     field_id = random.Random(seed).choice(pool)
     await asyncio.sleep(page_delay)  # 串行节流, 防 429
-    rows = await alpha_machine.fetch_datafields(
+    rows = await fetch_datafields(
         region, universe, delay, dataset_id=dataset_id, search=field_id, page_delay=page_delay)
     hit = next((r for r in rows if str(r.get("id")) == field_id), None)
     if not hit:

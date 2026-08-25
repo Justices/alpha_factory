@@ -14,6 +14,7 @@ from typing import Any, Dict, List, Optional
 
 from .base import DataCache
 from .config import DATAFIELDS_DIR
+from alpha_operator_framework.platform.datafields import fetch_datafields
 
 
 class DataFieldCache(DataCache):
@@ -99,11 +100,10 @@ class DataFieldCache(DataCache):
         page_delay: float = 0.5,
         **kwargs
     ) -> Dict[str, Any]:
-        """从平台获取数据字段列表 (复用 alpha_machine.fetch_datafields, 自带分页+节流+429退避)."""
-        import alpha_machine
+        """从平台获取数据字段列表（自带分页、节流与 429 退避）。"""
 
         try:
-            rows = await alpha_machine.fetch_datafields(
+            rows = await fetch_datafields(
                 region, universe, delay,
                 dataset_id=dataset_id, search=search, data_type=data_type,
                 page_delay=page_delay,

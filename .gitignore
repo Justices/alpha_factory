@@ -69,4 +69,6 @@ runs/**/*.db-shm
 **/data/*.db-wal
 **/data/*.db-shm
 !data/README.md
-
+.superpowers/*
+.pytest*
+.workbuddy/*

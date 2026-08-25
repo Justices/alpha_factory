@@ -161,9 +161,9 @@ async def fetch_user_alphas(
         - 需要安装alpha_machine并配置brain_client
     """
     try:
-        import alpha_machine
+        from cnhkmcp.untracked.platform_functions import get_user_alphas
 
-        all_alphas = []
+        all_alphas: List[Dict[str, Any]] = []
         page = 0
         offset = 0
 
@@ -197,7 +197,7 @@ async def fetch_user_alphas(
 
             # 查询当前页
             try:
-                alpha_rows = await alpha_machine.fetch_user_alphas(**params)
+                alpha_rows = await get_user_alphas(**params)
             except Exception as e:
                 print(f"⚠ 查询第{page+1}页失败: {e}")
                 break
@@ -300,7 +300,7 @@ async def fetch_alpha_by_ids(
         return []
 
     try:
-        import alpha_machine
+        from cnhkmcp.untracked.platform_functions import get_alpha_details
 
         all_alphas = []
         failed_ids = []
@@ -323,7 +323,7 @@ async def fetch_alpha_by_ids(
                     for alpha_id in batch_ids:
                         try:
                             # 查询单个alpha
-                            alpha_detail = await alpha_machine.get_alpha_details(alpha_id)
+                            alpha_detail = await get_alpha_details(alpha_id)
 
                             alpha = {
                                 "alpha_id": alpha_detail.get("id"),

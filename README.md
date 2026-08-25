@@ -16,10 +16,10 @@
 | **项目主页** | 系统定位、技术架构全景、核心能力、极速上手 | [README.md](file:///d:/quant/alpha_factory/README.md) |
 | **自进化实战指南** 🌟 | **全自主进化、符号语法树自由杂交、大模型自反思与知识闭环** | [autonomous_evolution_guide.md](file:///d:/quant/alpha_factory/docs/guides/autonomous_evolution_guide.md) |
 | **快速上手** | 5 分钟极速入门、常用单行 CLI 命令备忘清单 | [QUICKSTART.md](file:///d:/quant/alpha_factory/QUICKSTART.md) |
-| **系统架构设计** | DDD 领域分层、事件溯源内核、证据边界、防过拟合防御 | [ARCHITECTURE.md](file:///d:/quant/alpha_factory/ARCHITECTURE.md) |
-| **权威使用手册** | 全流程命令详解（DDD周期、文献提炼、地毯挖掘、DB运维） | [USAGE_GUIDE.md](file:///d:/quant/alpha_factory/USAGE_GUIDE.md) |
+| **系统架构设计** ✨ v2.0 | DDD 五层架构、事件溯源内核、证据边界、防过拟合体系、数据库设计、CLI 架构全景 | [ARCHITECTURE.md](file:///d:/quant/alpha_factory/ARCHITECTURE.md) |
+| **权威使用手册** ✨ v2.0 | 22 个 CLI 命令完整参数、6 大实战场景、Python API、SQL 速查、FAQ | [USAGE_GUIDE.md](file:///d:/quant/alpha_factory/USAGE_GUIDE.md) |
 | **数据库设计** | 17 张核心数据表/视图结构、WAL 优化、Zero-Commit 规范 | [DATABASE_DESIGN.md](file:///d:/quant/alpha_factory/DATABASE_DESIGN.md) |
-| **专题与归档索引** | 分页指南、AI 集成、筛选优化、生产部署、历史评估报告全景 | [docs/INDEX.md](file:///d:/quant/alpha_factory/docs/INDEX.md) |
+| **专题与归档索引** | 分页指南、AI 集成、筛选优化、生产部署、架构规范 | [docs/INDEX.md](file:///d:/quant/alpha_factory/docs/INDEX.md) |
 
 ---
 

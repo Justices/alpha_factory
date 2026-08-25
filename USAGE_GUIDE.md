@@ -1,322 +1,758 @@
-# Alpha Factor Operator Framework 用户与实战操作指南 (Usage Guide)
+# Alpha Factory — 用户指导手册 (Usage Guide)
 
-> 本指南帮助您全面掌握 **Alpha Factory** 全生命周期量化因子研发的完整流水线，涵盖从 **全新 DDD 投研生命周期 (`research-cycle`)**、**全自动无人值守流水线 (`auto-pilot`)**、**分层地毯式挖掘 (`mine`)**、**前沿学术文献研报转化 (`research`)** 到 **超级因子正交化组合 (`simulate-super`)** 与 **数据库运维释放空间 (`clean-db`)** 的完整实战操作。
+> **版本**: v2.0 | **更新日期**: 2026-08-25 | **适用对象**: 量化研究人员 / 系统运维人员
 
 ---
 
 ## 目录
 
-1. [环境与认证配置](#1-环境与认证配置)
-2. [CLI 统一命令速查表](#2-cli-统一命令速查表)
-3. [核心场景 1: 全新 DDD 10 阶段投研生命周期 (`research-cycle`) 🌟](#3-核心场景-1-全新-ddd-10-阶段投研生命周期-research-cycle-)
-4. [核心场景 2: 全自动无人值守投研流水线 (`auto-pilot`) 🚀](#4-核心场景-2-全自动无人值守投研流水线-auto-pilot-)
-5. [核心场景 3: 分层地毯式挖掘与自优化 (`mine`)](#5-核心场景-3-分层地毯式挖掘与自优化-mine)
-6. [核心场景 4: 学术文献研报认知转化流水线 (`research`)](#6-核心场景-4-学术文献研报认知转化流水线-research)
-7. [核心场景 5: 超级组合因子与正交化配置 (`simulate-super`)](#7-核心场景-5-超级组合因子与正交化配置-simulate-super)
-8. [核心场景 6: 基础生成、回测与轮询 (`discover` / `prepare` / `simulate`)](#8-核心场景-6-基础生成回测与轮询-discover--prepare--simulate)
-9. [核心场景 7: 投研恢复与上线外箱派发 (`research-worker` / `submission-dispatch`)](#9-核心场景-7-投研恢复与上线外箱派发-research-worker--submission-dispatch)
-10. [数据库维护、清理与磁盘物理空间释放 (`clean-db`)](#10-数据库维护清理与磁盘物理空间释放-clean-db)
-11. [Python 高阶 API 参考](#11-python-高阶-api-参考)
-12. [常见问题与故障排查 (FAQ)](#12-常见问题与故障排查-faq)
+1. [环境准备与认证配置](#1-环境准备与认证配置)
+2. [CLI 命令完整参考](#2-cli-命令完整参考)
+3. [核心场景实战](#3-核心场景实战)
+4. [Python API 调用参考](#4-python-api-调用参考)
+5. [数据库运维与 SQL 速查](#5-数据库运维与-sql-速查)
+6. [常见问题与故障排查](#6-常见问题与故障排查)
 
 ---
 
-## 1. 环境与认证配置
+## 1. 环境准备与认证配置
 
 ### 1.1 Python 环境
+
 ```bash
 # 运行环境需要 Python 3.10+
 python --version
 pip install -r requirements.txt
 ```
 
-### 1.2 WorldQuant BRAIN 凭据配置
-项目根目录维护 `.brain.json` 凭据文件：
+### 1.2 WorldQuant BRAIN 凭据
+
+在项目根目录创建 `.brain.json`：
+
 ```json
 {
   "email": "your_email@example.com",
   "password": "your_password"
 }
 ```
-- 首次发起平台请求时，系统会自动登录并将会话 Cookie 缓存至 `.brain_session.json`。
-- 后续请求将直接复用会话，实现毫秒级免密连接。若提示凭据失效，只需删除 `.brain_session.json` 即可自动重新登录。
 
-### 1.3 数据库初始化 (零提交规范)
-系统主库位于 [`data/alpha_research.db`](file:///d:/quant/alpha_factory/data/alpha_research.db)（已加入 `.gitignore`，严禁提交二进制 db 到代码库）。
-拉取代码后执行一键初始化：
+> [!NOTE]
+> 首次发起平台请求时系统自动登录并缓存会话至 `.brain_session.json`。若凭据失效，删除 `.brain_session.json` 即可自动重新登录。
+
+### 1.3 数据库初始化（首次运行必做）
+
 ```bash
-python init_db.py           # 默认初始化或增量升级数据表结构与索引
-python init_db.py --verify  # 校验数据库完整性与已应用的 Schema 版本
+# 初始化 SQLite 主库并注入 30+ 模板种子
+python init_db.py
+
+# 或使用统一 CLI
+python alpha_machine.py init-db
+
+# 校验数据库完整性
+python init_db.py --verify
+```
+
+### 1.4 验证安装
+
+```bash
+# 运行全套 242 项自动化测试（100% 通过）
+python -m pytest -q
+
+# 崩溃恢复演练（生产前推荐执行一次）
+python alpha_machine.py drill-recovery
+
+# 查看当前投研库状态
+python alpha_machine.py status
 ```
 
 ---
 
-## 2. CLI 统一命令速查表
+## 2. CLI 命令完整参考
 
-| 子命令 | 命令类型 | 核心功能 | 是否消耗回测配额 |
-| :--- | :---: | :--- | :---: |
-| **`research-cycle`** 🌟 | 工业级流水线 | 全新 DDD 10 阶段标准化投研生命周期 (4 大纯抽样算法 & 2D 跨字段共识后剪枝) | 仅在指定 `--execute` 时消耗 |
-| **`auto-pilot`** 🚀 | 无人值守流水线 | 一键串联: 预检 ➔ 真实并发挖掘 ➔ 6 维证据终审 ➔ 空间清理 ➔ 生产研报汇总 | 仅在指定 `--execute` 时消耗 |
-| **`mine`** 🌟 | 工业级流水线 | 10 大模板族分层抽样、分批安全回测、流式落库、智能剪枝与自优化 | 仅在指定 `--execute` 时消耗 |
-| **`research`** 🌟 | 工业级流水线 | PDF/MD 论文假说提取、动态字段对齐、在线回测与 AlphaJudge 终审 | 仅在指定 `--execute` 时消耗 |
-| **`status`** 📊 | 生产看板 | 查看当前 Alpha 库统计、夏普分布、模板沉淀与批次状态 | ❌ 零消耗 (本地操作) |
-| **`init-db`** 🛠️ | 运维与环境 | 一键初始化/校验 SQLite 研究数据库 17 张核心数据表与索引 | ❌ 零消耗 (本地操作) |
-| **`clean-db`** 🧹 | 运维与环境 | 清理失败任务、剪枝项或历史数据，并执行 VACUUM 释放物理磁盘空间 | ❌ 零消耗 (本地操作) |
-| **`drill-recovery`** 🛡️ | 治理与演练 | 执行事件溯源小批崩溃恢复与 6 维提交证据审批全流程演练 | ❌ 零消耗 (隔离沙盒) |
-| **`research-worker`** 🔄 | 异步断点恢复 | 恢复并执行已提交、未终态的 event-led 研究批次 | 仅在指定 `--execute` 时消耗 |
-| **`submission-dispatch`** 🚀 | 上线外箱 | 派发已审批的提交 outbox，安全幂等提交上线 | 消耗提交配额 |
-| **`discover`** | 基础探索 | 检索目标市场全量可用字段（按覆盖度、用户数、类型筛选） | ❌ 零消耗 (只读) |
-| **`prepare`** | 基础生成 | 字段原子包装、一阶特征矩阵展开、配置多重 Decay 生成任务池 | ❌ 零消耗 (本地计算) |
-| **`simulate`** | 平台仿真 | 安全并发提交回测任务并轮询 IS 绩效与 18 项 Checks | 仅在指定 `--execute` 时消耗 |
-| **`filter`** | 质量门禁 | 按 Sharpe、Fitness、Turnover、Margin 离线过滤潜力因子 | ❌ 零消耗 (本地计算) |
-| **`simulate-super`** | 资产组合 | 将多个异构 Alpha 通过 Gram-Schmidt 正交化与 HRP 算法合成为 Super Alpha | 仅在指定 `--execute` 时消耗 |
+统一入口：`python alpha_machine.py <子命令> [选项]`
+
+### 2.1 命令总览速查表
+
+| 子命令 | 域 | 核心功能 | 消耗配额 |
+|:---|:---:|:---|:---:|
+| `research-cycle` | research | DDD 10 阶段标准化投研生命周期（4 大纯抽样算法） | `--execute` 才消耗 |
+| `auto-pilot` | research | 全自动无人值守流水线（预检→回测→审批→清理→研报） | `--execute` 才消耗 |
+| `mine` | research | 分层地毯式多模板族 Alpha 挖掘 | `--execute` 才消耗 |
+| `research` | research | 学术文献 PDF 假说提取 + 字段对齐 + 回测 | `--execute` 才消耗 |
+| `research-worker` | research | 断点恢复已提交批次 | `--execute` 才消耗 |
+| `research-rebuild` | research | 从事件流重放重建特定轮次状态 | ❌ 本地 |
+| `submission-dispatch` | submission | 派发已审批的 Outbox，幂等正式提交 | ✅ 消耗提交配额 |
+| `discover` | fields | 检索目标市场全量可用字段 | ❌ 只读 |
+| `prepare` | fields | 字段→一阶特征矩阵任务池生成 | ❌ 本地 |
+| `filter` | fields | 多维条件离线过滤候选 Alpha | ❌ 本地 |
+| `second-order` | fields | 二阶字段组合任务生成 | ❌ 本地 |
+| `simulate` | simulation | 安全并发提交回测并轮询 IS 绩效 | `--execute` 才消耗 |
+| `poll-simulation` | simulation | 查询已提交批次的最新状态 | ❌ 只读 |
+| `prepare-super` | super_alpha | 从 Alpha 池筛选正交组合候选 | ❌ 本地 |
+| `simulate-super` | super_alpha | 正交化超级因子回测 | `--execute` 才消耗 |
+| `poll-super` | super_alpha | 查询超级因子回测状态 | ❌ 只读 |
+| `init-db` | operations | 初始化/校验 SQLite 数据库 17 张表 | ❌ 本地 |
+| `clean-db` | operations | 清理失败/剪枝数据并 VACUUM 释放磁盘 | ❌ 本地 |
+| `storage-backup` | operations | 在线热备数据库文件 | ❌ 本地 |
+| `storage-restore` | operations | 从备份恢复数据库 | ❌ 本地 |
+| `drill-recovery` | operations | 崩溃恢复与 6 维证据审批全流程演练 | ❌ 沙盒 |
+| `status` | operations | 查看生产投研看板统计 | ❌ 只读 |
 
 ---
 
-## 3. 核心场景 1: 全新 DDD 10 阶段投研生命周期 (`research-cycle`) 🌟
-
-严格遵循领域驱动设计 4 大限界上下文与 10 阶段流水线，提供 4 大纯抽样算法与 2D 跨字段共识剪枝：
+### 2.2 research-cycle（DDD 10 阶段投研周期）
 
 ```bash
-# 1. 默认试运行 (Dry-run, 推荐使用 D-Optimal 最大信息增益覆盖抽样)
 python alpha_machine.py research-cycle \
-    --region GBR --universe TOP700 \
-    --algorithm d_optimal \
-    --sample-per-family 4
+    --region <市场区域>          # GBR / USA / CHN ...（必需）
+    --universe <股票宇宙>        # TOP700 / TOP2000 ...（必需）
+    --delay <延迟天数>           # 默认 1
+    --decay <衰减参数>
+    --neutralization <中性化>    # SUBINDUSTRY / INDUSTRY / MARKET
+    --truncation <截断比例>      # 默认 0.08
+    --datasets <数据集>          # 逗号分隔，可选
+    --algorithm <抽样算法>       # stratified / d_optimal / thompson / ucb / diversity
+    --sample-per-family <N>      # 每族抽样数，默认 4
+    --seed <随机种子>            # 默认 42
+    --round-id <轮次ID>          # 可选，用于追踪
+    --config <配置文件路径>      # 默认 configs/alpha-factory.yaml
+    --telemetry-file <遥测文件>  # 可选，JSON Lines 输出
+    --execute                    # ⚠️ 授权真实回测（默认 Dry-run）
+    --authorize-submission       # 授权审批通过后自动提交
+    --submission-evidence-file <路径>
+```
 
-# 2. 使用 Thompson 贝叶斯自适应多臂老虎机探索
-python alpha_machine.py research-cycle \
-    --region GBR --universe TOP700 \
-    --algorithm thompson \
-    --sample-per-family 4
+**典型用法**：
 
-# 3. 在线并发执行真实平台回测并记录遥测数据
+```bash
+# D-Optimal 算法 Dry-run 试运行
 python alpha_machine.py research-cycle \
     --region GBR --universe TOP700 \
-    --algorithm d_optimal \
-    --sample-per-family 4 \
-    --execute \
-    --telemetry-file runs/telemetry.jsonl
+    --algorithm d_optimal --sample-per-family 4
+
+# Thompson 采样贝叶斯自适应探索 + 真实回测 + 遥测输出
+python alpha_machine.py research-cycle \
+    --region GBR --universe TOP700 \
+    --algorithm thompson --sample-per-family 4 \
+    --execute --telemetry-file runs/telemetry.jsonl
+
+# D-Optimal + 授权自动提交审批达标因子
+python alpha_machine.py research-cycle \
+    --region GBR --universe TOP700 \
+    --algorithm d_optimal --sample-per-family 4 \
+    --execute --authorize-submission \
+    --submission-evidence-file runs/evidence.jsonl
 ```
 
 ---
 
-## 4. 核心场景 2: 全自动无人值守投研流水线 (`auto-pilot`) 🚀
-
-一键串联：环境自检 ➔ 真实并发回测 ➔ 6 维证据终审 ➔ 空间释放 (VACUUM) ➔ 汇总研报生成：
+### 2.3 auto-pilot（全自动无人值守）
 
 ```bash
-# 1. 命令行直接运行:
+python alpha_machine.py auto-pilot \
+    --region <市场区域>          # 必需
+    --universe <股票宇宙>        # 必需
+    --delay <延迟天数>
+    --config <配置文件路径>
+    --datasets <数据集列表>      # 默认 analyst7
+    --paper <论文PDF路径>        # 可选，加入文献提炼
+    --sample-per-family <N>      # 默认 4
+    --batch-size <批次大小>      # 默认 5
+    --decay <衰减参数>           # 默认 12
+    --neutralization <中性化>    # 默认 SUBINDUSTRY
+    --truncation <截断比例>      # 默认 0.08
+    --min-sharpe <最低夏普>      # 默认 1.25
+    --min-fitness <最低适健度>   # 默认 1.0
+    --execute                    # ⚠️ 授权真实回测
+    --seed <随机种子>
+    --no-clean                   # 跳过结束后的 VACUUM 清理
+    --output <输出报告路径>      # Markdown 研报
+```
+
+**典型用法**：
+
+```bash
+# Python CLI 全自动生产运行
 python alpha_machine.py auto-pilot \
     --region GBR --universe TOP700 \
     --datasets analyst7 \
     --sample-per-family 4 --batch-size 5 \
     --execute
 
-# 2. Linux / macOS 后台一键无人值守启动 (自动后台运行并持久化日志):
-./run_autopilot.sh GBR TOP700 "analyst7,fundamental31" 4 5 SUBINDUSTRY
-
-# 3. Windows PowerShell 后台启动 (带色彩高亮与日志流):
+# Windows PowerShell 后台无人值守（自动保存日志）
 .\run_autopilot.ps1 -Region GBR -Universe TOP700 -Datasets "analyst7" -SamplePerFamily 4 -BatchSize 5
+
+# Linux 后台无人值守
+bash run_autopilot.sh GBR TOP700 analyst7 4 5
 ```
 
 ---
 
-## 5. 核心场景 3: 分层地毯式挖掘与自优化 (`mine`)
-
-针对指定市场（如英国 GBR）与纯另类数据集（如高管交易、形态识别、基本面等），实现全自动地毯式生成、均衡分层抽样、分批安全回测与正信号自进化：
+### 2.4 mine（分层地毯式 Alpha 挖掘）
 
 ```bash
-# 真实在线分批回测与全闭环自优化 (消耗回测额度)
 python alpha_machine.py mine \
-    --region GBR \
-    --universe TOP700 \
+    --region <市场区域>          # 必需
+    --universe <股票宇宙>        # 必需
+    --delay <延迟天数>
+    --datasets <数据集列表>      # 逗号分隔（必需）
+    --sample-per-family <N>      # 默认 4
+    --batch-size <批次大小>      # 默认 5
+    --decay <衰减参数>           # 默认 12
+    --neutralization <中性化>    # 默认 SUBINDUSTRY
+    --truncation <截断比例>      # 默认 0.08
+    --execute                    # ⚠️ 授权真实回测
+    --seed <随机种子>
+    --output <输出报告路径>
+```
+
+```bash
+# 对多个另类数据集进行地毯式挖掘
+python alpha_machine.py mine \
+    --region GBR --universe TOP700 \
     --datasets "insider_agg_matrix,pattern_scores,fundamental31" \
-    --sample-per-family 4 \
-    --batch-size 5 \
-    --decay 12 \
-    --neutralization SUBINDUSTRY \
-    --execute \
-    --output runs/reports/gbr_carpet_mining_report.md
-```
-
-### 10 大生成族群简介
-1. `ts_momentum`（时序动量）
-2. `mean_reversion`（均值反转）
-3. `macd_velocity`（MACD 加速度）
-4. `relative_ratio`（截面相对比率）
-5. `asymmetric_risk`（不对称波动风险）
-6. `sector_decomposition`（行业-特质正交分解）
-7. `three_tier_scaling`（三层架构尺度标准化）
-8. `cross_interaction`（多源跨数据集协同）
-9. `symbolic_evolution`（递归 AST 符号自由杂交）
-10. `evolved_distillation`（数据库沉淀模板动态实例化）
-
----
-
-## 6. 核心场景 4: 学术文献研报认知转化流水线 (`research`)
-
-直接将学术论文（PDF 或 Markdown）转化为在线实测 Alpha 并完成 AlphaJudge 终审与入库：
-
-```bash
-# 1. 基础文献解析与对齐
-python alpha_machine.py research \
-    --paper docs/academic_paper.pdf \
-    --region GBR \
-    --datasets "model30,risk71" \
-    --decay 10 \
-    --neutralization SUBINDUSTRY \
-    --execute \
-    --output data/gbr_paper_report.md
-
-# 2. 启用大模型 (DeepSeek / OpenAI / Qwen) 深度因果提取与失败反思
-python alpha_machine.py research \
-    --paper docs/academic_paper.pdf \
-    --region GBR \
-    --datasets "model30,risk71" \
-    --use-llm \
-    --provider deepseek \
-    --model deepseek-chat \
-    --execute \
-    --output data/gbr_paper_report.md
+    --sample-per-family 4 --batch-size 5 \
+    --decay 12 --neutralization SUBINDUSTRY \
+    --execute
 ```
 
 ---
 
-## 7. 核心场景 5: 超级组合因子与正交化配置 (`simulate-super`)
-
-将多个经过实测的异构高收益因子，通过 Gram-Schmidt 信号正交化与 HRP 资产配置组合成 Super Alpha：
+### 2.5 research（文献认知提炼）
 
 ```bash
-# 1. 从普通回测候选准备 Super Alpha 候选
+python alpha_machine.py research \
+    --paper <论文PDF或MD路径>    # 必需
+    --region <市场区域>
+    --universe <股票宇宙>
+    --delay <延迟天数>
+    --neutralization <中性化>    # 默认 SUBINDUSTRY
+    --decay <衰减参数>           # 默认 8
+    --datasets <数据集>          # 可选限定字段范围
+    --use-llm                    # 启用 LLM 假说提取
+    --provider <LLM提供商>       # openai / deepseek / qwen
+    --model <模型名称>           # deepseek-chat / gpt-4o ...
+    --execute                    # ⚠️ 授权真实回测
+    --output <输出Markdown报告>
+    --config <配置文件路径>
+```
+
+```bash
+# Dry-run 预览（不消耗配额）
+python alpha_machine.py research \
+    --paper docs/academic_paper.pdf \
+    --region GBR --universe TOP700
+
+# 启用 DeepSeek LLM + 正式执行 + 生成研报
+python alpha_machine.py research \
+    --paper docs/academic_paper.pdf \
+    --region GBR --universe TOP700 \
+    --use-llm --provider deepseek --model deepseek-chat \
+    --execute --output data/paper_research_report.md
+```
+
+---
+
+### 2.6 simulate（平台仿真）
+
+```bash
+python alpha_machine.py simulate \
+    --region <市场区域> --universe <股票宇宙> --delay <延迟天数> \
+    --tasks <任务文件.json>      # 必需，含 expression/decay 的任务列表
+    --output <输出结果.json>     # 必需
+    --execute                    # ⚠️ 授权真实提交
+    --batch-size <N>             # 默认 8
+    --neutralization SUBINDUSTRY \
+    --truncation 0.08
+
+# 查询批次状态
+python alpha_machine.py poll-simulation \
+    --batch-id <批次ID> \
+    --output runs/poll.json
+```
+
+---
+
+### 2.7 simulate-super（超级因子）
+
+```bash
+# 第一步：筛选正交化候选
 python alpha_machine.py prepare-super \
-    --region GBR --universe TOP700 \
+    --region GBR --universe TOP700 --delay 1 \
+    --output runs/super_candidates.json \
     --max-candidates 6 \
-    --output data/super_candidates.json
+    --decay 6 --neutralization SUBINDUSTRY --truncation 0.08
 
-# 2. 提交回测 Super Alpha 候选
+# 第二步：提交超级因子回测
 python alpha_machine.py simulate-super \
-    --region GBR --universe TOP700 \
-    --candidates data/super_candidates.json \
-    --execute \
-    --output data/super_results.json
+    --region GBR --universe TOP700 --delay 1 \
+    --candidates runs/super_candidates.json \
+    --output runs/super_result.json \
+    --execute
+
+# 第三步：查询结果
+python alpha_machine.py poll-super \
+    --batch-id <批次ID> \
+    --output runs/super_poll.json
 ```
 
 ---
 
-## 8. 核心场景 6: 基础生成、回测与轮询 (`discover` / `prepare` / `simulate`)
-
-适合细粒度定制单步流程的研究员：
+### 2.8 字段探索流水线（discover / prepare / filter）
 
 ```bash
-# 1. 发现字段
+# 探索目标市场字段
 python alpha_machine.py discover \
-    --region GBR --universe TOP700 --dataset analyst7 \
-    --min-coverage 0.8 --output runs/fields.json
+    --region GBR --universe TOP700 --delay 1 \
+    --output runs/fields.json \
+    [--dataset <数据集ID>] [--type MATRIX] \
+    [--min-coverage 0.5] [--max-users 100] [--limit 200]
 
-# 2. 准备任务
+# 字段→任务池生成
 python alpha_machine.py prepare \
     --fields runs/fields.json \
-    --decays 6,12 --output runs/tasks.json
+    --output runs/tasks.json \
+    --windows 5 22 66 252 --decays "6,12" --batch-size 8
 
-# 3. 提交仿真
-python alpha_machine.py simulate \
+# 离线质量过滤
+python alpha_machine.py filter \
+    --results runs/sim_results.json \
+    --output runs/winners.json \
+    --sharpe 1.2 --fitness 0.7 \
+    --margin 5 --min-turnover 0.01 --max-turnover 0.7
+```
+
+---
+
+### 2.9 数据库运维命令
+
+```bash
+# 初始化
+python alpha_machine.py init-db [--reset] [--verify]
+python init_db.py [--reset] [--verify]
+
+# 清理（--dry-run 预览，不实际删除）
+python alpha_machine.py clean-db --mode stale [--dry-run] [--no-vacuum]
+python clean_db.py --mode stale [--dry-run]
+# 模式：failed / pruned / pending / stale / all_data
+
+# 备份与恢复
+python alpha_machine.py storage-backup --destination backups/alpha_20260825.db
+python alpha_machine.py storage-restore --backup backups/alpha_20260825.db
+
+# 崩溃恢复演练
+python alpha_machine.py drill-recovery
+
+# 断点续传
+python alpha_machine.py research-worker \
+    --round-id <轮次ID> [--watch] [--poll-seconds 30] [--authorize-submission]
+
+# 派发审批通过的提交 Outbox
+python alpha_machine.py submission-dispatch --limit 50 --max-attempts 3
+```
+
+---
+
+## 3. 核心场景实战
+
+### 3.1 首次全自动生产运行
+
+```bash
+# 1. 环境初始化
+python init_db.py
+python -m pytest -q                 # 验证 242 项测试通过
+
+# 2. 崩溃恢复演练（推荐在正式生产前执行一次）
+python alpha_machine.py drill-recovery
+
+# 3. 正式全自动生产运行
+python alpha_machine.py auto-pilot \
     --region GBR --universe TOP700 \
-    --tasks runs/tasks.json --execute \
-    --output runs/results.json
+    --datasets "analyst7" \
+    --sample-per-family 4 --batch-size 5 \
+    --execute \
+    --output runs/report_$(date +%Y%m%d).md
 ```
 
 ---
 
-## 9. 核心场景 7: 投研恢复与上线外箱派发 (`research-worker` / `submission-dispatch`)
+### 3.2 文献驱动的假说挖掘
 
 ```bash
-# 恢复中断的投研批次
-python alpha_machine.py research-worker --round-id <ROUND_ID>
+# 1. 提炼假说（Dry-run 预览，零配额消耗）
+python alpha_machine.py research \
+    --paper docs/momentum_paper.pdf \
+    --region USA --universe TOP2000
 
-# 派发已审批合格的提交任务 (Saga 异步外箱)
-python alpha_machine.py submission-dispatch --limit 50
+# 2. 正式执行（LLM + 真实回测 + 输出研报）
+python alpha_machine.py research \
+    --paper docs/momentum_paper.pdf \
+    --region USA --universe TOP2000 \
+    --use-llm --provider deepseek \
+    --datasets "fundamental31" \
+    --execute --output runs/paper_report.md
 ```
 
 ---
 
-## 10. 数据库维护、清理与磁盘物理空间释放 (`clean-db`)
-
-随着海量回测与地毯式挖掘的推进，SQLite 主库可能会积累失败/剪枝任务与 WAL 日志。系统提供细粒度清理与物理空间彻底回收能力：
+### 3.3 多数据集地毯式系统挖掘
 
 ```bash
-# 1. 综合清理失败任务、被剪枝淘汰项与孤儿 Checks 数据并执行 VACUUM (默认)
-python clean_db.py --mode stale
+for dataset in "insider_agg_matrix" "pattern_scores" "fundamental31" "analyst7"; do
+    python alpha_machine.py mine \
+        --region GBR --universe TOP700 \
+        --datasets "$dataset" \
+        --sample-per-family 4 --batch-size 5 \
+        --decay 12 --execute \
+        --output "runs/mine_${dataset}.md"
+done
+```
 
-# 2. 安全预览模式 (Dry-Run: 仅统计将删除的行数与文件大小变化，不实际删除)
+---
+
+### 3.4 已有 Alpha 池提炼超级因子
+
+```bash
+# 1. 筛选正交化候选（Sharpe ≥ 1.25，Fitness ≥ 1.0）
+python alpha_machine.py prepare-super \
+    --region GBR --universe TOP700 --delay 1 \
+    --output runs/super_candidates.json \
+    --max-candidates 6
+
+# 2. 提交超级因子回测
+python alpha_machine.py simulate-super \
+    --region GBR --universe TOP700 --delay 1 \
+    --candidates runs/super_candidates.json \
+    --output runs/super_result.json \
+    --execute
+```
+
+---
+
+### 3.5 断点续传与批次监控
+
+```bash
+# 查看当前状态
+python alpha_machine.py status
+
+# 恢复未完成批次
+python alpha_machine.py research-worker \
+    --watch --poll-seconds 30 \
+    --authorize-submission
+
+# 查询指定批次状态
+python alpha_machine.py poll-simulation \
+    --batch-id 42 --output runs/poll_42.json
+```
+
+---
+
+### 3.6 定期数据库维护
+
+```bash
+# 预览待清理数据
 python clean_db.py --mode stale --dry-run
 
-# 3. 仅清理失败项
-python clean_db.py --mode failed
+# 执行清理 + VACUUM 释放磁盘空间
+python clean_db.py --mode stale
 
-# 4. 清空全部历史回测实验数据 (保留表结构、模板库与剪枝规则)
-python clean_db.py --mode all_data
-
-# 5. 或通过主 CLI 调用
-python alpha_machine.py clean-db --mode stale
+# 热备（WAL 模式安全，不影响运行中的研究）
+python alpha_machine.py storage-backup \
+    --destination backups/alpha_$(date +%Y%m%d_%H%M).db
 ```
 
 ---
 
-## 11. Python 高阶 API 参考
+## 4. Python API 调用参考
 
-### 11.1 分层地毯式挖掘 API
+### 4.1 基础表达式生成
+
 ```python
-from alpha_operator_framework.carpet_mining import run_stratified_carpet_mining
+from alpha_operator_framework.domain.fields import FieldSpec
+from alpha_operator_framework.generation import sample_scalar_expressions, SampleSpec
+from alpha_operator_framework.generation.templates import unary_factory
 
-result = run_stratified_carpet_mining(
-    region="GBR",
-    universe="TOP700",
-    datasets=["insider_agg_matrix", "pattern_scores", "fundamental31"],
-    sample_per_family=4,
-    batch_size=5,
-    decay=12,
-    neutralization="SUBINDUSTRY",
-    execute=True,
-    output_report_path="data/gbr_carpet_mining_report.md",
-)
-print(result.summary_markdown())
+# 定义字段规格（禁止使用 close/open/high/low）
+fields = [
+    FieldSpec(id="returns", dataset_id="pv1", type="MATRIX", coverage=0.98),
+    FieldSpec(id="vwap",    dataset_id="pv1", type="MATRIX", coverage=0.95),
+    FieldSpec(id="volume",  dataset_id="pv1", type="MATRIX", coverage=0.99),
+]
+
+# 字段采样 + 生成一阶 Alpha 任务
+scalars = sample_scalar_expressions(fields, SampleSpec(sample_n=10))
+tasks = unary_factory(scalars)
+print(f"✅ 生成 {len(tasks)} 个一阶 Alpha 任务")
+for t in tasks[:3]:
+    print(f"   • {t.expression}")
 ```
 
-### 11.2 DDD 投研周期 API
+### 4.2 DDD 用例 API
+
 ```python
 from alpha_operator_framework.application.research_cycle import (
-    ResearchCycleRequest,
-    ResearchCycleUseCase,
+    ResearchCycleRequest, ResearchCycleUseCase,
 )
-from alpha_operator_framework.infrastructure.sqlite import (
-    SqliteExperimentRepository,
-    SqliteKnowledgeRepository,
-    SqliteResearchRepository,
+from alpha_operator_framework.infrastructure.sqlalchemy_repositories import (
+    SqliteResearchRepository, SqliteExperimentRepository,
 )
-from alpha_operator_framework.infrastructure.brain import BrainBacktestGateway
-from alpha_operator_framework.infrastructure.submission import BrainSubmissionGateway
+from alpha_operator_framework.infrastructure.runtime_factory import build_backtest_gateway
+from alpha_operator_framework.research.round import ResearchPolicy
+from alpha_operator_framework.knowledge.models import KnowledgeBase
 
+# 构建仓储与网关（Dry-run 模式）
+research_repo   = SqliteResearchRepository()
+experiment_repo = SqliteExperimentRepository()
+backtest_gw     = build_backtest_gateway(execute=False)  # False = Dry-run 安全模式
+
+# 组装用例
 use_case = ResearchCycleUseCase(
-    research_repo=SqliteResearchRepository(),
-    experiment_repo=SqliteExperimentRepository(),
-    knowledge_repo=SqliteKnowledgeRepository(),
-    backtest_gateway=BrainBacktestGateway(execute=False),
-    submission_gateway=BrainSubmissionGateway(),
+    research_repository=research_repo,
+    backtest_gateway=backtest_gw,
+    experiment_repository=experiment_repo,
 )
-result = use_case.execute(ResearchCycleRequest(region="GBR", universe="TOP700", algorithm="d_optimal"))
-print(f"生成的候选数: {len(result.round.candidates)}")
+
+# 执行投研周期
+policy = ResearchPolicy(
+    region="GBR", universe="TOP700", delay=1,
+    algorithm="d_optimal", sample_per_family=4,
+)
+summary = use_case.execute(
+    ResearchCycleRequest(
+        round_id="round-001", seed=42,
+        policy=policy,
+        knowledge=KnowledgeBase().snapshot(),
+        candidates=[],
+        execute_platform=False,
+    )
+)
+print(f"✅ 周期完成，状态: {summary.status}")
+```
+
+### 4.3 多轮研究闭环 API
+
+```python
+import asyncio
+from alpha_operator_framework.loop import LoopConfig, run_research_loop
+from alpha_operator_framework.database.repository import AlphaDatabase
+
+db = AlphaDatabase()
+config = LoopConfig(
+    rounds=3,
+    region="GBR", universe="TOP700",
+    top_k_fields=80, backtest_sample_n=80,
+    execute=True,
+    distill=True,
+    distill_templates=True,
+    distill_prune_rules=True,
+)
+
+history = asyncio.run(run_research_loop(db, config))
+for r in history:
+    print(f"轮次 {r['round']}: "
+          f"规划字段 {len(r['planned_next_fields'])} 个, "
+          f"蒸馏模板 {r['distilled_templates']} 条, "
+          f"生成淘汰规则 {len(r['distilled_rules'])} 条")
+```
+
+### 4.4 防过拟合指标 API
+
+```python
+from alpha_operator_framework.domain.overfitting import (
+    deflated_sharpe_ratio,
+    probabilistic_sharpe_ratio,
+    compute_expected_max_sharpe,
+)
+
+best_sharpe = 1.5
+trial_count = 100
+obs_count = 252  # 约 1 年日度观测数
+
+dsr = deflated_sharpe_ratio(
+    sharpe_is=best_sharpe, trial_count=trial_count,
+    obs_count=obs_count, skewness=0.0, excess_kurtosis=0.0, sr_std=0.5,
+)
+psr = probabilistic_sharpe_ratio(
+    sharpe_is=best_sharpe, sharpe_benchmark=1.0, obs_count=obs_count,
+)
+e_max = compute_expected_max_sharpe(trial_count=100, sharpe_std=0.5)
+
+print(f"DSR = {dsr:.3f}")
+print(f"PSR = {psr:.3f}")
+print(f"E[max Sharpe|N=100] = {e_max:.3f}")
 ```
 
 ---
 
-## 12. 常见问题与故障排查 (FAQ)
+## 5. 数据库运维与 SQL 速查
 
-### Q1: 回测时遇到 `sqlite3.OperationalError: database is locked`？
-- **机制**：框架底层已全面启用 WAL 模式 (`PRAGMA journal_mode = WAL`) 并设置 30 秒等待超时，初始化 DDL 具备幂等守卫，杜绝并发锁表。
+> 详细数据库架构见 [DATABASE_DESIGN.md](DATABASE_DESIGN.md)
 
-### Q2: 为什么 `alpha_machine.py mine` 或 `research-cycle` 没有指定 `--execute` 时瞬间完成？
-- **机制**：默认运行为 **Dry-Run 模式**（毫秒级完成公式生成与抽样预览），**绝不浪费您的平台回测配额**。确认任务符合预期后，加上 `--execute` 即可开始真实回测。
+### 5.1 常用分析 SQL
 
-### Q3: 另类数据集中的稀疏字段（如事件型数据）出现报错怎么处理？
-- **机制**：框架的 AST 编译器已内置原子包装机制：对于稀疏向量/事件数据，自动采用 `winsorize(ts_backfill(vec_avg({field}), 120), std=4.0)` 进行前向填充与去极值，确保 100% 语法合规与稳健计算。
+```sql
+-- 1. IS 夏普最高的前 10 个 Alpha
+SELECT alpha_id, expression, sharpe, fitness, turnover, returns, wf_stage
+FROM alpha_details
+ORDER BY sharpe DESC LIMIT 10;
+
+-- 2. 各生成族群胜率与平均夏普
+SELECT e.expression_origin, COUNT(*) AS total,
+       AVG(d.sharpe) AS avg_sharpe, MAX(d.sharpe) AS max_sharpe
+FROM alpha_details d
+JOIN alpha_expressions e ON d.expression_sha = e.expression_sha
+GROUP BY e.expression_origin
+ORDER BY avg_sharpe DESC;
+
+-- 3. 指定 Alpha 的 18 项 Checks 详细状态
+SELECT check_name, result, value, "limit"
+FROM alpha_checks
+WHERE alpha_id = 'ALPHA_12345'
+ORDER BY result ASC;
+
+-- 4. 待审批提交候选池
+SELECT alpha_id, expression, sharpe, fitness, turnover, margin, is_submitted
+FROM alpha_submission_candidates
+WHERE is_submitted = 0
+ORDER BY sharpe DESC;
+
+-- 5. 字段信号命中率 Top 20
+SELECT field_id, dataset_id, region, universe,
+       SUM(trials) AS total_trials,
+       AVG(hit_rate) AS avg_hit_rate,
+       MAX(max_sharpe) AS peak_sharpe
+FROM field_signal_stats
+GROUP BY field_id, dataset_id, region, universe
+ORDER BY avg_hit_rate DESC LIMIT 20;
+
+-- 6. 近 7 天回测批次状态
+SELECT id, platform_batch_id, status,
+       requested_count, completed_count, failed_count, created_at
+FROM simulation_batches
+WHERE created_at >= datetime('now', '-7 days')
+ORDER BY created_at DESC;
+
+-- 7. 防过拟合试验账本摘要
+SELECT family, region, universe, COUNT(*) AS trial_count,
+       AVG(json_extract(metrics_json, '$.sharpe')) AS avg_sharpe
+FROM trial_ledger
+GROUP BY family, region, universe
+ORDER BY trial_count DESC;
+
+-- 8. 模板库活跃模板统计
+SELECT family, COUNT(*) AS template_count
+FROM template_library WHERE active = 1
+GROUP BY family ORDER BY template_count DESC;
+
+-- 9. 剪枝规则库（最新 20 条）
+SELECT pattern, pattern_type, family, reason, source, created_at
+FROM template_prune_rules WHERE active = 1
+ORDER BY created_at DESC LIMIT 20;
+```
+
+---
+
+## 6. 常见问题与故障排查
+
+### 6.1 数据库相关
+
+**Q: `sqlite3.OperationalError: database is locked`**
+
+A: 系统已内置 `PRAGMA busy_timeout = 30000`（30 秒等待重试）。若持续出现，检查并发写入进程：
+
+```bash
+# Windows
+tasklist | findstr python
+# 重启 Worker（自动清理残留锁）
+python alpha_machine.py research-worker --round-id <ID>
+```
+
+**Q: 数据库磁盘占用过大**
+
+```bash
+python clean_db.py --mode stale   # 清理失败/剪枝数据并 VACUUM 释放物理空间
+```
+
+**Q: 数据库版本校验失败**
+
+```bash
+python init_db.py           # 增量升级 Schema（不删除现有数据）
+python init_db.py --verify  # 查看当前版本
+```
+
+---
+
+### 6.2 平台回测相关
+
+**Q: 平台返回 429 Too Many Requests**
+
+```bash
+# 降低并发批次大小（默认 8）
+python alpha_machine.py simulate ... --batch-size 3
+```
+
+**Q: 提交后长时间 ACCEPTED 无结果**
+
+```bash
+# 查询批次最新状态
+python alpha_machine.py poll-simulation --batch-id <ID> --output poll.json
+
+# 触发断点续传 Worker
+python alpha_machine.py research-worker --round-id <ID> --watch
+```
+
+**Q: 凭据失效（Session Expired）**
+
+```bash
+del .brain_session.json   # Windows
+rm .brain_session.json    # Linux/macOS
+# 下次请求时自动重新登录
+```
+
+---
+
+### 6.3 LLM 相关
+
+**Q: 文献提炼失败，无法连接 LLM**
+
+检查 `configs/llm_config.json` 中的 API key 和模型名称配置是否正确。
+
+**Q: LLM 生成的假说包含废弃字段（`close`、`open`）**
+
+系统在 AST 编译阶段**自动拦截**，无需手动干预。Dry-run 模式下可在日志中查看拦截详情。
+
+---
+
+### 6.4 测试与环境
+
+**Q: 测试失败**
+
+```bash
+python -m pytest -v --tb=short   # 查看详细失败信息
+python alpha_machine.py init-db --reset  # 重新初始化测试数据库
+```
+
+**Q: 如何在无网络环境运行？**
+
+不带 `--execute` 的所有命令均完全离线运行（使用内置 `PlatformSimulator`）：
+
+```bash
+# 完全离线的 Dry-run 测试
+python alpha_machine.py research-cycle \
+    --region GBR --universe TOP700 \
+    --algorithm d_optimal --sample-per-family 4
+```
+
+---
+
+## 附录：文档导航
+
+| 文档 | 定位 |
+|:---|:---|
+| [README.md](README.md) | 项目概览与 10 阶段架构总览 |
+| [QUICKSTART.md](QUICKSTART.md) | 5 分钟极速入门 |
+| [ARCHITECTURE.md](ARCHITECTURE.md) | DDD + 事件溯源 + 防过拟合架构设计 |
+| [DATABASE_DESIGN.md](DATABASE_DESIGN.md) | 17 张数据表/视图设计规范 |
+| [docs/INDEX.md](docs/INDEX.md) | 文档全景导航索引 |
+| [docs/guides/autonomous_evolution_guide.md](docs/guides/autonomous_evolution_guide.md) | 全自主进化与符号杂交实战指南 |
+| [docs/guides/production_deployment_guide.md](docs/guides/production_deployment_guide.md) | 生产环境部署与运维手册 |

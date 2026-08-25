@@ -33,10 +33,15 @@ class MemoryBatchRepository:
 
 class RecordingAlphaRepository:
     def __init__(self) -> None:
-        self.cataloged = []
+        self.inserted = []
+        self.created_batches = []
 
-    def catalog_expression(self, expression, **kwargs) -> None:
-        self.cataloged.append((expression, kwargs))
+    def insert_expression(self, expression, settings, **kwargs) -> None:
+        self.inserted.append((expression, settings, kwargs))
+
+    def create_simulation_batch(self, tasks, settings, **kwargs) -> int:
+        self.created_batches.append((tasks, settings, kwargs))
+        return 17
 
 
 def test_cycle_returns_replayable_planned_round_without_live_gateway() -> None:
@@ -85,18 +90,26 @@ def test_execute_cycle_submits_a_recoverable_batch_without_running_gateway() -> 
     assert batches.batch.state is BatchState.SUBMITTED
 
 
-def test_execute_cycle_catalogs_selected_expressions_in_primary_store() -> None:
+def test_execute_cycle_catalogs_all_candidates_and_binds_selected_tasks_to_a_real_batch() -> None:
     primary = RecordingAlphaRepository()
-    ResearchCycleUseCase(MemoryRepository(), CompletedGateway(), KnowledgeBase(), MemoryBatchRepository(), event_store=EventStore(), alpha_database=primary).execute(
-        ResearchCycleRequest("primary-store-round", 9, ResearchPolicy("GBR", "TOP700", 1), KnowledgeSnapshot(version=0), [Candidate("candidate", "rank(close)", "family", ("close",), ("rank",), "template")], True)
+    batches = MemoryBatchRepository()
+    candidates = [
+        Candidate("first", "rank(close)", "family", ("close",), ("rank",), "template"),
+        Candidate("second", "rank(volume)", "family", ("volume",), ("rank",), "template"),
+    ]
+    ResearchCycleUseCase(MemoryRepository(), CompletedGateway(), KnowledgeBase(), batches, event_store=EventStore(), alpha_database=primary).execute(
+        ResearchCycleRequest("primary-store-round", 9, ResearchPolicy("GBR", "TOP700", 1), KnowledgeSnapshot(version=0), candidates, True)
     )
 
-    assert primary.cataloged == [("rank(close)", {
-        "stage": "research_cycle", "family": "research", "base_fields": ["close"],
-        "metadata": {"round_id": "primary-store-round", "task_id": "primary-store-round:0", "candidate_id": "candidate"},
-        "status": "generated", "expression_origin": "research_cycle", "backtest_status": "pending",
-        "backtest_settings": {"region": "GBR", "universe": "TOP700", "delay": 1, "decay": 8, "neutralization": "SUBINDUSTRY", "truncation": 0.08},
-    })]
+    settings = {"region": "GBR", "universe": "TOP700", "delay": 1, "decay": 8, "neutralization": "SUBINDUSTRY", "truncation": 0.08}
+    assert [expression for expression, _, _ in primary.inserted] == ["rank(close)", "rank(volume)"]
+    assert all(value == settings for _, value, _ in primary.inserted)
+    assert primary.created_batches == [(
+        [{"task_id": "primary-store-round:0", "candidate_id": "first", "expression": "rank(close)"}],
+        settings,
+        {"simulation_type": "RESEARCH"},
+    )]
+    assert batches.batch.storage_batch_id == 17
 
 
 def test_execute_cycle_requires_event_ledger_and_batch_projection() -> None:

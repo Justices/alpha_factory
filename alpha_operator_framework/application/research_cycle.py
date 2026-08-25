@@ -78,6 +78,7 @@ class ResearchCycleUseCase:
         if request.execute_platform and (self.event_store is None or self.experiment_repository is None):
             raise ValueError("live research requires an event store and experiment repository")
         round_ = ResearchRound(request.round_id, request.policy, request.seed, list(request.candidates))
+        generated_candidates = list(round_.candidates)
         if self.event_store is not None:
             from alpha_operator_framework.core.events import EventType
             self._event(EventType.POLICY_CREATED, round_.round_id, {"policy": asdict(request.policy), "seed": request.seed})
@@ -123,6 +124,18 @@ class ResearchCycleUseCase:
         if not request.execute_platform:
             return ResearchCycleSummary("PLANNED", round_.round_id, audit)
 
+        backtest_settings = {
+            "region": request.policy.region, "universe": request.policy.universe,
+            "delay": request.policy.delay, "decay": request.policy.decay,
+            "neutralization": request.policy.neutralization, "truncation": request.policy.truncation,
+        }
+        if self.alpha_database is not None:
+            for candidate in generated_candidates:
+                self.alpha_database.insert_expression(
+                    candidate.expression, backtest_settings, expression_origin="research_cycle",
+                    fields=list(candidate.fields), status="generated",
+                )
+
         selected_ids = {decision.candidate_id for decision in decisions if decision.selected}
         cohort = [candidate for candidate in round_.candidates if candidate.candidate_id in selected_ids]
         batch = self.experiment_repository.load_batch(round_.round_id) if self.experiment_repository is not None else None
@@ -132,13 +145,11 @@ class ResearchCycleUseCase:
         else:
             batch = ExperimentBatch(batch_id=round_.round_id, idempotency_key=round_.round_id)
             tasks = batch.create_tasks(cohort, request.policy)
-            if self.alpha_database is not None:
-                for task in tasks:
-                    self.alpha_database.catalog_expression(
-                        task.expression, stage="research_cycle", family="research", base_fields=list(next(candidate.fields for candidate in cohort if candidate.candidate_id == task.candidate_id)),
-                        metadata={"round_id": round_.round_id, "task_id": task.task_id, "candidate_id": task.candidate_id},
-                        status="generated", expression_origin="research_cycle", backtest_status="pending", backtest_settings=dict(task.settings),
-                    )
+            if self.alpha_database is not None and tasks:
+                batch.storage_batch_id = self.alpha_database.create_simulation_batch(
+                    [{"task_id": task.task_id, "candidate_id": task.candidate_id, "expression": task.expression} for task in tasks],
+                    backtest_settings, simulation_type="RESEARCH",
+                )
             if self.telemetry is not None:
                 self.telemetry.record_quota(planned=request.policy.max_backtests, consumed=len(tasks))
             self._transition(batch, BatchState.SUBMITTED)

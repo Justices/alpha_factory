@@ -49,7 +49,10 @@ def _round(payload: str) -> ResearchRound:
 
 def _batch(payload: str) -> ExperimentBatch:
     value = json.loads(payload)
-    result = ExperimentBatch(batch_id=value["batch_id"], idempotency_key=value["idempotency_key"], state=BatchState(value["state"]))
+    result = ExperimentBatch(
+        batch_id=value["batch_id"], idempotency_key=value["idempotency_key"],
+        storage_batch_id=value.get("storage_batch_id"), state=BatchState(value["state"]),
+    )
     result.tasks = {task_id: BacktestTask(
         task_id=item["task_id"], candidate_id=item["candidate_id"], expression=item["expression"],
         settings=item["settings"], idempotency_key=item["idempotency_key"], attempts=item.get("attempts", 0),

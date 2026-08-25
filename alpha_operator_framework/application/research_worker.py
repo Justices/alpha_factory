@@ -94,6 +94,19 @@ class ResearchBatchWorker:
         self.alpha_database.save_result_with_checks(result.platform_alpha_id, payload, dict(task.settings))
         self.alpha_database.set_expression_status(task.expression, "completed")
 
+    def _persist_simulation_result(self, batch: Any, result: Any) -> None:
+        if self.alpha_database is None or batch.storage_batch_id is None:
+            return
+        sequence_no = list(batch.tasks).index(result.task_id)
+        failed = bool(result.error or not result.platform_alpha_id)
+        self.alpha_database.record_simulation_result(
+            batch.storage_batch_id, sequence_no,
+            status="failed" if failed else "completed",
+            alpha_id=result.platform_alpha_id or "",
+            result=dict(result.raw_details or {}),
+            error_message=result.error or ("platform returned no alpha ID" if failed else ""),
+        )
+
     def _event(self, event_type: EventType, round_id: str, payload: dict[str, Any]) -> int:
         return self.event_store.append(Event.create(event_type, round_id, payload, actor="worker:research-batch"))
 
@@ -220,6 +233,7 @@ class ResearchBatchWorker:
             attempts = max(task.attempts for task in due) + 1
             for result in failures:
                 task = batch.tasks[result.task_id]
+                self._persist_simulation_result(batch, result)
                 self._persist_primary_result(result, task)
                 batch.record_retry([result.task_id], next_retry_at=(now + timedelta(seconds=self._policy_backoff_seconds(policy, attempts))).isoformat(), error=result.error or "platform execution failed")
                 self._event(EventType.MONITORING_OBSERVED, round_id, {"task_id": result.task_id, "platform_failure": result.error})
@@ -229,6 +243,7 @@ class ResearchBatchWorker:
         for result in results:
             batch.record_result(result)
             task = batch.tasks[result.task_id]
+            self._persist_simulation_result(batch, result)
             self._persist_primary_result(result, task)
             self._event(EventType.SIMULATION_COMPLETED, round_id, {
                 "task_id": result.task_id, "alpha_id": result.platform_alpha_id,

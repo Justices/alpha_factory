@@ -57,6 +57,7 @@ class ExperimentBatch:
     batch_id: str
     idempotency_key: str
     state: BatchState = BatchState.PLANNED
+    storage_batch_id: int | None = None
     tasks: dict[str, BacktestTask] = field(default_factory=dict)
     results: dict[str, BacktestResult] = field(default_factory=dict)
     evaluations: dict[str, EvaluationRecord] = field(default_factory=dict)

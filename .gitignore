@@ -54,21 +54,7 @@ Thumbs.db
 __pycache__
 runs/*
 # SQLite databases & temp files (NEVER commit binary .db files)
-*.db
-*.db-journal
-*.db-wal
-*.db-shm
-*.sqlite
-*.sqlite3
-data/*.db-wal
-data/*.db-shm
-data/*.db-journal
-runs/**/*.db
-runs/**/*.db-wal
-runs/**/*.db-shm
-**/data/*.db-wal
-**/data/*.db-shm
-!data/README.md
 .superpowers/*
 .pytest*
 .workbuddy/*
+data/*

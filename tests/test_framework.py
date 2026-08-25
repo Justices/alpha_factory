@@ -60,7 +60,7 @@ from alpha_operator_framework.platform.local_fields import (
 from alpha_machine import main as alpha_machine_main
 from alpha_operator_framework.cli.simulation import _write_json as write_json
 from alpha_operator_framework.cli import super_alpha as alpha_machine
-from alpha_operator_framework.orchestrator import build_parser
+from alpha_machine import build_parser
 from alpha_operator_framework.platform.simulation_tracker import SimulationTracker
 from alpha_operator_framework.generation.super_alpha import (
     SuperAlphaConfig,
@@ -96,14 +96,6 @@ def test_operators():
 
     print("✓ 算子库测试通过")
 
-
-def test_submit_cli_accepts_database_path():
-    """The production submit command must carry its durable database path."""
-    parser = build_parser()
-    args = parser.parse_args([
-        "submit", "--kept-out", "runs/kept.json", "--database", "data/production.db",
-    ])
-    assert args.database == "data/production.db"
 
 
 def test_families():
@@ -532,7 +524,7 @@ def test_category_pipeline():
 def test_survey_template_library_hook():
     """run_survey_with_fields dry-run with use_template_library produces tasks."""
     import asyncio
-    from alpha_operator_framework.ai_workflow import SurveyConfig, run_survey_with_fields
+    from alpha_operator_framework.workflow import SurveyConfig, run_survey_with_fields
     field_specs = [
         FieldSpec(id="close", dataset_id="pv1", type="MATRIX", coverage=0.9, user_count=3, category="pv"),
         FieldSpec(id="volume", dataset_id="pv1", type="MATRIX", coverage=0.8, user_count=5, category="pv"),

@@ -95,7 +95,7 @@ def test_survey_includes_antonym_pairs():
     import tempfile
     from pathlib import Path
 
-    from alpha_operator_framework.ai_workflow import run_survey_with_fields, SurveyConfig
+    from alpha_operator_framework.workflow import run_survey_with_fields, SurveyConfig
 
     fields = [
         _f("senti_bullish_flag"),
@@ -126,7 +126,7 @@ def test_survey_can_disable_antonym_pairs():
     import tempfile
     from pathlib import Path
 
-    from alpha_operator_framework.ai_workflow import run_survey_with_fields, SurveyConfig
+    from alpha_operator_framework.workflow import run_survey_with_fields, SurveyConfig
 
     fields = [_f("senti_bullish_flag"), _f("senti_bearish_flag")]
     config = SurveyConfig(

@@ -41,7 +41,7 @@ from alpha_operator_framework.domain.overfitting import (
     compute_haircut_sharpe,
     compute_psr,
 )
-from alpha_operator_framework.domain.pruning import sandbox_prefilter
+from alpha_operator_framework.domain.pruning_components.sandbox import sandbox_prefilter
 from alpha_operator_framework.domain.sandbox.engine import SandboxEngine, SandboxMetrics
 from alpha_operator_framework.domain.sandbox.market_data import (
     MarketDataCrossSection,

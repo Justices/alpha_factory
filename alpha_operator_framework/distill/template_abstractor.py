@@ -11,7 +11,7 @@ import re
 from dataclasses import dataclass, asdict, field
 from typing import Any, Dict, Iterable, List, Optional, Sequence
 
-from alpha_operator_framework.domain.pruning import extract_fields
+from alpha_operator_framework.domain.pruning_components.field_topk import extract_fields
 from alpha_operator_framework.database.models import Template
 
 _LETTERS = "abcdefghijklmnopqrstuvwxyz"

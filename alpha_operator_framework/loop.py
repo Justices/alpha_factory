@@ -16,6 +16,8 @@ from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Any, Dict, List, Optional, Tuple
 
+from alpha_operator_framework.workflow import SurveyConfig, run_survey_with_fields
+
 from alpha_operator_framework.distill import (
     aggregate_field_signals,
     weighted_field_sample,
@@ -280,7 +282,6 @@ async def _run_round_survey(config: LoopConfig, round_n: int, field_ids: List[st
     Returns:
         回测结果行列表 (含 expression 及 sharpe/fitness 等指标); 无结果返回 []
     """
-    from alpha_operator_framework.ai_workflow import run_survey_with_fields, SurveyConfig
     from alpha_operator_framework.cache.datafields import aget_datafields
     from alpha_operator_framework.domain import fields as _fields
 

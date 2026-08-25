@@ -5,7 +5,7 @@ from pathlib import Path
 import pytest
 
 from alpha_operator_framework.database import AlphaDatabase, TemplateRepository
-from alpha_operator_framework.carpet_mining import StratifiedCarpetMiner, CarpetMiningConfig
+from alpha_operator_framework.carpet import CarpetMiningConfig, StratifiedCarpetMiner
 from alpha_operator_framework.domain.judge.evaluator import JudgeReport, JudgeVerdict
 
 

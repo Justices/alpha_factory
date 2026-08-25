@@ -11,7 +11,7 @@ from dataclasses import dataclass, asdict
 from typing import Any, Dict, Iterable, List, Optional, Sequence
 
 from alpha_operator_framework.domain.density import SignalGate
-from alpha_operator_framework.domain.pruning import extract_fields
+from alpha_operator_framework.domain.pruning_components.field_topk import extract_fields
 
 
 @dataclass

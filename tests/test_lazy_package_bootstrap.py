@@ -22,10 +22,13 @@ FIXTURE = ROOT / "tests" / "fixtures" / "package_root_exports.json"
 
 def canonical_export(row: dict[str, str]) -> object:
     """Resolve one frozen export from its canonical module."""
-    module = importlib.import_module(row["module"])
-    if row["qualname"] == "<module>":
+    from alpha_operator_framework._lazy_exports import EXPORTS
+
+    module_name, qualname = EXPORTS[row["name"]]
+    module = importlib.import_module(module_name)
+    if qualname == "<module>":
         return module
-    return getattr(module, row["qualname"])
+    return getattr(module, qualname)
 
 
 def cold_import_seconds(statement: str) -> float:

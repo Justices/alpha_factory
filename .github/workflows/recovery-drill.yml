@@ -17,4 +17,5 @@ jobs:
       - run: python -m compileall -q alpha_operator_framework alpha_machine.py
       - run: python -m ruff check .
       - run: python -m mypy
+      - run: python tools/quality_ratchet.py check --baseline quality-baseline.json
       - run: python -m pytest -q

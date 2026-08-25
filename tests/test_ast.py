@@ -17,7 +17,7 @@ from alpha_operator_framework.domain.ast import (
     validate_expression,
     extract_ast_fields,
 )
-from alpha_operator_framework.domain.pruning import ast_canonical_prune
+from alpha_operator_framework.domain.pruning_components.canonical import ast_canonical_prune
 from alpha_operator_framework.domain.families import Task
 
 

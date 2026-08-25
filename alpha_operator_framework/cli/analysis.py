@@ -30,7 +30,7 @@ def command_research(args: Namespace) -> None:
 
 
 def command_mine(args: Namespace) -> None:
-    from alpha_operator_framework.carpet_mining import run_stratified_carpet_mining
+    from alpha_operator_framework.carpet import run_stratified_carpet_mining
 
     result = run_stratified_carpet_mining(
         region=args.region, universe=args.universe, datasets=_datasets(args),

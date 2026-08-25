@@ -5,7 +5,8 @@ from pathlib import Path
 import pytest
 
 from alpha_operator_framework.database import AlphaDatabase
-from alpha_operator_framework.carpet_mining import StratifiedCarpetMiner, CarpetMiningConfig, Task
+from alpha_operator_framework.carpet import CarpetMiningConfig, StratifiedCarpetMiner
+from alpha_operator_framework.domain.families import Task
 
 
 def test_dual_axis_sampler_field_coverage_guarantee():

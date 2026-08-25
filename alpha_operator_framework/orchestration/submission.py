@@ -31,7 +31,7 @@ def cmd_submit(args) -> None:
 
     # 相关性剪枝 (可选, 拉PnL只读去重, 不耗额度; 默认关)
     if getattr(args, "prune_corr", False):
-        from alpha_operator_framework.domain.pruning import correlation_prune
+        from alpha_operator_framework.domain.pruning_components.correlation import correlation_prune
         kept, pruned = asyncio.run(correlation_prune(kept))
         print(f"  相关性剪枝: 候选 {len(kept) + len(pruned)} → {len(kept)}")
         if pruned:
@@ -41,9 +41,11 @@ def cmd_submit(args) -> None:
             )
 
     # 本地 SC 预检 (可选, 在 check 前先计算本地相关性; 默认关)
-    blue_list, yellow_list, green_list = [], [], []
+    blue_list: list[dict[str, object]] = []
+    yellow_list: list[dict[str, object]] = []
+    green_list: list[dict[str, object]] = []
     if getattr(args, "local_sc", False):
-        from alpha_operator_framework.domain.pruning import local_sc_precheck, LocalCheckConfig
+        from alpha_operator_framework.domain.pruning_components.self_correlation import local_sc_precheck, LocalCheckConfig
         # 获取已提交 alpha ID 列表 (可选)
         submitted_ids = []
         if getattr(args, "os_alpha_count", 0) > 0:
@@ -168,4 +170,3 @@ def cmd_submit(args) -> None:
         db.close()
 
 __all__ = ["cmd_submit"]
-

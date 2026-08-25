@@ -9,15 +9,13 @@ markers = [
 target-version = "py312"
 include = [
     "alpha_operator_framework/__init__.py",
-    "alpha_operator_framework/ai_workflow.py",
-    "alpha_operator_framework/carpet_mining.py",
-    "alpha_operator_framework/orchestrator.py",
     "alpha_operator_framework/cli/command_registry.py",
     "alpha_operator_framework/cli/router.py",
     "alpha_operator_framework/cache/datafields.py",
     "alpha_operator_framework/orchestration/**/*.py",
     "alpha_operator_framework/carpet/**/*.py",
     "alpha_operator_framework/workflow/**/*.py",
+    "alpha_operator_framework/domain/pruning_components/**/*.py",
     "alpha_operator_framework/platform/alpha_source.py",
     "alpha_operator_framework/platform/datafield_ingest.py",
     "alpha_operator_framework/platform/simulation_gateway.py",
@@ -32,15 +30,13 @@ ignore = ["F401", "F541", "F841"]
 python_version = "3.12"
 files = [
     "alpha_operator_framework/__init__.py",
-    "alpha_operator_framework/ai_workflow.py",
-    "alpha_operator_framework/carpet_mining.py",
-    "alpha_operator_framework/orchestrator.py",
     "alpha_operator_framework/cli/command_registry.py",
     "alpha_operator_framework/cli/router.py",
     "alpha_operator_framework/cache/datafields.py",
     "alpha_operator_framework/orchestration/**/*.py",
     "alpha_operator_framework/carpet/**/*.py",
     "alpha_operator_framework/workflow/**/*.py",
+    "alpha_operator_framework/domain/pruning_components/**/*.py",
     "alpha_operator_framework/platform/alpha_source.py",
     "alpha_operator_framework/platform/datafield_ingest.py",
     "alpha_operator_framework/platform/simulation_gateway.py",

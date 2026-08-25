@@ -17,7 +17,6 @@ FORBIDDEN_LAZY_EXPORT_TARGETS = {
     "alpha_operator_framework.carpet_mining",
     "alpha_operator_framework.orchestrator",
 }
-TEMPORARY_PRUNING_TARGET = "alpha_operator_framework.domain.pruning"
 
 
 def package_root_import_violations(tree: ast.AST) -> list[int]:
@@ -74,13 +73,11 @@ from alpha_operator_framework.domain import fields
     assert package_root_import_violations(ast.parse(source)) == [2]
 
 
-def test_lazy_exports_reject_legacy_monolith_targets_and_allow_only_pruning_compatibility() -> None:
+def test_lazy_exports_reject_legacy_monolith_targets() -> None:
     """Lazy exports must not resurrect the retired monolith modules."""
     from alpha_operator_framework._lazy_exports import EXPORTS
 
     targets = [module for module, _ in EXPORTS.values()]
     forbidden = sorted(FORBIDDEN_LAZY_EXPORT_TARGETS.intersection(targets))
-    pruning_entries = [name for name, (module, _) in EXPORTS.items() if module == TEMPORARY_PRUNING_TARGET]
 
     assert not forbidden, "forbidden lazy-export targets: " + ", ".join(forbidden)
-    assert len(pruning_entries) == 12

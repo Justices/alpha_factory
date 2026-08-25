@@ -10,15 +10,13 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 QUALITY_MODULES = [
     "alpha_operator_framework/__init__.py",
-    "alpha_operator_framework/ai_workflow.py",
-    "alpha_operator_framework/carpet_mining.py",
-    "alpha_operator_framework/orchestrator.py",
     "alpha_operator_framework/cli/command_registry.py",
     "alpha_operator_framework/cli/router.py",
     "alpha_operator_framework/cache/datafields.py",
     "alpha_operator_framework/orchestration/**/*.py",
     "alpha_operator_framework/carpet/**/*.py",
     "alpha_operator_framework/workflow/**/*.py",
+    "alpha_operator_framework/domain/pruning_components/**/*.py",
     "alpha_operator_framework/platform/alpha_source.py",
     "alpha_operator_framework/platform/datafield_ingest.py",
     "alpha_operator_framework/platform/simulation_gateway.py",
@@ -70,4 +68,5 @@ def test_development_dependencies_and_ci_use_the_quality_stack() -> None:
     assert "python -m compileall -q alpha_operator_framework alpha_machine.py" in commands
     assert "python -m ruff check ." in commands
     assert "python -m mypy" in commands
+    assert "python tools/quality_ratchet.py check --baseline quality-baseline.json" in commands
     assert "python -m pytest -q" in commands

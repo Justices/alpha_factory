@@ -146,7 +146,7 @@ def cmd_deepen(args) -> None:
 
     # 7.5 同字段top-k剪枝 (可选, 防一字段垄断候选)
     if getattr(args, "prune_per_field", 0) > 0:
-        from alpha_operator_framework.domain.pruning import field_topk_prune, FieldTopKConfig
+        from alpha_operator_framework.domain.pruning_components.field_topk import field_topk_prune, FieldTopKConfig
         kept, pruned = field_topk_prune(
             kept, FieldTopKConfig(keep_per_field=args.prune_per_field))
         if pruned:

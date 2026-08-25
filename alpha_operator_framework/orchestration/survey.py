@@ -76,7 +76,7 @@ def _semantic_prune(field_specs: list, keep_per_category: int) -> list:
     """
     if keep_per_category <= 0:
         return field_specs
-    from alpha_operator_framework.domain.pruning import semantic_prune_fields, SemanticPruneConfig
+    from alpha_operator_framework.domain.pruning_components.semantic import semantic_prune_fields, SemanticPruneConfig
     kept, pruned = semantic_prune_fields(
         field_specs, SemanticPruneConfig(keep_per_category=keep_per_category))
     if pruned:

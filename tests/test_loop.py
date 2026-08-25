@@ -12,7 +12,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
 def test_run_round_survey_extracts_results():
     from alpha_operator_framework.loop import _run_round_survey, LoopConfig
-    from alpha_operator_framework.ai_workflow import WorkflowResult
+    from alpha_operator_framework.workflow import WorkflowResult
 
     config = LoopConfig(region="EUR", universe="TOP2500", rounds=1)
     with tempfile.TemporaryDirectory() as tmp:
@@ -34,7 +34,7 @@ def test_run_round_survey_extracts_results():
 
         with patch("alpha_operator_framework.cache.datafields.aget_datafields",
                    side_effect=fake_aget), \
-             patch("alpha_operator_framework.ai_workflow.run_survey_with_fields",
+             patch("alpha_operator_framework.loop.run_survey_with_fields",
                    side_effect=fake_run_survey):
             results = asyncio.run(_run_round_survey(config, 0, ["close"]))
         assert results == [{"expression": "rank(close)", "sharpe": 1.5}]
@@ -42,7 +42,7 @@ def test_run_round_survey_extracts_results():
 
 def test_run_round_survey_empty_field_ids_passes_none():
     from alpha_operator_framework.loop import _run_round_survey, LoopConfig
-    from alpha_operator_framework.ai_workflow import WorkflowResult
+    from alpha_operator_framework.workflow import WorkflowResult
 
     config = LoopConfig(region="EUR", universe="TOP2500")
     fake_survey = WorkflowResult(success=True, stage="survey")
@@ -57,7 +57,7 @@ def test_run_round_survey_empty_field_ids_passes_none():
 
     with patch("alpha_operator_framework.cache.datafields.aget_datafields",
                side_effect=fake_aget), \
-         patch("alpha_operator_framework.ai_workflow.run_survey_with_fields",
+         patch("alpha_operator_framework.loop.run_survey_with_fields",
                side_effect=fake_run_survey):
         results = asyncio.run(_run_round_survey(config, 0, []))
     assert results == []

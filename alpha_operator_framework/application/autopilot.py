@@ -17,7 +17,7 @@ def run_autopilot(args: Any, config_path: Path) -> dict[str, Any]:
         from alpha_operator_framework.research import run_literature_research_pipeline
         result = run_literature_research_pipeline(literature_source=args.paper, region=args.region, universe=args.universe, neutralization=args.neutralization, delay=args.delay, decay=args.decay, datasets=[item.strip() for item in args.datasets.split(",") if item.strip()] if getattr(args, "datasets", None) else None, execute_on_platform=args.execute, database_path=storage_path(config_path), save_to_db=True, output_report_path=None)
     else:
-        from alpha_operator_framework.carpet_mining import run_stratified_carpet_mining
+        from alpha_operator_framework.carpet import run_stratified_carpet_mining
         result = run_stratified_carpet_mining(region=args.region, universe=args.universe, datasets=[item.strip() for item in args.datasets.split(",") if item.strip()] if getattr(args, "datasets", None) else None, sample_per_family=args.sample_per_family, batch_size=args.batch_size, delay=args.delay, decay=args.decay, neutralization=args.neutralization, truncation=args.truncation, execute=args.execute, seed=getattr(args, "seed", None), output_report_path=None)
     database = open_alpha_database(config_path)
     approved: list[dict[str, Any]] = []

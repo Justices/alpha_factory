@@ -14,7 +14,7 @@ from alpha_operator_framework.domain.sandbox import (
     ts_delta,
     group_neutralize,
 )
-from alpha_operator_framework.domain.pruning import sandbox_prefilter
+from alpha_operator_framework.domain.pruning_components.sandbox import sandbox_prefilter
 from alpha_operator_framework.domain.families import Task
 
 

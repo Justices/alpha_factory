@@ -87,7 +87,7 @@ def _semantic_prune(field_specs: list, keep_per_category: int) -> list:
 
 def _convert_rows_to_specs(field_rows: list) -> list:
     """将平台字段行转换为 FieldSpec 列表."""
-    from alpha_operator_framework import fields
+    from alpha_operator_framework.domain import fields
     field_specs = []
     for r in field_rows:
         cat = r.get("category") or ""
@@ -131,7 +131,7 @@ def _fetch_field_specs_auto(args, fields_file_type: str, root: Path) -> list:
     from alpha_operator_framework.platform.local_fields import (
         default_dataset_file, default_fields_directory, load_local_field_directory, load_local_field_specs,
     )
-    from alpha_operator_framework import fields
+    from alpha_operator_framework.domain import fields
 
     # 1. 尝试本地文件
     local_dir = default_fields_directory(root, args.region, args.delay, args.universe)
@@ -231,7 +231,7 @@ def cmd_survey(args) -> None:
           f"dataset={args.dataset or 'all'} sample={args.sample}")
 
     # 1. 发现字段：auto 优先加载约定本地目录，缺失时再访问平台。
-    from alpha_operator_framework import families, fields
+    from alpha_operator_framework.domain import families, fields
     fields_file = getattr(args, "fields_file", None)
     field_source = getattr(args, "field_source", "auto")
     fields_file_type = getattr(args, "fields_file_type", "auto")
@@ -478,4 +478,3 @@ def cmd_survey(args) -> None:
               f"sample={r.sample_n} signal={r.signal_n} fpa={r.fields_per_alpha}")
 
 __all__ = ["cmd_survey"]
-

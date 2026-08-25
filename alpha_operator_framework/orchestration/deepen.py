@@ -30,7 +30,7 @@ def cmd_deepen(args) -> None:
             --sample 400 --execute
     """
     from alpha_operator_framework.domain.density import read_report, top_templates
-    from alpha_operator_framework import families, fields
+    from alpha_operator_framework.domain import families, fields
 
     # 1. 读density报告
     report = read_report(args.density_out)
@@ -177,4 +177,3 @@ def cmd_deepen(args) -> None:
     print(f"  db ← {n_kept} kept + {n_rejected} rejected (data/alpha_research.db)")
 
 __all__ = ["cmd_deepen"]
-

@@ -17,6 +17,16 @@ from .config import DATAFIELDS_DIR
 from alpha_operator_framework.platform.datafields import fetch_datafields
 
 
+def _read_index(path: Path) -> list[Any]:
+    if not path.exists() or not path.read_text(encoding="utf-8-sig").strip():
+        return []
+    try:
+        value = json.loads(path.read_text(encoding="utf-8-sig"))
+    except json.JSONDecodeError:
+        return []
+    return value if isinstance(value, list) else []
+
+
 class DataFieldCache(DataCache):
     """数据字段缓存.
 
@@ -81,12 +91,12 @@ class DataFieldCache(DataCache):
         path.write_text(json.dumps(items, ensure_ascii=False, indent=2), encoding="utf-8")
         universe_index = self._universe_index_path(region, delay)
         universe_index.parent.mkdir(parents=True, exist_ok=True)
-        universes = json.loads(universe_index.read_text(encoding="utf-8")) if universe_index.exists() else []
+        universes = _read_index(universe_index)
         if universe not in universes:
             universes.append(universe)
             universe_index.write_text(json.dumps(sorted(universes), ensure_ascii=False, indent=2), encoding="utf-8")
         dataset_index = self._dataset_index_path(region, delay, universe)
-        datasets = json.loads(dataset_index.read_text(encoding="utf-8")) if dataset_index.exists() else []
+        datasets = _read_index(dataset_index)
         dataset = next((item.get("dataset") for item in items if isinstance(item.get("dataset"), dict)), {})
         entry = {"id": dataset_id, "name": str(dataset.get("name") or "")} if dataset else {"id": dataset_id, "name": ""}
         datasets = [item for item in datasets if item.get("id") != dataset_id]
@@ -288,7 +298,7 @@ class DataFieldCache(DataCache):
         index = self._dataset_index_path(region, delay, universe)
         if not index.exists():
             return []
-        return [str(item.get("id") or "") for item in json.loads(index.read_text(encoding="utf-8")) if item.get("id")]
+        return [str(item.get("id") or "") for item in _read_index(index) if isinstance(item, dict) and item.get("id")]
 
 
 def get_datafields(

@@ -1,5 +1,5 @@
 {
-  "coverage": 64,
+  "coverage": 65,
   "file_count": 181,
   "mypy": [
     "alpha_operator_framework/application/research_cycle.py|var-annotated|Need type annotation for \"retained\" (hint: \"retained: list[<type>] = ...\")",

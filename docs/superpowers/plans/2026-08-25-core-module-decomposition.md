@@ -14,7 +14,7 @@
 - Preserve canonical class/function/method signatures; tests and extensions patch canonical modules.
 - Target sizes: `alpha.py` <180 lines and `carpet/miner.py` <300 lines; component files <350 lines.
 - `ai_workflow.py`, `carpet_mining.py`, `orchestrator.py`, and `domain/pruning.py` must not exist after migration.
-- Do not commit automatically; the controller owns task commits and reviews.
+- Each reviewed task may create one focused local commit; never push.
 
 ---
 

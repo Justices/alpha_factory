@@ -14,7 +14,7 @@
 - Unknown attributes raise `AttributeError`; resolved attributes are cached in package globals.
 - CI performance ceiling is 2.5 seconds; local median target is 1.5 seconds over three cold subprocesses.
 - No network, database, credential, or platform access in import tests.
-- Do not commit automatically; the controller owns task commits and reviews.
+- Each reviewed task may create one focused local commit; never push.
 
 ---
 

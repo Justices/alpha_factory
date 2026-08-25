@@ -14,7 +14,7 @@
 - CI fails on a new fingerprint, coverage decrease, missing scan target, malformed baseline, or tool crash.
 - Baseline updates require the explicit `baseline --update` command and are never performed by CI.
 - Chat and CI output contain summaries, not full raw tool logs.
-- Do not commit automatically; the controller owns task commits and reviews.
+- Each reviewed task may create one focused local commit; never push.
 
 ---
 

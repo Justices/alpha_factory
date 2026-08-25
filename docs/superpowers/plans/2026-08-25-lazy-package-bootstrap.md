@@ -125,7 +125,7 @@ Run the focused test and a subprocess printing `len(sys.modules)` after package 
 
 - [ ] **Step 1: Add a failing dependency-direction test**
 
-Parse production ASTs and reject `ImportFrom(module="alpha_operator_framework")`, except `_lazy_exports.py` and `__init__.py`. Also reject lazy targets containing `ai_workflow`, `carpet_mining`, `orchestrator`, or `domain.pruning`. The failure output lists exact files and imported names.
+Parse production ASTs and reject package-root `ImportFrom` and exact-root `Import` nodes, except `_lazy_exports.py` and `__init__.py`. Reject lazy targets containing `ai_workflow`, `carpet_mining`, or `orchestrator`; permit exactly 12 temporary `domain.pruning` targets until Core Decomposition Task 4 retargets them. The failure output lists exact files and imported names.
 
 - [ ] **Step 2: Migrate each reported import to its defining module**
 

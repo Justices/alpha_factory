@@ -6,12 +6,20 @@ import argparse
 import json
 from pathlib import Path
 from typing import Sequence
+from uuid import uuid4
 
 DEFAULT_CONFIG_PATH = Path(__file__).resolve().parents[2] / "configs" / "alpha-factory.yaml"
 
 
 def _config_path(args: argparse.Namespace) -> Path:
     return Path(getattr(args, "config", DEFAULT_CONFIG_PATH))
+
+
+def _round_id(args: argparse.Namespace, policy, options: dict[str, object]) -> str:
+    explicit = getattr(args, "round_id", None)
+    if explicit:
+        return str(explicit)
+    return f"research-{policy.region}-{policy.universe}-{options.get('seed', 42)}-{uuid4().hex[:8]}"
 
 
 def _evidence(args: argparse.Namespace) -> dict[str, object] | None:
@@ -100,7 +108,7 @@ def command_research_cycle(args: argparse.Namespace) -> None:
         submission_authorized=bool(getattr(args, "authorize_submission", False)),
     )
     try:
-        round_id = getattr(args, "round_id", None) or f"research-{policy.region}-{policy.universe}-{options.get('seed', 42)}"
+        round_id = _round_id(args, policy, options)
         summary = runtime.plan(ResearchCycleRequest(round_id, options.get("seed", 42), policy, runtime.knowledge_base.snapshot(), candidates, args.execute))
         if args.execute:
             summary = runtime.process_round(summary.round_id)

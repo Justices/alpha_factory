@@ -19,6 +19,14 @@ def _config(tmp_path):
     return config
 
 
+def test_default_round_id_is_unique_but_explicit_round_id_is_reusable(monkeypatch) -> None:
+    monkeypatch.setattr(alpha_machine, "uuid4", lambda: SimpleNamespace(hex="unique-token"))
+    policy = SimpleNamespace(region="EUR", universe="TOP2500")
+
+    assert alpha_machine._round_id(SimpleNamespace(round_id=None), policy, {"seed": 42}) == "research-EUR-TOP2500-42-unique-t"
+    assert alpha_machine._round_id(SimpleNamespace(round_id="resume-me"), policy, {"seed": 42}) == "resume-me"
+
+
 def test_research_rebuild_command_uses_runtime_projections_only(monkeypatch, tmp_path) -> None:
     called = []
     runtime = SimpleNamespace(event_store=object(), research_repository=object(), experiment_repository=object(), knowledge_base=object(), knowledge_repository=object())
@@ -42,19 +50,19 @@ def test_research_cycle_command_uses_new_dry_run_cycle(monkeypatch, tmp_path, ca
     config = tmp_path / "alpha-factory.yaml"
     config.write_text(f"storage:\n  driver: sqlite\n  path: {tmp_path / 'rounds.db'}\n", encoding="utf-8")
     args = SimpleNamespace(
-        region="GBR", universe="TOP700", delay=1, datasets=None,
-        sample_per_family=1, execute=False, seed=9, config=str(config),
-        policy_file=None, telemetry_file=str(tmp_path / "metrics.jsonl"), algorithm="stratified",
+            region="GBR", universe="TOP700", delay=1, datasets=None,
+            sample_per_family=1, execute=False, seed=9, config=str(config),
+            policy_file=None, telemetry_file=str(tmp_path / "metrics.jsonl"), algorithm="stratified", round_id="test-round",
     )
 
     alpha_machine.command_research_cycle(args)
 
     assert "Research Cycle Summary" in capsys.readouterr().out
     runtime = build_research_runtime(config)
-    round_ = runtime.research_repository.load_round("research-GBR-TOP700-9")
+    round_ = runtime.research_repository.load_round("test-round")
     assert [candidate.expression for candidate in round_.candidates] == ["rank(returns)", "ts_rank(returns, 22)"]
     assert EventType.BATCH_ALLOCATED in [
-        event.event_type for event in runtime.event_store.read_stream("research-GBR-TOP700-9")
+        event.event_type for event in runtime.event_store.read_stream("test-round")
     ]
     assert (tmp_path / "metrics.jsonl").exists()
 

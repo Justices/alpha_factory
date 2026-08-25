@@ -2,12 +2,15 @@
 
 import pytest
 import numpy as np
+from datetime import datetime, timedelta, timezone
 
 from alpha_operator_framework.domain.evidence import (
     DecisionState,
     EvidenceLevel,
     SubmissionApprovalEngine,
+    persistent_audit_evidence_record,
 )
+from alpha_operator_framework.domain.evaluation import PPA_CHECK_NAMES, RA_CHECK_NAMES
 from alpha_operator_framework.domain.fields import FieldSpec
 from alpha_operator_framework.domain.judge.evaluator import AlphaJudge, JudgeVerdict
 from alpha_operator_framework.domain.overfitting import (
@@ -17,6 +20,22 @@ from alpha_operator_framework.domain.overfitting import (
     sharpe_haircut,
 )
 from alpha_operator_framework.domain.sandbox.engine import SignalDiagnosticEngine
+
+
+def _passing_checks(count=18):
+    names = sorted(RA_CHECK_NAMES | PPA_CHECK_NAMES)
+    return [{"name": name, "result": "PASS"} for name in names[:count]]
+
+
+def _valid_evidence_record():
+    now = datetime.now(timezone.utc)
+    return {
+        "source": "brain-platform",
+        "verified_at": (now - timedelta(minutes=1)).isoformat(),
+        "expires_at": (now + timedelta(hours=1)).isoformat(),
+        "receipt_ref": "receipt-123",
+        "summary": "Platform checks receipt",
+    }
 
 
 def test_evidence_level_truth_boundaries():
@@ -64,7 +83,7 @@ def test_submission_approval_engine_6_dimensions():
         evidence_level=EvidenceLevel.PLATFORM_IS,
         is_metrics={"turnover": 0.15, "margin": 6.0},
         oos_metrics=None,
-        checks=[{"name": "LOW_SHARPE", "result": "PASS"}],
+        checks=_passing_checks(),
         sc_value=0.20,
         pc_value=0.20,
         judge_verdict="READY",
@@ -78,13 +97,71 @@ def test_submission_approval_engine_6_dimensions():
         evidence_level=EvidenceLevel.PLATFORM_OS,
         is_metrics={"turnover": 0.15, "margin": 6.0},
         oos_metrics={"sharpe": 1.45},
-        checks=[{"name": "LOW_SHARPE", "result": "PASS"}],
+        checks=_passing_checks(),
         sc_value=0.30,
         pc_value=0.25,
         judge_verdict="READY",
+        evidence_record=_valid_evidence_record(),
     )
     assert rep2.approved
     assert len(rep2.rejection_reasons) == 0
+
+
+@pytest.mark.parametrize("checks", [
+    [{"name": "LOW_SHARPE", "result": "PASS"}] * 18,
+    [{"name": f"ARBITRARY_{index:02d}", "result": "PASS"} for index in range(18)],
+])
+def test_submission_approval_engine_requires_the_exact_official_check_set(checks):
+    """重复或任意命名的 18 项 Checks 都不能冒充官方检查集合。"""
+    report = SubmissionApprovalEngine.evaluate(
+        alpha_id="ALPHA_DUPLICATE_CHECKS",
+        evidence_level=EvidenceLevel.PLATFORM_OS,
+        is_metrics={"turnover": 0.15, "margin": 6.0},
+        oos_metrics={"sharpe": 1.45},
+        checks=checks,
+        sc_value=0.30,
+        pc_value=0.25,
+        judge_verdict="READY",
+        evidence_record=_valid_evidence_record(),
+    )
+
+    assert not report.approved
+    assert not report.checks_passed
+
+
+def test_persistent_audit_evidence_record_uses_only_stored_receipt_metadata():
+    record = _valid_evidence_record()
+
+    assert persistent_audit_evidence_record(object(), [{"evidence_record": record}]) == record
+    assert persistent_audit_evidence_record(object(), _passing_checks()) is None
+
+
+@pytest.mark.parametrize(
+    "evidence_record",
+    [
+        {},
+        {**_valid_evidence_record(), "verified_at": "2026-08-24T12:00:00"},
+        {**_valid_evidence_record(), "verified_at": (datetime.now(timezone.utc) + timedelta(minutes=1)).isoformat()},
+        {**_valid_evidence_record(), "expires_at": (datetime.now(timezone.utc) - timedelta(minutes=1)).isoformat()},
+        {**_valid_evidence_record(), "expires_at": (datetime.now(timezone.utc) - timedelta(minutes=2)).isoformat(), "verified_at": (datetime.now(timezone.utc) - timedelta(minutes=1)).isoformat()},
+    ],
+)
+def test_submission_approval_engine_rejects_missing_or_invalid_evidence(evidence_record):
+    """审批必须有未过期、可审计的时区时间戳证据记录。"""
+    report = SubmissionApprovalEngine.evaluate(
+        alpha_id="ALPHA_BAD_EVIDENCE",
+        evidence_level=EvidenceLevel.PLATFORM_OS,
+        is_metrics={"turnover": 0.15, "margin": 6.0},
+        oos_metrics={"sharpe": 1.45},
+        checks=_passing_checks(),
+        sc_value=0.30,
+        pc_value=0.25,
+        judge_verdict="READY",
+        evidence_record=evidence_record,
+    )
+
+    assert not report.approved
+    assert any("证据" in reason for reason in report.rejection_reasons)
 
 
 def test_alpha_judge_rejects_unverified_candidates():

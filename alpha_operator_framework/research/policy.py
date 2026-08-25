@@ -4,6 +4,7 @@ from __future__ import annotations
 
 from dataclasses import dataclass
 import json
+from math import isfinite
 from pathlib import Path
 from typing import Any, Mapping
 
@@ -24,6 +25,7 @@ class PolicySnapshot:
     evaluation: Mapping[str, float] = None  # type: ignore[assignment]
     settings: Mapping[str, Any] = None  # type: ignore[assignment]
     template_promotion: Mapping[str, Any] = None  # type: ignore[assignment]
+    retry: Mapping[str, Any] = None  # type: ignore[assignment]
 
     @classmethod
     def from_mapping(cls, data: Mapping[str, Any]) -> "PolicySnapshot":
@@ -41,6 +43,10 @@ class PolicySnapshot:
         pruning = dict(data.get("pruning", {}))
         settings = dict(data.get("settings", {}))
         promotion = dict(data.get("template_promotion", {}))
+        retry_value = data.get("retry", {})
+        if not isinstance(retry_value, Mapping):
+            raise ValueError("retry is invalid")
+        retry = dict(retry_value)
         if any(key not in {"field", "operator", "template", "novelty", "uncertainty"} or float(value) < 0 for key, value in weights.items()):
             raise ValueError("weights are invalid")
         if any(key not in {"min_sharpe", "min_fitness", "min_margin", "max_turnover"} for key in evaluation):
@@ -57,11 +63,30 @@ class PolicySnapshot:
             raise ValueError("template_promotion is invalid")
         if int(promotion.get("min_support", 1)) < 1 or int(promotion.get("observation_window", 1)) < 1:
             raise ValueError("template_promotion is invalid")
+        if set(retry) - {"max_attempts", "backoff_seconds"}:
+            raise ValueError("retry is invalid")
+        max_attempts = retry.get("max_attempts", 3)
+        if isinstance(max_attempts, bool) or not isinstance(max_attempts, int) or max_attempts < 1:
+            raise ValueError("retry.max_attempts is invalid")
+        backoff = retry.get("backoff_seconds", (30.0, 60.0, 120.0))
+        if (
+            not isinstance(backoff, (list, tuple))
+            or not backoff
+            or any(
+                isinstance(value, bool)
+                or not isinstance(value, (int, float))
+                or not isfinite(float(value))
+                or float(value) <= 0
+                for value in backoff
+            )
+        ):
+            raise ValueError("retry.backoff_seconds is invalid")
+        retry = {"max_attempts": max_attempts, "backoff_seconds": tuple(float(value) for value in backoff)}
         templates = tuple(data.get("templates", ()))
         if any(not item for item in templates):
             raise ValueError("templates are invalid")
         patterns = tuple(str(item) for item in pruning.get("prohibited_patterns", ()))
-        return cls(str(data.get("version", "default")), region, universe, budget, strategy, weights, templates, patterns, evaluation, settings, promotion)
+        return cls(str(data.get("version", "default")), region, universe, budget, strategy, weights, templates, patterns, evaluation, settings, promotion, retry)
 
     def construction_templates(self):
         from .construction import ConstructionTemplate
@@ -83,6 +108,7 @@ class PolicySnapshot:
         evaluation = self.evaluation or {}
         settings = self.settings or {}
         promotion = self.template_promotion or {}
+        retry = self.retry or {}
         return ResearchPolicy(self.region, self.universe, self.max_backtests,
             field_weight=float(weights.get("field", 1.0)), operator_weight=float(weights.get("operator", 1.0)),
             template_weight=float(weights.get("template", 1.0)), novelty_weight=float(weights.get("novelty", 1.0)),
@@ -96,7 +122,9 @@ class PolicySnapshot:
             template_min_fitness=float(promotion.get("min_fitness", 0.8)), template_max_correlation=float(promotion.get("max_correlation", 0.70)),
             template_structural_max_correlation=float(promotion.get("structural_max_correlation", promotion.get("max_correlation", 0.70))),
             template_platform_max_correlation=float(promotion.get("platform_max_correlation", promotion.get("max_correlation", 0.70))),
-            template_observation_window=int(promotion.get("observation_window", 1)))
+            template_observation_window=int(promotion.get("observation_window", 1)),
+            max_retry_attempts=int(retry.get("max_attempts", 3)),
+            retry_backoff_seconds=tuple(float(value) for value in retry.get("backoff_seconds", (30.0, 60.0, 120.0))))
 
 
 def build_selector(policy: ResearchPolicy):

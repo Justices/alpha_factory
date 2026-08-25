@@ -34,8 +34,8 @@ from alpha_operator_framework import (
     raw_first_order_task_factory,
     Task,
     # 字段
-    FieldSpec, ScalarField, SampleSpec,
-    preprocess_field, sample_scalar_expressions, sample_scalar_field_pairs, load_local_field_specs,
+    ScalarField, SampleSpec,
+    sample_scalar_expressions, sample_scalar_field_pairs, load_local_field_specs,
     find_positive_negative_pairs, find_cap_pairs, semantic_pair_task_factory,
     # 模板类库
     Template, TemplateStrategyConfig,
@@ -51,12 +51,15 @@ from alpha_operator_framework import (
 )
 from alpha_operator_framework.database import AlphaDatabase, AlphaDetail, WF_STAGES
 from alpha_operator_framework.database.repository import submission_wf_stage
+from alpha_operator_framework.cli.field_pipeline import field_from_dict
+from alpha_operator_framework.domain.fields import FieldSpec, preprocess_field
 from alpha_operator_framework.domain.economic_rules import allowed_first_order_ops
 from alpha_operator_framework.platform.local_fields import (
     default_fields_directory, default_dataset_file, load_local_field_directory,
 )
-from alpha_machine import write_json
 from alpha_machine import main as alpha_machine_main
+from alpha_operator_framework.cli.simulation import _write_json as write_json
+from alpha_operator_framework.cli import super_alpha as alpha_machine
 from alpha_operator_framework.orchestrator import build_parser
 from alpha_operator_framework.platform.simulation_tracker import SimulationTracker
 from alpha_operator_framework.generation.super_alpha import (
@@ -521,7 +524,6 @@ def test_category_pipeline():
         f = db.get_datafields(region="GBR")[0]
         assert f.category == "pv"
         # alpha_machine.field_from_dict 嵌套 dict
-        from alpha_machine import field_from_dict
         spec = field_from_dict({"id": "close", "category": {"id": "model", "name": "Model"}})
         assert spec.category == "model"
         db.close()
@@ -729,7 +731,6 @@ def test_super_alpha_candidate_and_batch_are_durable():
 
 def test_super_alpha_preparation_reads_regular_details():
     """The command adapter builds stored SUPER hypotheses from the regular-alpha ledger."""
-import alpha_operator_framework.cli.legacy_machine as alpha_machine
     with tempfile.TemporaryDirectory() as tmp:
         db = AlphaDatabase(Path(tmp) / "super-prepare.db")
         try:
@@ -882,26 +883,25 @@ def test_alpha_machine_write_json_serializes_platform_values():
         assert json.loads(path.read_text(encoding="utf-8")) == {"result": "platform-value"}
 
 
-def test_alpha_machine_uses_durable_data_database_by_default():
-    """Run artifacts and the long-lived simulation database have separate locations."""
+def test_alpha_machine_exposes_default_runtime_config():
+    """The system entry exposes the canonical runtime configuration."""
     import alpha_machine
 
     default_config = Path(alpha_machine.DEFAULT_RUNTIME_CONFIG_PATH)
-    assert alpha_machine.database_path(argparse.Namespace(config=str(default_config))).resolve() == (Path(alpha_machine.__file__).parent / "data" / "alpha_research.db").resolve()
+    assert default_config.resolve() == (Path(alpha_machine.__file__).parent / "configs" / "alpha-factory.yaml").resolve()
+    assert default_config.is_file()
 
 
 def test_alpha_machine_poll_command_is_available():
     """The CLI exposes polling without requiring a second simulation submission."""
     import alpha_machine
-    previous = sys.argv
-    try:
-        sys.argv = ["alpha_machine.py", "poll-simulation", "--batch-id", "7", "--output", "ignored.json"]
-        parser = alpha_machine.argparse.ArgumentParser()
-        # `main` owns parser construction; inspect source to keep this test network-free.
-        assert "poll-simulation" in (ROOT / "alpha_machine.py").read_text(encoding="utf-8")
-        assert "poll_simulation_batch" in (ROOT / "alpha_machine.py").read_text(encoding="utf-8")
-    finally:
-        sys.argv = previous
+
+    args = alpha_machine.build_parser().parse_args(
+        ["poll-simulation", "--batch-id", "7", "--output", "ignored.json"]
+    )
+    assert args.command == "poll-simulation"
+    assert args.batch_id == 7
+    assert args.func.__name__ == "command_poll_simulation"
 
 
 def test_alpha_machine_poll_command_marks_stale_batch_when_ttl_is_set():
@@ -934,11 +934,10 @@ def test_alpha_machine_rejects_non_positive_stale_ttl():
 
 def test_alpha_machine_prepare_super_command_is_available():
     """The CLI exposes a non-network Super Alpha preparation command."""
-    source = (ROOT / "alpha_operator_framework" / "cli" / "legacy_machine.py").read_text(encoding="utf-8")
-    assert 'add_parser("prepare-super"' in source
-    assert "prepare_super_candidates" in source
-    assert 'add_parser("simulate-super"' in source
-    assert 'add_parser("poll-super"' in source
+    import alpha_machine
+
+    commands = set(alpha_machine.command_domains()["super_alpha"])
+    assert commands == {"prepare-super", "simulate-super", "poll-super"}
 
 
 def test_package_exports_alpha_source_helpers():
@@ -991,8 +990,8 @@ def test_fields():
     event_exprs = preprocess_field(event_field)
     assert event_exprs == ["winsorize(ts_backfill(vec_avg(short_interest_event), 120), std=4.0)"]
 
-    from alpha_machine import FieldSpec as MachineFieldSpec
-    from alpha_machine import preprocess_field as machine_preprocess_field
+    from alpha_operator_framework.application.task_construction import FieldSpec as MachineFieldSpec
+    from alpha_operator_framework.application.task_construction import preprocess_field as machine_preprocess_field
     machine_event_exprs = machine_preprocess_field(
         MachineFieldSpec(id="short_interest_event", dataset_id="shortinterest3", type="EVENT")
     )
@@ -1316,7 +1315,7 @@ def run_all_tests():
         test_latest_schema_initializes_current_database()
         test_session_manager_imports_on_current_platform()
         test_alpha_machine_write_json_serializes_platform_values()
-        test_alpha_machine_uses_durable_data_database_by_default()
+        test_alpha_machine_exposes_default_runtime_config()
         test_alpha_machine_poll_command_is_available()
         test_alpha_machine_prepare_super_command_is_available()
         test_package_exports_alpha_source_helpers()

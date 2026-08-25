@@ -27,6 +27,24 @@ def test_repository_reloads_complete_research_round_snapshot(tmp_path) -> None:
     assert repository.load_round("round-1") == round_
 
 
+def test_repository_restores_retry_backoff_as_tuple(tmp_path) -> None:
+    round_ = ResearchRound(
+        "round-retry-policy",
+        ResearchPolicy("GBR", "TOP700", 1, retry_backoff_seconds=(1.5, 3.0, 9.0)),
+        7,
+        [],
+    )
+    engine = create_storage_engine(StorageConfig.from_mapping({"driver": "sqlite", "path": "rounds.db"}, base_path=tmp_path)); migrate(engine)
+    repository = SqlAlchemyResearchRepository(engine)
+
+    repository.save_round(round_)
+
+    restored = repository.load_round(round_.round_id)
+    assert restored is not None
+    assert restored.policy.retry_backoff_seconds == (1.5, 3.0, 9.0)
+    assert restored == round_
+
+
 def test_repository_reloads_research_decision_audit(tmp_path) -> None:
     round_ = ResearchRound(
         "round-audit", ResearchPolicy("GBR", "TOP700", 1), 7,

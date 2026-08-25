@@ -111,3 +111,31 @@ def test_policy_file_rejects_conflicting_explicit_cli_override() -> None:
 
     with pytest.raises(ValueError, match="decay"):
         validate_cli_policy_overrides(policy, {"decay": 12})
+
+
+def test_policy_file_parses_retry_configuration(tmp_path) -> None:
+    path = tmp_path / "retry-policy.json"
+    path.write_text(json.dumps({
+        "region": "GBR", "universe": "TOP700", "max_backtests": 2,
+        "retry": {"max_attempts": 5, "backoff_seconds": [2, 4.5, 9]},
+    }), encoding="utf-8")
+
+    policy = load_policy(path).to_research_policy()
+
+    assert policy.max_retry_attempts == 5
+    assert policy.retry_backoff_seconds == (2.0, 4.5, 9.0)
+
+
+@pytest.mark.parametrize("retry", [
+    {"unknown": 1},
+    {"max_attempts": 0},
+    {"max_attempts": True},
+    {"backoff_seconds": []},
+    {"backoff_seconds": [1, 0]},
+    {"backoff_seconds": "1,2"},
+])
+def test_policy_rejects_invalid_retry_configuration(retry) -> None:
+    with pytest.raises(ValueError, match="retry"):
+        PolicySnapshot.from_mapping({
+            "region": "GBR", "universe": "TOP700", "max_backtests": 2, "retry": retry,
+        })

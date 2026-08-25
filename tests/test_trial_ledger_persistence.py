@@ -24,6 +24,17 @@ def test_trial_ledger_persistence_and_recovery(tmp_path):
     assert ledger_b.get_effective_trials("reversion") == int(round(1.0 + 2 * 0.65))
 
 
+def test_default_trial_ledger_does_not_reuse_persistent_state():
+    """默认实例仅保留进程内状态，避免跨运行污染。"""
+    ledger_a = TrialLedger()
+    ledger_a.record_trial("default_expr", family="default")
+
+    ledger_b = TrialLedger()
+
+    assert ledger_b._total_trials == 0
+    assert ledger_b._repo is None
+
+
 def test_trial_ledger_intra_family_correlation_decay():
     """测试结构族内相关性对有效试验次数的统计折损模型."""
     ledger = TrialLedger()

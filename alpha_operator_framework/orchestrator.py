@@ -798,7 +798,7 @@ def cmd_submit(args) -> None:
 
     # 触发 6 维决策终审治理
     print(f"\n  🛡️ 正在对 {len(alpha_ids)} 个 Alpha 执行 DecisionApprovalEngine 提交前 6 维证据审计...")
-    from alpha_operator_framework.domain.evidence import DecisionApprovalEngine, EvidenceLevel
+    from alpha_operator_framework.domain.evidence import DecisionApprovalEngine, EvidenceLevel, persistent_audit_evidence_record
     from alpha_operator_framework.domain.judge.evaluator import AlphaJudge
 
     db = AlphaDatabase()
@@ -816,6 +816,7 @@ def cmd_submit(args) -> None:
             }
             checks = db.get_alpha_checks(aid)
             checks_dicts = [{"name": c.check_name, "result": c.result, "value": c.value} for c in checks] if checks else []
+            evidence_record = persistent_audit_evidence_record(details, checks)
             rep = DecisionApprovalEngine.evaluate(
                 alpha_id=aid,
                 evidence_level=EvidenceLevel.PLATFORM_IS,
@@ -824,6 +825,7 @@ def cmd_submit(args) -> None:
                 sc_value=getattr(details, "sc_value", None),
                 pc_value=getattr(details, "pc_value", None),
                 judge_verdict="READY" if getattr(details, "grade", "") == "READY" else "REVIEW",
+                evidence_record=evidence_record,
             )
             if rep.approved:
                 ready_count += 1

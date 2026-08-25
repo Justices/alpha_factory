@@ -1,13 +1,16 @@
 """Recovery behavior for the event-led research batch worker."""
 
 from alpha_operator_framework.application.research_cycle import ResearchCycleRequest, ResearchCycleUseCase
+from datetime import UTC, datetime, timedelta
+from email.utils import format_datetime
+
 from alpha_operator_framework.application.research_worker import ResearchBatchWorker, ResearchWorkerScheduler
 from alpha_operator_framework.core.event_store import EventStore
-from alpha_operator_framework.core.events import EventType
+from alpha_operator_framework.core.events import Event, EventType
 from alpha_operator_framework.experiment.lifecycle import BatchState
-from alpha_operator_framework.experiment.models import BacktestResult
+from alpha_operator_framework.experiment.models import BacktestResult, BacktestTask, ExperimentBatch
 from alpha_operator_framework.knowledge.models import KnowledgeBase
-from alpha_operator_framework.research.round import Candidate, KnowledgeSnapshot, ResearchPolicy
+from alpha_operator_framework.research.round import Candidate, KnowledgeSnapshot, ResearchPolicy, ResearchRound
 
 
 class RoundRepository:
@@ -94,6 +97,144 @@ def test_worker_persists_retry_state_after_rate_limit() -> None:
     assert task.attempts == 1
     assert task.next_retry_at is not None
     assert task.last_error == "429 rate limited"
+    retry_event = next(event for event in events.read_stream("retry-round") if "retry" in event.payload)
+    assert retry_event.payload["retry"]["state"] == "PARTIAL_FAILED"
+    assert retry_event.payload["retry"]["tasks"] == [{
+        "task_id": task.task_id, "attempts": 1, "next_retry_at": task.next_retry_at,
+        "last_error": "429 rate limited",
+    }]
+
+
+def test_worker_records_outstanding_tasks_when_gateway_returns_partial_results() -> None:
+    class PartialGateway:
+        def run_backtests(self, tasks):
+            task = tasks[0]
+            return [BacktestResult(task.task_id, task.expression, 1.5, 1.1, 0.2, 5.0, True, "alpha-1")]
+
+    events, rounds, batches, knowledge = EventStore(), RoundRepository(), BatchRepository(), KnowledgeBase()
+    ResearchCycleUseCase(rounds, PartialGateway(), knowledge, batches, event_store=events).execute(
+        ResearchCycleRequest(
+            "partial-result-round", 9, ResearchPolicy("GBR", "TOP700", 2), KnowledgeSnapshot(version=0),
+            [
+                Candidate("a", "rank(close)", "family", ("close",), ("rank",), "template"),
+                Candidate("b", "rank(open)", "family", ("open",), ("rank",), "template"),
+            ], True,
+        )
+    )
+
+    ResearchBatchWorker(events, rounds, batches, knowledge, PartialGateway()).process_round("partial-result-round")
+
+    outstanding = batches.batch.tasks["partial-result-round:1"]
+    retry_event = next(event for event in events.read_stream("partial-result-round") if "retry" in event.payload)
+    assert batches.batch.state is BatchState.PARTIAL_FAILED
+    assert retry_event.payload["retry"] == {"state": "PARTIAL_FAILED", "tasks": [{
+        "task_id": outstanding.task_id, "attempts": outstanding.attempts,
+        "next_retry_at": outstanding.next_retry_at, "last_error": outstanding.last_error,
+    }]}
+    assert outstanding.attempts == 1
+    assert outstanding.last_error == "gateway returned incomplete results"
+
+
+def test_worker_uses_policy_retry_backoff_for_transient_failures() -> None:
+    class UnavailableGateway:
+        def run_backtests(self, _tasks):
+            raise ConnectionError("temporarily unavailable")
+
+    events, rounds, batches, knowledge = EventStore(), RoundRepository(), BatchRepository(), KnowledgeBase()
+    policy = ResearchPolicy(
+        "GBR", "TOP700", 1, max_retry_attempts=2, retry_backoff_seconds=(17, 34),
+    )
+    ResearchCycleUseCase(rounds, UnavailableGateway(), knowledge, batches, event_store=events).execute(
+        ResearchCycleRequest(
+            "policy-retry-round", 9, policy, KnowledgeSnapshot(version=0),
+            [Candidate("a", "rank(close)", "family", ("close",), ("rank",), "template")], True,
+        )
+    )
+
+    before = datetime.now(UTC)
+    summary = ResearchBatchWorker(events, rounds, batches, knowledge, UnavailableGateway()).process_round("policy-retry-round")
+
+    task = next(iter(batches.batch.tasks.values()))
+    retry_at = datetime.fromisoformat(task.next_retry_at)
+    assert summary.status == "RETRY_SCHEDULED"
+    assert 16.9 <= (retry_at - before).total_seconds() <= 17.1
+
+
+def test_worker_uses_retry_after_guidance_over_policy_backoff() -> None:
+    class RateLimitedError(TimeoutError):
+        retry_after = 73
+
+    class RateLimitedGateway:
+        def run_backtests(self, _tasks):
+            raise RateLimitedError("429 rate limited")
+
+    events, rounds, batches, knowledge = EventStore(), RoundRepository(), BatchRepository(), KnowledgeBase()
+    policy = ResearchPolicy("GBR", "TOP700", 1, retry_backoff_seconds=(17,))
+    ResearchCycleUseCase(rounds, RateLimitedGateway(), knowledge, batches, event_store=events).execute(
+        ResearchCycleRequest(
+            "retry-after-round", 9, policy, KnowledgeSnapshot(version=0),
+            [Candidate("a", "rank(close)", "family", ("close",), ("rank",), "template")], True,
+        )
+    )
+
+    before = datetime.now(UTC)
+    summary = ResearchBatchWorker(events, rounds, batches, knowledge, RateLimitedGateway()).process_round("retry-after-round")
+
+    task = next(iter(batches.batch.tasks.values()))
+    retry_at = datetime.fromisoformat(task.next_retry_at)
+    assert summary.status == "RETRY_SCHEDULED"
+    assert 72.9 <= (retry_at - before).total_seconds() <= 73.1
+
+
+def test_worker_parses_retry_after_http_date() -> None:
+    class RateLimitedError(TimeoutError):
+        headers = {"Retry-After": format_datetime(datetime.now(UTC) + timedelta(seconds=90), usegmt=True)}
+
+    delay = ResearchBatchWorker._retry_after_seconds(RateLimitedError("429 rate limited"))
+
+    assert delay is not None
+    assert 88 <= delay <= 90
+
+
+def test_worker_evaluates_a_rebuilt_completed_batch_without_resubmitting() -> None:
+    class Gateway:
+        def run_backtests(self, _tasks):
+            raise AssertionError("completed replay must not resubmit platform work")
+
+    events, rounds, batches, knowledge = EventStore(), RoundRepository(), BatchRepository(), KnowledgeBase()
+    candidate = Candidate("c", "rank(close)", "family", ("close",), ("rank",), "template")
+    policy = ResearchPolicy("GBR", "TOP700", 1)
+    rounds.round = ResearchRound("completed-replay", policy, 7, [candidate])
+    batch = ExperimentBatch("completed-replay", "completed-replay", BatchState.COMPLETED)
+    batch.tasks["completed-replay:0"] = BacktestTask("completed-replay:0", "c", candidate.expression, {}, "completed-replay:0")
+    batch.results["completed-replay:0"] = BacktestResult("completed-replay:0", candidate.expression, 1.5, 1.1, 0.2, 5.0, True, "alpha-1")
+    batches.batch = batch
+    events.append(Event.create(EventType.POLICY_CREATED, batch.batch_id, {"policy": policy.__dict__, "seed": 7}))
+
+    summary = ResearchBatchWorker(events, rounds, batches, knowledge, Gateway()).process_round(batch.batch_id)
+
+    assert summary.status == "COMPLETED"
+    assert batches.batch.state is BatchState.EVALUATED
+
+
+def test_worker_uses_policy_retry_budget() -> None:
+    class UnavailableGateway:
+        def run_backtests(self, _tasks):
+            raise ConnectionError("temporarily unavailable")
+
+    events, rounds, batches, knowledge = EventStore(), RoundRepository(), BatchRepository(), KnowledgeBase()
+    policy = ResearchPolicy("GBR", "TOP700", 1, max_retry_attempts=1)
+    ResearchCycleUseCase(rounds, UnavailableGateway(), knowledge, batches, event_store=events).execute(
+        ResearchCycleRequest(
+            "retry-budget-round", 9, policy, KnowledgeSnapshot(version=0),
+            [Candidate("a", "rank(close)", "family", ("close",), ("rank",), "template")], True,
+        )
+    )
+
+    summary = ResearchBatchWorker(events, rounds, batches, knowledge, UnavailableGateway()).process_round("retry-budget-round")
+
+    assert summary.status == "FAILED"
+    assert batches.batch.state is BatchState.FAILED
 
 
 def test_worker_scans_and_processes_due_batches() -> None:

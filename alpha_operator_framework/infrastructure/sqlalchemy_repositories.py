@@ -33,6 +33,7 @@ def _round(payload: str) -> ResearchRound:
     value = json.loads(payload)
     policy_data = dict(value["policy"])
     policy_data["prohibited_patterns"] = tuple(policy_data["prohibited_patterns"])
+    policy_data["retry_backoff_seconds"] = tuple(policy_data.get("retry_backoff_seconds", (30.0, 60.0, 120.0)))
     result = ResearchRound(
         round_id=value["round_id"], policy=ResearchPolicy(**policy_data), seed=value["seed"],
         candidates=[Candidate(

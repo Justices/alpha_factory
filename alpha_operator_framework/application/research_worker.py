@@ -7,6 +7,8 @@ import time
 from dataclasses import replace
 from collections.abc import Callable
 from datetime import UTC, datetime, timedelta
+from email.utils import parsedate_to_datetime
+from math import isfinite
 from typing import Any
 
 from alpha_operator_framework.application.research_cycle import ResearchCycleSummary
@@ -103,6 +105,53 @@ class ResearchBatchWorker:
             mutation_proposals=[],
         )
 
+    def _record_retry_fact(self, batch: Any, round_id: str, task_ids: list[str], state: BatchState) -> None:
+        """Persist the retry projection facts required to rebuild a batch."""
+        self._event(EventType.MONITORING_OBSERVED, round_id, {"retry": {
+            "state": state.value,
+            "tasks": [
+                {
+                    "task_id": task_id,
+                    "attempts": batch.tasks[task_id].attempts,
+                    "next_retry_at": batch.tasks[task_id].next_retry_at,
+                    "last_error": batch.tasks[task_id].last_error,
+                }
+                for task_id in task_ids
+            ],
+        }})
+
+    @staticmethod
+    def _is_rate_limited(error: Exception) -> bool:
+        response = getattr(error, "response", None)
+        status_code = getattr(error, "status_code", getattr(response, "status_code", None))
+        return status_code == 429 or "429" in str(error)
+
+    @staticmethod
+    def _retry_after_seconds(error: Exception) -> float | None:
+        response = getattr(error, "response", None)
+        retry_after = getattr(error, "retry_after", None)
+        if retry_after is None:
+            headers = getattr(error, "headers", None) or getattr(response, "headers", None)
+            retry_after = headers.get("Retry-After") if hasattr(headers, "get") else None
+        try:
+            seconds = float(retry_after)
+        except (TypeError, ValueError):
+            try:
+                retry_at = parsedate_to_datetime(str(retry_after))
+                if retry_at.tzinfo is None:
+                    retry_at = retry_at.replace(tzinfo=UTC)
+                seconds = (retry_at - datetime.now(UTC)).total_seconds()
+            except (TypeError, ValueError, OverflowError):
+                return None
+        return seconds if isfinite(seconds) and seconds > 0 else None
+
+    @staticmethod
+    def _policy_backoff_seconds(policy: ResearchPolicy, attempts: int) -> float:
+        if not policy.retry_backoff_seconds:
+            return 0.0
+        index = min(attempts - 1, len(policy.retry_backoff_seconds) - 1)
+        return policy.retry_backoff_seconds[index]
+
     def process_due_batches(self) -> list[ResearchCycleSummary]:
         """One scheduler tick: process each persisted batch whose retry is due."""
         return [self.process_round(batch.batch_id) for batch in self.experiment_repository.list_due_batches()]
@@ -119,25 +168,32 @@ class ResearchBatchWorker:
             raise ValueError(f"missing research round projection for {round_id}")
         if batch.state in {BatchState.SUBMITTED, BatchState.PARTIAL_FAILED}:
             self._transition(batch, BatchState.RUNNING)
-        if batch.state is not BatchState.RUNNING:
+        if batch.state not in {BatchState.RUNNING, BatchState.COMPLETED}:
             raise ValueError(f"batch {round_id} is not runnable: {batch.state}")
 
         now = datetime.now(UTC)
         missing = [task for task in batch.tasks.values() if task.task_id not in batch.results]
         due = [task for task in missing if task.next_retry_at is None or datetime.fromisoformat(task.next_retry_at) <= now]
-        if not due:
+        if not due and missing:
             return self._summary(batch, "RETRY_SCHEDULED")
         try:
-            results = self.backtest_gateway.run_backtests(due)
-        except (TimeoutError, ConnectionError) as error:
+            results = self.backtest_gateway.run_backtests(due) if due else []
+        except Exception as error:
+            if not isinstance(error, (TimeoutError, ConnectionError)) and not self._is_rate_limited(error):
+                raise
             attempts = max(task.attempts for task in due) + 1
-            if attempts >= 3:
-                batch.record_retry([task.task_id for task in due], next_retry_at=now.isoformat(), error=str(error))
+            if attempts >= policy.max_retry_attempts:
+                task_ids = [task.task_id for task in due]
+                batch.record_retry(task_ids, next_retry_at=now.isoformat(), error=str(error))
+                self._record_retry_fact(batch, round_id, task_ids, BatchState.FAILED)
                 self._transition(batch, BatchState.FAILED)
                 self._event(EventType.MONITORING_OBSERVED, round_id, {"alert": "retry_budget_exhausted", "error": str(error)[:1000]})
                 return self._summary(batch, "FAILED")
-            retry_at = now + timedelta(seconds=(30, 60, 120)[attempts - 1])
-            batch.record_retry([task.task_id for task in due], next_retry_at=retry_at.isoformat(), error=str(error))
+            delay_seconds = self._retry_after_seconds(error) or self._policy_backoff_seconds(policy, attempts)
+            retry_at = now + timedelta(seconds=delay_seconds)
+            task_ids = [task.task_id for task in due]
+            batch.record_retry(task_ids, next_retry_at=retry_at.isoformat(), error=str(error))
+            self._record_retry_fact(batch, round_id, task_ids, BatchState.PARTIAL_FAILED)
             self._transition(batch, BatchState.PARTIAL_FAILED)
             return self._summary(batch, "RETRY_SCHEDULED")
         for result in results:
@@ -150,10 +206,16 @@ class ResearchBatchWorker:
                 "idempotency_key": task.idempotency_key,
             })
         if len(batch.results) != len(batch.tasks):
+            outstanding = [task.task_id for task in batch.tasks.values() if task.task_id not in batch.results]
+            batch.record_retry(
+                outstanding, next_retry_at=now.isoformat(), error="gateway returned incomplete results",
+            )
+            self._record_retry_fact(batch, round_id, outstanding, BatchState.PARTIAL_FAILED)
             self._transition(batch, BatchState.PARTIAL_FAILED)
             return self._summary(batch, "PARTIAL_FAILED")
 
-        self._transition(batch, BatchState.COMPLETED)
+        if batch.state is not BatchState.COMPLETED:
+            self._transition(batch, BatchState.COMPLETED)
         from alpha_operator_framework.research.template_correlation import platform_correlation
         correlation_rejected: set[str] = set()
         for task_id, result in batch.results.items():

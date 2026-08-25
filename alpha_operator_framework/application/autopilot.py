@@ -8,7 +8,7 @@ from typing import Any
 
 def run_autopilot(args: Any, config_path: Path) -> dict[str, Any]:
     """Run research, evidence review and optional storage maintenance."""
-    from alpha_operator_framework.domain.evidence import EvidenceLevel, SubmissionApprovalEngine
+    from alpha_operator_framework.domain.evidence import EvidenceLevel, SubmissionApprovalEngine, persistent_audit_evidence_record
     from alpha_operator_framework.infrastructure.maintenance import clean_storage, initialize_storage, open_alpha_database, storage_path, verify_storage
 
     if not verify_storage(config_path):
@@ -23,8 +23,10 @@ def run_autopilot(args: Any, config_path: Path) -> dict[str, Any]:
     approved: list[dict[str, Any]] = []
     try:
         for row in database.get_top_performing_alphas(min_sharpe=args.min_sharpe, min_fitness=args.min_fitness):
-            checks = [{"name": check.check_name, "result": check.result, "value": check.value} for check in database.get_alpha_checks(row["alpha_id"])]
-            review = SubmissionApprovalEngine.evaluate(alpha_id=row["alpha_id"], evidence_level=EvidenceLevel.PLATFORM_IS, is_metrics={key: row[key] for key in ("sharpe", "fitness", "turnover", "margin")}, checks=checks, sc_value=row["sc_value"], pc_value=row["pc_value"], judge_verdict="READY")
+            stored_checks = database.get_alpha_checks(row["alpha_id"])
+            checks = [{"name": check.check_name, "result": check.result, "value": check.value} for check in stored_checks]
+            evidence_record = persistent_audit_evidence_record(row, stored_checks)
+            review = SubmissionApprovalEngine.evaluate(alpha_id=row["alpha_id"], evidence_level=EvidenceLevel.PLATFORM_IS, is_metrics={key: row[key] for key in ("sharpe", "fitness", "turnover", "margin")}, checks=checks, sc_value=row["sc_value"], pc_value=row["pc_value"], judge_verdict="READY", evidence_record=evidence_record)
             database.update_wf_stage(row["alpha_id"], "submission_ready" if review.approved else "needs_optimization")
             if review.approved: approved.append(row)
     finally:

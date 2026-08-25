@@ -204,14 +204,14 @@ class TrialLedger:
 
     def __init__(
         self,
-        persistent: bool = True,
+        persistent: bool = False,
         repository: Any = None,
         db_path: Optional[Union[str, Path]] = None,
     ):
         """初始化试验账本.
 
         Args:
-            persistent: 是否自动持久化至全局研究数据库 (默认 True)
+            persistent: 是否自动持久化至全局研究数据库 (默认 False)
             repository: 可选注入仓储实例 (依赖倒置)
             db_path: 向后兼容参数 (已由配置中心统一接管)
         """
@@ -221,7 +221,11 @@ class TrialLedger:
         self._records: List[TrialRecord] = []
         self._repo = None
 
-        if persistent and str(db_path) != ":memory:":
+        # No-argument ledgers must remain isolated.  A database path or an
+        # injected repository is an explicit persistence request, preserving
+        # the historical ``TrialLedger(db_path=...)`` API.
+        persistence_requested = persistent or repository is not None or db_path is not None
+        if persistence_requested and str(db_path) != ":memory:":
             try:
                 from alpha_operator_framework.database.repository import AlphaDatabase
                 self._repo = repository or AlphaDatabase(db_path=db_path if isinstance(db_path, (str, Path)) else None)

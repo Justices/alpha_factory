@@ -3,10 +3,28 @@
 from __future__ import annotations
 
 import argparse
+from collections.abc import Mapping, Sequence
+from types import MappingProxyType
+from typing import Any
 
 from alpha_operator_framework.application.task_construction import STANDARD_WINDOWS
 from alpha_operator_framework.cli import analysis, autopilot, field_pipeline, maintenance, recovery, research, simulation, status, super_alpha
 from alpha_operator_framework.cli.research import DEFAULT_CONFIG_PATH
+
+
+_COMMAND_DOMAINS: dict[str, tuple[str, ...]] = {
+    "fields": ("discover", "prepare", "filter", "second-order"),
+    "simulation": ("simulate", "poll-simulation"),
+    "super_alpha": ("prepare-super", "simulate-super", "poll-super"),
+    "research": ("research", "mine", "auto-pilot", "research-cycle", "research-worker", "research-rebuild"),
+    "submission": ("submission-dispatch",),
+    "operations": ("init-db", "clean-db", "storage-backup", "storage-restore", "drill-recovery", "status"),
+}
+
+
+def command_domains() -> Mapping[str, tuple[str, ...]]:
+    """Return the stable command-domain catalog used by the system entry."""
+    return MappingProxyType(_COMMAND_DOMAINS)
 
 
 def _settings(parser: argparse.ArgumentParser, *, required: bool = True) -> None:
@@ -45,6 +63,12 @@ def build_parser() -> argparse.ArgumentParser:
     return parser
 
 
-def main() -> None:
-    args = build_parser().parse_args()
-    args.func(args) if hasattr(args, "func") else args.handler(args)
+def route(argv: Sequence[str] | None = None) -> Any:
+    """Parse and dispatch one command, supporting embedded callers via ``argv``."""
+    args = build_parser().parse_args(argv)
+    handler = args.func if hasattr(args, "func") else args.handler
+    return handler(args)
+
+
+def main(argv: Sequence[str] | None = None) -> Any:
+    return route(argv)

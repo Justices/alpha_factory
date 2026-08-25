@@ -14,6 +14,10 @@ def test_migrate_creates_portable_research_tables(tmp_path) -> None:
 
     tables = set(inspect(engine).get_table_names())
     assert {"schema_migrations", "event_log", "research_round_snapshots", "experiment_batch_snapshots", "knowledge_snapshot"} <= tables
+    for table in ("research_round_snapshots", "experiment_batch_snapshots"):
+        assert {"created_at", "updated_at", "status", "error"} <= {
+            column["name"] for column in inspect(engine).get_columns(table)
+        }
 
 
 def test_migrate_is_idempotent(tmp_path) -> None:

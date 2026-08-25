@@ -63,6 +63,7 @@ class ResearchBatchWorker:
         telemetry: Any | None = None,
         evidence_gateway: Any | None = None,
         submission_outbox: Any | None = None,
+        alpha_database: Any | None = None,
     ) -> None:
         self.event_store = event_store
         self.research_repository = research_repository
@@ -74,6 +75,24 @@ class ResearchBatchWorker:
         self.telemetry = telemetry
         self.evidence_gateway = evidence_gateway
         self.submission_outbox = submission_outbox
+        self.alpha_database = alpha_database
+
+    def _persist_primary_result(self, result: Any, task: Any) -> None:
+        if self.alpha_database is None:
+            return
+        if result.error:
+            self.alpha_database.set_expression_status(task.expression, "failed")
+            return
+        if not result.platform_alpha_id:
+            self.alpha_database.set_expression_status(task.expression, "failed")
+            return
+        payload = dict(result.raw_details or {})
+        payload.setdefault("id", result.platform_alpha_id)
+        payload.setdefault("expression", task.expression)
+        payload.setdefault("settings", dict(task.settings))
+        payload.setdefault("is", {"sharpe": result.sharpe, "fitness": result.fitness, "turnover": result.turnover, "margin": result.margin, "checks": []})
+        self.alpha_database.save_result_with_checks(result.platform_alpha_id, payload, dict(task.settings))
+        self.alpha_database.set_expression_status(task.expression, "completed")
 
     def _event(self, event_type: EventType, round_id: str, payload: dict[str, Any]) -> int:
         return self.event_store.append(Event.create(event_type, round_id, payload, actor="worker:research-batch"))
@@ -196,9 +215,21 @@ class ResearchBatchWorker:
             self._record_retry_fact(batch, round_id, task_ids, BatchState.PARTIAL_FAILED)
             self._transition(batch, BatchState.PARTIAL_FAILED)
             return self._summary(batch, "RETRY_SCHEDULED")
+        failures = [result for result in results if result.error]
+        if failures:
+            attempts = max(task.attempts for task in due) + 1
+            for result in failures:
+                task = batch.tasks[result.task_id]
+                self._persist_primary_result(result, task)
+                batch.record_retry([result.task_id], next_retry_at=(now + timedelta(seconds=self._policy_backoff_seconds(policy, attempts))).isoformat(), error=result.error or "platform execution failed")
+                self._event(EventType.MONITORING_OBSERVED, round_id, {"task_id": result.task_id, "platform_failure": result.error})
+            self.experiment_repository.save_batch(batch)
+            self._transition(batch, BatchState.FAILED if attempts >= policy.max_retry_attempts else BatchState.PARTIAL_FAILED)
+            return self._summary(batch, "FAILED" if attempts >= policy.max_retry_attempts else "RETRY_SCHEDULED")
         for result in results:
             batch.record_result(result)
             task = batch.tasks[result.task_id]
+            self._persist_primary_result(result, task)
             self._event(EventType.SIMULATION_COMPLETED, round_id, {
                 "task_id": result.task_id, "alpha_id": result.platform_alpha_id,
                 "sharpe": result.sharpe, "fitness": result.fitness, "turnover": result.turnover,

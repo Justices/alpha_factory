@@ -39,6 +39,8 @@ class LiveBrainGateway:
             return raw.get(name, default) if isinstance(raw, Mapping) else getattr(raw, name, default)
 
         alpha_id = value("alpha_id")
+        failed_checks = value("failed_checks", []) or []
+        error = value("error") or ("; ".join(map(str, failed_checks)) if str(alpha_id or "").startswith("FAILED_") else None)
         checks_passed = bool(value("checks_passed", value("is_valid", False)))
         return BacktestResult(
             task_id=task.task_id,
@@ -51,6 +53,8 @@ class LiveBrainGateway:
             platform_alpha_id=str(alpha_id) if alpha_id else None,
             self_correlation=value("sc_value", value("self_correlation")),
             production_correlation=value("pc_value", value("production_correlation")),
+            error=str(error) if error else None,
+            raw_details=value("raw_details") if isinstance(value("raw_details"), Mapping) else None,
         )
 
 

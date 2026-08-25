@@ -20,6 +20,7 @@ from alpha_operator_framework.infrastructure.sqlalchemy_repositories import (
 )
 from alpha_operator_framework.infrastructure.storage import StorageConfig, create_storage_engine
 from alpha_operator_framework.infrastructure.telemetry import ResearchTelemetry
+from alpha_operator_framework.database import AlphaDatabase
 
 
 def load_runtime_config(path: Path) -> Mapping[str, Any]:
@@ -99,6 +100,7 @@ def build_research_runtime(
     storage = storage_config(config_path)
     engine = create_storage_engine(storage)
     migrate(engine)
+    alpha_database = AlphaDatabase(storage)
     research = config.get("research", {})
     platform_execution = bool(research.get("execute_platform", False)) if execute_platform is None else execute_platform
     knowledge_repository = SqlAlchemyKnowledgeRepository(engine)
@@ -119,6 +121,7 @@ def build_research_runtime(
         telemetry=ResearchTelemetry(),
         evidence_gateway=evidence_gateway,
         submission_outbox=submission_outbox,
+        alpha_database=alpha_database,
     )
 
 

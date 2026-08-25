@@ -33,6 +33,8 @@ class BacktestResult:
     platform_alpha_id: str | None = None
     self_correlation: float | None = None
     production_correlation: float | None = None
+    error: str | None = None
+    raw_details: Mapping[str, object] | None = None
 
 
 @dataclass(frozen=True)

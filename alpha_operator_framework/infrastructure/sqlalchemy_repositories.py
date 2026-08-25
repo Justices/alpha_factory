@@ -80,11 +80,12 @@ class _SnapshotRepository:
     def __init__(self, engine: Engine) -> None:
         self.engine = engine
 
-    def _save(self, identifier: str, payload: str) -> None:
+    def _save(self, identifier: str, payload: str, *, status: str, error: str | None = None) -> None:
+        now = datetime.now(UTC).isoformat()
         with self.engine.begin() as connection:
-            statement = update(self.table).where(self.identifier == identifier).values(payload=payload)
+            statement = update(self.table).where(self.identifier == identifier).values(payload=payload, updated_at=now, status=status, error=error)
             if connection.execute(statement).rowcount == 0:
-                connection.execute(insert(self.table).values({self.identifier.name: identifier, "payload": payload}))
+                connection.execute(insert(self.table).values({self.identifier.name: identifier, "payload": payload, "created_at": now, "updated_at": now, "status": status, "error": error}))
 
     def _load(self, identifier: str) -> str | None:
         with self.engine.connect() as connection:
@@ -96,7 +97,7 @@ class SqlAlchemyResearchRepository(_SnapshotRepository):
     identifier = research_round_snapshots.c.round_id
 
     def save_round(self, round_: ResearchRound) -> None:
-        self._save(round_.round_id, _json(asdict(round_)))
+        self._save(round_.round_id, _json(asdict(round_)), status="PLANNED")
 
     def load_round(self, round_id: str) -> ResearchRound | None:
         payload = self._load(round_id)
@@ -108,7 +109,8 @@ class SqlAlchemyExperimentRepository(_SnapshotRepository):
     identifier = experiment_batch_snapshots.c.batch_id
 
     def save_batch(self, batch: ExperimentBatch) -> None:
-        self._save(batch.batch_id, _json(asdict(batch)))
+        errors = sorted({task.last_error for task in batch.tasks.values() if task.last_error})
+        self._save(batch.batch_id, _json(asdict(batch)), status=batch.state.value, error="; ".join(errors) or None)
 
     def load_batch(self, batch_id: str) -> ExperimentBatch | None:
         payload = self._load(batch_id)

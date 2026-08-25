@@ -21,6 +21,7 @@ class ResearchRuntime:
     telemetry: Any
     evidence_gateway: Any | None = None
     submission_outbox: Any | None = None
+    alpha_database: Any | None = None
 
     def plan(self, request: ResearchCycleRequest) -> ResearchCycleSummary:
         return ResearchCycleUseCase(
@@ -32,6 +33,7 @@ class ResearchRuntime:
             self.event_store,
             self.evidence_gateway,
             self.submission_outbox,
+            self.alpha_database,
         ).execute(request)
 
     def worker(self) -> ResearchBatchWorker:
@@ -46,6 +48,7 @@ class ResearchRuntime:
             self.telemetry,
             self.evidence_gateway,
             self.submission_outbox,
+            self.alpha_database,
         )
 
     def process_round(self, round_id: str) -> ResearchCycleSummary:

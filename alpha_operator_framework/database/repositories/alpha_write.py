@@ -72,6 +72,16 @@ class AlphaWriteMixin(BaseRepository):
             row = cursor.fetchone()
             return row['id'] if row else -1
 
+    def set_expression_status(self, expression: str, status: str) -> None:
+        """Update the primary expression lifecycle status without changing its lineage."""
+        if status not in {"pending", "completed", "failed"}:
+            raise ValueError(f"unsupported expression status: {status}")
+        self._get_connection().execute(
+            "UPDATE alpha_expressions SET status = ?, updated_at = ? WHERE expression_sha = ?",
+            (status, self._timestamp(), self.compute_sha(expression)),
+        )
+        self._get_connection().commit()
+
     def upsert_expression_record(
         self,
         expression_sha: str,

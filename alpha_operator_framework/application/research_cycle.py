@@ -47,6 +47,7 @@ class ResearchCycleUseCase:
         event_store: Any | None = None,
         evidence_gateway: Any | None = None,
         submission_outbox: Any | None = None,
+        alpha_database: Any | None = None,
     ) -> None:
         self.research_repository = research_repository
         self.backtest_gateway = backtest_gateway
@@ -56,6 +57,7 @@ class ResearchCycleUseCase:
         self.event_store = event_store
         self.evidence_gateway = evidence_gateway
         self.submission_outbox = submission_outbox
+        self.alpha_database = alpha_database
 
     def _event(self, event_type: Any, stream_id: str, payload: dict[str, Any]) -> None:
         if self.event_store is not None:
@@ -130,6 +132,13 @@ class ResearchCycleUseCase:
         else:
             batch = ExperimentBatch(batch_id=round_.round_id, idempotency_key=round_.round_id)
             tasks = batch.create_tasks(cohort, request.policy)
+            if self.alpha_database is not None:
+                for task in tasks:
+                    self.alpha_database.catalog_expression(
+                        task.expression, stage="research_cycle", family="research", base_fields=list(next(candidate.fields for candidate in cohort if candidate.candidate_id == task.candidate_id)),
+                        metadata={"round_id": round_.round_id, "task_id": task.task_id, "candidate_id": task.candidate_id},
+                        status="generated", expression_origin="research_cycle", backtest_status="pending", backtest_settings=dict(task.settings),
+                    )
             if self.telemetry is not None:
                 self.telemetry.record_quota(planned=request.policy.max_backtests, consumed=len(tasks))
             self._transition(batch, BatchState.SUBMITTED)

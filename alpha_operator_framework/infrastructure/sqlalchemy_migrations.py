@@ -34,11 +34,19 @@ research_round_snapshots = Table(
     "research_round_snapshots", metadata,
     Column("round_id", String(128), primary_key=True),
     Column("payload", Text, nullable=False),
+    Column("created_at", String(64)),
+    Column("updated_at", String(64)),
+    Column("status", String(32)),
+    Column("error", Text),
 )
 experiment_batch_snapshots = Table(
     "experiment_batch_snapshots", metadata,
     Column("batch_id", String(128), primary_key=True),
     Column("payload", Text, nullable=False),
+    Column("created_at", String(64)),
+    Column("updated_at", String(64)),
+    Column("status", String(32)),
+    Column("error", Text),
 )
 knowledge_snapshot = Table(
     "knowledge_snapshot", metadata,
@@ -74,7 +82,7 @@ def _checksum(version: str) -> str:
     return hashlib.sha256(version.encode("utf-8")).hexdigest()
 
 
-MIGRATION_VERSIONS = ("001_research_runtime", "002_migration_checksums", "003_knowledge_snapshot_provenance")
+MIGRATION_VERSIONS = ("001_research_runtime", "002_migration_checksums", "003_knowledge_snapshot_provenance", "004_snapshot_audit_fields")
 
 
 def _apply_runtime_schema(engine: Engine) -> None:
@@ -110,6 +118,16 @@ def _apply_knowledge_snapshot_provenance(engine: Engine) -> None:
                 connection.execute(text(f"ALTER TABLE knowledge_snapshot_history ADD COLUMN {name} {sql_type}"))
 
 
+def _apply_snapshot_audit_fields(engine: Engine) -> None:
+    additions = {"created_at": "VARCHAR(64)", "updated_at": "VARCHAR(64)", "status": "VARCHAR(32)", "error": "TEXT"}
+    with engine.begin() as connection:
+        for table_name in ("research_round_snapshots", "experiment_batch_snapshots"):
+            existing = {column["name"] for column in inspect(engine).get_columns(table_name)}
+            for name, sql_type in additions.items():
+                if name not in existing:
+                    connection.execute(text(f"ALTER TABLE {table_name} ADD COLUMN {name} {sql_type}"))
+
+
 def _migration_records(engine: Engine) -> dict[str, str]:
     with engine.connect() as connection:
         return dict(connection.execute(select(schema_migrations.c.version, schema_migrations.c.checksum)).all())
@@ -135,6 +153,8 @@ def migrate(engine: Engine) -> None:
             _apply_runtime_schema(engine)
         elif version == "003_knowledge_snapshot_provenance":
             _apply_knowledge_snapshot_provenance(engine)
+        elif version == "004_snapshot_audit_fields":
+            _apply_snapshot_audit_fields(engine)
         with engine.begin() as connection:
             connection.execute(schema_migrations.insert().values(
                 version=version,

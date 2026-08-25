@@ -122,6 +122,8 @@ def _apply_snapshot_audit_fields(engine: Engine) -> None:
     additions = {"created_at": "VARCHAR(64)", "updated_at": "VARCHAR(64)", "status": "VARCHAR(32)", "error": "TEXT"}
     with engine.begin() as connection:
         for table_name in ("research_round_snapshots", "experiment_batch_snapshots"):
+            if not inspect(engine).has_table(table_name):
+                continue
             existing = {column["name"] for column in inspect(engine).get_columns(table_name)}
             for name, sql_type in additions.items():
                 if name not in existing:

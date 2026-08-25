@@ -9,8 +9,8 @@ from pathlib import Path
 import statistics
 import subprocess
 import sys
+import tempfile
 import textwrap
-import types
 
 import pytest
 
@@ -19,47 +19,66 @@ ROOT = Path(__file__).resolve().parents[1]
 FIXTURE = ROOT / "tests" / "fixtures" / "package_root_exports.json"
 
 
-def export_location(value: object) -> tuple[str, str]:
-    """Return the canonical module and qualified name for a package export."""
-    if isinstance(value, types.ModuleType):
-        return value.__name__, "<module>"
-    return value.__module__, value.__qualname__  # type: ignore[attr-defined]
+def canonical_export(row: dict[str, str]) -> object:
+    """Resolve one frozen export from its canonical module."""
+    module = importlib.import_module(row["module"])
+    if row["qualname"] == "<module>":
+        return module
+    return getattr(module, row["qualname"])
 
 
 def cold_import_seconds(statement: str) -> float:
     """Measure an isolated import while blocking external side effects."""
-    env = {
-        key: value
-        for key, value in os.environ.items()
-        if not key.startswith(("BRAIN_", "OPENAI_", "ANTHROPIC_", "DATABASE_"))
-    }
-    env.update({"PYTHONDONTWRITEBYTECODE": "1", "PYTHONNOUSERSITE": "1"})
-    program = textwrap.dedent(
-        f"""
-        import sqlite3
-        import socket
-        import time
+    allowed_system_keys = ("COMSPEC", "PATH", "PATHEXT", "SYSTEMROOT", "WINDIR")
+    with tempfile.TemporaryDirectory() as isolated_root:
+        isolated = Path(isolated_root)
+        home = isolated / "home"
+        config = isolated / "config"
+        temp = isolated / "temp"
+        for directory in (home, config, temp):
+            directory.mkdir()
+        env = {key: os.environ[key] for key in allowed_system_keys if key in os.environ}
+        env.update(
+            {
+                "APPDATA": str(config),
+                "HOME": str(home),
+                "LOCALAPPDATA": str(config),
+                "PYTHONDONTWRITEBYTECODE": "1",
+                "PYTHONNOUSERSITE": "1",
+                "TEMP": str(temp),
+                "TMP": str(temp),
+                "USERPROFILE": str(home),
+                "XDG_CACHE_HOME": str(config / "cache"),
+                "XDG_CONFIG_HOME": str(config),
+                "XDG_DATA_HOME": str(config / "data"),
+            }
+        )
+        program = textwrap.dedent(
+            """
+            import sqlite3
+            import socket
+            import time
 
-        def prohibited(*args, **kwargs):
-            raise RuntimeError("package import attempted prohibited external access")
+            def prohibited(*args, **kwargs):
+                raise RuntimeError("package import attempted prohibited external access")
 
-        sqlite3.connect = prohibited
-        socket.create_connection = prohibited
-        socket.socket.connect = prohibited
-        started = time.perf_counter()
-        {statement}
-        print(time.perf_counter() - started)
-        """
-    )
-    completed = subprocess.run(
-        [sys.executable, "-c", program],
-        cwd=ROOT,
-        env=env,
-        capture_output=True,
-        text=True,
-        check=False,
-        timeout=15,
-    )
+            sqlite3.connect = prohibited
+            socket.create_connection = prohibited
+            socket.socket.connect = prohibited
+            started = time.perf_counter()
+            """
+        )
+        program += textwrap.dedent(statement)
+        program += "\nprint(time.perf_counter() - started)\n"
+        completed = subprocess.run(
+            [sys.executable, "-c", program],
+            cwd=ROOT,
+            env=env,
+            capture_output=True,
+            text=True,
+            check=False,
+            timeout=15,
+        )
     assert completed.returncode == 0, completed.stderr
     return float(completed.stdout.strip())
 
@@ -71,7 +90,8 @@ def test_package_root_matches_frozen_export_snapshot():
     assert sorted(package.__all__) == [row["name"] for row in expected]
     for row in expected:
         value = getattr(package, row["name"])
-        assert export_location(value) == (row["module"], row["qualname"])
+        assert value is canonical_export(row)
+        assert package.__dict__[row["name"]] is value
 
 
 def test_package_root_unknown_attribute_raises_and_resolved_export_is_cached():
@@ -82,6 +102,37 @@ def test_package_root_unknown_attribute_raises_and_resolved_export_is_cached():
 
     first = getattr(package, "Task")
     assert getattr(package, "Task") is first
+    assert package.__dict__["Task"] is first
+
+
+def test_canonical_export_resolves_container_constants_by_identity():
+    package = importlib.import_module("alpha_operator_framework")
+    expected = json.loads(FIXTURE.read_text(encoding="utf-8"))
+
+    for name in ("BINARY_TEMPLATES", "PASS_STATES", "basic_ops"):
+        row = next(item for item in expected if item["name"] == name)
+        assert getattr(package, name) is canonical_export(row)
+
+
+def test_cold_import_subprocess_uses_isolated_environment():
+    credential_prefixes = (
+        "ALPHA_",
+        "ANTHROPIC_",
+        "BRAIN_",
+        "DASHSCOPE_",
+        "DATABASE_",
+        "DEEPSEEK_",
+        "OPENAI_",
+        "QWEN_",
+    )
+    cold_import_seconds(
+        f"""
+        import os
+        assert not {{key for key in os.environ if key.startswith({credential_prefixes!r})}}
+        assert os.environ['HOME'] != {str(Path.home())!r}
+        assert os.environ['USERPROFILE'] != {os.environ.get('USERPROFILE', '')!r}
+        """
+    )
 
 
 def test_package_root_cold_import_stays_under_ci_budget():

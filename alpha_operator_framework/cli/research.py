@@ -83,13 +83,18 @@ def command_research_cycle(args: argparse.Namespace) -> None:
         config_path, execute_platform=args.execute, evidence_records=_evidence(args),
         submission_authorized=bool(getattr(args, "authorize_submission", False)),
     )
-    round_id = getattr(args, "round_id", None) or f"research-{policy.region}-{policy.universe}-{options.get('seed', 42)}"
-    summary = runtime.plan(ResearchCycleRequest(round_id, options.get("seed", 42), policy, runtime.knowledge_base.snapshot(), candidates, args.execute))
-    if args.execute:
-        summary = runtime.process_round(summary.round_id)
-    if args.telemetry_file:
-        JsonLinesTelemetrySink(Path(args.telemetry_file)).publish(runtime.telemetry)
-    print(f"Research Cycle Summary\nresearch cycle: {summary.round_id} | {summary.status} | backtests={summary.completed_backtests}")
+    try:
+        round_id = getattr(args, "round_id", None) or f"research-{policy.region}-{policy.universe}-{options.get('seed', 42)}"
+        summary = runtime.plan(ResearchCycleRequest(round_id, options.get("seed", 42), policy, runtime.knowledge_base.snapshot(), candidates, args.execute))
+        if args.execute:
+            summary = runtime.process_round(summary.round_id)
+        if args.telemetry_file:
+            JsonLinesTelemetrySink(Path(args.telemetry_file)).publish(runtime.telemetry)
+        print(f"Research Cycle Summary\nresearch cycle: {summary.round_id} | {summary.status} | backtests={summary.completed_backtests}")
+    finally:
+        close = getattr(runtime, "close", None)
+        if callable(close):
+            close()
 
 
 def command_research_worker(args: argparse.Namespace) -> None:
@@ -101,16 +106,21 @@ def command_research_worker(args: argparse.Namespace) -> None:
         _config_path(args), execute_platform=True, evidence_records=_evidence(args),
         submission_authorized=bool(args.authorize_submission),
     )
-    if args.watch:
-        summaries = ResearchWorkerScheduler(runtime.worker()).watch(poll_seconds=args.poll_seconds)
-    else:
-        if not args.round_id:
-            raise ValueError("--round-id is required unless --watch is used")
-        summaries = [runtime.process_round(args.round_id)]
-    if args.telemetry_file:
-        JsonLinesTelemetrySink(Path(args.telemetry_file)).publish(runtime.telemetry)
-    for summary in summaries:
-        print(f"research worker: {summary.round_id} | {summary.status} | backtests={summary.completed_backtests}")
+    try:
+        if args.watch:
+            summaries = ResearchWorkerScheduler(runtime.worker()).watch(poll_seconds=args.poll_seconds)
+        else:
+            if not args.round_id:
+                raise ValueError("--round-id is required unless --watch is used")
+            summaries = [runtime.process_round(args.round_id)]
+        if args.telemetry_file:
+            JsonLinesTelemetrySink(Path(args.telemetry_file)).publish(runtime.telemetry)
+        for summary in summaries:
+            print(f"research worker: {summary.round_id} | {summary.status} | backtests={summary.completed_backtests}")
+    finally:
+        close = getattr(runtime, "close", None)
+        if callable(close):
+            close()
 
 
 def command_research_rebuild(args: argparse.Namespace) -> None:
@@ -118,9 +128,14 @@ def command_research_rebuild(args: argparse.Namespace) -> None:
     from alpha_operator_framework.infrastructure.runtime_factory import build_research_runtime
 
     runtime = build_research_runtime(_config_path(args), execute_platform=False)
-    ResearchProjectionRebuilder(runtime.event_store, runtime.research_repository, runtime.experiment_repository,
-                                runtime.knowledge_base, runtime.knowledge_repository).rebuild(args.round_id)
-    print(f"research projections rebuilt: {args.round_id}")
+    try:
+        ResearchProjectionRebuilder(runtime.event_store, runtime.research_repository, runtime.experiment_repository,
+                                    runtime.knowledge_base, runtime.knowledge_repository).rebuild(args.round_id)
+        print(f"research projections rebuilt: {args.round_id}")
+    finally:
+        close = getattr(runtime, "close", None)
+        if callable(close):
+            close()
 
 
 def command_submission_dispatch(args: argparse.Namespace) -> None:

@@ -128,6 +128,7 @@ def build_research_runtime(
         evidence_gateway=evidence_gateway,
         submission_outbox=submission_outbox,
         alpha_database=alpha_database,
+        engine=engine,
     )
 
 

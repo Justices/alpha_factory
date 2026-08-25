@@ -44,6 +44,30 @@ class RecordingAlphaRepository:
         return 17
 
 
+def test_runtime_close_releases_primary_repository_and_sqlalchemy_engine() -> None:
+    from alpha_operator_framework.application.research_runtime import ResearchRuntime
+
+    class CloseableRepository:
+        closed = False
+
+        def close(self) -> None:
+            self.closed = True
+
+    class Engine:
+        disposed = False
+
+        def dispose(self) -> None:
+            self.disposed = True
+
+    repository, engine = CloseableRepository(), Engine()
+    runtime = ResearchRuntime(None, None, None, None, None, None, None, None, alpha_database=repository, engine=engine)
+
+    runtime.close()
+
+    assert repository.closed is True
+    assert engine.disposed is True
+
+
 def test_cycle_returns_replayable_planned_round_without_live_gateway() -> None:
     repository = MemoryRepository()
     use_case = ResearchCycleUseCase(repository, DryRunGateway())

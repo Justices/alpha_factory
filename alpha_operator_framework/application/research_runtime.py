@@ -22,6 +22,16 @@ class ResearchRuntime:
     evidence_gateway: Any | None = None
     submission_outbox: Any | None = None
     alpha_database: Any | None = None
+    engine: Any | None = None
+
+    def close(self) -> None:
+        """Release the primary repository connection and shared SQLAlchemy engine."""
+        try:
+            if self.alpha_database is not None:
+                self.alpha_database.close()
+        finally:
+            if self.engine is not None:
+                self.engine.dispose()
 
     def plan(self, request: ResearchCycleRequest) -> ResearchCycleSummary:
         return ResearchCycleUseCase(

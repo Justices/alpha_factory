@@ -66,7 +66,6 @@ class AlphaAnalyticsMixin(BaseRepository):
         return AlphaDetail(
             id=row['id'],
             alpha_id=row['alpha_id'],
-            expression_sha=row['expression_sha'],
             expression=row['expression'],
             region=row['region'],
             universe=row['universe'],
@@ -163,4 +162,3 @@ class AlphaAnalyticsMixin(BaseRepository):
         conn = self._get_connection()
         row = conn.execute("SELECT COUNT(*) FROM alpha_details").fetchone()
         return int(row[0]) if row else 0
-

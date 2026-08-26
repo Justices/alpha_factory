@@ -3,7 +3,7 @@ CREATE TABLE IF NOT EXISTS schema_version (version TEXT PRIMARY KEY, applied_at 
 
 CREATE TABLE IF NOT EXISTS alpha_expressions (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
-    expression_sha TEXT NOT NULL UNIQUE,
+    alpha_sha TEXT NOT NULL UNIQUE,
     expression TEXT NOT NULL,
     expression_origin TEXT NOT NULL DEFAULT '',
     settings TEXT NOT NULL,
@@ -18,7 +18,6 @@ CREATE TABLE IF NOT EXISTS alpha_expressions (
 CREATE TABLE IF NOT EXISTS alpha_details (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     alpha_id TEXT NOT NULL UNIQUE,
-    expression_sha TEXT NOT NULL,
     alpha_sha TEXT NOT NULL DEFAULT '',
     expression TEXT NOT NULL,
     region TEXT,
@@ -106,7 +105,7 @@ CREATE TABLE IF NOT EXISTS datafields (
     user_count INTEGER DEFAULT 0,
     alpha_count INTEGER DEFAULT 0,
     category TEXT NOT NULL DEFAULT '',
-    expression_shas_json TEXT NOT NULL DEFAULT '[]',
+    alpha_shas_json TEXT NOT NULL DEFAULT '[]',
     last_fetched_at TEXT,
     created_at TEXT NOT NULL,
     updated_at TEXT NOT NULL,
@@ -137,7 +136,6 @@ CREATE TABLE IF NOT EXISTS simulation_results (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     batch_id INTEGER NOT NULL,
     sequence_no INTEGER NOT NULL,
-    expression_sha TEXT NOT NULL,
     alpha_sha TEXT NOT NULL DEFAULT '',
     expression TEXT NOT NULL,
     task_json TEXT NOT NULL DEFAULT '{}',
@@ -298,8 +296,8 @@ CREATE TABLE IF NOT EXISTS backtest_dataset_records (
     UNIQUE(region, universe, delay, dataset_id, strategy)
 );
 
-CREATE INDEX IF NOT EXISTS idx_expr_sha ON alpha_expressions(expression_sha);
-CREATE INDEX IF NOT EXISTS idx_detail_sha ON alpha_details(expression_sha);
+CREATE INDEX IF NOT EXISTS idx_alpha_sha ON alpha_expressions(alpha_sha);
+CREATE INDEX IF NOT EXISTS idx_detail_alpha_sha ON alpha_details(alpha_sha);
 CREATE INDEX IF NOT EXISTS idx_detail_sharpe ON alpha_details(sharpe);
 CREATE INDEX IF NOT EXISTS idx_detail_fitness ON alpha_details(fitness);
 CREATE INDEX IF NOT EXISTS idx_detail_stage ON alpha_details(stage_platform);

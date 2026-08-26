@@ -6,7 +6,7 @@ CREATE TABLE IF NOT EXISTS schema_version (
 
 CREATE TABLE IF NOT EXISTS alpha_expressions (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
-    expression_sha TEXT NOT NULL UNIQUE,
+    alpha_sha TEXT NOT NULL UNIQUE,
     expression TEXT NOT NULL,
     settings TEXT NOT NULL,
     created_at TEXT NOT NULL,
@@ -16,7 +16,7 @@ CREATE TABLE IF NOT EXISTS alpha_expressions (
 CREATE TABLE IF NOT EXISTS alpha_details (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     alpha_id TEXT NOT NULL UNIQUE,
-    expression_sha TEXT NOT NULL,
+    alpha_sha TEXT NOT NULL,
     expression TEXT NOT NULL,
     region TEXT, universe TEXT, delay INTEGER DEFAULT 1, decay REAL DEFAULT 0.0,
     neutralization TEXT, truncation REAL DEFAULT 0.0,

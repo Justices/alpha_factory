@@ -46,9 +46,9 @@ class SimulationRepository(BaseRepository):
                 raise ValueError("simulation task requires expression or candidate_sha")
             conn.execute(
                 """INSERT INTO simulation_results
-                (batch_id, sequence_no, expression_sha, alpha_sha, expression, task_json, decay, status, created_at, updated_at)
-                VALUES (?, ?, ?, ?, ?, ?, ?, 'created', ?, ?)""",
-                (batch_id, sequence_no, self.compute_sha(expression), self.compute_alpha_sha(expression, settings), expression,
+                (batch_id, sequence_no, alpha_sha, expression, task_json, decay, status, created_at, updated_at)
+                VALUES (?, ?, ?, ?, ?, ?, 'created', ?, ?)""",
+                (batch_id, sequence_no, self.compute_alpha_sha(expression, settings), expression,
                  self._json(task), float(task.get("decay", settings.get("decay", 0.0))), now, now),
             )
         conn.execute(

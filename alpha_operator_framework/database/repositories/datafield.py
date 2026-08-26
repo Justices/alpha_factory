@@ -40,7 +40,7 @@ class DatafieldRepository(BaseRepository):
         ).fetchall()
         return {r[0] for r in rows if r[0]}
 
-    def upsert_datafield(self, row: Dict[str, Any], *, expression_shas: Optional[List[str]] = None) -> Optional[str]:
+    def upsert_datafield(self, row: Dict[str, Any], *, alpha_shas: Optional[List[str]] = None) -> Optional[str]:
         """把平台原始 datafield 行 upsert 进 datafields 表."""
         field_id = str(row.get("id") or "")
         if not field_id:
@@ -56,18 +56,18 @@ class DatafieldRepository(BaseRepository):
         now = self._timestamp()
         conn = self._get_connection()
         existing = conn.execute(
-            "SELECT universes_json, expression_shas_json FROM datafields "
+            "SELECT universes_json, alpha_shas_json FROM datafields "
             "WHERE field_id=? AND dataset_id=? AND region=? AND delay=?",
             (field_id, dataset_id, region, delay),
         ).fetchone()
         universes = set(json.loads(existing["universes_json"])) if existing else set()
         if universe:
             universes.add(universe)
-        shas = set(json.loads(existing["expression_shas_json"])) if existing else set()
-        shas.update(expression_shas or [])
+        shas = set(json.loads(existing["alpha_shas_json"])) if existing else set()
+        shas.update(alpha_shas or [])
         conn.execute("""
             INSERT INTO datafields (field_id, dataset_id, dataset_name, description, type, region, delay,
-                universes_json, coverage, date_coverage, user_count, alpha_count, category, expression_shas_json,
+                universes_json, coverage, date_coverage, user_count, alpha_count, category, alpha_shas_json,
                 last_fetched_at, created_at, updated_at)
             VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
             ON CONFLICT(field_id, dataset_id, region, delay) DO UPDATE SET
@@ -80,7 +80,7 @@ class DatafieldRepository(BaseRepository):
                 user_count=excluded.user_count,
                 alpha_count=excluded.alpha_count,
                 category=excluded.category,
-                expression_shas_json=excluded.expression_shas_json,
+                alpha_shas_json=excluded.alpha_shas_json,
                 last_fetched_at=excluded.last_fetched_at,
                 updated_at=excluded.updated_at
         """, (
@@ -95,11 +95,11 @@ class DatafieldRepository(BaseRepository):
         return field_id
 
     def upsert_datafields(self, rows: List[Dict[str, Any]], *,
-                          expression_shas: Optional[List[str]] = None) -> int:
+                          alpha_shas: Optional[List[str]] = None) -> int:
         """批量 upsert datafield 行."""
         count = 0
         for row in rows or []:
-            if self.upsert_datafield(row, expression_shas=expression_shas):
+            if self.upsert_datafield(row, alpha_shas=alpha_shas):
                 count += 1
         return count
 
@@ -128,7 +128,7 @@ class DatafieldRepository(BaseRepository):
                 universes=json.loads(r["universes_json"] or "[]"), coverage=r["coverage"],
                 date_coverage=r["date_coverage"],
                 user_count=r["user_count"], alpha_count=r["alpha_count"], category=r["category"] or "",
-                expression_shas=json.loads(r["expression_shas_json"] or "[]"),
+                alpha_shas=json.loads(r["alpha_shas_json"] or "[]"),
                 last_fetched_at=r["last_fetched_at"], created_at=r["created_at"], updated_at=r["updated_at"],
             ))
         return out

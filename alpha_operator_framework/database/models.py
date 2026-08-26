@@ -11,7 +11,6 @@ WF_STAGES = ("pending_validation", "validated", "submitted", "failed", "needs_op
 @dataclass
 class AlphaExpression:
     id: Optional[int] = None
-    expression_sha: str = ""
     alpha_sha: str = ""
     expression: str = ""
     expression_origin: str = ""
@@ -55,7 +54,6 @@ class BacktestDatasetRecord:
 class AlphaDetail:
     id: Optional[int] = None
     alpha_id: str = ""
-    expression_sha: str = ""
     alpha_sha: str = ""
     expression: str = ""
     region: str = ""
@@ -125,7 +123,6 @@ class SimulationResult:
     id: Optional[int] = None
     batch_id: int = 0
     sequence_no: int = 0
-    expression_sha: str = ""
     alpha_sha: str = ""
     expression: str = ""
     decay: float = 0.0
@@ -200,7 +197,7 @@ class DataField:
     user_count: int = 0
     alpha_count: int = 0
     category: str = ""                   # 平台字段分类 (analyst/pv/model/fundamental...)
-    expression_shas: List[str] = field(default_factory=list)    # 使用该字段的 alpha 表达式 sha
+    alpha_shas: List[str] = field(default_factory=list)         # 使用该字段的 alpha 联合身份
     last_fetched_at: str = ""
     created_at: str = ""
     updated_at: str = ""

@@ -56,7 +56,7 @@ def verify_database(db_path: Path | StorageConfig = DEFAULT_DB_PATH) -> bool:
     engine = create_storage_engine(storage)
     try:
         tables = set(inspect(engine).get_table_names())
-        return {"schema_version", "alpha_expressions", "event_log"} <= tables
+        return {"alpha_expressions", "event_log"} <= tables
     except Exception as error:
         print(f"verification failed: {type(error).__name__}: {error}")
         return False

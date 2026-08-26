@@ -17,6 +17,17 @@ from alpha_operator_framework.database import (
 from alpha_operator_framework.database.models import Template
 
 
+def test_persisted_alpha_chain_uses_only_alpha_sha() -> None:
+    with tempfile.TemporaryDirectory(ignore_cleanup_errors=True) as tmp:
+        db = AlphaDatabase(Path(tmp) / "alpha_identity_only.db")
+        connection = db._get_connection()
+
+        for table_name in ("alpha_expressions", "alpha_details", "simulation_results"):
+            columns = {row["name"] for row in connection.execute(f"PRAGMA table_info({table_name})")}
+            assert "alpha_sha" in columns
+            assert "expression_sha" not in columns
+
+
 def test_expression_identity_includes_canonical_backtest_settings() -> None:
     with tempfile.TemporaryDirectory(ignore_cleanup_errors=True) as tmp:
         db = AlphaDatabase(Path(tmp) / "expression_identity.db")
@@ -47,7 +58,7 @@ def test_pruning_status_is_independent_from_completed_backtest_status() -> None:
         settings = {"region": "USA"}
         db.mark_expressions_pruned([db.compute_alpha_sha(expression, settings)])
 
-        stored = db.get_expression_by_sha(db.compute_sha(expression))
+        stored = db.get_expression_by_alpha_sha(db.compute_alpha_sha(expression, settings))
         assert stored.status == "completed"
         assert stored.pruning_status == "pruned"
 
@@ -74,8 +85,8 @@ def test_domain_repositories_standalone_and_shared_connection():
             expression_origin="unary_test",
         )
         assert expr_id > 0
-        expr_sha = alpha_repo.compute_sha("ts_rank(close, 10)")
-        fetched_expr = alpha_repo.get_expression_by_sha(expr_sha)
+        alpha_sha = alpha_repo.compute_alpha_sha("ts_rank(close, 10)", {"region": "USA", "universe": "TOP3000"})
+        fetched_expr = alpha_repo.get_expression_by_alpha_sha(alpha_sha)
         assert fetched_expr is not None
         assert fetched_expr.expression == "ts_rank(close, 10)"
 

@@ -14,11 +14,6 @@ from ..models import AlphaDetail, WF_STAGES
 class AlphaWriteMixin(BaseRepository):
     """Expression, detail, status, and workflow writes."""
 
-    @staticmethod
-    def compute_sha(expression: str) -> str:
-        """计算表达式 SHA256 哈希."""
-        return hashlib.sha256(expression.strip().encode("utf-8")).hexdigest()
-
     @classmethod
     def compute_alpha_sha(cls, expression: str, settings: Dict[str, Any]) -> str:
         """计算包含环境设置的 Alpha 综合指纹."""
@@ -39,7 +34,6 @@ class AlphaWriteMixin(BaseRepository):
         conn = self._get_connection()
         cursor = conn.cursor()
 
-        expression_sha = self.compute_sha(expression)
         alpha_sha = self.compute_alpha_sha(expression, settings)
         settings_json = json.dumps(settings, ensure_ascii=False, sort_keys=True, separators=(",", ":"))
         fields_json = self._json(sorted(set(fields if fields is not None else extract_fields(expression))))
@@ -49,10 +43,10 @@ class AlphaWriteMixin(BaseRepository):
         try:
             cursor.execute("""
                 INSERT INTO alpha_expressions
-                    (expression_sha, alpha_sha, expression, expression_origin, settings,
+                    (alpha_sha, expression, expression_origin, settings,
                      batch_id, fields, status, first_operator, created_at, updated_at)
-                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
-            """, (expression_sha, alpha_sha, expression, expression_origin, settings_json,
+                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+            """, (alpha_sha, expression, expression_origin, settings_json,
                   batch_id, fields_json, status, first_operator, now, now))
             if commit:
                 conn.commit()
@@ -131,7 +125,6 @@ class AlphaWriteMixin(BaseRepository):
 
     def upsert_expression_record(
         self,
-        expression_sha: str,
         expression: str,
         origin: str = "",
         settings: Optional[Dict[str, Any]] = None,
@@ -145,9 +138,9 @@ class AlphaWriteMixin(BaseRepository):
         conn.execute(
             """
             INSERT INTO alpha_expressions (
-                expression_sha, alpha_sha, expression, expression_origin, settings,
+                alpha_sha, expression, expression_origin, settings,
                 fields, status, first_operator, created_at, updated_at
-            ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+            ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
             ON CONFLICT(alpha_sha) DO UPDATE SET
                 expression_origin = CASE WHEN alpha_expressions.expression_origin = '' THEN excluded.expression_origin ELSE alpha_expressions.expression_origin END,
                 status = CASE WHEN excluded.status = 'completed' THEN 'completed' ELSE alpha_expressions.status END,
@@ -156,7 +149,7 @@ class AlphaWriteMixin(BaseRepository):
                 updated_at = excluded.updated_at
             """,
             (
-                expression_sha, self.compute_alpha_sha(expression, settings or {}),
+                self.compute_alpha_sha(expression, settings or {}),
                 expression,
                 origin,
                 self._json(settings or {}),
@@ -294,15 +287,14 @@ class AlphaWriteMixin(BaseRepository):
         """内部: 插入或更新 alpha_details."""
         cursor.execute("""
             INSERT INTO alpha_details (
-                alpha_id, expression_sha, alpha_sha, expression,
+                alpha_id, alpha_sha, expression,
                 region, universe, delay, decay, neutralization, truncation,
                 sharpe, fitness, turnover, margin, pnl, returns, drawdown, long_count, short_count,
                 grade, stage_platform, status_platform,
                 sc_result, sc_value, pc_result, pc_value, checks_json, ra_failed, ppa_failed,
                 created_at, updated_at
-            ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+            ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
             ON CONFLICT(alpha_id) DO UPDATE SET
-                expression_sha=excluded.expression_sha,
                 alpha_sha=excluded.alpha_sha,
                 expression=excluded.expression,
                 region=excluded.region,
@@ -332,7 +324,7 @@ class AlphaWriteMixin(BaseRepository):
                 ppa_failed=excluded.ppa_failed,
                 updated_at=excluded.updated_at
         """, (
-            detail.alpha_id, detail.expression_sha, detail.alpha_sha, detail.expression,
+            detail.alpha_id, detail.alpha_sha, detail.expression,
             detail.region, detail.universe, detail.delay, detail.decay, detail.neutralization, detail.truncation,
             detail.sharpe, detail.fitness, detail.turnover, detail.margin, detail.pnl, detail.returns, detail.drawdown,
             detail.long_count, detail.short_count,

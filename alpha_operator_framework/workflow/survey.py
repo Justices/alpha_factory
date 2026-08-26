@@ -283,7 +283,9 @@ async def run_survey_with_fields(
         # 落选不是终态: 下轮若被抽中, create_simulation_batch 会回填 batch_id 并置回 pending。
         unsampled = [t.expression for t in tasks if t.expression not in sampled_set]
         if unsampled:
-            catalog_db.mark_expressions_pruned([catalog_db.compute_sha(e) for e in unsampled])
+            catalog_db.mark_expressions_pruned([
+                catalog_db.compute_alpha_sha(e, backtest_settings) for e in unsampled
+            ])
         catalog_db.close()
 
         # 4. 写入本次实际回测的任务列表

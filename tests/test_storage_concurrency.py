@@ -47,23 +47,23 @@ def test_database_transaction_rollback():
             # 1. Successful commit
             with db.transaction() as conn:
                 conn.execute(
-                    "INSERT INTO alpha_expressions (expression_sha, expression, settings, created_at, updated_at) "
+                    "INSERT INTO alpha_expressions (alpha_sha, expression, settings, created_at, updated_at) "
                     "VALUES ('sha1', 'close', '{}', '2025-01-01', '2025-01-01')"
                 )
 
-            assert db.get_expression_by_sha("sha1") is not None
+            assert db.get_expression_by_alpha_sha("sha1") is not None
 
             # 2. Failed transaction with rollback
             with pytest.raises(ValueError):
                 with db.transaction() as conn:
                     conn.execute(
-                        "INSERT INTO alpha_expressions (expression_sha, expression, settings, created_at, updated_at) "
+                        "INSERT INTO alpha_expressions (alpha_sha, expression, settings, created_at, updated_at) "
                         "VALUES ('sha2', 'volume', '{}', '2025-01-01', '2025-01-01')"
                     )
                     raise ValueError("Simulated failure inside transaction")
 
             # sha2 should NOT be present in database
-            assert db.get_expression_by_sha("sha2") is None
+            assert db.get_expression_by_alpha_sha("sha2") is None
         finally:
             db.close()
 
@@ -85,9 +85,9 @@ def test_multithreaded_concurrent_read_write():
                     # Write
                     exp_id = db.insert_expression(expr, {"region": "USA"})
                     assert exp_id is not None
-                    sha = db.compute_sha(expr)
+                    sha = db.compute_alpha_sha(expr, {"region": "USA"})
                     # Read
-                    found = db.get_expression_by_sha(sha)
+                    found = db.get_expression_by_alpha_sha(sha)
                     assert found is not None
                     assert found.expression == expr
             except Exception as e:

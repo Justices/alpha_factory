@@ -16,7 +16,6 @@ from alpha_operator_framework.infrastructure.sqlalchemy_repositories import (
     SqlAlchemyExperimentRepository,
     SqlAlchemyKnowledgeRepository,
     SqlAlchemyResearchRepository,
-    SqlAlchemyTemplatePromotionRepository,
 )
 from alpha_operator_framework.infrastructure.storage import StorageConfig, create_storage_engine
 from sqlalchemy import inspect
@@ -121,7 +120,7 @@ def build_research_runtime(
         research_repository=SqlAlchemyResearchRepository(engine),
         experiment_repository=SqlAlchemyExperimentRepository(engine),
         knowledge_repository=knowledge_repository,
-        template_repository=SqlAlchemyTemplatePromotionRepository(engine),
+        template_repository=None,
         knowledge_base=knowledge_repository.load(),
         backtest_gateway=backtest_gateway or build_backtest_gateway(execute_platform=platform_execution),
         telemetry=ResearchTelemetry(),

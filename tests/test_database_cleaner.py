@@ -19,16 +19,16 @@ def test_database_cleaner_modes(tmp_path):
 
     # 插入一些测试数据
     cursor.execute("""
-        INSERT INTO alpha_expressions (expression_sha, alpha_sha, expression, settings, status, pruning_status, created_at, updated_at)
-        VALUES ('sha_pass', 'alpha_pass', 'rank(returns)', '{}', 'completed', 'active', '2026-08-21', '2026-08-21'),
-               ('sha_fail', 'alpha_fail', 'ts_rank(returns, 10)', '{}', 'failed', 'active', '2026-08-21', '2026-08-21'),
-               ('sha_prune', 'alpha_prune', 'ts_delta(returns, 5)', '{}', 'completed', 'pruned', '2026-08-21', '2026-08-21'),
-               ('sha_pend', 'alpha_pend', 'scale(returns)', '{}', 'pending', 'active', '2026-08-21', '2026-08-21')
+        INSERT INTO alpha_expressions (alpha_sha, expression, settings, status, pruning_status, created_at, updated_at)
+        VALUES ('alpha_pass', 'rank(returns)', '{}', 'completed', 'active', '2026-08-21', '2026-08-21'),
+               ('alpha_fail', 'ts_rank(returns, 10)', '{}', 'failed', 'active', '2026-08-21', '2026-08-21'),
+               ('alpha_prune', 'ts_delta(returns, 5)', '{}', 'completed', 'pruned', '2026-08-21', '2026-08-21'),
+               ('alpha_pend', 'scale(returns)', '{}', 'pending', 'active', '2026-08-21', '2026-08-21')
     """)
     cursor.execute("""
-        INSERT INTO alpha_details (alpha_id, expression_sha, expression, sharpe, created_at, updated_at)
-        VALUES ('ALPHA_01', 'sha_pass', 'rank(returns)', 1.50, '2026-08-21', '2026-08-21'),
-               ('FAILED_01', 'sha_fail', 'ts_rank(returns, 10)', 0.0, '2026-08-21', '2026-08-21')
+        INSERT INTO alpha_details (alpha_id, alpha_sha, expression, sharpe, created_at, updated_at)
+        VALUES ('ALPHA_01', 'alpha_pass', 'rank(returns)', 1.50, '2026-08-21', '2026-08-21'),
+               ('FAILED_01', 'alpha_fail', 'ts_rank(returns, 10)', 0.0, '2026-08-21', '2026-08-21')
     """)
     cursor.execute("""
         INSERT INTO alpha_checks (alpha_id, check_name, result, created_at, updated_at)

@@ -159,89 +159,6 @@ def test_density_separates_same_index_by_expression_origin():
     assert {row.expression_origin for row in rows} == {"unary_template", "first_order"}
 
 
-def test_expression_origin_migrates_legacy_database():
-    """Opening a legacy alpha_expressions table adds and populates the origin column."""
-    with tempfile.TemporaryDirectory() as tmp:
-        db_path = Path(tmp) / "legacy.db"
-        conn = sqlite3.connect(db_path)
-        conn.execute("""
-            CREATE TABLE alpha_expressions (
-                id INTEGER PRIMARY KEY AUTOINCREMENT,
-                expression_sha TEXT NOT NULL UNIQUE,
-                expression TEXT NOT NULL,
-                settings TEXT NOT NULL,
-                created_at TEXT NOT NULL,
-                updated_at TEXT NOT NULL
-            )
-        """)
-        legacy_task = first_order_task_factory(["close"], ["rank"])[0]
-        conn.execute(
-            "INSERT INTO alpha_expressions (expression_sha, expression, settings, created_at, updated_at) VALUES (?, ?, ?, ?, ?)",
-            (AlphaDatabase.compute_sha(legacy_task.expression), legacy_task.expression, "{}", "legacy", "legacy"),
-        )
-        conn.commit()
-        conn.close()
-
-        db = AlphaDatabase(db_path)
-        db.catalog_tasks([legacy_task])
-        row = db._get_connection().execute(
-            "SELECT expression_origin FROM alpha_expressions WHERE expression = ?", (legacy_task.expression,)
-        ).fetchone()
-        assert row["expression_origin"] == "first_order"
-        db.close()
-
-
-def test_expression_pipeline_columns_migrate_legacy_database():
-    """Opening a legacy database adds backtest pipeline columns with correct defaults."""
-    with tempfile.TemporaryDirectory() as tmp:
-        db_path = Path(tmp) / "legacy.db"
-        conn = sqlite3.connect(db_path)
-        conn.executescript("""
-            CREATE TABLE alpha_expressions (
-                id INTEGER PRIMARY KEY AUTOINCREMENT,
-                expression_sha TEXT NOT NULL UNIQUE,
-                expression TEXT NOT NULL,
-                expression_origin TEXT NOT NULL DEFAULT '',
-                settings TEXT NOT NULL,
-                created_at TEXT NOT NULL,
-                updated_at TEXT NOT NULL
-            );
-            CREATE TABLE alpha_details (
-                id INTEGER PRIMARY KEY AUTOINCREMENT,
-                alpha_id TEXT NOT NULL UNIQUE, expression_sha TEXT NOT NULL,
-                alpha_sha TEXT NOT NULL DEFAULT '', expression TEXT NOT NULL,
-                region TEXT, universe TEXT, delay INTEGER DEFAULT 1, decay REAL DEFAULT 0,
-                neutralization TEXT, truncation REAL DEFAULT 0, sharpe REAL DEFAULT 0,
-                fitness REAL DEFAULT 0, turnover REAL DEFAULT 0, margin REAL DEFAULT 0,
-                pnl REAL DEFAULT 0, returns REAL DEFAULT 0, drawdown REAL DEFAULT 0,
-                long_count INTEGER DEFAULT 0, short_count INTEGER DEFAULT 0,
-                grade TEXT, stage_platform TEXT, status_platform TEXT,
-                sc_result TEXT, sc_value REAL, pc_result TEXT, pc_value REAL, checks_json TEXT,
-                created_at TEXT NOT NULL, updated_at TEXT NOT NULL
-            );
-            INSERT INTO alpha_expressions (expression_sha, expression, settings, created_at, updated_at)
-            VALUES ('legacy-sha', 'ts_delta(close, 252)', '{}', 't0', 't0');
-        """)
-        conn.commit()
-        conn.close()
-
-        db = AlphaDatabase(db_path)
-        expr_cols = {r["name"] for r in db._get_connection().execute(
-            "PRAGMA table_info(alpha_expressions)")}
-        detail_cols = {r["name"] for r in db._get_connection().execute(
-            "PRAGMA table_info(alpha_details)")}
-        assert {"batch_id", "fields", "status", "first_operator"} <= expr_cols
-        assert {"ra_failed", "ppa_failed"} <= detail_cols
-        row = db._get_connection().execute(
-            "SELECT status, fields, first_operator, batch_id FROM alpha_expressions WHERE expression_sha='legacy-sha'"
-        ).fetchone()
-        assert row["status"] == "pending"
-        assert row["fields"] == "[]"
-        assert row["first_operator"] == ""
-        assert row["batch_id"] is None
-        db.close()
-
-
 def test_wf_stage_defaults_to_pending_validation():
     """New alpha_details rows default to wf_stage='pending_validation'."""
     with tempfile.TemporaryDirectory() as tmp:
@@ -338,41 +255,6 @@ def test_query_alphas_filters_by_wf_stage():
         pending = db.query_alphas(wf_stage="pending_validation", limit=5)
         assert [d.alpha_id for d in validated] == ["a2"]
         assert [d.alpha_id for d in pending] == ["a1"]
-        db.close()
-
-
-def test_wf_stage_column_migrates_legacy_database():
-    """Opening a legacy alpha_details (no wf_stage) adds the column with correct default."""
-    with tempfile.TemporaryDirectory() as tmp:
-        db_path = Path(tmp) / "legacy.db"
-        conn = sqlite3.connect(db_path)
-        conn.executescript("""
-            CREATE TABLE alpha_details (
-                id INTEGER PRIMARY KEY AUTOINCREMENT,
-                alpha_id TEXT NOT NULL UNIQUE, expression_sha TEXT NOT NULL,
-                alpha_sha TEXT NOT NULL DEFAULT '', expression TEXT NOT NULL,
-                region TEXT, universe TEXT, delay INTEGER DEFAULT 1, decay REAL DEFAULT 0,
-                neutralization TEXT, truncation REAL DEFAULT 0, sharpe REAL DEFAULT 0,
-                fitness REAL DEFAULT 0, turnover REAL DEFAULT 0, margin REAL DEFAULT 0,
-                pnl REAL DEFAULT 0, returns REAL DEFAULT 0, drawdown REAL DEFAULT 0,
-                long_count INTEGER DEFAULT 0, short_count INTEGER DEFAULT 0,
-                grade TEXT, stage_platform TEXT, status_platform TEXT,
-                sc_result TEXT, sc_value REAL, pc_result TEXT, pc_value REAL, checks_json TEXT,
-                created_at TEXT NOT NULL, updated_at TEXT NOT NULL
-            );
-            INSERT INTO alpha_details (alpha_id, expression_sha, expression, created_at, updated_at)
-            VALUES ('legacy', 's1', 'rank(close)', 't0', 't0');
-        """)
-        conn.commit()
-        conn.close()
-
-        db = AlphaDatabase(db_path)
-        cols = {r["name"] for r in db._get_connection().execute(
-            "PRAGMA table_info(alpha_details)")}
-        assert "wf_stage" in cols
-        row = db._get_connection().execute(
-            "SELECT wf_stage FROM alpha_details WHERE alpha_id='legacy'").fetchone()
-        assert row["wf_stage"] == "pending_validation"
         db.close()
 
 
@@ -603,19 +485,19 @@ def test_datafields_upsert_aggregates_universes():
             {"id": "close", "dataset": {"id": "pv1", "name": "PV"}, "region": "GBR",
              "delay": 1, "universe": "TOP700", "type": "MATRIX",
              "coverage": 0.9, "userCount": 3, "alphaCount": 10, "description": "close"},
-            expression_shas=["s1"],
+            alpha_shas=["s1"],
         )
         db.upsert_datafield(
             {"id": "close", "dataset": {"id": "pv1", "name": "PV"}, "region": "GBR",
              "delay": 1, "universe": "TOP3000", "type": "MATRIX",
              "coverage": 0.95, "userCount": 5, "alphaCount": 12, "description": "close"},
-            expression_shas=["s2"],
+            alpha_shas=["s2"],
         )
         fields = db.get_datafields(region="GBR")
         assert len(fields) == 1
         f = fields[0]
         assert f.universes == ["TOP3000", "TOP700"]
-        assert set(f.expression_shas) == {"s1", "s2"}
+        assert set(f.alpha_shas) == {"s1", "s2"}
         assert f.coverage == 0.95  # last write wins
         db.close()
 
@@ -727,10 +609,10 @@ def test_super_alpha_preparation_reads_regular_details():
         db = AlphaDatabase(Path(tmp) / "super-prepare.db")
         try:
             db._get_connection().executemany(
-                """INSERT INTO alpha_details (alpha_id, expression_sha, alpha_sha, expression, sharpe, fitness, turnover,
-                sc_value, pc_value, created_at, updated_at) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)""",
-                [("a", "a", "a", "rank(close)", 2, 1, .2, .2, .2, "now", "now"),
-                 ("b", "b", "b", "rank(volume)", 2, 1, .2, .2, .2, "now", "now")],
+                """INSERT INTO alpha_details (alpha_id, alpha_sha, expression, sharpe, fitness, turnover,
+                sc_value, pc_value, created_at, updated_at) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)""",
+                [("a", "a", "rank(close)", 2, 1, .2, .2, .2, "now", "now"),
+                 ("b", "b", "rank(volume)", 2, 1, .2, .2, .2, "now", "now")],
             )
             db._get_connection().commit()
             candidates = alpha_machine.prepare_super_candidates(db, {"region": "GBR", "universe": "TOP700", "delay": 1})

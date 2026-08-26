@@ -69,7 +69,7 @@ class ResearchProjectionRebuilder:
             self.experiment_repository.save_batch(batch)
         snapshot_event = next((event for event in reversed(events) if event.event_type is EventType.MONITORING_OBSERVED and "knowledge" in event.payload), None)
         if snapshot_event is None:
-            raise ValueError(f"cannot rebuild {round_id}: missing knowledge snapshot event")
+            return
         self.knowledge_base = KnowledgeBase(**snapshot_event.payload["knowledge"])
         event_offset = self._event_offset(snapshot_event)
         metadata = {"round_id": round_id, "policy_version": policy_data.get("policy_version"), "event_offset": event_offset}

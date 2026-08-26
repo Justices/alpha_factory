@@ -136,7 +136,6 @@ class AlphaChecksMixin(BaseRepository):
 
         detail = AlphaDetail(
             alpha_id=alpha_id,
-            expression_sha=self.compute_sha(expression) if expression else "",
             alpha_sha=self.compute_alpha_sha(expression, settings) if expression else "",
             expression=expression,
             region=settings.get("region", ""),
@@ -173,4 +172,3 @@ class AlphaChecksMixin(BaseRepository):
         except Exception:
             conn.rollback()
             raise
-

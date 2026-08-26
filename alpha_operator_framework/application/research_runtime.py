@@ -62,4 +62,11 @@ class ResearchRuntime:
         )
 
     def process_round(self, round_id: str) -> ResearchCycleSummary:
+        if self.research_repository.load_round(round_id) is None:
+            from alpha_operator_framework.application.research_rebuild import ResearchProjectionRebuilder
+
+            ResearchProjectionRebuilder(
+                self.event_store, self.research_repository, self.experiment_repository,
+                self.knowledge_base, self.knowledge_repository,
+            ).rebuild(round_id)
         return self.worker().process_round(round_id)

@@ -18,13 +18,13 @@ logger = logging.getLogger(__name__)
 def sample_cohort(config: CarpetMiningConfig, db, categorized_tasks: Dict[str, List[Task]]) -> List[Task]:
     """Sample each family while prioritizing untested expressions and field coverage."""
     cohort: List[Task] = []
-    existing_shas: set[str] = set()
+    existing_alpha_shas: set[str] = set()
     if db:
         try:
             rows = db._get_connection().execute(
-                "SELECT expression_sha FROM alpha_expressions WHERE status IN ('completed', 'failed', 'pruned')"
+                "SELECT alpha_sha FROM alpha_expressions WHERE status IN ('completed', 'failed')"
             ).fetchall()
-            existing_shas = {row[0] for row in rows}
+            existing_alpha_shas = {row[0] for row in rows}
         except Exception:
             pass
     rng = random.Random(config.seed) if config.seed is not None else random
@@ -37,9 +37,13 @@ def sample_cohort(config: CarpetMiningConfig, db, categorized_tasks: Dict[str, L
         all_untested: List[Task] = []
         all_tested: List[Task] = []
         for task in task_list:
-            task_sha = db.compute_sha(task.expression) if db else hashlib.sha256(task.expression.strip().encode()).hexdigest()
+            settings = {
+                "region": config.region, "universe": config.universe, "delay": config.delay,
+                "decay": config.decay, "neutralization": config.neutralization, "truncation": config.truncation,
+            }
+            task_sha = db.compute_alpha_sha(task.expression, settings) if db else hashlib.sha256(task.expression.strip().encode()).hexdigest()
             primary_field = (_extract_task_fields(task) or ["unknown"])[0]
-            if task_sha in existing_shas:
+            if task_sha in existing_alpha_shas:
                 all_tested.append(task)
             else:
                 untested_by_field[primary_field].append(task)

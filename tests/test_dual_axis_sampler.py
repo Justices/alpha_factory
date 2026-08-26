@@ -68,8 +68,11 @@ def test_dual_axis_sampler_untested_priority():
         with db.transaction() as conn:
             cur = conn.cursor()
             cur.execute(
-                "INSERT INTO alpha_expressions (expression_sha, expression, expression_origin, settings, status, created_at, updated_at) VALUES (?, ?, ?, ?, ?, datetime('now'), datetime('now'))",
-                (db.compute_sha(some_task.expression), some_task.expression, "test", "{}", "completed")
+                    "INSERT INTO alpha_expressions (alpha_sha, expression, expression_origin, settings, status, created_at, updated_at) VALUES (?, ?, ?, ?, ?, datetime('now'), datetime('now'))",
+                    (db.compute_alpha_sha(some_task.expression, {
+                        "region": config.region, "universe": config.universe, "delay": config.delay,
+                        "decay": config.decay, "neutralization": config.neutralization, "truncation": config.truncation,
+                    }), some_task.expression, "test", "{}", "completed")
             )
 
         cohort = miner.sample_cohort(categorized)

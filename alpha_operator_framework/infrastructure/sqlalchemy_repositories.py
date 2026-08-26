@@ -7,21 +7,16 @@ from dataclasses import asdict
 from datetime import UTC, datetime
 from typing import Any
 
-from sqlalchemy import Engine, delete, insert, select, update
+from sqlalchemy import Engine, insert, select, update
 
 from alpha_operator_framework.experiment.lifecycle import BatchState, BatchTransition
 from alpha_operator_framework.experiment.models import BacktestResult, BacktestTask, EvaluationRecord, ExperimentBatch
-from alpha_operator_framework.knowledge.distillation import DistilledTemplate
 from alpha_operator_framework.knowledge.models import KnowledgeBase
 from alpha_operator_framework.research.round import Candidate, PruningDecision, ResearchPolicy, ResearchRound, SelectionDecision
 
 from .sqlalchemy_migrations import (
     event_log,
-    experiment_batch_snapshots,
     knowledge_snapshot,
-    knowledge_snapshot_history,
-    research_round_snapshots,
-    template_promotions,
 )
 
 
@@ -77,27 +72,18 @@ def _knowledge(payload: str) -> KnowledgeBase:
 
 
 class _SnapshotRepository:
-    table: Any
-    identifier: Any
-
     def __init__(self, engine: Engine) -> None:
         self.engine = engine
+        self._items: dict[str, str] = {}
 
     def _save(self, identifier: str, payload: str, *, status: str, error: str | None = None) -> None:
-        now = datetime.now(UTC).isoformat()
-        with self.engine.begin() as connection:
-            statement = update(self.table).where(self.identifier == identifier).values(payload=payload, updated_at=now, status=status, error=error)
-            if connection.execute(statement).rowcount == 0:
-                connection.execute(insert(self.table).values({self.identifier.name: identifier, "payload": payload, "created_at": now, "updated_at": now, "status": status, "error": error}))
+        self._items[identifier] = payload
 
     def _load(self, identifier: str) -> str | None:
-        with self.engine.connect() as connection:
-            return connection.execute(select(self.table.c.payload).where(self.identifier == identifier)).scalar_one_or_none()
+        return self._items.get(identifier)
 
 
 class SqlAlchemyResearchRepository(_SnapshotRepository):
-    table = research_round_snapshots
-    identifier = research_round_snapshots.c.round_id
 
     def save_round(self, round_: ResearchRound) -> None:
         self._save(round_.round_id, _json(asdict(round_)), status="PLANNED")
@@ -108,8 +94,6 @@ class SqlAlchemyResearchRepository(_SnapshotRepository):
 
 
 class SqlAlchemyExperimentRepository(_SnapshotRepository):
-    table = experiment_batch_snapshots
-    identifier = experiment_batch_snapshots.c.batch_id
 
     def save_batch(self, batch: ExperimentBatch) -> None:
         errors = sorted({task.last_error for task in batch.tasks.values() if task.last_error})
@@ -122,8 +106,7 @@ class SqlAlchemyExperimentRepository(_SnapshotRepository):
     def list_due_batches(self) -> list[ExperimentBatch]:
         """Return non-terminal batches with at least one task ready to run."""
         now = datetime.now(UTC)
-        with self.engine.connect() as connection:
-            batches = [_batch(payload) for payload in connection.execute(select(self.table.c.payload)).scalars()]
+        batches = [_batch(payload) for payload in self._items.values()]
         return [
             batch for batch in batches
             if batch.state in {BatchState.SUBMITTED, BatchState.PARTIAL_FAILED}
@@ -146,58 +129,11 @@ class SqlAlchemyKnowledgeRepository:
         with self.engine.begin() as connection:
             if connection.execute(update(knowledge_snapshot).where(knowledge_snapshot.c.id == 1).values(payload=payload)).rowcount == 0:
                 connection.execute(insert(knowledge_snapshot).values(id=1, payload=payload))
-            if connection.execute(select(knowledge_snapshot_history.c.version).where(knowledge_snapshot_history.c.version == knowledge.version)).scalar_one_or_none() is None:
-                connection.execute(insert(knowledge_snapshot_history).values(
-                    version=knowledge.version, payload=payload, round_id=round_id,
-                    policy_version=policy_version, event_offset=event_offset,
-                    created_at=datetime.now(UTC).isoformat(),
-                ))
 
     def load(self) -> KnowledgeBase:
         with self.engine.connect() as connection:
             payload = connection.execute(select(knowledge_snapshot.c.payload).where(knowledge_snapshot.c.id == 1)).scalar_one_or_none()
         return _knowledge(payload) if payload is not None else KnowledgeBase()
-
-    def load_version(self, version: int) -> KnowledgeBase:
-        with self.engine.connect() as connection:
-            payload = connection.execute(select(knowledge_snapshot_history.c.payload).where(knowledge_snapshot_history.c.version == version)).scalar_one_or_none()
-        if payload is None:
-            raise KeyError(version)
-        return _knowledge(payload)
-
-    def history_for_round(self, round_id: str) -> list[dict[str, Any]]:
-        with self.engine.connect() as connection:
-            return [dict(row) for row in connection.execute(
-                select(knowledge_snapshot_history).where(knowledge_snapshot_history.c.round_id == round_id)
-                .order_by(knowledge_snapshot_history.c.version)
-            ).mappings()]
-
-
-class SqlAlchemyTemplatePromotionRepository:
-    def __init__(self, engine: Engine) -> None:
-        self.engine = engine
-
-    def promote(self, templates: list[DistilledTemplate]) -> None:
-        with self.engine.begin() as connection:
-            for template in templates:
-                current = connection.execute(select(template_promotions.c.support, template_promotions.c.source_task_ids).where(
-                    template_promotions.c.expression_template == template.expression_template)).one_or_none()
-                support, source_ids = template.support, set(template.source_task_ids)
-                if current is not None:
-                    support = max(support, current.support)
-                    source_ids.update(json.loads(current.source_task_ids))
-                    connection.execute(update(template_promotions).where(
-                        template_promotions.c.expression_template == template.expression_template).values(
-                        support=support, source_task_ids=_json(sorted(source_ids))))
-                else:
-                    connection.execute(insert(template_promotions).values(
-                        expression_template=template.expression_template, support=support, source_task_ids=_json(sorted(source_ids))))
-
-    def list_promoted(self) -> list[DistilledTemplate]:
-        with self.engine.connect() as connection:
-            rows = connection.execute(select(template_promotions).order_by(template_promotions.c.expression_template)).mappings().all()
-        return [DistilledTemplate(row["expression_template"], row["support"], tuple(json.loads(row["source_task_ids"]))) for row in rows]
-
 
 class SqlAlchemyEventRepository:
     """Minimal append-only repository required by :class:`EventStore`."""

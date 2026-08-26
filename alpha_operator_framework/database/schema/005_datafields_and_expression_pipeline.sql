@@ -15,7 +15,7 @@ CREATE TABLE IF NOT EXISTS datafields (
     coverage REAL DEFAULT 0.0,
     user_count INTEGER DEFAULT 0,
     alpha_count INTEGER DEFAULT 0,
-    expression_shas_json TEXT NOT NULL DEFAULT '[]',
+    alpha_shas_json TEXT NOT NULL DEFAULT '[]',
     last_fetched_at TEXT,
     created_at TEXT NOT NULL,
     updated_at TEXT NOT NULL,

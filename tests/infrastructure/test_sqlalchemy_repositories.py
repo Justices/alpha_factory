@@ -16,5 +16,5 @@ def test_sqlalchemy_repositories_persist_knowledge_and_events(tmp_path) -> None:
     store = EventStore(persistent=True, repository=SqlAlchemyEventRepository(engine))
     store.append(Event.create(EventType.POLICY_CREATED, "round-1", {"round_id": "round-1"}))
 
-    assert knowledge.load_version(3).field_scores == {"close": 0.7}
+    assert knowledge.load().field_scores == {"close": 0.7}
     assert store.read_stream("round-1")[0].payload == {"round_id": "round-1"}

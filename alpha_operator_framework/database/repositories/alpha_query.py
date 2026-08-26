@@ -13,29 +13,6 @@ from ..models import AlphaExpression
 class AlphaQueryMixin(BaseRepository):
     """Expression queries and stratified sampling helpers."""
 
-    def get_expression_by_sha(self, expression_sha: str) -> Optional[AlphaExpression]:
-        """通过 SHA 查询表达式."""
-        conn = self._get_connection()
-        cursor = conn.cursor()
-        cursor.execute("SELECT * FROM alpha_expressions WHERE expression_sha = ?", (expression_sha,))
-        row = cursor.fetchone()
-        if row:
-            return AlphaExpression(
-                id=row['id'],
-                expression_sha=row['expression_sha'],
-                expression=row['expression'],
-                expression_origin=row['expression_origin'],
-                settings=row['settings'],
-                batch_id=row['batch_id'],
-                fields=row['fields'],
-                status=row['status'],
-                pruning_status=row['pruning_status'],
-                first_operator=row['first_operator'],
-                created_at=row['created_at'],
-                updated_at=row['updated_at'],
-            )
-        return None
-
     def get_expression_by_alpha_sha(self, alpha_sha: str) -> Optional[AlphaExpression]:
         """按表达式与 settings 的联合身份查询。"""
         row = self._get_connection().execute(
@@ -44,7 +21,7 @@ class AlphaQueryMixin(BaseRepository):
         if row is None:
             return None
         return AlphaExpression(
-            id=row["id"], expression_sha=row["expression_sha"], alpha_sha=row["alpha_sha"],
+            id=row["id"], alpha_sha=row["alpha_sha"],
             expression=row["expression"], expression_origin=row["expression_origin"],
             settings=row["settings"], batch_id=row["batch_id"], fields=row["fields"],
             status=row["status"], pruning_status=row["pruning_status"],
@@ -77,7 +54,6 @@ class AlphaQueryMixin(BaseRepository):
         return [
             AlphaExpression(
                 id=r['id'],
-                expression_sha=r['expression_sha'],
                 alpha_sha=r['alpha_sha'],
                 expression=r['expression'],
                 expression_origin=r['expression_origin'],
@@ -117,11 +93,10 @@ class AlphaQueryMixin(BaseRepository):
         conn = self._get_connection()
 
         expr_meta: Dict[str, Tuple[Optional[int], Tuple[str, ...]]] = {}
-        shas = [self.compute_sha(e) for e in expressions]
-        placeholders = ",".join("?" * len(shas))
-        query = f"SELECT expression, batch_id, fields FROM alpha_expressions WHERE expression_sha IN ({placeholders})"
+        placeholders = ",".join("?" * len(expressions))
+        query = f"SELECT expression, batch_id, fields FROM alpha_expressions WHERE expression IN ({placeholders})"
         try:
-            rows = conn.execute(query, shas).fetchall()
+            rows = conn.execute(query, expressions).fetchall()
             for r in rows:
                 expr = r["expression"]
                 bid = r["batch_id"]

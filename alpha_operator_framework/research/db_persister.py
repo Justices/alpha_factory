@@ -74,18 +74,15 @@ def persist_research_pipeline_results(
         try:
             tree = parse_expression(raw_expr)
             can_expr = to_canonical_string(tree)
-            expr_sha = hashlib.sha256(can_expr.encode("utf-8")).hexdigest()
             fields_used = list(extract_ast_fields(tree))
             first_op = extract_first_operator(can_expr)
         except Exception:
             can_expr = raw_expr
-            expr_sha = hashlib.sha256(raw_expr.encode("utf-8")).hexdigest()
             fields_used = []
             first_op = ""
 
         try:
             db.upsert_expression_record(
-                expression_sha=expr_sha,
                 expression=can_expr,
                 origin=origin_str,
                 settings=settings,

@@ -123,6 +123,25 @@ class AlphaWriteMixin(BaseRepository):
         )
         self._get_connection().commit()
 
+    def prune_unselected_round_candidates(self, round_id: str) -> None:
+        """在本轮回测结束后剪枝未选中的候选，不影响已回测表达式。"""
+        now = self._timestamp()
+        conn = self._get_connection()
+        conn.execute(
+            """UPDATE round_candidates SET pruning_status='pruned', updated_at=?
+               WHERE round_id=? AND selection_status='not_selected'""",
+            (now, round_id),
+        )
+        conn.execute(
+            """UPDATE alpha_expressions SET pruning_status='pruned', updated_at=?
+               WHERE alpha_sha IN (
+                   SELECT alpha_sha FROM round_candidates
+                   WHERE round_id=? AND selection_status='not_selected'
+               )""",
+            (now, round_id),
+        )
+        conn.commit()
+
     def upsert_expression_record(
         self,
         expression: str,

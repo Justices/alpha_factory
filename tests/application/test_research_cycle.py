@@ -45,6 +45,10 @@ class RecordingAlphaRepository:
     def record_round_selection(self, *_args, **_kwargs) -> None:
         return None
 
+    def compute_alpha_sha(self, expression, _settings): return expression
+    def mark_expressions_pruned(self, *_args, **_kwargs) -> None: return None
+    def mark_round_candidates_pruned(self, *_args, **_kwargs) -> None: return None
+
     def create_simulation_batch(self, tasks, settings, **kwargs) -> int:
         self.created_batches.append((tasks, settings, kwargs))
         return 17

@@ -3,6 +3,7 @@ from __future__ import annotations
 from alpha_operator_framework.cli.command_registry import LazyCommandHandler, command_specs
 from alpha_operator_framework.cli.research import DEFAULT_CONFIG_PATH
 from alpha_operator_framework.cli.router import build_parser, command_domains
+from alpha_operator_framework.infrastructure.runtime_factory import resolve_research_options
 
 
 EXPECTED_DOMAINS = {
@@ -73,3 +74,9 @@ def test_root_parser_preserves_the_cli_contract() -> None:
     assert isinstance(prepare_super.func, LazyCommandHandler)
     assert (prepare_super.func.module_name, prepare_super.func.attribute) == EXPECTED_HANDLER_REFS["prepare-super"]
     assert prepare_super.decay == 6
+
+
+def test_default_research_config_allocates_twenty_backtests_per_family() -> None:
+    options = resolve_research_options(DEFAULT_CONFIG_PATH, {})
+
+    assert options["sample_per_family"] == 20

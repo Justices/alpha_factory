@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import argparse
 import json
+from dataclasses import replace
 from pathlib import Path
 from typing import Sequence
 from uuid import uuid4
@@ -41,7 +42,7 @@ def command_research_cycle(args: argparse.Namespace) -> None:
     from alpha_operator_framework.application.research_cycle import ResearchCycleRequest
     from alpha_operator_framework.infrastructure.runtime_factory import build_research_runtime, resolve_research_options
     from alpha_operator_framework.infrastructure.telemetry import JsonLinesTelemetrySink
-    from alpha_operator_framework.research.construction import AstCandidateBuilder, ConstructionTemplate
+    from alpha_operator_framework.research.construction import AstCandidateBuilder
     from alpha_operator_framework.research.field_loader import load_real_market_fields, resolve_cached_universe
     from alpha_operator_framework.research.policy import load_policy, validate_cli_policy_overrides
     from alpha_operator_framework.research.round import ResearchPolicy
@@ -82,37 +83,40 @@ def command_research_cycle(args: argparse.Namespace) -> None:
         )
     if not fields:
         raise ValueError(f"no BRAIN data fields available for {field_scope['region']}/{field_scope['universe']}/delay={field_scope['delay']}")
-    templates = policy_snapshot.construction_templates() if policy_snapshot and policy_snapshot.templates else (
-        ConstructionTemplate("rank_field", "rank({field})", "cross_sectional", ("rank",)),
-        ConstructionTemplate("ts_rank_22", "ts_rank({field}, 22)", "time_series", ("ts_rank",)),
-    )
-    candidates = AstCandidateBuilder().build(
-        [field.id for field in fields if (field.type or "MATRIX").upper() == "MATRIX"], templates,
-    )
-    strategy = {"stratified": "weighted_stratified", "d_optimal": "diversity"}.get(
-        args.algorithm or options.get("selection_strategy", "weighted_stratified"),
-        args.algorithm or options.get("selection_strategy", "weighted_stratified"),
-    )
-    if policy is None:
-        quota = options.get("sample_per_family", 4)
-        family_quotas = {candidate.family: quota for candidate in candidates}
-        policy = ResearchPolicy(
-            options["region"], options["universe"], sum(family_quotas.values()),
-            family_quotas=family_quotas, policy_version="cli-v1",
-            selection_strategy=strategy, delay=options.get("delay", 1), decay=options.get("decay", 8),
-            neutralization=options.get("neutralization", "SUBINDUSTRY"), truncation=options.get("truncation", 0.08),
-        )
-    else:
-        validate_cli_policy_overrides(policy, {
-            "region": getattr(args, "region", None), "universe": getattr(args, "universe", None), "delay": getattr(args, "delay", None),
-            "algorithm": strategy if getattr(args, "algorithm", None) is not None else None, "decay": getattr(args, "decay", None),
-            "neutralization": getattr(args, "neutralization", None), "truncation": getattr(args, "truncation", None),
-        })
     runtime = build_research_runtime(
         config_path, execute_platform=args.execute, evidence_records=_evidence(args),
         submission_authorized=bool(getattr(args, "authorize_submission", False)),
     )
     try:
+        if policy_snapshot and policy_snapshot.templates:
+            candidates = AstCandidateBuilder().build_preprocessed(
+                fields, policy_snapshot.construction_templates(), seed=options.get("seed", 42),
+            )
+        else:
+            candidates = AstCandidateBuilder().build_template_library(
+                runtime.alpha_database.list_templates(active_only=True), fields,
+                seed=options.get("seed", 42),
+            )
+        strategy = {"stratified": "weighted_stratified", "d_optimal": "diversity"}.get(
+            args.algorithm or options.get("selection_strategy", "weighted_stratified"),
+            args.algorithm or options.get("selection_strategy", "weighted_stratified"),
+        )
+        quota = int(options.get("sample_per_family", 20))
+        family_quotas = {candidate.family: quota for candidate in candidates}
+        if policy is None:
+            policy = ResearchPolicy(
+                options["region"], options["universe"], sum(family_quotas.values()),
+                family_quotas=family_quotas, policy_version="cli-v1",
+                selection_strategy=strategy, delay=options.get("delay", 1), decay=options.get("decay", 8),
+                neutralization=options.get("neutralization", "SUBINDUSTRY"), truncation=options.get("truncation", 0.08),
+            )
+        else:
+            validate_cli_policy_overrides(policy, {
+                "region": getattr(args, "region", None), "universe": getattr(args, "universe", None), "delay": getattr(args, "delay", None),
+                "algorithm": strategy if getattr(args, "algorithm", None) is not None else None, "decay": getattr(args, "decay", None),
+                "neutralization": getattr(args, "neutralization", None), "truncation": getattr(args, "truncation", None),
+            })
+            policy = replace(policy, max_backtests=sum(family_quotas.values()), family_quotas=family_quotas)
         round_id = _round_id(args, policy, options)
         summary = runtime.plan(ResearchCycleRequest(round_id, options.get("seed", 42), policy, runtime.knowledge_base.snapshot(), candidates, args.execute))
         if args.execute:

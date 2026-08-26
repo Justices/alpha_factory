@@ -18,8 +18,7 @@ class WeightedStratifiedSelector:
     1. **过滤**：利用 KnowledgeSnapshot 剔除已被历史知识否决的候选。
     2. **族内排名**：按加权综合评分（field / operator / template / novelty / uncertainty
        五个维度）降序排列各族成员，取前 ``quota`` 个进入初选池。
-    3. **全局裁剪**：若初选池总数超过 ``policy.max_backtests``，再按全局评分降序保留
-       最高分的 ``max_backtests`` 个候选，确保回测预算不被突破。
+    3. **全局裁剪**：仅未设置分族配额时，按 ``policy.max_backtests`` 截断初选池。
 
     Attributes:
         name: 策略标识符，用于在工厂函数中按名称查找该选择器。
@@ -74,8 +73,8 @@ class WeightedStratifiedSelector:
                 family, len(members), quota, min(quota, len(members)),
             )
 
-        # 第三阶段：若各族初选池合并后仍超出全局回测预算，按全局评分降序再次裁剪
-        if len(selected_ids) > policy.max_backtests:
+        # 显式分族配额是最终预算；仅旧式全局预算才进行二次裁剪。
+        if not policy.family_quotas and len(selected_ids) > policy.max_backtests:
             logger.debug(
                 "初选池 %d 超过 max_backtests=%d，执行全局裁剪",
                 len(selected_ids), policy.max_backtests,

@@ -11,6 +11,6 @@ research:
   decay: 8
   neutralization: SUBINDUSTRY
   truncation: 0.08
-  sample_per_family: 4
+  sample_per_family: 20
   selection_strategy: weighted_stratified
   seed: 42

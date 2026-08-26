@@ -41,7 +41,8 @@ KNOWN_OPERATORS = frozenset(
     | set(extended_ops)
     | {
         "abs", "log", "sign", "sqrt", "signed_power", "min", "max",
-        "trade_when", "filter", "paste", "if_else", "ts_step",
+        "trade_when", "filter", "paste", "if_else", "ts_step", "ts_backfill", "winsorize",
+        "ts_corr", "group_mean", "s_log_1p",
     }
 )
 

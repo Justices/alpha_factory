@@ -42,3 +42,21 @@ def test_research_round_replays_same_selection_for_same_snapshots_and_seed() -> 
     assert first == second
     assert [d.candidate_id for d in first if d.selected] == ["strong"]
     assert first[1].score_components["field"] > first[0].score_components["field"]
+
+
+def test_explicit_family_quotas_are_not_clipped_by_a_global_budget() -> None:
+    policy = ResearchPolicy(
+        region="GBR", universe="TOP700", max_backtests=8,
+        family_quotas={"first": 20, "second": 20},
+    )
+    candidates = [
+        Candidate(f"first-{index}", f"rank(first_{index})", "first", (f"first_{index}",), ("rank",), "first")
+        for index in range(20)
+    ] + [
+        Candidate(f"second-{index}", f"rank(second_{index})", "second", (f"second_{index}",), ("rank",), "second")
+        for index in range(20)
+    ]
+
+    decisions = WeightedStratifiedSelector().select(candidates, policy, KnowledgeSnapshot(version=0), random.Random(7))
+
+    assert sum(decision.selected for decision in decisions) == 40

@@ -25,7 +25,7 @@ class BatchRepository:
     def list_due_batches(self): return [self.batch] if self.batch is not None else []
 
 
-def test_worker_marks_failed_backtests_pruned_after_persisting_the_result() -> None:
+def test_worker_does_not_prune_backtested_expressions() -> None:
     class Gateway:
         def run_backtests(self, tasks):
             return [BacktestResult(task.task_id, task.expression, -0.1, 0.2, 0.2, 1.0, False, "alpha-1") for task in tasks]
@@ -43,6 +43,7 @@ def test_worker_marks_failed_backtests_pruned_after_persisting_the_result() -> N
         def compute_alpha_sha(expression, settings): return f"alpha:{expression}:{settings['region']}"
         def mark_expressions_pruned(self, shas): self.pruned.extend(shas)
         def mark_round_candidates_pruned(self, *_args, **_kwargs): return None
+        def prune_unselected_round_candidates(self, *_args, **_kwargs): return None
 
     events, rounds, batches, knowledge, primary = EventStore(), RoundRepository(), BatchRepository(), KnowledgeBase(), PrimaryStore()
     ResearchCycleUseCase(rounds, Gateway(), knowledge, batches, event_store=events, alpha_database=primary).execute(
@@ -54,7 +55,7 @@ def test_worker_marks_failed_backtests_pruned_after_persisting_the_result() -> N
 
     ResearchBatchWorker(events, rounds, batches, knowledge, Gateway(), alpha_database=primary).process_round("pruned-after-result")
 
-    assert primary.pruned == ["alpha:rank(close):GBR"]
+    assert primary.pruned == []
 
 
 def test_worker_resumes_submitted_batch_and_runs_only_missing_tasks() -> None:
@@ -83,6 +84,28 @@ def test_worker_resumes_submitted_batch_and_runs_only_missing_tasks() -> None:
     assert gateway.calls == [["worker-round:1"]]
     assert batches.batch.state is BatchState.EVALUATED
     assert EventType.SIMULATION_COMPLETED in [event.event_type for event in events.read_stream("worker-round")]
+
+
+def test_worker_submits_selected_tasks_in_batches_of_eight() -> None:
+    class Gateway:
+        def __init__(self): self.calls = []
+        def run_backtests(self, tasks):
+            self.calls.append(len(tasks))
+            return [BacktestResult(task.task_id, task.expression, 1.5, 1.1, 0.2, 5.0, True, f"alpha-{task.task_id}") for task in tasks]
+
+    events, rounds, batches, knowledge, gateway = EventStore(), RoundRepository(), BatchRepository(), KnowledgeBase(), Gateway()
+    candidates = [
+        Candidate(str(index), f"rank(field_{index})", "family", (f"field_{index}",), ("rank",), "template")
+        for index in range(17)
+    ]
+    ResearchCycleUseCase(rounds, gateway, knowledge, batches, event_store=events).execute(
+        ResearchCycleRequest("chunked-round", 9, ResearchPolicy("GBR", "TOP700", 17), KnowledgeSnapshot(version=0), candidates, True)
+    )
+
+    summary = ResearchBatchWorker(events, rounds, batches, knowledge, gateway).process_round("chunked-round")
+
+    assert gateway.calls == [8, 8, 1]
+    assert summary.status == "COMPLETED"
 
 
 def test_worker_persists_distilled_template_promotions() -> None:
@@ -124,6 +147,7 @@ def test_worker_projects_distilled_templates_to_primary_library() -> None:
         def save_result_with_checks(self, *_args, **_kwargs): return None
         def set_expression_status(self, *_args, **_kwargs): return None
         def save_abstracted_template(self, **kwargs): self.templates.append(kwargs); return True
+        def prune_unselected_round_candidates(self, *_args, **_kwargs): return None
 
     events, rounds, batches, knowledge, primary = EventStore(), RoundRepository(), BatchRepository(), KnowledgeBase(), PrimaryStore()
     ResearchCycleUseCase(rounds, Gateway(), knowledge, batches, event_store=events, alpha_database=primary).execute(

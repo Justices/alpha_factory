@@ -22,7 +22,10 @@ class AlphaWriteMixin(BaseRepository):
     @classmethod
     def compute_alpha_sha(cls, expression: str, settings: Dict[str, Any]) -> str:
         """计算包含环境设置的 Alpha 综合指纹."""
-        payload = f"{expression.strip()}|{settings.get('region','')}|{settings.get('universe','')}|{settings.get('delay',1)}|{settings.get('decay',0.0)}|{settings.get('neutralization','')}"
+        payload = json.dumps(
+            {"expression": expression.strip(), "settings": settings},
+            ensure_ascii=False, sort_keys=True, separators=(",", ":"),
+        )
         return hashlib.sha256(payload.encode("utf-8")).hexdigest()
 
     def insert_expression(self, expression: str, settings: Dict, *, expression_origin: str = "",
@@ -37,7 +40,8 @@ class AlphaWriteMixin(BaseRepository):
         cursor = conn.cursor()
 
         expression_sha = self.compute_sha(expression)
-        settings_json = json.dumps(settings)
+        alpha_sha = self.compute_alpha_sha(expression, settings)
+        settings_json = json.dumps(settings, ensure_ascii=False, sort_keys=True, separators=(",", ":"))
         fields_json = self._json(sorted(set(fields if fields is not None else extract_fields(expression))))
         first_operator = first_operator if first_operator is not None else extract_first_operator(expression)
         now = datetime.now().isoformat()
@@ -45,10 +49,10 @@ class AlphaWriteMixin(BaseRepository):
         try:
             cursor.execute("""
                 INSERT INTO alpha_expressions
-                    (expression_sha, expression, expression_origin, settings,
+                    (expression_sha, alpha_sha, expression, expression_origin, settings,
                      batch_id, fields, status, first_operator, created_at, updated_at)
-                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
-            """, (expression_sha, expression, expression_origin, settings_json,
+                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+            """, (expression_sha, alpha_sha, expression, expression_origin, settings_json,
                   batch_id, fields_json, status, first_operator, now, now))
             if commit:
                 conn.commit()
@@ -64,21 +68,64 @@ class AlphaWriteMixin(BaseRepository):
                     status = CASE WHEN ? = 'completed' THEN 'completed' ELSE status END,
                     first_operator = CASE WHEN first_operator = '' THEN ? ELSE first_operator END,
                     updated_at = ?
-                WHERE expression_sha = ?
-            """, (expression_origin, batch_id, fields_json, fields_json, status, first_operator, now, expression_sha))
+                WHERE alpha_sha = ?
+            """, (expression_origin, batch_id, fields_json, fields_json, status, first_operator, now, alpha_sha))
             if commit:
                 conn.commit()
-            cursor.execute("SELECT id FROM alpha_expressions WHERE expression_sha = ?", (expression_sha,))
+            cursor.execute("SELECT id FROM alpha_expressions WHERE alpha_sha = ?", (alpha_sha,))
             row = cursor.fetchone()
             return row['id'] if row else -1
 
-    def set_expression_status(self, expression: str, status: str) -> None:
+    def set_expression_status(self, expression: str, status: str, settings: Dict[str, Any]) -> None:
         """Update the primary expression lifecycle status without changing its lineage."""
         if status not in {"pending", "completed", "failed"}:
             raise ValueError(f"unsupported expression status: {status}")
         self._get_connection().execute(
-            "UPDATE alpha_expressions SET status = ?, updated_at = ? WHERE expression_sha = ?",
-            (status, self._timestamp(), self.compute_sha(expression)),
+            "UPDATE alpha_expressions SET status = ?, updated_at = ? WHERE alpha_sha = ?",
+            (status, self._timestamp(), self.compute_alpha_sha(expression, settings)),
+        )
+        self._get_connection().commit()
+
+    def catalog_research_candidates(self, round_id: str, candidates: List[Any], settings: Dict[str, Any]) -> None:
+        """Create the explicit round-to-expression catalog links before selection."""
+        now = self._timestamp()
+        conn = self._get_connection()
+        for candidate in candidates:
+            conn.execute(
+                """INSERT INTO round_candidates
+                (round_id, candidate_id, alpha_sha, family, template_id, selection_status, pruning_status, created_at, updated_at)
+                VALUES (?, ?, ?, ?, ?, 'generated', 'active', ?, ?)
+                ON CONFLICT(round_id, candidate_id) DO UPDATE SET
+                    alpha_sha=excluded.alpha_sha, family=excluded.family,
+                    template_id=excluded.template_id, updated_at=excluded.updated_at""",
+                (round_id, candidate.candidate_id, self.compute_alpha_sha(candidate.expression, settings),
+                 candidate.family, candidate.template_id, now, now),
+            )
+        conn.commit()
+
+    def record_round_selection(self, round_id: str, decisions: List[Any]) -> None:
+        """Persist the selector outcome independently from the round JSON snapshot."""
+        now = self._timestamp()
+        conn = self._get_connection()
+        for decision in decisions:
+            conn.execute(
+                """UPDATE round_candidates
+                SET selection_status=?, selection_reason=?, score_components_json=?, updated_at=?
+                WHERE round_id=? AND candidate_id=?""",
+                ("selected" if decision.selected else "not_selected", decision.reason,
+                 self._json(dict(decision.score_components)), now, round_id, decision.candidate_id),
+            )
+        conn.commit()
+
+    def mark_round_candidates_pruned(self, round_id: str, candidate_ids: List[str]) -> None:
+        """Record pruning as a per-round judgement without changing selection or result status."""
+        if not candidate_ids:
+            return
+        now = self._timestamp()
+        placeholders = ",".join("?" for _ in candidate_ids)
+        self._get_connection().execute(
+            f"UPDATE round_candidates SET pruning_status='pruned', updated_at=? WHERE round_id=? AND candidate_id IN ({placeholders})",
+            [now, round_id, *candidate_ids],
         )
         self._get_connection().commit()
 
@@ -98,10 +145,10 @@ class AlphaWriteMixin(BaseRepository):
         conn.execute(
             """
             INSERT INTO alpha_expressions (
-                expression_sha, expression, expression_origin, settings,
+                expression_sha, alpha_sha, expression, expression_origin, settings,
                 fields, status, first_operator, created_at, updated_at
-            ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
-            ON CONFLICT(expression_sha) DO UPDATE SET
+            ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+            ON CONFLICT(alpha_sha) DO UPDATE SET
                 expression_origin = CASE WHEN alpha_expressions.expression_origin = '' THEN excluded.expression_origin ELSE alpha_expressions.expression_origin END,
                 status = CASE WHEN excluded.status = 'completed' THEN 'completed' ELSE alpha_expressions.status END,
                 fields = CASE WHEN excluded.fields != '[]' THEN excluded.fields ELSE alpha_expressions.fields END,
@@ -109,7 +156,7 @@ class AlphaWriteMixin(BaseRepository):
                 updated_at = excluded.updated_at
             """,
             (
-                expression_sha,
+                expression_sha, self.compute_alpha_sha(expression, settings or {}),
                 expression,
                 origin,
                 self._json(settings or {}),
@@ -194,14 +241,14 @@ class AlphaWriteMixin(BaseRepository):
             raise
         return count
 
-    def mark_expressions_pruned(self, expression_shas: List[str]) -> None:
-        """把表达式标记为被剪枝 (pruned)."""
+    def mark_expressions_pruned(self, alpha_shas: List[str]) -> None:
+        """标记表达式已被剪枝，不改变回测生命周期状态。"""
         now = self._timestamp()
         conn = self._get_connection()
-        for sha in expression_shas:
+        for sha in alpha_shas:
             conn.execute(
-                """UPDATE alpha_expressions SET status='pruned', updated_at=?
-                   WHERE expression_sha=? AND status != 'completed'""",
+                """UPDATE alpha_expressions SET pruning_status='pruned', updated_at=?
+                   WHERE alpha_sha=?""",
                 (now, sha),
             )
         conn.commit()

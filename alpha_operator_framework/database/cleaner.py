@@ -161,10 +161,10 @@ class DatabaseCleaner:
 
             elif mode == "pruned":
                 if "alpha_expressions" in existing_tables:
-                    cursor.execute("SELECT COUNT(*) FROM alpha_expressions WHERE status = 'pruned'")
+                    cursor.execute("SELECT COUNT(*) FROM alpha_expressions WHERE pruning_status = 'pruned'")
                     report.deleted_expressions = cursor.fetchone()[0]
                     if not dry_run:
-                        cursor.execute("DELETE FROM alpha_expressions WHERE status = 'pruned'")
+                        cursor.execute("DELETE FROM alpha_expressions WHERE pruning_status = 'pruned'")
 
             elif mode == "pending":
                 if "alpha_expressions" in existing_tables:
@@ -176,10 +176,10 @@ class DatabaseCleaner:
             elif mode == "stale":
                 # 清理 failed + pruned + 孤儿 checks
                 if "alpha_expressions" in existing_tables:
-                    cursor.execute("SELECT COUNT(*) FROM alpha_expressions WHERE status IN ('failed', 'pruned')")
+                    cursor.execute("SELECT COUNT(*) FROM alpha_expressions WHERE status = 'failed' OR pruning_status = 'pruned'")
                     report.deleted_expressions = cursor.fetchone()[0]
                     if not dry_run:
-                        cursor.execute("DELETE FROM alpha_expressions WHERE status IN ('failed', 'pruned')")
+                        cursor.execute("DELETE FROM alpha_expressions WHERE status = 'failed' OR pruning_status = 'pruned'")
 
                 if "alpha_checks" in existing_tables and "alpha_details" in existing_tables:
                     cursor.execute("SELECT COUNT(*) FROM alpha_checks WHERE alpha_id NOT IN (SELECT alpha_id FROM alpha_details)")

@@ -25,19 +25,19 @@ class SimulationRepository(BaseRepository):
     @classmethod
     def compute_alpha_sha(cls, expression: str, settings: Dict[str, Any]) -> str:
         """计算包含环境设置的 Alpha 综合指纹."""
-        payload = f"{expression.strip()}|{settings.get('region','')}|{settings.get('universe','')}|{settings.get('delay',1)}|{settings.get('decay',0.0)}|{settings.get('neutralization','')}"
+        payload = json.dumps({"expression": expression.strip(), "settings": settings}, ensure_ascii=False, sort_keys=True, separators=(",", ":"))
         return hashlib.sha256(payload.encode("utf-8")).hexdigest()
 
     def create_simulation_batch(self, tasks: List[Dict[str, Any]], settings: Dict[str, Any],
-                                simulation_type: str = "REGULAR") -> int:
+                                simulation_type: str = "REGULAR", round_id: str | None = None) -> int:
         """创建仿真批次并初始化关联任务."""
         now = self._timestamp()
         conn = self._get_connection()
         cursor = conn.execute(
             """INSERT INTO simulation_batches
-            (status, simulation_type, settings_json, requested_count, created_at, updated_at)
-            VALUES ('created', ?, ?, ?, ?, ?)""",
-            (simulation_type.upper(), self._json(settings), len(tasks), now, now),
+            (round_id, status, simulation_type, settings_json, requested_count, created_at, updated_at)
+            VALUES (?, 'created', ?, ?, ?, ?, ?)""",
+            (round_id, simulation_type.upper(), self._json(settings), len(tasks), now, now),
         )
         batch_id = int(cursor.lastrowid)
         for sequence_no, task in enumerate(tasks):
@@ -53,7 +53,7 @@ class SimulationRepository(BaseRepository):
             )
         conn.execute(
             """UPDATE alpha_expressions SET batch_id=?, status='pending', updated_at=?
-               WHERE expression_sha IN (SELECT expression_sha FROM simulation_results WHERE batch_id=?)""",
+               WHERE alpha_sha IN (SELECT alpha_sha FROM simulation_results WHERE batch_id=?)""",
             (batch_id, now, batch_id),
         )
         conn.commit()
@@ -98,9 +98,9 @@ class SimulationRepository(BaseRepository):
             target = "completed" if status == "completed" else "failed"
             self._get_connection().execute(
                 """UPDATE alpha_expressions SET status=?, updated_at=?
-                   WHERE expression_sha=(SELECT expression_sha FROM simulation_results
+                   WHERE alpha_sha=(SELECT alpha_sha FROM simulation_results
                                          WHERE batch_id=? AND sequence_no=?)
-                     AND status NOT IN ('completed', 'pruned')""",
+                     AND status NOT IN ('completed')""",
                 (target, now, batch_id, sequence_no),
             )
         self._refresh_simulation_batch(batch_id)

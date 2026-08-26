@@ -29,11 +29,27 @@ class AlphaQueryMixin(BaseRepository):
                 batch_id=row['batch_id'],
                 fields=row['fields'],
                 status=row['status'],
+                pruning_status=row['pruning_status'],
                 first_operator=row['first_operator'],
                 created_at=row['created_at'],
                 updated_at=row['updated_at'],
             )
         return None
+
+    def get_expression_by_alpha_sha(self, alpha_sha: str) -> Optional[AlphaExpression]:
+        """按表达式与 settings 的联合身份查询。"""
+        row = self._get_connection().execute(
+            "SELECT * FROM alpha_expressions WHERE alpha_sha = ?", (alpha_sha,)
+        ).fetchone()
+        if row is None:
+            return None
+        return AlphaExpression(
+            id=row["id"], expression_sha=row["expression_sha"], alpha_sha=row["alpha_sha"],
+            expression=row["expression"], expression_origin=row["expression_origin"],
+            settings=row["settings"], batch_id=row["batch_id"], fields=row["fields"],
+            status=row["status"], pruning_status=row["pruning_status"],
+            first_operator=row["first_operator"], created_at=row["created_at"], updated_at=row["updated_at"],
+        )
 
     def query_expressions(
         self,
@@ -62,12 +78,14 @@ class AlphaQueryMixin(BaseRepository):
             AlphaExpression(
                 id=r['id'],
                 expression_sha=r['expression_sha'],
+                alpha_sha=r['alpha_sha'],
                 expression=r['expression'],
                 expression_origin=r['expression_origin'],
                 settings=r['settings'],
                 batch_id=r['batch_id'],
                 fields=r['fields'],
                 status=r['status'],
+                pruning_status=r['pruning_status'],
                 first_operator=r['first_operator'],
                 created_at=r['created_at'],
                 updated_at=r['updated_at'],
@@ -335,4 +353,3 @@ class AlphaQueryMixin(BaseRepository):
     # ---------------------------------------------------------------------------
     # Alpha 详情与 18 Checks 操作
     # ---------------------------------------------------------------------------
-

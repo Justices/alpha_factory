@@ -19,11 +19,11 @@ def test_database_cleaner_modes(tmp_path):
 
     # 插入一些测试数据
     cursor.execute("""
-        INSERT INTO alpha_expressions (expression_sha, expression, settings, status, created_at, updated_at)
-        VALUES ('sha_pass', 'rank(returns)', '{}', 'completed', '2026-08-21', '2026-08-21'),
-               ('sha_fail', 'ts_rank(returns, 10)', '{}', 'failed', '2026-08-21', '2026-08-21'),
-               ('sha_prune', 'ts_delta(returns, 5)', '{}', 'pruned', '2026-08-21', '2026-08-21'),
-               ('sha_pend', 'scale(returns)', '{}', 'pending', '2026-08-21', '2026-08-21')
+        INSERT INTO alpha_expressions (expression_sha, alpha_sha, expression, settings, status, pruning_status, created_at, updated_at)
+        VALUES ('sha_pass', 'alpha_pass', 'rank(returns)', '{}', 'completed', 'active', '2026-08-21', '2026-08-21'),
+               ('sha_fail', 'alpha_fail', 'ts_rank(returns, 10)', '{}', 'failed', 'active', '2026-08-21', '2026-08-21'),
+               ('sha_prune', 'alpha_prune', 'ts_delta(returns, 5)', '{}', 'completed', 'pruned', '2026-08-21', '2026-08-21'),
+               ('sha_pend', 'alpha_pend', 'scale(returns)', '{}', 'pending', 'active', '2026-08-21', '2026-08-21')
     """)
     cursor.execute("""
         INSERT INTO alpha_details (alpha_id, expression_sha, expression, sharpe, created_at, updated_at)
@@ -63,7 +63,7 @@ def test_database_cleaner_modes(tmp_path):
     # 3. 清理 pruned
     cleaner.clean(mode="pruned", dry_run=False, verbose=False)
     conn = sqlite3.connect(test_db)
-    assert conn.execute("SELECT COUNT(*) FROM alpha_expressions WHERE status = 'pruned'").fetchone()[0] == 0
+    assert conn.execute("SELECT COUNT(*) FROM alpha_expressions WHERE pruning_status = 'pruned'").fetchone()[0] == 0
     conn.close()
 
     # 4. 全量清理 all_data

@@ -27,51 +27,33 @@ class EventStore:
         self,
         persistent: bool = False,
         repository: Optional[Any] = None,
-        db_path: Optional[Any] = None,
         in_memory: bool = False,
     ):
         """初始化事件存储引擎.
 
         Args:
             persistent: 若为 True，则启用持久化模式，事件将落库保存。
-            repository: 可选，直接传入外部仓储对象（优先于 db_path）。
-            db_path: 可选，数据库路径；传入 ":memory:" 则强制走内存模式。
-            in_memory: 显式强制使用纯内存模式，优先级最高（覆盖 persistent）。
+            repository: 持久化仓储；启用持久化时必须注入。
+            in_memory: 显式使用纯内存模式，优先级最高。
         """
         # 使用线程锁保证并发 append 时事件序列的线性一致性（内存列表非线程安全）
         self._lock = threading.Lock()
         self._memory_events: List[Event] = []
-        # 综合多路参数判断是否启用持久化；repository 非空或 db_path 有效均视为持久化
-        self._persistent = persistent or (repository is not None) or (bool(db_path) and str(db_path) != ":memory:")
-        if in_memory or str(db_path) == ":memory:":
-            # in_memory 标志或 ":memory:" 路径均表示用户明确要求纯内存，强制关闭持久化
-            self._persistent = False
-
-        self._repository = None
-        if self._persistent:
-            if repository is not None:
-                self._repository = repository
-            else:
-                from alpha_operator_framework.database.repository import AlphaDatabase
-                self._repository = AlphaDatabase(db_path=db_path)
+        if persistent and repository is None and not in_memory:
+            raise ValueError("persistent EventStore requires an injected repository")
+        self._persistent = repository is not None and not in_memory
+        self._repository = repository if self._persistent else None
 
         logger.info(
-            "EventStore 初始化完成：persistent=%s, db_path=%s",
+            "EventStore 初始化完成：persistent=%s, repository=%s",
             self._persistent,
-            db_path,
+            type(self._repository).__name__ if self._repository is not None else None,
         )
 
     @property
     def is_persistent(self) -> bool:
         """是否处于持久化模式."""
         return self._persistent
-
-    @property
-    def db_path(self) -> str:
-        """获取存储描述 (保持向下兼容)."""
-        if not self._persistent or self._repository is None:
-            return ":memory:"
-        return str(getattr(self._repository, "db_path", "persistent"))
 
     def append(self, event: Event) -> int:
         """追加单个事件到事件流，返回全局递增 Offset.

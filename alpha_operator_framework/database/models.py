@@ -12,17 +12,18 @@ WF_STAGES = ("pending_validation", "validated", "submitted", "failed", "needs_op
 class AlphaExpression:
     id: Optional[int] = None
     expression_sha: str = ""
+    alpha_sha: str = ""
     expression: str = ""
     expression_origin: str = ""
     # settings JSON: 顶层是生成元数据 (stage/family/template_index/base_fields/metadata),
     # 可选含 "backtest" 键 = 该表达式「首次 catalog 登记时」的回测设置
     # (region/universe/delay/decay/neutralization/truncation)。
-    # 注意: alpha_expressions 按 expression_sha (纯表达式) 去重, 同一表达式跨 region 复用只有一行,
-    #   settings.backtest 记录的是首次登记的 region; 每次回测的完整维度追溯走 alpha_details (按 alpha_sha 分多行)。
+    # alpha_sha 是表达式与完整 settings 的规范化联合哈希；相同表达式可在不同设置下各有一行。
     settings: str = ""
     batch_id: Optional[int] = None   # 最近一次回测批次 id
     fields: str = "[]"               # 表达式用到的字段清单(JSON数组字符串)
-    status: str = "pending"          # pending/completed/failed/pruned
+    status: str = "pending"          # generated/pending/completed/failed
+    pruning_status: str = "active"   # active/pruned
     first_operator: str = ""         # 第一个操作符(用于分层抽样)
     created_at: str = ""
     updated_at: str = ""

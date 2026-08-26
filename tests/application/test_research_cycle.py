@@ -39,6 +39,12 @@ class RecordingAlphaRepository:
     def insert_expression(self, expression, settings, **kwargs) -> None:
         self.inserted.append((expression, settings, kwargs))
 
+    def catalog_research_candidates(self, *_args, **_kwargs) -> None:
+        return None
+
+    def record_round_selection(self, *_args, **_kwargs) -> None:
+        return None
+
     def create_simulation_batch(self, tasks, settings, **kwargs) -> int:
         self.created_batches.append((tasks, settings, kwargs))
         return 17
@@ -87,6 +93,63 @@ def test_cycle_returns_replayable_planned_round_without_live_gateway() -> None:
     assert repository.round.round_id == "round-1"
 
 
+def test_planned_cycle_catalogs_every_candidate_before_selection() -> None:
+    primary = RecordingAlphaRepository()
+    candidates = [
+        Candidate("first", "rank(close)", "family", ("close",), ("rank",), "template"),
+        Candidate("second", "rank(volume)", "family", ("volume",), ("rank",), "template"),
+    ]
+
+    ResearchCycleUseCase(MemoryRepository(), DryRunGateway(), alpha_database=primary).execute(
+        ResearchCycleRequest("catalog-planned", 9, ResearchPolicy("GBR", "TOP700", 1), KnowledgeSnapshot(version=0), candidates)
+    )
+
+    assert [expression for expression, _, _ in primary.inserted] == ["rank(close)", "rank(volume)"]
+
+
+def test_live_cycle_defers_static_pruning_until_after_backtesting() -> None:
+    batches = MemoryBatchRepository()
+    candidate = Candidate("candidate", "rank(close)", "family", ("close",), ("rank",), "template")
+
+    ResearchCycleUseCase(MemoryRepository(), CompletedGateway(), KnowledgeBase(), batches, event_store=EventStore()).execute(
+        ResearchCycleRequest(
+            "deferred-pruning", 9,
+            ResearchPolicy("GBR", "TOP700", 1, prohibited_patterns=("rank(",)),
+            KnowledgeSnapshot(version=0), [candidate], True,
+        )
+    )
+
+    assert [task.candidate_id for task in batches.batch.tasks.values()] == ["candidate"]
+
+
+def test_live_cycle_records_round_candidates_selection_and_simulation_batch_link() -> None:
+    class LinkedPrimaryRepository:
+        def __init__(self):
+            self.cataloged, self.selections, self.batch_round_id = [], [], None
+        def insert_expression(self, *_args, **_kwargs): return 1
+        def catalog_research_candidates(self, round_id, candidates, settings): self.cataloged.append((round_id, candidates, settings))
+        def record_round_selection(self, round_id, decisions): self.selections.append((round_id, decisions))
+        def create_simulation_batch(self, _tasks, _settings, **kwargs):
+            self.batch_round_id = kwargs.get("round_id")
+            return 17
+
+    primary, batches = LinkedPrimaryRepository(), MemoryBatchRepository()
+    candidates = [
+        Candidate("first", "rank(close)", "family", ("close",), ("rank",), "template"),
+        Candidate("second", "rank(volume)", "family", ("volume",), ("rank",), "template"),
+    ]
+    ResearchCycleUseCase(MemoryRepository(), CompletedGateway(), KnowledgeBase(), batches, event_store=EventStore(), alpha_database=primary).execute(
+        ResearchCycleRequest("linked-round", 9, ResearchPolicy("GBR", "TOP700", 1), KnowledgeSnapshot(version=0), candidates, True)
+    )
+
+    assert primary.cataloged == [("linked-round", candidates, {
+        "region": "GBR", "universe": "TOP700", "delay": 1, "decay": 8,
+        "neutralization": "SUBINDUSTRY", "truncation": 0.08,
+    })]
+    assert primary.selections[0][0] == "linked-round"
+    assert primary.batch_round_id == "linked-round"
+
+
 class CompletedGateway:
     def run_backtests(self, tasks):
         return [BacktestResult(tasks[0].task_id, tasks[0].expression, 1.5, 1.1, 0.2, 5.0, True, "alpha-1")]
@@ -131,7 +194,7 @@ def test_execute_cycle_catalogs_all_candidates_and_binds_selected_tasks_to_a_rea
     assert primary.created_batches == [(
         [{"task_id": "primary-store-round:0", "candidate_id": "first", "expression": "rank(close)"}],
         settings,
-        {"simulation_type": "RESEARCH"},
+        {"simulation_type": "RESEARCH", "round_id": "primary-store-round"},
     )]
     assert batches.batch.storage_batch_id == 17
 

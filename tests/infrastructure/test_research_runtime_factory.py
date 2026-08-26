@@ -16,7 +16,7 @@ def test_runtime_factory_builds_driver_neutral_adapters_from_yaml(tmp_path: Path
     runtime = build_research_runtime(config)
 
     assert Path(runtime.experiment_repository.engine.url.database).resolve() == database.resolve()
-    assert runtime.event_store.db_path == "persistent"
+    assert runtime.event_store.is_persistent is True
 
 
 def test_application_runtime_does_not_import_sqlite_adapter() -> None:

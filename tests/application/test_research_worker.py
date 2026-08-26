@@ -25,6 +25,38 @@ class BatchRepository:
     def list_due_batches(self): return [self.batch] if self.batch is not None else []
 
 
+def test_worker_marks_failed_backtests_pruned_after_persisting_the_result() -> None:
+    class Gateway:
+        def run_backtests(self, tasks):
+            return [BacktestResult(task.task_id, task.expression, -0.1, 0.2, 0.2, 1.0, False, "alpha-1") for task in tasks]
+
+    class PrimaryStore:
+        def __init__(self): self.pruned = []
+        def insert_expression(self, *_args, **_kwargs): return 1
+        def catalog_research_candidates(self, *_args, **_kwargs): return None
+        def record_round_selection(self, *_args, **_kwargs): return None
+        def create_simulation_batch(self, *_args, **_kwargs): return 1
+        def record_simulation_result(self, *_args, **_kwargs): return None
+        def save_result_with_checks(self, *_args, **_kwargs): return None
+        def set_expression_status(self, *_args, **_kwargs): return None
+        @staticmethod
+        def compute_alpha_sha(expression, settings): return f"alpha:{expression}:{settings['region']}"
+        def mark_expressions_pruned(self, shas): self.pruned.extend(shas)
+        def mark_round_candidates_pruned(self, *_args, **_kwargs): return None
+
+    events, rounds, batches, knowledge, primary = EventStore(), RoundRepository(), BatchRepository(), KnowledgeBase(), PrimaryStore()
+    ResearchCycleUseCase(rounds, Gateway(), knowledge, batches, event_store=events, alpha_database=primary).execute(
+        ResearchCycleRequest(
+            "pruned-after-result", 9, ResearchPolicy("GBR", "TOP700", 1), KnowledgeSnapshot(version=0),
+            [Candidate("candidate", "rank(close)", "family", ("close",), ("rank",), "template")], True,
+        )
+    )
+
+    ResearchBatchWorker(events, rounds, batches, knowledge, Gateway(), alpha_database=primary).process_round("pruned-after-result")
+
+    assert primary.pruned == ["alpha:rank(close):GBR"]
+
+
 def test_worker_resumes_submitted_batch_and_runs_only_missing_tasks() -> None:
     class Gateway:
         def __init__(self): self.calls = []
@@ -75,6 +107,35 @@ def test_worker_persists_distilled_template_promotions() -> None:
 
     assert [template.expression_template for template in promotions.promoted] == ["rank({a})"]
     assert EventType.TEMPLATE_PROMOTED in [event.event_type for event in events.read_stream("promotion-round")]
+
+
+def test_worker_projects_distilled_templates_to_primary_library() -> None:
+    class Gateway:
+        def run_backtests(self, tasks):
+            return [BacktestResult(task.task_id, task.expression, 1.5, 1.1, 0.2, 5.0, True, "alpha-1") for task in tasks]
+
+    class PrimaryStore:
+        def __init__(self): self.templates = []
+        def insert_expression(self, *_args, **_kwargs): return 1
+        def catalog_research_candidates(self, *_args, **_kwargs): return None
+        def record_round_selection(self, *_args, **_kwargs): return None
+        def create_simulation_batch(self, *_args, **_kwargs): return 1
+        def record_simulation_result(self, *_args, **_kwargs): return None
+        def save_result_with_checks(self, *_args, **_kwargs): return None
+        def set_expression_status(self, *_args, **_kwargs): return None
+        def save_abstracted_template(self, **kwargs): self.templates.append(kwargs); return True
+
+    events, rounds, batches, knowledge, primary = EventStore(), RoundRepository(), BatchRepository(), KnowledgeBase(), PrimaryStore()
+    ResearchCycleUseCase(rounds, Gateway(), knowledge, batches, event_store=events, alpha_database=primary).execute(
+        ResearchCycleRequest("primary-promotion-round", 9, ResearchPolicy("GBR", "TOP700", 1), KnowledgeSnapshot(version=0),
+                             [Candidate("a", "rank(close)", "family", ("close",), ("rank",), "template")], True)
+    )
+
+    ResearchBatchWorker(events, rounds, batches, knowledge, Gateway(), alpha_database=primary).process_round("primary-promotion-round")
+
+    assert primary.templates == [{
+        "expression_template": "rank({a})", "support_count": 1, "example_expression": "rank(close)",
+    }]
 
 
 def test_worker_persists_retry_state_after_rate_limit() -> None:

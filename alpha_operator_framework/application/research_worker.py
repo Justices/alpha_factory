@@ -108,10 +108,10 @@ class ResearchBatchWorker:
         if self.alpha_database is None:
             return
         if result.error:
-            self.alpha_database.set_expression_status(task.expression, "failed")
+            self.alpha_database.set_expression_status(task.expression, "failed", dict(task.settings))
             return
         if not result.platform_alpha_id:
-            self.alpha_database.set_expression_status(task.expression, "failed")
+            self.alpha_database.set_expression_status(task.expression, "failed", dict(task.settings))
             return
         payload = dict(result.raw_details or {})
         payload.setdefault("id", result.platform_alpha_id)
@@ -119,7 +119,7 @@ class ResearchBatchWorker:
         payload.setdefault("settings", dict(task.settings))
         payload.setdefault("is", {"sharpe": result.sharpe, "fitness": result.fitness, "turnover": result.turnover, "margin": result.margin, "checks": []})
         self.alpha_database.save_result_with_checks(result.platform_alpha_id, payload, dict(task.settings))
-        self.alpha_database.set_expression_status(task.expression, "completed")
+        self.alpha_database.set_expression_status(task.expression, "completed", dict(task.settings))
 
     def _persist_simulation_result(self, batch: Any, result: Any) -> None:
         if self.alpha_database is None or batch.storage_batch_id is None:
@@ -301,6 +301,8 @@ class ResearchBatchWorker:
                 if evaluation is not None:
                     batch.record_evaluation(replace(evaluation, pruned=True))
                 self._event(EventType.CANDIDATE_RETIRED, round_id, {"task_id": task_id, "reason": "platform_correlation", "max_abs_correlation": correlation, "threshold": policy.template_platform_max_correlation})
+        pruned_alpha_shas: list[str] = []
+        pruned_candidate_ids: list[str] = []
         for evaluation in evaluate_batch(batch, policy):
             if evaluation.task_id in correlation_rejected:
                 evaluation = replace(evaluation, pruned=True)
@@ -309,6 +311,10 @@ class ResearchBatchWorker:
                 "task_id": evaluation.task_id, "verdict": evaluation.verdict,
                 "pareto_rank": evaluation.pareto_rank, "pruned": evaluation.pruned,
             })
+            if evaluation.pruned and self.alpha_database is not None:
+                task = batch.tasks[evaluation.task_id]
+                pruned_alpha_shas.append(self.alpha_database.compute_alpha_sha(task.expression, dict(task.settings)))
+                pruned_candidate_ids.append(task.candidate_id)
             if evaluation.verdict == "READY" and not evaluation.pruned:
                 result = batch.results[evaluation.task_id]
                 self._event(EventType.DECISION_PROPOSED, round_id, {
@@ -327,6 +333,9 @@ class ResearchBatchWorker:
                     )
                     if approval.is_approved and self.submission_outbox is not None:
                         self.submission_outbox.enqueue(case)
+        if pruned_alpha_shas and self.alpha_database is not None:
+            self.alpha_database.mark_expressions_pruned(pruned_alpha_shas)
+            self.alpha_database.mark_round_candidates_pruned(round_id, pruned_candidate_ids)
         templates_by_candidate = {candidate.candidate_id: candidate.template_id for candidate in round_.candidates}
         templates = {task.task_id: templates_by_candidate[task.candidate_id] for task in batch.tasks.values()}
         knowledge = self.knowledge_base.apply_batch(batch, templates)
@@ -335,6 +344,14 @@ class ResearchBatchWorker:
             batch, min_support=policy.template_min_support,
             min_sharpe=policy.template_min_sharpe, min_fitness=policy.template_min_fitness,
         )
+        if self.alpha_database is not None:
+            for template in distilled:
+                source_task_id = template.source_task_ids[0]
+                self.alpha_database.save_abstracted_template(
+                    expression_template=template.expression_template,
+                    support_count=template.support,
+                    example_expression=batch.tasks[source_task_id].expression,
+                )
         knowledge_offset = self._event(EventType.MONITORING_OBSERVED, round_id, {"knowledge": {
             "version": self.knowledge_base.version,
             "field_scores": self.knowledge_base.field_scores,

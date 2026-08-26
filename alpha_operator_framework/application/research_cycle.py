@@ -9,7 +9,6 @@ from typing import Any, Sequence
 from alpha_operator_framework.experiment.lifecycle import BatchState, transition
 from alpha_operator_framework.experiment.models import ExperimentBatch, MutationProposal
 from alpha_operator_framework.knowledge.models import KnowledgeBase
-from alpha_operator_framework.research.pruning import AstPrePruner
 from alpha_operator_framework.research.policy import build_selector
 from alpha_operator_framework.research.round import Candidate, KnowledgeSnapshot, ResearchPolicy, ResearchRound
 from alpha_operator_framework.research.selection import WeightedStratifiedSelector
@@ -79,31 +78,27 @@ class ResearchCycleUseCase:
             raise ValueError("live research requires an event store and experiment repository")
         round_ = ResearchRound(request.round_id, request.policy, request.seed, list(request.candidates))
         generated_candidates = list(round_.candidates)
+        backtest_settings = {
+            "region": request.policy.region, "universe": request.policy.universe,
+            "delay": request.policy.delay, "decay": request.policy.decay,
+            "neutralization": request.policy.neutralization, "truncation": request.policy.truncation,
+        }
+        if self.alpha_database is not None:
+            for candidate in generated_candidates:
+                self.alpha_database.insert_expression(
+                    candidate.expression, backtest_settings, expression_origin="research_cycle",
+                    fields=list(candidate.fields), status="generated",
+                )
+            self.alpha_database.catalog_research_candidates(round_.round_id, generated_candidates, backtest_settings)
         if self.event_store is not None:
             from alpha_operator_framework.core.events import EventType
             self._event(EventType.POLICY_CREATED, round_.round_id, {"policy": asdict(request.policy), "seed": request.seed})
             self._event(EventType.FIELD_SNAPSHOT_CAPTURED, round_.round_id, {"fields": sorted({field for candidate in round_.candidates for field in candidate.fields}), "knowledge_version": request.knowledge.version})
             for candidate in round_.candidates:
                 self._event(EventType.CANDIDATE_GENERATED, round_.round_id, {"candidate": asdict(candidate)})
-        round_.pruning_decisions = AstPrePruner().evaluate(round_.candidates, request.policy)
-        if self.telemetry is not None:
-            for decision in round_.pruning_decisions:
-                if decision.rejected:
-                    self.telemetry.record_pruning_reason(decision.reason_code)
-        rejected = {decision.candidate_id for decision in round_.pruning_decisions if decision.rejected}
-        round_.candidates = [candidate for candidate in round_.candidates if candidate.candidate_id not in rejected]
-        from alpha_operator_framework.research.template_correlation import structural_similarity
-        retained = []
-        for candidate in round_.candidates:
-            comparable = [other for other in retained if other.template_id == candidate.template_id]
-            similarity = max((structural_similarity(candidate.expression, other.expression) for other in comparable), default=0.0)
-            if similarity > request.policy.template_structural_max_correlation:
-                if self.event_store is not None:
-                    self._event(EventType.CANDIDATE_REJECTED_BY_RULE, round_.round_id, {"candidate_id": candidate.candidate_id, "reason": "structural_correlation", "similarity": similarity, "threshold": request.policy.template_structural_max_correlation})
-                continue
-            retained.append(candidate)
-        round_.candidates = retained
         decisions = round_.select(build_selector(request.policy), request.knowledge, random.Random(request.seed))
+        if self.alpha_database is not None:
+            self.alpha_database.record_round_selection(round_.round_id, decisions)
         if self.event_store is not None:
             from alpha_operator_framework.core.events import EventType
             for decision in decisions:
@@ -124,18 +119,6 @@ class ResearchCycleUseCase:
         if not request.execute_platform:
             return ResearchCycleSummary("PLANNED", round_.round_id, audit)
 
-        backtest_settings = {
-            "region": request.policy.region, "universe": request.policy.universe,
-            "delay": request.policy.delay, "decay": request.policy.decay,
-            "neutralization": request.policy.neutralization, "truncation": request.policy.truncation,
-        }
-        if self.alpha_database is not None:
-            for candidate in generated_candidates:
-                self.alpha_database.insert_expression(
-                    candidate.expression, backtest_settings, expression_origin="research_cycle",
-                    fields=list(candidate.fields), status="generated",
-                )
-
         selected_ids = {decision.candidate_id for decision in decisions if decision.selected}
         cohort = [candidate for candidate in round_.candidates if candidate.candidate_id in selected_ids]
         batch = self.experiment_repository.load_batch(round_.round_id) if self.experiment_repository is not None else None
@@ -148,7 +131,7 @@ class ResearchCycleUseCase:
             if self.alpha_database is not None and tasks:
                 batch.storage_batch_id = self.alpha_database.create_simulation_batch(
                     [{"task_id": task.task_id, "candidate_id": task.candidate_id, "expression": task.expression} for task in tasks],
-                    backtest_settings, simulation_type="RESEARCH",
+                    backtest_settings, simulation_type="RESEARCH", round_id=round_.round_id,
                 )
             if self.telemetry is not None:
                 self.telemetry.record_quota(planned=request.policy.max_backtests, consumed=len(tasks))

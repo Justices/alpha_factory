@@ -17,6 +17,41 @@ from alpha_operator_framework.database import (
 from alpha_operator_framework.database.models import Template
 
 
+def test_expression_identity_includes_canonical_backtest_settings() -> None:
+    with tempfile.TemporaryDirectory(ignore_cleanup_errors=True) as tmp:
+        db = AlphaDatabase(Path(tmp) / "expression_identity.db")
+        expression = "rank(close)"
+        usa = {"region": "USA", "universe": "TOP3000", "delay": 1, "decay": 4}
+        eur = {"decay": 4, "delay": 1, "universe": "TOP2500", "region": "EUR"}
+
+        db.insert_expression(expression, usa)
+        db.insert_expression(expression, eur)
+
+        rows = db.query_expressions(limit=10)
+        assert len(rows) == 2
+        assert {row.alpha_sha for row in rows} == {
+            db.compute_alpha_sha(expression, usa),
+            db.compute_alpha_sha(expression, eur),
+        }
+        db.set_expression_status(expression, "completed", usa)
+        assert db.get_expression_by_alpha_sha(db.compute_alpha_sha(expression, usa)).status == "completed"
+        assert db.get_expression_by_alpha_sha(db.compute_alpha_sha(expression, eur)).status == "pending"
+
+
+def test_pruning_status_is_independent_from_completed_backtest_status() -> None:
+    with tempfile.TemporaryDirectory(ignore_cleanup_errors=True) as tmp:
+        db = AlphaDatabase(Path(tmp) / "pruned_status.db")
+        expression = "rank(close)"
+        db.insert_expression(expression, {"region": "USA"}, status="completed")
+
+        settings = {"region": "USA"}
+        db.mark_expressions_pruned([db.compute_alpha_sha(expression, settings)])
+
+        stored = db.get_expression_by_sha(db.compute_sha(expression))
+        assert stored.status == "completed"
+        assert stored.pruning_status == "pruned"
+
+
 def test_domain_repositories_standalone_and_shared_connection():
     """验证领域专用仓储既可独立构造，也可共享底层连接管理器."""
     with tempfile.TemporaryDirectory(ignore_cleanup_errors=True) as tmp:

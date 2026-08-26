@@ -55,7 +55,7 @@ def resolve_research_options(config_path: Path, overrides: Mapping[str, Any]) ->
         raise ValueError("research configuration must be a mapping")
     values = dict(research)
     values.update({key: value for key, value in overrides.items() if value is not None})
-    for name in ("region", "universe"):
+    for name in ("region",):
         if not values.get(name):
             raise ValueError(f"research.{name} is required in YAML or CLI")
     integer_fields = ("delay", "decay", "sample_per_family", "seed")

@@ -42,7 +42,7 @@ def command_research_cycle(args: argparse.Namespace) -> None:
     from alpha_operator_framework.infrastructure.runtime_factory import build_research_runtime, resolve_research_options
     from alpha_operator_framework.infrastructure.telemetry import JsonLinesTelemetrySink
     from alpha_operator_framework.research.construction import AstCandidateBuilder, ConstructionTemplate
-    from alpha_operator_framework.research.field_loader import load_real_market_fields
+    from alpha_operator_framework.research.field_loader import load_real_market_fields, resolve_cached_universe
     from alpha_operator_framework.research.policy import load_policy, validate_cli_policy_overrides
     from alpha_operator_framework.research.round import ResearchPolicy
 
@@ -58,9 +58,13 @@ def command_research_cycle(args: argparse.Namespace) -> None:
         raise ValueError("--authorize-submission requires --execute")
     field_scope = {
         "region": policy.region if policy else options["region"],
-        "universe": policy.universe if policy else options["universe"],
         "delay": policy.delay if policy else options.get("delay", 1),
     }
+    field_scope["universe"] = resolve_cached_universe(
+        field_scope["region"], field_scope["delay"],
+        policy.universe if policy else getattr(args, "universe", None),
+    )
+    options["universe"] = field_scope["universe"]
     fields = load_real_market_fields(
         **field_scope,
         datasets=args.datasets.split(",") if args.datasets else None,
@@ -91,9 +95,10 @@ def command_research_cycle(args: argparse.Namespace) -> None:
     )
     if policy is None:
         quota = options.get("sample_per_family", 4)
+        family_quotas = {candidate.family: quota for candidate in candidates}
         policy = ResearchPolicy(
-            options["region"], options["universe"], len(candidates) * quota,
-            family_quotas={candidate.family: quota for candidate in candidates}, policy_version="cli-v1",
+            options["region"], options["universe"], sum(family_quotas.values()),
+            family_quotas=family_quotas, policy_version="cli-v1",
             selection_strategy=strategy, delay=options.get("delay", 1), decay=options.get("decay", 8),
             neutralization=options.get("neutralization", "SUBINDUSTRY"), truncation=options.get("truncation", 0.08),
         )

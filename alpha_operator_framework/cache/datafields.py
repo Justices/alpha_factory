@@ -1,7 +1,8 @@
 """数据字段缓存 — 获取平台数据字段列表.
 
-目录结构: data/fields/{region}/{delay}/{universe}/{dataset_id}.json
-每个数据集存储为单独的 JSON 文件。
+目录结构: data/{region}/{delay}/universe.json
+          data/{region}/{delay}/{universe}/dataset.json
+          data/{region}/{delay}/{universe}/datafields/{dataset_id}.json
 """
 
 from __future__ import annotations
@@ -13,7 +14,14 @@ from pathlib import Path
 from typing import Any, Dict, List, Optional
 
 from .base import DataCache
-from .config import DATAFIELDS_DIR
+from .config import (
+    DATAFIELDS_DIRECTORY_TEMPLATE,
+    DATASET_INDEX_TEMPLATE,
+    SCOPE_DIRECTORY_TEMPLATE,
+    UNIVERSE_INDEX_TEMPLATE,
+    DATAFIELDS_DIR,
+    render_datafield_cache_path,
+)
 from alpha_operator_framework.platform.datafields import fetch_datafields
 
 
@@ -30,7 +38,7 @@ def _read_index(path: Path) -> list[Any]:
 class DataFieldCache(DataCache):
     """数据字段缓存.
 
-    目录结构: data/fields/{region}/{delay}/{universe}/{dataset_id}.json
+    目录结构: data/{region}/{delay}/{universe}/datafields/{dataset_id}.json
     """
 
     cache_name = "datafields"
@@ -42,16 +50,28 @@ class DataFieldCache(DataCache):
 
     def _get_dir(self, region: str, delay: int, universe: str) -> Path:
         """获取字段目录路径."""
-        return self.root / region / str(delay) / universe
+        return render_datafield_cache_path(
+            self.root, SCOPE_DIRECTORY_TEMPLATE,
+            region=region, delay=delay, universe=universe,
+        )
 
     def _datafields_dir(self, region: str, delay: int, universe: str) -> Path:
-        return self._get_dir(region, delay, universe) / "datafields"
+        return render_datafield_cache_path(
+            self.root, DATAFIELDS_DIRECTORY_TEMPLATE,
+            region=region, delay=delay, universe=universe,
+        )
 
     def _universe_index_path(self, region: str, delay: int) -> Path:
-        return self.root / region / str(delay) / "universe.json"
+        return render_datafield_cache_path(
+            self.root, UNIVERSE_INDEX_TEMPLATE,
+            region=region, delay=delay, universe="",
+        )
 
     def _dataset_index_path(self, region: str, delay: int, universe: str) -> Path:
-        return self._get_dir(region, delay, universe) / "dataset.json"
+        return render_datafield_cache_path(
+            self.root, DATASET_INDEX_TEMPLATE,
+            region=region, delay=delay, universe=universe,
+        )
 
     def _cache_path(self, region: str, delay: int, universe: str, dataset_id: str = "") -> Path:
         """获取缓存文件路径.
@@ -89,16 +109,11 @@ class DataFieldCache(DataCache):
         path = self._cache_path(region, delay, universe, dataset_id)
         path.parent.mkdir(parents=True, exist_ok=True)
         path.write_text(json.dumps(items, ensure_ascii=False, indent=2), encoding="utf-8")
-        universe_index = self._universe_index_path(region, delay)
-        universe_index.parent.mkdir(parents=True, exist_ok=True)
-        universes = _read_index(universe_index)
-        if universe not in universes:
-            universes.append(universe)
-            universe_index.write_text(json.dumps(sorted(universes), ensure_ascii=False, indent=2), encoding="utf-8")
         dataset_index = self._dataset_index_path(region, delay, universe)
         datasets = _read_index(dataset_index)
         dataset = next((item.get("dataset") for item in items if isinstance(item.get("dataset"), dict)), {})
-        entry = {"id": dataset_id, "name": str(dataset.get("name") or "")} if dataset else {"id": dataset_id, "name": ""}
+        category = next((item.get("category") for item in items if isinstance(item.get("category"), dict)), {})
+        entry = {"id": dataset_id, "name": str(dataset.get("name") or ""), "category": category} if dataset else {"id": dataset_id, "name": "", "category": category}
         datasets = [item for item in datasets if item.get("id") != dataset_id]
         datasets.append(entry)
         dataset_index.parent.mkdir(parents=True, exist_ok=True)
@@ -161,7 +176,7 @@ class DataFieldCache(DataCache):
         """获取数据字段列表.
 
         本地优先策略:
-          1. 从 data/fields/{region}/{delay}/{universe}/{dataset_id}.json 加载
+          1. 从 data/{region}/{delay}/{universe}/datafields/{dataset_id}.json 加载
           2. 不存在则从平台获取
           3. 平台获取后按数据集分开保存
 

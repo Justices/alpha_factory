@@ -14,7 +14,12 @@ import logging
 from pathlib import Path
 from typing import Any, Dict, List, Optional, Sequence, Union
 
-from alpha_operator_framework.cache.config import DATAFIELDS_DIR
+from alpha_operator_framework.cache.config import (
+    DATAFIELDS_DIRECTORY_TEMPLATE,
+    UNIVERSE_INDEX_TEMPLATE,
+    DATAFIELDS_DIR,
+    render_datafield_cache_path,
+)
 from alpha_operator_framework.domain.fields import FieldSpec
 
 logger = logging.getLogger(__name__)
@@ -30,6 +35,35 @@ BASE_CORE_FIELDS: List[FieldSpec] = [
     FieldSpec(id="market_cap", dataset_id="fnd1", type="MATRIX", description="Market Capitalization"),
     FieldSpec(id="sharesout", dataset_id="fnd1", type="MATRIX", description="Shares Outstanding"),
 ]
+
+
+def resolve_cached_universe(region: str, delay: int, universe: str | None) -> str:
+    """Resolve a cached universe, defaulting to the first index entry."""
+    index_path = render_datafield_cache_path(
+        DATAFIELDS_DIR, UNIVERSE_INDEX_TEMPLATE,
+        region=region, delay=delay, universe="",
+    )
+    try:
+        values = json.loads(index_path.read_text(encoding="utf-8-sig"))
+    except FileNotFoundError:
+        values = []
+    except (OSError, json.JSONDecodeError) as error:
+        raise ValueError(f"cannot read cached universe index: {index_path}") from error
+    available = [str(value) for value in values if isinstance(value, str) and value]
+    if not available:
+        from alpha_operator_framework.cache.universes import UniverseCache
+
+        available = UniverseCache().get_universe_map().get(region, {}).get(str(delay), [])
+        if not available:
+            raise ValueError(f"no platform universes available for {region}")
+        index_path.parent.mkdir(parents=True, exist_ok=True)
+        index_path.write_text(json.dumps(available, ensure_ascii=False, indent=2), encoding="utf-8")
+    requested = str(universe or "").strip()
+    if not requested:
+        return available[0]
+    if requested not in available:
+        raise ValueError(f"universe {requested!r} is not available for {region}/delay={delay}")
+    return requested
 
 
 def load_real_market_fields(
@@ -58,10 +92,13 @@ def load_real_market_fields(
     """
     fields_map: Dict[str, FieldSpec] = {f.id.lower(): f for f in BASE_CORE_FIELDS} if include_base_fields else {}
 
-    target_dir = Path(custom_dir) if custom_dir else (DATAFIELDS_DIR / region / str(delay) / universe / "datafields")
+    target_dir = Path(custom_dir) if custom_dir else render_datafield_cache_path(
+        DATAFIELDS_DIR, DATAFIELDS_DIRECTORY_TEMPLATE,
+        region=region, delay=delay, universe=universe,
+    )
     if allow_scope_fallback and not target_dir.exists():
         # 尝试查找不同 delay 或 fallback 目录
-        alt_dirs = list(DATAFIELDS_DIR.glob(f"{region}/*/{universe}/datafields"))
+        alt_dirs = list(DATAFIELDS_DIR.glob(DATAFIELDS_DIRECTORY_TEMPLATE.format(region=region, delay="*", universe=universe)))
         if alt_dirs:
             target_dir = alt_dirs[0]
 
@@ -135,4 +172,7 @@ def cache_platform_fields(rows: Sequence[dict[str, Any]], *, region: str, univer
     for dataset_id, items in grouped.items():
         safe_name = "".join(char for char in dataset_id if char.isalnum() or char in "-_") or "platform"
         cache.save_dataset(region, delay, universe, safe_name, items)
-    return DATAFIELDS_DIR / region / str(delay) / universe / "datafields"
+    return render_datafield_cache_path(
+        DATAFIELDS_DIR, DATAFIELDS_DIRECTORY_TEMPLATE,
+        region=region, delay=delay, universe=universe,
+    )

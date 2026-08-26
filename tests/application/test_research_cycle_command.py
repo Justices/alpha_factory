@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import json
 from types import SimpleNamespace
 
 import pytest
@@ -17,6 +18,13 @@ def _config(tmp_path):
     config = tmp_path / "alpha-factory.yaml"
     config.write_text(f"storage:\n  driver: sqlite\n  path: {tmp_path / 'rounds.db'}\n", encoding="utf-8")
     return config
+
+
+def _cache_universes(monkeypatch, tmp_path, region: str, delay: int, universes: list[str]) -> None:
+    index = tmp_path / region / str(delay) / "universe.json"
+    index.parent.mkdir(parents=True)
+    index.write_text(json.dumps(universes), encoding="utf-8")
+    monkeypatch.setattr("alpha_operator_framework.research.field_loader.DATAFIELDS_DIR", tmp_path)
 
 
 def test_default_round_id_is_unique_but_explicit_round_id_is_reusable(monkeypatch) -> None:
@@ -49,6 +57,7 @@ def test_research_cycle_command_uses_new_dry_run_cycle(monkeypatch, tmp_path, ca
     )
     config = tmp_path / "alpha-factory.yaml"
     config.write_text(f"storage:\n  driver: sqlite\n  path: {tmp_path / 'rounds.db'}\n", encoding="utf-8")
+    _cache_universes(monkeypatch, tmp_path, "GBR", 1, ["TOP700"])
     args = SimpleNamespace(
             region="GBR", universe="TOP700", delay=1, datasets=None,
             sample_per_family=1, execute=False, seed=9, config=str(config),
@@ -65,6 +74,31 @@ def test_research_cycle_command_uses_new_dry_run_cycle(monkeypatch, tmp_path, ca
         event.event_type for event in runtime.event_store.read_stream("test-round")
     ]
     assert (tmp_path / "metrics.jsonl").exists()
+
+
+def test_research_cycle_sets_the_requested_quota_for_each_family(monkeypatch, tmp_path) -> None:
+    monkeypatch.setattr(
+        "alpha_operator_framework.research.field_loader.load_real_market_fields",
+        lambda **_: [
+            FieldSpec(id="returns", dataset_id="pv1", type="MATRIX"),
+            FieldSpec(id="volume", dataset_id="pv1", type="MATRIX"),
+            FieldSpec(id="close", dataset_id="pv1", type="MATRIX"),
+        ],
+    )
+    config = _config(tmp_path)
+    _cache_universes(monkeypatch, tmp_path, "GBR", 1, ["TOP700"])
+    args = SimpleNamespace(
+        region="GBR", universe="TOP700", delay=1, datasets=None,
+        sample_per_family=8, execute=False, seed=9, config=str(config),
+        policy_file=None, telemetry_file=None, algorithm="stratified", round_id="quota-round",
+    )
+
+    alpha_machine.command_research_cycle(args)
+
+    runtime = build_research_runtime(config)
+    policy = runtime.research_repository.load_round("quota-round").policy
+    assert policy.family_quotas == {"cross_sectional": 8, "time_series": 8}
+    assert policy.max_backtests == 16
 
 
 def test_submission_dispatch_command_is_safe_with_an_empty_outbox(tmp_path, capsys) -> None:
@@ -97,6 +131,7 @@ def test_policy_settings_are_used_when_loading_fields(monkeypatch, tmp_path) -> 
         "alpha_operator_framework.research.field_loader.load_real_market_fields",
         lambda **kwargs: captured.update(kwargs) or [FieldSpec(id="returns", dataset_id="pv1", type="MATRIX")],
     )
+    _cache_universes(monkeypatch, tmp_path, "USA", 0, ["TOP3000"])
     args = SimpleNamespace(
         region="USA", universe="TOP3000", delay=None, datasets=None, sample_per_family=1,
         execute=False, seed=9, config=str(_config(tmp_path)), policy_file=str(policy_path),
@@ -120,6 +155,7 @@ def test_research_cycle_uses_yaml_defaults_when_cli_options_are_omitted(monkeypa
         "alpha_operator_framework.research.field_loader.load_real_market_fields",
         lambda **kwargs: captured.update(kwargs) or [FieldSpec(id="returns", dataset_id="pv1", type="MATRIX")],
     )
+    _cache_universes(monkeypatch, tmp_path, "USA", 0, ["TOP500", "TOP3000"])
     args = SimpleNamespace(
         region=None, universe=None, delay=None, datasets=None, sample_per_family=None,
         execute=False, seed=9, config=str(config), policy_file=None, telemetry_file=None,
@@ -128,5 +164,5 @@ def test_research_cycle_uses_yaml_defaults_when_cli_options_are_omitted(monkeypa
 
     alpha_machine.command_research_cycle(args)
 
-    assert captured == {"region": "USA", "universe": "TOP3000", "delay": 0, "datasets": None,
+    assert captured == {"region": "USA", "universe": "TOP500", "delay": 0, "datasets": None,
                         "include_base_fields": False, "allow_scope_fallback": False, "category": None}

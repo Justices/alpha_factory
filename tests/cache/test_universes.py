@@ -1,44 +1,34 @@
 import asyncio
-import json
 import sys
 import types
 
 from alpha_operator_framework.cache.universes import UniverseCache
 
 
-def test_universe_cache_saves_an_unmodified_simulations_options_snapshot(monkeypatch, tmp_path) -> None:
-    raw_options = {"actions": {"POST": {"settings": {"children": {"Universe": {"value": ["TOP2500"]}}}}}}
+def test_universe_cache_extracts_simulation_setting_validation_values() -> None:
+    raw_options = {
+        "actions": {"POST": {"settings": {"children": {
+            "decay": {"type": "integer", "label": "Decay", "minValue": 0, "maxValue": 60, "default": 4},
+            "neutralization": {
+                "type": "string",
+                "label": "Neutralization",
+                "choices": {"region": {"EUR": [
+                    {"value": "NONE", "label": "None"},
+                    {"value": "MARKET", "label": "Market"},
+                ]}},
+            },
+            "pasteurization": {"choices": [{"value": "ON"}, {"value": "OFF"}]},
+        }}}}
+    }
 
-    class Response:
-        def raise_for_status(self):
-            return None
-
-        def json(self):
-            return raw_options
-
-    class Session:
-        def options(self, url):
-            assert url == "https://brain.example/simulations"
-            return Response()
-
-    class Client:
-        base_url = "https://brain.example"
-        session = Session()
-
-        async def ensure_authenticated(self):
-            return None
-
-    module = types.ModuleType("cnhkmcp.untracked.platform_functions")
-    module.brain_client = Client()
-    monkeypatch.setitem(sys.modules, "cnhkmcp.untracked.platform_functions", module)
-    cache = UniverseCache()
-    monkeypatch.setattr(cache, "_cache_path", lambda key="": tmp_path / f"{key}.json")
-
-    assert cache.get_raw_platform_options(force_refresh=True) == raw_options
-    assert json.loads((tmp_path / "simulations_options.json").read_text(encoding="utf-8")) == raw_options
+    assert UniverseCache.extract_simulation_settings(raw_options) == {
+        "decay": {"minValue": 0, "maxValue": 60, "default": 4},
+        "neutralization": {"region": {"EUR": ["NONE", "MARKET"]}},
+        "pasteurization": ["ON", "OFF"],
+    }
 
 
-def test_universe_map_refresh_also_saves_the_raw_options_snapshot(monkeypatch, tmp_path) -> None:
+def test_universe_map_refresh_saves_simulation_setting_values(monkeypatch, tmp_path) -> None:
     raw_options = {"actions": {"POST": {}}}
 
     class Response:
@@ -69,7 +59,7 @@ def test_universe_map_refresh_also_saves_the_raw_options_snapshot(monkeypatch, t
     monkeypatch.setattr(cache, "_cache_path", lambda key="": tmp_path / f"{key}.json")
 
     assert cache.get_universe_map(force_refresh=True) == {}
-    assert json.loads((tmp_path / "simulations_options.json").read_text(encoding="utf-8")) == raw_options
+    assert cache.get_simulation_settings() == {}
 
 
 def test_universe_cache_extracts_all_region_universes_from_platform_settings(monkeypatch) -> None:

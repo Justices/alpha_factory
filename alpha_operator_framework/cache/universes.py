@@ -3,7 +3,6 @@
 from __future__ import annotations
 
 import asyncio
-import json
 from pathlib import Path
 from typing import Any, Dict, List, Optional
 
@@ -35,8 +34,8 @@ class UniverseCache(DataCache):
             return UNIVERSES_CACHE / f"{key}.json"
         return self.cache_file
 
-    async def fetch_raw_platform_options(self) -> dict[str, Any]:
-        """Fetch the unmodified response from ``OPTIONS /simulations``."""
+    async def _fetch_simulation_options(self) -> dict[str, Any]:
+        """Fetch simulation options solely for deriving the validation cache."""
         from cnhkmcp.untracked.platform_functions import brain_client
 
         await brain_client.ensure_authenticated()
@@ -44,21 +43,38 @@ class UniverseCache(DataCache):
         response.raise_for_status()
         return response.json()
 
-    def get_raw_platform_options(self, force_refresh: bool = False) -> dict[str, Any]:
-        """Return an exact local snapshot of the platform's simulation OPTIONS response."""
-        path = self._cache_path("simulations_options")
-        if not force_refresh and path.exists():
-            try:
-                cached = json.loads(path.read_text(encoding="utf-8"))
-                if isinstance(cached, dict):
-                    return cached
-            except (OSError, json.JSONDecodeError):
-                pass
+    @staticmethod
+    def extract_simulation_settings(options: dict[str, Any]) -> dict[str, Any]:
+        """Keep only values required to validate simulation settings."""
+        children = options.get("actions", {}).get("POST", {}).get("settings", {}).get("children", {})
+        if not isinstance(children, dict):
+            return {}
+        extracted: dict[str, Any] = {}
+        for name, definition in children.items():
+            if not isinstance(definition, dict):
+                continue
+            if "choices" in definition:
+                extracted[str(name)] = UniverseCache._extract_choice_values(definition["choices"])
+                continue
+            extracted[str(name)] = {
+                key: definition[key]
+                for key in ("minValue", "maxValue", "default")
+                if key in definition
+            }
+        return extracted
 
-        raw_options = asyncio.run(self.fetch_raw_platform_options())
-        path.parent.mkdir(parents=True, exist_ok=True)
-        path.write_text(json.dumps(raw_options, ensure_ascii=False, indent=2), encoding="utf-8")
-        return raw_options
+    @staticmethod
+    def _extract_choice_values(value: Any) -> Any:
+        """Replace choice objects within nested arrays with their ``value`` member."""
+        if isinstance(value, list):
+            return [
+                item["value"] if isinstance(item, dict) and "value" in item
+                else UniverseCache._extract_choice_values(item)
+                for item in value
+            ]
+        if isinstance(value, dict):
+            return {key: UniverseCache._extract_choice_values(item) for key, item in value.items()}
+        return value
 
     async def fetch_platform_settings(self) -> dict[str, dict[str, list[str]]]:
         """Fetch the complete EQUITY region/delay/universe mapping from the platform."""
@@ -88,10 +104,24 @@ class UniverseCache(DataCache):
             regions = cached.get("regions") if isinstance(cached, dict) else None
             if isinstance(regions, dict):
                 return regions
-        self.get_raw_platform_options(force_refresh=force_refresh)
+        simulation_settings = self.extract_simulation_settings(
+            asyncio.run(self._fetch_simulation_options())
+        )
         regions = asyncio.run(self.fetch_platform_settings())
-        self.save_local({"regions": regions}, "settings")
+        self.save_local({"regions": regions, "settings": simulation_settings}, "settings")
         return regions
+
+    def get_simulation_settings(self, force_refresh: bool = False) -> dict[str, Any]:
+        """Return cached allowed values and bounds for simulation settings."""
+        if not force_refresh:
+            cached = self.load_local("settings")
+            settings = cached.get("settings") if isinstance(cached, dict) else None
+            if isinstance(settings, dict):
+                return settings
+        self.get_universe_map(force_refresh=True)
+        cached = self.load_local("settings") or {}
+        settings = cached.get("settings")
+        return settings if isinstance(settings, dict) else {}
 
     async def fetch_platform(self, region: str = "", **kwargs) -> Dict[str, Any]:
         """从平台获取 Universe 列表."""

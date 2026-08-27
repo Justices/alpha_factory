@@ -130,3 +130,9 @@ Tests will be written before implementation and will cover:
 - Cross-settings pruning.
 - Changing submission authorization or evidence checks.
 - Refactoring unrelated legacy workflows.
+
+## Implementation Verification
+
+- Focused regression suite: 57 passed on 2026-08-27.
+- Python compilation: passed on 2026-08-27.
+- The workspace denies writes to `.pytest_cache`; this produces a pytest cache warning only.

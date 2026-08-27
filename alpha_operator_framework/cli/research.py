@@ -88,7 +88,20 @@ def command_research_cycle(args: argparse.Namespace) -> None:
         submission_authorized=bool(getattr(args, "authorize_submission", False)),
     )
     try:
-        if policy_snapshot and policy_snapshot.templates:
+        continuing = bool(getattr(args, "continue_research", False))
+        candidates = runtime.alpha_database.load_unbacktested_research_candidates({
+            "region": policy.region if policy else field_scope["region"],
+            "universe": policy.universe if policy else field_scope["universe"],
+            "delay": policy.delay if policy else field_scope["delay"],
+            "decay": policy.decay if policy else options.get("decay", 8),
+            "neutralization": policy.neutralization if policy else options.get("neutralization", "SUBINDUSTRY"),
+            "truncation": policy.truncation if policy else options.get("truncation", 0.08),
+        }) if continuing else []
+        if continuing and not args.execute:
+            raise ValueError("--continue-research requires --execute")
+        if candidates:
+            pass
+        elif policy_snapshot and policy_snapshot.templates:
             candidates = AstCandidateBuilder().build_preprocessed(
                 fields, policy_snapshot.construction_templates(), seed=options.get("seed", 42),
             )
@@ -117,10 +130,22 @@ def command_research_cycle(args: argparse.Namespace) -> None:
                 "neutralization": getattr(args, "neutralization", None), "truncation": getattr(args, "truncation", None),
             })
             policy = replace(policy, max_backtests=sum(family_quotas.values()), family_quotas=family_quotas)
-        round_id = _round_id(args, policy, options)
-        summary = runtime.plan(ResearchCycleRequest(round_id, options.get("seed", 42), policy, runtime.knowledge_base.snapshot(), candidates, args.execute))
-        if args.execute:
-            summary = runtime.process_round(summary.round_id)
+        base_round_id = _round_id(args, policy, options)
+        iteration = 0
+        while candidates:
+            round_id = base_round_id if iteration == 0 else f"{base_round_id}-{iteration + 1}"
+            summary = runtime.plan(ResearchCycleRequest(round_id, options.get("seed", 42), policy, runtime.knowledge_base.snapshot(), candidates, args.execute))
+            if args.execute:
+                summary = runtime.process_round(summary.round_id)
+            if not continuing:
+                break
+            candidates = runtime.alpha_database.load_unbacktested_research_candidates({
+                "region": policy.region, "universe": policy.universe, "delay": policy.delay,
+                "decay": policy.decay, "neutralization": policy.neutralization, "truncation": policy.truncation,
+            })
+            iteration += 1
+        if not candidates and continuing and iteration == 0:
+            summary = type("Summary", (), {"round_id": base_round_id, "status": "EXHAUSTED", "completed_backtests": 0})()
         if args.telemetry_file:
             JsonLinesTelemetrySink(Path(args.telemetry_file)).publish(runtime.telemetry)
         print(f"Research Cycle Summary\nresearch cycle: {summary.round_id} | {summary.status} | backtests={summary.completed_backtests}")
@@ -196,6 +221,7 @@ def build_parser() -> argparse.ArgumentParser:
     cycle.add_argument("--policy-file")
     cycle.add_argument("--telemetry-file")
     cycle.add_argument("--execute", action="store_true")
+    cycle.add_argument("--continue-research", action="store_true")
     cycle.add_argument("--authorize-submission", action="store_true")
     cycle.add_argument("--submission-evidence-file")
     cycle.set_defaults(handler=command_research_cycle)

@@ -69,6 +69,32 @@ class AlphaQueryMixin(BaseRepository):
             for r in rows
         ]
 
+    def load_unbacktested_research_candidates(self, settings: Dict) -> List[object]:
+        """Return active expressions for one settings scope that have not been backtested."""
+        from alpha_operator_framework.research.round import Candidate
+        from alpha_operator_framework.domain.ast import validate_expression
+
+        settings_json = json.dumps(settings, ensure_ascii=False, sort_keys=True, separators=(",", ":"))
+        rows = self._get_connection().execute(
+            """SELECT ae.alpha_sha, ae.expression, ae.fields, MIN(rc.family) AS family,
+                      MIN(rc.template_id) AS template_id
+                 FROM alpha_expressions ae
+                 JOIN round_candidates rc ON rc.alpha_sha = ae.alpha_sha
+                WHERE ae.settings = ? AND ae.status IN ('generated', 'pending')
+                  AND ae.pruning_status = 'active' AND rc.pruning_status = 'active'
+                GROUP BY ae.alpha_sha, ae.expression, ae.fields
+                ORDER BY ae.id""",
+            (settings_json,),
+        ).fetchall()
+        candidates = []
+        for row in rows:
+            validation = validate_expression(row["expression"])
+            candidates.append(Candidate(
+                row["alpha_sha"], row["expression"], row["family"],
+                tuple(json.loads(row["fields"] or "[]")), tuple(sorted(validation.operators_used)), row["template_id"],
+            ))
+        return candidates
+
     # ---------------------------------------------------------------------------
     # 分层抽样与近亲去重
     # ---------------------------------------------------------------------------

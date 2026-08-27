@@ -335,8 +335,6 @@ class ResearchBatchWorker:
                         self.submission_outbox.enqueue(case)
         templates_by_candidate = {candidate.candidate_id: candidate.template_id for candidate in round_.candidates}
         templates = {task.task_id: templates_by_candidate[task.candidate_id] for task in batch.tasks.values()}
-        if self.alpha_database is not None:
-            self.alpha_database.prune_unselected_round_candidates(round_id)
         knowledge = self.knowledge_base.apply_batch(batch, templates)
         from alpha_operator_framework.knowledge.distillation import distill_templates
         distilled = distill_templates(

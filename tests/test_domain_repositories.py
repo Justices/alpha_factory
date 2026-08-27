@@ -15,6 +15,7 @@ from alpha_operator_framework.database import (
     DatabaseConnectionManager,
 )
 from alpha_operator_framework.database.models import Template
+from alpha_operator_framework.research.round import Candidate
 
 
 def test_persisted_alpha_chain_uses_only_alpha_sha() -> None:
@@ -61,6 +62,24 @@ def test_pruning_status_is_independent_from_completed_backtest_status() -> None:
         stored = db.get_expression_by_alpha_sha(db.compute_alpha_sha(expression, settings))
         assert stored.status == "completed"
         assert stored.pruning_status == "pruned"
+
+
+def test_load_unbacktested_research_candidates_keeps_only_active_scope_rows() -> None:
+    with tempfile.TemporaryDirectory(ignore_cleanup_errors=True) as tmp:
+        db = AlphaDatabase(Path(tmp) / "continue_research.db")
+        settings = {"region": "USA", "universe": "TOP3000", "delay": 1}
+        candidates = [
+            Candidate("ready", "rank(close)", "unary", ("close",), ("rank",), "template"),
+            Candidate("done", "rank(volume)", "unary", ("volume",), ("rank",), "template"),
+        ]
+        for candidate in candidates:
+            db.insert_expression(candidate.expression, settings, status="generated", fields=list(candidate.fields))
+        db.catalog_research_candidates("source-round", candidates, settings)
+        db.set_expression_status("rank(volume)", "completed", settings)
+
+        pending = db.load_unbacktested_research_candidates(settings)
+
+        assert [candidate.expression for candidate in pending] == ["rank(close)"]
 
 
 def test_domain_repositories_standalone_and_shared_connection():

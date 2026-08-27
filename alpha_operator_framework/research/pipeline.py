@@ -211,7 +211,7 @@ def ingest_literature_to_alphas(
 
     for idea in ideas:
         grounded_vars = grounder.ground_idea(idea.variable_roles, available_fields)
-        logger.info("假说对齐字段完成：%s -> %s", idea.concept_name, [f"{k}:{v.id}" for k, v in grounded_vars.items()])
+        logger.info("假说对齐字段完成：%s -> %s", idea.title, [f"{k}:{v}" for k, v in grounded_vars.items()])
         tasks = translator.translate_idea_to_tasks(idea, grounded_vars)
         all_tasks.extend(tasks)
 

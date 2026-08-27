@@ -282,10 +282,9 @@ def economic_first_order_task_factory(
 
     tasks: List[Task] = []
     for field in field_specs:
-        scalar_fields = preprocess_field(
-            field, backfill=backfill, winsorize_std=winsorize_std,
-            vector_ops=tuple(vector_ops) if vector_ops is not None else None,
-        ) if vector_ops is not None else preprocess_field(field, backfill=backfill, winsorize_std=winsorize_std)
+        scalar_fields = preprocess_field(field, backfill=backfill, vector_ops=tuple(
+            vector_ops) if vector_ops is not None else None) if vector_ops is not None else preprocess_field(field,
+                                                                                                             backfill=backfill)
         ops = allowed_first_order_ops(field)
         for task in first_order_task_factory(scalar_fields, ops, decay=decay):
             tasks.append(replace(

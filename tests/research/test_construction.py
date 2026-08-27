@@ -95,3 +95,35 @@ def test_dimension2_uses_different_fields_from_the_parent_category_and_caps_each
     assert {candidate.family for candidate in candidates} == {"optimization_dimension2"}
     assert all("close" in candidate.fields for candidate in candidates)
     assert all("volume" not in candidate.fields for candidate in candidates)
+
+
+def test_template_library_builder_naked_and_vector_reduction_rules() -> None:
+    fields = (
+        FieldSpec("close", "dataset", "MATRIX", category="price"),
+        FieldSpec("vector_field", "dataset", "VECTOR", category="price"),
+        FieldSpec("event_field", "dataset", "EVENT", category="price"),
+    )
+    # 简单的单变量模板以测试生成的表达式
+    templates = (
+        Template(name="rank_tpl", family="unary", template_type="placeholder", expression_template="rank({a})", slot_count=1, active=1),
+    )
+
+    candidates = AstCandidateBuilder().build_template_library(templates, fields)
+    expressions = [candidate.expression for candidate in candidates]
+
+    # 验证 MATRIX 使用裸字段 (不含 winsorize 或 ts_backfill)
+    assert "rank(close)" in expressions
+
+    # 验证 VECTOR 字段确定性展开为四种 vec_* 降维形式 (且不含 winsorize)
+    assert "rank(vec_avg(vector_field))" in expressions
+    assert "rank(vec_sum(vector_field))" in expressions
+    assert "rank(vec_range(vector_field))" in expressions
+    assert "rank(vec_stddev(vector_field))" in expressions
+
+    # 验证 EVENT 字段使用 vec_avg 降维
+    assert "rank(vec_avg(event_field))" in expressions
+
+    # 确保生成结果绝对没有任何最外层或内层的 winsorize 或 ts_backfill 包装
+    for expr in expressions:
+        assert "winsorize" not in expr
+        assert "ts_backfill" not in expr

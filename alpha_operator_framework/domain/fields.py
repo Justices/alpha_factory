@@ -73,13 +73,7 @@ class ScalarField:
 # 字段预处理 — machine_lib.process_datafields 的单字段版本
 # ---------------------------------------------------------------------------
 
-def preprocess_field(
-    field: FieldSpec,
-    *,
-    backfill: int = 120,
-    winsorize_std: float = 4.0,
-    vector_ops: Tuple[str, ...] = DEFAULT_VEC_OPS
-) -> List[str]:
+def preprocess_field(field: FieldSpec, *, backfill: int = 120, vector_ops: Tuple[str, ...] = DEFAULT_VEC_OPS) -> List[str]:
     """单个字段预处理 → 标量表达式列表.
 
     MATRIX字段: 直接winsorize + ts_backfill
@@ -108,19 +102,19 @@ def preprocess_field(
 
     if field.type == "MATRIX":
         # MATRIX字段直接预处理
-        expr = f"winsorize(ts_backfill({field.id}, {backfill}), std={winsorize_std})"
+        expr = f"ts_backfill({field.id}, {backfill})"
         expressions.append(expr)
 
     elif field.type == "VECTOR":
         # VECTOR字段先归约再预处理
         for vec_op in vector_ops:
             vec_expr = f"{vec_op}({field.id})"
-            expr = f"winsorize(ts_backfill({vec_expr}, {backfill}), std={winsorize_std})"
+            expr = f"ts_backfill({vec_expr}, {backfill})"
             expressions.append(expr)
 
     elif field.type == "EVENT":
         vec_expr = f"vec_avg({field.id})"
-        expressions.append(f"winsorize(ts_backfill({vec_expr}, {backfill}), std={winsorize_std})")
+        expressions.append(f"ts_backfill({vec_expr}, {backfill})")
 
     return expressions
 
@@ -157,9 +151,9 @@ def preprocess_fields_rotated(
         if f.type == "VECTOR":
             op = ops[vi % len(ops)]
             vi += 1
-            exprs = preprocess_field(f, backfill=backfill, winsorize_std=winsorize_std, vector_ops=(op,))
+            exprs = preprocess_field(f, backfill=backfill, vector_ops=(op,))
         else:
-            exprs = preprocess_field(f, backfill=backfill, winsorize_std=winsorize_std)
+            exprs = preprocess_field(f, backfill=backfill)
         out.extend((f, e) for e in exprs)
     return out
 
@@ -258,12 +252,7 @@ def sample_scalar_expressions(
     # 预处理: 每个FieldSpec → 标量表达式列表
     out: List[str] = []
     for spec_field in selected_fields:
-        out.extend(preprocess_field(
-            spec_field,
-            backfill=spec.backfill,
-            winsorize_std=spec.winsorize_std,
-            vector_ops=spec.vector_ops,
-        ))
+        out.extend(preprocess_field(spec_field, backfill=spec.backfill, vector_ops=spec.vector_ops))
 
     return out
 
@@ -287,12 +276,7 @@ def sample_scalar_field_pairs(
     selected_fields = sample_field_specs(fields, spec)
     out: List[ScalarField] = []
     for spec_field in selected_fields:
-        for expr in preprocess_field(
-            spec_field,
-            backfill=spec.backfill,
-            winsorize_std=spec.winsorize_std,
-            vector_ops=spec.vector_ops,
-        ):
+        for expr in preprocess_field(spec_field, backfill=spec.backfill, vector_ops=spec.vector_ops):
             out.append(ScalarField(expr=expr, category=spec_field.category, field_id=spec_field.id))
     return out
 

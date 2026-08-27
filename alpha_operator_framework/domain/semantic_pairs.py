@@ -70,9 +70,7 @@ def semantic_pair_task_factory(
     seen = set()
 
     def expressions(field: FieldSpec) -> List[str]:
-        return preprocess_field(
-            field, backfill=backfill, winsorize_std=winsorize_std, vector_ops=vector_ops
-        )
+        return preprocess_field(field, backfill=backfill, vector_ops=vector_ops)
 
     for positive, negative in find_positive_negative_pairs(fields):
         for left, right in zip(expressions(positive), expressions(negative)):

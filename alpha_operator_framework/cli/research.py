@@ -40,6 +40,7 @@ def _evidence(args: argparse.Namespace) -> dict[str, object] | None:
 
 def command_research_cycle(args: argparse.Namespace) -> None:
     from alpha_operator_framework.application.research_cycle import ResearchCycleRequest
+    from alpha_operator_framework.application.research_loop import ResearchLoopCoordinator
     from alpha_operator_framework.infrastructure.runtime_factory import build_research_runtime, resolve_research_options
     from alpha_operator_framework.infrastructure.telemetry import JsonLinesTelemetrySink
     from alpha_operator_framework.research.construction import AstCandidateBuilder
@@ -131,24 +132,23 @@ def command_research_cycle(args: argparse.Namespace) -> None:
             })
             policy = replace(policy, max_backtests=sum(family_quotas.values()), family_quotas=family_quotas)
         base_round_id = _round_id(args, policy, options)
-        iteration = 0
-        while candidates:
-            round_id = base_round_id if iteration == 0 else f"{base_round_id}-{iteration + 1}"
-            summary = runtime.plan(ResearchCycleRequest(round_id, options.get("seed", 42), policy, runtime.knowledge_base.snapshot(), candidates, args.execute))
+        if continuing:
+            summary = ResearchLoopCoordinator(runtime).run(
+                policy, fields, candidates, seed=options.get("seed", 42), execute=True,
+                base_round_id=base_round_id,
+            )
+            summary_round_id = summary.round_ids[-1] if summary.round_ids else base_round_id
+        else:
+            summary = runtime.plan(ResearchCycleRequest(
+                base_round_id, options.get("seed", 42), policy,
+                runtime.knowledge_base.snapshot(), candidates, args.execute,
+            ))
             if args.execute:
                 summary = runtime.process_round(summary.round_id)
-            if not continuing:
-                break
-            candidates = runtime.alpha_database.load_unbacktested_research_candidates({
-                "region": policy.region, "universe": policy.universe, "delay": policy.delay,
-                "decay": policy.decay, "neutralization": policy.neutralization, "truncation": policy.truncation,
-            })
-            iteration += 1
-        if not candidates and continuing and iteration == 0:
-            summary = type("Summary", (), {"round_id": base_round_id, "status": "EXHAUSTED", "completed_backtests": 0})()
+            summary_round_id = summary.round_id
         if args.telemetry_file:
             JsonLinesTelemetrySink(Path(args.telemetry_file)).publish(runtime.telemetry)
-        print(f"Research Cycle Summary\nresearch cycle: {summary.round_id} | {summary.status} | backtests={summary.completed_backtests}")
+        print(f"Research Cycle Summary\nresearch cycle: {summary_round_id} | {summary.status} | backtests={summary.completed_backtests}")
     finally:
         close = getattr(runtime, "close", None)
         if callable(close):

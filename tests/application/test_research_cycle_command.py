@@ -9,6 +9,7 @@ import pytest
 
 import alpha_operator_framework.cli.research as alpha_machine
 from alpha_operator_framework.domain.fields import FieldSpec
+from alpha_operator_framework.database.models import Template
 from alpha_operator_framework.core.event_store import EventStore
 from alpha_operator_framework.core.events import EventType
 from alpha_operator_framework.infrastructure.runtime_factory import build_research_runtime
@@ -166,3 +167,47 @@ def test_research_cycle_uses_yaml_defaults_when_cli_options_are_omitted(monkeypa
 
     assert captured == {"region": "USA", "universe": "TOP500", "delay": 0, "datasets": None,
                         "include_base_fields": False, "allow_scope_fallback": False, "category": None}
+
+
+def test_continue_research_delegates_to_the_closed_loop(monkeypatch, tmp_path, capsys) -> None:
+    monkeypatch.setattr(
+        "alpha_operator_framework.research.field_loader.load_real_market_fields",
+        lambda **_: [FieldSpec(id="returns", dataset_id="pv1", type="MATRIX")],
+    )
+    _cache_universes(monkeypatch, tmp_path, "GBR", 1, ["TOP700"])
+    calls = []
+
+    class Coordinator:
+        def __init__(self, runtime):
+            self.runtime = runtime
+
+        def run(self, policy, fields, candidates, *, seed, execute, base_round_id):
+            calls.append((policy, fields, candidates, seed, execute, base_round_id))
+            return SimpleNamespace(status="EXHAUSTED", round_ids=[base_round_id], completed_backtests=24)
+
+    class Database:
+        def load_unbacktested_research_candidates(self, _settings):
+            return []
+
+        def list_templates(self, *, active_only=True):
+            return [Template(name="rank", family="unary", expression_template="rank({a})", slot_count=1)]
+
+    runtime = SimpleNamespace(
+        alpha_database=Database(), knowledge_base=SimpleNamespace(snapshot=lambda: None), telemetry=None,
+        plan=lambda _request: (_ for _ in ()).throw(AssertionError("CLI must delegate continuous execution")),
+    )
+    monkeypatch.setattr("alpha_operator_framework.infrastructure.runtime_factory.build_research_runtime", lambda *_args, **_kwargs: runtime)
+    monkeypatch.setattr("alpha_operator_framework.application.research_loop.ResearchLoopCoordinator", Coordinator)
+    args = SimpleNamespace(
+        region="GBR", universe="TOP700", delay=1, decay=None, neutralization=None, truncation=None,
+        datasets=None, category=None, sample_per_family=1, execute=True, continue_research=True,
+        seed=9, config=str(_config(tmp_path)), policy_file=None, telemetry_file=None,
+        algorithm="stratified", round_id="loop-round", authorize_submission=False,
+        submission_evidence_file=None,
+    )
+
+    alpha_machine.command_research_cycle(args)
+
+    assert len(calls) == 1
+    assert calls[0][-1] == "loop-round"
+    assert "loop-round | EXHAUSTED | backtests=24" in capsys.readouterr().out

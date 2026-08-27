@@ -268,18 +268,39 @@ class ResearchBatchWorker:
         
         try:
             logger.info("正在执行批量回测，任务大小=%d (分片并发=%d)...", len(due), BACKTEST_BATCH_SIZE)
-            results = [
-                result
-                for offset in range(0, len(due), BACKTEST_BATCH_SIZE)
-                for result in self.backtest_gateway.run_backtests(due[offset:offset + BACKTEST_BATCH_SIZE])
-            ]
+            results = []
+            for offset in range(0, len(due), BACKTEST_BATCH_SIZE):
+                shard_results = list(
+                    self.backtest_gateway.run_backtests(due[offset:offset + BACKTEST_BATCH_SIZE])
+                )
+                results.extend(shard_results)
+                completed_events = []
+                for result in shard_results:
+                    task = batch.tasks[result.task_id]
+                    self._persist_simulation_result(batch, result)
+                    self._persist_primary_result(result, task)
+                    if not result.error and result.platform_alpha_id:
+                        batch.record_result(result)
+                        completed_events.append((result, task))
+                self.experiment_repository.save_batch(batch)
+                for result, task in completed_events:
+                    self._event(EventType.SIMULATION_COMPLETED, round_id, {
+                            "task_id": result.task_id, "alpha_id": result.platform_alpha_id,
+                            "sharpe": result.sharpe, "fitness": result.fitness,
+                            "turnover": result.turnover, "margin": result.margin,
+                            "checks_passed": result.checks_passed,
+                            "idempotency_key": task.idempotency_key,
+                        })
         except Exception as error:
             logger.exception("批量回测在与网关交互时遇到外部连接异常: %s", error)
             if not isinstance(error, (TimeoutError, ConnectionError)) and not self._is_rate_limited(error):
                 raise
-            attempts = max(task.attempts for task in due) + 1
+            retry_due = [task for task in due if task.task_id not in batch.results]
+            if not retry_due:
+                raise
+            attempts = max(task.attempts for task in retry_due) + 1
             if attempts >= policy.max_retry_attempts:
-                task_ids = [task.task_id for task in due]
+                task_ids = [task.task_id for task in retry_due]
                 batch.record_retry(task_ids, next_retry_at=now.isoformat(), error=str(error))
                 self._record_retry_fact(batch, round_id, task_ids, BatchState.FAILED)
                 self._transition(batch, BatchState.FAILED)
@@ -289,7 +310,7 @@ class ResearchBatchWorker:
             
             delay_seconds = self._retry_after_seconds(error) or self._policy_backoff_seconds(policy, attempts)
             retry_at = now + timedelta(seconds=delay_seconds)
-            task_ids = [task.task_id for task in due]
+            task_ids = [task.task_id for task in retry_due]
             batch.record_retry(task_ids, next_retry_at=retry_at.isoformat(), error=str(error))
             self._record_retry_fact(batch, round_id, task_ids, BatchState.PARTIAL_FAILED)
             self._transition(batch, BatchState.PARTIAL_FAILED)
@@ -302,8 +323,6 @@ class ResearchBatchWorker:
             attempts = max(task.attempts for task in due) + 1
             for result in failures:
                 task = batch.tasks[result.task_id]
-                self._persist_simulation_result(batch, result)
-                self._persist_primary_result(result, task)
                 batch.record_retry([result.task_id], next_retry_at=(now + timedelta(seconds=self._policy_backoff_seconds(policy, attempts))).isoformat(), error=result.error or "platform execution failed")
                 self._event(EventType.MONITORING_OBSERVED, round_id, {"task_id": result.task_id, "platform_failure": result.error})
             self.experiment_repository.save_batch(batch)
@@ -311,16 +330,7 @@ class ResearchBatchWorker:
             return self._summary(batch, "FAILED" if attempts >= policy.max_retry_attempts else "RETRY_SCHEDULED")
 
         for result in results:
-            batch.record_result(result)
             task = batch.tasks[result.task_id]
-            self._persist_simulation_result(batch, result)
-            self._persist_primary_result(result, task)
-            self._event(EventType.SIMULATION_COMPLETED, round_id, {
-                "task_id": result.task_id, "alpha_id": result.platform_alpha_id,
-                "sharpe": result.sharpe, "fitness": result.fitness, "turnover": result.turnover,
-                "margin": result.margin, "checks_passed": result.checks_passed,
-                "idempotency_key": task.idempotency_key,
-            })
             logger.info("因子 %s 回测正常完成。Sharpe=%.2f, Alpha ID=%s", task.expression, result.sharpe, result.platform_alpha_id)
 
         if len(batch.results) != len(batch.tasks):

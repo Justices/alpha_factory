@@ -43,6 +43,12 @@ def build_parser() -> argparse.ArgumentParser:
 
 
 def route(argv: Sequence[str] | None = None) -> Any:
+    import logging
+    # 统一配置全局日志格式，确保输出包含具体文件名、行号等位置信息
+    logging.basicConfig(
+        format="%(asctime)s [%(levelname)s] %(name)s (%(filename)s:%(lineno)d) - %(message)s",
+        level=logging.INFO
+    )
     from alpha_operator_framework.cli.router import route as dispatch
 
     return dispatch(argv)

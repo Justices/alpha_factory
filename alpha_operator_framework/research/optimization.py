@@ -14,7 +14,7 @@ SIGNAL_FITNESS = 0.8
 MIN_DISTINCT_FIELDS = 3
 MIN_SAMPLES = 4
 MIN_FAILURE_RATE = 0.80
-MAX_AVERAGE_SHARPE = 0.10
+MAX_AVERAGE_SHARPE = 0.80
 
 
 @dataclass(frozen=True)
@@ -53,12 +53,12 @@ def derive_consensus_prune_rules(rows: Sequence[CompletedExpression]) -> list[Re
         if len(samples) < MIN_SAMPLES or any(is_signal_parent(sample) for sample in samples):
             continue
         fields = {field for sample in samples for field in sample.fields}
-        failures = [sample for sample in samples if not sample.checks_passed or sample.sharpe <= MAX_AVERAGE_SHARPE]
+        failures = [sample for sample in samples if not sample.checks_passed or sample.sharpe < MAX_AVERAGE_SHARPE]
         average_sharpe = sum(sample.sharpe for sample in samples) / len(samples)
         if (
             len(fields) >= MIN_DISTINCT_FIELDS
             and len(failures) / len(samples) >= MIN_FAILURE_RATE
-            and average_sharpe <= MAX_AVERAGE_SHARPE
+            and average_sharpe < MAX_AVERAGE_SHARPE
         ):
             prefix = template.split("{", 1)[0]
             if prefix:

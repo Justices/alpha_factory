@@ -24,3 +24,19 @@ def test_consensus_pruning_requires_cross_field_failure_and_gold_shield() -> Non
         *failures,
         _row("rank(winner)", ("winner",), 1.26, 0.81),
     ]) == []
+
+
+def test_consensus_pruning_uses_strict_point_eight_sharpe_cutoff() -> None:
+    below_cutoff = [
+        _row(f"rank(f{index})", (f"f{index}",), 0.79, 0.9)
+        for index in range(4)
+    ]
+    at_cutoff = [
+        _row(f"rank(f{index})", (f"f{index}",), 0.8, 0.9)
+        for index in range(4)
+    ]
+
+    assert derive_consensus_prune_rules(below_cutoff) == [
+        ResultPruneRule("rank(", "prefix", "consensus failure")
+    ]
+    assert derive_consensus_prune_rules(at_cutoff) == []

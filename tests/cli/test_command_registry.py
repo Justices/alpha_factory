@@ -76,6 +76,16 @@ def test_root_parser_preserves_the_cli_contract() -> None:
     assert prepare_super.decay == 6
 
 
+def test_root_parser_accepts_continue_research_for_research_cycle() -> None:
+    args = build_parser().parse_args([
+        "research-cycle", "--region", "EUR", "--universe", "TOP2500",
+        "--continue-research", "--execute",
+    ])
+
+    assert args.continue_research is True
+    assert args.execute is True
+
+
 def test_default_research_config_allocates_twenty_backtests_per_family() -> None:
     options = resolve_research_options(DEFAULT_CONFIG_PATH, {})
 

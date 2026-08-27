@@ -29,8 +29,8 @@ Turn `research-cycle --continue-research --execute` into a restart-safe closed l
 - `dimension2` combines the signal expression with another raw field from the same category.
 - Every active template is considered, with at most 200 deterministic combinations per template and stage.
 - All candidates within that bound are persisted and deduplicated before selection.
-- Selection keeps the existing weighted-stratified policy and selects 20 candidates per family/category when available.
-- Platform submissions remain chunked into groups of eight; a final partial group is allowed.
+- Selection keeps the existing weighted-stratified ranking, but each closed-loop iteration executes at most eight candidates so persisted results can affect the next shard.
+- A final partial shard is allowed.
 - Optimization candidates have priority over the remaining base pool.
 
 ## Architecture
@@ -72,7 +72,7 @@ For each coordinator iteration:
 1. Resume any non-terminal batch before creating new work.
 2. Load active unbacktested optimization candidates; if present, select them first.
 3. Otherwise load active unbacktested base candidates.
-4. Plan a round, persist its selected tasks, and let the worker execute it in platform chunks of eight.
+4. Plan one shard of at most eight candidates and persist its selected tasks before platform execution.
 5. If the worker has not reached `EVALUATED`, stop the iteration without pruning or promotion and let retry state control resumption.
 6. Query completed results in the exact settings scope and derive consensus structural failures.
 7. Persist the scoped rules and mark only matching unbacktested expressions as pruned.
@@ -80,7 +80,7 @@ For each coordinator iteration:
    - `base` produces `order2` children;
    - an eligible `order2` result produces `dimension2` children;
    - `dimension2` produces no further children.
-9. Persist and deduplicate generated children and lineage before the next selection.
+9. Persist each generated child first, then its idempotent lineage edge and candidate catalog link, before the next selection.
 10. Repeat until no active optimization candidate and no active base candidate remain.
 
 ## Candidate Generation
@@ -93,14 +93,15 @@ Each template/stage emits at most 200 combinations in deterministic seed order. 
 
 ## Pruning Semantics
 
-Result-driven pruning aggregates completed samples by normalized template skeleton within one settings scope. A structure is prunable only after satisfying the confirmed sample, field-diversity, failure-rate, mean-Sharpe, and immunity rules.
+Result-driven pruning aggregates completed samples by normalized template skeleton within one settings scope. Sharpe below `0.8` is a failure and the mean-Sharpe cutoff is strictly below `0.8`; a structure remains prunable only after satisfying the sample, field-diversity, failure-rate, and immunity rules.
 
 Applying a rule changes only `pruning_status` on matching expressions whose backtest `status` is `generated` or `pending`. It also updates the corresponding active `round_candidates` projections. It never changes a completed or failed backtest status and never marks the expressions used to derive the rule as pruned.
 
 ## Recovery and Failure Handling
 
 - Platform timeouts, rate limits, partial responses, and retry exhaustion retain the existing worker semantics.
-- A batch must reach `EVALUATED` before the coordinator performs pruning or promotion.
+- Each shard must reach `EVALUATED` before the coordinator performs pruning or promotion.
+- Worker result, expression, and batch projections are persisted before completion events, pruning, or promotion run.
 - Candidate and lineage writes are idempotent, so restarting the same command cannot regenerate the same child edge.
 - A terminal failed batch stops the loop and reports failure; it is not treated as exhaustion.
 - Exhaustion means both active queues are empty, not merely that one selection returned no rows.

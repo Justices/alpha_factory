@@ -231,6 +231,7 @@ def configure_research_cycle(parser: argparse.ArgumentParser) -> None:
     parser.add_argument("--policy-file")
     parser.add_argument("--telemetry-file")
     parser.add_argument("--execute", action="store_true")
+    parser.add_argument("--continue-research", action="store_true")
     parser.add_argument("--authorize-submission", action="store_true")
     parser.add_argument("--submission-evidence-file")
 

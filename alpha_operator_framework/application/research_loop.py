@@ -11,6 +11,9 @@ from alpha_operator_framework.research.optimization import derive_consensus_prun
 from alpha_operator_framework.research.round import Candidate, ResearchPolicy
 
 
+RESEARCH_SHARD_SIZE = 8
+
+
 @dataclass(frozen=True)
 class ResearchLoopSummary:
     status: str
@@ -52,7 +55,9 @@ class ResearchLoopCoordinator:
             pending = database.load_unbacktested_research_candidates(settings)
             optimization = [candidate for candidate in pending if candidate.family.startswith("optimization_")]
             candidates = optimization or pending
-            if not candidates and initial_available:
+            if candidates:
+                initial_available = False
+            elif initial_available:
                 candidates = initial_candidates
                 initial_available = False
             if not candidates:
@@ -87,7 +92,11 @@ class ResearchLoopCoordinator:
     def _policy_for_candidates(policy: ResearchPolicy, candidates: Sequence[Candidate]) -> ResearchPolicy:
         quota = next(iter(policy.family_quotas.values()), 20)
         quotas = {candidate.family: quota for candidate in candidates}
-        return replace(policy, max_backtests=sum(quotas.values()), family_quotas=quotas)
+        return replace(
+            policy,
+            max_backtests=min(RESEARCH_SHARD_SIZE, sum(quotas.values())),
+            family_quotas=quotas,
+        )
 
     def _generate_missing_stages(
         self,
@@ -114,19 +123,20 @@ class ResearchLoopCoordinator:
             else:
                 stage = "order2"
                 children = self.builder.build_order2(parent, templates)
-            new_children = []
+            catalog_children = []
+            new_lineage_count = 0
             for child in children:
                 child_sha = database.compute_alpha_sha(child.expression, settings)
-                if not database.record_optimization_lineage(settings, parent.candidate_id, child_sha, stage):
-                    continue
                 database.insert_expression(
                     child.expression, settings, expression_origin=f"optimization_{stage}",
                     fields=list(child.fields), status="generated",
                 )
-                new_children.append(child)
-            if new_children:
+                catalog_children.append(child)
+                if database.record_optimization_lineage(settings, parent.candidate_id, child_sha, stage):
+                    new_lineage_count += 1
+            if catalog_children:
                 database.catalog_research_candidates(
-                    f"optimization-{stage}-{parent.candidate_id[:12]}", new_children, settings,
+                    f"optimization-{stage}-{parent.candidate_id[:12]}", catalog_children, settings,
                 )
-                generated += len(new_children)
+                generated += new_lineage_count
         return generated

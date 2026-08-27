@@ -80,9 +80,9 @@ class EventStore:
             else:
                 offset = len(self._memory_events) + 1
             self._memory_events.append(event)
-            logger.debug(
+            logger.info(
                 "事件已追加：event_type=%s, stream_id=%s, offset=%d",
-                event.event_type,
+                event.event_type.value if hasattr(event.event_type, 'value') else event.event_type,
                 event.stream_id,
                 offset,
             )
@@ -133,7 +133,7 @@ class EventStore:
         with self._lock:
             if self._persistent and self._repository:
                 rows = self._repository.read_events_by_stream(stream_id, from_offset)
-                return [
+                result = [
                     Event(
                         event_id=r["event_id"],
                         stream_id=r["stream_id"],
@@ -148,17 +148,19 @@ class EventStore:
                     for r in rows
                 ]
             else:
-                return [
+                result = [
                     e for e in self._memory_events
                     if e.stream_id == stream_id
                 ]
+            logger.info("读取流 %s 事件列表，起始 offset=%d，返回 %d 个事件", stream_id, from_offset, len(result))
+            return result
 
     def read_all(self, from_offset: int = 0, limit: Optional[int] = None) -> List[Event]:
         """按全局 Offset 读取全部事件流 (用于投影重放 Replay)."""
         with self._lock:
             if self._persistent and self._repository:
                 rows = self._repository.read_all_events(from_offset, limit)
-                return [
+                result = [
                     Event(
                         event_id=r["event_id"],
                         stream_id=r["stream_id"],
@@ -176,7 +178,9 @@ class EventStore:
                 events = self._memory_events[from_offset:]
                 if limit is not None:
                     events = events[:limit]
-                return events
+                result = events
+            logger.info("按全局 Offset 读取全部事件流，起始 offset=%d，限制数量=%s，实际返回 %d 个事件", from_offset, limit, len(result))
+            return result
 
     def read_by_type(self, event_type: Union[EventType, str], from_offset: int = 0) -> List[Event]:
         """按事件类型读取事件流."""
@@ -184,7 +188,7 @@ class EventStore:
         with self._lock:
             if self._persistent and self._repository:
                 rows = self._repository.read_events_by_type(etype_str, from_offset)
-                return [
+                result = [
                     Event(
                         event_id=r["event_id"],
                         stream_id=r["stream_id"],
@@ -199,7 +203,9 @@ class EventStore:
                     for r in rows
                 ]
             else:
-                return [
+                result = [
                     e for e in self._memory_events
                     if (e.event_type.value if isinstance(e.event_type, EventType) else e.event_type) == etype_str
                 ]
+            logger.info("按类型 %s 读取事件流，起始 offset=%d，返回 %d 个事件", etype_str, from_offset, len(result))
+            return result

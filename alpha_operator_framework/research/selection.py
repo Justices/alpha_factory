@@ -54,7 +54,7 @@ class WeightedStratifiedSelector:
             else:
                 grouped[candidate.family].append(candidate)
 
-        logger.debug(
+        logger.info(
             "候选过滤完成：总候选=%d，被知识规则拒绝=%d，有效族数=%d",
             len(candidates), len(rejected_ids), len(grouped),
         )
@@ -68,14 +68,14 @@ class WeightedStratifiedSelector:
             # 按综合评分降序排列族内成员，候选 ID 作为同分时的稳定决胜字段
             ranked = sorted(members, key=lambda candidate: (-self.score(candidate, policy, knowledge), candidate.candidate_id))
             selected_ids.update(candidate.candidate_id for candidate in ranked[:quota])
-            logger.debug(
+            logger.info(
                 "族 '%s'：成员=%d，配额=%d，进入初选池=%d",
                 family, len(members), quota, min(quota, len(members)),
             )
 
         # 显式分族配额是最终预算；仅旧式全局预算才进行二次裁剪。
         if not policy.family_quotas and len(selected_ids) > policy.max_backtests:
-            logger.debug(
+            logger.info(
                 "初选池 %d 超过 max_backtests=%d，执行全局裁剪",
                 len(selected_ids), policy.max_backtests,
             )
@@ -111,6 +111,7 @@ class WeightedStratifiedSelector:
 
     @staticmethod
     def components(candidate: Candidate, policy: ResearchPolicy, knowledge: KnowledgeSnapshot) -> dict[str, float]:
+        """计算候选因子得分的各分量值。"""
         return {
             "field": policy.field_weight * knowledge.field_score(candidate),
             "operator": policy.operator_weight * knowledge.operator_score(candidate),
@@ -121,25 +122,35 @@ class WeightedStratifiedSelector:
 
     @classmethod
     def score(cls, candidate: Candidate, policy: ResearchPolicy, knowledge: KnowledgeSnapshot) -> float:
+        """根据加权分量计算候选因子的综合评分。"""
         return sum(cls.components(candidate, policy, knowledge).values())
 
 
 class UcbSelector(WeightedStratifiedSelector):
-    """Exploration selector that rewards low-trial fields deterministically."""
+    """基于置信区间上界 (UCB) 的选择器。
+
+    在加权分量评分基础上，通过增大不确定性部分的权重，鼓励对低回测频率因子的探索。
+    """
 
     name = "ucb"
 
     @classmethod
     def score(cls, candidate: Candidate, policy: ResearchPolicy, knowledge: KnowledgeSnapshot) -> float:
+        """在原有分数上增加 2.0 倍的不确定性溢价以实施探索性打分。"""
         components = cls.components(candidate, policy, knowledge)
         return sum(components.values()) + 2.0 * knowledge.uncertainty(candidate)
 
 
 class ThompsonSelector(UcbSelector):
-    """Deterministic posterior-mean approximation; randomness remains injected at the boundary."""
+    """基于 Thompson 抽样的选择器变体。
+
+    目前作为 UCB 选择器的确定性后验均值近似，边界处保留随机性注入逻辑。
+    """
 
     name = "thompson"
 
 
 class DiversitySelector(UcbSelector):
+    """倾向于维护多样性特征的选择器，基于不确定性衡量来进行非局部最大化探索。"""
+
     name = "diversity"

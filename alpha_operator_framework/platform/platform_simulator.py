@@ -43,7 +43,7 @@ def _normalize_platform_url(base_url: str, location: str) -> str:
 
 
 def _failure_details(payload: Mapping[str, Any]) -> str:
-    """Keep actionable platform failure fields without dumping an arbitrary payload."""
+    """提取有用的平台错误信息。"""
     details: list[str] = []
 
     def collect(value: Any) -> None:
@@ -102,7 +102,11 @@ class BrainPlatformSimulator:
         self.session_manager.hydrate(self.session)
 
     def ensure_authenticated(self) -> None:
-        """确保会话已成功认证."""
+        """确保当前连接会话已成功认证且有效。
+
+        若失效则尝试多次重新登录并序列化存储 Cookie。
+        """
+        logger.info("检查 WorldQuant BRAIN 平台会话身份认证有效性...")
         if not self.session.cookies:
             self.session_manager.hydrate(self.session)
 
@@ -110,11 +114,13 @@ class BrainPlatformSimulator:
         try:
             resp = self.session.get(f"{self.base_url}/users/self", timeout=15)
             if resp.status_code == 200:
+                logger.info("BRAIN 平台 Session 会话依然有效")
                 return
         except Exception:
             pass
 
         # 尝试重新认证
+        logger.info("Session 缺失或失效，正在重新发起 WorldQuant BRAIN 平台登录认证...")
         email, password = self.session_manager.credentials()
         resp = None
         for attempt in range(3):
@@ -127,6 +133,7 @@ class BrainPlatformSimulator:
                 if resp.status_code in (200, 201):
                     break
             except Exception as e:
+                logger.warning("平台登录认证尝试失败 (第 %d/3 次): %s", attempt + 1, e)
                 if attempt == 2:
                     raise e
                 time.sleep(2.0)
@@ -137,14 +144,22 @@ class BrainPlatformSimulator:
             raise RuntimeError(f"BRAIN 平台认证失败 ({code}): {err}")
 
         self.session_manager.persist(self.session)
-        logger.info(f"BRAIN 平台认证成功: {email}")
+        logger.info("BRAIN 平台认证成功: %s", email)
 
     def submit_batch(
         self,
         tasks: Sequence[Union[Task, Dict[str, Any]]],
         settings: Dict[str, Any],
     ) -> str:
-        """向 BRAIN 平台批量提交模拟回测任务."""
+        """向 BRAIN 平台批量提交模拟回测任务，返回重定向 Location。
+
+        Args:
+            tasks: 待回测的任务序列。
+            settings: 基础回测配置环境。
+
+        Returns:
+            str: 平台分配的用于进度查询的任务重定向 Location 相对或绝对 URL。
+        """
         self.ensure_authenticated()
 
         region = settings.get("region", "GBR")
@@ -155,6 +170,8 @@ class BrainPlatformSimulator:
         truncation = float(settings.get("truncation", 0.08))
         unit_handling = settings.get("unitHandling", settings.get("unit_handling", "VERIFY"))
         nan_handling = settings.get("nan_handling", "OFF")
+
+        logger.info("准备批量提交任务至平台. 区域: %s, 股票池: %s, 共 %d 个因子", region, universe, len(tasks))
 
         payload = []
         for t in tasks:
@@ -191,10 +208,12 @@ class BrainPlatformSimulator:
                 if resp.status_code in (200, 201, 202):
                     break
                 elif resp.status_code == 429:
+                    logger.warning("触发平台限速 429，休眠 5s 后重试...")
                     time.sleep(5.0)
                 else:
                     break
             except Exception as e:
+                logger.warning("提交回测批次出错 (第 %d/3 次): %s", attempt + 1, e)
                 if attempt == 2:
                     raise e
                 time.sleep(3.0)
@@ -208,6 +227,7 @@ class BrainPlatformSimulator:
         if not location:
             raise RuntimeError("平台未返回模拟 Location 标头")
 
+        logger.info("批次提交成功。进度重定向地址: %s", location)
         return location
 
     def poll_batch(
@@ -216,11 +236,21 @@ class BrainPlatformSimulator:
         max_wait_seconds: float = 600.0,
         poll_interval: float = 3.0,
     ) -> List[Dict[str, Any]]:
-        """轮询平台模拟任务直到完成，并拉取所有子任务详情."""
+        """轮询已提交的模拟回测状态，直到批次内所有因子回测完成并拉取详情。
+
+        Args:
+            location: 进度状态 URL。
+            max_wait_seconds: 最大超时等待时间（秒）。
+            poll_interval: 默认轮询检测间隔（秒）。
+
+        Returns:
+            List[Dict[str, Any]]: 每个子因子在平台的完整回测指标和 Check 列表。
+        """
         self.ensure_authenticated()
 
         url = _normalize_platform_url(self.base_url, location)
         start_time = time.time()
+        logger.info("开始轮询计算进度，Location=%s", location)
 
         while True:
             elapsed = time.time() - start_time
@@ -238,12 +268,16 @@ class BrainPlatformSimulator:
             # 1. 单任务直接返回了 alpha ID
             if progress_data.get("alpha"):
                 alpha_id = str(progress_data["alpha"])
+                logger.info("单因子直接就绪，下载因子详情: %s", alpha_id)
                 detail = self.fetch_alpha_detail(alpha_id)
                 return [detail]
 
             # 2. 批次完成判断
             progress_val = float(progress_data.get("progress") or 0.0)
+            logger.info("当前计算进度: %.1f%%, 平台状态: %s", progress_val * 100, status)
+            
             if status in ("COMPLETE", "COMPLETED", "DONE", "FINISHED", "WARNING") or progress_val >= 1.0:
+                logger.info("平台批量模拟计算完毕，进入结果收集阶段")
                 break
             elif status in ("FAILED", "ERROR"):
                 raise RuntimeError(
@@ -255,6 +289,7 @@ class BrainPlatformSimulator:
 
         # 3. 批量任务解析 children
         children = progress_data.get("children") or []
+        logger.info("发现此批次包含 %d 个子因子任务，开始提取每个子因子的 alpha_id...", len(children))
         results = []
         for child_item in children:
             if isinstance(child_item, str):
@@ -271,6 +306,7 @@ class BrainPlatformSimulator:
                     c_status = str(c_json.get("status") or "").upper()
                     alpha_id = c_json.get("alpha")
                     if alpha_id:
+                        logger.info("成功获取子任务 alpha_id=%s", alpha_id)
                         detail = self.fetch_alpha_detail(str(alpha_id))
                         results.append(detail)
                         break
@@ -280,11 +316,13 @@ class BrainPlatformSimulator:
                         break
                 time.sleep(2.0)
 
+        logger.info("批量拉取所有子任务详情完成，实际成功获取 %d 个因子数据", len(results))
         return results
 
     def fetch_alpha_detail(self, alpha_id: str) -> Dict[str, Any]:
-        """获取单个 Alpha 完整回测指标与 Checks 数据."""
+        """拉取指定 Alpha ID 在平台的完整绩效详情。"""
         self.ensure_authenticated()
+        logger.info("从平台拉取 Alpha %s 详情...", alpha_id)
         resp = self.session.get(f"{self.base_url}/alphas/{alpha_id}", timeout=20)
         if resp.status_code != 200:
             raise RuntimeError(f"获取 Alpha {alpha_id} 详情失败 ({resp.status_code}): {resp.text[:200]}")
@@ -301,7 +339,21 @@ class BrainPlatformSimulator:
         batch_size: int = 5,
         max_wait_seconds: float = 600.0,
     ) -> List[PlatformAlphaResult]:
-        """执行完整平台真实回测批次并返回标准化的 PlatformAlphaResult."""
+        """将一组任务按分片批量提交至 WorldQuant BRAIN 真实网络环境并拉取结果。
+
+        Args:
+            tasks: 待执行的量化任务序列。
+            region: 量化市场。
+            universe: 量化股票宇宙。
+            neutralization: 中性化方案。
+            delay: 回测延迟。
+            decay: 默认半衰期。
+            batch_size: 并发回测切片批大小。
+            max_wait_seconds: 最大回测超时（秒）。
+
+        Returns:
+            List[PlatformAlphaResult]: 转换并标准化后的真实回测结果列表。
+        """
         settings = {
             "region": region,
             "universe": universe,
@@ -316,12 +368,15 @@ class BrainPlatformSimulator:
         total_tasks = len(task_list)
         eff_batch_size = max(1, batch_size)
 
+        logger.info("准备在 BRAIN 平台上运行 %d 个模拟任务 (批分片大小=%d)...", total_tasks, eff_batch_size)
+
         for i in range(0, total_tasks, eff_batch_size):
             chunk = task_list[i : i + eff_batch_size]
             chunk_exprs = [
                 (t.expression if isinstance(t, Task) else t.get("expression", ""))
                 for t in chunk
             ]
+            logger.info("执行切片队列: [%d/%d]", i + len(chunk), total_tasks)
             try:
                 location = self.submit_batch(chunk, settings)
                 raw_details_list = self.poll_batch(location, max_wait_seconds=max_wait_seconds)
@@ -354,7 +409,7 @@ class BrainPlatformSimulator:
                     all_platform_results.append(p_res)
 
             except Exception as e:
-                logger.error(f"平台并发批次回测失败 (批次大小={len(chunk)}): {e}")
+                logger.exception("平台并发批次回测遇到故障 (分片大小=%d): %s", len(chunk), e)
                 for exp in chunk_exprs:
                     all_platform_results.append(
                         PlatformAlphaResult(
@@ -367,6 +422,7 @@ class BrainPlatformSimulator:
                         )
                     )
 
+        logger.info("所有 %d 个因子在平台回测调度完成", total_tasks)
         return all_platform_results
 
     def simulate_batch(
@@ -387,4 +443,3 @@ class BrainPlatformSimulator:
             decay=int(cfg.get("decay", 8)),
             max_wait_seconds=timeout,
         )
-

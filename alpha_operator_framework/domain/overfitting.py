@@ -71,7 +71,10 @@ def compute_expected_max_sharpe(
     trial_count: int,
     sharpe_std: float = 0.5,
 ) -> float:
-    """计算 N 次独立回测试验在零夏普原假设下的期望最大夏普比率 E[max_N]."""
+    """计算 N 次独立回测试验在零夏普原假设下的期望最大夏普比率 E[max_N]。
+
+    此指标反映了多次试错对最优结果的虚增偏差期望值。
+    """
     if trial_count <= 1:
         return 0.0
     z1 = _norm_ppf(1.0 - 1.0 / trial_count)
@@ -87,7 +90,10 @@ def compute_psr(
     skewness: float = 0.0,
     kurtosis: float = 3.0,
 ) -> float:
-    """计算概率夏普比率 (Probabilistic Sharpe Ratio - PSR)."""
+    """计算概率夏普比率 (Probabilistic Sharpe Ratio - PSR)。
+
+    衡量策略夏普比率显著超越基准夏普比率的概率。
+    """
     if t_days <= 1:
         return 0.0
     # 年化 Sharpe 的估计方差调整
@@ -109,7 +115,10 @@ def compute_dsr(
     skewness: float = 0.0,
     kurtosis: float = 3.0,
 ) -> float:
-    """计算紧缩夏普比率 (Deflated Sharpe Ratio - DSR)."""
+    """计算紧缩夏普比率 (Deflated Sharpe Ratio - DSR)。
+
+    扣除由于在多个独立策略中选择最优策略所导致的多重测试偏倚后的夏普比率显著性。
+    """
     if trial_count <= 1:
         return compute_psr(sharpe=sharpe, t_days=t_days, benchmark_sharpe=0.0, skewness=skewness, kurtosis=kurtosis)
     e_max_sr = compute_expected_max_sharpe(trial_count=trial_count, sharpe_std=sharpe_std)
@@ -122,7 +131,7 @@ def compute_haircut_sharpe(
     t_days: int = 504,
     sharpe_std: float = 0.5,
 ) -> float:
-    """根据多重测试折损计算 Haircut Sharpe 比率."""
+    """根据多重测试折损计算 Haircut Sharpe 比率。"""
     if sharpe <= 0 or trial_count <= 1:
         return sharpe
     e_max = compute_expected_max_sharpe(trial_count=trial_count, sharpe_std=sharpe_std)
@@ -136,7 +145,7 @@ def compute_pbo_cscv(
     n_splits: Optional[int] = None,
     n_test_splits: int = 2,
 ) -> float:
-    """组合净化交叉验证 (CPCV) 计算回测过拟合概率 (PBO)."""
+    """组合净化交叉验证 (CPCV) 计算回测过拟合概率 (PBO)。"""
     t_len, n_strats = returns_matrix.shape
     splits = n_splits or n_partitions
     if n_strats < 2 or t_len < splits * 5:
@@ -221,9 +230,6 @@ class TrialLedger:
         self._records: List[TrialRecord] = []
         self._repo = None
 
-        # No-argument ledgers must remain isolated.  A database path or an
-        # injected repository is an explicit persistence request, preserving
-        # the historical ``TrialLedger(db_path=...)`` API.
         persistence_requested = persistent or repository is not None or db_path is not None
         if persistence_requested and str(db_path) != ":memory:":
             try:
@@ -231,8 +237,9 @@ class TrialLedger:
                 self._repo = repository or AlphaDatabase(db_path=db_path if isinstance(db_path, (str, Path)) else None)
                 self._trials_by_family = self._repo.get_trial_counts_by_family()
                 self._total_trials = self._repo.get_total_trial_count()
+                logger.info("TrialLedger 从持久化仓储加载完成：总试验数=%d, 各族详情=%s", self._total_trials, self._trials_by_family)
             except Exception as ex:
-                logger.debug(f"TrialLedger 仓储初始化跳过或失败: {ex}")
+                logger.info("TrialLedger 仓储初始化跳过或未连接数据库: %s", ex)
 
     def record_trial(
         self,
@@ -259,6 +266,7 @@ class TrialLedger:
                 metrics=metrics or {},
             )
             self._records.append(rec)
+            logger.info("TrialLedger 记录新试验: trial_id=%s, expression=%s, family=%s", trial_id, expression, family)
 
             if self._repo is not None:
                 try:
@@ -272,7 +280,7 @@ class TrialLedger:
                         created_at=now_iso,
                     )
                 except Exception as ex:
-                    logger.warning(f"TrialLedger 持久化写入异常: {ex}")
+                    logger.exception("TrialLedger 持久化写入异常: %s", ex)
 
             return rec
 
@@ -289,7 +297,9 @@ class TrialLedger:
             # 结构族内相关性折损公式:
             rho = max(0.0, min(0.95, intra_family_correlation))
             n_eff = 1.0 + (raw_n - 1.0) * (1.0 - rho)
-            return max(1, int(round(n_eff)))
+            result = max(1, int(round(n_eff)))
+            logger.info("计算有效试验次数 (family=%s)：原始次数=%d, 族内相关度=%.2f, 有效折算次数=%d", family, raw_n, rho, result)
+            return result
 
     @staticmethod
     def compute_distribution_moments(

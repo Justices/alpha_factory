@@ -37,6 +37,7 @@ from alpha_operator_framework.domain.judge import (
     JudgeVerdict,
 )
 from alpha_operator_framework.domain.overfitting import (
+    TrialLedger,
     compute_dsr,
     compute_haircut_sharpe,
     compute_psr,
@@ -180,11 +181,14 @@ def ingest_literature_to_alphas(
     min_sharpe: float = 0.10,
 ) -> List[Task]:
     """一键将文献/研报内容转化为可执行的 Alpha Task 列表."""
+    logger.info("开始解析文献/研报内容... 类型=%s, 标题提示=%s", doc_type, title_hint)
     doc = parse_document(literature_text, doc_type=doc_type, title_hint=title_hint)
 
     if ideas_override is not None:
+        logger.info("使用传入的覆写假说列表，共 %d 条", len(ideas_override))
         ideas = ideas_override
     elif use_llm or provider is not None or model is not None:
+        logger.info("启用大模型进行文献假说提炼. 提供商=%s, 模型=%s", provider, model)
         client = UnifiedLLMClient(config_manager=config_manager)
         ideas = extract_ideas_with_llm(
             doc,
@@ -194,8 +198,10 @@ def ingest_literature_to_alphas(
             client=client,
         )
     else:
+        logger.info("使用启发式规则提取文献假说...")
         ideas = IdeaExtractor.extract_from_text_rule_based(doc)
 
+    logger.info("假说提取完成，共获取到 %d 条假说", len(ideas))
     if not ideas:
         return []
 
@@ -205,11 +211,15 @@ def ingest_literature_to_alphas(
 
     for idea in ideas:
         grounded_vars = grounder.ground_idea(idea.variable_roles, available_fields)
+        logger.info("假说对齐字段完成：%s -> %s", idea.concept_name, [f"{k}:{v.id}" for k, v in grounded_vars.items()])
         tasks = translator.translate_idea_to_tasks(idea, grounded_vars)
         all_tasks.extend(tasks)
 
+    logger.info("任务转化完成，共生成 %d 个 Alpha 任务", len(all_tasks))
     if run_sandbox_prefilter and all_tasks:
+        logger.info("运行本地沙盒预筛选，阈值：min_ic=%.4f, min_sharpe=%.4f", min_ic, min_sharpe)
         passed_tasks, _ = sandbox_prefilter(all_tasks, min_abs_ic=min_ic, min_sharpe=min_sharpe)
+        logger.info("沙盒预筛选完毕，通过数量：%d/%d", len(passed_tasks), len(all_tasks))
         return passed_tasks
 
     return all_tasks
@@ -252,6 +262,7 @@ def run_literature_research_pipeline(
       9. 自动数据库持久化 (alpha_expressions, alpha_details, alpha_checks)
       10. 导出研报与总结
     """
+    logger.info("启动端到端文献量化研发流水线...")
     start_time = time.time()
 
     # 宇宙自动校验适配 (GBR -> TOP700, USA -> TOP3000, EUR -> TOP1200)
@@ -265,10 +276,15 @@ def run_literature_research_pipeline(
         else:
             universe = "TOP700"
 
+    logger.info("配置参数：Region=%s, Universe=%s, 中性化=%s, Delay=%d, Decay=%d", region, universe, neutralization, delay, decay)
+
     # 1. 加载并解析文献
+    logger.info("第1阶段: 加载文献解析，源文件=%s", literature_source)
     doc = parse_document(literature_source)
+    logger.info("文献解析完成，标题: '%s'", doc.title)
 
     # 2. 动态加载真实市场字段池 (杜绝固定写死)
+    logger.info("第2阶段: 加载可用数据字段池...")
     if available_fields is not None:
         fields_pool = list(available_fields)
     else:
@@ -278,8 +294,10 @@ def run_literature_research_pipeline(
             delay=delay,
             datasets=datasets,
         )
+    logger.info("可用数据字段加载完成，池大小为 %d", len(fields_pool))
 
     # 3. 提取假说
+    logger.info("第3阶段: 开始提炼文献经济学假说...")
     client = UnifiedLLMClient()
     if use_llm or provider is not None or model is not None:
         ideas = extract_ideas_with_llm(doc, available_fields=fields_pool, provider=provider, model=model, client=client)
@@ -287,9 +305,13 @@ def run_literature_research_pipeline(
         ideas = IdeaExtractor.extract_from_text_rule_based(doc)
 
     if not ideas:
+        logger.warning("未检测到有效假说，自动回退至启发式提取器...")
         ideas = IdeaExtractor.extract_from_text_rule_based(doc)
 
+    logger.info("假说提炼完成，共计 %d 条", len(ideas))
+
     # 4. 字段对齐与 AST 编译
+    logger.info("第4阶段: 进行字段对齐与 AST 语法树转译...")
     grounder = SemanticFieldGrounder()
     translator = PaperToASTTranslator()
     tasks: List[Task] = []
@@ -297,8 +319,10 @@ def run_literature_research_pipeline(
         grounded_vars = grounder.ground_idea(idea.variable_roles, fields_pool)
         sub_tasks = translator.translate_idea_to_tasks(idea, grounded_vars)
         tasks.extend(sub_tasks)
+    logger.info("AST 编译与任务生成完成，共生成 %d 个待回测任务", len(tasks))
 
     # 5. 回测执行 (平台真实回测 vs 本地沙盒)
+    logger.info("第5阶段: 启动双模回测执行模块...")
     platform_results: List[PlatformAlphaResult] = []
     backtest_metrics: Dict[str, SandboxMetrics] = {}
     overfitting_metrics: Dict[str, Dict[str, float]] = {}
@@ -309,7 +333,7 @@ def run_literature_research_pipeline(
     trial_ledger = TrialLedger(persistent=save_to_db)
 
     if execute_on_platform and tasks:
-        logger.info(f"正在向 WorldQuant BRAIN 平台真实提交 {len(tasks)} 个 Alpha 进行回测...")
+        logger.info("使用 [🌐 WorldQuant BRAIN 平台在线回测模式] 提交 %d 个任务...", len(tasks))
         simulator = BrainPlatformSimulator()
         platform_results = simulator.run_simulations(
             tasks,
@@ -319,6 +343,7 @@ def run_literature_research_pipeline(
             delay=delay,
             decay=decay,
         )
+        logger.info("平台回测反馈完毕，收到 %d 个结果记录", len(platform_results))
 
         for p_res in platform_results:
             alpha_id = p_res.alpha_id
@@ -335,6 +360,8 @@ def run_literature_research_pipeline(
             psr_val = compute_psr(sharpe_val, t_days=504, benchmark_sharpe=0.0)
             dsr_val = compute_dsr(sharpe_val, trial_count=effective_n, t_days=504)
             haircut_val = compute_haircut_sharpe(sharpe_val, trial_count=effective_n, t_days=504)
+
+            logger.info("因子 %s 防过拟合审查：PSR=%.4f, DSR=%.4f, Haircut Sharpe=%.4f", alpha_id, psr_val, dsr_val, haircut_val)
 
             overfitting_metrics[alpha_id] = {
                 "psr": psr_val,
@@ -369,6 +396,7 @@ def run_literature_research_pipeline(
             candidates.append(cand)
 
     else:
+        logger.info("使用 [💻 本地向量化沙盒高速仿真回测模式]")
         m_data = market_data or generate_synthetic_market_data(n_days=504, n_assets=300, seed=42)
         sandbox = SandboxEngine(m_data)
         effective_n = max(len(tasks), 1)
@@ -388,6 +416,7 @@ def run_literature_research_pipeline(
                 turnover_val = round(float(metrics.turnover), 2)
                 rank_ic_val = round(float(metrics.rank_ic), 4)
                 ic_ir_val = round(float(metrics.ic_ir), 2)
+                logger.info("沙盒回测因子 %s 完成：Sharpe=%.2f, Fitness=%.2f", alpha_id, sharpe_val, fitness_val)
             else:
                 sharpe_val = 0.0
                 fitness_val = 0.0
@@ -440,6 +469,7 @@ def run_literature_research_pipeline(
             candidates.append(cand)
 
     # 6. AlphaJudge 终审评级与排序
+    logger.info("第6阶段: 运行 AlphaJudge 终审审查与质量评估...")
     judge_reports: List[JudgeReport] = []
     ranked_candidates: List[Dict[str, Any]] = []
 
@@ -465,6 +495,7 @@ def run_literature_research_pipeline(
                 "recommendation": rep.actionable_recommendations[0] if rep.actionable_recommendations else "符合规范",
             }
             ranked_candidates.append(cand_info)
+            logger.info("终审因子 %s 结论：%s，得分: %.1f", rep.alpha_id, rep.verdict.value, rep.priority_score)
     else:
         ranked_candidates = candidates
 
@@ -472,6 +503,7 @@ def run_literature_research_pipeline(
     db_persisted = False
     db_stats = {}
     if save_to_db:
+        logger.info("第7阶段: 启动成果持久化入库流程...")
         from alpha_operator_framework.infrastructure.runtime_factory import storage_config
 
         db = AlphaDatabase(storage_config(Path(config_path) if config_path is not None else DEFAULT_RUNTIME_CONFIG_PATH))
@@ -493,7 +525,10 @@ def run_literature_research_pipeline(
                 ranked_candidates=ranked_candidates,
             )
             db_persisted = True
-            logger.info(f"研发成果已成功持久化到数据库 {db_p}: {db_stats}")
+            logger.info("研发成果已成功持久化到数据库 %s: %s", db.db_path, db_stats)
+        except Exception as e:
+            logger.exception("数据库持久化失败: %s", e)
+            raise
         finally:
             db.close()
 
@@ -520,10 +555,12 @@ def run_literature_research_pipeline(
     )
 
     if output_report_path:
+        logger.info("输出报告至: %s", output_report_path)
         out_p = Path(output_report_path)
         out_p.parent.mkdir(parents=True, exist_ok=True)
         out_p.write_text(res.summary_markdown(), encoding="utf-8")
 
+    logger.info("量化研发流水线执行完毕，共耗时 %.2f 秒", duration)
     return res
 
 

@@ -26,7 +26,7 @@ from alpha_operator_framework.research.round import ResearchPolicy
 
 
 class ResearchWorkerScheduler:
-    """Runs due-batch scans once or continuously without owning persistence details."""
+    """持续或单次扫描就绪的研究实验批次，并调用 Worker 执行。"""
 
     def __init__(self, worker: Any) -> None:
         """初始化调度器。
@@ -69,7 +69,7 @@ class ResearchWorkerScheduler:
         completed: list[ResearchCycleSummary] = []
         cycles = 0
         while max_cycles is None or cycles < max_cycles:
-            logger.debug("轮询第 %d 轮开始，poll_seconds=%d", cycles + 1, poll_seconds)
+            logger.info("轮询开始检测过期实验批次 [当前循环: %d], 轮询间隔=%d 秒", cycles + 1, poll_seconds)
             completed.extend(self.run_once())
             cycles += 1
             if max_cycles is None or cycles < max_cycles:
@@ -78,7 +78,7 @@ class ResearchWorkerScheduler:
 
 
 class ResearchBatchWorker:
-    """Consumes one submitted batch; snapshots are projections, events retain its audit trail."""
+    """执行单个已提交实验批次的回测、评估、剪枝与知识回填蒸馏的后台工作协处理器。"""
 
     def __init__(
         self,
@@ -214,36 +214,67 @@ class ResearchBatchWorker:
         return policy.retry_backoff_seconds[index]
 
     def process_due_batches(self) -> list[ResearchCycleSummary]:
-        """One scheduler tick: process each persisted batch whose retry is due."""
-        return [self.process_round(batch.batch_id) for batch in self.experiment_repository.list_due_batches()]
+        """扫描并处理当前准备好运行的到期实验批次。
+
+        Returns:
+            list[ResearchCycleSummary]: 每个到期批次处理完所生成的摘要报告。
+        """
+        logger.info("扫描准备运行的未决实验批次队列...")
+        due_batches = self.experiment_repository.list_due_batches()
+        if due_batches:
+            logger.info("扫描到 %d 个准备就绪的实验批次", len(due_batches))
+        return [self.process_round(batch.batch_id) for batch in due_batches]
 
     def process_round(self, round_id: str) -> ResearchCycleSummary:
+        """处理指定研究回合 ID 的回测执行与评估流水线流程。
+
+        Args:
+            round_id: 目标回合标识符。
+
+        Returns:
+            ResearchCycleSummary: 处理结果回合摘要报告。
+        """
+        logger.info("开始消费实验回合 %s...", round_id)
         batch = self.experiment_repository.load_batch(round_id)
         if batch is None:
+            logger.error("未找到实验批次记录: %s", round_id)
             raise ValueError(f"missing experiment batch for {round_id}")
         if batch.state is BatchState.EVALUATED:
+            logger.info("回合 %s 已处理过评级流程，直接跳过", round_id)
             return self._summary(batch, "COMPLETED", self.knowledge_base.version)
+        
         policy = self._policy(round_id)
         round_ = self.research_repository.load_round(round_id)
         if round_ is None:
+            logger.error("未找到对应回合的研究配置: %s", round_id)
             raise ValueError(f"missing research round projection for {round_id}")
+        
         if batch.state in {BatchState.SUBMITTED, BatchState.PARTIAL_FAILED}:
             self._transition(batch, BatchState.RUNNING)
+            logger.info("批次 %s 状态提升至 RUNNING", round_id)
         if batch.state not in {BatchState.RUNNING, BatchState.COMPLETED}:
             raise ValueError(f"batch {round_id} is not runnable: {batch.state}")
 
         now = datetime.now(UTC)
         missing = [task for task in batch.tasks.values() if task.task_id not in batch.results]
         due = [task for task in missing if task.next_retry_at is None or datetime.fromisoformat(task.next_retry_at) <= now]
+        
+        logger.info("回合 %s: 共有 %d 个任务配置，其中已完成=%d, 未完成=%d, 满足到期执行条件=%d",
+                    round_id, len(batch.tasks), len(batch.results), len(missing), len(due))
+
         if not due and missing:
+            logger.info("暂无满足到期重试条件的回测任务，等待下一次调度轮询...")
             return self._summary(batch, "RETRY_SCHEDULED")
+        
         try:
+            logger.info("正在执行批量回测，任务大小=%d (分片并发=%d)...", len(due), BACKTEST_BATCH_SIZE)
             results = [
                 result
                 for offset in range(0, len(due), BACKTEST_BATCH_SIZE)
                 for result in self.backtest_gateway.run_backtests(due[offset:offset + BACKTEST_BATCH_SIZE])
             ]
         except Exception as error:
+            logger.exception("批量回测在与网关交互时遇到外部连接异常: %s", error)
             if not isinstance(error, (TimeoutError, ConnectionError)) and not self._is_rate_limited(error):
                 raise
             attempts = max(task.attempts for task in due) + 1
@@ -253,16 +284,21 @@ class ResearchBatchWorker:
                 self._record_retry_fact(batch, round_id, task_ids, BatchState.FAILED)
                 self._transition(batch, BatchState.FAILED)
                 self._event(EventType.MONITORING_OBSERVED, round_id, {"alert": "retry_budget_exhausted", "error": str(error)[:1000]})
+                logger.error("回合 %s 重试预算达到上限 %d，实验批次失败标记 FAILED", round_id, policy.max_retry_attempts)
                 return self._summary(batch, "FAILED")
+            
             delay_seconds = self._retry_after_seconds(error) or self._policy_backoff_seconds(policy, attempts)
             retry_at = now + timedelta(seconds=delay_seconds)
             task_ids = [task.task_id for task in due]
             batch.record_retry(task_ids, next_retry_at=retry_at.isoformat(), error=str(error))
             self._record_retry_fact(batch, round_id, task_ids, BatchState.PARTIAL_FAILED)
             self._transition(batch, BatchState.PARTIAL_FAILED)
+            logger.warning("任务网络故障，安排在 %s (休眠 %.1f 秒) 后重试. 批次状态设为 PARTIAL_FAILED", retry_at.isoformat(), delay_seconds)
             return self._summary(batch, "RETRY_SCHEDULED")
+
         failures = [result for result in results if result.error]
         if failures:
+            logger.warning("本回测周期发现有 %d 个子因子任务在平台端执行失败", len(failures))
             attempts = max(task.attempts for task in due) + 1
             for result in failures:
                 task = batch.tasks[result.task_id]
@@ -273,6 +309,7 @@ class ResearchBatchWorker:
             self.experiment_repository.save_batch(batch)
             self._transition(batch, BatchState.FAILED if attempts >= policy.max_retry_attempts else BatchState.PARTIAL_FAILED)
             return self._summary(batch, "FAILED" if attempts >= policy.max_retry_attempts else "RETRY_SCHEDULED")
+
         for result in results:
             batch.record_result(result)
             task = batch.tasks[result.task_id]
@@ -284,6 +321,8 @@ class ResearchBatchWorker:
                 "margin": result.margin, "checks_passed": result.checks_passed,
                 "idempotency_key": task.idempotency_key,
             })
+            logger.info("因子 %s 回测正常完成。Sharpe=%.2f, Alpha ID=%s", task.expression, result.sharpe, result.platform_alpha_id)
+
         if len(batch.results) != len(batch.tasks):
             outstanding = [task.task_id for task in batch.tasks.values() if task.task_id not in batch.results]
             batch.record_retry(
@@ -291,12 +330,17 @@ class ResearchBatchWorker:
             )
             self._record_retry_fact(batch, round_id, outstanding, BatchState.PARTIAL_FAILED)
             self._transition(batch, BatchState.PARTIAL_FAILED)
+            logger.warning("网关返回的数据集结果数不完整，部分任务需重新补齐")
             return self._summary(batch, "PARTIAL_FAILED")
 
         if batch.state is not BatchState.COMPLETED:
             self._transition(batch, BatchState.COMPLETED)
+            logger.info("所有子任务全部回测成功，批次 %s 标记为 COMPLETED", round_id)
+
         from alpha_operator_framework.research.template_correlation import platform_correlation
         correlation_rejected: set[str] = set()
+        
+        logger.info("开始进行全局及自相关性冲突审查...")
         for task_id, result in batch.results.items():
             correlation = platform_correlation(result.self_correlation, result.production_correlation)
             passed = correlation <= policy.template_platform_max_correlation
@@ -307,6 +351,9 @@ class ResearchBatchWorker:
                 if evaluation is not None:
                     batch.record_evaluation(replace(evaluation, pruned=True))
                 self._event(EventType.CANDIDATE_RETIRED, round_id, {"task_id": task_id, "reason": "platform_correlation", "max_abs_correlation": correlation, "threshold": policy.template_platform_max_correlation})
+                logger.warning("因子 %s 因相关度过高被剔除过滤 (相关度=%.4f > 限额=%.4f)", result.platform_alpha_id, correlation, policy.template_platform_max_correlation)
+
+        logger.info("对回测结果组合运行帕累托优选与信号质量审计...")
         for evaluation in evaluate_batch(batch, policy):
             if evaluation.task_id in correlation_rejected:
                 evaluation = replace(evaluation, pruned=True)
@@ -321,6 +368,7 @@ class ResearchBatchWorker:
                     "task_id": evaluation.task_id, "alpha_id": result.platform_alpha_id,
                     "pareto_rank": evaluation.pareto_rank, "decision_state": "PENDING_EVIDENCE",
                 })
+                logger.info("发现符合优质提交条件的因子 candidate=%s (alpha_id=%s)，开启 6 维证据链路自动审批裁决...", evaluation.task_id, result.platform_alpha_id)
                 if self.evidence_gateway is not None:
                     from alpha_operator_framework.knowledge.submission import SubmissionCase
 
@@ -331,12 +379,16 @@ class ResearchBatchWorker:
                         round_id,
                         {"task_id": evaluation.task_id, "alpha_id": result.platform_alpha_id, "reason": approval.reason},
                     )
+                    logger.info("因子 %s 终审审批决策: 批准=%s, 理由=%s", result.platform_alpha_id, approval.is_approved, approval.reason)
                     if approval.is_approved and self.submission_outbox is not None:
                         self.submission_outbox.enqueue(case)
+
         templates_by_candidate = {candidate.candidate_id: candidate.template_id for candidate in round_.candidates}
         templates = {task.task_id: templates_by_candidate[task.candidate_id] for task in batch.tasks.values()}
         knowledge = self.knowledge_base.apply_batch(batch, templates)
+        
         from alpha_operator_framework.knowledge.distillation import distill_templates
+        logger.info("启动优势因子模板逆向蒸馏机制，更新累积经验知识库...")
         distilled = distill_templates(
             batch, min_support=policy.template_min_support,
             min_sharpe=policy.template_min_sharpe, min_fitness=policy.template_min_fitness,
@@ -349,6 +401,9 @@ class ResearchBatchWorker:
                     support_count=template.support,
                     example_expression=batch.tasks[source_task_id].expression,
                 )
+        
+        logger.info("本次循环共成功提取出 %d 个高信号特征模板", len(distilled))
+        
         knowledge_offset = self._event(EventType.MONITORING_OBSERVED, round_id, {"knowledge": {
             "version": self.knowledge_base.version,
             "field_scores": self.knowledge_base.field_scores,
@@ -371,9 +426,12 @@ class ResearchBatchWorker:
                 "source_task_ids": list(template.source_task_ids),
                 "policy_version": policy.policy_version,
             })
+            
         self._transition(batch, BatchState.EVALUATED)
         if self.telemetry is not None:
             self.telemetry.record_backtests_completed(len(batch.results))
+            
+        logger.info("=== 实验回合 %s 流水线处理圆满结束 ===", round_id)
         return ResearchCycleSummary(
             status="COMPLETED",
             round_id=round_id,

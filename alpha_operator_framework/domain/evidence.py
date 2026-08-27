@@ -9,9 +9,12 @@ from dataclasses import dataclass, field
 from datetime import datetime, timezone
 from enum import Enum
 import json
+import logging
 from typing import Any, Dict, List, Mapping, Optional, Set, Tuple
 
 from alpha_operator_framework.domain.evaluation import PPA_CHECK_NAMES, RA_CHECK_NAMES
+
+logger = logging.getLogger(__name__)
 
 
 class EvidenceLevel(str, Enum):
@@ -51,18 +54,23 @@ class DecisionState(str, Enum):
 
     def can_transition_to(self, target: DecisionState, evidence: EvidenceLevel) -> bool:
         """校验状态流转的合法性 (显式有向图拓扑 + 证据等级约束)."""
+        logger.info("校验状态转移: %s -> %s (证据等级: %s)...", self.value, target.value, evidence.value)
         valid_targets = STATE_TRANSITIONS.get(self, set())
         if target not in valid_targets:
+            logger.info("状态转移拒绝: 拓扑结构中不存在从 %s 到 %s 的直接转移路径", self.value, target.value)
             return False
 
         # 证据等级硬约束:
         if target == DecisionState.CHECKS_VERIFIED:
             if not evidence.is_platform_verified:
+                logger.info("状态转移拒绝: CHECKS_VERIFIED 状态需要平台级别的验证证据，当前为 %s", evidence.value)
                 return False
         elif target in (DecisionState.SUBMISSION_READY, DecisionState.SUBMITTED):
             if evidence != EvidenceLevel.SUBMISSION_READY:
+                logger.info("状态转移拒绝: %s 状态要求证据等级必须为 SUBMISSION_READY，当前为 %s", target.value, evidence.value)
                 return False
 
+        logger.info("状态转移合法")
         return True
 
 
@@ -112,6 +120,7 @@ class SubmissionApprovalEngine:
         evidence_record: Optional[Mapping[str, Any]] = None,
     ) -> SubmissionApprovalReport:
         """评估候选 Alpha 是否满足提升至 SUBMISSION_READY 的全部 6 类证据要求."""
+        logger.info("开始评估因子 %s 是否满足准入条件。当前证据等级: %s", alpha_id, evidence_level.value)
         reasons: List[str] = []
 
         # 1. Locked OOS 证据验证
@@ -122,6 +131,8 @@ class SubmissionApprovalEngine:
             oos_passed = True
         else:
             reasons.append("缺少合格的 Locked-OOS 样本外实测证据 (OOS Sharpe < 1.25 或未测)")
+
+        logger.info("评估维度 1 (Locked OOS) 检测结果: %s", oos_passed)
 
         # 2. 18 项平台 Checks 验证
         checks_list = checks or []
@@ -149,10 +160,14 @@ class SubmissionApprovalEngine:
                 f"失败项: {failed_checks or '无'})"
             )
 
+        logger.info("评估维度 2 (18 项 Checks) 检测结果: %s", checks_passed)
+
         # 3. 可审计的来源、时间戳与回执证据验证
         evidence_passed, evidence_reason = cls._validate_evidence_record(evidence_record)
         if not evidence_passed:
             reasons.append(evidence_reason)
+
+        logger.info("评估维度 3 (可审计回执数据) 检测结果: %s", evidence_passed)
 
         # 4. SC / PC 相关性门槛验证
         sc = sc_value if sc_value is not None else 1.0
@@ -161,6 +176,8 @@ class SubmissionApprovalEngine:
         if not corr_passed:
             reasons.append(f"自相关/母本相关性过高 (SC={sc:.2f}, PC={pc:.2f} > 0.70)")
 
+        logger.info("评估维度 4 (相关性指标) SC=%.2f, PC=%.2f 检测结果: %s", sc, pc, corr_passed)
+
         # 5. 成本、容量与换手率验证
         turnover = float(is_metrics.get("turnover", 0.0))
         margin = float(is_metrics.get("margin", 0.0))
@@ -168,15 +185,21 @@ class SubmissionApprovalEngine:
         if not cost_passed:
             reasons.append(f"换手率或 Margin 摩擦不达标 (Turnover={turnover:.1%}, Margin={margin:.1f}bp)")
 
+        logger.info("评估维度 5 (换手率/Margin) Turnover=%.1%%, Margin=%.1fbp 检测结果: %s", turnover, margin, cost_passed)
+
         # 6. 谱系与工件 DAG 验证
         lineage_passed = bool(has_lineage_dag)
         if not lineage_passed:
             reasons.append("缺少完整谱系生成与变异溯源图谱")
 
+        logger.info("评估维度 6 (工件 DAG 谱系) 检测结果: %s", lineage_passed)
+
         # 7. AlphaJudge / 人工评级验证
         verdict_passed = (judge_verdict == "READY")
         if not verdict_passed:
             reasons.append(f"AlphaJudge 未裁决为 READY (当前裁决: {judge_verdict or 'NONE'})")
+
+        logger.info("评估维度 7 (AlphaJudge 审判结果) %s 检测结果: %s", judge_verdict, verdict_passed)
 
         all_approved = (
             oos_passed
@@ -187,6 +210,8 @@ class SubmissionApprovalEngine:
             and lineage_passed
             and verdict_passed
         )
+
+        logger.info("因子 %s 准入终审完毕。审批结果: %s", alpha_id, "【通过】" if all_approved else f"【不通过】原因: {reasons}")
 
         return SubmissionApprovalReport(
             approved=all_approved,
@@ -211,7 +236,7 @@ class SubmissionApprovalEngine:
     def _validate_evidence_record(
         evidence_record: Optional[Mapping[str, Any]],
     ) -> Tuple[bool, str]:
-        """Validate the audit metadata attached to a platform evidence receipt."""
+        """验证随平台证据收据附加的审计元数据。"""
         required_fields = ("source", "verified_at", "expires_at", "receipt_ref", "summary")
         if not isinstance(evidence_record, Mapping):
             return False, "缺少可审计证据记录"
@@ -248,7 +273,7 @@ def persistent_audit_evidence_record(
     details: Any,
     checks: List[Any],
 ) -> Optional[Dict[str, str]]:
-    """Extract a complete audit receipt from persisted alpha/check records, or fail closed."""
+    """从保存的因子/校验记录中提取完整的审计回执证据，或返回空。"""
     required_fields = ("source", "verified_at", "expires_at", "receipt_ref", "summary")
     candidates: List[Any] = []
 
@@ -290,4 +315,3 @@ def persistent_audit_evidence_record(
 
 # Alias
 DecisionApprovalEngine = SubmissionApprovalEngine
-

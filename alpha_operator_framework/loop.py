@@ -97,6 +97,7 @@ def distill_and_plan_next(
         dataset_map=dataset_map,
     )
     if config.distill and stats:
+        logger.info("计算得到 %d 条字段信号统计", len(stats))
         # accumulate=True 是关键: 多轮研究要「累积」经验而非覆盖 —— 每轮的
         # trials/signal_count 累加, 让 hit_rate 随样本量增大而越来越可信;
         # 若每轮覆盖, 上一轮学到的字段信号就丢了, 闭环退化成一锤子买卖。
@@ -323,7 +324,8 @@ async def _run_round_survey(config: LoopConfig, round_n: int, field_ids: List[st
                 from alpha_operator_framework.database.repository import AlphaDatabase
                 _db = AlphaDatabase()
                 tried = _db.get_tried_field_ids(config.region)
-            except Exception:
+            except Exception as e:
+                logger.exception("获取已试字段ID失败: %s", e)
                 tried = set()
             planned_set = set(planned)
             cold_pool = [s.id for s in specs if s.id not in planned_set and s.id not in tried]
@@ -355,13 +357,17 @@ async def _run_round_survey(config: LoopConfig, round_n: int, field_ids: List[st
     result = await run_survey_with_fields(specs, survey_config, execute=config.execute,
                                           database=database)
     if not result.success:
+        logger.error("轮次 %d survey 失败: %s", round_n, result.message)
         print(f"  ⚠ round {round_n} survey 失败: {result.message}", flush=True)
         return []
     # 回测结果落盘在 results_file (JSON 的 "results" 列表), 从这里取回给 distill 消费;
     # dry-run 时无 results_file → 返回空 (闭环空转但不报错, 仅验证代码路径)。
     if result.results_file and result.results_file.exists():
         payload = json.loads(result.results_file.read_text(encoding="utf-8"))
-        return payload.get("results", [])
+        res_list = payload.get("results", [])
+        logger.info("轮次 %d survey 成功，加载了 %d 条回测结果", round_n, len(res_list))
+        return res_list
+    logger.warning("轮次 %d survey 成功但无 results 文件: %s", round_n, result.message)
     print(f"  ⚠ round {round_n} survey 成功但无 results 文件: {result.message}", flush=True)
     return []
 
@@ -380,7 +386,9 @@ async def run_research_loop(db, config: LoopConfig) -> List[Dict[str, Any]]:
     # 首轮字段: 有种子字段 (如已提交 alpha 反查字段) 用种子起步, 否则全量随机采样。
     # 种子字段已验证有信号, 让字段信号回流从正反馈起点开始, 而不是冷启动随机。
     next_fields: List[str] = list(config.seed_fields or [])
+    logger.info("启动多轮研究闭环，总轮数: %d，种子字段数: %d", config.rounds, len(next_fields))
     for r in range(config.rounds):
+        logger.info("开始执行研究闭环 [轮次 %d/%d]，当前输入字段数: %d", r + 1, config.rounds, len(next_fields))
         # 闭环的核心: next_fields 在轮次间传递 —— 本轮回测 → 沉淀 → 加权采样出的字段,
         # 成为下一轮 _run_round_survey 的输入字段池。首轮 next_fields=[] → 全量采样。
         # 关键: survey 的库必须与蒸馏沉淀库 (db) 一致 —— 否则 survey 消费的模板
@@ -393,6 +401,8 @@ async def run_research_loop(db, config: LoopConfig) -> List[Dict[str, Any]]:
         distilled_pairs = distill_pairs_round(db, results=results, config=config, round_n=r)
         distilled_ops = distill_operator_signals_round(db, results=results, config=config, round_n=r)
         distilled_rules = distill_prune_rules_round(db, results=results, config=config, round_n=r)
+        logger.info("完成研究闭环 [轮次 %d/%d]: 获得回测结果 %d 条，沉淀模板 %d 个，配对 %d 对，算子统计 %d 条，生成规则 %d 条",
+                    r + 1, config.rounds, len(results), distilled_templates, distilled_pairs, distilled_ops, len(distilled_rules))
         next_fields = planned
         history.append({
             "round": r,
@@ -403,4 +413,5 @@ async def run_research_loop(db, config: LoopConfig) -> List[Dict[str, Any]]:
             "distilled_operator_stats": distilled_ops,
             "distilled_rules": distilled_rules,
         })
+    logger.info("多轮研究闭环全部完成，共执行了 %d 轮", config.rounds)
     return history

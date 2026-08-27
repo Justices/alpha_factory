@@ -46,6 +46,7 @@ class CleanReport:
     size_after_bytes: int = 0
 
     def summary_text(self) -> str:
+        """获取清理统计报告的格式化摘要文本。"""
         saved_mb = (self.size_before_bytes - self.size_after_bytes) / (1024 * 1024)
         lines = [
             "🧹 数据库清理与维护完成:",
@@ -64,9 +65,14 @@ class CleanReport:
 
 
 class DatabaseCleaner:
-    """数据库清理与维护器."""
+    """数据库清理与维护器，支持多种细粒度数据修剪模式。"""
 
     def __init__(self, db_path: Path | StorageConfig = DEFAULT_DB_PATH):
+        """初始化清理与维护工具。
+
+        Args:
+            db_path: 数据库路径或存储配置。
+        """
         self.storage = db_path if isinstance(db_path, StorageConfig) else StorageConfig.from_mapping({"driver": "sqlite", "path": str(db_path)})
         self.db_path = Path(self.storage.url.removeprefix("sqlite:///")) if self.storage.driver == "sqlite" else None
 
@@ -81,7 +87,8 @@ class DatabaseCleaner:
         return total
 
     def vacuum_only(self, verbose: bool = True) -> CleanReport:
-        """仅执行 WAL Checkpoint 与 VACUUM 回收磁盘物理空间，不删除任何业务数据."""
+        """仅执行 WAL Checkpoint 与 VACUUM 回收磁盘物理空间，不删除任何业务数据。"""
+        logger.info("触发仅空间收缩 (VACUUM) 维护模式")
         return self.clean(mode="vacuum", dry_run=False, vacuum=True, verbose=verbose)
 
     def clean(
@@ -91,7 +98,7 @@ class DatabaseCleaner:
         vacuum: bool = True,
         verbose: bool = True,
     ) -> CleanReport:
-        """执行清理.
+        """执行数据清理与维护。
 
         Args:
             mode: 清理模式:
@@ -104,8 +111,14 @@ class DatabaseCleaner:
             dry_run: 若为 True，仅统计将删除的行数，不实际执行 DELETE
             vacuum: 清理后是否执行 VACUUM 释放物理磁盘空间
             verbose: 是否打印输出
+
+        Returns:
+            CleanReport: 包含清理条目数与空间变化的统计报告。
         """
+        logger.info("启动数据库清理工作，模式=%s, dry_run=%s, vacuum=%s", mode, dry_run, vacuum)
+
         if self.db_path is not None and not self.db_path.exists():
+            logger.warning("数据库文件不存在，取消清理: %s", self.db_path)
             if verbose:
                 print(f"❌ 数据库文件不存在: {self.db_path}")
             return CleanReport()
@@ -121,16 +134,17 @@ class DatabaseCleaner:
             existing_tables = set(inspect(manager.engine).get_table_names())
 
             if mode == "vacuum":
-                # 仅整理空间，不删除任何数据
+                logger.info("真空收缩维护模式，不删除任何数据")
                 pass
 
             elif mode == "failed":
-                # 1. 查找失败的 alpha_id
+                logger.info("准备清理失败或异常的因子回测数据...")
                 if "alpha_details" in existing_tables:
                     cursor.execute("SELECT alpha_id FROM alpha_details WHERE alpha_id LIKE 'FAILED_%' OR grade = 'FAILED'")
                     failed_alpha_ids = [r[0] for r in cursor.fetchall()]
 
                     if failed_alpha_ids:
+                        logger.info("发现 %d 个失败的因子详情记录待清除", len(failed_alpha_ids))
                         placeholders = ",".join("?" for _ in failed_alpha_ids)
                         if "alpha_checks" in existing_tables:
                             cursor.execute(f"SELECT COUNT(*) FROM alpha_checks WHERE alpha_id IN ({placeholders})", failed_alpha_ids)
@@ -160,6 +174,7 @@ class DatabaseCleaner:
                         cursor.execute("DELETE FROM simulation_batches WHERE status = 'failed'")
 
             elif mode == "pruned":
+                logger.info("准备清理被剪枝的因子表达式...")
                 if "alpha_expressions" in existing_tables:
                     cursor.execute("SELECT COUNT(*) FROM alpha_expressions WHERE pruning_status = 'pruned'")
                     report.deleted_expressions = cursor.fetchone()[0]
@@ -167,6 +182,7 @@ class DatabaseCleaner:
                         cursor.execute("DELETE FROM alpha_expressions WHERE pruning_status = 'pruned'")
 
             elif mode == "pending":
+                logger.info("准备清理处于待回测 (pending) 状态的任务...")
                 if "alpha_expressions" in existing_tables:
                     cursor.execute("SELECT COUNT(*) FROM alpha_expressions WHERE status = 'pending'")
                     report.deleted_expressions = cursor.fetchone()[0]
@@ -174,6 +190,7 @@ class DatabaseCleaner:
                         cursor.execute("DELETE FROM alpha_expressions WHERE status = 'pending'")
 
             elif mode == "stale":
+                logger.info("综合清理过期、剪枝和失效孤儿记录...")
                 # 清理 failed + pruned + 孤儿 checks
                 if "alpha_expressions" in existing_tables:
                     cursor.execute("SELECT COUNT(*) FROM alpha_expressions WHERE status = 'failed' OR pruning_status = 'pruned'")
@@ -188,6 +205,7 @@ class DatabaseCleaner:
                         cursor.execute("DELETE FROM alpha_checks WHERE alpha_id NOT IN (SELECT alpha_id FROM alpha_details)")
 
             elif mode == "all_data":
+                logger.info("⚠️ 警告：正在执行数据全量清空清扫...")
                 # 清空所有实验数据 (保留 template_library, template_prune_rules, datafields, schema_version)
                 tables_to_clear = [
                     ("alpha_checks", "deleted_checks"),
@@ -208,22 +226,26 @@ class DatabaseCleaner:
 
             if not dry_run:
                 conn.commit()
+                logger.info("清理数据库数据成功，事务已提交")
 
             cursor.close()
 
             # 执行 VACUUM 释放磁盘物理空间
             if not dry_run and (vacuum or mode == "vacuum"):
                 try:
+                    logger.info("开始对数据库执行 VACUUM 收缩整理，重置 WAL 日志大小...")
                     conn.execute("PRAGMA wal_checkpoint(TRUNCATE)")
                     old_iso = conn.isolation_level
                     conn.isolation_level = None
                     conn.execute("VACUUM")
                     conn.isolation_level = old_iso
                     report.vacuumed = True
+                    logger.info("VACUUM 物理空间回收成功")
                 except Exception as ve:
-                    logger.warning(f"VACUUM 释放异常: {ve}")
+                    logger.exception("VACUUM 释放异常: %s", ve)
 
             report.size_after_bytes = self._get_size()
+            logger.info("数据库清理流程结束。%s", report.summary_text().replace("\n", "; "))
 
             if verbose:
                 if dry_run:
@@ -233,6 +255,7 @@ class DatabaseCleaner:
             return report
 
         except Exception as e:
+            logger.exception("执行数据库清理维护异常失败: %s", e)
             if verbose:
                 print(f"❌ 清理失败: {e}", file=sys.stderr)
             return report

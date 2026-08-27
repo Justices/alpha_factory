@@ -107,6 +107,34 @@ class AlphaQueryMixin(BaseRepository):
             for row in rows
         ]
 
+    def load_completed_expression_results(self, settings: Mapping[str, object]) -> list[object]:
+        """Load completed expressions and their persisted metrics for one settings scope."""
+        from alpha_operator_framework.research.optimization import CompletedExpression
+
+        scope = self._result_pruning_settings(settings)
+        settings_json = json.dumps(scope, ensure_ascii=False, sort_keys=True, separators=(",", ":"))
+        rows = self._get_connection().execute(
+            """SELECT ae.alpha_sha, ae.expression, ae.fields, MIN(rc.family) AS family,
+                      COALESCE(ad.sharpe, 0.0) AS sharpe, COALESCE(ad.fitness, 0.0) AS fitness,
+                      COALESCE(ad.ra_failed, 0) AS ra_failed, COALESCE(ad.ppa_failed, 0) AS ppa_failed
+                 FROM alpha_expressions ae
+                 LEFT JOIN round_candidates rc ON rc.alpha_sha = ae.alpha_sha
+                 LEFT JOIN alpha_details ad ON ad.alpha_sha = ae.alpha_sha
+                WHERE ae.settings = ? AND ae.status = 'completed'
+                GROUP BY ae.alpha_sha, ae.expression, ae.fields, ad.sharpe, ad.fitness, ad.ra_failed, ad.ppa_failed
+                ORDER BY ae.id""",
+            (settings_json,),
+        ).fetchall()
+        return [
+            CompletedExpression(
+                expression=row["expression"], fields=tuple(json.loads(row["fields"] or "[]")),
+                sharpe=float(row["sharpe"]), fitness=float(row["fitness"]),
+                checks_passed=not bool(row["ra_failed"] or row["ppa_failed"]),
+                alpha_sha=row["alpha_sha"], family=row["family"] or "base",
+            )
+            for row in rows
+        ]
+
     # ---------------------------------------------------------------------------
     # 分层抽样与近亲去重
     # ---------------------------------------------------------------------------

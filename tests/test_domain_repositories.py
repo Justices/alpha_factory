@@ -117,6 +117,27 @@ def test_optimization_lineage_is_idempotent(tmp_path) -> None:
     assert db.record_optimization_lineage(settings, "parent", "child", "order2") is False
 
 
+def test_load_completed_expression_results_returns_metrics_and_candidate_family(tmp_path) -> None:
+    db = AlphaDatabase(tmp_path / "completed_results.db")
+    settings = {
+        "region": "USA", "universe": "TOP3000", "delay": 1, "decay": 8,
+        "neutralization": "SUBINDUSTRY", "truncation": 0.08,
+    }
+    candidate = Candidate("candidate", "rank(close)", "base", ("close",), ("rank",), "rank")
+    db.insert_expression(candidate.expression, settings, status="completed", fields=list(candidate.fields))
+    db.catalog_research_candidates("completed-round", [candidate], settings)
+    db.save_result_with_checks("alpha-1", {
+        "expression": candidate.expression,
+        "is": {"sharpe": 1.3, "fitness": 0.9, "checks": []},
+    }, settings)
+
+    rows = db.load_completed_expression_results(settings)
+
+    assert [(row.expression, row.family, row.sharpe, row.fitness) for row in rows] == [
+        ("rank(close)", "base", 1.3, 0.9),
+    ]
+
+
 def test_domain_repositories_standalone_and_shared_connection():
     """验证领域专用仓储既可独立构造，也可共享底层连接管理器."""
     with tempfile.TemporaryDirectory(ignore_cleanup_errors=True) as tmp:

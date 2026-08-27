@@ -24,6 +24,8 @@ class CompletedExpression:
     sharpe: float
     fitness: float
     checks_passed: bool
+    alpha_sha: str = ""
+    family: str = "base"
 
 
 @dataclass(frozen=True)

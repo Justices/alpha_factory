@@ -34,11 +34,7 @@ group_ops = ["group_neutralize", "group_rank", "group_zscore"]
 vec_ops = [
     "vec_avg",
     "vec_sum",
-    "vec_min",
-    "vec_max",
-    "vec_stddev",
-    "vec_range",
-    "vec_count",
+    "vec_stddev"
 ]
 
 # 扩展算子 (来自 cold_templates ACCESS_LIMITED_OPS + machine_lib)

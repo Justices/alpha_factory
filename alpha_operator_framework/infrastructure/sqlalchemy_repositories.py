@@ -16,7 +16,9 @@ from alpha_operator_framework.research.round import Candidate, PruningDecision, 
 
 from .sqlalchemy_migrations import (
     event_log,
+    experiment_batch_snapshot,
     knowledge_snapshot,
+    research_round_snapshot,
 )
 
 
@@ -72,18 +74,30 @@ def _knowledge(payload: str) -> KnowledgeBase:
 
 
 class _SnapshotRepository:
+    table: Any
+    identifier_column: str
+
     def __init__(self, engine: Engine) -> None:
         self.engine = engine
-        self._items: dict[str, str] = {}
 
     def _save(self, identifier: str, payload: str, *, status: str, error: str | None = None) -> None:
-        self._items[identifier] = payload
+        values = {self.identifier_column: identifier, "payload": payload, "status": status, "error": error}
+        with self.engine.begin() as connection:
+            if connection.execute(
+                update(self.table).where(self.table.c[self.identifier_column] == identifier).values(**values)
+            ).rowcount == 0:
+                connection.execute(insert(self.table).values(**values))
 
     def _load(self, identifier: str) -> str | None:
-        return self._items.get(identifier)
+        with self.engine.connect() as connection:
+            return connection.execute(
+                select(self.table.c.payload).where(self.table.c[self.identifier_column] == identifier)
+            ).scalar_one_or_none()
 
 
 class SqlAlchemyResearchRepository(_SnapshotRepository):
+    table = research_round_snapshot
+    identifier_column = "round_id"
 
     def save_round(self, round_: ResearchRound) -> None:
         self._save(round_.round_id, _json(asdict(round_)), status="PLANNED")
@@ -94,6 +108,8 @@ class SqlAlchemyResearchRepository(_SnapshotRepository):
 
 
 class SqlAlchemyExperimentRepository(_SnapshotRepository):
+    table = experiment_batch_snapshot
+    identifier_column = "batch_id"
 
     def save_batch(self, batch: ExperimentBatch) -> None:
         errors = sorted({task.last_error for task in batch.tasks.values() if task.last_error})
@@ -106,7 +122,8 @@ class SqlAlchemyExperimentRepository(_SnapshotRepository):
     def list_due_batches(self) -> list[ExperimentBatch]:
         """Return non-terminal batches with at least one task ready to run."""
         now = datetime.now(UTC)
-        batches = [_batch(payload) for payload in self._items.values()]
+        with self.engine.connect() as connection:
+            batches = [_batch(payload) for payload in connection.execute(select(self.table.c.payload)).scalars()]
         return [
             batch for batch in batches
             if batch.state in {BatchState.SUBMITTED, BatchState.PARTIAL_FAILED}

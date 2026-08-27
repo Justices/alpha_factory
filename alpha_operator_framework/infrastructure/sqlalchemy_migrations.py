@@ -35,6 +35,20 @@ submission_outbox = Table(
     Column("last_error", Text),
     Column("lease_until", String(64)),
 )
+research_round_snapshot = Table(
+    "research_round_snapshot", metadata,
+    Column("round_id", String(128), primary_key=True),
+    Column("payload", Text, nullable=False),
+    Column("status", String(32), nullable=False),
+    Column("error", Text),
+)
+experiment_batch_snapshot = Table(
+    "experiment_batch_snapshot", metadata,
+    Column("batch_id", String(128), primary_key=True),
+    Column("payload", Text, nullable=False),
+    Column("status", String(32), nullable=False),
+    Column("error", Text),
+)
 
 def migrate(engine: Engine) -> None:
     """Create the compact event runtime schema for a fresh validation database."""

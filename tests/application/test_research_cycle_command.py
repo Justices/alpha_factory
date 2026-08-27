@@ -70,7 +70,8 @@ def test_research_cycle_command_uses_new_dry_run_cycle(monkeypatch, tmp_path, ca
     assert "Research Cycle Summary" in capsys.readouterr().out
     runtime = build_research_runtime(config)
     round_ = runtime.research_repository.load_round("test-round")
-    assert [candidate.expression for candidate in round_.candidates] == ["rank(returns)", "ts_rank(returns, 22)"]
+    assert {candidate.family for candidate in round_.candidates} == {"unary"}
+    assert all("vector_neut" not in candidate.expression for candidate in round_.candidates)
     assert EventType.BATCH_ALLOCATED in [
         event.event_type for event in runtime.event_store.read_stream("test-round")
     ]
@@ -98,8 +99,8 @@ def test_research_cycle_sets_the_requested_quota_for_each_family(monkeypatch, tm
 
     runtime = build_research_runtime(config)
     policy = runtime.research_repository.load_round("quota-round").policy
-    assert policy.family_quotas == {"cross_sectional": 8, "time_series": 8}
-    assert policy.max_backtests == 16
+    assert policy.family_quotas == {"unary": 8, "binary": 8, "ternary": 8}
+    assert policy.max_backtests == 24
 
 
 def test_submission_dispatch_command_is_safe_with_an_empty_outbox(tmp_path, capsys) -> None:

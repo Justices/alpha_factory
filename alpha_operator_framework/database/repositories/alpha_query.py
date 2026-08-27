@@ -4,7 +4,7 @@ from __future__ import annotations
 
 import json
 import random
-from typing import Dict, List, Optional, Tuple
+from typing import Dict, List, Mapping, Optional, Tuple
 
 from ..base import BaseRepository, _isomorphic_fingerprint
 from ..models import AlphaExpression
@@ -94,6 +94,18 @@ class AlphaQueryMixin(BaseRepository):
                 tuple(json.loads(row["fields"] or "[]")), tuple(sorted(validation.operators_used)), row["template_id"],
             ))
         return candidates
+
+    def get_result_prune_rules(self, settings: Mapping[str, object]) -> list[dict[str, str]]:
+        """Return result-derived pruning rules for one complete settings scope."""
+        rows = self._get_connection().execute(
+            """SELECT pattern, pattern_type, reason FROM result_prune_rules
+               WHERE scope_hash=? ORDER BY id""",
+            (self.settings_scope_hash(settings),),
+        ).fetchall()
+        return [
+            {"pattern": row["pattern"], "pattern_type": row["pattern_type"], "reason": row["reason"]}
+            for row in rows
+        ]
 
     # ---------------------------------------------------------------------------
     # 分层抽样与近亲去重

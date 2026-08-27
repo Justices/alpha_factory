@@ -5,7 +5,7 @@ from __future__ import annotations
 import hashlib
 import json
 from datetime import datetime
-from typing import Any, Dict, List, Optional
+from typing import Any, Dict, List, Mapping, Optional, Sequence
 
 from ..base import BaseRepository
 from ..models import AlphaDetail, WF_STAGES
@@ -22,6 +22,98 @@ class AlphaWriteMixin(BaseRepository):
             ensure_ascii=False, sort_keys=True, separators=(",", ":"),
         )
         return hashlib.sha256(payload.encode("utf-8")).hexdigest()
+
+    @staticmethod
+    def _result_pruning_settings(settings: Mapping[str, Any]) -> dict[str, Any]:
+        """Normalize the complete setting scope used by result-derived pruning."""
+        keys = ("region", "universe", "delay", "decay", "neutralization", "truncation")
+        missing = [key for key in keys if key not in settings]
+        if missing:
+            raise ValueError(f"result pruning settings are incomplete: {', '.join(missing)}")
+        return {key: settings[key] for key in keys}
+
+    @classmethod
+    def settings_scope_hash(cls, settings: Mapping[str, Any]) -> str:
+        scope = cls._result_pruning_settings(settings)
+        payload = json.dumps(scope, ensure_ascii=False, sort_keys=True, separators=(",", ":"))
+        return hashlib.sha256(payload.encode("utf-8")).hexdigest()
+
+    def upsert_result_prune_rule(
+        self,
+        settings: Mapping[str, Any],
+        pattern: str,
+        pattern_type: str,
+        reason: str,
+    ) -> None:
+        """Persist one result-derived pruning rule within its complete settings scope."""
+        now = self._timestamp()
+        self._get_connection().execute(
+            """INSERT INTO result_prune_rules
+               (scope_hash, pattern, pattern_type, reason, created_at, updated_at)
+               VALUES (?, ?, ?, ?, ?, ?)
+               ON CONFLICT(scope_hash, pattern, pattern_type) DO UPDATE SET
+                   reason=excluded.reason, updated_at=excluded.updated_at""",
+            (self.settings_scope_hash(settings), pattern, pattern_type, reason, now, now),
+        )
+        self._get_connection().commit()
+
+    def record_optimization_lineage(
+        self,
+        settings: Mapping[str, Any],
+        parent_alpha_sha: str,
+        child_alpha_sha: str,
+        stage: str,
+    ) -> bool:
+        """Record one parent-child evolution edge, returning whether it was newly inserted."""
+        if stage not in {"order2", "dimension2"}:
+            raise ValueError(f"unsupported optimization stage: {stage}")
+        now = self._timestamp()
+        cursor = self._get_connection().execute(
+            """INSERT INTO optimization_lineage
+               (scope_hash, parent_alpha_sha, child_alpha_sha, stage, created_at, updated_at)
+               VALUES (?, ?, ?, ?, ?, ?)
+               ON CONFLICT(scope_hash, parent_alpha_sha, child_alpha_sha, stage) DO NOTHING""",
+            (self.settings_scope_hash(settings), parent_alpha_sha, child_alpha_sha, stage, now, now),
+        )
+        self._get_connection().commit()
+        return cursor.rowcount == 1
+
+    def prune_unbacktested_matching(
+        self,
+        settings: Mapping[str, Any],
+        rules: Sequence[Mapping[str, str]],
+    ) -> list[str]:
+        """Prune active, unbacktested expressions matching result-derived rules only."""
+        if not rules:
+            return []
+        from alpha_operator_framework.distill.template_pruner import matches_prune_rule
+
+        scope = self._result_pruning_settings(settings)
+        settings_json = json.dumps(scope, ensure_ascii=False, sort_keys=True, separators=(",", ":"))
+        conn = self._get_connection()
+        rows = conn.execute(
+            """SELECT alpha_sha, expression FROM alpha_expressions
+               WHERE settings=? AND status IN ('generated', 'pending') AND pruning_status='active'""",
+            (settings_json,),
+        ).fetchall()
+        alpha_shas = [
+            row["alpha_sha"] for row in rows
+            if any(matches_prune_rule(row["expression"], dict(rule)) for rule in rules)
+        ]
+        if not alpha_shas:
+            return []
+        placeholders = ",".join("?" for _ in alpha_shas)
+        now = self._timestamp()
+        conn.execute(
+            f"UPDATE alpha_expressions SET pruning_status='pruned', updated_at=? WHERE alpha_sha IN ({placeholders})",
+            [now, *alpha_shas],
+        )
+        conn.execute(
+            f"UPDATE round_candidates SET pruning_status='pruned', updated_at=? WHERE alpha_sha IN ({placeholders}) AND pruning_status='active'",
+            [now, *alpha_shas],
+        )
+        conn.commit()
+        return alpha_shas
 
     def insert_expression(self, expression: str, settings: Dict, *, expression_origin: str = "",
                           batch_id: Optional[int] = None, fields: Optional[List[str]] = None,

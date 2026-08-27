@@ -82,6 +82,41 @@ def test_load_unbacktested_research_candidates_keeps_only_active_scope_rows() ->
         assert [candidate.expression for candidate in pending] == ["rank(close)"]
 
 
+def test_result_prune_rule_only_prunes_active_unbacktested_expressions_in_scope(tmp_path) -> None:
+    db = AlphaDatabase(tmp_path / "scoped_prune.db")
+    usa = {
+        "region": "USA", "universe": "TOP3000", "delay": 1, "decay": 8,
+        "neutralization": "SUBINDUSTRY", "truncation": 0.08,
+    }
+    eur = {**usa, "region": "EUR", "universe": "TOP2500"}
+    pending = Candidate("pending", "rank(close)", "unary", ("close",), ("rank",), "rank")
+    completed = Candidate("completed", "rank(open)", "unary", ("open",), ("rank",), "rank")
+
+    for candidate, settings, status in ((pending, usa, "generated"), (pending, eur, "generated"), (completed, usa, "completed")):
+        db.insert_expression(candidate.expression, settings, status=status, fields=list(candidate.fields))
+        db.catalog_research_candidates(f"round-{settings['region']}-{candidate.candidate_id}", [candidate], settings)
+
+    db.upsert_result_prune_rule(usa, "rank(", "prefix", "consensus failure")
+    pruned = db.prune_unbacktested_matching(usa, db.get_result_prune_rules(usa))
+
+    assert pruned == [db.compute_alpha_sha(pending.expression, usa)]
+    assert db.get_expression_by_alpha_sha(db.compute_alpha_sha(pending.expression, usa)).pruning_status == "pruned"
+    assert db.get_expression_by_alpha_sha(db.compute_alpha_sha(pending.expression, eur)).pruning_status == "active"
+    assert db.get_expression_by_alpha_sha(db.compute_alpha_sha(completed.expression, usa)).status == "completed"
+    assert db.get_expression_by_alpha_sha(db.compute_alpha_sha(completed.expression, usa)).pruning_status == "active"
+
+
+def test_optimization_lineage_is_idempotent(tmp_path) -> None:
+    db = AlphaDatabase(tmp_path / "optimization_lineage.db")
+    settings = {
+        "region": "USA", "universe": "TOP3000", "delay": 1, "decay": 8,
+        "neutralization": "SUBINDUSTRY", "truncation": 0.08,
+    }
+
+    assert db.record_optimization_lineage(settings, "parent", "child", "order2") is True
+    assert db.record_optimization_lineage(settings, "parent", "child", "order2") is False
+
+
 def test_domain_repositories_standalone_and_shared_connection():
     """验证领域专用仓储既可独立构造，也可共享底层连接管理器."""
     with tempfile.TemporaryDirectory(ignore_cleanup_errors=True) as tmp:

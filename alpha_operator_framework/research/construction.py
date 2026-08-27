@@ -11,7 +11,13 @@ from alpha_operator_framework.domain.families import Task
 from alpha_operator_framework.domain.fields import FieldSpec, preprocess_fields_rotated
 from alpha_operator_framework.domain.fields import ScalarField
 from alpha_operator_framework.database.models import Template
-from alpha_operator_framework.generation.template_library import TemplateStrategyConfig, template_creation_strategy
+from alpha_operator_framework.generation.template_library import (
+    TemplateStrategyConfig,
+    _render_any,
+    extract_slot_names,
+    slot_context_types,
+    template_creation_strategy,
+)
 
 from .round import Candidate
 
@@ -68,6 +74,97 @@ class AstCandidateBuilder:
         )
         tasks = [task for task in tasks if "vector_neut" not in task.expression]
         return self._build_tasks(tasks, {field.id for field in fields})
+
+    def build_order2(
+        self,
+        parent: Candidate,
+        templates: Sequence[Template],
+        *,
+        limit_per_template: int = 200,
+    ) -> list[Candidate]:
+        """Apply every compatible active unary template to one signal expression."""
+        return self._build_optimization_candidates(
+            parent, (), templates, stage="order2", limit_per_template=limit_per_template,
+        )
+
+    def build_dimension2(
+        self,
+        parent: Candidate,
+        fields: Sequence[FieldSpec],
+        templates: Sequence[Template],
+        *,
+        limit_per_template: int = 200,
+        seed: int | None = None,
+    ) -> list[Candidate]:
+        """Pair one signal expression with a different raw field in the same category."""
+        parent_categories = {
+            field.category for field in fields if field.id in parent.fields and field.category
+        }
+        partners = [
+            (field, expression)
+            for field, expression in preprocess_fields_rotated(fields, seed=seed)
+            if field.id not in parent.fields and field.category in parent_categories
+        ]
+        return self._build_optimization_candidates(
+            parent, partners, templates, stage="dimension2", limit_per_template=limit_per_template,
+        )
+
+    @staticmethod
+    def _compatible_template_slots(template: Template, count: int) -> list[str] | None:
+        if template.active != 1 or template.template_type != "placeholder" or "vector_neut" in template.expression_template:
+            return None
+        slots = extract_slot_names(template.expression_template)
+        contexts = slot_context_types(template.expression_template)
+        placeholders = template.placeholders or {}
+        if len(slots) != count or template.group_slots or any(contexts.get(slot) == "vector" for slot in slots):
+            return None
+        if any(placeholders.get(slot, {}).get("role") not in {None, "scalar"} for slot in slots):
+            return None
+        return slots
+
+    @classmethod
+    def _build_optimization_candidates(
+        cls,
+        parent: Candidate,
+        partners: Sequence[tuple[FieldSpec, str]],
+        templates: Sequence[Template],
+        *,
+        stage: str,
+        limit_per_template: int,
+    ) -> list[Candidate]:
+        if limit_per_template <= 0:
+            return []
+        if stage not in {"order2", "dimension2"}:
+            raise ValueError(f"unsupported optimization stage: {stage}")
+        family = f"optimization_{stage}"
+        known_fields = set(parent.fields) | {field.id for field, _ in partners}
+        candidates: list[Candidate] = []
+        seen: set[str] = set()
+        required_slots = 1 if stage == "order2" else 2
+        for template in templates:
+            slots = cls._compatible_template_slots(template, required_slots)
+            if slots is None:
+                continue
+            values = [None] if stage == "order2" else list(partners[:limit_per_template])
+            for partner in values:
+                mapper = {slots[0]: parent.expression}
+                if partner is not None:
+                    mapper[slots[1]] = partner[1]
+                expression = _render_any(template.expression_template, mapper)
+                validation = validate_expression(expression, known_fields=known_fields)
+                if not validation.is_valid or any("Unknown or custom operator" in warning for warning in validation.warnings):
+                    continue
+                canonical = to_canonical_string(expression)
+                if canonical in seen or "vector_neut" in canonical:
+                    continue
+                seen.add(canonical)
+                digest = hashlib.sha256(f"{stage}:{template.name}:{canonical}".encode("utf-8")).hexdigest()[:16]
+                candidates.append(Candidate(
+                    candidate_id=f"{template.name}:{digest}", expression=canonical, family=family,
+                    fields=tuple(sorted(validation.fields_used)), operators=tuple(sorted(validation.operators_used)),
+                    template_id=template.name, lineage_parent_id=parent.candidate_id,
+                ))
+        return candidates
 
     @classmethod
     def _build_tasks(cls, tasks: Sequence[Task], known_fields: set[str]) -> list[Candidate]:

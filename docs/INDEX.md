@@ -14,7 +14,7 @@ mindmap
       QUICKSTART.md["5分钟极速上手 & 命令备忘"]
       ARCHITECTURE.md["系统架构 & DDD分层 & 防过拟合（v2.0 重写）"]
       USAGE_GUIDE.md["完整使用指南 & CLI 权威手册（v2.0 重写）"]
-      DATABASE_DESIGN.md["数据库全景 & 17 表/视图规范"]
+      DATABASE_DESIGN.md["数据库全景 & 24+5 表/视图规范"]
     架构与底层设计 docs/architecture
       event_sourced_core.md["事件溯源内核与 Outbox 规范"]
       directory_design.md["代码分层目录规范"]
@@ -43,7 +43,7 @@ mindmap
 | [**QUICKSTART.md**](../QUICKSTART.md) | 5 分钟极速上手、全套测试运行、常用单行 CLI 命令备忘清单 | 新人入门 / 常用操作速查 |
 | [**ARCHITECTURE.md**](../ARCHITECTURE.md) ✨ | **v2.0 重写**：DDD 五层架构、事件溯源内核、证据边界、防过拟合体系、数据库、CLI 架构 | 架构师 / 核心量化开发人员 |
 | [**USAGE_GUIDE.md**](../USAGE_GUIDE.md) ✨ | **v2.0 重写**：22 个 CLI 命令完整参数、6 大实战场景、Python API、SQL 速查、FAQ | 日常投研人员 / 运维人员 |
-| [**DATABASE_DESIGN.md**](../DATABASE_DESIGN.md) | SQLite `data/alpha_research.db` 17 张核心表/视图设计、WAL 优化、Zero-Commit 规范 | 数据库工程人员 / 运维人员 |
+| [**DATABASE_DESIGN.md**](../DATABASE_DESIGN.md) | SQLite `data/alpha_research.db` 24 张核心表/视图 + 5 张运行时表设计、WAL 优化、Zero-Commit 规范 | 数据库工程人员 / 运维人员 |
 
 ---
 

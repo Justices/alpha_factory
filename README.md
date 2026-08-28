@@ -1,24 +1,24 @@
 # Alpha Factory (Alpha Factor Operator Framework)
 
 [![Python 3.10+](https://img.shields.io/badge/python-3.10%2B-blue.svg)](https://www.python.org/)
-[![Tests](https://img.shields.io/badge/tests-242%20passed%20(100%25)-brightgreen.svg)]()
+[![Tests](https://img.shields.io/badge/tests-465%20passed%20(100%25)-brightgreen.svg)]()
 [![Architecture](https://img.shields.io/badge/architecture-Event--Sourced%20Core%20%7C%20DDD-purple.svg)](ARCHITECTURE.md)
-[![Database](https://img.shields.io/badge/database-SQLite%20(17%20Tables)-orange.svg)](DATABASE_DESIGN.md)
+[![Database](https://img.shields.io/badge/database-SQLite%20(24%20Core%20+%205%20Runtime%20Tables)-orange.svg)](DATABASE_DESIGN.md)
 
-工业级全生命周期量化 Alpha 因子研究与生产治理系统，深度对接 **WorldQuant BRAIN** 平台。系统融合**事件溯源不可变事实内核 (Event-Sourced Research Core)**、**领域驱动设计 (DDD)**、**Alpha AST 规范编译器**、**符号语法树自由杂交进化 (Symbolic Breeding)**、**大模型自主假说与反思闭环 (LLM Reflexion)**、**6 维证据准入状态机**、**动态 DSR 防过拟合引擎**、**Outbox Saga 异步平台网关**、**自进化知识库** 与 **生产高可用运维体系**。
+工业级全生命周期量化 Alpha 因子研究与生产治理系统，深度对接 **WorldQuant BRAIN** 平台。系统融合**事件溯源不可变事实内核 (Event-Sourced Research Core)**、**领域驱动设计 (DDD)**、**统一 Alpha 构造策略体系 (Unified Construction Strategies)**、**Alpha AST 规范编译器**、**符号语法树自由杂交进化 (Symbolic Breeding)**、**大模型自主假说与反思闭环 (LLM Reflexion)**、**6 维证据准入状态机**、**动态 DSR 防过拟合引擎**、**Outbox Saga 异步平台网关**、**模板库闭环晋升 (Template Promotion Chain)** 与 **生产高可用运维体系**。
 
 ---
 
 ## 📚 核心文档导航树 (Documentation Index)
 
 | 核心文档 | 核心内容与定位 | 快速链接 |
-| :--- | :--- | :---: |
+| :--- | :--- | :--- |
 | **项目主页** | 系统定位、技术架构全景、核心能力、极速上手 | [README.md](file:///d:/quant/alpha_factory/README.md) |
 | **自进化实战指南** 🌟 | **全自主进化、符号语法树自由杂交、大模型自反思与知识闭环** | [autonomous_evolution_guide.md](file:///d:/quant/alpha_factory/docs/guides/autonomous_evolution_guide.md) |
 | **快速上手** | 5 分钟极速入门、常用单行 CLI 命令备忘清单 | [QUICKSTART.md](file:///d:/quant/alpha_factory/QUICKSTART.md) |
 | **系统架构设计** ✨ v2.0 | DDD 五层架构、事件溯源内核、证据边界、防过拟合体系、数据库设计、CLI 架构全景 | [ARCHITECTURE.md](file:///d:/quant/alpha_factory/ARCHITECTURE.md) |
 | **权威使用手册** ✨ v2.0 | 22 个 CLI 命令完整参数、6 大实战场景、Python API、SQL 速查、FAQ | [USAGE_GUIDE.md](file:///d:/quant/alpha_factory/USAGE_GUIDE.md) |
-| **数据库设计** | 17 张核心数据表/视图结构、WAL 优化、Zero-Commit 规范 | [DATABASE_DESIGN.md](file:///d:/quant/alpha_factory/DATABASE_DESIGN.md) |
+| **数据库设计** | 24 张核心数据表/视图 + 5 张事件运行时表结构、WAL 优化、Zero-Commit 规范 | [DATABASE_DESIGN.md](file:///d:/quant/alpha_factory/DATABASE_DESIGN.md) |
 | **专题与归档索引** | 分页指南、AI 集成、筛选优化、生产部署、架构规范 | [docs/INDEX.md](file:///d:/quant/alpha_factory/docs/INDEX.md) |
 
 ---
@@ -83,7 +83,7 @@ flowchart TD
     end
 
     subgraph STORAGE["四、 存储与生产运维层 (Persistence & Ops)"]
-        DB[("SQLite 单一主库 data/alpha_research.db\n• 17 张核心数据表/视图\n• schema_version / event_log / trial_ledger")]
+        DB[("SQLite 单一主库 data/alpha_research.db\n• 24 张核心数据表/视图 + 5 张运行时表\n• schema_version / event_log / trial_ledger")]
         CLI["运维与调度工具箱:\n• init_db.py (全新初始化/增量升级/校验)\n• clean_db.py (数据清理与 VACUUM 释放物理空间)\n• auto-pilot / research-worker / submission-dispatch"]
     end
 
@@ -105,7 +105,7 @@ python init_db.py
 python alpha_machine.py init-db
 ```
 
-### 2. 执行完整自动化测试 (242 项测试 100% 通过)
+### 2. 执行完整自动化测试 (465 项测试 100% 通过)
 ```bash
 python -m pytest -q
 ```
@@ -227,7 +227,7 @@ d:\quant\alpha_factory/
 ├── QUICKSTART.md                  # [核心 2] 5分钟极速上手与日常命令速查
 ├── ARCHITECTURE.md                # [核心 3] 系统架构全景 (DDD + 事件溯源 + 证据边界)
 ├── USAGE_GUIDE.md                 # [核心 4] 完整操作指南 (全流程命令详解与DB维护)
-├── DATABASE_DESIGN.md             # [核心 5] 数据库全景架构与 17 表/视图设计规范
+├── DATABASE_DESIGN.md             # [核心 5] 数据库全景架构与 24 表/视图设计规范
 │
 ├── init_db.py                     # 数据库一键初始化/重置入口
 ├── clean_db.py                    # 数据库数据清理与 VACUUM 释放物理空间入口
@@ -237,7 +237,7 @@ d:\quant\alpha_factory/
 │
 ├── alpha_operator_framework/      # 核心源码包
 │   ├── application/               # 应用编排层 (ResearchCycleUseCase, ResearchRuntime, Worker)
-│   ├── research/                  # 探索轮次与候选构造 (ResearchRound, 抽样算法, AstPrePruner, 文献流水线)
+│   ├── research/                  # 探索轮次与候选构造 (统一构造策略, 结构约束, 抽样算法, AstPrePruner)
 │   ├── experiment/                # 实验批次与评估治理 (ExperimentBatch 状态机, 6维硬门禁, NSGA2Mutator)
 │   ├── knowledge/                 # 知识蒸馏与准入领域 (SignalDistiller, template_library, 提交审批)
 │   ├── infrastructure/            # 基础设施适配器 (SQLite仓储, Brain网关, SubmissionOutbox, Telemetry)
@@ -250,7 +250,7 @@ d:\quant\alpha_factory/
 │   └── cache/                     # 平台元数据与算子缓存 (Datafields, Operators, Universes)
 │
 ├── data/                          # 运行时数据目录 (.gitignore 忽略，由 init_db.py 生成)
-│   └── alpha_research.db          # SQLite 统一主库 (17 张核心表/视图)
+│   └── alpha_research.db          # SQLite 统一主库 (24 张核心表/视图 + 5 张运行时表)
 │
 ├── docs/                          # 分类专题文档库
 │   ├── INDEX.md                   # 📚 文档全景导航与分类索引
@@ -260,7 +260,7 @@ d:\quant\alpha_factory/
 │
 ├── examples/                      # 示例与演练脚本
 ├── scripts/                       # 生产运维脚本 (Systemd 服务配置, Crontab 巡检矩阵)
-└── tests/                         # 自动化测试套件 (242 个单元与集成测试, 100% 通过)
+└── tests/                         # 自动化测试套件 (465 个单元与集成测试, 100% 通过)
 ```
 
 ---

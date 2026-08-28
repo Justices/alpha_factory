@@ -49,14 +49,17 @@ flowchart LR
 - **抽象机理**：
   - 调用 `TemplateAbstractor` 扫描 AST 树，保留算子与分组参数（如 `subindustry`, `sector`, `cap_bucket`），将具体特征字段去标识化为通用槽位 `{a}`, `{b}`：
   $$\text{ts\_scale}(\text{group\_rank}(\mathbf{est\_fcf}, \text{subindustry}), 30) \quad \Longrightarrow \quad \text{ts\_scale}(\text{group\_rank}(\mathbf{\{a\}}, \text{subindustry}), 30)$$
-- **自动落库**：通过 `TemplateRepository.save_abstracted_template` 自动赋予哈希指纹并幂等写入 `template_library` 表。
+- **持久化晋升闭环 (Template Promotion Chain)**：
+  - 由 `ResearchBatchWorker` 自动提取 `DistilledTemplate` 及其来源任务证据（`source_task_ids`）；
+  - 调用 `AlphaDatabase.save_abstracted_template()` 写入单一可信源 `template_library` 表，生成确定性 `evolved_<sha256>` 模板；
+  - 自动合并演化证据至 `source_json`，并持久化首个非空成功示例。
 
 ---
 
 ### Phase 2: 跨数据集动态知识库回流 (Cross-Dataset Transfer)
 - **知识迁移机制**：
   - 当您在探索一个全新的数据集（如从分析师预期 `analyst7` 切换到财报基本面 `fundamental31` 或内部交易 `insider_agg_matrix`）时；
-  - 挖掘引擎 `StratifiedCarpetMiner` 在启动时会自动查询数据库中所有已沉淀的活跃模板（`evolved_distillation` 族群）；
+  - 统一构造策略 `DatabaseTemplateStrategy` (`kind: database_template`) 启动时会自动查询 `template_library` 中所有已沉淀的活跃自进化模板；
   - 自动将新数据集的字段填入历史胜出模板的 `{a}`, `{b}` 槽位中，实现**站在历史成功经验的肩膀上自动探索新数据**。
 
 ---

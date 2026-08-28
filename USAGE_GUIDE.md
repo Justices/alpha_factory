@@ -55,7 +55,7 @@ python init_db.py --verify
 ### 1.4 验证安装
 
 ```bash
-# 运行全套 242 项自动化测试（100% 通过）
+# 运行全套 465 项自动化测试（100% 通过）
 python -m pytest -q
 
 # 崩溃恢复演练（生产前推荐执行一次）
@@ -91,7 +91,7 @@ python alpha_machine.py status
 | `prepare-super` | super_alpha | 从 Alpha 池筛选正交组合候选 | ❌ 本地 |
 | `simulate-super` | super_alpha | 正交化超级因子回测 | `--execute` 才消耗 |
 | `poll-super` | super_alpha | 查询超级因子回测状态 | ❌ 只读 |
-| `init-db` | operations | 初始化/校验 SQLite 数据库 17 张表 | ❌ 本地 |
+| `init-db` | operations | 初始化/校验 SQLite 数据库 24+ 张核心/运行时表 | ❌ 本地 |
 | `clean-db` | operations | 清理失败/剪枝数据并 VACUUM 释放磁盘 | ❌ 本地 |
 | `storage-backup` | operations | 在线热备数据库文件 | ❌ 本地 |
 | `storage-restore` | operations | 从备份恢复数据库 | ❌ 本地 |
@@ -404,7 +404,7 @@ python alpha_machine.py submission-dispatch --limit 50 --max-attempts 3
 ```bash
 # 1. 环境初始化
 python init_db.py
-python -m pytest -q                 # 验证 242 项测试通过
+python -m pytest -q                 # 验证 465 项测试通过
 
 # 2. 崩溃恢复演练（推荐在正式生产前执行一次）
 python alpha_machine.py drill-recovery
@@ -795,7 +795,7 @@ python alpha_machine.py research-cycle \
 | [README.md](README.md) | 项目概览与 10 阶段架构总览 |
 | [QUICKSTART.md](QUICKSTART.md) | 5 分钟极速入门 |
 | [ARCHITECTURE.md](ARCHITECTURE.md) | DDD + 事件溯源 + 防过拟合架构设计 |
-| [DATABASE_DESIGN.md](DATABASE_DESIGN.md) | 17 张数据表/视图设计规范 |
+| [DATABASE_DESIGN.md](DATABASE_DESIGN.md) | 24 张核心数据表/视图 + 5 张运行时表设计规范 |
 | [docs/INDEX.md](docs/INDEX.md) | 文档全景导航索引 |
 | [docs/guides/autonomous_evolution_guide.md](docs/guides/autonomous_evolution_guide.md) | 全自主进化与符号杂交实战指南 |
 | [docs/guides/production_deployment_guide.md](docs/guides/production_deployment_guide.md) | 生产环境部署与运维手册 |

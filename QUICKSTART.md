@@ -23,12 +23,12 @@ python init_db.py
 python alpha_machine.py init-db
 ```
 
-### 校验与全套单测 (242 项测试)
+### 校验与全套单测 (465 项测试)
 ```bash
 # 验证数据库完整性与表结构版本
 python init_db.py --verify
 
-# 运行全套 242 项自动化测试 (100% 通过, 0 警告)
+# 运行全套 465 项自动化测试 (100% 通过, 0 警告)
 python -m pytest -q
 
 # 运行小批崩溃恢复与治理闭环演练 (生产前推荐)
@@ -163,5 +163,5 @@ for t in tasks[:3]:
 - [系统架构设计全景](file:///d:/quant/alpha_factory/ARCHITECTURE.md)
 - [权威用户操作手册](file:///d:/quant/alpha_factory/USAGE_GUIDE.md)
 - [全自主进化与高阶挖掘实战指南](file:///d:/quant/alpha_factory/docs/guides/autonomous_evolution_guide.md)
-- [数据库 17 表/视图设计规范](file:///d:/quant/alpha_factory/DATABASE_DESIGN.md)
+- [数据库 24+5 表/视图设计规范](file:///d:/quant/alpha_factory/DATABASE_DESIGN.md)
 - [文档全景导航索引](file:///d:/quant/alpha_factory/docs/INDEX.md)

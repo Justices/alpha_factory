@@ -80,12 +80,12 @@ alpha_factory/
 │   │
 │   ├── generation/                     # 假说与母版生成层 (CreationStrategy, TemplateLibrary, SuperAlpha)
 │   ├── platform/                       # 平台通信层 (BrainClient, PlatformSimulator, SimulationTracker)
-│   ├── database/                       # 数据库连接、仓储与迁移 (SQLite WAL 模式, 17 表/视图)
+│   ├── database/                       # 数据库连接、仓储与迁移 (SQLite WAL 模式, 24 核心表 + 5 运行时表)
 │   └── cache/                          # 平台元数据缓存 (Datafields, Operators, Universes)
 │
 ├── cnhkmcp/                            # 平台底层通信连接器
 ├── data/                               # 运行时数据资产 (主库 data/alpha_research.db)
 ├── docs/                               # 完整架构与指南文档
 ├── runs/                               # 运行输出与研报
-└── tests/                              # 全套自动化测试 (242 项测试 100% 通过)
+└── tests/                              # 全套自动化测试 (465 项测试 100% 通过)
 ```

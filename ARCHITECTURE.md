@@ -252,9 +252,46 @@ DRAFT → SIMULATED → DIAGNOSED → CHECKS_VERIFIED → SUBMISSION_READY → S
 
 ---
 
-## 六、 Alpha 生成体系
+## 六、 统一 Alpha 构造策略体系 (Unified Construction Strategies)
 
-### 6.1 10 大表达式生成族群（`domain/families.py`）
+### 6.1 策略架构与 4 大标准适配器 (`research/strategies.py`)
+
+系统重构了旧版硬编码流程，引入**统一显式声明与可组合的构造策略体系**：
+
+```mermaid
+flowchart TD
+    CONFIG["YAML 显式策略配置\n(configs/alpha-factory.yaml)"] --> PLAN["ConstructionPlan (typed)"]
+    PLAN --> REG["ConstructionStrategyRegistry"]
+
+    subgraph ADAPTERS["4 大标准构造策略适配器"]
+        S1["1. DatabaseTemplateStrategy\n(kind: database_template)\n加载 template_library 种子与自进化模板"]
+        S2["2. DepthConstructionStrategy\n(kind: depth_construction)\n高阶算子嵌套与多阶深度递归"]
+        S3["3. FieldCompositionStrategy\n(kind: field_composition)\n多元字段跨源协同与正交交互"]
+        S4["4. LiteratureLlmStrategy\n(kind: literature_llm)\n学术研报/LLM 结构化假说提取"]
+    end
+
+    REG --> ADAPTERS
+    ADAPTERS --> DRAFTS["Untrusted Candidate Drafts"]
+
+    subgraph PIPELINE["统一确定性候选准入管线 (Shared Acceptance Pipeline)"]
+        P1["ASTValidator 语义与类型校验"]
+        P2["StructureMeasurement (order_depth & field_count 测量)"]
+        P3["StructuralConstraint 独立范围过滤"]
+        P4["FASTEXPR 规范化与 SHA256 等价去重"]
+        P5["叶子族群分配 (leaf_family) & 确定性谱系生成"]
+    end
+
+    DRAFTS --> PIPELINE
+    PIPELINE --> ACCEPTED["Canonical Accepted Candidates\n(写入 candidate_provenance)"]
+    ACCEPTED --> RUNTIME["ResearchPlanner / ResearchWorker\n(平台固定按 8 条切片并发执行)"]
+```
+
+### 6.2 独立结构维度定义 (`research/structure.py`)
+- **`order_depth`（算子嵌套深度）**：从 AST 根节点到叶子节点经过的嵌套算子层数，反映计算逻辑的时序复杂度；
+- **`field_count`（原始字段数量）**：AST 中引用的去重原子字段总数，反映跨源信息的交互维度；
+- **两维度完全独立约束**：在 YAML 策略配置中可分别为策略指定 `exact`（精准匹配）或 `minimum / maximum`（范围约束）。
+
+### 6.3 10 大表达式生成族群（`domain/families.py`）
 
 | 族群 | 名称 | 描述 |
 |:---:|:---|:---|
@@ -269,13 +306,13 @@ DRAFT → SIMULATED → DIAGNOSED → CHECKS_VERIFIED → SUBMISSION_READY → S
 | 8 | `cross_market` | 跨市场字段迁移 |
 | 9 | `symbolic_bred` | AST 符号语法树自由杂交 |
 
-### 6.2 符号语法树自由杂交（`domain/ast/`）
+### 6.4 符号语法树自由杂交（`domain/ast/`）
 
 - **随机子树交换**：在语义一致的节点位置交换子树
 - **三层尺度架构 (Three-Tier Scaling)**：快中慢三层时序窗口嵌套
 - **行业-特质正交分解 (Sector-Idiosyncratic Decomposition)**：自动插入 `grouprank` 中性化
 
-### 6.3 4 大纯抽样算法（`research/selection.py`）
+### 6.5 4 大纯抽样算法（`research/selection.py`）
 
 | 算法 | 适用场景 | 原理 |
 |:---|:---|:---|
@@ -382,7 +419,7 @@ $$w_i \propto \frac{1}{\sigma_{c_i}^2}$$
 
 ---
 
-## 十一、 数据库架构（17 张核心表）
+## 十一、 数据库架构（24 张核心表 + 5 张运行时表）
 
 > 详细表结构与 SQL 速查见 [DATABASE_DESIGN.md](DATABASE_DESIGN.md)
 
@@ -392,14 +429,16 @@ $$w_i \propto \frac{1}{\sigma_{c_i}^2}$$
 - **引擎**: SQLite 3.37+ + WAL 模式
 - **配置中心**: `database/config.py`，支持 `ALPHA_DATABASE_PATH` / `ALPHA_DATABASE_URL` 环境变量覆盖
 
-### 11.2 表分组
+### 11.2 表分组 (共 29 张表)
 
 | 分组 | 表 | 职责 |
 |:---|:---|:---|
-| **A. 表达式与回测** | `alpha_expressions`, `alpha_details`, `alpha_checks`, `backtest_dataset_records` | 候选表达式去重、平台回测指标、Checks 审计 |
-| **B. 批次调度** | `simulation_batches`, `simulation_results`, `super_alpha_candidates`, `alpha_optimization_queue`, `alpha_submission_candidates` | 批次状态、子任务明细、超级因子、提交候选 |
-| **C. 自进化知识库** | `template_library`, `template_prune_rules`, `field_signal_stats`, `pair_signal_stats`, `operator_signal_stats` | 母版骨架库、剪枝规则、字段/配对/算子信号统计 |
-| **D. 事件溯源与审计** | `event_log`, `trial_ledger`, `schema_version` | 不可变事实流、防过拟合试验账本、版本管理 |
+| **A. 统一构造与多源谱系** | `construction_tasks`, `construction_strategy_runs`, `candidate_provenance`, `construction_lineage`, `construction_parent_runs`, `optimization_lineage` | 统一构造任务元数据、策略运行记录、候选多源谱系追踪与算子血缘变换 |
+| **B. 探索与批次调度** | `round_candidates`, `simulation_batches`, `simulation_results` | 轮次候选池、平台回测批次进度、子任务明细与平台子 URL |
+| **C. 表达式与回测绩效** | `alpha_expressions`, `alpha_details`, `alpha_checks`, `backtest_dataset_records` | AST 规范表达式去重、真实回测多维指标、18 项 Checks 审计 |
+| **D. 准入与金字塔外箱** | `alpha_submission_candidates`, `alpha_optimization_queue`, `super_alpha_candidates` | 待提交金字塔候选、边缘因子优化队列、正交化超级组合因子 |
+| **E. 自进化知识库与信号** | `template_library`, `template_prune_rules`, `result_prune_rules`, `datafields`, `field_signal_stats`, `pair_signal_stats`, `operator_signal_stats` | 模板单一可信源、剪枝规则库、字段/配对/算子实测信号统计 |
+| **F. 试验账本与事件溯源** | `trial_ledger`, `event_log`, `knowledge_snapshot`, `submission_outbox`, `research_round_snapshot`, `experiment_batch_snapshot` | 防过拟合多重检验账本、不可变事实流、聚合根快照与幂等提交外箱 |
 
 ### 11.3 并发控制
 

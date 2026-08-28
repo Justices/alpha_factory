@@ -3,7 +3,7 @@ from __future__ import annotations
 from alpha_operator_framework.cli.command_registry import LazyCommandHandler, command_specs
 from alpha_operator_framework.cli.research import DEFAULT_CONFIG_PATH
 from alpha_operator_framework.cli.router import build_parser, command_domains
-from alpha_operator_framework.infrastructure.runtime_factory import resolve_research_options
+from alpha_operator_framework.infrastructure.runtime_factory import resolve_construction_plan
 
 
 EXPECTED_DOMAINS = {
@@ -86,7 +86,8 @@ def test_root_parser_accepts_continue_research_for_research_cycle() -> None:
     assert args.execute is True
 
 
-def test_default_research_config_allocates_twenty_backtests_per_family() -> None:
-    options = resolve_research_options(DEFAULT_CONFIG_PATH, {})
+def test_default_research_config_allocates_eight_backtests_per_leaf_family() -> None:
+    plan = resolve_construction_plan(DEFAULT_CONFIG_PATH)
 
-    assert options["sample_per_family"] == 20
+    assert {strategy.quota_per_leaf_family for strategy in plan.strategies} == {8}
+    assert plan.platform_batch_size == 8

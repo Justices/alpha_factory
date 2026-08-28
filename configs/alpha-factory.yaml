@@ -11,6 +11,18 @@ research:
   decay: 8
   neutralization: SUBINDUSTRY
   truncation: 0.08
-  sample_per_family: 20
   selection_strategy: weighted_stratified
   seed: 42
+  construction:
+    strategies:
+      - id: database-default
+        kind: database_template
+        families: ["*"]
+        order_depth: {min: 0, max: 12}
+        field_count: {min: 1, max: 4}
+        quota_per_leaf_family: 8
+        source: raw_fields
+    parent_gate:
+      sharpe: {operator: gt, value: 1.25}
+      fitness: {operator: gt, value: 0.8}
+    platform_batch_size: 8

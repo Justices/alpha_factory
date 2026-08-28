@@ -362,15 +362,18 @@ def extract_ideas_with_llm(
     provider: Optional[str] = None,
     model: Optional[str] = None,
     client: Optional[UnifiedLLMClient] = None,
+    allow_fallback: bool = True,
 ) -> List[PaperIdea]:
-    """使用统一 LLM 客户端自动提炼研报假说，无 Key 或网络故障时自动降级."""
+    """Use the configured LLM, optionally allowing the legacy rule-based fallback."""
     llm_client = client or UnifiedLLMClient()
     p_cfg = llm_client.mgr.get_provider_config(provider)
 
     # 1. 若无 Key 且非本地 Ollama，自动触发离线规则降级
     is_local = "localhost" in p_cfg.base_url or "127.0.0.1" in p_cfg.base_url
     if not p_cfg.api_key and not is_local:
-        return IdeaExtractor.extract_from_text_rule_based(doc)
+        if allow_fallback:
+            return IdeaExtractor.extract_from_text_rule_based(doc)
+        raise ValueError(f"LLM provider {p_cfg.name} has no configured API key")
 
     prompt = IdeaExtractor.build_extraction_prompt(doc, available_fields)
 
@@ -380,6 +383,9 @@ def extract_ideas_with_llm(
         if ideas:
             return ideas
     except Exception:
-        pass
+        if not allow_fallback:
+            raise
 
-    return IdeaExtractor.extract_from_text_rule_based(doc)
+    if allow_fallback:
+        return IdeaExtractor.extract_from_text_rule_based(doc)
+    raise ValueError("LLM returned no valid structured hypotheses")

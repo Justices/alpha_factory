@@ -45,6 +45,9 @@ from .reflexion_engine import (
     LLMReflexionEngine,
     ReflexionIteration,
 )
+from .strategy_config import ConstructionPlan, ConstructionStrategyConfig, StructuralConstraint
+from .strategies import ConstructionStrategyRegistry
+from .structure import ExpressionStructure, measure_expression_structure
 
 __all__ = [
     "DocumentType",
@@ -74,4 +77,10 @@ __all__ = [
     "run_literature_research_pipeline",
     "LLMReflexionEngine",
     "ReflexionIteration",
+    "ConstructionPlan",
+    "ConstructionStrategyConfig",
+    "ConstructionStrategyRegistry",
+    "StructuralConstraint",
+    "ExpressionStructure",
+    "measure_expression_structure",
 ]

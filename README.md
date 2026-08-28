@@ -115,20 +115,22 @@ python -m pytest -q
 python alpha_machine.py drill-recovery
 ```
 
-### 4. 全新 DDD 10 阶段投研生命周期 (`research-cycle`) 🌟
-支持 4 大纯抽样算法与 2D 跨字段共识剪枝：
+### 4. 显式策略 Alpha 投研生命周期 (`research-cycle`) 🌟
+通过 `configs/alpha-factory.yaml` 显式组合数据库模板、多阶、多元与论文/LLM 策略。`order_depth` 是 AST 算子嵌套深度，`field_count` 是去重后的原始字段数；二者独立约束。每个叶子族每轮最多选择 8 条，平台固定按 8 条切片。
 ```bash
 # 默认 Dry-run 试运行 (推荐使用 D-Optimal 最大信息增益覆盖抽样)
 python alpha_machine.py research-cycle \
     --region GBR --universe TOP700 \
-    --algorithm d_optimal --sample-per-family 4
+    --algorithm d_optimal
 
 # 正式授权向 BRAIN 平台提交并发回测
 python alpha_machine.py research-cycle \
     --region GBR --universe TOP700 \
-    --algorithm d_optimal --sample-per-family 4 \
+    --algorithm d_optimal \
     --execute
 ```
+
+策略配置支持 `database_template`、`depth_construction`、`field_composition`、`literature_llm`。LLM 只产出结构化假说与候选模板，最终表达式必须通过与其他策略相同的确定性校验；配置与组合示例见 [USAGE_GUIDE.md](USAGE_GUIDE.md)。
 
 ### 5. 全自动无人值守投研流水线 (`auto-pilot`) 🚀
 一键串联：环境自检 ➔ 真实并发回测 ➔ 6 维证据终审 ➔ 空间释放 (VACUUM) ➔ 汇总研报生成：
@@ -141,12 +143,12 @@ python alpha_machine.py auto-pilot \
 ```
 
 ### 6. 文献认知提取流水线 (`research`)
-从学术论文或研报提取 Alpha 假说并自动对齐平台可用字段：
+从学术论文或研报提取 Alpha 假说并自动对齐平台可用字段；此命令只生成本地报告。平台回测必须在 `research-cycle` 配置中启用 `literature_llm` 策略，使 LLM 输出经过统一 AST 校验、去重、配额与持久化管线：
 ```bash
 python alpha_machine.py research \
     --paper docs/academic_paper.pdf \
     --region GBR --universe TOP700 \
-    --execute --output data/paper_research_report.md
+    --output data/paper_research_report.md
 ```
 
 ### 7. 分层地毯式挖掘 (`mine`)

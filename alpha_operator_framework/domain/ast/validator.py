@@ -46,6 +46,8 @@ KNOWN_OPERATORS = frozenset(
     }
 )
 
+_THREE_ARGUMENT_WINDOW_OPERATORS = frozenset({"ts_corr", "ts_covariance", "ts_regression"})
+
 
 @dataclass
 class ValidationResult:
@@ -106,8 +108,9 @@ class ASTValidator(ASTVisitor):
 
         # 1. 时序算子窗口检查
         if name in ts_ops or name.startswith("ts_"):
-            if len(node.args) >= 2:
-                window_node = node.args[1]
+            window_index = 2 if name in _THREE_ARGUMENT_WINDOW_OPERATORS else 1
+            if len(node.args) > window_index:
+                window_node = node.args[window_index]
                 if isinstance(window_node, LiteralNode):
                     if not (isinstance(window_node.value, int) and window_node.value > 0):
                         self.errors.append(f"Time-series operator '{name}' window must be positive integer, got: {window_node.value}")

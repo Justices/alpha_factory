@@ -5,8 +5,6 @@ from __future__ import annotations
 from argparse import Namespace
 from pathlib import Path
 
-from alpha_operator_framework.infrastructure.maintenance import storage_path
-
 DEFAULT_CONFIG_PATH = Path(__file__).resolve().parents[2] / "configs" / "alpha-factory.yaml"
 
 
@@ -23,7 +21,7 @@ def command_research(args: Namespace) -> None:
         neutralization=getattr(args, "neutralization", "SUBINDUSTRY"), delay=getattr(args, "delay", 1),
         decay=int(getattr(args, "decay", 8)), datasets=_datasets(args), use_llm=getattr(args, "use_llm", False),
         provider=getattr(args, "provider", None), model=getattr(args, "model", None),
-        execute_on_platform=getattr(args, "execute", False), database_path=storage_path(Path(getattr(args, "config", DEFAULT_CONFIG_PATH))),
+        execute_on_platform=False, config_path=Path(getattr(args, "config", DEFAULT_CONFIG_PATH)),
         save_to_db=True, output_report_path=getattr(args, "output", None),
     )
     print(result.summary_markdown())

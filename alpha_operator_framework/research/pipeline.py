@@ -5,9 +5,8 @@
   2. 文献假说抽取 (OpenAI/DeepSeek/Qwen 或 离线启发式规则)
   3. 真实动态字段载入与语义对齐 (支持多区域与任意数据集如 analyst7, risk68, acquisition_model)
   4. AST 语法树规范化编译
-  5. 双模回测引擎支持:
-     - 真实平台回测 (execute_on_platform=True): 自动提交至 WorldQuant BRAIN 平台获取真实 Sharpe/Fitness/18项Checks
-     - 本地沙盒回测 (run_sandbox_backtest=True): 本地向量化极速预筛
+  5. 本地沙盒回测 (run_sandbox_backtest=True): 本地向量化极速预筛
+     平台回测统一由 research-cycle 的显式 literature_llm 策略执行。
   6. 统计防过拟合防御网验证 (DSR, PSR, Haircut Sharpe)
   7. 因子衰减半衰期探测 (IC Decay Profiler & 推荐 decay)
   8. AlphaJudge 终审质量审查与价值因子优先级排序 (JudgeVerdict, Priority Score)
@@ -179,6 +178,7 @@ def ingest_literature_to_alphas(
     run_sandbox_prefilter: bool = False,
     min_ic: float = 0.005,
     min_sharpe: float = 0.10,
+    allow_llm_fallback: bool = True,
 ) -> List[Task]:
     """一键将文献/研报内容转化为可执行的 Alpha Task 列表."""
     logger.info("开始解析文献/研报内容... 类型=%s, 标题提示=%s", doc_type, title_hint)
@@ -196,6 +196,7 @@ def ingest_literature_to_alphas(
             provider=provider,
             model=model,
             client=client,
+            allow_fallback=allow_llm_fallback,
         )
     else:
         logger.info("使用启发式规则提取文献假说...")
@@ -255,13 +256,17 @@ def run_literature_research_pipeline(
       2. 动态加载真实市场字段池 (根据 Region/Universe/Datasets 动态加载，绝不硬编码)
       3. 金融假说抽取 (原生 LLM 客户端 或 启发式规则)
       4. 区域字段对齐与规范 AST 语法树编译
-      5. 回测引擎 (真实 BRAIN 平台在线回测 或 本地沙盒高速仿真)
+      5. 本地沙盒高速仿真；平台回测交给统一 research-cycle
       6. 统计防过拟合防御 (DSR, PSR, Haircut Sharpe)
       7. 因子半衰期与最优 Decay 推荐
       8. AlphaJudge 终审审查与优先级综合排序
       9. 自动数据库持久化 (alpha_expressions, alpha_details, alpha_checks)
       10. 导出研报与总结
     """
+    if execute_on_platform:
+        raise ValueError(
+            "platform literature research must use research-cycle with an explicit literature_llm construction strategy"
+        )
     logger.info("启动端到端文献量化研发流水线...")
     start_time = time.time()
 
@@ -577,7 +582,6 @@ def main():
     parser.add_argument("--use-llm", action="store_true", help="是否启用大模型进行深度语义提炼")
     parser.add_argument("--provider", default=None, help="指定大模型提供商 (deepseek / openai / qwen / ollama)")
     parser.add_argument("--model", default=None, help="指定具体模型名称")
-    parser.add_argument("--execute", "-e", action="store_true", help="直接向 WorldQuant BRAIN 平台提交真实在线回测")
     parser.add_argument("--config", default=str(DEFAULT_RUNTIME_CONFIG_PATH), help="运行时 YAML 配置文件")
     parser.add_argument("--report", default=None, help="输出 Markdown 研报路径")
 
@@ -587,7 +591,7 @@ def main():
     print(f"🚀 启动全自动量化研发流水线...")
     print(f"   文献: {args.paper}")
     print(f"   市场: {args.region} | 中性化: {args.neutralization} | 延迟: {args.delay}")
-    print(f"   回测模式: {'🌐 WorldQuant BRAIN 真实平台在线回测' if args.execute else '💻 本地向量化沙盒高速仿真'}")
+    print("   回测模式: 💻 本地向量化沙盒高速仿真")
     print(f"   数据落库配置: {args.config}")
 
     res = run_literature_research_pipeline(
@@ -601,7 +605,7 @@ def main():
         use_llm=args.use_llm,
         provider=args.provider,
         model=args.model,
-        execute_on_platform=args.execute,
+        execute_on_platform=False,
         config_path=args.config,
         save_to_db=True,
         output_report_path=args.report,

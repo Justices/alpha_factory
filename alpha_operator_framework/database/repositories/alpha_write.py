@@ -78,6 +78,175 @@ class AlphaWriteMixin(BaseRepository):
         self._get_connection().commit()
         return cursor.rowcount == 1
 
+    def save_construction_task(
+        self,
+        task_id: str,
+        settings: Mapping[str, Any],
+        plan: Mapping[str, Any],
+        seed: int,
+        status: str,
+        error_message: str = "",
+    ) -> None:
+        """Persist one explicit construction task before candidate generation."""
+        now = self._timestamp()
+        self._get_connection().execute(
+            """INSERT INTO construction_tasks
+               (task_id, scope_hash, plan_json, seed, status, error_message, created_at, updated_at)
+               VALUES (?, ?, ?, ?, ?, ?, ?, ?)
+               ON CONFLICT(task_id) DO UPDATE SET
+                   plan_json=excluded.plan_json, status=excluded.status,
+                   error_message=excluded.error_message, updated_at=excluded.updated_at""",
+            (
+                task_id,
+                self.settings_scope_hash(settings),
+                self._json(dict(plan)),
+                int(seed),
+                status,
+                error_message,
+                now,
+                now,
+            ),
+        )
+        self._get_connection().commit()
+
+    def save_strategy_outcome(
+        self,
+        task_id: str,
+        strategy_id: str,
+        kind: str,
+        strategy_priority: int,
+        status: str,
+        generated_count: int = 0,
+        error_message: str = "",
+    ) -> None:
+        now = self._timestamp()
+        self._get_connection().execute(
+            """INSERT INTO construction_strategy_runs
+               (task_id, strategy_id, kind, strategy_priority, status, generated_count,
+                error_message, created_at, updated_at)
+               VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
+               ON CONFLICT(task_id, strategy_id) DO UPDATE SET
+                   kind=excluded.kind, strategy_priority=excluded.strategy_priority,
+                   status=CASE
+                       WHEN construction_strategy_runs.status='FAILED' OR excluded.status='FAILED'
+                       THEN 'FAILED' ELSE excluded.status END,
+                   generated_count=construction_strategy_runs.generated_count + excluded.generated_count,
+                   error_message=CASE WHEN excluded.error_message!=''
+                       THEN excluded.error_message ELSE construction_strategy_runs.error_message END,
+                   updated_at=excluded.updated_at""",
+            (
+                task_id,
+                strategy_id,
+                kind,
+                int(strategy_priority),
+                status,
+                int(generated_count),
+                error_message,
+                now,
+                now,
+            ),
+        )
+        self._get_connection().commit()
+
+    def record_candidate_provenance(
+        self,
+        settings: Mapping[str, Any],
+        candidate_sha: str,
+        provenance: Any,
+    ) -> bool:
+        """Persist one source claim for a canonical candidate."""
+        now = self._timestamp()
+        cursor = self._get_connection().execute(
+            """INSERT INTO candidate_provenance
+               (provenance_id, scope_hash, candidate_sha, strategy_id, strategy_kind,
+                strategy_priority, leaf_family, template_id, hypothesis_id,
+                parent_shas_json, order_depth, field_count, seed, created_at, updated_at)
+               VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+               ON CONFLICT(provenance_id) DO NOTHING""",
+            (
+                provenance.provenance_id,
+                self.settings_scope_hash(settings),
+                candidate_sha,
+                provenance.strategy_id,
+                provenance.strategy_kind,
+                int(provenance.strategy_priority),
+                provenance.leaf_family,
+                provenance.template_id,
+                provenance.hypothesis_id,
+                self._json(list(provenance.parent_ids)),
+                int(provenance.order_depth),
+                int(provenance.field_count),
+                int(provenance.seed),
+                now,
+                now,
+            ),
+        )
+        self._get_connection().commit()
+        return cursor.rowcount == 1
+
+    def record_construction_lineage(
+        self,
+        settings: Mapping[str, Any],
+        parent_alpha_sha: str,
+        child_alpha_sha: str,
+        transform_kind: str,
+        strategy_id: str,
+    ) -> bool:
+        """Persist a generalized, settings-scoped parent-child edge."""
+        if not parent_alpha_sha or not child_alpha_sha or not transform_kind or not strategy_id:
+            raise ValueError("construction lineage requires parent, child, transform kind, and strategy id")
+        now = self._timestamp()
+        cursor = self._get_connection().execute(
+            """INSERT INTO construction_lineage
+               (scope_hash, parent_alpha_sha, child_alpha_sha, transform_kind,
+                strategy_id, created_at, updated_at)
+               VALUES (?, ?, ?, ?, ?, ?, ?)
+               ON CONFLICT(scope_hash, parent_alpha_sha, child_alpha_sha, transform_kind, strategy_id)
+               DO NOTHING""",
+            (
+                self.settings_scope_hash(settings),
+                parent_alpha_sha,
+                child_alpha_sha,
+                transform_kind,
+                strategy_id,
+                now,
+                now,
+            ),
+        )
+        self._get_connection().commit()
+        return cursor.rowcount == 1
+
+    def record_parent_strategy_run(
+        self,
+        settings: Mapping[str, Any],
+        parent_alpha_sha: str,
+        strategy_id: str,
+        status: str,
+        generated_count: int = 0,
+        error_message: str = "",
+    ) -> None:
+        now = self._timestamp()
+        self._get_connection().execute(
+            """INSERT INTO construction_parent_runs
+               (scope_hash, parent_alpha_sha, strategy_id, status, generated_count,
+                error_message, created_at, updated_at)
+               VALUES (?, ?, ?, ?, ?, ?, ?, ?)
+               ON CONFLICT(scope_hash, parent_alpha_sha, strategy_id) DO UPDATE SET
+                   status=excluded.status, generated_count=excluded.generated_count,
+                   error_message=excluded.error_message, updated_at=excluded.updated_at""",
+            (
+                self.settings_scope_hash(settings),
+                parent_alpha_sha,
+                strategy_id,
+                status,
+                int(generated_count),
+                error_message,
+                now,
+                now,
+            ),
+        )
+        self._get_connection().commit()
+
     def prune_unbacktested_matching(
         self,
         settings: Mapping[str, Any],

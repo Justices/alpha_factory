@@ -41,17 +41,21 @@ def _evidence(args: argparse.Namespace) -> dict[str, object] | None:
 def command_research_cycle(args: argparse.Namespace) -> None:
     from alpha_operator_framework.application.research_cycle import ResearchCycleRequest
     from alpha_operator_framework.application.research_loop import ResearchLoopCoordinator
-    from alpha_operator_framework.infrastructure.runtime_factory import build_research_runtime, resolve_research_options
+    from alpha_operator_framework.infrastructure.runtime_factory import (
+        build_research_runtime,
+        resolve_construction_plan,
+        resolve_research_options,
+    )
     from alpha_operator_framework.infrastructure.telemetry import JsonLinesTelemetrySink
-    from alpha_operator_framework.research.construction import AstCandidateBuilder
     from alpha_operator_framework.research.field_loader import load_real_market_fields, resolve_cached_universe
     from alpha_operator_framework.research.policy import load_policy, validate_cli_policy_overrides
     from alpha_operator_framework.research.round import ResearchPolicy
 
     config_path = _config_path(args)
+    construction_plan = resolve_construction_plan(config_path)
     options = resolve_research_options(config_path, {
         name: getattr(args, name, None) for name in (
-            "region", "universe", "delay", "decay", "neutralization", "truncation", "sample_per_family", "seed",
+            "region", "universe", "delay", "decay", "neutralization", "truncation", "seed",
         )
     })
     policy_snapshot = load_policy(Path(args.policy_file)) if args.policy_file else None
@@ -92,6 +96,8 @@ def command_research_cycle(args: argparse.Namespace) -> None:
         continuing = bool(getattr(args, "continue_research", False))
         if continuing and not args.execute:
             raise ValueError("--continue-research requires --execute")
+        if continuing and not getattr(args, "round_id", None):
+            raise ValueError("--continue-research requires --round-id to preserve task identity")
         research_settings = {
             "region": policy.region if policy else field_scope["region"],
             "universe": policy.universe if policy else field_scope["universe"],
@@ -100,30 +106,14 @@ def command_research_cycle(args: argparse.Namespace) -> None:
             "neutralization": policy.neutralization if policy else options.get("neutralization", "SUBINDUSTRY"),
             "truncation": policy.truncation if policy else options.get("truncation", 0.08),
         }
-        if continuing:
-            runtime.alpha_database.requeue_retryable_failed_research_expressions(research_settings)
-        candidates = runtime.alpha_database.load_unbacktested_research_candidates(research_settings) if continuing else []
-        if candidates:
-            pass
-        elif policy_snapshot and policy_snapshot.templates:
-            candidates = AstCandidateBuilder().build_preprocessed(
-                fields, policy_snapshot.construction_templates(), seed=options.get("seed", 42),
-            )
-        else:
-            candidates = AstCandidateBuilder().build_template_library(
-                runtime.alpha_database.list_templates(active_only=True), fields,
-                seed=options.get("seed", 42),
-            )
         strategy = {"stratified": "weighted_stratified", "d_optimal": "diversity"}.get(
             args.algorithm or options.get("selection_strategy", "weighted_stratified"),
             args.algorithm or options.get("selection_strategy", "weighted_stratified"),
         )
-        quota = int(options.get("sample_per_family", 20))
-        family_quotas = {candidate.family: quota for candidate in candidates}
         if policy is None:
             policy = ResearchPolicy(
-                options["region"], options["universe"], sum(family_quotas.values()),
-                family_quotas=family_quotas, policy_version="cli-v1",
+                options["region"], options["universe"], 0,
+                family_quotas={}, policy_version="cli-v2",
                 selection_strategy=strategy, delay=options.get("delay", 1), decay=options.get("decay", 8),
                 neutralization=options.get("neutralization", "SUBINDUSTRY"), truncation=options.get("truncation", 0.08),
             )
@@ -133,12 +123,53 @@ def command_research_cycle(args: argparse.Namespace) -> None:
                 "algorithm": strategy if getattr(args, "algorithm", None) is not None else None, "decay": getattr(args, "decay", None),
                 "neutralization": getattr(args, "neutralization", None), "truncation": getattr(args, "truncation", None),
             })
-            policy = replace(policy, max_backtests=sum(family_quotas.values()), family_quotas=family_quotas)
         base_round_id = _round_id(args, policy, options)
+        coordinator = ResearchLoopCoordinator(runtime)
         if continuing:
-            summary = ResearchLoopCoordinator(runtime).run(
-                policy, fields, candidates, seed=options.get("seed", 42), execute=True,
+            if not runtime.alpha_database.construction_task_exists(base_round_id):
+                raise ValueError(f"construction task does not exist: {base_round_id}")
+            runtime.alpha_database.requeue_retryable_failed_research_expressions(research_settings)
+            candidates = runtime.alpha_database.load_unbacktested_research_candidates(research_settings)
+            strategy_statuses = runtime.alpha_database.load_construction_strategy_statuses(base_round_id)
+        else:
+            outcome = coordinator.prepare(
+                base_round_id,
+                policy,
+                fields,
+                construction_plan,
+                seed=options.get("seed", 42),
+            )
+            candidates = outcome.candidates
+            strategy_statuses = outcome.strategy_statuses
+
+        configs = {config.strategy_id: config for config in construction_plan.strategies}
+        family_quotas: dict[str, int] = {}
+        for candidate in candidates:
+            config = configs.get(candidate.origin_strategy)
+            if config is None:
+                config = next(
+                    (item for item in construction_plan.strategies if candidate.family.startswith(f"{item.kind}/")),
+                    None,
+                )
+            if config is not None:
+                family_quotas[candidate.family] = config.quota_per_leaf_family
+        policy = replace(
+            policy,
+            max_backtests=sum(family_quotas.values()),
+            family_quotas=family_quotas,
+            selection_strategy=strategy,
+        )
+
+        if args.execute:
+            summary = coordinator.run(
+                policy,
+                fields,
+                candidates,
+                construction_plan=construction_plan,
+                seed=options.get("seed", 42),
+                execute=True,
                 base_round_id=base_round_id,
+                strategy_statuses=strategy_statuses,
             )
             summary_round_id = summary.round_ids[-1] if summary.round_ids else base_round_id
         else:
@@ -146,8 +177,8 @@ def command_research_cycle(args: argparse.Namespace) -> None:
                 base_round_id, options.get("seed", 42), policy,
                 runtime.knowledge_base.snapshot(), candidates, args.execute,
             ))
-            if args.execute:
-                summary = runtime.process_round(summary.round_id)
+            if any(status.status == "FAILED" for status in strategy_statuses):
+                summary = replace(summary, status="PARTIAL_FAILED")
             summary_round_id = summary.round_id
         if args.telemetry_file:
             JsonLinesTelemetrySink(Path(args.telemetry_file)).publish(runtime.telemetry)
@@ -217,7 +248,6 @@ def build_parser() -> argparse.ArgumentParser:
     cycle.add_argument("--datasets")
     cycle.add_argument("--category")
     cycle.add_argument("--algorithm", choices=["stratified", "d_optimal", "thompson", "ucb", "diversity"])
-    cycle.add_argument("--sample-per-family", type=int)
     cycle.add_argument("--seed", type=int, default=42)
     cycle.add_argument("--round-id")
     cycle.add_argument("--config", default=str(DEFAULT_CONFIG_PATH))

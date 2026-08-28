@@ -75,16 +75,33 @@ class AlphaQueryMixin(BaseRepository):
         from alpha_operator_framework.domain.ast import validate_expression
 
         settings_json = json.dumps(settings, ensure_ascii=False, sort_keys=True, separators=(",", ":"))
+        try:
+            scope_hash = self.settings_scope_hash(settings)
+        except ValueError:
+            # Legacy research rows may predate the complete result-pruning scope.
+            # They have no construction provenance, so an impossible scope keeps
+            # the original candidate-loading behavior without weakening new writes.
+            scope_hash = ""
         rows = self._get_connection().execute(
-            """SELECT ae.alpha_sha, ae.expression, ae.fields, MIN(rc.family) AS family,
-                      MIN(rc.template_id) AS template_id
+            """SELECT ae.alpha_sha, ae.expression, ae.fields,
+                      COALESCE(cp.leaf_family, MIN(rc.family)) AS family,
+                      COALESCE(cp.template_id, MIN(rc.template_id)) AS template_id,
+                      COALESCE(cp.strategy_id, '') AS strategy_id,
+                      COALESCE(cp.order_depth, 0) AS order_depth,
+                      COALESCE(cp.field_count, 0) AS field_count
                  FROM alpha_expressions ae
                  JOIN round_candidates rc ON rc.alpha_sha = ae.alpha_sha
+                 LEFT JOIN candidate_provenance cp ON cp.id = (
+                     SELECT cp2.id FROM candidate_provenance cp2
+                      WHERE cp2.scope_hash = ? AND cp2.candidate_sha = ae.alpha_sha
+                      ORDER BY cp2.strategy_priority, cp2.leaf_family, cp2.id LIMIT 1
+                 )
                 WHERE ae.settings = ? AND ae.status IN ('generated', 'pending')
                   AND ae.pruning_status = 'active' AND rc.pruning_status = 'active'
-                GROUP BY ae.alpha_sha, ae.expression, ae.fields
+                GROUP BY ae.alpha_sha, ae.expression, ae.fields, cp.leaf_family,
+                         cp.template_id, cp.strategy_id, cp.order_depth, cp.field_count
                 ORDER BY ae.id""",
-            (settings_json,),
+            (scope_hash, settings_json),
         ).fetchall()
         candidates = []
         for row in rows:
@@ -92,8 +109,116 @@ class AlphaQueryMixin(BaseRepository):
             candidates.append(Candidate(
                 row["alpha_sha"], row["expression"], row["family"],
                 tuple(json.loads(row["fields"] or "[]")), tuple(sorted(validation.operators_used)), row["template_id"],
+                origin_strategy=row["strategy_id"], leaf_family=row["family"],
+                order_depth=int(row["order_depth"]), field_count=int(row["field_count"]),
             ))
         return candidates
+
+    def load_candidate_provenance(
+        self,
+        settings: Mapping[str, object],
+        candidate_sha: str,
+    ) -> list[object]:
+        """Load every preserved source claim for one canonical candidate."""
+        from alpha_operator_framework.database.models import CandidateProvenanceRecord
+
+        rows = self._get_connection().execute(
+            """SELECT * FROM candidate_provenance
+               WHERE scope_hash=? AND candidate_sha=?
+               ORDER BY strategy_priority, leaf_family, id""",
+            (self.settings_scope_hash(settings), candidate_sha),
+        ).fetchall()
+        return [
+            CandidateProvenanceRecord(
+                provenance_id=row["provenance_id"],
+                scope_hash=row["scope_hash"],
+                candidate_sha=row["candidate_sha"],
+                strategy_id=row["strategy_id"],
+                strategy_kind=row["strategy_kind"],
+                strategy_priority=int(row["strategy_priority"]),
+                leaf_family=row["leaf_family"],
+                template_id=row["template_id"],
+                hypothesis_id=row["hypothesis_id"],
+                parent_shas=tuple(json.loads(row["parent_shas_json"] or "[]")),
+                order_depth=int(row["order_depth"]),
+                field_count=int(row["field_count"]),
+                seed=int(row["seed"]),
+                created_at=row["created_at"],
+                updated_at=row["updated_at"],
+            )
+            for row in rows
+        ]
+
+    def has_construction_lineage(
+        self,
+        settings: Mapping[str, object],
+        parent_alpha_sha: str,
+        strategy_id: str,
+    ) -> bool:
+        row = self._get_connection().execute(
+            """SELECT 1 FROM construction_lineage
+               WHERE scope_hash=? AND parent_alpha_sha=? AND strategy_id=? LIMIT 1""",
+            (self.settings_scope_hash(settings), parent_alpha_sha, strategy_id),
+        ).fetchone()
+        return row is not None
+
+    def has_parent_strategy_run(
+        self,
+        settings: Mapping[str, object],
+        parent_alpha_sha: str,
+        strategy_id: str,
+    ) -> bool:
+        row = self._get_connection().execute(
+            """SELECT 1 FROM construction_parent_runs
+               WHERE scope_hash=? AND parent_alpha_sha=? AND strategy_id=?
+                 AND status IN ('GENERATED', 'EXHAUSTED') LIMIT 1""",
+            (self.settings_scope_hash(settings), parent_alpha_sha, strategy_id),
+        ).fetchone()
+        return row is not None
+
+    def selected_counts_by_family(self, task_id: str) -> dict[str, int]:
+        """Count unique selected candidates across deterministic task shards."""
+        rows = self._get_connection().execute(
+            """SELECT family, COUNT(DISTINCT alpha_sha) AS selected_count
+               FROM round_candidates
+               WHERE (round_id=? OR round_id LIKE ?) AND selection_status='selected'
+               GROUP BY family""",
+            (task_id, f"{task_id}-%"),
+        ).fetchall()
+        return {row["family"]: int(row["selected_count"]) for row in rows}
+
+    def next_task_round_sequence(self, task_id: str) -> int:
+        row = self._get_connection().execute(
+            """SELECT COUNT(DISTINCT round_id) AS round_count
+               FROM round_candidates
+               WHERE (round_id=? OR round_id LIKE ?) AND selection_status='selected'""",
+            (task_id, f"{task_id}-%"),
+        ).fetchone()
+        return int(row["round_count"] or 0) + 1
+
+    def load_construction_strategy_statuses(self, task_id: str) -> list[object]:
+        from alpha_operator_framework.research.strategies import StrategyStatus
+
+        rows = self._get_connection().execute(
+            """SELECT strategy_id, kind, status, generated_count, error_message
+               FROM construction_strategy_runs WHERE task_id=?
+               ORDER BY strategy_priority, id""",
+            (task_id,),
+        ).fetchall()
+        return [
+            StrategyStatus(
+                row["strategy_id"], row["kind"], row["status"],
+                int(row["generated_count"]), row["error_message"],
+            )
+            for row in rows
+        ]
+
+    def construction_task_exists(self, task_id: str) -> bool:
+        row = self._get_connection().execute(
+            "SELECT 1 FROM construction_tasks WHERE task_id=? LIMIT 1",
+            (task_id,),
+        ).fetchone()
+        return row is not None
 
     def get_result_prune_rules(self, settings: Mapping[str, object]) -> list[dict[str, str]]:
         """Return result-derived pruning rules for one complete settings scope."""

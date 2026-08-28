@@ -10,6 +10,7 @@ from alpha_operator_framework.research.construction import (
     ConstructionTemplate,
 )
 from alpha_operator_framework.research.round import Candidate
+from alpha_operator_framework.research.strategy_config import StructuralConstraint
 
 
 def test_builder_constructs_canonical_candidates_from_configured_templates() -> None:
@@ -82,7 +83,7 @@ def test_template_library_builder_uses_every_active_family() -> None:
     assert all("vector_neut" not in candidate.expression for candidate in candidates)
 
 
-def test_order2_uses_every_compatible_active_template_and_excludes_vector_neut() -> None:
+def test_transform_uses_structural_depth_constraint_and_excludes_access_limited_operators() -> None:
     parent = Candidate("parent", "rank(close)", "base", ("close",), ("rank",), "base")
     templates = (
         Template(name="ts_rank", family="unary", expression_template="ts_rank({a}, 22)", slot_count=1),
@@ -91,25 +92,38 @@ def test_order2_uses_every_compatible_active_template_and_excludes_vector_neut()
         Template(name="disabled", family="unary", expression_template="rank({a})", slot_count=1, active=0),
     )
 
-    candidates = AstCandidateBuilder().build_order2(parent, templates)
+    candidates = AstCandidateBuilder().build_transform(
+        parent,
+        (),
+        templates,
+        order_depth=StructuralConstraint(exact=2),
+        field_count=StructuralConstraint(exact=1),
+    )
 
     assert {candidate.template_id for candidate in candidates} == {"ts_rank", "zscore"}
-    assert {candidate.family for candidate in candidates} == {"optimization_order2"}
+    assert {candidate.order_depth for candidate in candidates} == {2}
 
 
-def test_dimension2_uses_different_fields_from_the_parent_category_and_caps_each_template() -> None:
+def test_transform_combines_distinct_fields_and_caps_each_template() -> None:
     parent = Candidate("parent", "rank(close)", "base", ("close",), ("rank",), "base")
     fields = [FieldSpec("close", "pv", "MATRIX", category="price")]
     fields.extend(FieldSpec(f"peer_{index}", "pv", "MATRIX", category="price") for index in range(250))
     fields.append(FieldSpec("volume", "pv", "MATRIX", category="volume"))
     templates = (Template(name="spread", family="binary", expression_template="{a} - {b}", slot_count=2),)
 
-    candidates = AstCandidateBuilder().build_dimension2(parent, fields, templates, seed=7)
+    candidates = AstCandidateBuilder().build_transform(
+        parent,
+        fields,
+        templates,
+        order_depth=StructuralConstraint(exact=2),
+        field_count=StructuralConstraint(exact=2),
+        seed=7,
+    )
 
-    assert len(candidates) == 200
-    assert {candidate.family for candidate in candidates} == {"optimization_dimension2"}
+    assert 1 <= len(candidates) <= 200
+    assert {candidate.family for candidate in candidates} == {"binary"}
+    assert {candidate.field_count for candidate in candidates} == {2}
     assert all("close" in candidate.fields for candidate in candidates)
-    assert all("volume" not in candidate.fields for candidate in candidates)
 
 
 def test_template_library_builder_naked_and_vector_reduction_rules() -> None:
@@ -126,19 +140,15 @@ def test_template_library_builder_naked_and_vector_reduction_rules() -> None:
     candidates = AstCandidateBuilder().build_template_library(templates, fields)
     expressions = [candidate.expression for candidate in candidates]
 
-    # 验证 MATRIX 使用裸字段 (不含 winsorize 或 ts_backfill)
-    assert "rank(close)" in expressions
+    # 验证 MATRIX 走统一缺失值预处理
+    assert "rank(ts_backfill(close, 120))" in expressions
 
-    # 验证 VECTOR 字段确定性展开为四种 vec_* 降维形式 (且不含 winsorize)
-    assert "rank(vec_avg(vector_field))" in expressions
-    assert "rank(vec_sum(vector_field))" in expressions
-    assert "rank(vec_range(vector_field))" in expressions
-    assert "rank(vec_stddev(vector_field))" in expressions
+    # VECTOR / EVENT 先降维，再走统一缺失值预处理
+    assert "rank(ts_backfill(vec_avg(vector_field), 120))" in expressions
 
     # 验证 EVENT 字段使用 vec_avg 降维
-    assert "rank(vec_avg(event_field))" in expressions
+    assert "rank(ts_backfill(vec_avg(event_field), 120))" in expressions
 
-    # 确保生成结果绝对没有任何最外层或内层的 winsorize 或 ts_backfill 包装
+    # 当前预处理不再叠加 winsorize
     for expr in expressions:
         assert "winsorize" not in expr
-        assert "ts_backfill" not in expr

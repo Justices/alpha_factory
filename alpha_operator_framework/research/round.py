@@ -59,6 +59,11 @@ class Candidate:
     template_id: str
     novelty_score: float = 0.0
     lineage_parent_id: str | None = None
+    origin_strategy: str = ""
+    leaf_family: str = ""
+    order_depth: int = 0
+    field_count: int = 0
+    provenance_ids: tuple[str, ...] = ()
 
 
 @dataclass(frozen=True)

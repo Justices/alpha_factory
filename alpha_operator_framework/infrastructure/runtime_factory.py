@@ -57,7 +57,7 @@ def resolve_research_options(config_path: Path, overrides: Mapping[str, Any]) ->
     for name in ("region",):
         if not values.get(name):
             raise ValueError(f"research.{name} is required in YAML or CLI")
-    integer_fields = ("delay", "decay", "sample_per_family", "seed")
+    integer_fields = ("delay", "decay", "seed")
     float_fields = ("truncation",)
     for name in integer_fields:
         if name in values:
@@ -66,6 +66,20 @@ def resolve_research_options(config_path: Path, overrides: Mapping[str, Any]) ->
         if name in values:
             values[name] = float(values[name])
     return values
+
+
+def resolve_construction_plan(config_path: Path):
+    """Load the required explicit construction strategy plan before field access."""
+    from alpha_operator_framework.research.strategy_config import ConstructionPlan
+
+    config = load_runtime_config(config_path)
+    research = config.get("research")
+    if not isinstance(research, Mapping):
+        raise ValueError("research configuration must be a mapping")
+    construction = research.get("construction")
+    if not isinstance(construction, Mapping):
+        raise ValueError("research.construction explicit strategy configuration is required")
+    return ConstructionPlan.from_mapping(construction, base_path=config_path.parent)
 
 
 def _parse_simple_yaml(content: str) -> dict[str, Any]:

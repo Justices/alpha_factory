@@ -22,7 +22,7 @@ def run_autopilot(args: Any, config_path: Path) -> dict[str, Any]:
             - "approved": 审核通过并标记为 submission_ready 的因子字典列表
     """
     from alpha_operator_framework.domain.evidence import EvidenceLevel, SubmissionApprovalEngine, persistent_audit_evidence_record
-    from alpha_operator_framework.infrastructure.maintenance import clean_storage, initialize_storage, open_alpha_database, storage_path, verify_storage
+    from alpha_operator_framework.infrastructure.maintenance import clean_storage, initialize_storage, open_alpha_database, verify_storage
 
     logger.info("开始执行自动驾驶流程 (Autopilot)... 配置文件路径: %s", config_path)
 
@@ -33,9 +33,13 @@ def run_autopilot(args: Any, config_path: Path) -> dict[str, Any]:
         logger.info("存储校验通过")
 
     if getattr(args, "paper", None):
+        if getattr(args, "execute", False):
+            raise ValueError(
+                "paper-driven platform research must use research-cycle with an explicit literature_llm strategy"
+            )
         logger.info("检测到文献参数，启动文献提炼流水线: %s", args.paper)
         from alpha_operator_framework.research import run_literature_research_pipeline
-        result = run_literature_research_pipeline(literature_source=args.paper, region=args.region, universe=args.universe, neutralization=args.neutralization, delay=args.delay, decay=args.decay, datasets=[item.strip() for item in args.datasets.split(",") if item.strip()] if getattr(args, "datasets", None) else None, execute_on_platform=args.execute, database_path=storage_path(config_path), save_to_db=True, output_report_path=None)
+        result = run_literature_research_pipeline(literature_source=args.paper, region=args.region, universe=args.universe, neutralization=args.neutralization, delay=args.delay, decay=args.decay, datasets=[item.strip() for item in args.datasets.split(",") if item.strip()] if getattr(args, "datasets", None) else None, execute_on_platform=False, config_path=config_path, save_to_db=True, output_report_path=None)
     else:
         logger.info("未检测到文献参数，启动地毯式盲挖挖掘流水线...")
         from alpha_operator_framework.carpet import run_stratified_carpet_mining

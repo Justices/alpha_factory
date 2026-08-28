@@ -78,7 +78,7 @@ python alpha_machine.py status
 | `research-cycle` | research | DDD 10 阶段标准化投研生命周期（4 大纯抽样算法） | `--execute` 才消耗 |
 | `auto-pilot` | research | 全自动无人值守流水线（预检→回测→审批→清理→研报） | `--execute` 才消耗 |
 | `mine` | research | 分层地毯式多模板族 Alpha 挖掘 | `--execute` 才消耗 |
-| `research` | research | 学术文献 PDF 假说提取 + 字段对齐 + 回测 | `--execute` 才消耗 |
+| `research` | research | 学术文献 PDF 假说提取 + 字段对齐，本地报告 | 不访问平台 |
 | `research-worker` | research | 断点恢复已提交批次 | `--execute` 才消耗 |
 | `research-rebuild` | research | 从事件流重放重建特定轮次状态 | ❌ 本地 |
 | `submission-dispatch` | submission | 派发已审批的 Outbox，幂等正式提交 | ✅ 消耗提交配额 |
@@ -112,7 +112,6 @@ python alpha_machine.py research-cycle \
     --truncation <截断比例>      # 默认 0.08
     --datasets <数据集>          # 逗号分隔，可选
     --algorithm <抽样算法>       # stratified / d_optimal / thompson / ucb / diversity
-    --sample-per-family <N>      # 每族抽样数，默认 4
     --seed <随机种子>            # 默认 42
     --round-id <轮次ID>          # 可选，用于追踪
     --config <配置文件路径>      # 默认 configs/alpha-factory.yaml
@@ -124,22 +123,66 @@ python alpha_machine.py research-cycle \
 
 **典型用法**：
 
+构建策略只能在 YAML 中显式声明；下面示例同时启用四类策略。`quota_per_leaf_family: 8` 表示每个 `策略/模板族/深度/字段数` 叶子族最多进入平台回测 8 条，不限制前置候选生成量。
+
+```yaml
+research:
+  construction:
+    strategies:
+      - id: database-base
+        kind: database_template
+        families: ["*"]
+        order_depth: {min: 0, max: 3}
+        field_count: {min: 1, max: 2}
+        quota_per_leaf_family: 8
+        source: raw_fields
+      - id: depth-3
+        kind: depth_construction
+        families: ["*"]
+        order_depth: {exact: 3}
+        field_count: {min: 1, max: 2}
+        quota_per_leaf_family: 8
+        source: raw_and_qualified_candidates
+      - id: fields-2
+        kind: field_composition
+        families: ["*"]
+        order_depth: {min: 1, max: 3}
+        field_count: {exact: 2}
+        quota_per_leaf_family: 8
+        source: raw_and_qualified_candidates
+      - id: paper-alpha
+        kind: literature_llm
+        families: [paper_hypothesis]
+        document: ../docs/academic_paper.pdf
+        llm_profile: deepseek
+        order_depth: {min: 1, max: 3}
+        field_count: {min: 1, max: 2}
+        quota_per_leaf_family: 8
+        source: raw_fields
+    parent_gate:
+      sharpe: {operator: gt, value: 1.25}
+      fitness: {operator: gt, value: 0.8}
+    platform_batch_size: 8
+```
+
+同一表达式被多个策略生成时只回测一次，但数据库会保留全部来源。多阶/多元策略仅在 `source` 显式包含 `qualified_candidates` 且父 Alpha 通过 `parent_gate` 时继续构建。
+
 ```bash
 # D-Optimal 算法 Dry-run 试运行
 python alpha_machine.py research-cycle \
     --region GBR --universe TOP700 \
-    --algorithm d_optimal --sample-per-family 4
+    --algorithm d_optimal
 
 # Thompson 采样贝叶斯自适应探索 + 真实回测 + 遥测输出
 python alpha_machine.py research-cycle \
     --region GBR --universe TOP700 \
-    --algorithm thompson --sample-per-family 4 \
+    --algorithm thompson \
     --execute --telemetry-file runs/telemetry.jsonl
 
 # D-Optimal + 授权自动提交审批达标因子
 python alpha_machine.py research-cycle \
     --region GBR --universe TOP700 \
-    --algorithm d_optimal --sample-per-family 4 \
+    --algorithm d_optimal \
     --execute --authorize-submission \
     --submission-evidence-file runs/evidence.jsonl
 ```
@@ -220,6 +263,8 @@ python alpha_machine.py mine \
 
 ### 2.5 research（文献认知提炼）
 
+该命令仅提取假说并生成本地报告，不直接提交平台。论文驱动的真实回测必须作为 `research-cycle` 的显式 `literature_llm` 构建策略执行。
+
 ```bash
 python alpha_machine.py research \
     --paper <论文PDF或MD路径>    # 必需
@@ -232,7 +277,6 @@ python alpha_machine.py research \
     --use-llm                    # 启用 LLM 假说提取
     --provider <LLM提供商>       # openai / deepseek / qwen
     --model <模型名称>           # deepseek-chat / gpt-4o ...
-    --execute                    # ⚠️ 授权真实回测
     --output <输出Markdown报告>
     --config <配置文件路径>
 ```
@@ -243,12 +287,12 @@ python alpha_machine.py research \
     --paper docs/academic_paper.pdf \
     --region GBR --universe TOP700
 
-# 启用 DeepSeek LLM + 正式执行 + 生成研报
+# 启用 DeepSeek LLM + 生成本地研报
 python alpha_machine.py research \
     --paper docs/academic_paper.pdf \
     --region GBR --universe TOP700 \
     --use-llm --provider deepseek --model deepseek-chat \
-    --execute --output data/paper_research_report.md
+    --output data/paper_research_report.md
 ```
 
 ---
@@ -384,13 +428,12 @@ python alpha_machine.py research \
     --paper docs/momentum_paper.pdf \
     --region USA --universe TOP2000
 
-# 2. 正式执行（LLM + 真实回测 + 输出研报）
-python alpha_machine.py research \
-    --paper docs/momentum_paper.pdf \
+# 2. 在 YAML 中配置 literature_llm 后，通过统一研究周期执行真实回测
+python alpha_machine.py research-cycle \
     --region USA --universe TOP2000 \
-    --use-llm --provider deepseek \
     --datasets "fundamental31" \
-    --execute --output runs/paper_report.md
+    --round-id paper-momentum-001 \
+    --execute
 ```
 
 ---
@@ -740,7 +783,7 @@ python alpha_machine.py init-db --reset  # 重新初始化测试数据库
 # 完全离线的 Dry-run 测试
 python alpha_machine.py research-cycle \
     --region GBR --universe TOP700 \
-    --algorithm d_optimal --sample-per-family 4
+    --algorithm d_optimal
 ```
 
 ---

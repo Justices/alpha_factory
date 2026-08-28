@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import hashlib
 from dataclasses import dataclass
+from itertools import islice, product
 from typing import Sequence
 
 from alpha_operator_framework.domain.ast import to_canonical_string, validate_expression
@@ -21,6 +22,8 @@ from alpha_operator_framework.generation.template_library import (
 )
 
 from .round import Candidate
+from .strategy_config import StructuralConstraint
+from .structure import measure_expression_structure
 
 
 @dataclass(frozen=True)
@@ -79,42 +82,72 @@ class AstCandidateBuilder:
         )
         return self._build_tasks(tasks, {field.id for field in fields})
 
-    def build_order2(
-        self,
-        parent: Candidate,
-        templates: Sequence[Template],
-        *,
-        limit_per_template: int = 200,
-    ) -> list[Candidate]:
-        """Apply every compatible active unary template to one signal expression."""
-        return self._build_optimization_candidates(
-            parent, (), templates, stage="order2", limit_per_template=limit_per_template,
-        )
-
-    def build_dimension2(
+    def build_transform(
         self,
         parent: Candidate,
         fields: Sequence[FieldSpec],
         templates: Sequence[Template],
         *,
+        order_depth: StructuralConstraint,
+        field_count: StructuralConstraint,
         limit_per_template: int = 200,
         seed: int | None = None,
     ) -> list[Candidate]:
-        """Pair one signal expression with a different raw field in the same category."""
-        parent_categories = {
-            field.category for field in fields if field.id in parent.fields and field.category
-        }
-        partners = [
-            (field, expression)
-            for field, expression in preprocess_fields_rotated(fields, seed=seed)
-            if field.id not in parent.fields and field.category in parent_categories
-        ]
-        return self._build_optimization_candidates(
-            parent, partners, templates, stage="dimension2", limit_per_template=limit_per_template,
-        )
+        """Render compatible templates around a parent under independent structural constraints."""
+        if limit_per_template <= 0:
+            return []
+        field_expressions = list(preprocess_fields_rotated(fields, seed=seed))
+        known_fields = set(parent.fields) | {field.id for field, _ in field_expressions}
+        candidates: list[Candidate] = []
+        seen: set[str] = set()
+        for template in templates:
+            slots = self._compatible_template_slots(template)
+            if not slots:
+                continue
+            remaining = len(slots) - 1
+            if remaining == 0:
+                bindings = [()]
+            elif not field_expressions:
+                continue
+            else:
+                bindings = islice(product(field_expressions, repeat=remaining), limit_per_template)
+            for partners in bindings:
+                mapper = {slots[0]: parent.expression}
+                for slot, (_, expression) in zip(slots[1:], partners):
+                    mapper[slot] = expression
+                expression = _render_any(template.expression_template, mapper)
+                validation = validate_expression(expression, known_fields=known_fields)
+                if (
+                    not validation.is_valid
+                    or any("Unknown or custom operator" in warning for warning in validation.warnings)
+                    or self._has_access_limited_operator(validation.operators_used)
+                ):
+                    continue
+                canonical = to_canonical_string(expression)
+                if canonical in seen:
+                    continue
+                structure = measure_expression_structure(canonical, known_fields)
+                if not order_depth.contains(structure.order_depth) or not field_count.contains(structure.field_count):
+                    continue
+                seen.add(canonical)
+                digest = hashlib.sha256(
+                    f"transform:{template.name}:{canonical}".encode("utf-8")
+                ).hexdigest()[:16]
+                candidates.append(Candidate(
+                    candidate_id=f"{template.name}:{digest}",
+                    expression=canonical,
+                    family=template.family,
+                    fields=structure.fields,
+                    operators=tuple(sorted(validation.operators_used)),
+                    template_id=template.name,
+                    lineage_parent_id=parent.candidate_id,
+                    order_depth=structure.order_depth,
+                    field_count=structure.field_count,
+                ))
+        return candidates
 
     @staticmethod
-    def _compatible_template_slots(template: Template, count: int) -> list[str] | None:
+    def _compatible_template_slots(template: Template) -> list[str] | None:
         if (
             template.active != 1
             or template.template_type != "placeholder"
@@ -124,59 +157,11 @@ class AstCandidateBuilder:
         slots = extract_slot_names(template.expression_template)
         contexts = slot_context_types(template.expression_template)
         placeholders = template.placeholders or {}
-        if len(slots) != count or template.group_slots or any(contexts.get(slot) == "vector" for slot in slots):
+        if not slots or template.group_slots or any(contexts.get(slot) == "vector" for slot in slots):
             return None
         if any(placeholders.get(slot, {}).get("role") not in {None, "scalar"} for slot in slots):
             return None
         return slots
-
-    @classmethod
-    def _build_optimization_candidates(
-        cls,
-        parent: Candidate,
-        partners: Sequence[tuple[FieldSpec, str]],
-        templates: Sequence[Template],
-        *,
-        stage: str,
-        limit_per_template: int,
-    ) -> list[Candidate]:
-        if limit_per_template <= 0:
-            return []
-        if stage not in {"order2", "dimension2"}:
-            raise ValueError(f"unsupported optimization stage: {stage}")
-        family = f"optimization_{stage}"
-        known_fields = set(parent.fields) | {field.id for field, _ in partners}
-        candidates: list[Candidate] = []
-        seen: set[str] = set()
-        required_slots = 1 if stage == "order2" else 2
-        for template in templates:
-            slots = cls._compatible_template_slots(template, required_slots)
-            if slots is None:
-                continue
-            values = [None] if stage == "order2" else list(partners[:limit_per_template])
-            for partner in values:
-                mapper = {slots[0]: parent.expression}
-                if partner is not None:
-                    mapper[slots[1]] = partner[1]
-                expression = _render_any(template.expression_template, mapper)
-                validation = validate_expression(expression, known_fields=known_fields)
-                if (
-                    not validation.is_valid
-                    or any("Unknown or custom operator" in warning for warning in validation.warnings)
-                    or cls._has_access_limited_operator(validation.operators_used)
-                ):
-                    continue
-                canonical = to_canonical_string(expression)
-                if canonical in seen:
-                    continue
-                seen.add(canonical)
-                digest = hashlib.sha256(f"{stage}:{template.name}:{canonical}".encode("utf-8")).hexdigest()[:16]
-                candidates.append(Candidate(
-                    candidate_id=f"{template.name}:{digest}", expression=canonical, family=family,
-                    fields=tuple(sorted(validation.fields_used)), operators=tuple(sorted(validation.operators_used)),
-                    template_id=template.name, lineage_parent_id=parent.candidate_id,
-                ))
-        return candidates
 
     @classmethod
     def _build_tasks(cls, tasks: Sequence[Task], known_fields: set[str]) -> list[Candidate]:

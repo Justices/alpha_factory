@@ -28,6 +28,36 @@ class AlphaExpression:
     updated_at: str = ""
 
 
+@dataclass(frozen=True)
+class CandidateProvenanceRecord:
+    provenance_id: str
+    scope_hash: str
+    candidate_sha: str
+    strategy_id: str
+    strategy_kind: str
+    strategy_priority: int
+    leaf_family: str
+    template_id: str
+    hypothesis_id: str
+    parent_shas: tuple[str, ...]
+    order_depth: int
+    field_count: int
+    seed: int
+    created_at: str = ""
+    updated_at: str = ""
+
+
+@dataclass(frozen=True)
+class ConstructionLineageRecord:
+    scope_hash: str
+    parent_alpha_sha: str
+    child_alpha_sha: str
+    transform_kind: str
+    strategy_id: str
+    created_at: str = ""
+    updated_at: str = ""
+
+
 @dataclass
 class BacktestDatasetRecord:
     """回测数据集记录 — 记录「数据集 + 策略」已回测过, 供后续同组合幂等过滤.

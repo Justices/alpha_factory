@@ -17,7 +17,27 @@ from alpha_operator_framework.infrastructure.runtime_factory import build_resear
 
 def _config(tmp_path):
     config = tmp_path / "alpha-factory.yaml"
-    config.write_text(f"storage:\n  driver: sqlite\n  path: {tmp_path / 'rounds.db'}\n", encoding="utf-8")
+    config.write_text(
+        f"""storage:
+  driver: sqlite
+  path: {tmp_path / 'rounds.db'}
+research:
+  region: GBR
+  universe: TOP700
+  delay: 1
+  construction:
+    strategies:
+      - id: database
+        kind: database_template
+        families: ["*"]
+        order_depth: {{min: 0, max: 12}}
+        field_count: {{min: 1, max: 4}}
+        quota_per_leaf_family: 8
+        source: raw_fields
+    platform_batch_size: 8
+""",
+        encoding="utf-8",
+    )
     return config
 
 
@@ -57,11 +77,11 @@ def test_research_cycle_command_uses_new_dry_run_cycle(monkeypatch, tmp_path, ca
         lambda **_: [FieldSpec(id="returns", dataset_id="pv1", type="MATRIX")],
     )
     config = tmp_path / "alpha-factory.yaml"
-    config.write_text(f"storage:\n  driver: sqlite\n  path: {tmp_path / 'rounds.db'}\n", encoding="utf-8")
+    config = _config(tmp_path)
     _cache_universes(monkeypatch, tmp_path, "GBR", 1, ["TOP700"])
     args = SimpleNamespace(
             region="GBR", universe="TOP700", delay=1, datasets=None,
-            sample_per_family=1, execute=False, seed=9, config=str(config),
+            execute=False, seed=9, config=str(config),
             policy_file=None, telemetry_file=str(tmp_path / "metrics.jsonl"), algorithm="stratified", round_id="test-round",
     )
 
@@ -70,7 +90,7 @@ def test_research_cycle_command_uses_new_dry_run_cycle(monkeypatch, tmp_path, ca
     assert "Research Cycle Summary" in capsys.readouterr().out
     runtime = build_research_runtime(config)
     round_ = runtime.research_repository.load_round("test-round")
-    assert {candidate.family for candidate in round_.candidates} == {"unary"}
+    assert {candidate.family.split("/")[1] for candidate in round_.candidates} == {"unary"}
     assert all("vector_neut" not in candidate.expression for candidate in round_.candidates)
     assert EventType.BATCH_ALLOCATED in [
         event.event_type for event in runtime.event_store.read_stream("test-round")
@@ -91,7 +111,7 @@ def test_research_cycle_sets_the_requested_quota_for_each_family(monkeypatch, tm
     _cache_universes(monkeypatch, tmp_path, "GBR", 1, ["TOP700"])
     args = SimpleNamespace(
         region="GBR", universe="TOP700", delay=1, datasets=None,
-        sample_per_family=8, execute=False, seed=9, config=str(config),
+        execute=False, seed=9, config=str(config),
         policy_file=None, telemetry_file=None, algorithm="stratified", round_id="quota-round",
     )
 
@@ -99,8 +119,10 @@ def test_research_cycle_sets_the_requested_quota_for_each_family(monkeypatch, tm
 
     runtime = build_research_runtime(config)
     policy = runtime.research_repository.load_round("quota-round").policy
-    assert policy.family_quotas == {"unary": 8, "binary": 8, "ternary": 8}
-    assert policy.max_backtests == 24
+    assert policy.family_quotas
+    assert set(policy.family_quotas.values()) == {8}
+    assert all(family.startswith("database_template/") for family in policy.family_quotas)
+    assert policy.max_backtests == sum(policy.family_quotas.values())
 
 
 def test_submission_dispatch_command_is_safe_with_an_empty_outbox(tmp_path, capsys) -> None:
@@ -112,7 +134,7 @@ def test_submission_dispatch_command_is_safe_with_an_empty_outbox(tmp_path, caps
 def test_submission_authorization_requires_execute_and_evidence_file(monkeypatch, tmp_path) -> None:
     monkeypatch.setattr("alpha_operator_framework.research.field_loader.load_real_market_fields", lambda **_: [])
     args = SimpleNamespace(
-        region="GBR", universe="TOP700", delay=1, datasets=None, sample_per_family=1,
+        region="GBR", universe="TOP700", delay=1, datasets=None,
         execute=False, seed=9, config=str(_config(tmp_path)), policy_file=None,
         telemetry_file=None, algorithm="stratified", authorize_submission=True,
         submission_evidence_file=None,
@@ -135,7 +157,7 @@ def test_policy_settings_are_used_when_loading_fields(monkeypatch, tmp_path) -> 
     )
     _cache_universes(monkeypatch, tmp_path, "USA", 0, ["TOP3000"])
     args = SimpleNamespace(
-        region="USA", universe="TOP3000", delay=None, datasets=None, sample_per_family=1,
+        region="USA", universe="TOP3000", delay=None, datasets=None,
         execute=False, seed=9, config=str(_config(tmp_path)), policy_file=str(policy_path),
         telemetry_file=None, algorithm=None, decay=None, neutralization=None, truncation=None,
     )
@@ -149,7 +171,24 @@ def test_policy_settings_are_used_when_loading_fields(monkeypatch, tmp_path) -> 
 def test_research_cycle_uses_yaml_defaults_when_cli_options_are_omitted(monkeypatch, tmp_path) -> None:
     config = tmp_path / "alpha-factory.yaml"
     config.write_text(
-        f"storage:\n  driver: sqlite\n  path: {tmp_path / 'rounds.db'}\nresearch:\n  region: USA\n  universe: TOP3000\n  delay: 0\n  sample_per_family: 1\n",
+        f"""storage:
+  driver: sqlite
+  path: {tmp_path / 'rounds.db'}
+research:
+  region: USA
+  universe: TOP3000
+  delay: 0
+  construction:
+    strategies:
+      - id: database
+        kind: database_template
+        families: ["*"]
+        order_depth: {{min: 0, max: 12}}
+        field_count: {{min: 1, max: 4}}
+        quota_per_leaf_family: 8
+        source: raw_fields
+    platform_batch_size: 8
+""",
         encoding="utf-8",
     )
     captured = {}
@@ -159,7 +198,7 @@ def test_research_cycle_uses_yaml_defaults_when_cli_options_are_omitted(monkeypa
     )
     _cache_universes(monkeypatch, tmp_path, "USA", 0, ["TOP500", "TOP3000"])
     args = SimpleNamespace(
-        region=None, universe=None, delay=None, datasets=None, sample_per_family=None,
+        region=None, universe=None, delay=None, datasets=None,
         execute=False, seed=9, config=str(config), policy_file=None, telemetry_file=None,
         algorithm=None, decay=None, neutralization=None, truncation=None,
     )
@@ -182,12 +221,21 @@ def test_continue_research_delegates_to_the_closed_loop(monkeypatch, tmp_path, c
         def __init__(self, runtime):
             self.runtime = runtime
 
-        def run(self, policy, fields, candidates, *, seed, execute, base_round_id):
+        def run(self, policy, fields, candidates, *, construction_plan, seed, execute, base_round_id, strategy_statuses):
             calls.append((policy, fields, candidates, seed, execute, base_round_id))
             return SimpleNamespace(status="EXHAUSTED", round_ids=[base_round_id], completed_backtests=24)
 
     class Database:
+        def construction_task_exists(self, _task_id):
+            return True
+
+        def requeue_retryable_failed_research_expressions(self, _settings):
+            return 0
+
         def load_unbacktested_research_candidates(self, _settings):
+            return []
+
+        def load_construction_strategy_statuses(self, _task_id):
             return []
 
         def list_templates(self, *, active_only=True):
@@ -201,7 +249,7 @@ def test_continue_research_delegates_to_the_closed_loop(monkeypatch, tmp_path, c
     monkeypatch.setattr("alpha_operator_framework.application.research_loop.ResearchLoopCoordinator", Coordinator)
     args = SimpleNamespace(
         region="GBR", universe="TOP700", delay=1, decay=None, neutralization=None, truncation=None,
-        datasets=None, category=None, sample_per_family=1, execute=True, continue_research=True,
+        datasets=None, category=None, execute=True, continue_research=True,
         seed=9, config=str(_config(tmp_path)), policy_file=None, telemetry_file=None,
         algorithm="stratified", round_id="loop-round", authorize_submission=False,
         submission_evidence_file=None,

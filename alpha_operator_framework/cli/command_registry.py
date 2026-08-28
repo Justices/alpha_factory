@@ -183,7 +183,6 @@ def configure_research(parser: argparse.ArgumentParser) -> None:
     parser.add_argument("--use-llm", action="store_true")
     parser.add_argument("--provider")
     parser.add_argument("--model")
-    parser.add_argument("--execute", action="store_true")
     parser.add_argument("--output")
     configure_config_only(parser)
 
@@ -224,7 +223,6 @@ def configure_research_cycle(parser: argparse.ArgumentParser) -> None:
         parser.add_argument(f"--{name}", type=kind)
     parser.add_argument("--datasets")
     parser.add_argument("--algorithm", choices=["stratified", "d_optimal", "thompson", "ucb", "diversity"])
-    parser.add_argument("--sample-per-family", type=int)
     parser.add_argument("--seed", type=int, default=42)
     parser.add_argument("--round-id")
     configure_config_only(parser)

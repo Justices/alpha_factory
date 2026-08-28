@@ -108,34 +108,13 @@ def test_worker_submits_selected_tasks_in_batches_of_eight() -> None:
     assert summary.status == "COMPLETED"
 
 
-def test_worker_persists_distilled_template_promotions() -> None:
-    class Gateway:
-        def run_backtests(self, tasks):
-            return [BacktestResult(task.task_id, task.expression, 1.5, 1.1, 0.2, 5.0, True, "alpha-1") for task in tasks]
-
-    class TemplateRepository:
-        def __init__(self): self.promoted = []
-        def promote(self, templates): self.promoted.extend(templates)
-
-    events, rounds, batches, knowledge = EventStore(), RoundRepository(), BatchRepository(), KnowledgeBase()
-    ResearchCycleUseCase(rounds, Gateway(), knowledge, batches, event_store=events).execute(
-        ResearchCycleRequest(
-            "promotion-round", 9, ResearchPolicy("GBR", "TOP700", 1), KnowledgeSnapshot(version=0),
-            [Candidate("a", "rank(close)", "family", ("close",), ("rank",), "template")], True,
-        )
-    )
-    promotions = TemplateRepository()
-
-    ResearchBatchWorker(events, rounds, batches, knowledge, Gateway(), template_repository=promotions).process_round("promotion-round")
-
-    assert [template.expression_template for template in promotions.promoted] == ["rank({a})"]
-    assert EventType.TEMPLATE_PROMOTED in [event.event_type for event in events.read_stream("promotion-round")]
-
-
 def test_worker_projects_distilled_templates_to_primary_library() -> None:
     class Gateway:
         def run_backtests(self, tasks):
-            return [BacktestResult(task.task_id, task.expression, 1.5, 1.1, 0.2, 5.0, True, "alpha-1") for task in tasks]
+            return [
+                BacktestResult(task.task_id, task.expression, 1.5, 1.1, 0.2, 5.0, True, f"alpha-{index}")
+                for index, task in enumerate(tasks)
+            ]
 
     class PrimaryStore:
         def __init__(self): self.templates = []
@@ -151,15 +130,26 @@ def test_worker_projects_distilled_templates_to_primary_library() -> None:
 
     events, rounds, batches, knowledge, primary = EventStore(), RoundRepository(), BatchRepository(), KnowledgeBase(), PrimaryStore()
     ResearchCycleUseCase(rounds, Gateway(), knowledge, batches, event_store=events, alpha_database=primary).execute(
-        ResearchCycleRequest("primary-promotion-round", 9, ResearchPolicy("GBR", "TOP700", 1), KnowledgeSnapshot(version=0),
-                             [Candidate("a", "rank(close)", "family", ("close",), ("rank",), "template")], True)
+        ResearchCycleRequest(
+            "primary-promotion-round", 9, ResearchPolicy("GBR", "TOP700", 2), KnowledgeSnapshot(version=0),
+            [
+                Candidate("a", "rank(close)", "family", ("close",), ("rank",), "template"),
+                Candidate("b", "rank(volume)", "family", ("volume",), ("rank",), "template"),
+            ],
+            True,
+        )
     )
 
     ResearchBatchWorker(events, rounds, batches, knowledge, Gateway(), alpha_database=primary).process_round("primary-promotion-round")
 
     assert primary.templates == [{
-        "expression_template": "rank({a})", "support_count": 1, "example_expression": "rank(close)",
+        "expression_template": "rank({a})", "support_count": 2,
+        "source_task_ids": ("primary-promotion-round:0", "primary-promotion-round:1"),
+        "example_expression": "rank(close)",
     }]
+    assert EventType.TEMPLATE_PROMOTED in [
+        event.event_type for event in events.read_stream("primary-promotion-round")
+    ]
 
 
 def test_worker_persists_retry_state_after_rate_limit() -> None:

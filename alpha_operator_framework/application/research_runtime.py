@@ -15,7 +15,6 @@ class ResearchRuntime:
     research_repository: Any
     experiment_repository: Any
     knowledge_repository: Any
-    template_repository: Any
     knowledge_base: Any
     backtest_gateway: Any
     telemetry: Any
@@ -54,7 +53,6 @@ class ResearchRuntime:
             self.knowledge_base,
             self.backtest_gateway,
             self.knowledge_repository,
-            self.template_repository,
             self.telemetry,
             self.evidence_gateway,
             self.submission_outbox,

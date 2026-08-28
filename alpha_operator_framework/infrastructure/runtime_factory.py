@@ -134,7 +134,6 @@ def build_research_runtime(
         research_repository=SqlAlchemyResearchRepository(engine),
         experiment_repository=SqlAlchemyExperimentRepository(engine),
         knowledge_repository=knowledge_repository,
-        template_repository=None,
         knowledge_base=knowledge_repository.load(),
         backtest_gateway=backtest_gateway or build_backtest_gateway(execute_platform=platform_execution),
         telemetry=ResearchTelemetry(),

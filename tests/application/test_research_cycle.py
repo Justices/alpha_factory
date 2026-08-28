@@ -70,7 +70,7 @@ def test_runtime_close_releases_primary_repository_and_sqlalchemy_engine() -> No
             self.disposed = True
 
     repository, engine = CloseableRepository(), Engine()
-    runtime = ResearchRuntime(None, None, None, None, None, None, None, None, alpha_database=repository, engine=engine)
+    runtime = ResearchRuntime(None, None, None, None, None, None, None, alpha_database=repository, engine=engine)
 
     runtime.close()
 

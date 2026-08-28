@@ -88,7 +88,6 @@ class ResearchBatchWorker:
         knowledge_base: KnowledgeBase,
         backtest_gateway: Any,
         knowledge_repository: Any | None = None,
-        template_repository: Any | None = None,
         telemetry: Any | None = None,
         evidence_gateway: Any | None = None,
         submission_outbox: Any | None = None,
@@ -100,7 +99,6 @@ class ResearchBatchWorker:
         self.knowledge_base = knowledge_base
         self.backtest_gateway = backtest_gateway
         self.knowledge_repository = knowledge_repository
-        self.template_repository = template_repository
         self.telemetry = telemetry
         self.evidence_gateway = evidence_gateway
         self.submission_outbox = submission_outbox
@@ -423,14 +421,18 @@ class ResearchBatchWorker:
             batch, min_support=policy.template_min_support,
             min_sharpe=policy.template_min_sharpe, min_fitness=policy.template_min_fitness,
         )
+        promoted_templates = []
         if self.alpha_database is not None:
             for template in distilled:
                 source_task_id = template.source_task_ids[0]
-                self.alpha_database.save_abstracted_template(
+                persisted = self.alpha_database.save_abstracted_template(
                     expression_template=template.expression_template,
                     support_count=template.support,
+                    source_task_ids=template.source_task_ids,
                     example_expression=batch.tasks[source_task_id].expression,
                 )
+                if persisted:
+                    promoted_templates.append(template)
         
         logger.info("本次循环共成功提取出 %d 个高信号特征模板", len(distilled))
         
@@ -447,9 +449,7 @@ class ResearchBatchWorker:
                 self.knowledge_base, round_id=round_id, policy_version=policy.policy_version,
                 event_offset=knowledge_offset,
             )
-        if self.template_repository is not None:
-            self.template_repository.promote(distilled)
-        for template in distilled:
+        for template in promoted_templates:
             self._event(EventType.TEMPLATE_PROMOTED, round_id, {
                 "expression_template": template.expression_template,
                 "support": template.support,
@@ -468,7 +468,7 @@ class ResearchBatchWorker:
             selection_audit=[],
             completed_backtests=len(batch.results),
             knowledge_version=knowledge.version,
-            distilled_template_count=len(distilled),
+            distilled_template_count=len(promoted_templates),
             mutation_proposals=propose_mutations(
                 batch,
                 max_proposals=policy.max_backtests,

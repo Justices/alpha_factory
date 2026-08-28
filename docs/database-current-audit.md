@@ -11,7 +11,6 @@
 | `experiment_batch_snapshots` | 一个研究批次的 JSON 快照，含任务、结果、评估、状态机 | `batch_id`（当前等于 `round_id`） |
 | `knowledge_snapshot` | 当前知识快照 | 固定 `id=1` |
 | `knowledge_snapshot_history` | 每轮后的知识版本历史 | `version`，含 `round_id` 与事件 offset |
-| `template_promotions` | worker 蒸馏出的运行时模板 | `expression_template` |
 | `submission_outbox` | 待提交平台 Alpha 的 outbox | `platform_alpha_id` |
 | `schema_migrations` | 运行时迁移账本 | `version` |
 
@@ -35,19 +34,18 @@
 
 ## 已打通的路径
 
-`research-cycle` 当前会先全量写入 `alpha_expressions`，选择出的任务再写入 `simulation_batches` / `simulation_results`；worker 的平台结果会写入 `alpha_details`、`alpha_checks`，并更新 `alpha_expressions.status`。`event_log` 同时记录同一轮的事件。
+`research-cycle` 当前会先全量写入 `alpha_expressions`，选择出的任务再写入 `simulation_batches` / `simulation_results`；worker 的平台结果会写入 `alpha_details`、`alpha_checks`，并更新 `alpha_expressions.status`。`event_log` 同时记录同一轮的事件。worker 蒸馏出的模板幂等合并到 `template_library`，后续 `database_template` 策略从同一表加载并经过统一构建校验管线。
 
 ## 当前断链与重复事实
 
 1. `research_round_snapshots` 与 `alpha_expressions` 没有 `round_id` 或候选 ID 的结构化关联；只能用 JSON 或表达式文本/SHA 间接对应。
 2. `experiment_batch_snapshots.batch_id` 是字符串 round ID，`simulation_batches.id` 是数值 ID；两者的关系仅藏在快照 JSON 的 `storage_batch_id`，没有数据库约束。
 3. `event_log`、两个 snapshot 表和 Alpha 明细表都记录任务状态，但没有统一的“任务记录”表作为唯一事实来源。
-4. `template_promotions` 与 `template_library` 分别保存运行时蒸馏模板和生成模板，worker 目前只写前者，生成器不会自动消费前者。
-5. `knowledge_snapshot` 与三类 signal stats 分别积累评分，当前没有明确的投影/同步关系。
-6. `alpha_expressions` 的唯一键只有 `expression_sha`；同一表达式在不同 region/universe/settings 下会共享一条目录记录，环境维度只能从 `simulation_results` / `alpha_details` 追溯。
+4. `knowledge_snapshot` 与三类 signal stats 分别积累评分，当前没有明确的投影/同步关系。
+5. `alpha_expressions` 的唯一键只有 `expression_sha`；同一表达式在不同 region/universe/settings 下会共享一条目录记录，环境维度只能从 `simulation_results` / `alpha_details` 追溯。
 
 ## 建议的目标边界
 
 保留 `event_log` 作为审计事实，保留 `alpha_expressions` 作为表达式目录，保留 `simulation_batches` / `simulation_results` 作为平台执行明细；将 `research_round_snapshots` 和 `experiment_batch_snapshots` 限定为可重建缓存，而不是第二套业务真相。
 
-下一步应补三个显式键：`alpha_expressions.round_id`（或独立 `round_candidates` 表）、`simulation_batches.round_id`、`simulation_results.expression_sha → alpha_expressions.expression_sha` 外键；随后将模板提升和知识统计各自指定单一写入表与投影方向。
+下一步应补三个显式键：`alpha_expressions.round_id`（或独立 `round_candidates` 表）、`simulation_batches.round_id`、`simulation_results.expression_sha → alpha_expressions.expression_sha` 外键；知识统计仍需指定单一写入表与投影方向。

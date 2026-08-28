@@ -11,4 +11,5 @@ def test_runtime_shares_one_database_backed_event_store_and_projections(tmp_path
     assert runtime.event_store.is_persistent
     assert runtime.research_repository.engine is runtime.experiment_repository.engine
     assert runtime.knowledge_repository.engine is runtime.experiment_repository.engine
-    assert runtime.template_repository.engine is runtime.experiment_repository.engine
+    assert runtime.alpha_database is not None
+    assert not hasattr(runtime, "template_repository")

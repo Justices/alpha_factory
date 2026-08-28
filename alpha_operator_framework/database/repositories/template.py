@@ -186,10 +186,11 @@ class TemplateRepository(BaseRepository):
         description: str = "",
         support_count: int = 1,
         source: str = "autonomous_distillation",
+        source_task_ids: Sequence[str] = (),
         example_expression: str = "",
         overwrite: bool = False,
     ) -> bool:
-        """从回测胜出因子反向抽象出的模板骨架持久化至 template_library."""
+        """Persist one evolved template and idempotently merge its evidence."""
         tpl_clean = expression_template.strip()
         if not tpl_clean:
             return False
@@ -202,10 +203,49 @@ class TemplateRepository(BaseRepository):
         tpl_hash = hashlib.sha256(tpl_clean.encode("utf-8")).hexdigest()[:12]
         tpl_name = f"evolved_{tpl_hash}"
 
+        normalized_task_ids = sorted({
+            str(task_id).strip() for task_id in source_task_ids
+            if str(task_id).strip()
+        })
+        existing_row = self._get_connection().execute(
+            "SELECT * FROM template_library WHERE name=?",
+            (tpl_name,),
+        ).fetchone()
+        existing = self._row_to_template(existing_row) if existing_row is not None else None
+        existing_source = dict(existing.source) if existing is not None else {}
+        raw_existing_task_ids = existing_source.get("source_task_ids", [])
+        if not isinstance(raw_existing_task_ids, (list, tuple, set)):
+            raw_existing_task_ids = []
+        existing_task_ids = {
+            str(task_id).strip()
+            for task_id in raw_existing_task_ids
+            if str(task_id).strip()
+        }
+        merged_task_ids = sorted(existing_task_ids.union(normalized_task_ids))
+        try:
+            existing_support = int(existing_source.get("support", 0) or 0)
+        except (TypeError, ValueError):
+            existing_support = 0
+        merged_support = max(
+            existing_support,
+            max(int(support_count), 0),
+            len(merged_task_ids),
+        )
+        source_evidence = {
+            **existing_source,
+            "type": source if overwrite or not existing_source.get("type") else existing_source["type"],
+            "support": merged_support,
+            "source_task_ids": merged_task_ids,
+            "hash": tpl_hash,
+        }
+        generated_description = (
+            f"由平台回测胜出因子自主蒸馏沉淀的高阶骨架 (Support: {merged_support})"
+        )
+
         tpl_model = Template(
             name=tpl_name,
-            title=title,
-            family=family,
+            title=title if overwrite or existing is None else existing.title,
+            family=family if overwrite or existing is None else existing.family,
             template_type="expression",
             expression_template=tpl_clean,
             template_index=999,
@@ -213,11 +253,15 @@ class TemplateRepository(BaseRepository):
             expression_origin=source,
             slot_count=slot_count,
             placeholders={s: "scalar" for s in slots},
-            description=description or f"由平台回测胜出因子自主蒸馏沉淀的高阶骨架 (Support: {support_count})",
-            example_expression=example_expression,
-            source={"type": source, "support": support_count, "hash": tpl_hash},
+            description=description or generated_description,
+            example_expression=(
+                example_expression
+                if overwrite or existing is None or not existing.example_expression
+                else existing.example_expression
+            ),
+            source=source_evidence,
             active=1,
         )
 
-        inserted = self.upsert_templates([tpl_model], overwrite=overwrite)
-        return inserted > 0
+        self.upsert_templates([tpl_model], overwrite=existing is not None or overwrite)
+        return True

@@ -18,7 +18,7 @@ def _database_plan() -> ConstructionPlan:
         strategy_id="promoted-db",
         kind="database_template",
         families=("evolved_distillation",),
-        order_depth=StructuralConstraint(exact=1),
+        order_depth=StructuralConstraint(minimum=1, maximum=3),
         field_count=StructuralConstraint(exact=1),
         source="raw_fields",
     ),))
@@ -60,7 +60,9 @@ def test_promoted_template_evidence_survives_reopen_and_is_consumed(tmp_path) ->
         ),
     )
 
-    assert [candidate.expression for candidate in outcome.candidates] == ["rank(close)"]
+    assert [candidate.expression for candidate in outcome.candidates] == [
+        "rank(ts_backfill(close, 120))",
+    ]
     assert outcome.candidates[0].origin_strategy == "promoted-db"
     assert outcome.strategy_statuses[0].status == "GENERATED"
     reopened.close()

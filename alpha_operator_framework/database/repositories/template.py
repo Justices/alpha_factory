@@ -246,7 +246,7 @@ class TemplateRepository(BaseRepository):
             name=tpl_name,
             title=title if overwrite or existing is None else existing.title,
             family=family if overwrite or existing is None else existing.family,
-            template_type="expression",
+            template_type="placeholder",
             expression_template=tpl_clean,
             template_index=999,
             fields_per_alpha=slot_count,

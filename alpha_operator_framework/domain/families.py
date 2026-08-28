@@ -79,24 +79,24 @@ BINARY_TEMPLATES: Tuple[Tuple[int, str, str, int], ...] = (
     (7, "ts_delta_limit({a}, {b}, limit_volume=0.1)",                          "带约束变化量: 以b为基准的限制变化", 2),
 )
 
+#    (0, "vector_neut(vector_neut({a}, {b}), {c})",                                     "联合中性化: a对b与c依次正交", 3),
+#    (1, "regression_neut(regression_neut({a}, {b}), {c})",                             "分层回归残差: 先对b再对c", 3),
 TERNARY_TEMPLATES: Tuple[Tuple[int, str, str, int], ...] = (
-    (0, "vector_neut(vector_neut({a}, {b}), {c})",                                     "联合中性化: a对b与c依次正交", 3),
-    (1, "regression_neut(regression_neut({a}, {b}), {c})",                             "分层回归残差: 先对b再对c", 3),
-    (2, "ts_delta_limit({a}, ({b} + {c}) / 2, limit_volume=0.1)",                       "带约束变化: 以b,c均值为基准的delta limit", 3),
-    (3, "ts_corr(ts_zscore({a}, 252), ts_zscore({b}, 252), 252) * {c}",                 "三变量时序相关: a-b相关性以c加权", 3),
-    (4, "ts_rank(group_mean({a}, weight, {b}), 500) * {c}",                            "动态排序择时: a在b分组内ts_rank再以c加权", 3),
-    (5, "ts_zscore({a}, 500) * ts_zscore({b}, 500) * ts_zscore({c}, 500)",             "三重交互: 三个标准化信号相乘(非线性放大)", 3),
-    (6, "if_else({c} > ts_mean({c}, 500), {a}, {b})",                                  "条件切换: c高位选a否则b", 3),
+    (0, "ts_delta_limit({a}, ({b} + {c}) / 2, limit_volume=0.1)",                       "带约束变化: 以b,c均值为基准的delta limit", 3),
+    (1, "ts_corr(ts_zscore({a}, 252), ts_zscore({b}, 252), 252) * {c}",                 "三变量时序相关: a-b相关性以c加权", 3),
+    (2, "ts_rank(group_mean({a}, weight, {b}), 500) * {c}",                            "动态排序择时: a在b分组内ts_rank再以c加权", 3),
+    (3, "ts_zscore({a}, 500) * ts_zscore({b}, 500) * ts_zscore({c}, 500)",             "三重交互: 三个标准化信号相乘(非线性放大)", 3),
+    (4, "if_else({c} > ts_mean({c}, 500), {a}, {b})",                                  "条件切换: c高位选a否则b", 3),
 )
 
 # 新增: 四元模板 (扩展多阶group操作)
 # 使用 machine_lib 的 group_ops 作为第四元素
+# (0, "group_neutralize(vector_neut({a}, {b}), {c})",                         "group正交: 先向量正交再分组中性化", 4),
 QUATERNARY_TEMPLATES: Tuple[Tuple[int, str, str, int], ...] = (
-    (0, "group_neutralize(vector_neut({a}, {b}), {c})",                         "group正交: 先向量正交再分组中性化", 4),
-    (1, "group_rank(vector_neut({a}, {b}), {c})",                                "group排名: 向量正交后再分组排名", 4),
-    (2, "group_zscore(ts_regression({a}, {b}, 252, rettype=2), {c})",           "group标准化: 回归残差的分组标准化", 4),
-    (3, "ts_delta_limit(group_neutralize({a}, {c}), {b}, limit_volume=0.1)",    "group约束: 分组中性化后带约束变化", 4),
-    (4, "if_else({d} > ts_mean({d}, 500), group_neutralize({a}, {c}), {b})",    "条件group: 高位分组中性化否则选b", 4),
+    (0, "group_rank(vector_neut({a}, {b}), {c})",                                "group排名: 向量正交后再分组排名", 4),
+    (1, "group_zscore(ts_regression({a}, {b}, 252, rettype=2), {c})",           "group标准化: 回归残差的分组标准化", 4),
+    (2, "ts_delta_limit(group_neutralize({a}, {c}), {b}, limit_volume=0.1)",    "group约束: 分组中性化后带约束变化", 4),
+    (3, "if_else({d} > ts_mean({d}, 500), group_neutralize({a}, {c}), {b})",    "条件group: 高位分组中性化否则选b", 4),
 )
 
 

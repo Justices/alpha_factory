@@ -119,7 +119,7 @@ def _add_database_templates(categories, config, db, atomic_fields, neutralizatio
             if not raw or ("{" not in raw and "<" not in raw):
                 continue
             variants = [raw]
-            for placeholder, operators in (("op_ts", ["ts_scale", "ts_rank", "ts_zscore", "ts_decay_linear", "ts_delta"]), ("op_group", ["group_rank", "group_neutralize", "group_zscore", "group_scale"]), ("op_cross", ["vector_neut", "regression_neut", "ts_corr"])):
+            for placeholder, operators in (("op_ts", ["ts_scale", "ts_rank", "ts_zscore", "ts_decay_linear", "ts_delta"]), ("op_group", ["group_rank", "group_neutralize", "group_zscore", "group_scale"]), ("op_cross", ["ts_corr"])):
                 if f"{{{placeholder}}}" in raw or f"<{placeholder}>" in raw:
                     variants = [variant.replace(f"{{{placeholder}}}", operator).replace(f"<{placeholder}>", operator) for operator in operators for variant in variants]
             for variant in variants:

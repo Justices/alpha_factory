@@ -10,6 +10,7 @@ from alpha_operator_framework.domain.ast import to_canonical_string, validate_ex
 from alpha_operator_framework.domain.families import Task
 from alpha_operator_framework.domain.fields import FieldSpec, preprocess_fields_rotated
 from alpha_operator_framework.domain.fields import ScalarField
+from alpha_operator_framework.domain.operators import ACCESS_LIMITED_OPS
 from alpha_operator_framework.database.models import Template
 from alpha_operator_framework.generation.template_library import (
     TemplateStrategyConfig,
@@ -32,6 +33,10 @@ class ConstructionTemplate:
 
 class AstCandidateBuilder:
     """Instantiate configured templates while keeping only valid unique ASTs."""
+
+    @staticmethod
+    def _has_access_limited_operator(operators: Sequence[str]) -> bool:
+        return bool(set(operators).intersection(ACCESS_LIMITED_OPS))
 
     def build(
         self,
@@ -72,7 +77,6 @@ class AstCandidateBuilder:
             TemplateStrategyConfig(families=active_families, all_combinations=False, sample_n=sample_n),
             vector_fields=[field.id for field in fields if field.type == "VECTOR"],
         )
-        tasks = [task for task in tasks if "vector_neut" not in task.expression]
         return self._build_tasks(tasks, {field.id for field in fields})
 
     def build_order2(
@@ -111,7 +115,11 @@ class AstCandidateBuilder:
 
     @staticmethod
     def _compatible_template_slots(template: Template, count: int) -> list[str] | None:
-        if template.active != 1 or template.template_type != "placeholder" or "vector_neut" in template.expression_template:
+        if (
+            template.active != 1
+            or template.template_type != "placeholder"
+            or any(f"{operator}(" in template.expression_template for operator in ACCESS_LIMITED_OPS)
+        ):
             return None
         slots = extract_slot_names(template.expression_template)
         contexts = slot_context_types(template.expression_template)
@@ -152,10 +160,14 @@ class AstCandidateBuilder:
                     mapper[slots[1]] = partner[1]
                 expression = _render_any(template.expression_template, mapper)
                 validation = validate_expression(expression, known_fields=known_fields)
-                if not validation.is_valid or any("Unknown or custom operator" in warning for warning in validation.warnings):
+                if (
+                    not validation.is_valid
+                    or any("Unknown or custom operator" in warning for warning in validation.warnings)
+                    or cls._has_access_limited_operator(validation.operators_used)
+                ):
                     continue
                 canonical = to_canonical_string(expression)
-                if canonical in seen or "vector_neut" in canonical:
+                if canonical in seen:
                     continue
                 seen.add(canonical)
                 digest = hashlib.sha256(f"{stage}:{template.name}:{canonical}".encode("utf-8")).hexdigest()[:16]
@@ -192,7 +204,11 @@ class AstCandidateBuilder:
             for template in templates:
                 expression = template.expression_template.format(field=field_expression)
                 validation = validate_expression(expression, known_fields=known_fields)
-                if not validation.is_valid or any("Unknown or custom operator" in warning for warning in validation.warnings):
+                if (
+                    not validation.is_valid
+                    or any("Unknown or custom operator" in warning for warning in validation.warnings)
+                    or AstCandidateBuilder._has_access_limited_operator(validation.operators_used)
+                ):
                     continue
                 canonical = to_canonical_string(expression)
                 if canonical in seen_canonical:

@@ -38,10 +38,11 @@ vec_ops = [
 ]
 
 # 扩展算子 (来自 cold_templates ACCESS_LIMITED_OPS + machine_lib)
+# 以下算子不可用，等级不够
+#     "regression_neut",      # 回归中性化
+#     "vector_neut",          # 向量正交
+#     "ts_delta_limit",       # 带约束变化量
 extended_ops = [
-    "regression_neut",      # 回归中性化
-    "vector_neut",          # 向量正交
-    "ts_delta_limit",       # 带约束变化量
     "signed_power",         # 保号幂次
     "ts_decay_linear",      # 线性衰减
     "ts_regression",        # 时间序列回归

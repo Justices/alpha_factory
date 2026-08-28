@@ -37,6 +37,21 @@ def test_builder_discards_invalid_or_duplicate_ast_templates() -> None:
     assert [candidate.template_id for candidate in candidates] == ["first"]
 
 
+def test_builder_excludes_access_limited_operators_from_generated_candidates() -> None:
+    templates = (
+        ConstructionTemplate("allowed", "rank({field})", "family", ("rank",)),
+        ConstructionTemplate("regression", "regression_neut({field}, {field})", "family", ("regression_neut",)),
+        ConstructionTemplate("log", "s_log_1p({field})", "family", ("s_log_1p",)),
+        ConstructionTemplate("vector", "vector_neut({field}, {field})", "family", ("vector_neut",)),
+        ConstructionTemplate("delta_limit", "ts_delta_limit({field}, {field})", "family", ("ts_delta_limit",)),
+        ConstructionTemplate("group_mean", "group_mean({field}, {field})", "family", ("group_mean",)),
+    )
+
+    candidates = AstCandidateBuilder().build(("returns",), templates)
+
+    assert [candidate.expression for candidate in candidates] == ["rank(returns)"]
+
+
 def test_preprocessed_builder_converts_matrix_vector_and_event_fields() -> None:
     fields = (
         FieldSpec("matrix_field", "dataset", "MATRIX"),

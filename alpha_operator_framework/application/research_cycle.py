@@ -9,6 +9,8 @@ from typing import Any, Sequence
 
 from alpha_operator_framework.experiment.lifecycle import BatchState, transition
 from alpha_operator_framework.experiment.models import ExperimentBatch, MutationProposal
+from alpha_operator_framework.domain.ast import validate_expression
+from alpha_operator_framework.domain.operators import ACCESS_LIMITED_OPS
 from alpha_operator_framework.knowledge.models import KnowledgeBase
 from alpha_operator_framework.research.policy import build_selector
 from alpha_operator_framework.research.round import Candidate, KnowledgeSnapshot, ResearchPolicy, ResearchRound
@@ -92,13 +94,27 @@ class ResearchCycleUseCase:
             logger.error("实盘或真实平台回测启动失败：缺失 EventStore 或 ExperimentRepository 持久化层组件")
             raise ValueError("live research requires an event store and experiment repository")
         
-        round_ = ResearchRound(request.round_id, request.policy, request.seed, list(request.candidates))
-        generated_candidates = list(round_.candidates)
         backtest_settings = {
             "region": request.policy.region, "universe": request.policy.universe,
             "delay": request.policy.delay, "decay": request.policy.decay,
             "neutralization": request.policy.neutralization, "truncation": request.policy.truncation,
         }
+        generated_candidates = []
+        access_limited_candidates = []
+        for candidate in request.candidates:
+            operators = validate_expression(candidate.expression).operators_used
+            if set(operators).intersection(ACCESS_LIMITED_OPS):
+                access_limited_candidates.append(candidate)
+            else:
+                generated_candidates.append(candidate)
+        if access_limited_candidates and self.alpha_database is not None:
+            mark_pruned = getattr(self.alpha_database, "mark_expressions_pruned", None)
+            if callable(mark_pruned):
+                mark_pruned([
+                    self.alpha_database.compute_alpha_sha(candidate.expression, backtest_settings)
+                    for candidate in access_limited_candidates
+                ])
+        round_ = ResearchRound(request.round_id, request.policy, request.seed, generated_candidates)
 
         if self.alpha_database is not None:
             logger.info("将生成的 %d 个候选因子表达式录入数据库临时缓冲...", len(generated_candidates))

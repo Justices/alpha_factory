@@ -90,16 +90,19 @@ def command_research_cycle(args: argparse.Namespace) -> None:
     )
     try:
         continuing = bool(getattr(args, "continue_research", False))
-        candidates = runtime.alpha_database.load_unbacktested_research_candidates({
+        if continuing and not args.execute:
+            raise ValueError("--continue-research requires --execute")
+        research_settings = {
             "region": policy.region if policy else field_scope["region"],
             "universe": policy.universe if policy else field_scope["universe"],
             "delay": policy.delay if policy else field_scope["delay"],
             "decay": policy.decay if policy else options.get("decay", 8),
             "neutralization": policy.neutralization if policy else options.get("neutralization", "SUBINDUSTRY"),
             "truncation": policy.truncation if policy else options.get("truncation", 0.08),
-        }) if continuing else []
-        if continuing and not args.execute:
-            raise ValueError("--continue-research requires --execute")
+        }
+        if continuing:
+            runtime.alpha_database.requeue_retryable_failed_research_expressions(research_settings)
+        candidates = runtime.alpha_database.load_unbacktested_research_candidates(research_settings) if continuing else []
         if candidates:
             pass
         elif policy_snapshot and policy_snapshot.templates:

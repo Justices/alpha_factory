@@ -34,7 +34,12 @@ DEFAULT_PRUNE_RULES: Sequence[Dict[str, str]] = (
 )
 
 
-def matches_prune_rule(expression: str, rule: Dict[str, Any]) -> bool:
+def matches_prune_rule(
+    expression: str,
+    rule: Dict[str, Any],
+    *,
+    fields: Sequence[str] | None = None,
+) -> bool:
     """判断表达式是否命中一条淘汰规则 (pattern_type 决定匹配方式)."""
     pattern = str(rule.get("pattern", ""))
     ptype = str(rule.get("pattern_type", "prefix"))
@@ -46,6 +51,11 @@ def matches_prune_rule(expression: str, rule: Dict[str, Any]) -> bool:
         return pattern in expression
     if ptype == "regex":
         return re.search(pattern, expression) is not None
+    if ptype == "abstract_template":
+        if fields is None:
+            return False
+        from alpha_operator_framework.distill.template_abstractor import abstract_template
+        return abstract_template(expression, tuple(fields)) == pattern
     return False
 
 

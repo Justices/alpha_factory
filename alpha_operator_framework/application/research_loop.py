@@ -2,7 +2,9 @@
 
 from __future__ import annotations
 
+import time
 from dataclasses import dataclass, replace
+from datetime import UTC, datetime
 from typing import Any, Sequence
 
 from alpha_operator_framework.application.research_cycle import ResearchCycleRequest
@@ -12,6 +14,8 @@ from alpha_operator_framework.research.round import Candidate, ResearchPolicy
 
 
 RESEARCH_SHARD_SIZE = 8
+RETRY_WAIT_CAP_SECONDS = 60.0
+RETRYABLE_STATUSES = frozenset({"RETRY_SCHEDULED", "PARTIAL_FAILED"})
 
 
 @dataclass(frozen=True)
@@ -69,7 +73,7 @@ class ResearchLoopCoordinator:
                 round_id, seed, round_policy, self.runtime.knowledge_base.snapshot(), candidates, True,
             ))
             round_ids.append(planned.round_id)
-            summary = self.runtime.process_round(planned.round_id)
+            summary = self._process_until_terminal(planned.round_id)
             if summary.status != "COMPLETED":
                 return ResearchLoopSummary(summary.status, round_ids, completed_backtests, pruned_count, generated_count)
             completed_backtests += summary.completed_backtests
@@ -90,11 +94,20 @@ class ResearchLoopCoordinator:
 
     @staticmethod
     def _policy_for_candidates(policy: ResearchPolicy, candidates: Sequence[Candidate]) -> ResearchPolicy:
-        quota = next(iter(policy.family_quotas.values()), 20)
-        quotas = {candidate.family: quota for candidate in candidates}
+        """Constrain one persisted round to a single dynamic-pruning slice."""
+        families = sorted({candidate.family for candidate in candidates})
+        capacity = min(RESEARCH_SHARD_SIZE, len(candidates))
+        base_quota, remainder = divmod(capacity, max(1, len(families)))
+        # Explicit family quotas override max_backtests in the selector.  Their
+        # sum must therefore be the slice capacity, not the source policy's
+        # per-family quota (which previously expanded a slice to dozens).
+        quotas = {
+            family: base_quota + (1 if index < remainder else 0)
+            for index, family in enumerate(families)
+        }
         return replace(
             policy,
-            max_backtests=min(RESEARCH_SHARD_SIZE, sum(quotas.values())),
+            max_backtests=capacity,
             family_quotas=quotas,
         )
 
@@ -140,3 +153,26 @@ class ResearchLoopCoordinator:
                 )
                 generated += new_lineage_count
         return generated
+
+    def _process_until_terminal(self, round_id: str) -> Any:
+        """Keep processing one persisted batch until it completes or terminally fails."""
+        while True:
+            summary = self.runtime.process_round(round_id)
+            if summary.status not in RETRYABLE_STATUSES:
+                return summary
+            self._wait_for_retry(round_id)
+
+    def _wait_for_retry(self, round_id: str) -> None:
+        """Wait only until the next persisted retry deadline, then re-read the batch state."""
+        batch = self.runtime.experiment_repository.load_batch(round_id)
+        retry_times = [
+            datetime.fromisoformat(task.next_retry_at)
+            for task in batch.tasks.values()
+            if task.task_id not in batch.results and task.next_retry_at
+        ] if batch is not None else []
+        if not retry_times:
+            time.sleep(1.0)
+            return
+        now = datetime.now(UTC)
+        delay = max(0.0, min((retry_at - now).total_seconds() for retry_at in retry_times))
+        time.sleep(min(delay, RETRY_WAIT_CAP_SECONDS))

@@ -41,7 +41,7 @@ def is_signal_parent(result: BacktestResult | CompletedExpression) -> bool:
 
 
 def derive_consensus_prune_rules(rows: Sequence[CompletedExpression]) -> list[ResultPruneRule]:
-    """Derive safe structural rules from cross-field, consistently failed results."""
+    """Derive structural rules from completed results for the next slice."""
     by_template: dict[str, list[CompletedExpression]] = {}
     for row in rows:
         template = abstract_template(row.expression, row.fields)
@@ -49,6 +49,16 @@ def derive_consensus_prune_rules(rows: Sequence[CompletedExpression]) -> list[Re
             by_template.setdefault(template, []).append(row)
 
     rules: list[ResultPruneRule] = []
+    seen_patterns: set[tuple[str, str]] = set()
+    # The research policy is explicit: any completed expression below the
+    # Sharpe floor retires its exact abstract template before another slice is
+    # planned.  This applies without waiting for the old consensus sample size.
+    for template, samples in sorted(by_template.items()):
+        if any(sample.sharpe < MAX_AVERAGE_SHARPE for sample in samples):
+            key = (template, "abstract_template")
+            if key not in seen_patterns:
+                rules.append(ResultPruneRule(template, "abstract_template", "sharpe below 0.8"))
+                seen_patterns.add(key)
     for template, samples in sorted(by_template.items()):
         if len(samples) < MIN_SAMPLES or any(is_signal_parent(sample) for sample in samples):
             continue
@@ -61,6 +71,8 @@ def derive_consensus_prune_rules(rows: Sequence[CompletedExpression]) -> list[Re
             and average_sharpe < MAX_AVERAGE_SHARPE
         ):
             prefix = template.split("{", 1)[0]
-            if prefix:
+            key = (prefix, "prefix")
+            if prefix and key not in seen_patterns:
                 rules.append(ResultPruneRule(prefix, "prefix", "consensus failure"))
+                seen_patterns.add(key)
     return rules

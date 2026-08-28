@@ -119,7 +119,7 @@ class AlphaQueryMixin(BaseRepository):
                       COALESCE(ad.ra_failed, 0) AS ra_failed, COALESCE(ad.ppa_failed, 0) AS ppa_failed
                  FROM alpha_expressions ae
                  LEFT JOIN round_candidates rc ON rc.alpha_sha = ae.alpha_sha
-                 LEFT JOIN alpha_details ad ON ad.alpha_sha = ae.alpha_sha
+                 JOIN alpha_details ad ON ad.alpha_sha = ae.alpha_sha
                 WHERE ae.settings = ? AND ae.status = 'completed'
                 GROUP BY ae.alpha_sha, ae.expression, ae.fields, ad.sharpe, ad.fitness, ad.ra_failed, ad.ppa_failed
                 ORDER BY ae.id""",

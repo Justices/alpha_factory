@@ -20,6 +20,7 @@ SETTINGS = {
 class LoopDatabase:
     def __init__(self) -> None:
         self.pending: list[Candidate] = []
+        self.cataloged_candidate_ids: set[str] = set()
         self.completed: list[CompletedExpression] = []
         self.lineage: set[tuple[str, str, str]] = set()
         self.templates = (
@@ -37,7 +38,11 @@ class LoopDatabase:
         return 1
 
     def catalog_research_candidates(self, _round_id, candidates, _settings):
-        self.pending.extend(candidates)
+        for candidate in candidates:
+            if candidate.candidate_id in self.cataloged_candidate_ids:
+                continue
+            self.cataloged_candidate_ids.add(candidate.candidate_id)
+            self.pending.append(candidate)
 
     def compute_alpha_sha(self, expression, _settings):
         return expression
@@ -96,3 +101,18 @@ def test_loop_prioritizes_order2_then_dimension2_before_exhaustion() -> None:
     assert [candidates[0].family for candidates in runtime.planned.values()] == [
         "base", "optimization_order2", "optimization_dimension2",
     ]
+
+
+def test_each_loop_round_has_at_most_eight_tasks_across_families() -> None:
+    candidates = [
+        Candidate(f"candidate-{index}", f"rank(field_{index})", f"family-{index % 3}", (f"field_{index}",), ("rank",), "base")
+        for index in range(12)
+    ]
+    policy = ResearchPolicy("USA", "TOP3000", 60, family_quotas={"legacy": 20}, **{
+        key: value for key, value in SETTINGS.items() if key not in {"region", "universe"}
+    })
+
+    sliced = ResearchLoopCoordinator._policy_for_candidates(policy, candidates)
+
+    assert sliced.max_backtests == 8
+    assert sum(sliced.family_quotas.values()) == 8

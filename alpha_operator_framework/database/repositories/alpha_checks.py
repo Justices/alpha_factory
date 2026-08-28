@@ -115,13 +115,15 @@ class AlphaChecksMixin(BaseRepository):
         now = datetime.now().isoformat()
 
         is_block = is_dict_or_result
-        settings = settings_dict or {}
+        explicit_settings = dict(settings_dict) if settings_dict is not None else None
+        settings = explicit_settings or {}
         expression = ""
         top = is_dict_or_result if isinstance(is_dict_or_result, dict) else {}
 
         if isinstance(is_block, dict) and isinstance(is_block.get("is"), dict):
             is_block = is_block["is"]
-            settings = top.get("settings") or settings
+            if explicit_settings is None:
+                settings = top.get("settings") or settings
             regular = top.get("regular") if isinstance(top.get("regular"), dict) else {}
             expression = regular.get("code") or top.get("expression") or ""
         elif isinstance(is_block, dict):

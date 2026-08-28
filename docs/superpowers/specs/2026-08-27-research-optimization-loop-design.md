@@ -7,7 +7,7 @@ Turn `research-cycle --continue-research --execute` into a restart-safe closed l
 1. Persist every generated candidate before selection.
 2. Select and backtest candidates.
 3. Persist backtest completion independently from pruning state.
-4. Derive pruning decisions from completed results and prune only matching, unbacktested candidates.
+4. After each persisted eight-expression slice completes, immediately derive pruning decisions: every completed abstract template with Sharpe < 0.8 prunes matching, unbacktested candidates in the same scope.
 5. Promote signal-bearing expressions through one higher-order stage and one two-field stage.
 6. Return to the base candidate pool after the promoted branch is exhausted.
 7. Stop only when the base pool and optimization queue are both empty.
@@ -73,7 +73,7 @@ For each coordinator iteration:
 2. Load active unbacktested optimization candidates; if present, select them first.
 3. Otherwise load active unbacktested base candidates.
 4. Plan one shard of at most eight candidates and persist its selected tasks before platform execution.
-5. If the worker has not reached `EVALUATED`, stop the iteration without pruning or promotion and let retry state control resumption.
+5. If the worker reports a retryable state, wait until its persisted next-retry deadline and continue processing the same round. Only a terminal failure stops the loop without pruning or promotion.
 6. Query completed results in the exact settings scope and derive consensus structural failures.
 7. Persist the scoped rules and mark only matching unbacktested expressions as pruned.
 8. For each newly completed signal parent, generate its next missing stage:
@@ -103,7 +103,9 @@ Applying a rule changes only `pruning_status` on matching expressions whose back
 - Each shard must reach `EVALUATED` before the coordinator performs pruning or promotion.
 - Worker result, expression, and batch projections are persisted before completion events, pruning, or promotion run.
 - Candidate and lineage writes are idempotent, so restarting the same command cannot regenerate the same child edge.
-- A terminal failed batch stops the loop and reports failure; it is not treated as exhaustion.
+- Retryable batches stay in the same loop and are resumed from their persisted retry state; a terminal failed batch stops the loop and reports failure.
+- Timeout, connection, rate-limit, DNS, gateway, and temporary-unavailable failures remain `pending` and retry with the final configured backoff interval until the platform responds.
+- Expression and field errors remain `failed`; an explicit `--continue-research` requeues only historical failures whose latest persisted simulation error is transport-related.
 - Exhaustion means both active queues are empty, not merely that one selection returned no rows.
 
 ## Verification

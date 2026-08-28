@@ -92,13 +92,18 @@ class AlphaWriteMixin(BaseRepository):
         settings_json = json.dumps(scope, ensure_ascii=False, sort_keys=True, separators=(",", ":"))
         conn = self._get_connection()
         rows = conn.execute(
-            """SELECT alpha_sha, expression FROM alpha_expressions
+            """SELECT alpha_sha, expression, fields FROM alpha_expressions
                WHERE settings=? AND status IN ('generated', 'pending') AND pruning_status='active'""",
             (settings_json,),
         ).fetchall()
         alpha_shas = [
             row["alpha_sha"] for row in rows
-            if any(matches_prune_rule(row["expression"], dict(rule)) for rule in rules)
+            if any(
+                matches_prune_rule(
+                    row["expression"], dict(rule), fields=json.loads(row["fields"] or "[]"),
+                )
+                for rule in rules
+            )
         ]
         if not alpha_shas:
             return []
@@ -171,6 +176,40 @@ class AlphaWriteMixin(BaseRepository):
             (status, self._timestamp(), self.compute_alpha_sha(expression, settings)),
         )
         self._get_connection().commit()
+
+    def requeue_retryable_failed_research_expressions(self, settings: Mapping[str, Any]) -> int:
+        """Return only transport-failed expressions to the active queue for an explicit continuation run."""
+        scope = self._result_pruning_settings(settings)
+        settings_json = json.dumps(scope, ensure_ascii=False, sort_keys=True, separators=(",", ":"))
+        conn = self._get_connection()
+        rows = conn.execute(
+            """SELECT ae.alpha_sha, sr.error_message
+               FROM alpha_expressions ae
+               JOIN simulation_results sr ON sr.alpha_sha=ae.alpha_sha
+               WHERE ae.settings=? AND ae.status='failed' AND sr.status='failed'
+               ORDER BY sr.updated_at""",
+            (settings_json,),
+        ).fetchall()
+        retryable_markers = (
+            "timeout", "timed out", "connection", "connect", "network", "socket", "dns",
+            "reset", "gateway", "unavailable", "temporary", "retry", "rate limit", "429",
+            "no platform error detail",
+            "超时", "网络", "连接", "限流", "服务不可用",
+        )
+        latest_errors = {row["alpha_sha"]: (row["error_message"] or "").lower() for row in rows}
+        alpha_shas = [
+            alpha_sha for alpha_sha, error in latest_errors.items()
+            if any(marker in error for marker in retryable_markers)
+        ]
+        if not alpha_shas:
+            return 0
+        placeholders = ",".join("?" for _ in alpha_shas)
+        cursor = conn.execute(
+            f"UPDATE alpha_expressions SET status='pending', updated_at=? WHERE alpha_sha IN ({placeholders})",
+            [self._timestamp(), *alpha_shas],
+        )
+        conn.commit()
+        return cursor.rowcount
 
     def catalog_research_candidates(self, round_id: str, candidates: List[Any], settings: Dict[str, Any]) -> None:
         """Create the explicit round-to-expression catalog links before selection."""

@@ -109,11 +109,8 @@ class ResearchBatchWorker:
     def _persist_primary_result(self, result: Any, task: Any) -> None:
         if self.alpha_database is None:
             return
-        if result.error:
-            self.alpha_database.set_expression_status(task.expression, "failed", dict(task.settings))
-            return
-        if not result.platform_alpha_id:
-            self.alpha_database.set_expression_status(task.expression, "failed", dict(task.settings))
+        if result.error or not result.platform_alpha_id:
+            self.alpha_database.set_expression_status(task.expression, "pending", dict(task.settings))
             return
         payload = dict(result.raw_details or {})
         payload.setdefault("id", result.platform_alpha_id)
@@ -186,6 +183,23 @@ class ResearchBatchWorker:
         response = getattr(error, "response", None)
         status_code = getattr(error, "status_code", getattr(response, "status_code", None))
         return status_code == 429 or "429" in str(error)
+
+    @staticmethod
+    def _is_retryable_result_error(error: str | None) -> bool:
+        """Keep transport and service availability failures in the persisted retry queue."""
+        text = (error or "").lower()
+        markers = (
+            "timeout", "timed out", "connection", "connect", "network", "socket", "dns",
+            "reset", "gateway", "unavailable", "temporary", "retry", "rate limit", "429",
+            "no platform error detail",
+            "超时", "网络", "连接", "限流", "服务不可用",
+        )
+        return any(marker in text for marker in markers)
+
+    @staticmethod
+    def _is_rate_limited_result_error(error: str | None) -> bool:
+        text = (error or "").lower()
+        return "429" in text or "rate limit" in text or "限流" in text
 
     @staticmethod
     def _retry_after_seconds(error: Exception) -> float | None:
@@ -299,16 +313,11 @@ class ResearchBatchWorker:
             if not retry_due:
                 raise
             attempts = max(task.attempts for task in retry_due) + 1
-            if attempts >= policy.max_retry_attempts:
-                task_ids = [task.task_id for task in retry_due]
-                batch.record_retry(task_ids, next_retry_at=now.isoformat(), error=str(error))
-                self._record_retry_fact(batch, round_id, task_ids, BatchState.FAILED)
-                self._transition(batch, BatchState.FAILED)
-                self._event(EventType.MONITORING_OBSERVED, round_id, {"alert": "retry_budget_exhausted", "error": str(error)[:1000]})
-                logger.error("回合 %s 重试预算达到上限 %d，实验批次失败标记 FAILED", round_id, policy.max_retry_attempts)
-                return self._summary(batch, "FAILED")
-            
-            delay_seconds = self._retry_after_seconds(error) or self._policy_backoff_seconds(policy, attempts)
+            delay_seconds = (
+                self._retry_after_seconds(error) or self._policy_backoff_seconds(policy, attempts)
+                if self._is_rate_limited(error)
+                else 0.0
+            )
             retry_at = now + timedelta(seconds=delay_seconds)
             task_ids = [task.task_id for task in retry_due]
             batch.record_retry(task_ids, next_retry_at=retry_at.isoformat(), error=str(error))
@@ -321,13 +330,24 @@ class ResearchBatchWorker:
         if failures:
             logger.warning("本回测周期发现有 %d 个子因子任务在平台端执行失败", len(failures))
             attempts = max(task.attempts for task in due) + 1
-            for result in failures:
+            retryable_failures = [result for result in failures if self._is_retryable_result_error(result.error)]
+            terminal_failures = [result for result in failures if result not in retryable_failures]
+            for result in retryable_failures:
                 task = batch.tasks[result.task_id]
-                batch.record_retry([result.task_id], next_retry_at=(now + timedelta(seconds=self._policy_backoff_seconds(policy, attempts))).isoformat(), error=result.error or "platform execution failed")
+                delay_seconds = self._policy_backoff_seconds(policy, attempts) if self._is_rate_limited_result_error(result.error) else 0.0
+                batch.record_retry([result.task_id], next_retry_at=(now + timedelta(seconds=delay_seconds)).isoformat(), error=result.error or "platform execution failed")
+                self._event(EventType.MONITORING_OBSERVED, round_id, {"task_id": result.task_id, "platform_failure": result.error})
+            for result in terminal_failures:
+                task = batch.tasks[result.task_id]
+                if self.alpha_database is not None:
+                    self.alpha_database.set_expression_status(task.expression, "failed", dict(task.settings))
                 self._event(EventType.MONITORING_OBSERVED, round_id, {"task_id": result.task_id, "platform_failure": result.error})
             self.experiment_repository.save_batch(batch)
-            self._transition(batch, BatchState.FAILED if attempts >= policy.max_retry_attempts else BatchState.PARTIAL_FAILED)
-            return self._summary(batch, "FAILED" if attempts >= policy.max_retry_attempts else "RETRY_SCHEDULED")
+            if terminal_failures:
+                self._transition(batch, BatchState.FAILED)
+                return self._summary(batch, "FAILED")
+            self._transition(batch, BatchState.PARTIAL_FAILED)
+            return self._summary(batch, "RETRY_SCHEDULED")
 
         for result in results:
             task = batch.tasks[result.task_id]

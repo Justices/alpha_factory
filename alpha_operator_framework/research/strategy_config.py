@@ -23,8 +23,6 @@ SUPPORTED_PARENT_SOURCES = frozenset({
     "raw_and_qualified_candidates",
 })
 MAX_LEAF_FAMILY_QUOTA = 8
-DEFAULT_GENERATION_POOL_PER_LEAF = 32
-MAX_GENERATION_POOL_PER_LEAF = 512
 PLATFORM_BATCH_SIZE = 8
 
 
@@ -334,7 +332,7 @@ class ConstructionStrategyConfig:
     field_count: StructuralConstraint
     quota_per_leaf_family: int = MAX_LEAF_FAMILY_QUOTA
     source: str = "raw_fields"
-    generation_pool_per_leaf: int = DEFAULT_GENERATION_POOL_PER_LEAF
+    generation_pool_per_leaf: int | None = None
     stage: int = 1
     document: Path | None = None
     prompt_document: Path | None = None
@@ -449,14 +447,13 @@ def _parse_strategy(
     quota = _required_int(raw.get("quota_per_leaf_family", MAX_LEAF_FAMILY_QUOTA), f"{strategy_id}.quota_per_leaf_family")
     if not 1 <= quota <= MAX_LEAF_FAMILY_QUOTA:
         raise ValueError(f"{strategy_id}.quota_per_leaf_family must be between 1 and {MAX_LEAF_FAMILY_QUOTA}")
-    generation_pool = _required_int(
-        raw.get("generation_pool_per_leaf", DEFAULT_GENERATION_POOL_PER_LEAF),
-        f"{strategy_id}.generation_pool_per_leaf",
+    generation_pool = _optional_int(
+        raw.get("generation_pool_per_leaf"), f"{strategy_id}.generation_pool_per_leaf",
     )
-    if not quota <= generation_pool <= MAX_GENERATION_POOL_PER_LEAF:
+    if generation_pool is not None and generation_pool < quota:
         raise ValueError(
-            f"{strategy_id}.generation_pool_per_leaf must be between "
-            f"quota_per_leaf_family ({quota}) and {MAX_GENERATION_POOL_PER_LEAF}"
+            f"{strategy_id}.generation_pool_per_leaf must be at least "
+            f"quota_per_leaf_family ({quota})"
         )
     stage = _required_int(raw.get("stage", 1), f"{strategy_id}.stage")
     if stage < 1:

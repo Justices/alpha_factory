@@ -127,9 +127,9 @@ class RawFirstOrderStrategy:
         if config.source != "raw_fields":
             return []
         family = config.families[0]
-        # Generation and selection are deliberately separate.  Build a
-        # bounded but broad pool first; quota_per_leaf_family is only applied
-        # later by the selector when it chooses platform backtests.
+        # Generation and selection are deliberately separate.  By default
+        # this is exhaustive field × operator expansion; quota is applied
+        # only later when selecting platform backtests.
         field_expressions = sorted(
             preprocess_fields_rotated(context.fields, seed=context.seed),
             key=lambda item: hashlib.sha256(
@@ -144,7 +144,10 @@ class RawFirstOrderStrategy:
         def add(expression: str, field_id: str, operator: str, depth: int) -> bool:
             if not config.order_depth.contains(depth):
                 return False
-            if accepted_by_depth.get(depth, 0) >= config.generation_pool_per_leaf:
+            if (
+                config.generation_pool_per_leaf is not None
+                and accepted_by_depth.get(depth, 0) >= config.generation_pool_per_leaf
+            ):
                 return False
             drafts.append(self._draft(expression, field_id, operator, family, config, context.seed))
             accepted_by_depth[depth] = accepted_by_depth.get(depth, 0) + 1
@@ -214,7 +217,7 @@ class AiNakedSignalStrategy:
                 scalar_variants_by_id[field_spec.id] = variants
         if not scalar_variants_by_id:
             return []
-        requested = min(100, config.generation_pool_per_leaf)
+        requested = min(100, config.generation_pool_per_leaf or 100)
         field_payload = [
             {"id": field_spec.id, "description": field_spec.description[:160]}
             for field_spec in usable_fields[:50]

@@ -4,7 +4,7 @@ from __future__ import annotations
 
 import asyncio
 import time
-from collections import Counter, defaultdict
+from collections import defaultdict
 from dataclasses import dataclass, replace
 from datetime import UTC, datetime
 from typing import Any, Sequence
@@ -118,7 +118,7 @@ class ResearchLoopCoordinator:
         round_sequence = database.next_task_round_sequence(base_round_id)
         catalog_round_id = f"{base_round_id}-catalog"
         cap_catalog = getattr(database, "prune_catalog_candidates_beyond_family_quota", None)
-        if callable(cap_catalog):
+        if callable(cap_catalog) and self._catalog_family_quotas(construction_plan):
             pruned_count += cap_catalog(catalog_round_id, self._catalog_family_quotas(construction_plan))
 
         while True:
@@ -128,8 +128,8 @@ class ResearchLoopCoordinator:
                 candidates = initial_candidates
             initial_available = False
             selected_counts = database.selected_counts_by_family(base_round_id)
-            shard = self._next_shard(candidates, construction_plan, selected_counts)
-            if not shard:
+            selection_pool = self._next_shard(candidates, construction_plan, selected_counts)
+            if not selection_pool:
                 final_status = "PARTIAL_FAILED" if partial_failed else "EXHAUSTED"
                 database.save_construction_task(
                     base_round_id,
@@ -144,14 +144,16 @@ class ResearchLoopCoordinator:
                     generated_count, tuple(statuses),
                 )
 
-            round_policy = self._policy_for_candidates(policy, shard)
+            round_policy = self._policy_for_candidates(
+                policy, selection_pool, construction_plan, selected_counts,
+            )
             round_id = base_round_id if round_sequence == 1 else f"{base_round_id}-{round_sequence}"
             planned = self.runtime.plan(ResearchCycleRequest(
                 round_id,
                 seed,
                 round_policy,
                 self.runtime.knowledge_base.snapshot(),
-                shard,
+                selection_pool,
                 True,
             ))
             if planned.status == "NO_ELIGIBLE_CANDIDATES":
@@ -175,6 +177,19 @@ class ResearchLoopCoordinator:
                     planned.status, round_ids, completed_backtests, pruned_count,
                     generated_count, tuple(statuses),
                 )
+            # Candidates passed to the selector but not chosen for this
+            # leaf's quota are terminally pruned from the task catalog.  This
+            # prevents a later loop iteration from treating them as a new
+            # pool and selecting them beyond the configured quota.
+            unselected_ids = [
+                str(item["candidate_id"])
+                for item in planned.selection_audit
+                if not bool(item["selected"])
+            ]
+            mark_pruned = getattr(database, "mark_round_candidates_pruned", None)
+            if callable(mark_pruned):
+                mark_pruned(catalog_round_id, unselected_ids)
+            pruned_count += len(unselected_ids)
             round_ids.append(planned.round_id)
             round_sequence += 1
             summary = self._process_until_terminal(planned.round_id)
@@ -210,6 +225,8 @@ class ResearchLoopCoordinator:
     def _catalog_family_quotas(plan: ConstructionPlan) -> dict[str, int]:
         quotas: dict[str, int] = {}
         for config in plan.strategies:
+            if config.generation_pool_per_leaf is None:
+                continue
             for depth in range(config.order_depth.minimum or config.order_depth.exact or 0,
                                (config.order_depth.maximum or config.order_depth.exact or 0) + 1):
                 for field_count in range(config.field_count.minimum or config.field_count.exact or 0,
@@ -255,7 +272,6 @@ class ResearchLoopCoordinator:
             return []
         configs = {config.strategy_id: config for config in plan.strategies}
         by_family: dict[str, list[Candidate]] = defaultdict(list)
-        remaining: dict[str, int] = {}
         for candidate in sorted(candidates, key=lambda item: (item.family, item.candidate_id)):
             config = configs.get(candidate.origin_strategy)
             if config is None:
@@ -264,33 +280,34 @@ class ResearchLoopCoordinator:
                     None,
                 )
             quota = config.quota_per_leaf_family if config is not None else 0
-            available = max(0, quota - int(selected_counts.get(candidate.family, 0)))
-            if available:
+            if quota > int(selected_counts.get(candidate.family, 0)):
                 by_family[candidate.family].append(candidate)
-                remaining[candidate.family] = available
-        shard: list[Candidate] = []
-        families = sorted(by_family)
-        while families and len(shard) < RESEARCH_SHARD_SIZE:
-            next_families: list[str] = []
-            for family in families:
-                if len(shard) >= RESEARCH_SHARD_SIZE:
-                    break
-                pool = by_family[family]
-                if pool and remaining[family] > 0:
-                    shard.append(pool.pop(0))
-                    remaining[family] -= 1
-                if pool and remaining[family] > 0:
-                    next_families.append(family)
-            families = next_families
-        return shard
+        # Do not trim to the platform batch size here.  This is the full
+        # candidate pool presented to the selector; the worker itself sends
+        # the selected tasks to the platform in deterministic batches of 8.
+        return [candidate for family in sorted(by_family) for candidate in by_family[family]]
 
     @staticmethod
     def _policy_for_candidates(
         policy: ResearchPolicy,
         candidates: Sequence[Candidate],
+        plan: ConstructionPlan,
+        selected_counts: dict[str, int],
     ) -> ResearchPolicy:
-        quotas = dict(Counter(candidate.family for candidate in candidates))
-        return replace(policy, max_backtests=len(candidates), family_quotas=quotas)
+        configs = {config.strategy_id: config for config in plan.strategies}
+        quotas: dict[str, int] = {}
+        for candidate in candidates:
+            config = configs.get(candidate.origin_strategy)
+            if config is None:
+                config = next(
+                    (item for item in plan.strategies if candidate.family.startswith(f"{item.kind}/")),
+                    None,
+                )
+            if config is not None:
+                quotas[candidate.family] = max(
+                    0, config.quota_per_leaf_family - int(selected_counts.get(candidate.family, 0)),
+                )
+        return replace(policy, max_backtests=sum(quotas.values()), family_quotas=quotas)
 
     def _generate_from_qualified_parents(
         self,

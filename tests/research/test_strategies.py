@@ -176,7 +176,7 @@ def test_raw_first_order_expands_fields_without_database_templates() -> None:
     assert all("500" not in expression and "240" not in expression for expression in expressions)
 
 
-def test_raw_first_order_builds_pool_before_applying_later_selection_quota() -> None:
+def test_raw_first_order_is_exhaustive_and_independent_from_selection_quota() -> None:
     config = ConstructionStrategyConfig(
         strategy_id="raw-first-order",
         kind="raw_first_order",
@@ -184,7 +184,6 @@ def test_raw_first_order_builds_pool_before_applying_later_selection_quota() -> 
         order_depth=StructuralConstraint(minimum=1, maximum=3),
         field_count=StructuralConstraint(exact=1),
         quota_per_leaf_family=2,
-        generation_pool_per_leaf=5,
         source="raw_fields",
     )
     outcome = ConstructionStrategyRegistry().generate(
@@ -194,7 +193,7 @@ def test_raw_first_order_builds_pool_before_applying_later_selection_quota() -> 
         ), (), seed=7),
     )
 
-    assert len(outcome.candidates) == 10
+    assert len(outcome.candidates) == 7_300
     assert all("field_" in candidate.expression for candidate in outcome.candidates)
     assert outcome.strategy_statuses[0].generated_count == len(outcome.candidates)
 
@@ -282,7 +281,7 @@ def test_ai_naked_signal_renders_configured_markdown_prompt(tmp_path) -> None:
     )
 
     assert len(outcome.candidates) == 1
-    assert "Count=32" in captured["prompt"]
+    assert "Count=100" in captured["prompt"]
     assert '"id":"returns"' in captured["prompt"]
     assert "代码执行契约" in captured["prompt"]
 

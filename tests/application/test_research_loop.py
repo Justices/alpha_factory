@@ -108,12 +108,18 @@ class LoopRuntime:
 
     def __post_init__(self):
         self.planned = {}
+        self.selection_inputs = {}
         self.experiment_repository = None
 
     def plan(self, request):
         candidates = list(request.candidates)
-        self.planned[request.round_id] = candidates
-        for candidate in candidates:
+        self.selection_inputs[request.round_id] = candidates
+        selected = []
+        for family in sorted({item.family for item in candidates}):
+            quota = request.policy.family_quotas.get(family, 0)
+            selected.extend([item for item in candidates if item.family == family][:quota])
+        self.planned[request.round_id] = selected
+        for candidate in selected:
             self.alpha_database.selected[(request.round_id, candidate.candidate_id)] = candidate
         return ResearchCycleSummary("SUBMITTED", request.round_id, [])
 
@@ -163,14 +169,15 @@ def test_loop_applies_eight_per_leaf_family_and_eight_per_platform_shard() -> No
     )
 
     assert summary.status == "EXHAUSTED"
-    assert [len(batch) for batch in runtime.planned.values()] == [8, 4]
+    assert [len(batch) for batch in runtime.planned.values()] == [12]
+    assert [len(pool) for pool in runtime.selection_inputs.values()] == [14]
     assert runtime.alpha_database.selected_counts_by_family("task") == {
         first_family: 8,
         second_family: 4,
     }
 
 
-def test_next_shard_round_robins_leaf_families_and_respects_existing_counts() -> None:
+def test_next_shard_keeps_full_selection_pool_for_each_eligible_leaf() -> None:
     family_a = "database_template/a/depth-1/fields-1"
     family_b = "database_template/b/depth-1/fields-1"
     candidates = [
@@ -180,8 +187,8 @@ def test_next_shard_round_robins_leaf_families_and_respects_existing_counts() ->
 
     shard = ResearchLoopCoordinator._next_shard(candidates, _plan("database"), {family_a: 7})
 
-    assert len(shard) == 7
-    assert sum(candidate.family == family_a for candidate in shard) == 1
+    assert len(shard) == 12
+    assert sum(candidate.family == family_a for candidate in shard) == 6
     assert sum(candidate.family == family_b for candidate in shard) == 6
 
 

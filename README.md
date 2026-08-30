@@ -148,6 +148,8 @@ python alpha_machine.py research-cycle \
 
 策略配置支持 `database_template`、`raw_first_order`、`ai_naked_signal`、`depth_construction`、`field_composition`、`group_second_order`、`signal_validation` 与 `literature_llm`。AI/LLM 只产出受限的经济假说或裸表达式；字段类型标量化、AST 校验、去重、配额和相关性剪枝均由代码统一执行。配置与组合示例见 [USAGE_GUIDE.md](USAGE_GUIDE.md)。
 
+`ai_naked_signal` 可配置 `prompt_document: ../docs/prompts/your_brief.md`。Markdown 可使用 `{{REQUESTED_COUNT}}`、`{{ALLOWED_OPERATORS}}`、`{{WINDOWS}}` 与 `{{FIELD_CATALOG_JSON}}` 占位符；其内容定义研究方向与经济解释要求，代码仍会追加不可覆盖的真实字段、输出 JSON、字段类型与安全校验契约。默认简报为 [brain_raw_signal_v1.md](docs/prompts/brain_raw_signal_v1.md)。
+
 ### 5. 全自动无人值守投研流水线 (`auto-pilot`) 🚀
 一键串联：环境自检 ➔ 真实并发回测 ➔ 6 维证据终审 ➔ 空间释放 (VACUUM) ➔ 汇总研报生成：
 ```bash

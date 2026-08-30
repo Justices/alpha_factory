@@ -84,6 +84,30 @@ def test_ai_naked_signal_strategy_requires_llm_profile() -> None:
         )]})
 
 
+def test_ai_naked_signal_accepts_a_relative_markdown_prompt_document(tmp_path) -> None:
+    prompt = tmp_path / "raw-signal.md"
+    prompt.write_text("# Brief", encoding="utf-8")
+    strategy = _strategy(
+        id="ai", kind="ai_naked_signal", families=["ai_naked"],
+        llm_profile="deepseek", prompt_document=prompt.name,
+    )
+
+    plan = ConstructionPlan.from_mapping({"strategies": [strategy]}, base_path=tmp_path)
+
+    assert plan.strategies[0].prompt_document == prompt.resolve()
+
+
+def test_ai_naked_signal_rejects_non_markdown_prompt_document(tmp_path) -> None:
+    prompt = tmp_path / "raw-signal.txt"
+    prompt.write_text("brief", encoding="utf-8")
+
+    with pytest.raises(ValueError, match="Markdown"):
+        ConstructionPlan.from_mapping({"strategies": [_strategy(
+            id="ai", kind="ai_naked_signal", families=["ai_naked"],
+            llm_profile="deepseek", prompt_document=prompt.name,
+        )]}, base_path=tmp_path)
+
+
 def test_construction_plan_requires_explicit_non_empty_strategy_list() -> None:
     with pytest.raises(ValueError, match="non-empty list"):
         ConstructionPlan.from_mapping({})
@@ -96,7 +120,9 @@ def test_default_configuration_exposes_separate_named_construction_modes() -> No
     root = Path(__file__).resolve().parents[2]
     config = yaml.safe_load((root / "configs" / "alpha-factory.yaml").read_text(encoding="utf-8"))
 
-    plan = ConstructionPlan.from_mapping(config["research"]["construction"])
+    plan = ConstructionPlan.from_mapping(
+        config["research"]["construction"], base_path=root / "configs",
+    )
 
     assert [strategy.strategy_id for strategy in plan.strategies] == [
         "database-template", "raw-first-order", "ai-naked-signals", "qualified-depth", "qualified-composition",

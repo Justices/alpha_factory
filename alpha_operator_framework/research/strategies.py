@@ -6,6 +6,7 @@ import hashlib
 import json
 import re
 from dataclasses import dataclass, field
+from pathlib import Path
 from typing import Mapping, Protocol, Sequence
 
 from alpha_operator_framework.database.models import Template
@@ -223,7 +224,7 @@ class AiNakedSignalStrategy:
             for field_spec in usable_fields[:50]
             if field_spec.id in scalar_variants_by_id
         ]
-        prompt = (
+        built_in_prompt = (
             f"为 WorldQuant BRAIN 生成 {requested} 个简单、纯粹、具有经济学含义的裸信号。\n"
             "输入只包含字段名和描述。每个信号只能使用一个字段，最多嵌套两个算子；"
             "不要使用分组、中性化、回填、winsorize 或 vec 算子，这些由代码处理。\n"
@@ -232,6 +233,12 @@ class AiNakedSignalStrategy:
             "严格输出 JSON 数组，每项必须含 title、expression、rationale；"
             "rationale 必须说明市场低效、经济机制、错价来源和因子类别。\n"
             f"字段：{json.dumps(field_payload, ensure_ascii=False, separators=(',', ':'))}"
+        )
+        prompt = self._render_prompt_document(
+            config.prompt_document,
+            requested=requested,
+            field_payload=field_payload,
+            fallback=built_in_prompt,
         )
         client = self._llm_client
         if client is None:
@@ -274,6 +281,43 @@ class AiNakedSignalStrategy:
                 seed=context.seed,
             ))
         return drafts
+
+    def _render_prompt_document(
+        self,
+        document: Path | None,
+        *,
+        requested: int,
+        field_payload: list[dict[str, str]],
+        fallback: str,
+    ) -> str:
+        """Render an optional Markdown research brief under code-owned controls."""
+        if document is None:
+            return fallback
+        template = document.read_text(encoding="utf-8").strip()
+        if not template:
+            raise ValueError(f"AI naked signal prompt_document is empty: {document}")
+        values = {
+            "{{REQUESTED_COUNT}}": str(requested),
+            "{{ALLOWED_OPERATORS}}": ", ".join(self.allowed_operators),
+            "{{WINDOWS}}": ", ".join(map(str, self.windows)),
+            "{{FIELD_CATALOG_JSON}}": json.dumps(
+                field_payload, ensure_ascii=False, separators=(",", ":"),
+            ),
+        }
+        for placeholder, value in values.items():
+            template = template.replace(placeholder, value)
+        return (
+            f"{template}\n\n"
+            "【代码执行契约，优先级最高】\n"
+            "本次调用已获授权，请直接生成，不要询问确认或等待更多输入。"
+            f"仅生成 {requested} 条候选；每条只使用下列真实字段中的一个，最多两层算子。"
+            "不要使用 vec/backfill/group/中性化，代码会按字段类型自动处理。"
+            f"允许算子：{', '.join(self.allowed_operators)}。"
+            f"窗口仅限：{', '.join(map(str, self.windows))}。\n"
+            "严格输出 JSON 数组，每项仅含 title、expression、rationale；"
+            "rationale 必须说明市场低效、经济机制、错价来源和因子类别。\n"
+            f"字段目录：{json.dumps(field_payload, ensure_ascii=False, separators=(',', ':'))}"
+        )
 
     @staticmethod
     def _parse_response(response: str) -> list[dict[str, object]]:

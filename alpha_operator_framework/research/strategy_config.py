@@ -334,6 +334,7 @@ class ConstructionStrategyConfig:
     source: str = "raw_fields"
     stage: int = 1
     document: Path | None = None
+    prompt_document: Path | None = None
     llm_profile: str | None = None
 
     @property
@@ -353,6 +354,8 @@ class ConstructionStrategyConfig:
         }
         if self.document is not None:
             result["document"] = str(self.document)
+        if self.prompt_document is not None:
+            result["prompt_document"] = str(self.prompt_document)
         if self.llm_profile is not None:
             result["llm_profile"] = self.llm_profile
         return result
@@ -446,6 +449,7 @@ def _parse_strategy(
     if stage < 1:
         raise ValueError(f"{strategy_id}.stage must be positive")
     document: Path | None = None
+    prompt_document: Path | None = None
     llm_profile = str(raw.get("llm_profile") or "").strip() or None
     if kind == "literature_llm":
         raw_document = str(raw.get("document") or "").strip()
@@ -463,8 +467,17 @@ def _parse_strategy(
             raise ValueError(f"document is only valid for literature_llm: {strategy_id}")
         if llm_profile is None:
             raise ValueError(f"AI naked signal strategy {strategy_id} requires llm_profile")
-    elif raw.get("document") is not None or raw.get("llm_profile") is not None:
-        raise ValueError(f"document/llm_profile are only valid for literature_llm: {strategy_id}")
+        raw_prompt_document = str(raw.get("prompt_document") or "").strip()
+        if raw_prompt_document:
+            prompt_document = Path(raw_prompt_document)
+            if base_path is not None and not prompt_document.is_absolute():
+                prompt_document = (base_path / prompt_document).resolve()
+            if prompt_document.suffix.lower() not in {".md", ".markdown"}:
+                raise ValueError(f"AI naked signal prompt_document must be a Markdown file: {strategy_id}")
+            if not prompt_document.exists() or not prompt_document.is_file():
+                raise ValueError(f"AI naked signal prompt_document is unavailable: {prompt_document}")
+    elif raw.get("document") is not None or raw.get("prompt_document") is not None or raw.get("llm_profile") is not None:
+        raise ValueError(f"document/prompt_document/llm_profile are only valid for LLM strategies: {strategy_id}")
     return ConstructionStrategyConfig(
         strategy_id=strategy_id,
         kind=kind,
@@ -475,6 +488,7 @@ def _parse_strategy(
         source=source,
         stage=stage,
         document=document,
+        prompt_document=prompt_document,
         llm_profile=llm_profile,
     )
 

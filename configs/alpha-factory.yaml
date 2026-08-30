@@ -66,6 +66,7 @@ research:
         kind: ai_naked_signal
         families: [ai_naked]
         llm_profile: deepseek
+        prompt_document: ../docs/prompts/brain_raw_signal_v1.md
         order_depth: {min: 1, max: 4}
         field_count: {exact: 1}
         quota_per_leaf_family: 8

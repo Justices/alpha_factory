@@ -256,6 +256,36 @@ def test_ai_naked_signal_grounds_vector_fields_before_ast_acceptance() -> None:
     assert '"rationale":"Attention overreaction' in outcome.provenances[0].hypothesis_id
 
 
+def test_ai_naked_signal_renders_configured_markdown_prompt(tmp_path) -> None:
+    prompt_document = tmp_path / "raw-signal.md"
+    prompt_document.write_text(
+        "# Research brief\nCount={{REQUESTED_COUNT}}\nFields={{FIELD_CATALOG_JSON}}",
+        encoding="utf-8",
+    )
+    captured = {}
+
+    class FakeLlm:
+        def chat(self, **kwargs):
+            captured.update(kwargs)
+            return """[{"title":"Momentum","expression":"rank(returns)","rationale":"A clear mechanism."}]"""
+
+    config = ConstructionStrategyConfig(
+        strategy_id="ai-naked", kind="ai_naked_signal", families=("ai_naked",),
+        order_depth=StructuralConstraint(minimum=1, maximum=4),
+        field_count=StructuralConstraint(exact=1), source="raw_fields",
+        llm_profile="deepseek", prompt_document=prompt_document,
+    )
+    outcome = ConstructionStrategyRegistry((AiNakedSignalStrategy(FakeLlm()),)).generate(
+        ConstructionPlan((config,)),
+        ConstructionContext((FieldSpec("returns", "pv", "MATRIX", description="Daily returns"),), ()),
+    )
+
+    assert len(outcome.candidates) == 1
+    assert "Count=32" in captured["prompt"]
+    assert '"id":"returns"' in captured["prompt"]
+    assert "代码执行契约" in captured["prompt"]
+
+
 def test_ai_naked_signal_uses_type_aware_scalarization_and_cycles_vector_ops() -> None:
     class FakeLlm:
         def chat(self, **_kwargs):

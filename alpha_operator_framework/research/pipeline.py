@@ -17,7 +17,6 @@ from __future__ import annotations
 
 import json
 import logging
-import os
 import time
 from dataclasses import dataclass, field
 from pathlib import Path
@@ -25,7 +24,7 @@ from typing import Any, Dict, List, Optional, Sequence, Union
 import numpy as np
 
 from alpha_operator_framework.database.repository import AlphaDatabase
-from alpha_operator_framework.domain.ast import to_canonical_string, validate_expression
+from alpha_operator_framework.domain.ast import to_canonical_string
 from alpha_operator_framework.domain.decay import AlphaDecayProfile, profile_alpha_decay
 from alpha_operator_framework.domain.evidence import EvidenceLevel
 from alpha_operator_framework.domain.families import Task
@@ -33,7 +32,6 @@ from alpha_operator_framework.domain.fields import FieldSpec
 from alpha_operator_framework.domain.judge import (
     AlphaJudge,
     JudgeReport,
-    JudgeVerdict,
 )
 from alpha_operator_framework.domain.overfitting import (
     TrialLedger,
@@ -55,7 +53,6 @@ from alpha_operator_framework.research.ast_translator import PaperToASTTranslato
 from alpha_operator_framework.research.db_persister import persist_research_pipeline_results
 from alpha_operator_framework.research.document_parser import (
     DocumentType,
-    load_literature_content,
     parse_document,
 )
 from alpha_operator_framework.research.field_grounder import SemanticFieldGrounder
@@ -118,8 +115,8 @@ class ResearchPipelineResult:
         db_str = f"✅ 已持久化入库 ({self.db_stats.get('inserted_expressions', 0)} 条表达式, {self.db_stats.get('saved_details', 0)} 条回测详情)" if self.db_persisted else "❌ 未落库"
 
         lines = [
-            f"# 研报认知提炼与 Alpha 终审研发报告",
-            f"",
+            "# 研报认知提炼与 Alpha 终审研发报告",
+            "",
             f"- **文献标题**: {self.paper_title}",
             f"- **文献类型**: {self.doc_type}",
             f"- **回测模式**: {mode_str}",
@@ -127,11 +124,11 @@ class ResearchPipelineResult:
             f"- **提炼假说数**: {self.extracted_ideas_count} 个 | **生成 AST 任务数**: {len(self.generated_tasks)} 个",
             f"- **数据库状态**: {db_str}",
             f"- **全流程耗时**: {self.execution_time_seconds:.2f} 秒",
-            f"",
-            f"## 一、 提交优先级排序与终审裁决",
-            f"",
-            f"| 排名 | Alpha 标识 | 终审评级 | 综合得分 | Sharpe | Fitness | 换手率 | 年化收益 | 最大回撤 | 推荐 Decay | 行动建议 |",
-            f"| :---: | :--- | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :--- |",
+            "",
+            "## 一、 提交优先级排序与终审裁决",
+            "",
+            "| 排名 | Alpha 标识 | 终审评级 | 综合得分 | Sharpe | Fitness | 换手率 | 年化收益 | 最大回撤 | 推荐 Decay | 行动建议 |",
+            "| :---: | :--- | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :--- |",
         ]
 
         for idx, cand in enumerate(self.ranked_candidates, 1):
@@ -154,9 +151,9 @@ class ResearchPipelineResult:
 
         if self.top_submission_alpha:
             lines.extend([
-                f"",
-                f"## 二、 推荐首发提交 Alpha 详情",
-                f"",
+                "",
+                "## 二、 推荐首发提交 Alpha 详情",
+                "",
                 f"- **Alpha ID**: `{self.top_submission_alpha['alpha_id']}`",
                 f"- **AST 规范表达式**: `{self.top_submission_alpha['expression']}`",
                 f"- **经济学机理**: {self.top_submission_alpha.get('rationale', 'N/A')}",
@@ -409,8 +406,6 @@ def run_literature_research_pipeline(
         for idx, task in enumerate(tasks, 1):
             alpha_id = f"{region}_ALPHA_{idx:02d}_{task.family}"
             can_expr = to_canonical_string(task.expression)
-            val = validate_expression(can_expr)
-
             if run_sandbox_backtest:
                 metrics = sandbox.evaluate_metrics(can_expr)
                 backtest_metrics[alpha_id] = metrics
@@ -588,7 +583,7 @@ def main():
     args = parser.parse_args()
     ds_list = [d.strip() for d in args.datasets.split(",") if d.strip()] if args.datasets else None
 
-    print(f"🚀 启动全自动量化研发流水线...")
+    print("🚀 启动全自动量化研发流水线...")
     print(f"   文献: {args.paper}")
     print(f"   市场: {args.region} | 中性化: {args.neutralization} | 延迟: {args.delay}")
     print("   回测模式: 💻 本地向量化沙盒高速仿真")

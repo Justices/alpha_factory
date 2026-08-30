@@ -7,7 +7,6 @@
 
 from __future__ import annotations
 
-import asyncio
 import json
 from collections import defaultdict
 from pathlib import Path
@@ -90,6 +89,27 @@ class DataFieldCache(DataCache):
             return dir_path / f"{dataset_id}.json"
         return dir_path
 
+    def _groups_path(self, region: str, delay: int, universe: str) -> Path:
+        """Return the dedicated scope-level GROUP-field cache file."""
+        return self._datafields_dir(region, delay, universe) / "_groups.json"
+
+    def load_group_fields(self, region: str, delay: int, universe: str) -> Optional[List[Dict[str, Any]]]:
+        """Load GROUP fields for one exact scope; ``None`` means cache miss."""
+        path = self._groups_path(region, delay, universe)
+        if not path.exists():
+            return None
+        try:
+            payload = json.loads(path.read_text(encoding="utf-8-sig"))
+        except (OSError, json.JSONDecodeError, ValueError):
+            return None
+        return payload if isinstance(payload, list) else []
+
+    def save_group_fields(self, region: str, delay: int, universe: str, items: List[Dict[str, Any]]) -> None:
+        """Persist the authoritative GROUP query result, including an empty result."""
+        path = self._groups_path(region, delay, universe)
+        path.parent.mkdir(parents=True, exist_ok=True)
+        path.write_text(json.dumps(items, ensure_ascii=False, indent=2), encoding="utf-8")
+
     def load_dataset(self, region: str, delay: int, universe: str, dataset_id: str) -> Optional[List[Dict[str, Any]]]:
         """加载单个数据集的字段."""
         path = self._cache_path(region, delay, universe, dataset_id)
@@ -111,8 +131,17 @@ class DataFieldCache(DataCache):
         path.write_text(json.dumps(items, ensure_ascii=False, indent=2), encoding="utf-8")
         dataset_index = self._dataset_index_path(region, delay, universe)
         datasets = _read_index(dataset_index)
-        dataset = next((item.get("dataset") for item in items if isinstance(item.get("dataset"), dict)), {})
-        category = next((item.get("category") for item in items if isinstance(item.get("category"), dict)), {})
+        dataset: Dict[str, Any] = {}
+        category: Dict[str, Any] = {}
+        for item in items:
+            candidate_dataset = item.get("dataset")
+            candidate_category = item.get("category")
+            if not dataset and isinstance(candidate_dataset, dict):
+                dataset = candidate_dataset
+            if not category and isinstance(candidate_category, dict):
+                category = candidate_category
+            if dataset and category:
+                break
         entry = {"id": dataset_id, "name": str(dataset.get("name") or ""), "category": category} if dataset else {"id": dataset_id, "name": "", "category": category}
         datasets = [item for item in datasets if item.get("id") != dataset_id]
         datasets.append(entry)
@@ -161,6 +190,31 @@ class DataFieldCache(DataCache):
             # 平台拉取失败 (如 dataset_id 无效返回 400) → 返回空, 由调用方决定降级
             return {"items": [], "count": 0}
         return {"items": rows, "count": len(rows)}
+
+    async def _fetch_scope_fields_and_groups(
+        self,
+        region: str,
+        universe: str,
+        delay: int,
+        *,
+        page_delay: float,
+    ) -> List[Dict[str, Any]]:
+        """Initialize a scope by fetching its ordinary and GROUP field views together."""
+        import asyncio
+
+        fields_result, groups_result = await asyncio.gather(
+            self.fetch_platform(region=region, universe=universe, delay=delay, page_delay=page_delay),
+            self.fetch_platform(
+                region=region, universe=universe, delay=delay,
+                data_type="GROUP", page_delay=page_delay,
+            ),
+        )
+        fields = fields_result.get("items", [])
+        groups = groups_result.get("items", [])
+        if fields:
+            self._save_by_dataset(region, delay, universe, fields)
+        self.save_group_fields(region, delay, universe, groups)
+        return fields
 
     def get_datafields(
         self,
@@ -224,16 +278,17 @@ class DataFieldCache(DataCache):
 
         # 从平台获取全量字段
         import asyncio
+        if not search and not data_type:
+            return asyncio.run(self._fetch_scope_fields_and_groups(
+                region, universe, delay, page_delay=page_delay,
+            ))
         result = asyncio.run(self.fetch_platform(
             region=region, universe=universe, delay=delay,
-            search=search, data_type=data_type, page_delay=page_delay
+            search=search, data_type=data_type, page_delay=page_delay,
         ))
         items = result.get("items", [])
-
-        # 按数据集分组保存
         if items:
             self._save_by_dataset(region, delay, universe, items)
-
         return items
 
     async def aget_datafields(
@@ -283,6 +338,10 @@ class DataFieldCache(DataCache):
 
         # 分支3: 本地全 miss → 平台全量拉取 (带 429 退避), 并按数据集落盘。
         #   落盘后下一次进入分支2, 本地优先命中, 网络只碰这一次。
+        if not search and not data_type:
+            return await self._fetch_scope_fields_and_groups(
+                region, universe, delay, page_delay=page_delay,
+            )
         result = await self.fetch_platform(
             region=region, universe=universe, delay=delay,
             search=search, data_type=data_type, page_delay=page_delay,
@@ -291,6 +350,45 @@ class DataFieldCache(DataCache):
         if items:
             self._save_by_dataset(region, delay, universe, items)
         return items
+
+    async def aget_group_fields(
+        self,
+        region: str,
+        universe: str,
+        delay: int = 1,
+        *,
+        force_refresh: bool = False,
+        page_delay: float = 0.5,
+    ) -> List[Dict[str, Any]]:
+        """Cache-first GROUP lookup for one exact BRAIN research scope."""
+        if not force_refresh:
+            cached = self.load_group_fields(region, delay, universe)
+            if cached is not None:
+                return cached
+        result = await self.fetch_platform(
+            region=region, universe=universe, delay=delay,
+            data_type="GROUP", page_delay=page_delay,
+        )
+        items = result.get("items", [])
+        self.save_group_fields(region, delay, universe, items)
+        return items
+
+    def get_group_fields(
+        self,
+        region: str,
+        universe: str,
+        delay: int = 1,
+        *,
+        force_refresh: bool = False,
+        page_delay: float = 0.5,
+    ) -> List[Dict[str, Any]]:
+        """Synchronous cache-first GROUP lookup for construction strategies."""
+        import asyncio
+
+        return asyncio.run(self.aget_group_fields(
+            region, universe, delay,
+            force_refresh=force_refresh, page_delay=page_delay,
+        ))
 
     def _save_by_dataset(self, region: str, delay: int, universe: str, items: List[Dict[str, Any]]) -> None:
         """按数据集分组保存字段."""
@@ -396,6 +494,26 @@ async def aget_datafields(
     )
 
 
+def get_group_fields(
+    region: str,
+    universe: str = "",
+    delay: int = -1,
+    *,
+    force_refresh: bool = False,
+    page_delay: float = 0.5,
+) -> List[Dict[str, Any]]:
+    """Get exact-scope GROUP fields through the dedicated cache route."""
+    from alpha_operator_framework.platform.platform_config import get_default_delay, get_default_universe
+
+    if not universe:
+        universe = get_default_universe(region)
+    if delay < 0:
+        delay = get_default_delay(region)
+    return DataFieldCache().get_group_fields(
+        region, universe, delay, force_refresh=force_refresh, page_delay=page_delay,
+    )
+
+
 def get_datafields_by_region(region: str, **kwargs) -> List[Dict[str, Any]]:
     """仅指定区域获取数据字段（极简接口）.
 
@@ -434,4 +552,7 @@ def get_dataset_ids(region: str, universe: str = "", delay: int = -1) -> List[st
     return DataFieldCache().get_dataset_ids(region, delay, universe)
 
 
-__all__ = ["DataFieldCache", "get_datafields", "aget_datafields", "get_datafields_by_region", "get_dataset_ids"]
+__all__ = [
+    "DataFieldCache", "get_datafields", "aget_datafields", "get_group_fields",
+    "get_datafields_by_region", "get_dataset_ids",
+]

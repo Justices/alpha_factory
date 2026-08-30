@@ -2,7 +2,6 @@
 
 import tempfile
 from pathlib import Path
-import pytest
 
 from alpha_operator_framework.database import AlphaDatabase, TemplateRepository
 from alpha_operator_framework.carpet import CarpetMiningConfig, StratifiedCarpetMiner

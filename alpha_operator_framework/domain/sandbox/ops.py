@@ -7,7 +7,6 @@
 from __future__ import annotations
 
 import numpy as np
-from typing import Any, Dict, Optional, Tuple, Union
 
 
 # ---------------------------------------------------------------------------
@@ -183,8 +182,6 @@ def ts_decay_linear(X: np.ndarray, w: int) -> np.ndarray:
         return out
 
     weights = np.arange(1, w + 1, dtype=np.float64)
-    weights_sum = np.sum(weights)
-
     for i in range(w - 1, T):
         window = X[i - w + 1 : i + 1]  # (w, N)
         # 加权平均

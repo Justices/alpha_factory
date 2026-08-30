@@ -8,7 +8,7 @@
 from __future__ import annotations
 
 import re
-from typing import Dict, Iterable, List, Sequence, Tuple
+from typing import Dict, List, Sequence, Tuple
 
 from alpha_operator_framework.domain.families import Task
 from alpha_operator_framework.domain.fields import DEFAULT_VEC_OPS, FieldSpec, preprocess_field

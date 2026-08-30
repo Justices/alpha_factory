@@ -11,10 +11,9 @@ from __future__ import annotations
 
 from dataclasses import dataclass, field
 from enum import Enum
-from typing import Any, Dict, List, Optional, Sequence, Tuple
+from typing import Any, Dict, List, Optional, Sequence
 
 from alpha_operator_framework.domain.judge.diversity import (
-    ValueFactorDiversity,
     compute_value_factor_diversity,
     project_diversity_after_submission,
 )

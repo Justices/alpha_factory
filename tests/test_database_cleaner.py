@@ -1,10 +1,8 @@
 """Unit tests for DatabaseCleaner."""
 
-import pytest
 import sqlite3
-from pathlib import Path
 
-from alpha_operator_framework.database.cleaner import DatabaseCleaner, clean_alpha_research_db
+from alpha_operator_framework.database.cleaner import DatabaseCleaner
 from alpha_operator_framework.database.repository import AlphaDatabase
 
 

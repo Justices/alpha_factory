@@ -161,23 +161,47 @@ class SqlAlchemyKnowledgeRepository:
         self.engine = engine
 
     def save(self, knowledge: KnowledgeBase, *, round_id: str | None = None, policy_version: str | None = None, event_offset: int | None = None) -> None:
-        """保存最新的全局进化知识库快照。"""
-        logger.info("正在保存最新的全局知识库快照 (version=%s)...", knowledge.version)
+        """Append an immutable, versioned knowledge snapshot."""
+        logger.info("正在保存全局知识库快照 (version=%s)...", knowledge.version)
         payload = _json({"version": knowledge.version, "field_scores": knowledge.field_scores,
                          "operator_scores": knowledge.operator_scores, "template_scores": knowledge.template_scores,
-                         "rejected_templates": sorted(knowledge.rejected_templates), "field_trials": knowledge.field_trials})
+                         "rejected_templates": sorted(knowledge.rejected_templates), "field_trials": knowledge.field_trials,
+                         "round_id": round_id, "policy_version": policy_version,
+                         "event_offset": event_offset, "created_at": datetime.now(UTC).isoformat()})
         with self.engine.begin() as connection:
-            if connection.execute(update(knowledge_snapshot).where(knowledge_snapshot.c.id == 1).values(payload=payload)).rowcount == 0:
-                connection.execute(insert(knowledge_snapshot).values(id=1, payload=payload))
+            existing = connection.execute(
+                select(knowledge_snapshot.c.id).where(knowledge_snapshot.c.id == knowledge.version)
+            ).scalar_one_or_none()
+            if existing is None:
+                connection.execute(insert(knowledge_snapshot).values(id=knowledge.version, payload=payload))
 
     def load(self) -> KnowledgeBase:
         """加载最新的全局知识库。"""
         logger.info("正在加载最新的全局知识库...")
         with self.engine.connect() as connection:
-            payload = connection.execute(select(knowledge_snapshot.c.payload).where(knowledge_snapshot.c.id == 1)).scalar_one_or_none()
+            payload = connection.execute(
+                select(knowledge_snapshot.c.payload).order_by(knowledge_snapshot.c.id.desc()).limit(1)
+            ).scalar_one_or_none()
         result = _knowledge(payload) if payload is not None else KnowledgeBase()
         logger.info("全局知识库反序列化加载成功，当前知识库版本: %s", result.version)
         return result
+
+    def load_version(self, version: int) -> KnowledgeBase | None:
+        """Load one immutable knowledge snapshot by its version."""
+        with self.engine.connect() as connection:
+            payload = connection.execute(
+                select(knowledge_snapshot.c.payload).where(knowledge_snapshot.c.id == version)
+            ).scalar_one_or_none()
+        return _knowledge(payload) if payload is not None else None
+
+    def history_for_round(self, round_id: str) -> list[dict[str, Any]]:
+        """Return persisted knowledge snapshot lineage for one research round."""
+        with self.engine.connect() as connection:
+            payloads = connection.execute(
+                select(knowledge_snapshot.c.payload).order_by(knowledge_snapshot.c.id)
+            ).scalars()
+            history = [json.loads(payload) for payload in payloads]
+        return [entry for entry in history if entry.get("round_id") == round_id]
 
 
 class SqlAlchemyEventRepository:

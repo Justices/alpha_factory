@@ -7,7 +7,7 @@
 ## ⚡ 1. 环境准备与数据库初始化
 
 ### 环境要求
-- Python 3.10+
+- Python 3.12 或 3.13
 - 依赖项安装：
   ```bash
   pip install -r requirements.txt
@@ -28,7 +28,7 @@ python alpha_machine.py init-db
 # 验证数据库完整性与表结构版本
 python init_db.py --verify
 
-# 运行全套 465 项自动化测试 (100% 通过, 0 警告)
+# 运行全套自动化测试
 python -m pytest -q
 
 # 运行小批崩溃恢复与治理闭环演练 (生产前推荐)
@@ -160,8 +160,8 @@ for t in tasks[:3]:
 
 ## 📖 更多详细文档
 
-- [系统架构设计全景](file:///d:/quant/alpha_factory/ARCHITECTURE.md)
-- [权威用户操作手册](file:///d:/quant/alpha_factory/USAGE_GUIDE.md)
-- [全自主进化与高阶挖掘实战指南](file:///d:/quant/alpha_factory/docs/guides/autonomous_evolution_guide.md)
-- [数据库 24+5 表/视图设计规范](file:///d:/quant/alpha_factory/DATABASE_DESIGN.md)
-- [文档全景导航索引](file:///d:/quant/alpha_factory/docs/INDEX.md)
+- [系统架构设计全景](ARCHITECTURE.md)
+- [权威用户操作手册](USAGE_GUIDE.md)
+- [全自主进化与高阶挖掘实战指南](docs/guides/autonomous_evolution_guide.md)
+- [数据库 24+5 表/视图设计规范](DATABASE_DESIGN.md)
+- [文档全景导航索引](docs/INDEX.md)

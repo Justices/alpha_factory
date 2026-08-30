@@ -1,7 +1,5 @@
 """Unit tests for TrialLedger SQLite persistence and intra-family correlation adjustments."""
 
-import pytest
-from pathlib import Path
 
 from alpha_operator_framework.domain.overfitting import TrialLedger
 

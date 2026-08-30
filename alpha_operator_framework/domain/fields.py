@@ -16,7 +16,7 @@ from __future__ import annotations
 import random
 from dataclasses import dataclass
 from itertools import combinations
-from typing import Sequence, List, Tuple
+from typing import List, Optional, Sequence, Tuple
 
 from alpha_operator_framework.domain.operators import vec_ops
 

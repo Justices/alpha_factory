@@ -1,17 +1,11 @@
 """Unit tests for Native Zero-Dependency LLM Client and Mode C Integration."""
 
-import io
 import json
-import os
 from unittest.mock import MagicMock, patch
-import pytest
 
 from alpha_operator_framework.domain.fields import FieldSpec
 from alpha_operator_framework.research import (
-    DocumentType,
-    LLMConfig,
     LLMConfigManager,
-    ProviderConfig,
     UnifiedLLMClient,
     call_openai_compatible_chat,
     extract_ideas_with_llm,

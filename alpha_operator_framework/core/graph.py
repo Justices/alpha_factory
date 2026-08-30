@@ -5,9 +5,8 @@
 
 from __future__ import annotations
 
-import hashlib
-from dataclasses import dataclass, field
-from typing import Any, Dict, List, Optional, Set
+from dataclasses import dataclass
+from typing import Dict, List, Optional, Set
 
 
 @dataclass(frozen=True)

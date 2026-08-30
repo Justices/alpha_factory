@@ -68,3 +68,41 @@ def test_runtime_factory_rejects_missing_construction_plan_before_execution(tmp_
 
     with pytest.raises(ValueError, match="explicit strategy configuration is required"):
         resolve_construction_plan(config)
+
+
+def test_runtime_factory_resolves_named_ordered_construction_mode(tmp_path: Path) -> None:
+    config = tmp_path / "alpha-factory.yaml"
+    config.write_text(
+        f"""storage:
+  driver: sqlite
+  path: {(tmp_path / 'research.db').as_posix()}
+research:
+  default_construction_mode: multi-stage
+  construction_modes:
+    multi-stage:
+      stages:
+        - [first]
+        - [second]
+  construction:
+    strategies:
+      - id: first
+        kind: raw_first_order
+        families: ["first_order"]
+        order_depth: {{min: 1, max: 3}}
+        field_count: {{exact: 1}}
+        source: raw_fields
+      - id: second
+        kind: depth_construction
+        families: ["unary"]
+        order_depth: {{min: 2, max: 6}}
+        field_count: {{min: 1, max: 2}}
+        source: qualified_candidates
+""",
+        encoding="utf-8",
+    )
+
+    plan = resolve_construction_plan(config)
+
+    assert [(strategy.strategy_id, strategy.stage) for strategy in plan.strategies] == [
+        ("first", 1), ("second", 2),
+    ]

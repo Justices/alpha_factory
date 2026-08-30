@@ -9,7 +9,7 @@
 所有算子均为纯函数, 不依赖平台状态。
 """
 
-from typing import Sequence, List, Tuple
+from typing import List, Sequence
 import re
 
 # ---------------------------------------------------------------------------
@@ -34,7 +34,11 @@ group_ops = ["group_neutralize", "group_rank", "group_zscore"]
 vec_ops = [
     "vec_avg",
     "vec_sum",
-    "vec_stddev"
+    "vec_min",
+    "vec_max",
+    "vec_stddev",
+    "vec_range",
+    "vec_count",
 ]
 
 # 扩展算子 (来自 cold_templates ACCESS_LIMITED_OPS + machine_lib)
@@ -57,7 +61,7 @@ ACCESS_LIMITED_OPS = ("regression_neut", "s_log_1p", "vector_neut",
 # 工厂函数 (来自 machine_lib)
 # ---------------------------------------------------------------------------
 
-def ts_factory(op: str, field: str, windows: Sequence[int] = None) -> List[str]:
+def ts_factory(op: str, field: str, windows: Sequence[int] | None = None) -> List[str]:
     """时间序列算子工厂: 对字段应用指定ts算子并展开窗口.
 
     Args:
@@ -128,7 +132,7 @@ def group_factory(
 
 def first_order_factory(
     fields: Sequence[str],
-    ops_set: Sequence[str] = None
+    ops_set: Sequence[str] | None = None
 ) -> List[str]:
     """一阶因子工厂: 对字段集合应用算子集合.
 
@@ -165,7 +169,7 @@ def first_order_factory(
 
 def second_order_factory(
     first_order_fields: Sequence[str],
-    group_ops_set: Sequence[str] = None,
+    group_ops_set: Sequence[str] | None = None,
     region: str = "USA",
     available_groups: Sequence[str] = ()
 ) -> List[str]:
@@ -221,7 +225,7 @@ def uses_access_limited_op(expression: str) -> List[str]:
 # 辅助函数
 # ---------------------------------------------------------------------------
 
-def get_vec_fields(fields: Sequence[str], vec_ops: Sequence[str] = None) -> List[str]:
+def get_vec_fields(fields: Sequence[str], vec_ops: Sequence[str] | None = None) -> List[str]:
     """对 VECTOR 字段应用 VEC 算子归约为标量。
 
     来自 machine_lib.get_vec_fields.
@@ -237,18 +241,17 @@ def get_vec_fields(fields: Sequence[str], vec_ops: Sequence[str] = None) -> List
         >>> get_vec_fields(["nws82_sentiment"], ["vec_avg", "vec_count"])
         ['vec_avg(nws82_sentiment)', 'vec_count(nws82_sentiment)']
     """
-    if vec_ops is None:
-        vec_ops = vec_ops
+    selected_ops = vec_ops if vec_ops is not None else globals()["vec_ops"]
 
     vec_fields = []
     for field in fields:
-        for vec_op in vec_ops:
+        for vec_op in selected_ops:
             vec_fields.append(f"{vec_op}({field})")
 
     return vec_fields
 
 
-def process_datafields(fields_df, vec_ops: Sequence[str] = None) -> List[str]:
+def process_datafields(fields_df, vec_ops: Sequence[str] | None = None) -> List[str]:
     """处理数据字段DataFrame, 生成标量表达式列表.
 
     来自 machine_lib.process_datafields.

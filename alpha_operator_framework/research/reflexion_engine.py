@@ -18,14 +18,11 @@ import logging
 import re
 import uuid
 from dataclasses import dataclass, field
-from typing import Any, Dict, List, Optional, Sequence
+from typing import Any, Dict, List, Optional, Sequence, Tuple
 
 from alpha_operator_framework.database.repository import AlphaDatabase
-from alpha_operator_framework.domain.ast.canonicalizer import to_canonical_string
-from alpha_operator_framework.domain.ast.validator import validate_expression
 from alpha_operator_framework.domain.families import Task
-from alpha_operator_framework.distill.diagnostic import FailureDiagnosis, diagnose_alpha_failure
-from alpha_operator_framework.distill.template_abstractor import abstract_templates
+from alpha_operator_framework.distill.diagnostic import diagnose_alpha_failure
 from alpha_operator_framework.platform.platform_simulator import (
     BrainPlatformSimulator,
     PlatformAlphaResult,
@@ -173,7 +170,10 @@ class LLMReflexionEngine:
                 model=model,
                 system_prompt="你是一名极其严谨的量化回测风控与因子基因重构专家。",
             )
-            data = json.loads(re.search(r"\{.*\}", raw_response, re.DOTALL).group(0))
+            match = re.search(r"\{.*\}", raw_response, re.DOTALL)
+            if match is None:
+                raise ValueError("LLM response did not contain a JSON object")
+            data = json.loads(match.group(0))
             critique = data.get("reflexion", "")
             evolved = []
             for item in data.get("evolved_ideas", []):

@@ -2,7 +2,6 @@
 
 import tempfile
 from pathlib import Path
-from unittest.mock import MagicMock
 
 from alpha_operator_framework.database import AlphaDatabase
 from alpha_operator_framework.platform.platform_simulator import PlatformAlphaResult

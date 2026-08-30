@@ -2,7 +2,6 @@
 
 import tempfile
 from pathlib import Path
-import pytest
 
 from alpha_operator_framework.database import AlphaDatabase
 from alpha_operator_framework.distill.template_pruner import (

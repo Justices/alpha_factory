@@ -1,6 +1,5 @@
 """Unit tests for Literature & Research Mining Engine (research/)."""
 
-import pytest
 
 from alpha_operator_framework.domain.fields import FieldSpec
 from alpha_operator_framework.research import (
@@ -8,10 +7,7 @@ from alpha_operator_framework.research import (
     IdeaExtractor,
     PaperIdea,
     PaperToASTTranslator,
-    ParsedDocument,
     SemanticFieldGrounder,
-    clean_literature_text,
-    extract_formulas_from_text,
     ingest_literature_to_alphas,
     parse_document,
 )

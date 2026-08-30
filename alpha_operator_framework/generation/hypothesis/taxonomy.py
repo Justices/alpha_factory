@@ -13,7 +13,7 @@ from __future__ import annotations
 
 from dataclasses import dataclass
 from enum import Enum
-from typing import Dict, List, Sequence, Tuple
+from typing import Tuple
 
 
 class HypothesisCategory(str, Enum):

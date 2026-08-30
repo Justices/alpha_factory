@@ -2,7 +2,6 @@
 
 import tempfile
 from pathlib import Path
-import pytest
 
 from alpha_operator_framework.database import (
     AlphaDatabase,
@@ -12,7 +11,6 @@ from alpha_operator_framework.database import (
     TemplateRepository,
     QueueRepository,
     EventLedgerRepository,
-    DatabaseConnectionManager,
 )
 from alpha_operator_framework.database.models import Template
 from alpha_operator_framework.research.round import Candidate
@@ -128,7 +126,11 @@ def test_load_completed_expression_results_returns_metrics_and_candidate_family(
     db.catalog_research_candidates("completed-round", [candidate], settings)
     db.save_result_with_checks("alpha-1", {
         "expression": candidate.expression,
-        "is": {"sharpe": 1.3, "fitness": 0.9, "checks": []},
+        "is": {
+            "sharpe": 1.3, "fitness": 0.9, "turnover": 0.15,
+            "margin": 6.5, "pnl": 123.0, "longCount": 60,
+            "shortCount": 55, "checks": [],
+        },
     }, settings)
 
     rows = db.load_completed_expression_results(settings)
@@ -136,6 +138,28 @@ def test_load_completed_expression_results_returns_metrics_and_candidate_family(
     assert [(row.expression, row.family, row.sharpe, row.fitness) for row in rows] == [
         ("rank(close)", "base", 1.3, 0.9),
     ]
+    assert rows[0].platform_alpha_id == "alpha-1"
+    assert (rows[0].turnover, rows[0].margin, rows[0].pnl) == (0.15, 6.5, 123.0)
+    assert (rows[0].long_count, rows[0].short_count) == (60, 55)
+
+
+def test_promotion_decisions_are_idempotent_and_auditable(tmp_path) -> None:
+    db = AlphaDatabase(tmp_path / "promotion_decisions.db")
+    settings = {
+        "region": "USA", "universe": "TOP3000", "delay": 1, "decay": 8,
+        "neutralization": "SUBINDUSTRY", "truncation": 0.08,
+    }
+
+    db.record_promotion_decision(
+        "task", settings, "sha-1", 2, "reject", "multi_channel_corr",
+        {"channels": ["sharpe", "fitness", "margin"]},
+    )
+    db.record_promotion_decision("task", settings, "sha-1", 2, "promote")
+
+    assert db.load_promotion_decisions("task") == [{
+        "alpha_sha": "sha-1", "stage": 2, "decision": "promote",
+        "reason": "", "details": {},
+    }]
 
 
 def test_domain_repositories_standalone_and_shared_connection():
@@ -228,6 +252,8 @@ def test_domain_repositories_standalone_and_shared_connection():
         assert popped is not None
         assert popped["alpha_id"] == "test_alpha_01"
         assert popped["status"] == "optimizing"
+        assert queue_repo.enqueue_optimization_once("test_alpha_01", "ts_rank(close, 10)") == q_id
+        assert len(queue_repo.get_optimization_queue(limit=10)) == 1
 
         # G. AlphaDatabase Facade: 聚合访问无缝
         assert db.get_total_trial_count() == 1

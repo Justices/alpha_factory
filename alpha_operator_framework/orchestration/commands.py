@@ -139,9 +139,9 @@ def cmd_run_all(args) -> None:
     print(f"  密度报告: {density_path}")
     print(f"  候选列表: {kept_path}")
     if args.local_sc:
-        print(f"  SC预检结果: runs/submit_sc_*.json")
+        print("  SC预检结果: runs/submit_sc_*.json")
     if args.prune_corr:
-        print(f"  相关性剪枝: runs/submit_pruned_corr.json")
+        print("  相关性剪枝: runs/submit_pruned_corr.json")
     print("\n下一步: 检查候选列表, 确认后手动提交")
 
 __all__ = ["cmd_run_all"]

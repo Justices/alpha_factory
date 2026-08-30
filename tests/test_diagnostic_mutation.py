@@ -1,6 +1,5 @@
 """Unit tests for Failure Diagnostic Engine and Alpha Mutator."""
 
-import pytest
 
 from alpha_operator_framework.distill.diagnostic import (
     FailureDiagnosis,

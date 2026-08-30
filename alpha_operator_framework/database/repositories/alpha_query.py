@@ -13,6 +13,10 @@ from ..models import AlphaExpression
 class AlphaQueryMixin(BaseRepository):
     """Expression queries and stratified sampling helpers."""
 
+    def get_expression_by_sha(self, alpha_sha: str) -> Optional[AlphaExpression]:
+        """Compatibility alias for the canonical Alpha SHA lookup."""
+        return self.get_expression_by_alpha_sha(alpha_sha)
+
     def get_expression_by_alpha_sha(self, alpha_sha: str) -> Optional[AlphaExpression]:
         """按表达式与 settings 的联合身份查询。"""
         row = self._get_connection().execute(
@@ -232,6 +236,68 @@ class AlphaQueryMixin(BaseRepository):
             for row in rows
         ]
 
+    def load_promotion_decisions(self, task_id: str) -> list[dict[str, object]]:
+        rows = self._get_connection().execute(
+            """SELECT alpha_sha, stage, decision, reason, details_json
+               FROM promotion_decisions WHERE task_id=? ORDER BY stage, id""",
+            (task_id,),
+        ).fetchall()
+        return [
+            {
+                "alpha_sha": row["alpha_sha"], "stage": int(row["stage"]),
+                "decision": row["decision"], "reason": row["reason"],
+                "details": json.loads(row["details_json"] or "{}"),
+            }
+            for row in rows
+        ]
+
+    def load_signal_validation_results(self, settings: Mapping[str, object]) -> list[dict[str, object]]:
+        """Return completed rank/sign children paired with their parent metrics."""
+        scope_hash = self.settings_scope_hash(settings)
+        rows = self._get_connection().execute(
+            """SELECT cl.parent_alpha_sha, cl.child_alpha_sha,
+                      COALESCE(parent.alpha_id, '') AS parent_alpha_id,
+                      COALESCE(parent.sharpe, 0.0) AS parent_sharpe,
+                      COALESCE(child.alpha_id, '') AS child_alpha_id,
+                      COALESCE(child.sharpe, 0.0) AS child_sharpe,
+                      COALESCE(cp.template_id, '') AS validation_variant,
+                      (SELECT COUNT(*) FROM alpha_checks ac
+                        WHERE ac.alpha_id=parent.alpha_id
+                          AND ac.check_name IN (
+                            'LOW_ROBUST_UNIVERSE_SHARPE',
+                            'LOW_ROBUST_UNIVERSE_SHARPE.WITH_RATIO',
+                            'LOW_ROBUST_UNIVERSE_RETURNS'
+                          )) AS robust_total,
+                      (SELECT COUNT(*) FROM alpha_checks ac
+                        WHERE ac.alpha_id=parent.alpha_id AND ac.result='PASS'
+                          AND ac.check_name IN (
+                            'LOW_ROBUST_UNIVERSE_SHARPE',
+                            'LOW_ROBUST_UNIVERSE_SHARPE.WITH_RATIO',
+                            'LOW_ROBUST_UNIVERSE_RETURNS'
+                          )) AS robust_passed,
+                      (SELECT COUNT(*) FROM alpha_checks ac
+                        WHERE ac.alpha_id=parent.alpha_id AND ac.result='FAIL'
+                          AND ac.check_name IN (
+                            'LOW_ROBUST_UNIVERSE_SHARPE',
+                            'LOW_ROBUST_UNIVERSE_SHARPE.WITH_RATIO',
+                            'LOW_ROBUST_UNIVERSE_RETURNS'
+                          )) AS robust_failed
+                 FROM construction_lineage cl
+                 JOIN alpha_details parent ON parent.alpha_sha=cl.parent_alpha_sha
+                 JOIN alpha_details child ON child.alpha_sha=cl.child_alpha_sha
+                 LEFT JOIN candidate_provenance cp ON cp.id = (
+                     SELECT cp2.id FROM candidate_provenance cp2
+                      WHERE cp2.scope_hash=cl.scope_hash
+                        AND cp2.candidate_sha=cl.child_alpha_sha
+                        AND cp2.strategy_id=cl.strategy_id
+                      ORDER BY cp2.id LIMIT 1
+                 )
+                WHERE cl.scope_hash=? AND cl.transform_kind='signal_validation'
+                ORDER BY cl.parent_alpha_sha, validation_variant""",
+            (scope_hash,),
+        ).fetchall()
+        return [dict(row) for row in rows]
+
     def load_completed_expression_results(self, settings: Mapping[str, object]) -> list[object]:
         """Load completed expressions and their persisted metrics for one settings scope."""
         from alpha_operator_framework.research.optimization import CompletedExpression
@@ -239,14 +305,19 @@ class AlphaQueryMixin(BaseRepository):
         scope = self._result_pruning_settings(settings)
         settings_json = json.dumps(scope, ensure_ascii=False, sort_keys=True, separators=(",", ":"))
         rows = self._get_connection().execute(
-            """SELECT ae.alpha_sha, ae.expression, ae.fields, MIN(rc.family) AS family,
+            """SELECT ae.alpha_sha, ae.expression, ae.expression_origin, ae.fields, MIN(rc.family) AS family,
+                      COALESCE(ad.alpha_id, '') AS platform_alpha_id,
                       COALESCE(ad.sharpe, 0.0) AS sharpe, COALESCE(ad.fitness, 0.0) AS fitness,
+                      COALESCE(ad.turnover, 0.0) AS turnover, COALESCE(ad.margin, 0.0) AS margin,
+                      ad.pnl AS pnl, ad.long_count AS long_count, ad.short_count AS short_count,
                       COALESCE(ad.ra_failed, 0) AS ra_failed, COALESCE(ad.ppa_failed, 0) AS ppa_failed
                  FROM alpha_expressions ae
                  LEFT JOIN round_candidates rc ON rc.alpha_sha = ae.alpha_sha
                  JOIN alpha_details ad ON ad.alpha_sha = ae.alpha_sha
                 WHERE ae.settings = ? AND ae.status = 'completed'
-                GROUP BY ae.alpha_sha, ae.expression, ae.fields, ad.sharpe, ad.fitness, ad.ra_failed, ad.ppa_failed
+                GROUP BY ae.alpha_sha, ae.expression, ae.expression_origin, ae.fields,
+                         ad.alpha_id, ad.sharpe, ad.fitness, ad.turnover, ad.margin,
+                         ad.pnl, ad.long_count, ad.short_count, ad.ra_failed, ad.ppa_failed
                 ORDER BY ae.id""",
             (settings_json,),
         ).fetchall()
@@ -256,6 +327,12 @@ class AlphaQueryMixin(BaseRepository):
                 sharpe=float(row["sharpe"]), fitness=float(row["fitness"]),
                 checks_passed=not bool(row["ra_failed"] or row["ppa_failed"]),
                 alpha_sha=row["alpha_sha"], family=row["family"] or "base",
+                origin_strategy=row["expression_origin"] or "",
+                platform_alpha_id=row["platform_alpha_id"] or "",
+                turnover=float(row["turnover"]), margin=float(row["margin"]),
+                pnl=float(row["pnl"]) if row["pnl"] is not None else None,
+                long_count=int(row["long_count"]) if row["long_count"] is not None else None,
+                short_count=int(row["short_count"]) if row["short_count"] is not None else None,
             )
             for row in rows
         ]

@@ -1,7 +1,6 @@
 """Unit tests for EvidenceLevel, Truth Boundaries, TrialLedger, and Anti-Overfitting improvements."""
 
 import pytest
-import numpy as np
 from datetime import datetime, timedelta, timezone
 
 from alpha_operator_framework.domain.evidence import (
@@ -16,10 +15,7 @@ from alpha_operator_framework.domain.judge.evaluator import AlphaJudge, JudgeVer
 from alpha_operator_framework.domain.overfitting import (
     TrialLedger,
     deflated_sharpe_ratio,
-    probabilistic_sharpe_ratio,
-    sharpe_haircut,
 )
-from alpha_operator_framework.domain.sandbox.engine import SignalDiagnosticEngine
 
 
 def _passing_checks(count=18):

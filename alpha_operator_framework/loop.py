@@ -17,8 +17,6 @@ from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Any, Dict, List, Optional, Tuple
 
-logger = logging.getLogger(__name__)
-
 from alpha_operator_framework.workflow import SurveyConfig, run_survey_with_fields
 
 from alpha_operator_framework.distill import (
@@ -29,38 +27,61 @@ from alpha_operator_framework.distill import (
     aggregate_operator_signals,
 )
 
+logger = logging.getLogger(__name__)
+
 
 @dataclass
 class LoopConfig:
     """研究闭环配置."""
 
-    rounds: int = 1                    # 迭代轮次
+    rounds: int = 1  # 迭代轮次
     region: str = "EUR"
     universe: str = "TOP2500"
     delay: int = 1
-    top_k_fields: int = 80             # 每轮加权采样的字段数
-    backtest_sample_n: int = 80        # 每轮真实回测的表达式抽样数 (控制额度与耗时, <=0=全部)
-    min_coverage: float = 0.5          # 字段股票截面覆盖闸
-    min_date_coverage: float = 0.9     # 字段历史日期覆盖闸 (平台 dateCoverage; 0=不过滤)
-    field_categories: Optional[Tuple[str, ...]] = None  # 字段category白名单 (None=不过滤, 如 ('fundamental',))
-    cold_boost: float = 0.5            # 加权采样的冷启动权重
-    min_trials: int = 1                # 沉淀时过滤噪声字段的最小回测次数
-    execute: bool = False              # 是否真正回测/提交 (默认 dry-run)
-    distill: bool = True               # 每轮是否沉淀字段信号
-    distill_templates: bool = True     # 每轮是否蒸馏达标表达式回填模板库 (P1)
-    distill_pairs: bool = True         # 每轮是否沉淀配对信号 (P2)
-    distill_operator_signals: bool = True  # 每轮是否沉淀算子信号 (第5根回流: 6→2 算子挑选)
-    max_alpha_budget: int = 1000       # alpha 总量预算 (已回测+本轮回测 <= 此值)
-    distill_prune_rules: bool = True   # 每轮是否从 density=0 模板自动生成淘汰规则 (负向蒸馏自生长)
+    top_k_fields: int = 80  # 每轮加权采样的字段数
+    backtest_sample_n: int = 80  # 每轮真实回测的表达式抽样数 (控制额度与耗时, <=0=全部)
+    min_coverage: float = 0.5  # 字段股票截面覆盖闸
+    min_date_coverage: float = 0.9  # 字段历史日期覆盖闸 (平台 dateCoverage; 0=不过滤)
+    field_categories: Optional[Tuple[str, ...]] = (
+        None  # 字段category白名单 (None=不过滤, 如 ('fundamental',))
+    )
+    cold_boost: float = 0.5  # 加权采样的冷启动权重
+    min_trials: int = 1  # 沉淀时过滤噪声字段的最小回测次数
+    execute: bool = False  # 是否真正回测/提交 (默认 dry-run)
+    distill: bool = True  # 每轮是否沉淀字段信号
+    distill_templates: bool = True  # 每轮是否蒸馏达标表达式回填模板库 (P1)
+    distill_pairs: bool = True  # 每轮是否沉淀配对信号 (P2)
+    distill_operator_signals: bool = (
+        True  # 每轮是否沉淀算子信号 (第5根回流: 6→2 算子挑选)
+    )
+    max_alpha_budget: int = 1000  # alpha 总量预算 (已回测+本轮回测 <= 此值)
+    distill_prune_rules: bool = (
+        True  # 每轮是否从 density=0 模板自动生成淘汰规则 (负向蒸馏自生长)
+    )
     min_density_for_prune: float = 0.0  # 淘汰规则的密度阈值 (<= 此值生成规则)
-    min_prune_sample_n: int = 1        # 淘汰规则的最小回测样本数
-    min_template_support: int = 1      # 模板骨架最小支持度
+    min_prune_sample_n: int = 1  # 淘汰规则的最小回测样本数
+    min_template_support: int = 1  # 模板骨架最小支持度
     top_k_templates: Optional[int] = None  # 只回填 support 最高的 top_k 条
-    families: tuple = ("unary", "binary", "ternary", "quaternary", "distilled")  # 下一轮消费的模板族
-    group_fields: tuple = ("industry", "sector", "subindustry", "market")  # group 槽候选 (GROUP 字段; quaternary/operator 母版依赖)
+    families: tuple = (
+        "unary",
+        "binary",
+        "ternary",
+        "quaternary",
+        "distilled",
+    )  # 下一轮消费的模板族
+    group_fields: tuple = (
+        "industry",
+        "sector",
+        "subindustry",
+        "market",
+    )  # group 槽候选 (GROUP 字段; quaternary/operator 母版依赖)
     seed: Optional[int] = None
-    seed_fields: Optional[List[str]] = None  # 首轮字段种子 (None=全量随机采样; 如已提交 alpha 反查字段)
-    extra: Dict[str, Any] = field(default_factory=dict)  # 透传 run_full_workflow 的额外参数
+    seed_fields: Optional[List[str]] = (
+        None  # 首轮字段种子 (None=全量随机采样; 如已提交 alpha 反查字段)
+    )
+    extra: Dict[str, Any] = field(
+        default_factory=dict
+    )  # 透传 run_full_workflow 的额外参数
 
 
 def distill_and_plan_next(
@@ -143,7 +164,8 @@ def distill_templates_round(
     # 用信号门先过滤, 保证沉淀进库的都是「被验证有信号」的骨架。
     gate = SignalGate()
     expressions = [
-        r.get("expression") for r in results
+        r.get("expression")
+        for r in results
         if gate.is_signal(r)[0] and (r.get("expression") or "").strip()
     ]
     if not expressions:
@@ -224,7 +246,9 @@ def distill_operator_signals_round(
     )
     if not stats:
         return 0
-    return db.upsert_operator_signal_stats([s.to_dict() for s in stats], accumulate=True)
+    return db.upsert_operator_signal_stats(
+        [s.to_dict() for s in stats], accumulate=True
+    )
 
 
 def distill_prune_rules_round(
@@ -254,9 +278,13 @@ def distill_prune_rules_round(
         return []
     from alpha_operator_framework.domain.density import compute_density
     from alpha_operator_framework.domain import operators
-    from alpha_operator_framework.distill.template_pruner import distill_prune_rules_from_density
+    from alpha_operator_framework.distill.template_pruner import (
+        distill_prune_rules_from_density,
+    )
 
-    density_rows = compute_density(results, access_limited_ops=operators.ACCESS_LIMITED_OPS)
+    density_rows = compute_density(
+        results, access_limited_ops=operators.ACCESS_LIMITED_OPS
+    )
     # compute_density 返回 DensityRow 对象, 转成 dict 供规则蒸馏消费
     density_dicts = [r.to_dict() for r in density_rows]
     return distill_prune_rules_from_density(
@@ -267,8 +295,12 @@ def distill_prune_rules_round(
     )
 
 
-async def _run_round_survey(config: LoopConfig, round_n: int, field_ids: List[str],
-                            database: Optional[Path] = None) -> List[Dict[str, Any]]:
+async def _run_round_survey(
+    config: LoopConfig,
+    round_n: int,
+    field_ids: List[str],
+    database: Optional[Path] = None,
+) -> List[Dict[str, Any]]:
     """执行一轮 字段选择→表达式合成→真实回测, 返回回测结果行.
 
     只跑 survey 阶段 (不跑 deepen/submit): loop 的核心是「回测→沉淀→加权采样」循环,
@@ -306,10 +338,14 @@ async def _run_round_survey(config: LoopConfig, round_n: int, field_ids: List[st
         return []
     # category 白名单: 限定研究范围 (如只跑基本面); None=不过滤
     if config.field_categories:
+
         def _cat(r: dict) -> str:
             c = r.get("category") or ""
             return str(c.get("id") or "") if isinstance(c, dict) else str(c or "")
-        specs = [s for s, r in zip(specs, field_rows) if _cat(r) in config.field_categories]
+
+        specs = [
+            s for s, r in zip(specs, field_rows) if _cat(r) in config.field_categories
+        ]
         if not specs:
             return []
 
@@ -322,16 +358,20 @@ async def _run_round_survey(config: LoopConfig, round_n: int, field_ids: List[st
             tried: set = set()
             try:
                 from alpha_operator_framework.database.repository import AlphaDatabase
+
                 _db = AlphaDatabase()
                 tried = _db.get_tried_field_ids(config.region)
             except Exception as e:
                 logger.exception("获取已试字段ID失败: %s", e)
                 tried = set()
             planned_set = set(planned)
-            cold_pool = [s.id for s in specs if s.id not in planned_set and s.id not in tried]
+            cold_pool = [
+                s.id for s in specs if s.id not in planned_set and s.id not in tried
+            ]
             if cold_pool:
                 _rng = random.Random(
-                    None if config.seed is None else config.seed + round_n + 1)
+                    None if config.seed is None else config.seed + round_n + 1
+                )
                 _rng.shuffle(cold_pool)
                 planned += cold_pool[: config.top_k_fields - len(planned)]
         field_ids = planned
@@ -354,8 +394,9 @@ async def _run_round_survey(config: LoopConfig, round_n: int, field_ids: List[st
         group_fields=list(config.group_fields),
     )
 
-    result = await run_survey_with_fields(specs, survey_config, execute=config.execute,
-                                          database=database)
+    result = await run_survey_with_fields(
+        specs, survey_config, execute=config.execute, database=database
+    )
     if not result.success:
         logger.error("轮次 %d survey 失败: %s", round_n, result.message)
         print(f"  ⚠ round {round_n} survey 失败: {result.message}", flush=True)
@@ -368,7 +409,10 @@ async def _run_round_survey(config: LoopConfig, round_n: int, field_ids: List[st
         logger.info("轮次 %d survey 成功，加载了 %d 条回测结果", round_n, len(res_list))
         return res_list
     logger.warning("轮次 %d survey 成功但无 results 文件: %s", round_n, result.message)
-    print(f"  ⚠ round {round_n} survey 成功但无 results 文件: {result.message}", flush=True)
+    print(
+        f"  ⚠ round {round_n} survey 成功但无 results 文件: {result.message}",
+        flush=True,
+    )
     return []
 
 
@@ -386,9 +430,16 @@ async def run_research_loop(db, config: LoopConfig) -> List[Dict[str, Any]]:
     # 首轮字段: 有种子字段 (如已提交 alpha 反查字段) 用种子起步, 否则全量随机采样。
     # 种子字段已验证有信号, 让字段信号回流从正反馈起点开始, 而不是冷启动随机。
     next_fields: List[str] = list(config.seed_fields or [])
-    logger.info("启动多轮研究闭环，总轮数: %d，种子字段数: %d", config.rounds, len(next_fields))
+    logger.info(
+        "启动多轮研究闭环，总轮数: %d，种子字段数: %d", config.rounds, len(next_fields)
+    )
     for r in range(config.rounds):
-        logger.info("开始执行研究闭环 [轮次 %d/%d]，当前输入字段数: %d", r + 1, config.rounds, len(next_fields))
+        logger.info(
+            "开始执行研究闭环 [轮次 %d/%d]，当前输入字段数: %d",
+            r + 1,
+            config.rounds,
+            len(next_fields),
+        )
         # 闭环的核心: next_fields 在轮次间传递 —— 本轮回测 → 沉淀 → 加权采样出的字段,
         # 成为下一轮 _run_round_survey 的输入字段池。首轮 next_fields=[] → 全量采样。
         # 关键: survey 的库必须与蒸馏沉淀库 (db) 一致 —— 否则 survey 消费的模板
@@ -397,21 +448,39 @@ async def run_research_loop(db, config: LoopConfig) -> List[Dict[str, Any]]:
         # 四根回流管道同时工作: 字段信号 (6→1) + 模板抽象 (6→2) + 配对信号 (6→2)
         # + 淘汰规则自生长 (6→2, 负向蒸馏: density=0 模板 → 规则库)
         planned = distill_and_plan_next(db, results=results, config=config, round_n=r)
-        distilled_templates = distill_templates_round(db, results=results, config=config, round_n=r)
-        distilled_pairs = distill_pairs_round(db, results=results, config=config, round_n=r)
-        distilled_ops = distill_operator_signals_round(db, results=results, config=config, round_n=r)
-        distilled_rules = distill_prune_rules_round(db, results=results, config=config, round_n=r)
-        logger.info("完成研究闭环 [轮次 %d/%d]: 获得回测结果 %d 条，沉淀模板 %d 个，配对 %d 对，算子统计 %d 条，生成规则 %d 条",
-                    r + 1, config.rounds, len(results), distilled_templates, distilled_pairs, distilled_ops, len(distilled_rules))
+        distilled_templates = distill_templates_round(
+            db, results=results, config=config, round_n=r
+        )
+        distilled_pairs = distill_pairs_round(
+            db, results=results, config=config, round_n=r
+        )
+        distilled_ops = distill_operator_signals_round(
+            db, results=results, config=config, round_n=r
+        )
+        distilled_rules = distill_prune_rules_round(
+            db, results=results, config=config, round_n=r
+        )
+        logger.info(
+            "完成研究闭环 [轮次 %d/%d]: 获得回测结果 %d 条，沉淀模板 %d 个，配对 %d 对，算子统计 %d 条，生成规则 %d 条",
+            r + 1,
+            config.rounds,
+            len(results),
+            distilled_templates,
+            distilled_pairs,
+            distilled_ops,
+            len(distilled_rules),
+        )
         next_fields = planned
-        history.append({
-            "round": r,
-            "planned_next_fields": planned,
-            "distilled_stats": len(results),
-            "distilled_templates": distilled_templates,
-            "distilled_pairs": distilled_pairs,
-            "distilled_operator_stats": distilled_ops,
-            "distilled_rules": distilled_rules,
-        })
+        history.append(
+            {
+                "round": r,
+                "planned_next_fields": planned,
+                "distilled_stats": len(results),
+                "distilled_templates": distilled_templates,
+                "distilled_pairs": distilled_pairs,
+                "distilled_operator_stats": distilled_ops,
+                "distilled_rules": distilled_rules,
+            }
+        )
     logger.info("多轮研究闭环全部完成，共执行了 %d 轮", config.rounds)
     return history

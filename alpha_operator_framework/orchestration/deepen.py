@@ -29,7 +29,7 @@ def cmd_deepen(args) -> None:
             --density-out runs/cold_survey_density.json \\
             --sample 400 --execute
     """
-    from alpha_operator_framework.domain.density import read_report, top_templates
+    from alpha_operator_framework.domain.density import read_report
     from alpha_operator_framework.domain import families, fields
 
     # 1. 读density报告

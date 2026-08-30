@@ -14,7 +14,7 @@ from __future__ import annotations
 
 import logging
 import random
-from dataclasses import dataclass, field
+from dataclasses import dataclass
 from typing import Any, Dict, List, Optional, Sequence, Set, Tuple
 
 from alpha_operator_framework.domain.ast.canonicalizer import to_canonical_string

@@ -54,7 +54,7 @@ class DatabaseConfig:
             driver=driver,
             database=db_path,
             host=os.environ.get("ALPHA_DB_HOST"),
-            port=int(os.environ.get("ALPHA_DB_PORT")) if os.environ.get("ALPHA_DB_PORT") else None,
+            port=int(port) if (port := os.environ.get("ALPHA_DB_PORT")) else None,
             username=os.environ.get("ALPHA_DB_USER"),
             password=os.environ.get("ALPHA_DB_PASSWORD"),
             timeout=timeout,

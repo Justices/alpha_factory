@@ -131,7 +131,6 @@ def _fetch_field_specs_auto(args, fields_file_type: str, root: Path) -> list:
     from alpha_operator_framework.platform.local_fields import (
         default_dataset_file, default_fields_directory, load_local_field_directory, load_local_field_specs,
     )
-    from alpha_operator_framework.domain import fields
 
     # 1. 尝试本地文件
     local_dir = default_fields_directory(root, args.region, args.delay, args.universe)
@@ -231,7 +230,7 @@ def cmd_survey(args) -> None:
           f"dataset={args.dataset or 'all'} sample={args.sample}")
 
     # 1. 发现字段：auto 优先加载约定本地目录，缺失时再访问平台。
-    from alpha_operator_framework.domain import families, fields
+    from alpha_operator_framework.domain import fields
     fields_file = getattr(args, "fields_file", None)
     field_source = getattr(args, "field_source", "auto")
     fields_file_type = getattr(args, "fields_file_type", "auto")
@@ -330,12 +329,7 @@ def cmd_survey(args) -> None:
     )
 
     # 2. 字段采样
-    ordinary_fields = field_specs  # 新策略系统不需要paired分组
-    scalar_pairs = fields.sample_scalar_field_pairs(ordinary_fields, spec)
-    scalars = [sf.expr for sf in scalar_pairs]
-    pairs = fields.sample_pair_combinations(ordinary_fields, spec)
-    triples = fields.sample_triple_combinations(ordinary_fields, spec)
-
+    scalar_pairs = fields.sample_scalar_field_pairs(field_specs, spec)
     # 3. 构造任务 (支持多种策略: multi_stage/template/test/multivariate)
     from alpha_operator_framework.generation.creation_strategy import create_strategy, CompositeStrategy, CompositeConfig
     catalog_db = AlphaDatabase()  # 使用默认路径 data/alpha_research.db

@@ -99,6 +99,26 @@ class QueueRepository(BaseRepository):
         conn.commit()
         return cursor.lastrowid or 0
 
+    def enqueue_optimization_once(
+        self,
+        alpha_id: str,
+        expression: str,
+        **kwargs: Any,
+    ) -> int:
+        """Queue one manual-review task once, keyed by the canonical alpha SHA.
+
+        The queue intentionally remains local and does not authorize a platform
+        submission.  Replaying a research round therefore cannot create a
+        second manual task for the same evaluated expression.
+        """
+        row = self._get_connection().execute(
+            "SELECT id FROM alpha_optimization_queue WHERE alpha_id=? LIMIT 1",
+            (alpha_id,),
+        ).fetchone()
+        if row is not None:
+            return int(row["id"])
+        return self.enqueue_optimization(alpha_id, expression, **kwargs)
+
     def pop_optimization_task(self) -> Optional[Dict[str, Any]]:
         """取出最高优先级的待优化任务并标记为 optimizing."""
         conn = self._get_connection()
@@ -230,3 +250,14 @@ class QueueRepository(BaseRepository):
             (reason, now, alpha_id),
         )
         conn.commit()
+
+    def update_candidate_robustness(self, alpha_id: str, status: str, notes: str = "") -> None:
+        """Persist deterministic rank/sign/robust validation progress."""
+        now = self._timestamp()
+        self._get_connection().execute(
+            """UPDATE alpha_submission_candidates
+               SET robustness_status=?, robustness_notes=?, updated_at=?
+               WHERE alpha_id=?""",
+            (status, notes, now, alpha_id),
+        )
+        self._get_connection().commit()

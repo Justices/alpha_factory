@@ -1,7 +1,7 @@
 # Alpha Factory (Alpha Factor Operator Framework)
 
 [![Python 3.10+](https://img.shields.io/badge/python-3.10%2B-blue.svg)](https://www.python.org/)
-[![Tests](https://img.shields.io/badge/tests-465%20passed%20(100%25)-brightgreen.svg)]()
+[![Tests](https://img.shields.io/badge/tests-CI%20verified-brightgreen.svg)]()
 [![Architecture](https://img.shields.io/badge/architecture-Event--Sourced%20Core%20%7C%20DDD-purple.svg)](ARCHITECTURE.md)
 [![Database](https://img.shields.io/badge/database-SQLite%20(24%20Core%20+%205%20Runtime%20Tables)-orange.svg)](DATABASE_DESIGN.md)
 
@@ -13,13 +13,13 @@
 
 | 核心文档 | 核心内容与定位 | 快速链接 |
 | :--- | :--- | :--- |
-| **项目主页** | 系统定位、技术架构全景、核心能力、极速上手 | [README.md](file:///d:/quant/alpha_factory/README.md) |
-| **自进化实战指南** 🌟 | **全自主进化、符号语法树自由杂交、大模型自反思与知识闭环** | [autonomous_evolution_guide.md](file:///d:/quant/alpha_factory/docs/guides/autonomous_evolution_guide.md) |
-| **快速上手** | 5 分钟极速入门、常用单行 CLI 命令备忘清单 | [QUICKSTART.md](file:///d:/quant/alpha_factory/QUICKSTART.md) |
-| **系统架构设计** ✨ v2.0 | DDD 五层架构、事件溯源内核、证据边界、防过拟合体系、数据库设计、CLI 架构全景 | [ARCHITECTURE.md](file:///d:/quant/alpha_factory/ARCHITECTURE.md) |
-| **权威使用手册** ✨ v2.0 | 22 个 CLI 命令完整参数、6 大实战场景、Python API、SQL 速查、FAQ | [USAGE_GUIDE.md](file:///d:/quant/alpha_factory/USAGE_GUIDE.md) |
-| **数据库设计** | 24 张核心数据表/视图 + 5 张事件运行时表结构、WAL 优化、Zero-Commit 规范 | [DATABASE_DESIGN.md](file:///d:/quant/alpha_factory/DATABASE_DESIGN.md) |
-| **专题与归档索引** | 分页指南、AI 集成、筛选优化、生产部署、架构规范 | [docs/INDEX.md](file:///d:/quant/alpha_factory/docs/INDEX.md) |
+| **项目主页** | 系统定位、技术架构全景、核心能力、极速上手 | [README.md](README.md) |
+| **自进化实战指南** 🌟 | **全自主进化、符号语法树自由杂交、大模型自反思与知识闭环** | [autonomous_evolution_guide.md](docs/guides/autonomous_evolution_guide.md) |
+| **快速上手** | 5 分钟极速入门、常用单行 CLI 命令备忘清单 | [QUICKSTART.md](QUICKSTART.md) |
+| **系统架构设计** ✨ v2.0 | DDD 五层架构、事件溯源不可变内核、证据边界、防过拟合体系、数据库设计、CLI 架构全景 | [ARCHITECTURE.md](ARCHITECTURE.md) |
+| **权威使用手册** ✨ v2.0 | 22 个 CLI 命令完整参数、6 大实战场景、Python API、SQL 速查、FAQ | [USAGE_GUIDE.md](USAGE_GUIDE.md) |
+| **数据库设计** | 24 张核心数据表/视图 + 5 张事件运行时表结构、WAL 优化、Zero-Commit 规范 | [DATABASE_DESIGN.md](DATABASE_DESIGN.md) |
+| **专题与归档索引** | 分页指南、AI 集成、筛选优化、生产部署、架构规范 | [docs/INDEX.md](docs/INDEX.md) |
 
 ---
 
@@ -105,7 +105,7 @@ python init_db.py
 python alpha_machine.py init-db
 ```
 
-### 2. 执行完整自动化测试 (465 项测试 100% 通过)
+### 2. 执行完整自动化测试
 ```bash
 python -m pytest -q
 ```
@@ -117,20 +117,36 @@ python alpha_machine.py drill-recovery
 
 ### 4. 显式策略 Alpha 投研生命周期 (`research-cycle`) 🌟
 通过 `configs/alpha-factory.yaml` 显式组合数据库模板、多阶、多元与论文/LLM 策略。`order_depth` 是 AST 算子嵌套深度，`field_count` 是去重后的原始字段数；二者独立约束。每个叶子族每轮最多选择 8 条，平台固定按 8 条切片。
-```bash
-# 默认 Dry-run 试运行 (推荐使用 D-Optimal 最大信息增益覆盖抽样)
-python alpha_machine.py research-cycle \
-    --region GBR --universe TOP700 \
-    --algorithm d_optimal
 
-# 正式授权向 BRAIN 平台提交并发回测
+构建模式是预编排流程，而非临时算法开关：`template` 为数据库已验证模板的字段实例化，不升阶，但首批回测后仍会产生结构剪枝规则，剪掉尚未回测的同形低质量实例，幸存者继续下一批并进入人工候选池；`multi-stage` 为确定性原始字段一阶 → 信号筛选/剪枝 → 深度变换 → group 二阶 → rank/sign 验证；`ai-multi-stage` 将第一节点替换为受限算子下的 AI 经济裸信号，代码按字段类型落地表达式：MATRIX 直接标量化、EVENT 固定 `vec_avg`、VECTOR 在允许的 `vec_*` reducer 中按候选轮转；`multivariate` 为原始字段一阶 → 信号筛选/剪枝 → 多字段组合 → rank/sign 验证。每个已完成分片都会先落库，再执行无效结果门、作用域隔离的结构剪枝，以及按 Sharpe/Fitness/Margin 排序的多通道 PnL 相关性剪枝。只有 `Sharpe > 1.25`、`Fitness > 0.8` 且通过晋升门的表达式才进入下一节点；达到 `early_stop_signal_count` 时会跳过后续增强并直接进入终端验证。命中信号的原始结果也会进入本地人工优化队列；验证变体不会混入人工候选，更不会自动提交 Alpha。
+
+`--algorithm diversity` 作用于**回测前**的候选选择，按字段、算子和模板结构做贪心多样化；它不是多阶开关，也不是结果 PnL 相关性。回测后的相关性多样化由 `research.construction.promotion.correlation` 独立控制，保留各指标通道剪枝结果的并集，并将 promote/reject/early-stop 理由写入 `promotion_decisions`。
+```bash
+# 默认多阶 Dry-run（只生成、校验与落库，不发起平台回测）
 python alpha_machine.py research-cycle \
     --region GBR --universe TOP700 \
-    --algorithm d_optimal \
+    --mode multi-stage --algorithm d_optimal
+
+# 模板模式：向 BRAIN 发起回测；不等同于生产 Alpha 提交
+python alpha_machine.py research-cycle \
+    --region GBR --universe TOP700 \
+    --mode template --algorithm d_optimal \
     --execute
+
+# 多元模式：一阶有信号后才进入字段组合节点
+python alpha_machine.py research-cycle \
+    --region GBR --universe TOP700 \
+    --mode multivariate --execute
+
+# AI 裸信号多阶：需要配置对应 LLM provider 的 API Key
+python alpha_machine.py research-cycle \
+    --region GBR --universe TOP700 \
+    --mode ai-multi-stage --algorithm diversity --execute
 ```
 
-策略配置支持 `database_template`、`depth_construction`、`field_composition`、`literature_llm`。LLM 只产出结构化假说与候选模板，最终表达式必须通过与其他策略相同的确定性校验；配置与组合示例见 [USAGE_GUIDE.md](USAGE_GUIDE.md)。
+中断后用同一个 `--round-id` 恢复：`python alpha_machine.py research-cycle --round-id <ID> --continue-research --execute`。仅需处理已提交回测时，可运行 `python alpha_machine.py research-worker --round-id <ID>`；常驻值守使用 `research-worker --watch --poll-seconds 30`。生产提交仍须另行提供授权证据并通过 `submission-dispatch`，不会由研究循环自动触发。
+
+策略配置支持 `database_template`、`raw_first_order`、`depth_construction`、`field_composition`、`group_second_order`、`literature_llm`。LLM 只产出结构化假说与候选模板，最终表达式必须通过与其他策略相同的确定性校验；配置与组合示例见 [USAGE_GUIDE.md](USAGE_GUIDE.md)。
 
 ### 5. 全自动无人值守投研流水线 (`auto-pilot`) 🚀
 一键串联：环境自检 ➔ 真实并发回测 ➔ 6 维证据终审 ➔ 空间释放 (VACUUM) ➔ 汇总研报生成：

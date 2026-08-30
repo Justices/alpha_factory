@@ -1,4 +1,3 @@
-import random
 
 from alpha_operator_framework.research.round import Candidate, KnowledgeSnapshot, ResearchPolicy
 from alpha_operator_framework.research.selection_report import compare_selection_strategies

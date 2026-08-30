@@ -9,7 +9,7 @@ from __future__ import annotations
 import json
 import logging
 import threading
-from typing import Any, Dict, List, Optional, Sequence, Union
+from typing import Any, List, Optional, Sequence, Union
 
 from alpha_operator_framework.core.events import Event, EventType
 

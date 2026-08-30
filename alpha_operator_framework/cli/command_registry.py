@@ -225,6 +225,8 @@ def configure_research_cycle(parser: argparse.ArgumentParser) -> None:
     parser.add_argument("--algorithm", choices=["stratified", "d_optimal", "thompson", "ucb", "diversity"])
     parser.add_argument("--seed", type=int, default=42)
     parser.add_argument("--round-id")
+    parser.add_argument("--construction-mode", "--mode", dest="construction_mode",
+                        help="构建编排模式；由 YAML 的 research.construction_modes 定义")
     configure_config_only(parser)
     parser.add_argument("--policy-file")
     parser.add_argument("--telemetry-file")

@@ -20,7 +20,7 @@
 from __future__ import annotations
 
 import hashlib
-from typing import List, Sequence, Tuple, Union
+from typing import List, Sequence, Union
 
 from alpha_operator_framework.domain.ast.nodes import (
     ASTVisitor,

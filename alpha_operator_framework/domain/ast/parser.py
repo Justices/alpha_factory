@@ -11,7 +11,7 @@ from __future__ import annotations
 
 import ast
 import re
-from typing import Any, List, Tuple
+from typing import Any
 
 from alpha_operator_framework.domain.ast.nodes import (
     BinaryOpNode,

@@ -1,17 +1,13 @@
 """Unit tests for Alpha AST engine (parsing, canonicalization, validation, pruning)."""
 
-import pytest
 
 from alpha_operator_framework.domain.ast import (
-    ExpressionNode,
     VariableNode,
     LiteralNode,
-    UnaryOpNode,
     BinaryOpNode,
     FunctionCallNode,
     TernaryNode,
     parse_expression,
-    canonicalize_expression,
     to_canonical_string,
     get_canonical_sha,
     validate_expression,

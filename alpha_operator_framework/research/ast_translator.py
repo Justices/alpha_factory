@@ -9,10 +9,9 @@
 from __future__ import annotations
 
 import re
-from typing import Any, Dict, List, Optional, Sequence, Tuple
+from typing import Dict, List, Optional
 
 from alpha_operator_framework.domain.ast import (
-    canonicalize_expression,
     extract_ast_fields,
     to_canonical_string,
     validate_expression,

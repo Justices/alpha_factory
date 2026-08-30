@@ -7,7 +7,7 @@ from pathlib import Path
 from typing import Dict, Optional, Sequence
 
 from alpha_operator_framework.cli.field_pipeline import _write_json
-from alpha_operator_framework.database import AlphaDatabase, get_database_path
+from alpha_operator_framework.database import get_database_path
 from alpha_operator_framework.domain import density, families, fields, operators
 from alpha_operator_framework.platform.simulation_gateway import simulate
 from alpha_operator_framework.workflow.models import (

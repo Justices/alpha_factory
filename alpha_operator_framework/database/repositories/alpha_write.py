@@ -14,6 +14,11 @@ from ..models import AlphaDetail, WF_STAGES
 class AlphaWriteMixin(BaseRepository):
     """Expression, detail, status, and workflow writes."""
 
+    @staticmethod
+    def compute_sha(expression: str) -> str:
+        """Return the canonical expression fingerprint used by Alpha writes."""
+        return hashlib.sha256(expression.strip().encode("utf-8")).hexdigest()
+
     @classmethod
     def compute_alpha_sha(cls, expression: str, settings: Dict[str, Any]) -> str:
         """计算包含环境设置的 Alpha 综合指纹."""
@@ -54,6 +59,35 @@ class AlphaWriteMixin(BaseRepository):
                ON CONFLICT(scope_hash, pattern, pattern_type) DO UPDATE SET
                    reason=excluded.reason, updated_at=excluded.updated_at""",
             (self.settings_scope_hash(settings), pattern, pattern_type, reason, now, now),
+        )
+        self._get_connection().commit()
+
+    def record_promotion_decision(
+        self,
+        task_id: str,
+        settings: Mapping[str, Any],
+        alpha_sha: str,
+        stage: int,
+        decision: str,
+        reason: str = "",
+        details: Mapping[str, Any] | None = None,
+    ) -> None:
+        """Persist one auditable post-backtest promotion decision."""
+        if decision not in {"promote", "reject", "early_stop"}:
+            raise ValueError(f"unsupported promotion decision: {decision}")
+        now = self._timestamp()
+        self._get_connection().execute(
+            """INSERT INTO promotion_decisions
+               (task_id, scope_hash, alpha_sha, stage, decision, reason,
+                details_json, created_at, updated_at)
+               VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
+               ON CONFLICT(task_id, scope_hash, alpha_sha, stage) DO UPDATE SET
+                   decision=excluded.decision, reason=excluded.reason,
+                   details_json=excluded.details_json, updated_at=excluded.updated_at""",
+            (
+                task_id, self.settings_scope_hash(settings), alpha_sha, stage,
+                decision, reason, self._json(dict(details or {})), now, now,
+            ),
         )
         self._get_connection().commit()
 

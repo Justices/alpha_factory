@@ -1,11 +1,9 @@
 """Unit tests for Hypothesis-Driven Alpha Reasoning Engine."""
 
-import pytest
 
 from alpha_operator_framework.domain.fields import FieldSpec
 from alpha_operator_framework.generation.hypothesis import (
     BUILTIN_HYPOTHESES,
-    EconomicHypothesis,
     HypothesisCategory,
     HypothesisEngine,
 )

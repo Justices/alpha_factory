@@ -26,6 +26,13 @@ class CompletedExpression:
     checks_passed: bool
     alpha_sha: str = ""
     family: str = "base"
+    origin_strategy: str = ""
+    platform_alpha_id: str = ""
+    turnover: float = 0.0
+    margin: float = 0.0
+    pnl: float | None = None
+    long_count: int | None = None
+    short_count: int | None = None
 
 
 @dataclass(frozen=True)
@@ -38,6 +45,29 @@ class ResultPruneRule:
 def is_signal_parent(result: BacktestResult | CompletedExpression) -> bool:
     """Return whether a result qualifies for one bounded optimization branch."""
     return result.sharpe > SIGNAL_SHARPE and result.fitness > SIGNAL_FITNESS
+
+
+def promotion_quality_reason(
+    result: CompletedExpression,
+    *,
+    min_long_short_sum: int = 0,
+) -> str | None:
+    """Return a deterministic rejection reason for invalid promotion parents.
+
+    Missing long/short statistics are kept rather than treated as zero because
+    legacy rows may not have persisted the fields. New platform results carry
+    both values and are checked strictly.
+    """
+    if not result.checks_passed:
+        return "platform_checks_failed"
+    if (
+        min_long_short_sum > 0
+        and result.long_count is not None
+        and result.short_count is not None
+        and result.long_count + result.short_count < min_long_short_sum
+    ):
+        return "long_short_count_too_low"
+    return None
 
 
 def derive_consensus_prune_rules(rows: Sequence[CompletedExpression]) -> list[ResultPruneRule]:

@@ -1,6 +1,6 @@
 # Alpha 研究主数据库架构与设计规范 (Database Design Document)
 
-本文档定义 **Alpha Factor Operator Framework** 主数据库 [`data/alpha_research.db`](file:///d:/quant/alpha_factory/data/alpha_research.db) 的全量核心数据表/视图结构、索引规划、关联模型、并发调优与运维指南。
+本文档定义 **Alpha Factor Operator Framework** 主数据库 `data/alpha_research.db` 的全量核心数据表/视图结构、索引规划、关联模型、并发调优与运维指南。
 
 ---
 
@@ -232,4 +232,3 @@ FROM alpha_checks
 WHERE alpha_id = 'ALPHA_12345'
 ORDER BY result ASC;
 ```
-

@@ -16,7 +16,6 @@ from dataclasses import dataclass
 from typing import List, Optional, Sequence, Tuple
 
 from .base import CreationStrategy, StrategyConfig
-from alpha_operator_framework.database.models import Template
 from alpha_operator_framework.domain.families import Task
 from alpha_operator_framework.domain.fields import ScalarField
 

@@ -14,7 +14,6 @@ from alpha_operator_framework.domain.operators import ACCESS_LIMITED_OPS
 from alpha_operator_framework.knowledge.models import KnowledgeBase
 from alpha_operator_framework.research.policy import build_selector
 from alpha_operator_framework.research.round import Candidate, KnowledgeSnapshot, ResearchPolicy, ResearchRound
-from alpha_operator_framework.research.selection import WeightedStratifiedSelector
 
 logger = logging.getLogger(__name__)
 

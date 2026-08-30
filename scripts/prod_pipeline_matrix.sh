@@ -7,11 +7,11 @@ set -e
 PROJECT_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 cd "$PROJECT_ROOT"
 
-# 1. 环境激活
-if [ -d ".venv" ]; then
-    source .venv/bin/activate
-elif [ -d "venv" ]; then
-    source venv/bin/activate
+# 1. Python 解释器：可用 PYTHON_BIN 覆盖，默认使用当前项目约定的虚拟环境。
+PYTHON_BIN="${PYTHON_BIN:-/Users/liujiaping/ai/quant/.venv/bin/python}"
+if [ ! -x "$PYTHON_BIN" ]; then
+    echo "❌ [ERROR] Python 虚拟环境不可用: $PYTHON_BIN" >&2
+    exit 1
 fi
 
 # 2. 检查凭据
@@ -31,28 +31,27 @@ echo "📅 开始时间: $(date '+%Y-%m-%d %H:%M:%S')" | tee -a "$MAIN_LOG"
 echo "📄 日志文件: $MAIN_LOG" | tee -a "$MAIN_LOG"
 echo "======================================================================" | tee -a "$MAIN_LOG"
 
-# 3. 生产投研任务矩阵配置 (市场 | 股票池 | 数据集组合 | Decay | 抽样数)
+# 3. 生产投研任务矩阵配置 (市场 | 股票池 | 数据集组合 | Decay | 构建模式)
 TARGET_MATRIX=(
-    "GBR|TOP700|analyst7,fundamental31|12|5"
-    "USA|TOP3000|model250,risk71|15|6"
-    "EUR|TOP2500|insider_agg_matrix,pattern_scores|10|5"
-    "ASI|TOP1000|fundamental31,risk60|12|5"
+    "GBR|TOP700|analyst7,fundamental31|12|multi-stage"
+    "USA|TOP3000|model250,risk71|15|multivariate"
+    "EUR|TOP2500|insider_agg_matrix,pattern_scores|10|template"
+    "ASI|TOP1000|fundamental31,risk60|12|multi-stage"
 )
 
 for target in "${TARGET_MATRIX[@]}"; do
-    IFS="|" read -r REGION UNIVERSE DATASETS DECAY SAMPLES <<< "$target"
+    IFS="|" read -r REGION UNIVERSE DATASETS DECAY MODE <<< "$target"
     echo "" | tee -a "$MAIN_LOG"
-    echo "🎯 [生产任务] 正在执行: 市场=$REGION, Universe=$UNIVERSE, 数据集=$DATASETS, Decay=$DECAY, 样本=$SAMPLES" | tee -a "$MAIN_LOG"
+    echo "🎯 [生产任务] 正在执行: 市场=$REGION, Universe=$UNIVERSE, 数据集=$DATASETS, Decay=$DECAY, 模式=$MODE" | tee -a "$MAIN_LOG"
     
-    python alpha_machine.py research-cycle \
+    "$PYTHON_BIN" alpha_machine.py research-cycle \
         --region "$REGION" \
         --universe "$UNIVERSE" \
         --datasets "$DATASETS" \
-        --sample-per-family "$SAMPLES" \
+        --mode "$MODE" \
         --algorithm diversity \
         --decay "$DECAY" \
         --round-id "research_${LOG_TIME}_${REGION}_${UNIVERSE}" \
-        --database "data/research_${REGION}_${UNIVERSE}.db" \
         --telemetry-file "runs/logs/research_${REGION}_${UNIVERSE}.jsonl" \
         --execute >> "$MAIN_LOG" 2>&1 || {
             echo "⚠️ [WARN] 任务 ($REGION / $UNIVERSE) 发生异常，已记录日志并自动切入下一目标" | tee -a "$MAIN_LOG"
@@ -66,7 +65,7 @@ done
 # 4. 生产周期结束自动执行数据库碎片清理
 echo "" | tee -a "$MAIN_LOG"
 echo "🧹 [维护] 执行生产数据库碎片清理与物理空间回收 (VACUUM)..." | tee -a "$MAIN_LOG"
-python alpha_machine.py clean-db --mode stale >> "$MAIN_LOG" 2>&1 || true
+"$PYTHON_BIN" alpha_machine.py clean-db --mode stale >> "$MAIN_LOG" 2>&1 || true
 
 echo "======================================================================" | tee -a "$MAIN_LOG"
 echo "🎉 生产投研矩阵全流程执行完毕！结束时间: $(date '+%Y-%m-%d %H:%M:%S')" | tee -a "$MAIN_LOG"

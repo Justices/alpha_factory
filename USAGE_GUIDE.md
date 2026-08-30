@@ -111,6 +111,7 @@ python alpha_machine.py research-cycle \
     --neutralization <中性化>    # SUBINDUSTRY / INDUSTRY / MARKET
     --truncation <截断比例>      # 默认 0.08
     --datasets <数据集>          # 逗号分隔，可选
+    --mode <构建模式>            # template / multi-stage / multivariate
     --algorithm <抽样算法>       # stratified / d_optimal / thompson / ucb / diversity
     --seed <随机种子>            # 默认 42
     --round-id <轮次ID>          # 可选，用于追踪
@@ -162,10 +163,26 @@ research:
     parent_gate:
       sharpe: {operator: gt, value: 1.25}
       fitness: {operator: gt, value: 0.8}
+    promotion:
+      quality:
+        min_long_short_sum: 20
+        max_consecutive_flat_days: 200
+        max_tail_flat_ratio: 0.30
+      correlation:
+        enabled: true
+        channels: [sharpe, fitness, margin]
+        first_threshold: 0.85
+        second_threshold: 0.80
+        final_threshold: 0.75
+        min_periods: 100
+      validation:
+        enabled: true
+        minimum_sharpe_ratio: 0.50
+      early_stop_signal_count: 8
     platform_batch_size: 8
 ```
 
-同一表达式被多个策略生成时只回测一次，但数据库会保留全部来源。多阶/多元策略仅在 `source` 显式包含 `qualified_candidates` 且父 Alpha 通过 `parent_gate` 时继续构建。
+同一表达式被多个策略生成时只回测一次，但数据库会保留全部来源。多阶/多元策略仅在 `source` 显式包含 `qualified_candidates` 且父 Alpha 通过晋升门时继续构建。`diversity`/`d_optimal` 是回测前结构多样性选择；回测后 PnL 多通道剪枝由 `promotion.correlation` 控制。
 
 ```bash
 # D-Optimal 算法 Dry-run 试运行

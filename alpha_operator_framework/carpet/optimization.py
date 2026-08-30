@@ -5,7 +5,7 @@ from __future__ import annotations
 import logging
 from typing import List
 
-from alpha_operator_framework.distill.diagnostic import FailureMode, diagnose_alpha_failure
+from alpha_operator_framework.distill.diagnostic import FailureMode
 from alpha_operator_framework.distill.mutation import AlphaMutator
 from alpha_operator_framework.domain.families import Task
 from alpha_operator_framework.domain.judge.evaluator import AlphaJudge
@@ -71,16 +71,7 @@ def optimize_positive_signals(
 
     mutation_tasks: List[Task] = []
     for parent in candidates_to_opt:
-        # 1. 诊断病因
-        diag = diagnose_alpha_failure({
-            "sharpe": parent.sharpe,
-            "fitness": parent.fitness,
-            "turnover": parent.turnover,
-            "returns": parent.annualized_return,
-            "drawdown": parent.max_drawdown,
-        })
-
-        # 2. 针对高换手率突变
+        # 针对高换手率突变
         if parent.turnover > 0.70:
             mutated_exprs = AlphaMutator.mutate_expression(parent.expression, FailureMode.HIGH_TURNOVER)
             for m_idx, m_expr in enumerate(mutated_exprs[:2]):

@@ -10,7 +10,6 @@ import pytest
 import alpha_operator_framework.cli.research as alpha_machine
 from alpha_operator_framework.domain.fields import FieldSpec
 from alpha_operator_framework.database.models import Template
-from alpha_operator_framework.core.event_store import EventStore
 from alpha_operator_framework.core.events import EventType
 from alpha_operator_framework.infrastructure.runtime_factory import build_research_runtime
 

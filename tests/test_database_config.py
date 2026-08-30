@@ -1,6 +1,5 @@
 """Test Centralized Database Configuration & Storage Decoupling."""
 
-import os
 from pathlib import Path
 from alpha_operator_framework.database.config import (
     DatabaseConfig,

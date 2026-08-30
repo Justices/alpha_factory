@@ -323,7 +323,7 @@ class UnifiedLLMClient:
             return content.strip()
         except ImportError:
             pass
-        except Exception as e:
+        except Exception:
             # SDK 运行异常时回退到 HTTP 标准库请求
             pass
 

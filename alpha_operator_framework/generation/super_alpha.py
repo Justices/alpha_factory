@@ -34,7 +34,7 @@ COMBO_TEMPLATES = (
 
 def _number(row: dict[str, Any], key: str, default: float = 0.0) -> float:
     try:
-        return float(row.get(key) if row.get(key) is not None else default)
+        return float(str(row.get(key) if row.get(key) is not None else default))
     except (TypeError, ValueError):
         return default
 

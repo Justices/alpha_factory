@@ -8,7 +8,7 @@ from typing import Mapping
 
 from alpha_operator_framework.experiment.models import ExperimentBatch
 from alpha_operator_framework.domain.ast import validate_expression
-from alpha_operator_framework.research.round import Candidate, KnowledgeSnapshot
+from alpha_operator_framework.research.round import KnowledgeSnapshot
 
 
 _NON_FIELDS = {"rank", "ts_rank", "group_rank", "subindustry", "industry", "sector"}

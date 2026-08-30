@@ -1,6 +1,9 @@
 from __future__ import annotations
 
+from pathlib import Path
+
 import pytest
+import yaml
 
 from alpha_operator_framework.research.strategy_config import ConstructionPlan
 
@@ -42,6 +45,7 @@ def test_construction_plan_parses_exact_ranges_and_parent_gate() -> None:
     ({"field_count": {"min": 2, "max": 1}}, "cannot exceed"),
     ({"quota_per_leaf_family": 9}, "between 1 and 8"),
     ({"source": "qualified_candidates"}, "only supports source=raw_fields"),
+    ({"stage": 0}, "stage must be positive"),
     ({"kind": "unknown"}, "unsupported construction strategy"),
 ])
 def test_construction_plan_rejects_invalid_strategy_configuration(change, match) -> None:
@@ -65,9 +69,46 @@ def test_literature_strategy_requires_existing_document_and_profile(tmp_path) ->
     assert plan.strategies[0].document == paper.resolve()
 
 
+def test_ai_naked_signal_strategy_requires_llm_profile() -> None:
+    with pytest.raises(ValueError, match="requires llm_profile"):
+        ConstructionPlan.from_mapping({"strategies": [_strategy(
+            id="ai", kind="ai_naked_signal", families=["ai_naked"],
+        )]})
+
+
 def test_construction_plan_requires_explicit_non_empty_strategy_list() -> None:
     with pytest.raises(ValueError, match="non-empty list"):
         ConstructionPlan.from_mapping({})
 
     with pytest.raises(ValueError, match="must be 8"):
         ConstructionPlan.from_mapping({"strategies": [_strategy()], "platform_batch_size": 4})
+
+
+def test_default_configuration_exposes_separate_named_construction_modes() -> None:
+    root = Path(__file__).resolve().parents[2]
+    config = yaml.safe_load((root / "configs" / "alpha-factory.yaml").read_text(encoding="utf-8"))
+
+    plan = ConstructionPlan.from_mapping(config["research"]["construction"])
+
+    assert [strategy.strategy_id for strategy in plan.strategies] == [
+        "database-template", "raw-first-order", "ai-naked-signals", "qualified-depth", "qualified-composition",
+        "qualified-group-second-order", "signal-validation",
+    ]
+    assert plan.promotion.quality.min_long_short_sum == 20
+    assert plan.promotion.correlation.enabled is True
+    assert plan.promotion.correlation.channels == ("sharpe", "fitness", "margin")
+    assert plan.promotion.validation.minimum_sharpe_ratio == 0.5
+    assert plan.promotion.early_stop_signal_count == 8
+    modes = config["research"]["construction_modes"]
+    assert modes["template"]["stages"] == [["database-template"]]
+    assert modes["multi-stage"]["stages"] == [
+        ["raw-first-order"], ["qualified-depth"],
+        ["qualified-group-second-order"], ["signal-validation"],
+    ]
+    assert modes["ai-multi-stage"]["stages"] == [
+        ["ai-naked-signals"], ["qualified-depth"],
+        ["qualified-group-second-order"], ["signal-validation"],
+    ]
+    assert modes["multivariate"]["stages"] == [
+        ["raw-first-order"], ["qualified-composition"], ["signal-validation"],
+    ]

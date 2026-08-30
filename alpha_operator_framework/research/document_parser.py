@@ -15,7 +15,7 @@ import zlib
 from dataclasses import dataclass, field
 from enum import Enum
 from pathlib import Path
-from typing import Any, Dict, List, Optional, Sequence, Tuple, Union
+from typing import List, Optional, Tuple, Union
 
 
 class DocumentType(str, Enum):

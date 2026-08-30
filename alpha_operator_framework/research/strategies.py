@@ -3,14 +3,19 @@
 from __future__ import annotations
 
 import hashlib
+import json
+import re
 from dataclasses import dataclass, field
-from pathlib import Path
-from typing import Any, Mapping, Protocol, Sequence
+from typing import Mapping, Protocol, Sequence
 
 from alpha_operator_framework.database.models import Template
 from alpha_operator_framework.domain.ast import to_canonical_string, validate_expression
-from alpha_operator_framework.domain.fields import FieldSpec
-from alpha_operator_framework.domain.operators import ACCESS_LIMITED_OPS
+from alpha_operator_framework.domain.fields import (
+    FieldSpec,
+    preprocess_field,
+    preprocess_fields_rotated,
+)
+from alpha_operator_framework.domain.operators import ACCESS_LIMITED_OPS, basic_ops, group_ops, ts_ops
 
 from .construction import AstCandidateBuilder
 from .round import Candidate
@@ -72,6 +77,9 @@ class ConstructionContext:
     templates: tuple[Template, ...]
     parents: tuple[Candidate, ...] = ()
     seed: int = 0
+    region: str = ""
+    universe: str = ""
+    delay: int | None = None
 
 
 @dataclass
@@ -108,6 +116,163 @@ class DatabaseTemplateStrategy:
         return [_draft_from_candidate(candidate, config, context.seed) for candidate in candidates]
 
 
+class RawFirstOrderStrategy:
+    """Machine-lib style first-order expansion with no template-library dependency."""
+
+    kind = "raw_first_order"
+    windows = (5, 22, 66, 120, 252, 504)
+
+    def generate(self, context: ConstructionContext, config: ConstructionStrategyConfig) -> list[CandidateDraft]:
+        if config.source != "raw_fields":
+            return []
+        family = config.families[0]
+        drafts: list[CandidateDraft] = []
+        for field_spec, expression in preprocess_fields_rotated(context.fields, seed=context.seed):
+            drafts.append(self._draft(expression, field_spec.id, "identity", family, config, context.seed))
+            for operator in basic_ops:
+                drafts.append(self._draft(
+                    f"{operator}({expression})", field_spec.id, operator, family, config, context.seed,
+                ))
+            for operator in ts_ops:
+                for window in self.windows:
+                    drafts.append(self._draft(
+                        f"{operator}({expression}, {window})", field_spec.id,
+                        f"{operator}:{window}", family, config, context.seed,
+                    ))
+        return drafts
+
+    @staticmethod
+    def _draft(
+        expression: str,
+        field_id: str,
+        operator: str,
+        family: str,
+        config: ConstructionStrategyConfig,
+        seed: int,
+    ) -> CandidateDraft:
+        return CandidateDraft(
+            expression=expression,
+            strategy_id=config.strategy_id,
+            strategy_kind=config.kind,
+            template_family=family,
+            template_id=f"{field_id}:{operator}",
+            seed=seed,
+        )
+
+
+class AiNakedSignalStrategy:
+    """LLM-generated simple economic seeds with deterministic code-side guards."""
+
+    kind = "ai_naked_signal"
+    allowed_operators = (
+        "reverse", "inverse", "rank", "zscore", "quantile", "normalize",
+        "ts_rank", "ts_zscore", "ts_delta", "ts_mean", "ts_sum", "ts_std_dev",
+    )
+    windows = (5, 22, 66, 120, 252, 504)
+
+    def __init__(self, llm_client: object | None = None) -> None:
+        self._llm_client = llm_client
+
+    def generate(self, context: ConstructionContext, config: ConstructionStrategyConfig) -> list[CandidateDraft]:
+        if config.source != "raw_fields" or config.llm_profile is None:
+            return []
+        usable_fields = [item for item in context.fields if item.type != "GROUP"]
+        scalar_variants_by_id: dict[str, tuple[str, ...]] = {}
+        for field_spec in usable_fields:
+            variants = tuple(preprocess_field(field_spec))
+            if variants:
+                scalar_variants_by_id[field_spec.id] = variants
+        if not scalar_variants_by_id:
+            return []
+        requested = min(100, max(8, config.quota_per_leaf_family * 4))
+        field_payload = [
+            {"id": field_spec.id, "description": field_spec.description[:160]}
+            for field_spec in usable_fields[:50]
+            if field_spec.id in scalar_variants_by_id
+        ]
+        prompt = (
+            f"为 WorldQuant BRAIN 生成 {requested} 个简单、纯粹、具有经济学含义的裸信号。\n"
+            "输入只包含字段名和描述。每个信号只能使用一个字段，最多嵌套两个算子；"
+            "不要使用分组、中性化、回填、winsorize 或 vec 算子，这些由代码处理。\n"
+            f"允许算子：{', '.join(self.allowed_operators)}。"
+            f"时间窗口只能使用：{', '.join(map(str, self.windows))}。\n"
+            "严格输出 JSON 数组，每项必须含 title、expression、rationale；"
+            "rationale 必须说明市场低效、经济机制、错价来源和因子类别。\n"
+            f"字段：{json.dumps(field_payload, ensure_ascii=False, separators=(',', ':'))}"
+        )
+        client = self._llm_client
+        if client is None:
+            from alpha_operator_framework.research.llm_client import UnifiedLLMClient
+
+            client = UnifiedLLMClient()
+        response = client.chat(  # type: ignore[attr-defined]
+            prompt=prompt,
+            provider=config.llm_profile,
+            system_prompt=(
+                "你是严谨的 Alpha 裸信号研究员。只返回 JSON，不展示思维过程，"
+                "优先经济含义明确的简单表达式。"
+            ),
+        )
+        items = self._parse_response(str(response))
+        drafts: list[CandidateDraft] = []
+        family = config.families[0]
+        for index, item in enumerate(items[:requested]):
+            expression = str(item.get("expression") or "").strip()
+            title = str(item.get("title") or f"AI naked signal {index + 1}").strip()
+            rationale = str(item.get("rationale") or "").strip()
+            if not expression or not rationale:
+                continue
+            grounded = self._ground_expression(
+                expression, scalar_variants_by_id, variant_index=index,
+            )
+            hypothesis = json.dumps(
+                {"title": title, "rationale": rationale},
+                ensure_ascii=False,
+                sort_keys=True,
+                separators=(",", ":"),
+            )
+            drafts.append(CandidateDraft(
+                expression=grounded,
+                strategy_id=config.strategy_id,
+                strategy_kind=config.kind,
+                template_family=family,
+                template_id=f"ai-naked-{index + 1}",
+                hypothesis_id=hypothesis,
+                seed=context.seed,
+            ))
+        return drafts
+
+    @staticmethod
+    def _parse_response(response: str) -> list[dict[str, object]]:
+        match = re.search(r"\[.*\]", response, flags=re.DOTALL)
+        if match is None:
+            raise ValueError("AI naked signal response does not contain a JSON array")
+        payload = json.loads(match.group(0))
+        if not isinstance(payload, list):
+            raise ValueError("AI naked signal response must be a JSON array")
+        return [dict(item) for item in payload if isinstance(item, Mapping)]
+
+    @staticmethod
+    def _ground_expression(
+        expression: str,
+        scalar_variants_by_id: Mapping[str, Sequence[str]],
+        *,
+        variant_index: int = 0,
+    ) -> str:
+        grounded = expression
+        for field_id in sorted(scalar_variants_by_id, key=len, reverse=True):
+            variants = scalar_variants_by_id[field_id]
+            if not variants:
+                continue
+            scalar = variants[variant_index % len(variants)]
+            grounded = re.sub(
+                rf"(?<![A-Za-z0-9_]){re.escape(field_id)}(?![A-Za-z0-9_])",
+                f"({scalar})",
+                grounded,
+            )
+        return grounded
+
+
 class _ParentTransformStrategy:
     kind = ""
 
@@ -140,6 +305,68 @@ class DepthConstructionStrategy(_ParentTransformStrategy):
 
 class FieldCompositionStrategy(_ParentTransformStrategy):
     kind = "field_composition"
+
+
+class GroupSecondOrderStrategy:
+    """Apply group transforms to qualified parents using scoped cached GROUP fields."""
+
+    kind = "group_second_order"
+
+    def generate(self, context: ConstructionContext, config: ConstructionStrategyConfig) -> list[CandidateDraft]:
+        if config.source not in {"qualified_candidates", "raw_and_qualified_candidates"}:
+            return []
+        groups = self._resolve_groups(context)
+        if not groups:
+            return []
+        family = config.families[0]
+        drafts: list[CandidateDraft] = []
+        for parent in context.parents:
+            for group in groups:
+                for operator in group_ops:
+                    drafts.append(CandidateDraft(
+                        expression=f"{operator}({parent.expression}, densify({group.id}))",
+                        strategy_id=config.strategy_id,
+                        strategy_kind=config.kind,
+                        template_family=family,
+                        template_id=f"{operator}:{group.id}",
+                        parent_ids=(parent.candidate_id,),
+                        seed=context.seed,
+                    ))
+        return drafts
+
+    @staticmethod
+    def _resolve_groups(context: ConstructionContext) -> tuple[FieldSpec, ...]:
+        """Prefer exact-scope cache; explicit context fields are offline fallback."""
+        if context.region and context.universe and context.delay is not None:
+            from alpha_operator_framework.research.field_loader import load_or_fetch_group_fields
+
+            return tuple(load_or_fetch_group_fields(context.region, context.universe, context.delay))
+        return tuple(field for field in context.fields if field.type == "GROUP")
+
+
+class SignalValidationStrategy:
+    """Generate terminal rank/sign invariance checks for qualified signals."""
+
+    kind = "signal_validation"
+
+    def generate(self, context: ConstructionContext, config: ConstructionStrategyConfig) -> list[CandidateDraft]:
+        if config.source not in {"qualified_candidates", "raw_and_qualified_candidates"}:
+            return []
+        family = config.families[0]
+        drafts: list[CandidateDraft] = []
+        for parent in context.parents:
+            for operator in ("rank", "sign"):
+                drafts.append(CandidateDraft(
+                    expression=f"{operator}({parent.expression})",
+                    strategy_id=config.strategy_id,
+                    strategy_kind=config.kind,
+                    template_family=family,
+                    template_id=f"validation:{operator}",
+                    hypothesis_id=f"invariance:{operator}",
+                    parent_ids=(parent.candidate_id,),
+                    seed=context.seed,
+                ))
+        return drafts
 
 
 class LiteratureHypothesisStrategy:
@@ -274,8 +501,12 @@ class ConstructionStrategyRegistry:
     def __init__(self, strategies: Sequence[ConstructionStrategy] | None = None) -> None:
         registered = strategies or (
             DatabaseTemplateStrategy(),
+            RawFirstOrderStrategy(),
+            AiNakedSignalStrategy(),
             DepthConstructionStrategy(),
             FieldCompositionStrategy(),
+            GroupSecondOrderStrategy(),
+            SignalValidationStrategy(),
             LiteratureHypothesisStrategy(),
         )
         self._strategies: Mapping[str, ConstructionStrategy] = {strategy.kind: strategy for strategy in registered}

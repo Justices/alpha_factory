@@ -252,7 +252,7 @@ class TemplateRepository(BaseRepository):
             fields_per_alpha=slot_count,
             expression_origin=source,
             slot_count=slot_count,
-            placeholders={s: "scalar" for s in slots},
+            placeholders={s: {"role": "scalar"} for s in slots},
             description=description or generated_description,
             example_expression=(
                 example_expression

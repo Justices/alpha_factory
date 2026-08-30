@@ -339,7 +339,7 @@ def evaluate_and_prune_templates_2d(
                             reason=reason,
                             source="consensus_pruning",
                         )
-                    except Exception as e:
+                    except Exception:
                         pass
 
                 # 软删除 template_library 中的对应模板

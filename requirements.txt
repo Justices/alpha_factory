@@ -1,6 +1,6 @@
 # Alpha Factory - 项目依赖
-# 安装命令: D:\quant-venv\Scripts\python.exe -m pip install -r requirements.txt
-# 运行环境: Python 3.12 (D:\quant-venv)
+# 推荐 Python 3.12 或 3.13；从项目根目录执行：
+# python -m pip install -r requirements.txt -r requirements-dev.txt
 
 # 本地代码直接依赖的第三方库（其余均为标准库）
 requests==2.34.2     # HTTP 客户端，cnhkmcp 平台会话管理使用
@@ -13,4 +13,3 @@ SQLAlchemy==2.0.52
 PyMySQL==1.1.2
 # 提供 brain_client / session_manager 能力，依赖上述 requests。
 # 如在新环境部署，需单独安装 cnhkmcp 连接器。
-

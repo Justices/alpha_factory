@@ -1,10 +1,8 @@
 """Unit tests for Alpha Decay Profiler."""
 
 import numpy as np
-import pytest
 
 from alpha_operator_framework.domain.decay import (
-    AlphaDecayProfile,
     DecaySpeed,
     profile_alpha_decay,
 )

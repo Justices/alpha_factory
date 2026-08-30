@@ -1,7 +1,6 @@
 """Unit tests for Gram-Schmidt orthogonalization and Super-Alpha 2.0 (HRP)."""
 
 import numpy as np
-import pytest
 
 from alpha_operator_framework.domain.orthogonalization import (
     build_orthogonal_expression,
@@ -12,7 +11,6 @@ from alpha_operator_framework.generation.portfolio import (
     PortfolioMethod,
     build_super_alpha_2,
     compute_hrp_weights,
-    compute_inverse_volatility_weights,
 )
 
 

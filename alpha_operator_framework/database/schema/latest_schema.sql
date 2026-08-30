@@ -296,6 +296,20 @@ CREATE TABLE IF NOT EXISTS backtest_dataset_records (
     UNIQUE(region, universe, delay, dataset_id, strategy)
 );
 
+CREATE TABLE IF NOT EXISTS promotion_decisions (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    task_id TEXT NOT NULL,
+    scope_hash TEXT NOT NULL,
+    alpha_sha TEXT NOT NULL,
+    stage INTEGER NOT NULL,
+    decision TEXT NOT NULL,
+    reason TEXT NOT NULL DEFAULT '',
+    details_json TEXT NOT NULL DEFAULT '{}',
+    created_at TEXT NOT NULL,
+    updated_at TEXT NOT NULL,
+    UNIQUE(task_id, scope_hash, alpha_sha, stage)
+);
+
 CREATE INDEX IF NOT EXISTS idx_alpha_sha ON alpha_expressions(alpha_sha);
 CREATE INDEX IF NOT EXISTS idx_detail_alpha_sha ON alpha_details(alpha_sha);
 CREATE INDEX IF NOT EXISTS idx_detail_sharpe ON alpha_details(sharpe);
@@ -315,6 +329,7 @@ CREATE INDEX IF NOT EXISTS idx_opt_queue_priority ON alpha_optimization_queue(pr
 CREATE INDEX IF NOT EXISTS idx_sub_cand_alpha ON alpha_submission_candidates(alpha_id);
 CREATE INDEX IF NOT EXISTS idx_sub_cand_submitted ON alpha_submission_candidates(is_submitted);
 CREATE INDEX IF NOT EXISTS idx_sub_cand_sharpe ON alpha_submission_candidates(sharpe);
+CREATE INDEX IF NOT EXISTS idx_promotion_task ON promotion_decisions(task_id, stage, decision);
 CREATE INDEX IF NOT EXISTS idx_datafields_region ON datafields(region);
 CREATE INDEX IF NOT EXISTS idx_datafields_dataset ON datafields(dataset_id);
 CREATE INDEX IF NOT EXISTS idx_datafields_type ON datafields(type);

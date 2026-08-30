@@ -1,19 +1,13 @@
 """Unit tests for Native Alpha Judge and Value-Factor Priority Evaluation System."""
 
-import pytest
 
 from alpha_operator_framework.domain.judge import (
     AlphaJudge,
-    JudgeReport,
     JudgeVerdict,
-    RubricSeverity,
     RubricStatus,
-    ValueFactorDiversity,
     compute_value_factor_diversity,
-    evaluate_all_rubrics,
     evaluate_economic_foundation,
     evaluate_implementation_simplicity,
-    is_atom_alpha,
     project_diversity_after_submission,
 )
 

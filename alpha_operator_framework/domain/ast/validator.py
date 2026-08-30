@@ -11,7 +11,7 @@
 from __future__ import annotations
 
 from dataclasses import dataclass, field
-from typing import Any, List, Optional, Set, Tuple, Union
+from typing import List, Optional, Set, Union
 
 from alpha_operator_framework.domain.ast.nodes import (
     ASTVisitor,
@@ -41,7 +41,7 @@ KNOWN_OPERATORS = frozenset(
     | set(extended_ops)
     | {
         "abs", "log", "sign", "sqrt", "signed_power", "min", "max",
-        "trade_when", "filter", "paste", "if_else", "ts_step", "ts_backfill", "winsorize",
+        "trade_when", "filter", "paste", "if_else", "ts_step", "ts_backfill", "winsorize", "densify",
         "ts_corr", "group_mean", "s_log_1p",
     }
 )

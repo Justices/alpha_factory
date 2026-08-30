@@ -9,7 +9,7 @@
 from __future__ import annotations
 
 import re
-from typing import Any, Dict, List, Optional, Sequence, Tuple
+from typing import Dict, Optional, Sequence, Tuple
 
 from alpha_operator_framework.domain.fields import FieldSpec
 

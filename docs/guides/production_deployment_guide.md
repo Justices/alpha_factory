@@ -118,7 +118,7 @@ screen -r alpha
 
 ## 6. 多市场/多数据集生产矩阵配置
 
-编辑 [`scripts/prod_pipeline_matrix.sh`](file:///d:/quant/alpha_factory/scripts/prod_pipeline_matrix.sh) 中的 `TARGET_MATRIX` 数组，可自定义跨市场巡检任务流：
+编辑 [`scripts/prod_pipeline_matrix.sh`](../../scripts/prod_pipeline_matrix.sh) 中的 `TARGET_MATRIX` 数组，可自定义跨市场巡检任务流：
 
 ```bash
 TARGET_MATRIX=(

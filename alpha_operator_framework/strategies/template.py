@@ -10,7 +10,7 @@
 from __future__ import annotations
 
 from dataclasses import dataclass
-from typing import Optional, Sequence, Tuple
+from typing import List, Optional, Sequence, Tuple
 
 from .base import CreationStrategy, StrategyConfig
 from alpha_operator_framework.database.models import Template

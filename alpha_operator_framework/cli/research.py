@@ -52,7 +52,9 @@ def command_research_cycle(args: argparse.Namespace) -> None:
     from alpha_operator_framework.research.round import ResearchPolicy
 
     config_path = _config_path(args)
-    construction_plan = resolve_construction_plan(config_path)
+    construction_plan = resolve_construction_plan(
+        config_path, mode=getattr(args, "construction_mode", None),
+    )
     options = resolve_research_options(config_path, {
         name: getattr(args, name, None) for name in (
             "region", "universe", "delay", "decay", "neutralization", "truncation", "seed",
@@ -77,11 +79,9 @@ def command_research_cycle(args: argparse.Namespace) -> None:
         include_base_fields=False, allow_scope_fallback=False, category=getattr(args, "category", None),
     )
     if not fields:
-        import asyncio
-        from alpha_operator_framework.platform.datafields import fetch_datafields
-        from alpha_operator_framework.research.field_loader import cache_platform_fields
+        from alpha_operator_framework.cache.datafields import DataFieldCache
 
-        cache_platform_fields(asyncio.run(fetch_datafields(**field_scope)), **field_scope)
+        DataFieldCache().get_datafields(**field_scope)
         fields = load_real_market_fields(
             **field_scope, datasets=args.datasets.split(",") if args.datasets else None,
             include_base_fields=False, allow_scope_fallback=False, category=getattr(args, "category", None),
@@ -250,6 +250,8 @@ def build_parser() -> argparse.ArgumentParser:
     cycle.add_argument("--algorithm", choices=["stratified", "d_optimal", "thompson", "ucb", "diversity"])
     cycle.add_argument("--seed", type=int, default=42)
     cycle.add_argument("--round-id")
+    cycle.add_argument("--construction-mode", "--mode", dest="construction_mode",
+                       help="构建编排模式；由 YAML 的 research.construction_modes 定义")
     cycle.add_argument("--config", default=str(DEFAULT_CONFIG_PATH))
     cycle.add_argument("--policy-file")
     cycle.add_argument("--telemetry-file")

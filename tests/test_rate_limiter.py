@@ -2,7 +2,6 @@
 
 import asyncio
 import time
-import pytest
 
 from alpha_operator_framework.platform.rate_limiter import (
     AdaptiveLimiterConfig,

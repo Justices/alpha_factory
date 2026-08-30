@@ -12,7 +12,7 @@ from __future__ import annotations
 import csv
 import json
 from pathlib import Path
-from typing import Any, Iterable, List, Optional
+from typing import Any, List, Optional
 
 from alpha_operator_framework.domain.fields import FieldSpec
 

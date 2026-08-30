@@ -13,7 +13,7 @@ from __future__ import annotations
 import json
 import asyncio
 from pathlib import Path
-from typing import List, Dict, Any, Optional, Sequence
+from typing import List, Dict, Any, Optional
 
 
 # ---------------------------------------------------------------------------
@@ -348,7 +348,7 @@ async def fetch_alpha_by_ids(
                     all_alphas.extend(batch_alphas)
                     break  # 成功,跳出重试循环
 
-                except Exception as e:
+                except Exception:
                     if retry < max_retries - 1:
                         print(f"批次{batch_idx+1}查询失败,重试{retry+1}/{max_retries}...")
                         await asyncio.sleep(1)  # 等待1秒后重试

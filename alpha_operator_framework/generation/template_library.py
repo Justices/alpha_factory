@@ -18,9 +18,9 @@ from __future__ import annotations
 
 import itertools
 import re
-from dataclasses import dataclass, field
+from dataclasses import dataclass
 from pathlib import Path
-from typing import Any, Dict, Iterable, List, Optional, Sequence, Tuple
+from typing import Any, Dict, List, Optional, Sequence, Tuple
 
 from alpha_operator_framework.domain.families import (
     BINARY_TEMPLATES,
@@ -422,7 +422,12 @@ def template_creation_strategy(
 
         # 2) 槽位分类
         slots = extract_slot_names(tpl.expression_template)
-        ph = tpl.placeholders or {}
+        # Older promoted templates stored the shorthand ``{"a": "scalar"}``.
+        # Normalize it at the boundary so persisted historical evidence remains usable.
+        ph = {
+            slot: spec if isinstance(spec, dict) else {"role": str(spec)}
+            for slot, spec in (tpl.placeholders or {}).items()
+        }
         group_slot_set = set(tpl.group_slots or [])
         fixed_map: Dict[str, str] = {
             s: str(p["value"]) for s, p in ph.items()

@@ -10,15 +10,11 @@
 
 from __future__ import annotations
 
-import asyncio
-import json
 import logging
-import os
 import time
 from collections.abc import Mapping
 from dataclasses import dataclass, field
-from pathlib import Path
-from typing import Any, Callable, Dict, List, Optional, Sequence, Union
+from typing import Any, Dict, List, Optional, Sequence, Union
 
 import requests
 

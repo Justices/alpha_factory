@@ -103,7 +103,6 @@ def test_matches_prune_rule_types():
     assert matches_prune_rule("ts_mean(signed_power(x, 2), 500)", substr_rule)
     assert not matches_prune_rule("ts_mean(x, 500)", substr_rule)
 
-    import re
     regex_rule = {"pattern": r"^log\(abs\(", "pattern_type": "regex"}
     assert matches_prune_rule("log(abs(ts_delta(x, 500)))", regex_rule)
     assert not matches_prune_rule("ts_delta(x, 500)", regex_rule)

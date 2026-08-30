@@ -13,16 +13,118 @@ research:
   truncation: 0.08
   selection_strategy: weighted_stratified
   seed: 42
+  # 指定 --construction-mode 可切换；未指定时使用多阶链路。
+  # 同一 stage 可并行，下一 stage 只接收通过 parent_gate 的父表达式。
+  default_construction_mode: multi-stage
+  construction_modes:
+    # 已验证模板做字段实例化、分批回测、批后结构/相关性剪枝和蒸馏；
+    # 幸存实例进入下一批/人工池，但不自动升阶。
+    template:
+      stages:
+        - [database-template]
+    # 原始字段一阶 -> 合格者深度变换 -> 合格者 group 二阶。
+    multi-stage:
+      stages:
+        - [raw-first-order]
+        - [qualified-depth]
+        - [qualified-group-second-order]
+        - [signal-validation]
+    # AI generates simple economic seeds; all later gates remain deterministic.
+    ai-multi-stage:
+      stages:
+        - [ai-naked-signals]
+        - [qualified-depth]
+        - [qualified-group-second-order]
+        - [signal-validation]
+    # 原始字段一阶 -> 合格者多字段组合；不与多阶链路混跑。
+    multivariate:
+      stages:
+        - [raw-first-order]
+        - [qualified-composition]
+        - [signal-validation]
   construction:
     strategies:
-      - id: database-default
+      # 已验证的数据库模板分支。
+      - id: database-template
         kind: database_template
         families: ["*"]
-        order_depth: {min: 0, max: 12}
+        order_depth: {min: 1, max: 6}
         field_count: {min: 1, max: 4}
         quota_per_leaf_family: 8
         source: raw_fields
+      # machine_lib's first_order_factory: fields × basic/time-series operators.
+      # It does not depend on the database template library. AI mode applies
+      # typed scalarization too: MATRIX=no vec, EVENT=vec_avg, VECTOR=rotated vec_*.
+      - id: raw-first-order
+        kind: raw_first_order
+        families: ["first_order"]
+        order_depth: {min: 1, max: 3}
+        field_count: {exact: 1}
+        quota_per_leaf_family: 8
+        source: raw_fields
+      - id: ai-naked-signals
+        kind: ai_naked_signal
+        families: [ai_naked]
+        llm_profile: deepseek
+        order_depth: {min: 1, max: 4}
+        field_count: {exact: 1}
+        quota_per_leaf_family: 8
+        source: raw_fields
+      # Only candidates that pass the parent gate are eligible for these stages.
+      # This mirrors machine_lib's first-order -> group/compound second-order flow
+      # while retaining AST validation, lineage, and access-control checks.
+      - id: qualified-depth
+        kind: depth_construction
+        families: ["unary", "binary", "ternary", "quaternary"]
+        order_depth: {min: 2, max: 6}
+        field_count: {min: 1, max: 4}
+        quota_per_leaf_family: 8
+        source: qualified_candidates
+      - id: qualified-composition
+        kind: field_composition
+        families: ["binary", "ternary", "quaternary"]
+        order_depth: {min: 2, max: 6}
+        field_count: {min: 2, max: 4}
+        quota_per_leaf_family: 8
+        source: qualified_candidates
+      - id: qualified-group-second-order
+        kind: group_second_order
+        families: ["group_second_order"]
+        order_depth: {min: 2, max: 6}
+        field_count: {min: 2, max: 4}
+        quota_per_leaf_family: 8
+        source: qualified_candidates
+      # Terminal invariance checks. These candidates never feed another
+      # construction stage; their results are compared with the parent signal.
+      - id: signal-validation
+        kind: signal_validation
+        families: [rank_sign]
+        order_depth: {min: 1, max: 7}
+        field_count: {min: 1, max: 4}
+        quota_per_leaf_family: 8
+        source: qualified_candidates
     parent_gate:
       sharpe: {operator: gt, value: 1.25}
       fitness: {operator: gt, value: 0.8}
+    # Shared post-backtest gate for every mode: invalid-result cleanup ->
+    # multi-channel PnL correlation pruning -> retain for review and, when a
+    # later stage exists, continue construction/backtesting from the survivors.
+    promotion:
+      quality:
+        min_long_short_sum: 20
+        max_consecutive_flat_days: 200
+        max_tail_flat_ratio: 0.30
+      correlation:
+        enabled: true
+        channels: [sharpe, fitness, margin]
+        first_band_size: 5
+        second_band_size: 5
+        first_threshold: 0.85
+        second_threshold: 0.80
+        final_threshold: 0.75
+        min_periods: 100
+      validation:
+        enabled: true
+        minimum_sharpe_ratio: 0.50
+      early_stop_signal_count: 8
     platform_batch_size: 8

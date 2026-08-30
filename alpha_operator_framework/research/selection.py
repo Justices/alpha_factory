@@ -151,6 +151,96 @@ class ThompsonSelector(UcbSelector):
 
 
 class DiversitySelector(UcbSelector):
-    """倾向于维护多样性特征的选择器，基于不确定性衡量来进行非局部最大化探索。"""
+    """Greedy structural-diversity selector for candidates not yet backtested.
+
+    PnL correlation is unavailable at this point, so this selector diversifies
+    fields, operators and template identities. Result-level PnL diversity is a
+    separate promotion gate in the research loop.
+    """
 
     name = "diversity"
+
+    def select(
+        self,
+        candidates: Sequence[Candidate],
+        policy: ResearchPolicy,
+        knowledge: KnowledgeSnapshot,
+        random_source: Any,
+    ) -> list[SelectionDecision]:
+        grouped: dict[str, list[Candidate]] = defaultdict(list)
+        rejected_ids: set[str] = set()
+        for candidate in candidates:
+            if knowledge.rejects(candidate):
+                rejected_ids.add(candidate.candidate_id)
+            else:
+                grouped[candidate.family].append(candidate)
+
+        selected: list[Candidate] = []
+        per_family = max(1, policy.max_backtests // max(1, len(grouped)))
+        for family, members in sorted(grouped.items()):
+            quota = policy.family_quotas.get(family, per_family)
+            pool = list(members)
+            family_selected: list[Candidate] = []
+            while pool and len(family_selected) < quota:
+                if not family_selected:
+                    pick = max(pool, key=lambda item: (self.score(item, policy, knowledge), item.candidate_id))
+                else:
+                    pick = max(
+                        pool,
+                        key=lambda item: (
+                            min(self._structural_distance(item, prior) for prior in family_selected),
+                            self.score(item, policy, knowledge),
+                            item.candidate_id,
+                        ),
+                    )
+                family_selected.append(pick)
+                pool.remove(pick)
+            selected.extend(family_selected)
+
+        if not policy.family_quotas and len(selected) > policy.max_backtests:
+            chosen: list[Candidate] = []
+            pool = list(selected)
+            while pool and len(chosen) < policy.max_backtests:
+                pick = max(
+                    pool,
+                    key=lambda item: (
+                        min((self._structural_distance(item, prior) for prior in chosen), default=1.0),
+                        self.score(item, policy, knowledge),
+                        item.candidate_id,
+                    ),
+                )
+                chosen.append(pick)
+                pool.remove(pick)
+            selected = chosen
+
+        selected_ids = {candidate.candidate_id for candidate in selected}
+        return [
+            SelectionDecision(
+                candidate_id=candidate.candidate_id,
+                selected=candidate.candidate_id in selected_ids,
+                score_components=self.components(candidate, policy, knowledge),
+                reason=(
+                    "Rejected by knowledge pruning rule" if candidate.candidate_id in rejected_ids
+                    else "Selected by structural diversity within family quota"
+                    if candidate.candidate_id in selected_ids
+                    else "Below structural-diversity family quota"
+                ),
+                policy_name=self.name,
+            )
+            for candidate in candidates
+        ]
+
+    @staticmethod
+    def _structural_distance(left: Candidate, right: Candidate) -> float:
+        left_tokens = (
+            {f"field:{value}" for value in left.fields}
+            | {f"operator:{value}" for value in left.operators}
+            | {f"template:{left.template_id}"}
+        )
+        right_tokens = (
+            {f"field:{value}" for value in right.fields}
+            | {f"operator:{value}" for value in right.operators}
+            | {f"template:{right.template_id}"}
+        )
+        union = left_tokens | right_tokens
+        return 1.0 if not union else 1.0 - len(left_tokens & right_tokens) / len(union)

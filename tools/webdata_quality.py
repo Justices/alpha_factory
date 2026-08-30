@@ -138,7 +138,7 @@ def main():
         print(f"| {r['dataset']} | {r['count']} | {r['sharpe']} | {r['fitness']} | {bn} |")
 
     # 甜点区
-    print(f"\n## 甜点区 (100≤count≤3000 且 sharpe≥1.1×均值)\n")
+    print("\n## 甜点区 (100≤count≤3000 且 sharpe≥1.1×均值)\n")
     print("| dataset | count | sharpe | fitness | best neuts |\n|---|---|---|---|---|")
     for r in stats['sweet_spot'][:args.top]:
         bn = ', '.join(f"{b['neut']}({b['sharpe']},n={b['count']})" for b in r['best_neuts'])

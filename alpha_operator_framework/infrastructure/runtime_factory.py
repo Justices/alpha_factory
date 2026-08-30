@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+from dataclasses import replace
 from pathlib import Path
 from typing import Any, Mapping
 
@@ -68,8 +69,8 @@ def resolve_research_options(config_path: Path, overrides: Mapping[str, Any]) ->
     return values
 
 
-def resolve_construction_plan(config_path: Path):
-    """Load the required explicit construction strategy plan before field access."""
+def resolve_construction_plan(config_path: Path, *, mode: str | None = None):
+    """Load one explicit, ordered construction pipeline before field access."""
     from alpha_operator_framework.research.strategy_config import ConstructionPlan
 
     config = load_runtime_config(config_path)
@@ -79,7 +80,43 @@ def resolve_construction_plan(config_path: Path):
     construction = research.get("construction")
     if not isinstance(construction, Mapping):
         raise ValueError("research.construction explicit strategy configuration is required")
-    return ConstructionPlan.from_mapping(construction, base_path=config_path.parent)
+    plan = ConstructionPlan.from_mapping(construction, base_path=config_path.parent)
+    modes = research.get("construction_modes")
+    selected_mode = mode or research.get("default_construction_mode")
+    if selected_mode is None:
+        return plan
+    if not isinstance(modes, Mapping):
+        raise ValueError("research.construction_modes is required when a construction mode is selected")
+    raw_mode = modes.get(str(selected_mode))
+    if not isinstance(raw_mode, Mapping):
+        available = ", ".join(sorted(str(name) for name in modes))
+        raise ValueError(f"unknown construction mode: {selected_mode} (available: {available})")
+    raw_stages = raw_mode.get("stages")
+    if not isinstance(raw_stages, list) or not raw_stages:
+        raise ValueError(f"construction mode {selected_mode} requires a non-empty stages list")
+
+    by_id = {strategy.strategy_id: strategy for strategy in plan.strategies}
+    selected: list[Any] = []
+    seen: set[str] = set()
+    for stage_number, raw_stage in enumerate(raw_stages, start=1):
+        if not isinstance(raw_stage, list) or not raw_stage:
+            raise ValueError(f"construction mode {selected_mode} stage {stage_number} must be a non-empty list")
+        for raw_strategy_id in raw_stage:
+            strategy_id = str(raw_strategy_id)
+            strategy = by_id.get(strategy_id)
+            if strategy is None:
+                raise ValueError(f"construction mode {selected_mode} references unknown strategy: {strategy_id}")
+            if strategy_id in seen:
+                raise ValueError(f"construction mode {selected_mode} repeats strategy: {strategy_id}")
+            if stage_number == 1 and strategy.consumes_parents:
+                raise ValueError(f"construction mode {selected_mode} stage 1 cannot consume qualified parents")
+            if stage_number > 1 and not strategy.consumes_parents:
+                raise ValueError(f"construction mode {selected_mode} stage {stage_number} must consume qualified parents")
+            seen.add(strategy_id)
+            selected.append(replace(strategy, stage=stage_number))
+    return ConstructionPlan(
+        tuple(selected), plan.parent_gate, plan.platform_batch_size, plan.promotion,
+    )
 
 
 def _parse_simple_yaml(content: str) -> dict[str, Any]:
@@ -148,7 +185,6 @@ def build_submission_outbox(config_path: Path):
     """Create the submission outbox through the same storage configuration."""
     from alpha_operator_framework.infrastructure.submission import SqlAlchemySubmissionOutbox
 
-    config = load_runtime_config(config_path)
     storage = storage_config(config_path)
     engine = create_storage_engine(storage)
     migrate(engine)

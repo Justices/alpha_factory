@@ -129,7 +129,6 @@ def cmd_submit(args) -> None:
     # 触发 6 维决策终审治理
     print(f"\n  🛡️ 正在对 {len(alpha_ids)} 个 Alpha 执行 DecisionApprovalEngine 提交前 6 维证据审计...")
     from alpha_operator_framework.domain.evidence import DecisionApprovalEngine, EvidenceLevel, persistent_audit_evidence_record
-    from alpha_operator_framework.domain.judge.evaluator import AlphaJudge
 
     db = AlphaDatabase()
     try:

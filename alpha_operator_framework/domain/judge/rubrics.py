@@ -9,18 +9,15 @@
 
 from __future__ import annotations
 
-import re
-from dataclasses import dataclass, field
+from dataclasses import dataclass
 from enum import Enum
-from typing import Any, Dict, List, Optional, Sequence, Set
+from typing import Any, Dict, List, Optional, Set
 
 from alpha_operator_framework.domain.ast import (
     ExpressionNode,
     FunctionCallNode,
     LiteralNode,
     TernaryNode,
-    VariableNode,
-    extract_ast_fields,
     parse_expression,
 )
 

@@ -10,7 +10,7 @@
 
 from __future__ import annotations
 
-from typing import List, Optional, Sequence, Tuple
+from typing import Sequence
 import numpy as np
 
 from alpha_operator_framework.domain.ast import to_canonical_string

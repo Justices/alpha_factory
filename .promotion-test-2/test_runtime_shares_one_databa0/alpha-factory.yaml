@@ -1,3 +1,0 @@
-storage:
-  driver: sqlite
-  path: D:\quant\alpha_factory\.promotion-test-2\test_runtime_shares_one_databa0\research.db

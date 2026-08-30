@@ -1,16 +1,13 @@
 """Unit tests for local vectorized Sandbox Engine."""
 
 import numpy as np
-import pytest
 
 from alpha_operator_framework.domain.sandbox import (
-    MarketDataCrossSection,
     SandboxEngine,
     generate_synthetic_market_data,
     evaluate_expression_local,
     cs_rank,
     cs_zscore,
-    ts_rank,
     ts_delta,
     group_neutralize,
 )

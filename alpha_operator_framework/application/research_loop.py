@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import asyncio
 import time
 from collections import Counter, defaultdict
 from dataclasses import dataclass, replace
@@ -9,7 +10,15 @@ from datetime import UTC, datetime
 from typing import Any, Sequence
 
 from alpha_operator_framework.application.research_cycle import ResearchCycleRequest
-from alpha_operator_framework.research.optimization import derive_consensus_prune_rules
+from alpha_operator_framework.domain.pruning_components import (
+    MultiChannelCorrelationConfig,
+    multi_channel_correlation_prune,
+)
+from alpha_operator_framework.research.optimization import (
+    derive_consensus_prune_rules,
+    is_signal_parent,
+    promotion_quality_reason,
+)
 from alpha_operator_framework.research.round import Candidate, ResearchPolicy
 from alpha_operator_framework.research.strategies import (
     ConstructionContext,
@@ -65,8 +74,17 @@ class ResearchLoopCoordinator:
             templates=tuple(database.list_templates(active_only=True)),
             parents=tuple(parents),
             seed=seed,
+            region=policy.region,
+            universe=policy.universe,
+            delay=policy.delay,
         )
-        outcome = self.registry.generate(construction_plan, context)
+        initial_plan = ConstructionPlan(
+            construction_plan.strategies_for_stage(1),
+            construction_plan.parent_gate,
+            construction_plan.platform_batch_size,
+            construction_plan.promotion,
+        )
+        outcome = self.registry.generate(initial_plan, context)
         self._persist_outcome(task_id, settings, construction_plan, outcome)
         status = "PARTIAL_FAILED" if outcome.partial_failed else "GENERATED"
         errors = "; ".join(item.error for item in outcome.strategy_statuses if item.error)
@@ -143,13 +161,19 @@ class ResearchLoopCoordinator:
             completed_backtests += summary.completed_backtests
 
             rows = database.load_completed_expression_results(settings)
+            self._evaluate_signal_validations(database, settings, construction_plan)
             for rule in derive_consensus_prune_rules(rows):
                 database.upsert_result_prune_rule(settings, rule.pattern, rule.pattern_type, rule.reason)
             pruned_count += len(database.prune_unbacktested_matching(
                 settings, database.get_result_prune_rules(settings),
             ))
+            retained_rows, promotion_rows, target_stages = self._select_promotion_rows(
+                base_round_id, database, settings, rows, construction_plan,
+            )
+            self._queue_signal_candidates(database, retained_rows)
             generated, parent_statuses = self._generate_from_qualified_parents(
-                base_round_id, database, settings, fields, rows, construction_plan, seed,
+                base_round_id, database, settings, fields, promotion_rows, construction_plan, seed,
+                target_stages=target_stages,
             )
             generated_count += generated
             statuses.extend(parent_statuses)
@@ -230,6 +254,8 @@ class ResearchLoopCoordinator:
         rows: Sequence[Any],
         plan: ConstructionPlan,
         seed: int,
+        *,
+        target_stages: dict[str, int] | None = None,
     ) -> tuple[int, list[StrategyStatus]]:
         templates = tuple(database.list_templates(active_only=True))
         generated = 0
@@ -246,14 +272,27 @@ class ResearchLoopCoordinator:
                 operators=(),
                 template_id="qualified-parent",
             )
-            for config in plan.strategies:
+            identity = row.alpha_sha or row.expression
+            next_stage = (target_stages or {}).get(identity, plan.next_stage_for(row.origin_strategy))
+            if next_stage is None:
+                continue
+            for config in plan.strategies_for_stage(next_stage):
                 if not config.consumes_parents:
                     continue
                 if database.has_parent_strategy_run(settings, parent.candidate_id, config.strategy_id):
                     continue
                 parent_config = replace(config, source="qualified_candidates")
-                parent_plan = ConstructionPlan((parent_config,), plan.parent_gate, plan.platform_batch_size)
-                context = ConstructionContext(tuple(fields), templates, (parent,), seed)
+                parent_plan = ConstructionPlan(
+                    (parent_config,), plan.parent_gate, plan.platform_batch_size, plan.promotion,
+                )
+                raw_delay = settings.get("delay")
+                delay = int(raw_delay) if isinstance(raw_delay, (int, float, str)) else None
+                context = ConstructionContext(
+                    tuple(fields), templates, (parent,), seed,
+                    region=str(settings.get("region") or ""),
+                    universe=str(settings.get("universe") or ""),
+                    delay=delay,
+                )
                 outcome = self.registry.generate(parent_plan, context)
                 priority = priorities[config.strategy_id]
                 outcome.provenances = [
@@ -282,6 +321,228 @@ class ResearchLoopCoordinator:
                         )
                 generated += len(outcome.candidates)
         return generated, statuses
+
+    @staticmethod
+    def _record_promotion(
+        database: Any,
+        task_id: str,
+        settings: dict[str, object],
+        row: Any,
+        stage: int,
+        decision: str,
+        reason: str = "",
+        details: dict[str, object] | None = None,
+    ) -> None:
+        record = getattr(database, "record_promotion_decision", None)
+        if callable(record):
+            record(
+                task_id, settings, row.alpha_sha or row.expression, stage,
+                decision, reason, details or {},
+            )
+
+    def _select_promotion_rows(
+        self,
+        task_id: str,
+        database: Any,
+        settings: dict[str, object],
+        rows: Sequence[Any],
+        plan: ConstructionPlan,
+    ) -> tuple[list[Any], list[Any], dict[str, int]]:
+        """Select the shared post-backtest survivors and their next stages.
+
+        Quality and PnL-correlation pruning apply to every non-validation
+        strategy, including terminal template mode.  All survivors can enter
+        the human review queue; only survivors with a later configured stage
+        are returned as promotion parents.
+        """
+        eligible: list[Any] = []
+        next_stage_by_sha: dict[str, int] = {}
+        decision_stage_by_sha: dict[str, int] = {}
+        for row in rows:
+            current = next(
+                (config for config in plan.strategies if config.strategy_id == row.origin_strategy),
+                None,
+            )
+            if current is None or current.kind == "signal_validation":
+                continue
+            next_stage = plan.next_stage_for(row.origin_strategy)
+            identity = row.alpha_sha or row.expression
+            decision_stage_by_sha[identity] = next_stage or current.stage
+            if next_stage is not None:
+                next_stage_by_sha[identity] = next_stage
+            reason = promotion_quality_reason(
+                row,
+                min_long_short_sum=plan.promotion.quality.min_long_short_sum,
+            )
+            if reason is None and not plan.parent_gate.passes(row.sharpe, row.fitness):
+                reason = "below_parent_gate"
+            if reason is not None:
+                self._record_promotion(
+                    database, task_id, settings, row, decision_stage_by_sha[identity],
+                    "reject", reason,
+                )
+                continue
+            eligible.append(row)
+
+        correlation = plan.promotion.correlation
+        if correlation.enabled and eligible:
+            payloads = [
+                {
+                    "alpha_id": row.platform_alpha_id,
+                    "alpha_sha": row.alpha_sha or row.expression,
+                    "sharpe": row.sharpe,
+                    "fitness": row.fitness,
+                    "margin": row.margin,
+                }
+                for row in eligible
+            ]
+            kept, pruned = asyncio.run(multi_channel_correlation_prune(
+                payloads,
+                MultiChannelCorrelationConfig(
+                    channels=correlation.channels,
+                    first_band_size=correlation.first_band_size,
+                    second_band_size=correlation.second_band_size,
+                    first_threshold=correlation.first_threshold,
+                    second_threshold=correlation.second_threshold,
+                    final_threshold=correlation.final_threshold,
+                    min_periods=correlation.min_periods,
+                    max_consecutive_flat_days=plan.promotion.quality.max_consecutive_flat_days,
+                    max_tail_flat_ratio=plan.promotion.quality.max_tail_flat_ratio,
+                ),
+            ))
+            kept_ids = {str(item["alpha_sha"]) for item in kept}
+            rows_by_sha = {row.alpha_sha or row.expression: row for row in eligible}
+            for item in pruned:
+                identity = str(item["alpha_sha"])
+                row = rows_by_sha[identity]
+                self._record_promotion(
+                    database, task_id, settings, row, decision_stage_by_sha[identity],
+                    "reject", str(item.get("prune_reason") or "correlation_pruned"),
+                    {
+                        "conflicts": item.get("prune_conflicts", []),
+                        "channels": list(correlation.channels),
+                    },
+                )
+            eligible = [row for row in eligible if (row.alpha_sha or row.expression) in kept_ids]
+
+        retained = list(eligible)
+        promotable = [
+            row for row in retained if (row.alpha_sha or row.expression) in next_stage_by_sha
+        ]
+        stop_target = plan.promotion.early_stop_signal_count
+        if stop_target and len(promotable) >= stop_target:
+            validation_stages = sorted({
+                config.stage for config in plan.strategies
+                if config.kind == "signal_validation"
+            })
+            validation_stage = validation_stages[-1] if validation_stages else None
+            for row in promotable:
+                identity = row.alpha_sha or row.expression
+                self._record_promotion(
+                    database, task_id, settings, row, next_stage_by_sha[identity],
+                    "early_stop", "signal_target_reached",
+                    {"target": stop_target, "validation_stage": validation_stage},
+                )
+            if validation_stage is None:
+                return retained, [], {}
+            return retained, promotable, {
+                row.alpha_sha or row.expression: validation_stage for row in promotable
+            }
+
+        for row in retained:
+            identity = row.alpha_sha or row.expression
+            self._record_promotion(
+                database, task_id, settings, row, decision_stage_by_sha[identity], "promote",
+                "" if identity in next_stage_by_sha else "retain_for_review",
+            )
+        return retained, promotable, {
+            row.alpha_sha or row.expression: next_stage_by_sha[row.alpha_sha or row.expression]
+            for row in promotable
+        }
+
+    @staticmethod
+    def _queue_signal_candidates(database: Any, rows: Sequence[Any]) -> None:
+        """Persist qualified results for explicit human optimization review.
+
+        This is a local queue only: it is deliberately separate from the
+        submission outbox and has no platform-side effect.
+        """
+        enqueue = getattr(database, "enqueue_optimization_once", None)
+        record_submission = getattr(database, "record_submission_candidate", None)
+        for row in rows:
+            if (
+                not row.checks_passed
+                or not is_signal_parent(row)
+                or str(row.family).startswith("signal_validation/")
+            ):
+                continue
+            local_id = row.alpha_sha or row.expression
+            if callable(enqueue):
+                enqueue(
+                    local_id,
+                    row.expression,
+                    sharpe=row.sharpe,
+                    fitness=row.fitness,
+                    priority=max(1, round(row.sharpe * 100 + row.fitness * 10)),
+                    optimization_hints={
+                        "source": "research-cycle",
+                        "origin_strategy": row.origin_strategy,
+                        "family": row.family,
+                        "action": "manual_review_before_submission",
+                    },
+                )
+            if callable(record_submission) and row.platform_alpha_id:
+                record_submission(
+                    row.platform_alpha_id,
+                    row.expression,
+                    sharpe=row.sharpe,
+                    fitness=row.fitness,
+                    turnover=row.turnover,
+                    margin=row.margin,
+                    robustness_status="rank_sign_pending",
+                    robustness_notes="terminal rank/sign validation has not completed",
+                )
+
+    @staticmethod
+    def _evaluate_signal_validations(
+        database: Any,
+        settings: dict[str, object],
+        plan: ConstructionPlan,
+    ) -> None:
+        load = getattr(database, "load_signal_validation_results", None)
+        update = getattr(database, "update_candidate_robustness", None)
+        if not plan.promotion.validation.enabled or not callable(load) or not callable(update):
+            return
+        grouped: dict[str, list[dict[str, object]]] = defaultdict(list)
+        for item in load(settings):
+            parent_id = str(item.get("parent_alpha_id") or "")
+            if parent_id:
+                grouped[parent_id].append(item)
+        minimum = plan.promotion.validation.minimum_sharpe_ratio
+        for parent_id, results in grouped.items():
+            ratios: dict[str, float] = {}
+            robust_total = robust_passed = robust_failed = 0
+            for item in results:
+                variant = str(item.get("validation_variant") or "").removeprefix("validation:")
+                parent_sharpe = float(item.get("parent_sharpe") or 0.0)
+                child_sharpe = float(item.get("child_sharpe") or 0.0)
+                ratios[variant] = child_sharpe / parent_sharpe if parent_sharpe > 0 else 0.0
+                robust_total = max(robust_total, int(item.get("robust_total") or 0))
+                robust_passed = max(robust_passed, int(item.get("robust_passed") or 0))
+                robust_failed = max(robust_failed, int(item.get("robust_failed") or 0))
+            failed = sorted(name for name, ratio in ratios.items() if ratio < minimum)
+            notes = ", ".join(f"{name}={ratio:.3f}" for name, ratio in sorted(ratios.items()))
+            if robust_failed:
+                update(parent_id, "fail", f"platform robust checks failed={robust_failed}; {notes}")
+            elif failed:
+                update(parent_id, "fail", f"rank/sign below {minimum:.2f}: {notes}")
+            elif {"rank", "sign"}.issubset(ratios):
+                if robust_total and robust_passed == robust_total:
+                    update(parent_id, "pass", f"rank/sign and platform robust checks passed; {notes}")
+                else:
+                    update(parent_id, "rank_sign_pass_robust_pending", notes)
+            else:
+                update(parent_id, "rank_sign_pending", notes or "waiting for rank/sign results")
 
     def _persist_outcome(
         self,

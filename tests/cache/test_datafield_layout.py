@@ -1,4 +1,5 @@
 import json
+import asyncio
 from pathlib import Path
 
 from alpha_operator_framework.cache.config import (
@@ -29,3 +30,23 @@ def test_scoped_cache_writes_universe_dataset_and_datafield_indexes(tmp_path: Pa
     assert (scope / "universe.json").read_text(encoding="utf-8") == ""
     assert json.loads((scope / "TOP2000U" / "dataset.json").read_text(encoding="utf-8")) == [{"id": "pv1", "name": "Price Volume", "category": {"id": "price_volume", "name": "Price Volume"}}]
     assert json.loads((scope / "TOP2000U" / "datafields" / "pv1.json").read_text(encoding="utf-8"))[0]["id"] == "returns"
+
+
+def test_initial_scope_fetch_populates_main_and_group_caches_together(monkeypatch, tmp_path: Path) -> None:
+    cache = DataFieldCache(root=tmp_path)
+    calls = []
+
+    async def fake_fetch(**kwargs):
+        calls.append(kwargs)
+        if kwargs.get("data_type") == "GROUP":
+            return {"items": [{"id": "industry", "type": "GROUP"}]}
+        return {"items": [{"id": "returns", "type": "MATRIX", "dataset": {"id": "pv1"}}]}
+
+    monkeypatch.setattr(cache, "fetch_platform", fake_fetch)
+
+    fields = asyncio.run(cache.aget_datafields("GBR", "TOP700", 1))
+
+    assert fields == [{"id": "returns", "type": "MATRIX", "dataset": {"id": "pv1"}}]
+    assert {call.get("data_type", "") for call in calls} == {"", "GROUP"}
+    assert cache.load_dataset("GBR", 1, "TOP700", "pv1") == fields
+    assert cache.load_group_fields("GBR", 1, "TOP700") == [{"id": "industry", "type": "GROUP"}]

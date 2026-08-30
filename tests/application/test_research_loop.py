@@ -9,8 +9,11 @@ from alpha_operator_framework.research.optimization import CompletedExpression
 from alpha_operator_framework.research.round import Candidate, ResearchPolicy
 from alpha_operator_framework.research.strategies import StrategyStatus
 from alpha_operator_framework.research.strategy_config import (
+    CorrelationPromotionPolicy,
     ConstructionPlan,
     ConstructionStrategyConfig,
+    PromotionPolicy,
+    PromotionQualityGate,
     StructuralConstraint,
 )
 
@@ -196,3 +199,138 @@ def test_loop_reports_requested_strategy_failure_after_preserving_other_work() -
 
     assert summary.status == "PARTIAL_FAILED"
     assert runtime.alpha_database.task_status == "PARTIAL_FAILED"
+
+
+def test_early_stop_skips_enhancement_and_routes_signals_to_terminal_validation() -> None:
+    class DecisionDatabase:
+        def __init__(self):
+            self.decisions = []
+
+        def record_promotion_decision(self, *args):
+            self.decisions.append(args)
+
+    strategies = (
+        ConstructionStrategyConfig(
+            "raw", "raw_first_order", ("first_order",),
+            StructuralConstraint(minimum=1, maximum=3), StructuralConstraint(exact=1),
+            source="raw_fields", stage=1,
+        ),
+        ConstructionStrategyConfig(
+            "depth", "depth_construction", ("unary",),
+            StructuralConstraint(minimum=2, maximum=6), StructuralConstraint(minimum=1, maximum=4),
+            source="qualified_candidates", stage=2,
+        ),
+        ConstructionStrategyConfig(
+            "validation", "signal_validation", ("rank_sign",),
+            StructuralConstraint(minimum=1, maximum=7), StructuralConstraint(minimum=1, maximum=4),
+            source="qualified_candidates", stage=3,
+        ),
+    )
+    plan = ConstructionPlan(
+        strategies,
+        promotion=PromotionPolicy(
+            quality=PromotionQualityGate(min_long_short_sum=20),
+            correlation=CorrelationPromotionPolicy(enabled=False),
+            early_stop_signal_count=1,
+        ),
+    )
+    row = CompletedExpression(
+        "rank(close)", ("close",), 1.5, 1.0, True,
+        alpha_sha="sha", origin_strategy="raw", long_count=60, short_count=60,
+    )
+    database = DecisionDatabase()
+
+    retained, selected, target_stages = ResearchLoopCoordinator(object())._select_promotion_rows(
+        "task", database, SETTINGS, [row], plan,
+    )
+
+    assert retained == [row]
+    assert selected == [row]
+    assert target_stages == {"sha": 3}
+    assert database.decisions[-1][4:7] == ("early_stop", "signal_target_reached", {"target": 1, "validation_stage": 3})
+
+
+def test_terminal_template_results_use_shared_pruning_and_only_survivors_are_queued() -> None:
+    class DecisionDatabase:
+        def __init__(self):
+            self.decisions = []
+            self.queued = []
+
+        def record_promotion_decision(self, *args):
+            self.decisions.append(args)
+
+        def enqueue_optimization_once(self, alpha_id, expression, **kwargs):
+            self.queued.append((alpha_id, expression, kwargs))
+
+    plan = _plan("database")
+    kept = CompletedExpression(
+        "rank(close)", ("close",), 1.5, 1.0, True,
+        alpha_sha="kept", origin_strategy="database",
+    )
+    rejected = CompletedExpression(
+        "rank(open)", ("open",), 1.0, 1.0, True,
+        alpha_sha="rejected", origin_strategy="database",
+    )
+    database = DecisionDatabase()
+
+    retained, promoted, target_stages = ResearchLoopCoordinator(object())._select_promotion_rows(
+        "task", database, SETTINGS, [kept, rejected], plan,
+    )
+    ResearchLoopCoordinator._queue_signal_candidates(database, retained)
+
+    assert retained == [kept]
+    assert promoted == []
+    assert target_stages == {}
+    assert [item[0] for item in database.queued] == ["kept"]
+    assert database.decisions[0][4:6] == ("reject", "below_parent_gate")
+    assert database.decisions[1][4:6] == ("promote", "retain_for_review")
+
+
+def test_rank_sign_validation_compares_each_child_with_parent() -> None:
+    class ValidationDatabase:
+        def __init__(self):
+            self.updates = []
+
+        def load_signal_validation_results(self, _settings):
+            return [
+                {"parent_alpha_id": "alpha-parent", "parent_sharpe": 2.0,
+                 "child_sharpe": 1.2, "validation_variant": "validation:rank"},
+                {"parent_alpha_id": "alpha-parent", "parent_sharpe": 2.0,
+                 "child_sharpe": 0.8, "validation_variant": "validation:sign"},
+            ]
+
+        def update_candidate_robustness(self, *args):
+            self.updates.append(args)
+
+    database = ValidationDatabase()
+    ResearchLoopCoordinator._evaluate_signal_validations(database, SETTINGS, ConstructionPlan(tuple()))
+
+    assert database.updates == [
+        ("alpha-parent", "fail", "rank/sign below 0.50: rank=0.600, sign=0.400"),
+    ]
+
+
+def test_rank_sign_and_platform_robust_checks_finalize_validation() -> None:
+    class ValidationDatabase:
+        def __init__(self):
+            self.updates = []
+
+        def load_signal_validation_results(self, _settings):
+            common = {
+                "parent_alpha_id": "alpha-parent", "parent_sharpe": 2.0,
+                "robust_total": 2, "robust_passed": 2, "robust_failed": 0,
+            }
+            return [
+                {**common, "child_sharpe": 1.2, "validation_variant": "validation:rank"},
+                {**common, "child_sharpe": 1.1, "validation_variant": "validation:sign"},
+            ]
+
+        def update_candidate_robustness(self, *args):
+            self.updates.append(args)
+
+    database = ValidationDatabase()
+    ResearchLoopCoordinator._evaluate_signal_validations(database, SETTINGS, ConstructionPlan(tuple()))
+
+    assert database.updates == [
+        ("alpha-parent", "pass", "rank/sign and platform robust checks passed; rank=0.600, sign=0.550"),
+    ]

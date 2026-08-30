@@ -6,7 +6,7 @@ from pathlib import Path
 
 from sqlalchemy import make_url
 
-from alpha_operator_framework.infrastructure.runtime_factory import load_runtime_config, storage_config
+from alpha_operator_framework.infrastructure.runtime_factory import storage_config
 
 
 def storage_path(config_path: Path) -> Path | None:

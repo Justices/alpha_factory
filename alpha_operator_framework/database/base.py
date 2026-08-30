@@ -9,7 +9,7 @@ import json
 import re
 from datetime import datetime
 from pathlib import Path
-from typing import Any, Dict, List, Optional, Sequence, Tuple, Union
+from typing import Any, Dict, List, Optional, Tuple, Union
 
 from .config import get_database_path, DEFAULT_SQLITE_PATH
 from .connection import DatabaseConnectionManager

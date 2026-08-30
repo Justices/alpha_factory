@@ -12,11 +12,9 @@
 
 from __future__ import annotations
 
-from typing import Any, Dict, List, Optional, Sequence
+from typing import Any, Dict, List, Sequence
 
 from alpha_operator_framework.domain.ast import (
-    canonicalize_expression,
-    parse_expression,
     to_canonical_string,
     validate_expression,
 )

@@ -159,6 +159,75 @@ def load_real_market_fields(
     return list(fields_map.values())
 
 
+def load_cached_group_fields(
+    region: str,
+    universe: str,
+    delay: int,
+    *,
+    cache: Any | None = None,
+) -> List[FieldSpec]:
+    """Load GROUP fields from the exact local research-scope cache only.
+
+    This deliberately never falls back to a hard-coded regional group list or
+    a platform request. A cache miss simply means no group second-order
+    candidates can be generated for this scope.
+    """
+    if cache is None:
+        from alpha_operator_framework.cache.datafields import DataFieldCache
+
+        cache = DataFieldCache()
+    rows = cache.load_group_fields(region, delay, universe)
+    if rows is None:
+        return []
+    return _group_specs(rows, default_dataset_id="group-cache")
+
+
+def load_or_fetch_group_fields(
+    region: str,
+    universe: str,
+    delay: int,
+    *,
+    cache: Any | None = None,
+) -> List[FieldSpec]:
+    """Resolve GROUP fields via the dedicated cache, then the platform on miss.
+
+    ``DataFieldCache.get_group_fields`` writes both non-empty and empty platform
+    results to ``_groups.json``. Consequently a known empty scope is not
+    repeatedly queried on every construction round.
+    """
+    if cache is None:
+        from alpha_operator_framework.cache.datafields import DataFieldCache
+
+        cache = DataFieldCache()
+    rows = cache.get_group_fields(region, universe, delay)
+    return _group_specs(rows, default_dataset_id="group-cache")
+
+
+def _group_specs(rows: Sequence[dict[str, Any]], *, default_dataset_id: str) -> List[FieldSpec]:
+    groups: Dict[str, FieldSpec] = {}
+    for row in rows:
+        field_id = str(row.get("id") or row.get("name") or "").strip()
+        if not field_id or str(row.get("type") or "").upper() != "GROUP":
+            continue
+        category = row.get("category") or ""
+        if isinstance(category, dict):
+            category = str(category.get("id") or "")
+        dataset = row.get("dataset") or {}
+        dataset_id = dataset.get("id") if isinstance(dataset, dict) else ""
+        groups.setdefault(field_id, FieldSpec(
+            id=field_id,
+            dataset_id=str(row.get("dataset_id") or dataset_id or default_dataset_id),
+            type="GROUP",
+            coverage=float(row.get("coverage") or 0.0),
+            date_coverage=float(row.get("dateCoverage") or 0.0),
+            user_count=int(row.get("userCount") or row.get("user_count") or 0),
+            alpha_count=int(row.get("alphaCount") or row.get("alpha_count") or 0),
+            category=str(category),
+            description=str(row.get("description") or ""),
+        ))
+    return [groups[field_id] for field_id in sorted(groups)]
+
+
 def cache_platform_fields(rows: Sequence[dict[str, Any]], *, region: str, universe: str, delay: int) -> Path:
     """Persist fields fetched for one exact BRAIN research scope."""
     from alpha_operator_framework.cache.datafields import DataFieldCache

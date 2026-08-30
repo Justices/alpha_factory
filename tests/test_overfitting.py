@@ -1,7 +1,6 @@
 """Unit tests for statistical overfitting defense (PSR, DSR, Haircut Sharpe, PBO/CSCV)."""
 
 import numpy as np
-import pytest
 
 from alpha_operator_framework.domain.overfitting import (
     compute_dsr,

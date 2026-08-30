@@ -14,7 +14,6 @@
 
 from __future__ import annotations
 
-import re
 from dataclasses import dataclass, field, replace
 from itertools import combinations
 from typing import Iterable, Sequence, List, Tuple
@@ -23,6 +22,7 @@ from typing import Iterable, Sequence, List, Tuple
 # ---------------------------------------------------------------------------
 # 数据结构
 # ---------------------------------------------------------------------------
+
 
 @dataclass(frozen=True)
 class Task:
@@ -56,47 +56,140 @@ class Task:
 # ---------------------------------------------------------------------------
 
 UNARY_TEMPLATES: Tuple[Tuple[int, str, str, int], ...] = (
-    (0,  "ts_regression(ts_zscore({a}, 500), ts_step(1), 500, rettype=2)", "斜率: zscore序列对时间步长的回归斜率", 1),
-    (1,  "ts_delta(ts_delta({a}, 252)/ts_delay({a}, 252), 252)",            "增长率二阶: 增长率的再变化", 1),
-    (2,  "ts_delta({a}, 252)/ts_delay({a}, 252)",                           "增长率: 当期变化相对滞后值", 1),
-    (3,  "ts_regression(ts_delta({a}, 252), ts_delta({a}, 500), 500, rettype=2)", "自回归斜率: 短窗口delta对长窗口delta回归", 1),
-    (4,  "ts_mean(signed_power(ts_delta({a}, 252), 2), 500)",               "平方动量: 保号放大的动量长期均值", 1),
-    (5,  "ts_decay_linear(ts_delta({a}, 252), 500)",                        "衰减动量: 线性衰减加权的动量", 1),
-    (6,  "reverse(ts_rank(ts_zscore({a}, 500), 500))",                      "排名反转: 高位反转做空", 1),
-    (7,  "log(abs(ts_delta({a}, 500)) + 0.000001)",                         "对数平滑: 对数压缩长窗口变化幅度", 1),
-    (8,  "signed_power(ts_delta({a}, 500), 2)",                             "符号幂: 保号放大的长窗口动量", 1),
-    (9,  "ts_delta(ts_delta({a}, 252), 500)",                               "差分层叠: 变化的再变化(加速度)", 1),
+    (
+        0,
+        "ts_regression(ts_zscore({a}, 500), ts_step(1), 500, rettype=2)",
+        "斜率: zscore序列对时间步长的回归斜率",
+        1,
+    ),
+    (
+        1,
+        "ts_delta(ts_delta({a}, 252)/ts_delay({a}, 252), 252)",
+        "增长率二阶: 增长率的再变化",
+        1,
+    ),
+    (2, "ts_delta({a}, 252)/ts_delay({a}, 252)", "增长率: 当期变化相对滞后值", 1),
+    (
+        3,
+        "ts_regression(ts_delta({a}, 252), ts_delta({a}, 500), 500, rettype=2)",
+        "自回归斜率: 短窗口delta对长窗口delta回归",
+        1,
+    ),
+    (
+        4,
+        "ts_mean(signed_power(ts_delta({a}, 252), 2), 500)",
+        "平方动量: 保号放大的动量长期均值",
+        1,
+    ),
+    (5, "ts_decay_linear(ts_delta({a}, 252), 500)", "衰减动量: 线性衰减加权的动量", 1),
+    (6, "reverse(ts_rank(ts_zscore({a}, 500), 500))", "排名反转: 高位反转做空", 1),
+    (
+        7,
+        "log(abs(ts_delta({a}, 500)) + 0.000001)",
+        "对数平滑: 对数压缩长窗口变化幅度",
+        1,
+    ),
+    (8, "signed_power(ts_delta({a}, 500), 2)", "符号幂: 保号放大的长窗口动量", 1),
+    (9, "ts_delta(ts_delta({a}, 252), 500)", "差分层叠: 变化的再变化(加速度)", 1),
 )
 
 BINARY_TEMPLATES: Tuple[Tuple[int, str, str, int], ...] = (
-    (0, "ts_regression(ts_zscore({a}, 500), ts_zscore({b}, 500), 500)",         "联合zscore回归斜率", 2),
-    (1, "ts_regression(ts_zscore({a}, 500), ts_zscore({b}, 500), 500, rettype=2)", "联合zscore回归残差", 2),
-    (2, "ts_regression(ts_zscore({a}, 500), ts_zscore({b}, 500), 500, rettype=6)", "联合zscore回归t值", 2),
-    (3, "ts_regression({a}, {b}, 252, rettype=2)",                              "短窗口回归残差", 2),
-    (4, "ts_regression({a}, {b}, 500, rettype=2)",                             "长窗口回归残差", 2),
-    (5, "regression_neut(s_log_1p({a}), s_log_1p({b}))",                       "对数回归中性化残差", 2),
-    (6, "vector_neut({a}, {b})",                                                "向量正交: a去除b的成分", 2),
-    (7, "ts_delta_limit({a}, {b}, limit_volume=0.1)",                          "带约束变化量: 以b为基准的限制变化", 2),
+    (
+        0,
+        "ts_regression(ts_zscore({a}, 500), ts_zscore({b}, 500), 500)",
+        "联合zscore回归斜率",
+        2,
+    ),
+    (
+        1,
+        "ts_regression(ts_zscore({a}, 500), ts_zscore({b}, 500), 500, rettype=2)",
+        "联合zscore回归残差",
+        2,
+    ),
+    (
+        2,
+        "ts_regression(ts_zscore({a}, 500), ts_zscore({b}, 500), 500, rettype=6)",
+        "联合zscore回归t值",
+        2,
+    ),
+    (3, "ts_regression({a}, {b}, 252, rettype=2)", "短窗口回归残差", 2),
+    (4, "ts_regression({a}, {b}, 500, rettype=2)", "长窗口回归残差", 2),
+    (5, "regression_neut(s_log_1p({a}), s_log_1p({b}))", "对数回归中性化残差", 2),
+    (6, "vector_neut({a}, {b})", "向量正交: a去除b的成分", 2),
+    (
+        7,
+        "ts_delta_limit({a}, {b}, limit_volume=0.1)",
+        "带约束变化量: 以b为基准的限制变化",
+        2,
+    ),
 )
 
 #    (0, "vector_neut(vector_neut({a}, {b}), {c})",                                     "联合中性化: a对b与c依次正交", 3),
 #    (1, "regression_neut(regression_neut({a}, {b}), {c})",                             "分层回归残差: 先对b再对c", 3),
 TERNARY_TEMPLATES: Tuple[Tuple[int, str, str, int], ...] = (
-    (0, "ts_delta_limit({a}, ({b} + {c}) / 2, limit_volume=0.1)",                       "带约束变化: 以b,c均值为基准的delta limit", 3),
-    (1, "ts_corr(ts_zscore({a}, 252), ts_zscore({b}, 252), 252) * {c}",                 "三变量时序相关: a-b相关性以c加权", 3),
-    (2, "ts_rank(group_mean({a}, weight, {b}), 500) * {c}",                            "动态排序择时: a在b分组内ts_rank再以c加权", 3),
-    (3, "ts_zscore({a}, 500) * ts_zscore({b}, 500) * ts_zscore({c}, 500)",             "三重交互: 三个标准化信号相乘(非线性放大)", 3),
-    (4, "if_else({c} > ts_mean({c}, 500), {a}, {b})",                                  "条件切换: c高位选a否则b", 3),
+    (
+        0,
+        "ts_delta_limit({a}, ({b} + {c}) / 2, limit_volume=0.1)",
+        "带约束变化: 以b,c均值为基准的delta limit",
+        3,
+    ),
+    (
+        1,
+        "ts_corr(ts_zscore({a}, 252), ts_zscore({b}, 252), 252) * {c}",
+        "三变量时序相关: a-b相关性以c加权",
+        3,
+    ),
+    (
+        2,
+        "ts_rank(group_mean({a}, weight, {b}), 500) * {c}",
+        "动态排序择时: a在b分组内ts_rank再以c加权",
+        3,
+    ),
+    (
+        3,
+        "ts_zscore({a}, 500) * ts_zscore({b}, 500) * ts_zscore({c}, 500)",
+        "三重交互: 三个标准化信号相乘(非线性放大)",
+        3,
+    ),
+    (4, "if_else({c} > ts_mean({c}, 500), {a}, {b})", "条件切换: c高位选a否则b", 3),
+    (5, "vector_neut(vector_neut({a}, {b}), {c})", "联合中性化: a对b与c依次正交", 3),
+    (
+        6,
+        "regression_neut(regression_neut({a}, {b}), {c})",
+        "分层回归残差: 先对b再对c",
+        3,
+    ),
 )
 
 # 新增: 四元模板 (扩展多阶group操作)
 # 使用 machine_lib 的 group_ops 作为第四元素
 # (0, "group_neutralize(vector_neut({a}, {b}), {c})",                         "group正交: 先向量正交再分组中性化", 4),
 QUATERNARY_TEMPLATES: Tuple[Tuple[int, str, str, int], ...] = (
-    (0, "group_rank(vector_neut({a}, {b}), {c})",                                "group排名: 向量正交后再分组排名", 4),
-    (1, "group_zscore(ts_regression({a}, {b}, 252, rettype=2), {c})",           "group标准化: 回归残差的分组标准化", 4),
-    (2, "ts_delta_limit(group_neutralize({a}, {c}), {b}, limit_volume=0.1)",    "group约束: 分组中性化后带约束变化", 4),
-    (3, "if_else({d} > ts_mean({d}, 500), group_neutralize({a}, {c}), {b})",    "条件group: 高位分组中性化否则选b", 4),
+    (0, "group_rank(vector_neut({a}, {b}), {c})", "group排名: 向量正交后再分组排名", 4),
+    (
+        1,
+        "group_zscore(ts_regression({a}, {b}, 252, rettype=2), {c})",
+        "group标准化: 回归残差的分组标准化",
+        4,
+    ),
+    (
+        2,
+        "ts_delta_limit(group_neutralize({a}, {c}), {b}, limit_volume=0.1)",
+        "group约束: 分组中性化后带约束变化",
+        4,
+    ),
+    (
+        3,
+        "if_else({d} > ts_mean({d}, 500), group_neutralize({a}, {c}), {b})",
+        "条件group: 高位分组中性化否则选b",
+        4,
+    ),
+    (
+        4,
+        "group_neutralize(vector_neut({a}, {b}), {c})",
+        "group正交: 先向量正交再分组中性化",
+        4,
+    ),
 )
 
 
@@ -109,10 +202,10 @@ STANDARD_WINDOWS = (5, 22, 66, 120, 252, 504)
 
 # 按数据更新频率的推荐窗口
 FREQUENCY_WINDOWS = {
-    "daily":     (22, 63, 126),
-    "monthly":   (252, 500, 750),
+    "daily": (22, 63, 126),
+    "monthly": (252, 500, 750),
     "quarterly": (252, 500, 750),
-    "unknown":   (252, 500),  # fallback
+    "unknown": (252, 500),  # fallback
 }
 
 
@@ -129,18 +222,23 @@ def windows_for_frequency(frequency: str) -> Tuple[int, ...]:
         >>> windows_for_frequency("daily")
         (22, 63, 126)
     """
-    return FREQUENCY_WINDOWS.get((frequency or "unknown").lower(), FREQUENCY_WINDOWS["unknown"])
+    return FREQUENCY_WINDOWS.get(
+        (frequency or "unknown").lower(), FREQUENCY_WINDOWS["unknown"]
+    )
 
 
 # ---------------------------------------------------------------------------
 # 工厂函数
 # ---------------------------------------------------------------------------
 
+
 def _render(template: str, mapper: dict) -> str:
     """安全渲染 — 仅替换 {a}/{b}/{c}/{d}/{window}, 不动表达式里其它花括号."""
+
     class _SafeDict(dict):
         def __missing__(self, key):
             return "{" + key + "}"
+
     return template.format_map(_SafeDict(mapper))
 
 
@@ -172,15 +270,21 @@ def unary_factory(
         for idx, template, rationale, fpa in UNARY_TEMPLATES:
             if include_raw_idx:
                 expr = _render(template, {"a": a})
-                tasks.append(Task(
-                    expression=expr,
-                    template_index=idx,
-                family="unary",
-                fields_per_alpha=fpa,
-                expression_origin="unary_template",
-                base_fields=(a,),
-                    meta={"label": rationale, "window": 500, "source_freq": "unknown"},
-                ))
+                tasks.append(
+                    Task(
+                        expression=expr,
+                        template_index=idx,
+                        family="unary",
+                        fields_per_alpha=fpa,
+                        expression_origin="unary_template",
+                        base_fields=(a,),
+                        meta={
+                            "label": rationale,
+                            "window": 500,
+                            "source_freq": "unknown",
+                        },
+                    )
+                )
 
     return tasks
 
@@ -203,20 +307,22 @@ def first_order_task_factory(
     for field_expr in list(scalar_fields):
         expressions = first_order_factory([field_expr], ops_set)
         for idx, expression in enumerate(expressions):
-            tasks.append(Task(
-                expression=expression,
-                template_index=idx,
-                family="unary",
-                fields_per_alpha=1,
-                expression_origin="first_order",
-                decay=decay,
-                base_fields=(field_expr,),
-                meta={
-                    "label": "first_order_operator",
-                    "stage": "first_order",
-                    "source_freq": "unknown",
-                },
-            ))
+            tasks.append(
+                Task(
+                    expression=expression,
+                    template_index=idx,
+                    family="unary",
+                    fields_per_alpha=1,
+                    expression_origin="first_order",
+                    decay=decay,
+                    base_fields=(field_expr,),
+                    meta={
+                        "label": "first_order_operator",
+                        "stage": "first_order",
+                        "source_freq": "unknown",
+                    },
+                )
+            )
     return tasks
 
 
@@ -251,20 +357,22 @@ def raw_first_order_task_factory(
     for field_id in field_ids:
         expressions = first_order_factory([field_id], ops_set)
         for idx, expression in enumerate(expressions):
-            tasks.append(Task(
-                expression=expression,
-                template_index=idx,
-                family="unary",
-                fields_per_alpha=1,
-                expression_origin="first_order_raw",
-                decay=decay,
-                base_fields=(field_id,),
-                meta={
-                    "label": "first_order_operator",
-                    "stage": "first_order",
-                    "source_freq": "unknown",
-                },
-            ))
+            tasks.append(
+                Task(
+                    expression=expression,
+                    template_index=idx,
+                    family="unary",
+                    fields_per_alpha=1,
+                    expression_origin="first_order_raw",
+                    decay=decay,
+                    base_fields=(field_id,),
+                    meta={
+                        "label": "first_order_operator",
+                        "stage": "first_order",
+                        "source_freq": "unknown",
+                    },
+                )
+            )
     return tasks
 
 
@@ -277,24 +385,35 @@ def economic_first_order_task_factory(
     decay: float = 6.0,
 ) -> List[Task]:
     """Build first-order tasks after applying conservative field-level economic rules."""
-    from alpha_operator_framework.domain.economic_rules import allowed_first_order_ops, infer_economic_type
+    from alpha_operator_framework.domain.economic_rules import (
+        allowed_first_order_ops,
+        infer_economic_type,
+    )
     from alpha_operator_framework.domain.fields import preprocess_field
 
     tasks: List[Task] = []
-    for field in field_specs:
-        scalar_fields = preprocess_field(field, backfill=backfill, vector_ops=tuple(
-            vector_ops) if vector_ops is not None else None) if vector_ops is not None else preprocess_field(field,
-                                                                                                             backfill=backfill)
-        ops = allowed_first_order_ops(field)
+    for field_spec in field_specs:
+        scalar_fields = (
+            preprocess_field(
+                field_spec,
+                backfill=backfill,
+                vector_ops=tuple(vector_ops) if vector_ops is not None else None,
+            )
+            if vector_ops is not None
+            else preprocess_field(field_spec, backfill=backfill)
+        )
+        ops = allowed_first_order_ops(field_spec)
         for task in first_order_task_factory(scalar_fields, ops, decay=decay):
-            tasks.append(replace(
-                task,
-                meta={
-                    **task.meta,
-                    "economic_type": infer_economic_type(field) or "unknown",
-                    "economic_ops": ops,
-                },
-            ))
+            tasks.append(
+                replace(
+                    task,
+                    meta={
+                        **task.meta,
+                        "economic_type": infer_economic_type(field) or "unknown",
+                        "economic_ops": ops,
+                    },
+                )
+            )
     return tasks
 
 
@@ -326,14 +445,16 @@ def binary_factory(
     tasks: List[Task] = []
     for a, b in pairs:
         for idx, template, rationale, fpa in BINARY_TEMPLATES:
-            tasks.append(Task(
-                expression=_render(template, {"a": a, "b": b}),
-                template_index=idx,
-                family="binary",
-                fields_per_alpha=fpa,
-                base_fields=(a, b),
-                meta={"label": rationale, "window": 500, "source_freq": "unknown"},
-            ))
+            tasks.append(
+                Task(
+                    expression=_render(template, {"a": a, "b": b}),
+                    template_index=idx,
+                    family="binary",
+                    fields_per_alpha=fpa,
+                    base_fields=(a, b),
+                    meta={"label": rationale, "window": 500, "source_freq": "unknown"},
+                )
+            )
 
     return tasks
 
@@ -366,14 +487,16 @@ def ternary_factory(
     tasks: List[Task] = []
     for a, b, c in triples:
         for idx, template, rationale, fpa in TERNARY_TEMPLATES:
-            tasks.append(Task(
-                expression=_render(template, {"a": a, "b": b, "c": c}),
-                template_index=idx,
-                family="ternary",
-                fields_per_alpha=fpa,
-                base_fields=(a, b, c),
-                meta={"label": rationale, "window": 500, "source_freq": "unknown"},
-            ))
+            tasks.append(
+                Task(
+                    expression=_render(template, {"a": a, "b": b, "c": c}),
+                    template_index=idx,
+                    family="ternary",
+                    fields_per_alpha=fpa,
+                    base_fields=(a, b, c),
+                    meta={"label": rationale, "window": 500, "source_freq": "unknown"},
+                )
+            )
 
     return tasks
 
@@ -415,14 +538,23 @@ def quaternary_factory(
         for g in group_fields:
             for idx, template, rationale, fpa in QUATERNARY_TEMPLATES:
                 # {c} 代表group字段, {d} 可选的条件字段
-                tasks.append(Task(
-                    expression=_render(template, {"a": a, "b": b, "c": g, "d": "cap"}),
-                    template_index=idx,
-                    family="quaternary",
-                    fields_per_alpha=fpa,
-                    base_fields=(a, b, g),
-                    meta={"label": rationale, "window": 500, "source_freq": "unknown", "group": g},
-                ))
+                tasks.append(
+                    Task(
+                        expression=_render(
+                            template, {"a": a, "b": b, "c": g, "d": "cap"}
+                        ),
+                        template_index=idx,
+                        family="quaternary",
+                        fields_per_alpha=fpa,
+                        base_fields=(a, b, g),
+                        meta={
+                            "label": rationale,
+                            "window": 500,
+                            "source_freq": "unknown",
+                            "group": g,
+                        },
+                    )
+                )
 
     return tasks
 

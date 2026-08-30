@@ -314,6 +314,15 @@ class ResearchBatchWorker:
             logger.info("回合 %s 已处理过评级流程，直接跳过", round_id)
             return self._summary(batch, "COMPLETED", self.knowledge_base.version)
 
+        # A valid live round always contains at least one submitted task.  Do
+        # not let a malformed or legacy empty batch flow through evaluation:
+        # it would otherwise look like a successful zero-backtest cycle and
+        # can drive a continuous coordinator into an endless loop.
+        if not batch.tasks:
+            logger.error("回合 %s 是空回测批次，拒绝进入评估流程", round_id)
+            self._transition(batch, BatchState.FAILED)
+            return self._summary(batch, "FAILED", self.knowledge_base.version)
+
         policy = self._policy(round_id)
         round_ = self.research_repository.load_round(round_id)
         if round_ is None:

@@ -154,6 +154,27 @@ class ResearchLoopCoordinator:
                 shard,
                 True,
             ))
+            if planned.status == "NO_ELIGIBLE_CANDIDATES":
+                # The selector has conclusively rejected this shard.  Its
+                # source rows live in the task catalog (rather than this
+                # ephemeral planning round), so prune them there before
+                # looking for another shard.  Otherwise the same expression
+                # would be planned again indefinitely.
+                rejected_ids = [
+                    str(item["candidate_id"])
+                    for item in planned.selection_audit
+                    if not bool(item["selected"])
+                ]
+                mark_pruned = getattr(database, "mark_round_candidates_pruned", None)
+                if callable(mark_pruned):
+                    mark_pruned(catalog_round_id, rejected_ids)
+                pruned_count += len(rejected_ids)
+                continue
+            if planned.status != "SUBMITTED":
+                return ResearchLoopSummary(
+                    planned.status, round_ids, completed_backtests, pruned_count,
+                    generated_count, tuple(statuses),
+                )
             round_ids.append(planned.round_id)
             round_sequence += 1
             summary = self._process_until_terminal(planned.round_id)

@@ -7,7 +7,7 @@ from email.utils import format_datetime
 from alpha_operator_framework.application.research_worker import ResearchBatchWorker, ResearchWorkerScheduler
 from alpha_operator_framework.core.event_store import EventStore
 from alpha_operator_framework.core.events import Event, EventType
-from alpha_operator_framework.experiment.lifecycle import BatchState
+from alpha_operator_framework.experiment.lifecycle import BatchState, transition
 from alpha_operator_framework.experiment.models import BacktestResult, BacktestTask, ExperimentBatch
 from alpha_operator_framework.knowledge.models import KnowledgeBase
 from alpha_operator_framework.research.round import Candidate, KnowledgeSnapshot, ResearchPolicy, ResearchRound
@@ -23,6 +23,20 @@ class BatchRepository:
     def load_batch(self, _): return self.batch
     def save_batch(self, batch): self.batch = batch
     def list_due_batches(self): return [self.batch] if self.batch is not None else []
+
+
+def test_worker_fails_an_empty_legacy_batch_instead_of_evaluating_it() -> None:
+    events, rounds, batches = EventStore(), RoundRepository(), BatchRepository()
+    batch = ExperimentBatch("empty-round", "empty-round")
+    transition(batch, BatchState.SUBMITTED)
+    batches.save_batch(batch)
+
+    summary = ResearchBatchWorker(
+        events, rounds, batches, KnowledgeBase(), object(),
+    ).process_round("empty-round")
+
+    assert summary.status == "FAILED"
+    assert batches.batch.state is BatchState.FAILED
 
 
 def test_worker_does_not_prune_backtested_expressions() -> None:

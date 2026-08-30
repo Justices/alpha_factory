@@ -161,6 +161,21 @@ class ResearchCycleUseCase:
             for decision in decisions
         ]
 
+        # A live cycle with no selected candidates must not create an empty
+        # ExperimentBatch.  Empty batches used to be promoted all the way to
+        # EVALUATED by the worker, which made a continuous run rescan the same
+        # knowledge-rejected candidate forever without submitting a backtest.
+        if selected_count == 0:
+            if self.alpha_database is not None:
+                prune = getattr(self.alpha_database, "prune_unselected_round_candidates", None)
+                if callable(prune):
+                    prune(round_.round_id)
+            logger.info(
+                "回合 %s 没有通过筛选的候选；不创建空回测批次。",
+                round_.round_id,
+            )
+            return ResearchCycleSummary("NO_ELIGIBLE_CANDIDATES", round_.round_id, audit)
+
         if not request.execute_platform:
             logger.info("由于 execute_platform 设为 False，回合周期只进行规划生成并不真正执行回测。标记状态：PLANNED")
             return ResearchCycleSummary("PLANNED", round_.round_id, audit)

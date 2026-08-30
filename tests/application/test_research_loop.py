@@ -96,6 +96,10 @@ class LoopDatabase:
     def list_templates(self, *, active_only=True):
         return []
 
+    def mark_round_candidates_pruned(self, _round_id, candidate_ids):
+        rejected = set(candidate_ids)
+        self.pending = [item for item in self.pending if item.candidate_id not in rejected]
+
 
 @dataclass
 class LoopRuntime:
@@ -200,6 +204,32 @@ def test_loop_reports_requested_strategy_failure_after_preserving_other_work() -
 
     assert summary.status == "PARTIAL_FAILED"
     assert runtime.alpha_database.task_status == "PARTIAL_FAILED"
+
+
+def test_loop_prunes_zero_selection_shard_and_does_not_create_an_empty_batch() -> None:
+    class RejectingRuntime(LoopRuntime):
+        def plan(self, request):
+            candidates = list(request.candidates)
+            self.planned[request.round_id] = candidates
+            return ResearchCycleSummary(
+                "NO_ELIGIBLE_CANDIDATES", request.round_id,
+                [{"candidate_id": item.candidate_id, "selected": False} for item in candidates],
+            )
+
+    candidate = _candidate(1, "database_template/family/depth-1/fields-1")
+    runtime = RejectingRuntime(LoopDatabase([candidate]), KnowledgeBase())
+    policy = ResearchPolicy("USA", "TOP3000", 8, **{
+        key: value for key, value in SETTINGS.items() if key not in {"region", "universe"}
+    })
+
+    summary = ResearchLoopCoordinator(runtime).run(
+        policy, (), [candidate], construction_plan=_plan("database"),
+        seed=7, execute=True, base_round_id="task",
+    )
+
+    assert summary.status == "EXHAUSTED"
+    assert summary.round_ids == []
+    assert runtime.alpha_database.pending == []
 
 
 def test_early_stop_skips_enhancement_and_routes_signals_to_terminal_validation() -> None:

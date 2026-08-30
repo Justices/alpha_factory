@@ -97,6 +97,26 @@ def test_cycle_returns_replayable_planned_round_without_live_gateway() -> None:
     assert repository.round.round_id == "round-1"
 
 
+def test_live_cycle_does_not_create_an_empty_batch_when_all_candidates_are_rejected() -> None:
+    class RejectingKnowledge(KnowledgeSnapshot):
+        def rejects(self, _candidate) -> bool:
+            return True
+
+    repository = MemoryRepository()
+    batches = MemoryBatchRepository()
+    summary = ResearchCycleUseCase(
+        repository, DryRunGateway(), RejectingKnowledge(version=0), batches, event_store=EventStore(),
+    ).execute(ResearchCycleRequest(
+        "empty-live-round", 9, ResearchPolicy("GBR", "TOP700", 1),
+        RejectingKnowledge(version=0),
+        [Candidate("candidate", "rank(close)", "family", ("close",), ("rank",), "template")],
+        True,
+    ))
+
+    assert summary.status == "NO_ELIGIBLE_CANDIDATES"
+    assert batches.batch is None
+
+
 def test_planned_cycle_catalogs_every_candidate_before_selection() -> None:
     primary = RecordingAlphaRepository()
     candidates = [

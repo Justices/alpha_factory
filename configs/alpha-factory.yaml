@@ -14,7 +14,7 @@ research:
   selection_strategy: weighted_stratified
   seed: 42
   # 指定 --construction-mode 可切换；未指定时使用多阶链路。
-  # 同一 stage 可并行，下一 stage 只接收通过 parent_gate 的父表达式。
+  # 同一 stage 可并行。parent_gate 是初始表达式的晋升门，不是提交门。
   default_construction_mode: multi-stage
   construction_modes:
     # 已验证模板做字段实例化、分批回测、批后结构/相关性剪枝和蒸馏；
@@ -104,8 +104,8 @@ research:
         quota_per_leaf_family: 8
         source: qualified_candidates
     parent_gate:
-      sharpe: {operator: gt, value: 1.25}
-      fitness: {operator: gt, value: 0.8}
+      sharpe: {operator: gt, value: 0.6}
+      fitness: {operator: gt, value: 0.4}
     # Shared post-backtest gate for every mode: invalid-result cleanup ->
     # multi-channel PnL correlation pruning -> retain for review and, when a
     # later stage exists, continue construction/backtesting from the survivors.

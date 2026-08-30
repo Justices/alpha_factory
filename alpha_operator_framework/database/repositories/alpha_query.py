@@ -86,7 +86,12 @@ class AlphaQueryMixin(BaseRepository):
             for r in rows
         ]
 
-    def load_unbacktested_research_candidates(self, settings: Dict) -> List[object]:
+    def load_unbacktested_research_candidates(
+        self,
+        settings: Dict,
+        *,
+        catalog_round_id: str | None = None,
+    ) -> List[object]:
         """Return active expressions for one settings scope that have not been backtested."""
         from alpha_operator_framework.research.round import Candidate
         from alpha_operator_framework.domain.ast import validate_expression
@@ -99,8 +104,12 @@ class AlphaQueryMixin(BaseRepository):
             # They have no construction provenance, so an impossible scope keeps
             # the original candidate-loading behavior without weakening new writes.
             scope_hash = ""
+        catalog_clause = " AND rc.round_id=?" if catalog_round_id else ""
+        parameters: list[object] = [scope_hash, settings_json]
+        if catalog_round_id:
+            parameters.append(catalog_round_id)
         rows = self._get_connection().execute(
-            """SELECT ae.alpha_sha, ae.expression, ae.fields,
+            f"""SELECT ae.alpha_sha, ae.expression, ae.fields,
                       COALESCE(cp.leaf_family, MIN(rc.family)) AS family,
                       COALESCE(cp.template_id, MIN(rc.template_id)) AS template_id,
                       COALESCE(cp.strategy_id, '') AS strategy_id,
@@ -115,10 +124,11 @@ class AlphaQueryMixin(BaseRepository):
                  )
                 WHERE ae.settings = ? AND ae.status IN ('generated', 'pending')
                   AND ae.pruning_status = 'active' AND rc.pruning_status = 'active'
+                  {catalog_clause}
                 GROUP BY ae.alpha_sha, ae.expression, ae.fields, cp.leaf_family,
                          cp.template_id, cp.strategy_id, cp.order_depth, cp.field_count
                 ORDER BY ae.id""",
-            (scope_hash, settings_json),
+            parameters,
         ).fetchall()
         candidates = []
         for row in rows:

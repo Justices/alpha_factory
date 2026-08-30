@@ -161,8 +161,9 @@ research:
         quota_per_leaf_family: 8
         source: raw_fields
     parent_gate:
-      sharpe: {operator: gt, value: 1.25}
-      fitness: {operator: gt, value: 0.8}
+      # 初始表达式晋升到下一构造阶段的门；不等同于提交候选门。
+      sharpe: {operator: gt, value: 0.6}
+      fitness: {operator: gt, value: 0.4}
     promotion:
       quality:
         min_long_short_sum: 20

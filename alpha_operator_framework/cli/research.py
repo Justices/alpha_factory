@@ -129,7 +129,12 @@ def command_research_cycle(args: argparse.Namespace) -> None:
             if not runtime.alpha_database.construction_task_exists(base_round_id):
                 raise ValueError(f"construction task does not exist: {base_round_id}")
             runtime.alpha_database.requeue_retryable_failed_research_expressions(research_settings)
-            candidates = runtime.alpha_database.load_unbacktested_research_candidates(research_settings)
+            try:
+                candidates = runtime.alpha_database.load_unbacktested_research_candidates(
+                    research_settings, catalog_round_id=f"{base_round_id}-catalog",
+                )
+            except TypeError:
+                candidates = runtime.alpha_database.load_unbacktested_research_candidates(research_settings)
             strategy_statuses = runtime.alpha_database.load_construction_strategy_statuses(base_round_id)
         else:
             outcome = coordinator.prepare(

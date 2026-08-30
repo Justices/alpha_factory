@@ -269,7 +269,7 @@ def test_terminal_template_results_use_shared_pruning_and_only_survivors_are_que
         alpha_sha="kept", origin_strategy="database",
     )
     rejected = CompletedExpression(
-        "rank(open)", ("open",), 1.0, 1.0, True,
+        "rank(open)", ("open",), 0.6, 0.5, True,
         alpha_sha="rejected", origin_strategy="database",
     )
     database = DecisionDatabase()

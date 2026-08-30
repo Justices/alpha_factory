@@ -104,8 +104,10 @@ class Threshold:
 
 @dataclass(frozen=True)
 class ParentGate:
-    sharpe: Threshold = Threshold("gt", 1.25)
-    fitness: Threshold = Threshold("gt", 0.8)
+    """Initial-result gate for promotion into another construction stage."""
+
+    sharpe: Threshold = Threshold("gt", 0.6)
+    fitness: Threshold = Threshold("gt", 0.4)
 
     def passes(self, sharpe: float, fitness: float) -> bool:
         return self.sharpe.passes(sharpe) and self.fitness.passes(fitness)
@@ -120,8 +122,8 @@ class ParentGate:
         if unknown:
             raise ValueError(f"construction.parent_gate has unsupported keys: {', '.join(sorted(unknown))}")
         return cls(
-            sharpe=Threshold.from_mapping(value.get("sharpe", {"operator": "gt", "value": 1.25}), name="parent_gate.sharpe"),
-            fitness=Threshold.from_mapping(value.get("fitness", {"operator": "gt", "value": 0.8}), name="parent_gate.fitness"),
+            sharpe=Threshold.from_mapping(value.get("sharpe", {"operator": "gt", "value": 0.6}), name="parent_gate.sharpe"),
+            fitness=Threshold.from_mapping(value.get("fitness", {"operator": "gt", "value": 0.4}), name="parent_gate.fitness"),
         )
 
     def to_mapping(self) -> dict[str, object]:

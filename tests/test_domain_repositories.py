@@ -93,6 +93,28 @@ def test_alpha_pnl_cache_is_idempotent_and_returns_the_latest_payload(tmp_path) 
     db.close()
 
 
+def test_catalog_quota_pruning_is_task_scoped_and_preserves_other_catalogs(tmp_path) -> None:
+    db = AlphaDatabase(tmp_path / "catalog-quota.db")
+    settings = {
+        "region": "USA", "universe": "TOP3000", "delay": 1, "decay": 8,
+        "neutralization": "SUBINDUSTRY", "truncation": 0.08,
+    }
+    family = "raw_first_order/first_order/depth-2/fields-1"
+    candidates = [
+        Candidate(f"candidate-{index}", f"rank(field_{index})", family, (f"field_{index}",), ("rank",), "rank")
+        for index in range(5)
+    ]
+    for candidate in candidates:
+        db.insert_expression(candidate.expression, settings, status="generated", fields=list(candidate.fields))
+    db.catalog_research_candidates("task-a-catalog", candidates, settings)
+    db.catalog_research_candidates("task-b-catalog", candidates, settings)
+
+    assert db.prune_catalog_candidates_beyond_family_quota("task-a-catalog", {family: 2}) == 3
+    assert len(db.load_unbacktested_research_candidates(settings, catalog_round_id="task-a-catalog")) == 2
+    assert len(db.load_unbacktested_research_candidates(settings, catalog_round_id="task-b-catalog")) == 5
+    db.close()
+
+
 def test_result_prune_rule_only_prunes_active_unbacktested_expressions_in_scope(tmp_path) -> None:
     db = AlphaDatabase(tmp_path / "scoped_prune.db")
     usa = {

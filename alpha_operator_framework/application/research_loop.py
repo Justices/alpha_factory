@@ -116,9 +116,13 @@ class ResearchLoopCoordinator:
         initial_candidates = list(base_candidates)
         initial_available = True
         round_sequence = database.next_task_round_sequence(base_round_id)
+        catalog_round_id = f"{base_round_id}-catalog"
+        cap_catalog = getattr(database, "prune_catalog_candidates_beyond_family_quota", None)
+        if callable(cap_catalog):
+            pruned_count += cap_catalog(catalog_round_id, self._catalog_family_quotas(construction_plan))
 
         while True:
-            pending = database.load_unbacktested_research_candidates(settings)
+            pending = self._load_task_candidates(database, settings, catalog_round_id)
             candidates = pending
             if not candidates and initial_available:
                 candidates = initial_candidates
@@ -180,6 +184,28 @@ class ResearchLoopCoordinator:
             partial_failed = partial_failed or any(
                 status.status == "FAILED" for status in parent_statuses
             )
+
+    @staticmethod
+    def _catalog_family_quotas(plan: ConstructionPlan) -> dict[str, int]:
+        quotas: dict[str, int] = {}
+        for config in plan.strategies:
+            for depth in range(config.order_depth.minimum or config.order_depth.exact or 0,
+                               (config.order_depth.maximum or config.order_depth.exact or 0) + 1):
+                for field_count in range(config.field_count.minimum or config.field_count.exact or 0,
+                                         (config.field_count.maximum or config.field_count.exact or 0) + 1):
+                    for family in config.families:
+                        quotas[f"{config.kind}/{family}/depth-{depth}/fields-{field_count}"] = config.quota_per_leaf_family
+        return quotas
+
+    @staticmethod
+    def _load_task_candidates(database: Any, settings: dict[str, object], catalog_round_id: str) -> list[Any]:
+        load = database.load_unbacktested_research_candidates
+        try:
+            return list(load(settings, catalog_round_id=catalog_round_id))
+        except TypeError:
+            # Lightweight test doubles and older repository adapters retain
+            # the original one-argument API.
+            return list(load(settings))
 
     def _database(self) -> Any:
         database = self.runtime.alpha_database

@@ -40,6 +40,14 @@ def test_construction_plan_parses_exact_ranges_and_parent_gate() -> None:
     assert not plan.parent_gate.passes(1.25, 0.8)
 
 
+def test_parent_gate_defaults_to_initial_promotion_thresholds() -> None:
+    plan = ConstructionPlan.from_mapping({"strategies": [_strategy()]})
+
+    assert plan.parent_gate.passes(0.61, 0.41)
+    assert not plan.parent_gate.passes(0.6, 0.41)
+    assert not plan.parent_gate.passes(0.61, 0.4)
+
+
 @pytest.mark.parametrize("change,match", [
     ({"order_depth": {"exact": 2, "min": 1}}, "cannot combine"),
     ({"field_count": {"min": 2, "max": 1}}, "cannot exceed"),
@@ -99,6 +107,7 @@ def test_default_configuration_exposes_separate_named_construction_modes() -> No
     assert plan.promotion.correlation.channels == ("sharpe", "fitness", "margin")
     assert plan.promotion.validation.minimum_sharpe_ratio == 0.5
     assert plan.promotion.early_stop_signal_count == 8
+    assert plan.parent_gate.passes(0.61, 0.41)
     modes = config["research"]["construction_modes"]
     assert modes["template"]["stages"] == [["database-template"]]
     assert modes["multi-stage"]["stages"] == [

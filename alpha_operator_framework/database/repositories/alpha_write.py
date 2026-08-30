@@ -446,6 +446,45 @@ class AlphaWriteMixin(BaseRepository):
             )
         conn.commit()
 
+    def prune_catalog_candidates_beyond_family_quota(
+        self,
+        catalog_round_id: str,
+        family_quotas: Mapping[str, int],
+    ) -> int:
+        """Logically prune excess candidates in one catalog without deleting rows.
+
+        This is deliberately catalog-scoped: the same expression may be part
+        of another research task and must remain available there.
+        """
+        rows = self._get_connection().execute(
+            """SELECT candidate_id, family FROM round_candidates
+               WHERE round_id=? AND pruning_status='active'
+               ORDER BY family, candidate_id""",
+            (catalog_round_id,),
+        ).fetchall()
+        kept: dict[str, int] = {}
+        candidate_ids: list[str] = []
+        for row in rows:
+            family = str(row["family"])
+            quota = family_quotas.get(family)
+            if quota is None or quota <= 0:
+                continue
+            count = kept.get(family, 0)
+            if count < quota:
+                kept[family] = count + 1
+            else:
+                candidate_ids.append(str(row["candidate_id"]))
+        if not candidate_ids:
+            return 0
+        placeholders = ",".join("?" for _ in candidate_ids)
+        cursor = self._get_connection().execute(
+            f"""UPDATE round_candidates SET pruning_status='pruned', updated_at=?
+                WHERE round_id=? AND candidate_id IN ({placeholders})""",
+            [self._timestamp(), catalog_round_id, *candidate_ids],
+        )
+        self._get_connection().commit()
+        return int(cursor.rowcount)
+
     def record_round_selection(self, round_id: str, decisions: List[Any]) -> None:
         """Persist the selector outcome independently from the round JSON snapshot."""
         now = self._timestamp()

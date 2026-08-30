@@ -126,19 +126,52 @@ class RawFirstOrderStrategy:
         if config.source != "raw_fields":
             return []
         family = config.families[0]
+        # The runtime will backtest at most quota_per_leaf_family candidates
+        # from each structural leaf.  Materializing every field × operator
+        # combination first can create tens of thousands of rows that can
+        # never be selected.  Build a deterministic, diversified bounded pool
+        # instead: identity candidates cover fields and wrapped candidates
+        # rotate through both fields and operators.
+        field_expressions = sorted(
+            preprocess_fields_rotated(context.fields, seed=context.seed),
+            key=lambda item: hashlib.sha256(
+                f"{context.seed}:{item[0].id}:{item[1]}".encode("utf-8")
+            ).hexdigest(),
+        )
+        if not field_expressions:
+            return []
         drafts: list[CandidateDraft] = []
-        for field_spec, expression in preprocess_fields_rotated(context.fields, seed=context.seed):
-            drafts.append(self._draft(expression, field_spec.id, "identity", family, config, context.seed))
-            for operator in basic_ops:
-                drafts.append(self._draft(
-                    f"{operator}({expression})", field_spec.id, operator, family, config, context.seed,
-                ))
-            for operator in ts_ops:
-                for window in self.windows:
-                    drafts.append(self._draft(
-                        f"{operator}({expression}, {window})", field_spec.id,
-                        f"{operator}:{window}", family, config, context.seed,
-                    ))
+        accepted_by_depth: dict[int, int] = {}
+
+        def add(expression: str, field_id: str, operator: str, depth: int) -> bool:
+            if not config.order_depth.contains(depth):
+                return False
+            if accepted_by_depth.get(depth, 0) >= config.quota_per_leaf_family:
+                return False
+            drafts.append(self._draft(expression, field_id, operator, family, config, context.seed))
+            accepted_by_depth[depth] = accepted_by_depth.get(depth, 0) + 1
+            return True
+
+        base_depths = [1 if field.type == "MATRIX" else 2 for field, _ in field_expressions]
+        for (field_spec, expression), depth in zip(field_expressions, base_depths):
+            add(expression, field_spec.id, "identity", depth)
+
+        time_operations = [
+            (operator, window) for operator in ts_ops for window in self.windows
+        ]
+        time_operations.sort(
+            key=lambda item: (item != ("ts_rank", 504), item[0], item[1]),
+        )
+        operations = [
+            (operator, None) for operator in basic_ops
+        ] + time_operations
+        for operation_index, (operator, window) in enumerate(operations):
+            field_index = operation_index % len(field_expressions)
+            field_spec, expression = field_expressions[field_index]
+            depth = base_depths[field_index] + 1
+            rendered = f"{operator}({expression})" if window is None else f"{operator}({expression}, {window})"
+            label = operator if window is None else f"{operator}:{window}"
+            add(rendered, field_spec.id, label, depth)
         return drafts
 
     @staticmethod

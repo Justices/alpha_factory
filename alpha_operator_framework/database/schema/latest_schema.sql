@@ -310,6 +310,14 @@ CREATE TABLE IF NOT EXISTS promotion_decisions (
     UNIQUE(task_id, scope_hash, alpha_sha, stage)
 );
 
+CREATE TABLE IF NOT EXISTS alpha_pnl_cache (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    alpha_id TEXT NOT NULL UNIQUE,
+    pnl_json TEXT NOT NULL,
+    fetched_at TEXT NOT NULL,
+    updated_at TEXT NOT NULL
+);
+
 CREATE INDEX IF NOT EXISTS idx_alpha_sha ON alpha_expressions(alpha_sha);
 CREATE INDEX IF NOT EXISTS idx_detail_alpha_sha ON alpha_details(alpha_sha);
 CREATE INDEX IF NOT EXISTS idx_detail_sharpe ON alpha_details(sharpe);
@@ -330,6 +338,7 @@ CREATE INDEX IF NOT EXISTS idx_sub_cand_alpha ON alpha_submission_candidates(alp
 CREATE INDEX IF NOT EXISTS idx_sub_cand_submitted ON alpha_submission_candidates(is_submitted);
 CREATE INDEX IF NOT EXISTS idx_sub_cand_sharpe ON alpha_submission_candidates(sharpe);
 CREATE INDEX IF NOT EXISTS idx_promotion_task ON promotion_decisions(task_id, stage, decision);
+CREATE INDEX IF NOT EXISTS idx_alpha_pnl_cache_alpha ON alpha_pnl_cache(alpha_id);
 CREATE INDEX IF NOT EXISTS idx_datafields_region ON datafields(region);
 CREATE INDEX IF NOT EXISTS idx_datafields_dataset ON datafields(dataset_id);
 CREATE INDEX IF NOT EXISTS idx_datafields_type ON datafields(type);

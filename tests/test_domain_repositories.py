@@ -80,6 +80,19 @@ def test_load_unbacktested_research_candidates_keeps_only_active_scope_rows() ->
         assert [candidate.expression for candidate in pending] == ["rank(close)"]
 
 
+def test_alpha_pnl_cache_is_idempotent_and_returns_the_latest_payload(tmp_path) -> None:
+    db = AlphaDatabase(tmp_path / "pnl-cache.db")
+    first = {"records": [{"date": "2020-01-01", "pnl": 1.0}]}
+    latest = {"records": [{"date": "2020-01-02", "pnl": 2.0}]}
+
+    assert db.get_alpha_pnl_cache("alpha-1") is None
+    db.cache_alpha_pnl("alpha-1", first)
+    db.cache_alpha_pnl("alpha-1", latest)
+
+    assert db.get_alpha_pnl_cache("alpha-1") == latest
+    db.close()
+
+
 def test_result_prune_rule_only_prunes_active_unbacktested_expressions_in_scope(tmp_path) -> None:
     db = AlphaDatabase(tmp_path / "scoped_prune.db")
     usa = {

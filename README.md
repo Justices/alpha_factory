@@ -120,7 +120,7 @@ python alpha_machine.py drill-recovery
 
 构建模式是预编排流程，而非临时算法开关：`template` 为数据库已验证模板的字段实例化，不升阶，但首批回测后仍会产生结构剪枝规则，剪掉尚未回测的同形低质量实例，幸存者继续下一批并进入人工候选池；`multi-stage` 为确定性原始字段一阶 → 信号筛选/剪枝 → 深度变换 → group 二阶 → rank/sign 验证；`ai-multi-stage` 将第一节点替换为受限算子下的 AI 经济裸信号，代码按字段类型落地表达式：MATRIX 直接标量化、EVENT 固定 `vec_avg`、VECTOR 在允许的 `vec_*` reducer 中按候选轮转；`multivariate` 为原始字段一阶 → 信号筛选/剪枝 → 多字段组合 → rank/sign 验证。每个已完成分片都会先落库，再执行无效结果门、作用域隔离的结构剪枝，以及按 Sharpe/Fitness/Margin 排序的多通道 PnL 相关性剪枝。只有 `Sharpe > 1.25`、`Fitness > 0.8` 且通过晋升门的表达式才进入下一节点；达到 `early_stop_signal_count` 时会跳过后续增强并直接进入终端验证。命中信号的原始结果也会进入本地人工优化队列；验证变体不会混入人工候选，更不会自动提交 Alpha。
 
-`--algorithm diversity` 作用于**回测前**的候选选择，按字段、算子和模板结构做贪心多样化；它不是多阶开关，也不是结果 PnL 相关性。回测后的相关性多样化由 `research.construction.promotion.correlation` 独立控制，保留各指标通道剪枝结果的并集，并将 promote/reject/early-stop 理由写入 `promotion_decisions`。
+`--algorithm diversity` 作用于**回测前**的候选选择，按字段、算子和模板结构做贪心多样化；它不是多阶开关，也不是结果 PnL 相关性。回测后的相关性多样化由 `research.construction.promotion.correlation` 独立控制，保留各指标通道剪枝结果的并集，并将 promote/reject/early-stop 理由写入 `promotion_decisions`。用于该剪枝的已完成 Alpha PnL 序列按平台 Alpha ID 缓存到本地数据库；缓存未命中才读取平台，恢复或后续分片不会重复拉取。
 ```bash
 # 默认多阶 Dry-run（只生成、校验与落库，不发起平台回测）
 python alpha_machine.py research-cycle \
@@ -146,7 +146,7 @@ python alpha_machine.py research-cycle \
 
 中断后用同一个 `--round-id` 恢复：`python alpha_machine.py research-cycle --round-id <ID> --continue-research --execute`。仅需处理已提交回测时，可运行 `python alpha_machine.py research-worker --round-id <ID>`；常驻值守使用 `research-worker --watch --poll-seconds 30`。生产提交仍须另行提供授权证据并通过 `submission-dispatch`，不会由研究循环自动触发。
 
-策略配置支持 `database_template`、`raw_first_order`、`depth_construction`、`field_composition`、`group_second_order`、`literature_llm`。LLM 只产出结构化假说与候选模板，最终表达式必须通过与其他策略相同的确定性校验；配置与组合示例见 [USAGE_GUIDE.md](USAGE_GUIDE.md)。
+策略配置支持 `database_template`、`raw_first_order`、`ai_naked_signal`、`depth_construction`、`field_composition`、`group_second_order`、`signal_validation` 与 `literature_llm`。AI/LLM 只产出受限的经济假说或裸表达式；字段类型标量化、AST 校验、去重、配额和相关性剪枝均由代码统一执行。配置与组合示例见 [USAGE_GUIDE.md](USAGE_GUIDE.md)。
 
 ### 5. 全自动无人值守投研流水线 (`auto-pilot`) 🚀
 一键串联：环境自检 ➔ 真实并发回测 ➔ 6 维证据终审 ➔ 空间释放 (VACUUM) ➔ 汇总研报生成：

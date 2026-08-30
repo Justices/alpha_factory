@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import asyncio
 from dataclasses import dataclass
 
 from alpha_operator_framework.application.research_cycle import ResearchCycleSummary
@@ -284,6 +285,21 @@ def test_terminal_template_results_use_shared_pruning_and_only_survivors_are_que
     assert [item[0] for item in database.queued] == ["kept"]
     assert database.decisions[0][4:6] == ("reject", "below_parent_gate")
     assert database.decisions[1][4:6] == ("promote", "retain_for_review")
+
+
+def test_cached_pnl_fetcher_uses_local_payload_without_platform_access() -> None:
+    payload = {"records": [{"date": "2020-01-01", "pnl": 1.0}]}
+
+    class CacheDatabase:
+        def get_alpha_pnl_cache(self, alpha_id):
+            assert alpha_id == "cached-alpha"
+            return payload
+
+    result = asyncio.run(
+        ResearchLoopCoordinator._cached_pnl_fetcher(CacheDatabase())("cached-alpha")
+    )
+
+    assert result == payload
 
 
 def test_rank_sign_validation_compares_each_child_with_parent() -> None:

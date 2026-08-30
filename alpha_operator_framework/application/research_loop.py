@@ -409,6 +409,7 @@ class ResearchLoopCoordinator:
                     max_consecutive_flat_days=plan.promotion.quality.max_consecutive_flat_days,
                     max_tail_flat_ratio=plan.promotion.quality.max_tail_flat_ratio,
                 ),
+                pnl_fetcher=self._cached_pnl_fetcher(database),
             ))
             kept_ids = {str(item["alpha_sha"]) for item in kept}
             rows_by_sha = {row.alpha_sha or row.expression: row for row in eligible}
@@ -459,6 +460,35 @@ class ResearchLoopCoordinator:
             row.alpha_sha or row.expression: next_stage_by_sha[row.alpha_sha or row.expression]
             for row in promotable
         }
+
+    @staticmethod
+    def _cached_pnl_fetcher(database: Any):
+        """Return a cache-first async PnL reader backed by the shared session."""
+        load = getattr(database, "get_alpha_pnl_cache", None)
+        save = getattr(database, "cache_alpha_pnl", None)
+        authenticated = False
+        auth_lock = asyncio.Lock()
+
+        async def fetch(alpha_id: str) -> dict[str, object]:
+            nonlocal authenticated
+            if callable(load):
+                cached = load(alpha_id)
+                if isinstance(cached, dict):
+                    return cached
+            from cnhkmcp.untracked.platform_functions import brain_client
+
+            async with auth_lock:
+                if not authenticated:
+                    await brain_client.ensure_authenticated()
+                    authenticated = True
+            payload = await brain_client.get_alpha_pnl(alpha_id)
+            if not isinstance(payload, dict):
+                raise ValueError(f"platform PnL response is not an object: {alpha_id}")
+            if callable(save):
+                save(alpha_id, payload)
+            return payload
+
+        return fetch
 
     @staticmethod
     def _queue_signal_candidates(database: Any, rows: Sequence[Any]) -> None:

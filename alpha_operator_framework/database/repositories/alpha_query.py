@@ -13,6 +13,19 @@ from ..models import AlphaExpression
 class AlphaQueryMixin(BaseRepository):
     """Expression queries and stratified sampling helpers."""
 
+    def get_alpha_pnl_cache(self, alpha_id: str) -> dict[str, object] | None:
+        """Return a cached immutable platform PnL payload when available."""
+        row = self._get_connection().execute(
+            "SELECT pnl_json FROM alpha_pnl_cache WHERE alpha_id=?", (alpha_id,)
+        ).fetchone()
+        if row is None:
+            return None
+        try:
+            payload = json.loads(row["pnl_json"])
+        except (TypeError, json.JSONDecodeError):
+            return None
+        return payload if isinstance(payload, dict) else None
+
     def get_expression_by_sha(self, alpha_sha: str) -> Optional[AlphaExpression]:
         """Compatibility alias for the canonical Alpha SHA lookup."""
         return self.get_expression_by_alpha_sha(alpha_sha)

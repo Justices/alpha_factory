@@ -14,6 +14,21 @@ from ..models import AlphaDetail, WF_STAGES
 class AlphaWriteMixin(BaseRepository):
     """Expression, detail, status, and workflow writes."""
 
+    def cache_alpha_pnl(self, alpha_id: str, payload: Mapping[str, object]) -> None:
+        """Persist one completed platform PnL payload for correlation reuse."""
+        if not alpha_id:
+            raise ValueError("alpha_id is required for PnL cache")
+        now = self._timestamp()
+        self._get_connection().execute(
+            """INSERT INTO alpha_pnl_cache (alpha_id, pnl_json, fetched_at, updated_at)
+               VALUES (?, ?, ?, ?)
+               ON CONFLICT(alpha_id) DO UPDATE SET
+                   pnl_json=excluded.pnl_json, fetched_at=excluded.fetched_at,
+                   updated_at=excluded.updated_at""",
+            (alpha_id, self._json(dict(payload)), now, now),
+        )
+        self._get_connection().commit()
+
     @staticmethod
     def compute_sha(expression: str) -> str:
         """Return the canonical expression fingerprint used by Alpha writes."""

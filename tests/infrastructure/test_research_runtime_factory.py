@@ -106,3 +106,28 @@ research:
     assert [(strategy.strategy_id, strategy.stage) for strategy in plan.strategies] == [
         ("first", 1), ("second", 2),
     ]
+
+
+def test_checked_in_construction_modes_keep_their_intended_stage_graph() -> None:
+    config = Path(__file__).parents[2] / "configs" / "alpha-factory.yaml"
+
+    resolved = {
+        mode: [(strategy.strategy_id, strategy.stage) for strategy in resolve_construction_plan(config, mode=mode).strategies]
+        for mode in ("template", "multi-stage", "ai-multi-stage", "multivariate")
+    }
+
+    assert resolved == {
+        "template": [("database-template", 1)],
+        "multi-stage": [
+            ("raw-first-order", 1), ("qualified-depth", 2),
+            ("qualified-group-second-order", 3), ("signal-validation", 4),
+        ],
+        "ai-multi-stage": [
+            ("ai-naked-signals", 1), ("qualified-depth", 2),
+            ("qualified-group-second-order", 3), ("signal-validation", 4),
+        ],
+        "multivariate": [
+            ("raw-first-order", 1), ("qualified-composition", 2),
+            ("signal-validation", 3),
+        ],
+    }

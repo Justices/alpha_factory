@@ -23,6 +23,8 @@ SUPPORTED_PARENT_SOURCES = frozenset({
     "raw_and_qualified_candidates",
 })
 MAX_LEAF_FAMILY_QUOTA = 8
+DEFAULT_GENERATION_POOL_PER_LEAF = 32
+MAX_GENERATION_POOL_PER_LEAF = 512
 PLATFORM_BATCH_SIZE = 8
 
 
@@ -332,6 +334,7 @@ class ConstructionStrategyConfig:
     field_count: StructuralConstraint
     quota_per_leaf_family: int = MAX_LEAF_FAMILY_QUOTA
     source: str = "raw_fields"
+    generation_pool_per_leaf: int = DEFAULT_GENERATION_POOL_PER_LEAF
     stage: int = 1
     document: Path | None = None
     prompt_document: Path | None = None
@@ -349,6 +352,7 @@ class ConstructionStrategyConfig:
             "order_depth": self.order_depth.to_mapping(),
             "field_count": self.field_count.to_mapping(),
             "quota_per_leaf_family": self.quota_per_leaf_family,
+            "generation_pool_per_leaf": self.generation_pool_per_leaf,
             "source": self.source,
             "stage": self.stage,
         }
@@ -445,6 +449,15 @@ def _parse_strategy(
     quota = _required_int(raw.get("quota_per_leaf_family", MAX_LEAF_FAMILY_QUOTA), f"{strategy_id}.quota_per_leaf_family")
     if not 1 <= quota <= MAX_LEAF_FAMILY_QUOTA:
         raise ValueError(f"{strategy_id}.quota_per_leaf_family must be between 1 and {MAX_LEAF_FAMILY_QUOTA}")
+    generation_pool = _required_int(
+        raw.get("generation_pool_per_leaf", DEFAULT_GENERATION_POOL_PER_LEAF),
+        f"{strategy_id}.generation_pool_per_leaf",
+    )
+    if not quota <= generation_pool <= MAX_GENERATION_POOL_PER_LEAF:
+        raise ValueError(
+            f"{strategy_id}.generation_pool_per_leaf must be between "
+            f"quota_per_leaf_family ({quota}) and {MAX_GENERATION_POOL_PER_LEAF}"
+        )
     stage = _required_int(raw.get("stage", 1), f"{strategy_id}.stage")
     if stage < 1:
         raise ValueError(f"{strategy_id}.stage must be positive")
@@ -485,6 +498,7 @@ def _parse_strategy(
         order_depth=StructuralConstraint.from_mapping(raw.get("order_depth"), name=f"{strategy_id}.order_depth"),
         field_count=StructuralConstraint.from_mapping(raw.get("field_count"), name=f"{strategy_id}.field_count"),
         quota_per_leaf_family=quota,
+        generation_pool_per_leaf=generation_pool,
         source=source,
         stage=stage,
         document=document,

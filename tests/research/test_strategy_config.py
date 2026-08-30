@@ -48,10 +48,20 @@ def test_parent_gate_defaults_to_initial_promotion_thresholds() -> None:
     assert not plan.parent_gate.passes(0.61, 0.4)
 
 
+def test_generation_pool_is_independent_from_selection_quota() -> None:
+    plan = ConstructionPlan.from_mapping({"strategies": [_strategy(
+        quota_per_leaf_family=2, generation_pool_per_leaf=40,
+    )]})
+
+    assert plan.strategies[0].quota_per_leaf_family == 2
+    assert plan.strategies[0].generation_pool_per_leaf == 40
+
+
 @pytest.mark.parametrize("change,match", [
     ({"order_depth": {"exact": 2, "min": 1}}, "cannot combine"),
     ({"field_count": {"min": 2, "max": 1}}, "cannot exceed"),
     ({"quota_per_leaf_family": 9}, "between 1 and 8"),
+    ({"quota_per_leaf_family": 8, "generation_pool_per_leaf": 7}, "must be between"),
     ({"source": "qualified_candidates"}, "only supports source=raw_fields"),
     ({"stage": 0}, "stage must be positive"),
     ({"kind": "unknown"}, "unsupported construction strategy"),

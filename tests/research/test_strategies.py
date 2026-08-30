@@ -176,7 +176,7 @@ def test_raw_first_order_expands_fields_without_database_templates() -> None:
     assert all("500" not in expression and "240" not in expression for expression in expressions)
 
 
-def test_raw_first_order_bounds_generated_candidates_by_leaf_quota() -> None:
+def test_raw_first_order_builds_pool_before_applying_later_selection_quota() -> None:
     config = ConstructionStrategyConfig(
         strategy_id="raw-first-order",
         kind="raw_first_order",
@@ -184,6 +184,7 @@ def test_raw_first_order_bounds_generated_candidates_by_leaf_quota() -> None:
         order_depth=StructuralConstraint(minimum=1, maximum=3),
         field_count=StructuralConstraint(exact=1),
         quota_per_leaf_family=2,
+        generation_pool_per_leaf=5,
         source="raw_fields",
     )
     outcome = ConstructionStrategyRegistry().generate(
@@ -193,7 +194,7 @@ def test_raw_first_order_bounds_generated_candidates_by_leaf_quota() -> None:
         ), (), seed=7),
     )
 
-    assert len(outcome.candidates) <= 4
+    assert len(outcome.candidates) == 10
     assert all("field_" in candidate.expression for candidate in outcome.candidates)
     assert outcome.strategy_statuses[0].generated_count == len(outcome.candidates)
 

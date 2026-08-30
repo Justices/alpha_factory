@@ -215,7 +215,7 @@ class ResearchLoopCoordinator:
                 for field_count in range(config.field_count.minimum or config.field_count.exact or 0,
                                          (config.field_count.maximum or config.field_count.exact or 0) + 1):
                     for family in config.families:
-                        quotas[f"{config.kind}/{family}/depth-{depth}/fields-{field_count}"] = config.quota_per_leaf_family
+                        quotas[f"{config.kind}/{family}/depth-{depth}/fields-{field_count}"] = config.generation_pool_per_leaf
         return quotas
 
     @staticmethod

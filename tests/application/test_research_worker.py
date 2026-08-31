@@ -194,6 +194,28 @@ def test_worker_persists_retry_state_after_rate_limit() -> None:
     }]
 
 
+def test_worker_keeps_polling_capacity_after_normal_retry_budget_is_exhausted() -> None:
+    class CapacityGateway:
+        def run_backtests(self, _tasks):
+            raise RuntimeError("503 simulation capacity unavailable")
+
+    events, rounds, batches, knowledge = EventStore(), RoundRepository(), BatchRepository(), KnowledgeBase()
+    policy = ResearchPolicy("GBR", "TOP700", 1, max_retry_attempts=1, retry_backoff_seconds=(0,))
+    ResearchCycleUseCase(rounds, CapacityGateway(), knowledge, batches, event_store=events).execute(
+        ResearchCycleRequest(
+            "capacity-round", 9, policy, KnowledgeSnapshot(version=0),
+            [Candidate("a", "rank(close)", "family", ("close",), ("rank",), "template")], True,
+        )
+    )
+
+    summary = ResearchBatchWorker(events, rounds, batches, knowledge, CapacityGateway()).process_round("capacity-round")
+
+    task = next(iter(batches.batch.tasks.values()))
+    assert summary.status == "RETRY_SCHEDULED"
+    assert batches.batch.state is BatchState.PARTIAL_FAILED
+    assert task.attempts == 1
+
+
 def test_worker_records_outstanding_tasks_when_gateway_returns_partial_results() -> None:
     class PartialGateway:
         def run_backtests(self, tasks):

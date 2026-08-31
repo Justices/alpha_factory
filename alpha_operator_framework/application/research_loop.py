@@ -83,6 +83,7 @@ class ResearchLoopCoordinator:
             construction_plan.parent_gate,
             construction_plan.platform_batch_size,
             construction_plan.promotion,
+            construction_plan.rolling_capacity_queue,
         )
         outcome = self.registry.generate(initial_plan, context)
         self._persist_outcome(task_id, settings, construction_plan, outcome)
@@ -118,7 +119,8 @@ class ResearchLoopCoordinator:
         round_sequence = database.next_task_round_sequence(base_round_id)
         catalog_round_id = f"{base_round_id}-catalog"
         cap_catalog = getattr(database, "prune_catalog_candidates_beyond_family_quota", None)
-        if callable(cap_catalog) and self._catalog_family_quotas(construction_plan):
+        if (not construction_plan.rolling_capacity_queue and callable(cap_catalog)
+                and self._catalog_family_quotas(construction_plan)):
             pruned_count += cap_catalog(catalog_round_id, self._catalog_family_quotas(construction_plan))
 
         while True:
@@ -177,19 +179,18 @@ class ResearchLoopCoordinator:
                     planned.status, round_ids, completed_backtests, pruned_count,
                     generated_count, tuple(statuses),
                 )
-            # Candidates passed to the selector but not chosen for this
-            # leaf's quota are terminally pruned from the task catalog.  This
-            # prevents a later loop iteration from treating them as a new
-            # pool and selecting them beyond the configured quota.
+            # A rolling queue retains unselected candidates for the next
+            # platform-capacity window; legacy mode keeps one-off leaf quotas.
             unselected_ids = [
                 str(item["candidate_id"])
                 for item in planned.selection_audit
                 if not bool(item["selected"])
             ]
-            mark_pruned = getattr(database, "mark_round_candidates_pruned", None)
-            if callable(mark_pruned):
-                mark_pruned(catalog_round_id, unselected_ids)
-            pruned_count += len(unselected_ids)
+            if not construction_plan.rolling_capacity_queue:
+                mark_pruned = getattr(database, "mark_round_candidates_pruned", None)
+                if callable(mark_pruned):
+                    mark_pruned(catalog_round_id, unselected_ids)
+                pruned_count += len(unselected_ids)
             round_ids.append(planned.round_id)
             round_sequence += 1
             summary = self._process_until_terminal(planned.round_id)
@@ -270,6 +271,8 @@ class ResearchLoopCoordinator:
     ) -> list[Candidate]:
         if not candidates:
             return []
+        if plan.rolling_capacity_queue:
+            return sorted(candidates, key=lambda item: (item.family, item.candidate_id))
         configs = {config.strategy_id: config for config in plan.strategies}
         by_family: dict[str, list[Candidate]] = defaultdict(list)
         for candidate in sorted(candidates, key=lambda item: (item.family, item.candidate_id)):
@@ -294,6 +297,8 @@ class ResearchLoopCoordinator:
         plan: ConstructionPlan,
         selected_counts: dict[str, int],
     ) -> ResearchPolicy:
+        if plan.rolling_capacity_queue:
+            return replace(policy, max_backtests=plan.platform_batch_size, family_quotas={})
         configs = {config.strategy_id: config for config in plan.strategies}
         quotas: dict[str, int] = {}
         for candidate in candidates:
@@ -348,6 +353,7 @@ class ResearchLoopCoordinator:
                 parent_config = replace(config, source="qualified_candidates")
                 parent_plan = ConstructionPlan(
                     (parent_config,), plan.parent_gate, plan.platform_batch_size, plan.promotion,
+                    plan.rolling_capacity_queue,
                 )
                 raw_delay = settings.get("delay")
                 delay = int(raw_delay) if isinstance(raw_delay, (int, float, str)) else None

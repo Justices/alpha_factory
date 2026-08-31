@@ -59,6 +59,23 @@ def _candidate(index, family, strategy="database"):
     )
 
 
+def test_rolling_capacity_queue_keeps_candidates_and_selects_one_platform_batch() -> None:
+    plan = ConstructionPlan(
+        (_plan("database").strategies[0],),
+        rolling_capacity_queue=True,
+    )
+    candidates = [_candidate(index, "family") for index in range(12)]
+
+    shard = ResearchLoopCoordinator._next_shard(candidates, plan, {"family": 8})
+    policy = ResearchLoopCoordinator._policy_for_candidates(
+        ResearchPolicy("USA", "TOP3000", 99), shard, plan, {"family": 8},
+    )
+
+    assert len(shard) == 12
+    assert policy.max_backtests == 8
+    assert policy.family_quotas == {}
+
+
 class LoopDatabase:
     def __init__(self, candidates):
         self.pending = list(candidates)

@@ -43,6 +43,7 @@ research:
         - [qualified-composition]
         - [signal-validation]
   construction:
+    rolling_capacity_queue: true
     strategies:
       # 已验证的数据库模板分支。
       - id: database-template

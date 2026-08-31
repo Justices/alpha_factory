@@ -216,12 +216,33 @@ class ResearchBatchWorker:
         )
 
     @staticmethod
-    def _is_rate_limited(error: Exception) -> bool:
-        response = getattr(error, "response", None)
-        status_code = getattr(
-            error, "status_code", getattr(response, "status_code", None)
+    def _is_capacity_limited(error: Exception | str | None) -> bool:
+        """Whether BRAIN asks us to wait for simulation capacity.
+
+        BRAIN does not expose a stable "available simulation slots" endpoint.
+        The submission response is therefore the authoritative capacity signal:
+        honour its status/message and leave the durable task queue intact until
+        the next polling opportunity, rather than consuming the transient
+        network-retry budget.
+        """
+        if isinstance(error, Exception):
+            response = getattr(error, "response", None)
+            status_code = getattr(
+                error, "status_code", getattr(response, "status_code", None)
+            )
+            if status_code in {429, 503}:
+                return True
+        text = str(error or "").lower()
+        markers = (
+            "429", "503", "rate limit", "too many requests", "quota",
+            "capacity", "concurrent simulation", "simulation limit", "限流", "额度",
         )
-        return status_code == 429 or "429" in str(error)
+        return any(marker in text for marker in markers)
+
+    @staticmethod
+    def _is_rate_limited(error: Exception) -> bool:
+        # Backward-compatible name for callers outside the worker.
+        return ResearchBatchWorker._is_capacity_limited(error)
 
     @staticmethod
     def _is_retryable_result_error(error: str | None) -> bool:
@@ -240,8 +261,7 @@ class ResearchBatchWorker:
             "unavailable",
             "temporary",
             "retry",
-            "rate limit",
-            "429",
+            "rate limit", "too many requests", "429", "503", "quota", "capacity",
             "no platform error detail",
             "超时",
             "网络",
@@ -253,8 +273,7 @@ class ResearchBatchWorker:
 
     @staticmethod
     def _is_rate_limited_result_error(error: str | None) -> bool:
-        text = (error or "").lower()
-        return "429" in text or "rate limit" in text or "限流" in text
+        return ResearchBatchWorker._is_capacity_limited(error)
 
     @staticmethod
     def _retry_after_seconds(error: Exception) -> float | None:
@@ -399,15 +418,17 @@ class ResearchBatchWorker:
                     )
         except Exception as error:
             logger.exception("批量回测在与网关交互时遇到外部连接异常: %s", error)
-            if not isinstance(
-                error, (TimeoutError, ConnectionError)
-            ) and not self._is_rate_limited(error):
+            capacity_limited = self._is_capacity_limited(error)
+            if not isinstance(error, (TimeoutError, ConnectionError)) and not capacity_limited:
                 raise
             retry_due = [task for task in due if task.task_id not in batch.results]
             if not retry_due:
                 raise
             attempts = max(task.attempts for task in retry_due) + 1
-            if attempts >= policy.max_retry_attempts:
+            # Capacity exhaustion is expected external state, not a failed
+            # simulation.  Keep polling it indefinitely; ordinary transport
+            # failures continue to obey the finite retry budget.
+            if not capacity_limited and attempts >= policy.max_retry_attempts:
                 task_ids = [task.task_id for task in retry_due]
                 for task_id in task_ids:
                     self._event(
@@ -440,7 +461,8 @@ class ResearchBatchWorker:
             )
             self._transition(batch, BatchState.PARTIAL_FAILED)
             logger.warning(
-                "任务网络故障，安排在 %s (休眠 %.1f 秒) 后重试. 批次状态设为 PARTIAL_FAILED",
+                "%s，安排在 %s (休眠 %.1f 秒) 后重试. 批次状态设为 PARTIAL_FAILED",
+                "平台回测额度暂不可用" if capacity_limited else "任务网络故障",
                 retry_at.isoformat(),
                 delay_seconds,
             )

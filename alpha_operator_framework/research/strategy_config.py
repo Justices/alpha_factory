@@ -369,6 +369,7 @@ class ConstructionPlan:
     parent_gate: ParentGate = ParentGate()
     platform_batch_size: int = PLATFORM_BATCH_SIZE
     promotion: PromotionPolicy = PromotionPolicy()
+    rolling_capacity_queue: bool = False
 
     @classmethod
     def from_mapping(
@@ -398,6 +399,7 @@ class ConstructionPlan:
             parent_gate=ParentGate.from_mapping(value.get("parent_gate")),
             platform_batch_size=batch_size,
             promotion=PromotionPolicy.from_mapping(value.get("promotion")),
+            rolling_capacity_queue=_required_bool(value.get("rolling_capacity_queue", False), "construction.rolling_capacity_queue"),
         )
 
     def to_mapping(self) -> dict[str, object]:
@@ -406,6 +408,7 @@ class ConstructionPlan:
             "parent_gate": self.parent_gate.to_mapping(),
             "platform_batch_size": self.platform_batch_size,
             "promotion": self.promotion.to_mapping(),
+            "rolling_capacity_queue": self.rolling_capacity_queue,
         }
 
     def strategies_for_stage(self, stage: int) -> tuple[ConstructionStrategyConfig, ...]:

@@ -214,7 +214,6 @@ class SqlAlchemyEventRepository:
         """追加单条事件条目并返回其主键偏移值。"""
         values["payload"] = values.pop("payload_json")
         values["metadata"] = values.pop("metadata_json")
-        logger.info("正在追加单条事件: event_type=%s, stream_id=%s", values.get("event_type"), values.get("stream_id"))
         with self.engine.begin() as connection:
             result = connection.execute(insert(event_log).values(**values))
             return int(result.inserted_primary_key[0])

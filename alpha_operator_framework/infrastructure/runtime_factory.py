@@ -116,7 +116,7 @@ def resolve_construction_plan(config_path: Path, *, mode: str | None = None):
             selected.append(replace(strategy, stage=stage_number))
     return ConstructionPlan(
         tuple(selected), plan.parent_gate, plan.platform_batch_size, plan.promotion,
-        plan.rolling_capacity_queue,
+        plan.rolling_capacity_queue, plan.selection_window_batches,
     )
 
 

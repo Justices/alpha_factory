@@ -139,6 +139,31 @@ def test_result_prune_rule_only_prunes_active_unbacktested_expressions_in_scope(
     assert db.get_expression_by_alpha_sha(db.compute_alpha_sha(completed.expression, usa)).pruning_status == "active"
 
 
+def test_replacing_result_prune_rules_removes_rules_from_an_old_threshold(tmp_path) -> None:
+    db = AlphaDatabase(tmp_path / "replace-prune-rules.db")
+    settings = {
+        "region": "USA", "universe": "TOP3000", "delay": 1, "decay": 8,
+        "neutralization": "SUBINDUSTRY", "truncation": 0.08,
+    }
+    db.upsert_result_prune_rule(
+        settings, "rank({a})", "abstract_template", "sharpe below 0.8",
+    )
+
+    db.replace_result_prune_rules(settings, [{
+        "pattern": "ts_rank({a},22)",
+        "pattern_type": "abstract_template",
+        "reason": "sharpe fails parent gate (> 0.6)",
+    }])
+
+    assert db.get_result_prune_rules(settings) == [{
+        "pattern": "ts_rank({a},22)",
+        "pattern_type": "abstract_template",
+        "reason": "sharpe fails parent gate (> 0.6)",
+    }]
+
+
+
+
 def test_optimization_lineage_is_idempotent(tmp_path) -> None:
     db = AlphaDatabase(tmp_path / "optimization_lineage.db")
     settings = {

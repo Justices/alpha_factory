@@ -46,6 +46,7 @@ def test_parent_gate_defaults_to_initial_promotion_thresholds() -> None:
     assert plan.parent_gate.passes(0.61, 0.41)
     assert not plan.parent_gate.passes(0.6, 0.41)
     assert not plan.parent_gate.passes(0.61, 0.4)
+    assert plan.selection_window_batches == 8
 
 
 def test_generation_pool_is_optional_and_independent_from_selection_quota() -> None:

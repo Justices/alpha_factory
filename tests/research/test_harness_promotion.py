@@ -32,6 +32,15 @@ def test_quality_gate_rejects_low_long_short_coverage_but_keeps_legacy_unknowns(
     assert promotion_quality_reason(legacy, min_long_short_sum=20) is None
 
 
+def test_quality_gate_does_not_apply_submission_checks_to_construction_promotion() -> None:
+    exploratory = CompletedExpression(
+        "rank(close)", ("close",), 0.8, 0.5, False,
+        long_count=100, short_count=100,
+    )
+
+    assert promotion_quality_reason(exploratory, min_long_short_sum=20) is None
+
+
 def test_multi_channel_pruning_uses_union_and_rejects_flat_pnl() -> None:
     wave = [math.sin(index / 5) for index in range(160)]
     orthogonal = [math.cos(index / 5) for index in range(160)]

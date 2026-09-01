@@ -80,12 +80,6 @@ class EventStore:
             else:
                 offset = len(self._memory_events) + 1
             self._memory_events.append(event)
-            logger.info(
-                "事件已追加：event_type=%s, stream_id=%s, offset=%d",
-                event.event_type.value if hasattr(event.event_type, 'value') else event.event_type,
-                event.stream_id,
-                offset,
-            )
             return offset
 
     def append_batch(self, events: Sequence[Event]) -> List[int]:
@@ -120,12 +114,6 @@ class EventStore:
                 base = len(self._memory_events)
                 offsets = [base + i + 1 for i in range(len(events))]
             self._memory_events.extend(events)
-            logger.info(
-                "批量追加事件完成：批次大小=%d, offset 范围=[%d, %d]",
-                len(events),
-                offsets[0] if offsets else 0,
-                offsets[-1] if offsets else 0,
-            )
             return offsets
 
     def read_stream(self, stream_id: str, from_offset: int = 0) -> List[Event]:

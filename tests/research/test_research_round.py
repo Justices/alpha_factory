@@ -4,8 +4,10 @@ from __future__ import annotations
 
 import random
 
+import pytest
+
 from alpha_operator_framework.research.round import Candidate, KnowledgeSnapshot, ResearchPolicy, ResearchRound
-from alpha_operator_framework.research.selection import WeightedStratifiedSelector
+from alpha_operator_framework.research.selection import DiversitySelector, WeightedStratifiedSelector
 
 
 def _round(seed: int) -> ResearchRound:
@@ -60,3 +62,22 @@ def test_explicit_family_quotas_are_not_clipped_by_a_global_budget() -> None:
     decisions = WeightedStratifiedSelector().select(candidates, policy, KnowledgeSnapshot(version=0), random.Random(7))
 
     assert sum(decision.selected for decision in decisions) == 40
+
+
+@pytest.mark.parametrize("selector", [WeightedStratifiedSelector(), DiversitySelector()])
+def test_implicit_family_budget_distributes_remainder_and_fills_batch(selector) -> None:
+    candidates = [
+        Candidate(
+            f"{family}-{index}", f"rank({family}_{index})", family,
+            (f"{family}_{index}",), ("rank",), "rank",
+        )
+        for family in ("a", "b", "c")
+        for index in range(4)
+    ]
+    policy = ResearchPolicy("GBR", "TOP700", 8)
+
+    decisions = selector.select(
+        candidates, policy, KnowledgeSnapshot(version=0), random.Random(7),
+    )
+
+    assert sum(decision.selected for decision in decisions) == 8

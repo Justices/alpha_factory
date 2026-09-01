@@ -24,6 +24,7 @@ SUPPORTED_PARENT_SOURCES = frozenset({
 })
 MAX_LEAF_FAMILY_QUOTA = 8
 PLATFORM_BATCH_SIZE = 8
+SELECTION_WINDOW_BATCHES = 8
 
 
 @dataclass(frozen=True)
@@ -370,6 +371,11 @@ class ConstructionPlan:
     platform_batch_size: int = PLATFORM_BATCH_SIZE
     promotion: PromotionPolicy = PromotionPolicy()
     rolling_capacity_queue: bool = False
+    selection_window_batches: int = SELECTION_WINDOW_BATCHES
+
+    def __post_init__(self) -> None:
+        if self.selection_window_batches < 1:
+            raise ValueError("construction.selection_window_batches must be positive")
 
     @classmethod
     def from_mapping(
@@ -400,6 +406,10 @@ class ConstructionPlan:
             platform_batch_size=batch_size,
             promotion=PromotionPolicy.from_mapping(value.get("promotion")),
             rolling_capacity_queue=_required_bool(value.get("rolling_capacity_queue", False), "construction.rolling_capacity_queue"),
+            selection_window_batches=_required_int(
+                value.get("selection_window_batches", SELECTION_WINDOW_BATCHES),
+                "construction.selection_window_batches",
+            ),
         )
 
     def to_mapping(self) -> dict[str, object]:
@@ -409,6 +419,7 @@ class ConstructionPlan:
             "platform_batch_size": self.platform_batch_size,
             "promotion": self.promotion.to_mapping(),
             "rolling_capacity_queue": self.rolling_capacity_queue,
+            "selection_window_batches": self.selection_window_batches,
         }
 
     def strategies_for_stage(self, stage: int) -> tuple[ConstructionStrategyConfig, ...]:
@@ -559,6 +570,7 @@ __all__ = [
     "ParentGate",
     "PromotionPolicy",
     "PromotionQualityGate",
+    "SELECTION_WINDOW_BATCHES",
     "CorrelationPromotionPolicy",
     "SignalValidationPolicy",
     "StructuralConstraint",

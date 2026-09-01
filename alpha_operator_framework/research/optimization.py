@@ -7,6 +7,7 @@ from typing import Sequence
 
 from alpha_operator_framework.distill.template_abstractor import abstract_template
 from alpha_operator_framework.experiment.models import BacktestResult
+from alpha_operator_framework.research.strategy_config import Threshold
 
 
 SIGNAL_SHARPE = 1.25
@@ -14,7 +15,6 @@ SIGNAL_FITNESS = 0.8
 MIN_DISTINCT_FIELDS = 3
 MIN_SAMPLES = 4
 MIN_FAILURE_RATE = 0.80
-MAX_AVERAGE_SHARPE = 0.80
 
 
 @dataclass(frozen=True)
@@ -52,14 +52,14 @@ def promotion_quality_reason(
     *,
     min_long_short_sum: int = 0,
 ) -> str | None:
-    """Return a deterministic rejection reason for invalid promotion parents.
+    """Return a deterministic construction-quality rejection reason.
 
     Missing long/short statistics are kept rather than treated as zero because
     legacy rows may not have persisted the fields. New platform results carry
-    both values and are checked strictly.
+    both values and are checked strictly. Platform submission checks are
+    intentionally not evaluated here: exploratory promotion has its own lower
+    Sharpe/Fitness gate, while full platform checks remain a submission gate.
     """
-    if not result.checks_passed:
-        return "platform_checks_failed"
     if (
         min_long_short_sum > 0
         and result.long_count is not None
@@ -70,8 +70,12 @@ def promotion_quality_reason(
     return None
 
 
-def derive_consensus_prune_rules(rows: Sequence[CompletedExpression]) -> list[ResultPruneRule]:
-    """Derive structural rules from completed results for the next slice."""
+def derive_consensus_prune_rules(
+    rows: Sequence[CompletedExpression],
+    *,
+    sharpe_gate: Threshold,
+) -> list[ResultPruneRule]:
+    """Derive structural rules using the configured promotion Sharpe gate."""
     by_template: dict[str, list[CompletedExpression]] = {}
     for row in rows:
         template = abstract_template(row.expression, row.fields)
@@ -80,25 +84,27 @@ def derive_consensus_prune_rules(rows: Sequence[CompletedExpression]) -> list[Re
 
     rules: list[ResultPruneRule] = []
     seen_patterns: set[tuple[str, str]] = set()
-    # The research policy is explicit: any completed expression below the
-    # Sharpe floor retires its exact abstract template before another slice is
-    # planned.  This applies without waiting for the old consensus sample size.
+    # Any expression that fails the same Sharpe gate used for construction
+    # promotion retires its exact abstract template before another slice is
+    # planned. This applies without waiting for the consensus sample size.
+    gate_symbol = ">" if sharpe_gate.operator == "gt" else ">="
+    gate_reason = f"sharpe fails parent gate ({gate_symbol} {sharpe_gate.value:g})"
     for template, samples in sorted(by_template.items()):
-        if any(sample.sharpe < MAX_AVERAGE_SHARPE for sample in samples):
+        if any(not sharpe_gate.passes(sample.sharpe) for sample in samples):
             key = (template, "abstract_template")
             if key not in seen_patterns:
-                rules.append(ResultPruneRule(template, "abstract_template", "sharpe below 0.8"))
+                rules.append(ResultPruneRule(template, "abstract_template", gate_reason))
                 seen_patterns.add(key)
     for template, samples in sorted(by_template.items()):
         if len(samples) < MIN_SAMPLES or any(is_signal_parent(sample) for sample in samples):
             continue
         fields = {field for sample in samples for field in sample.fields}
-        failures = [sample for sample in samples if not sample.checks_passed or sample.sharpe < MAX_AVERAGE_SHARPE]
+        failures = [sample for sample in samples if not sharpe_gate.passes(sample.sharpe)]
         average_sharpe = sum(sample.sharpe for sample in samples) / len(samples)
         if (
             len(fields) >= MIN_DISTINCT_FIELDS
             and len(failures) / len(samples) >= MIN_FAILURE_RATE
-            and average_sharpe < MAX_AVERAGE_SHARPE
+            and not sharpe_gate.passes(average_sharpe)
         ):
             prefix = template.split("{", 1)[0]
             key = (prefix, "prefix")

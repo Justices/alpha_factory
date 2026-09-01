@@ -84,6 +84,7 @@ class ResearchLoopCoordinator:
             construction_plan.platform_batch_size,
             construction_plan.promotion,
             construction_plan.rolling_capacity_queue,
+            construction_plan.selection_window_batches,
         )
         outcome = self.registry.generate(initial_plan, context)
         self._persist_outcome(task_id, settings, construction_plan, outcome)
@@ -129,6 +130,7 @@ class ResearchLoopCoordinator:
             if not candidates and initial_available:
                 candidates = initial_candidates
             initial_available = False
+            candidates = self._bounded_selection_window(candidates, construction_plan)
             selected_counts = database.selected_counts_by_family(base_round_id)
             selection_pool = self._next_shard(candidates, construction_plan, selected_counts)
             if not selection_pool:
@@ -203,8 +205,26 @@ class ResearchLoopCoordinator:
 
             rows = database.load_completed_expression_results(settings)
             self._evaluate_signal_validations(database, settings, construction_plan)
-            for rule in derive_consensus_prune_rules(rows):
-                database.upsert_result_prune_rule(settings, rule.pattern, rule.pattern_type, rule.reason)
+            derived_rules = derive_consensus_prune_rules(
+                rows, sharpe_gate=construction_plan.parent_gate.sharpe,
+            )
+            replace_rules = getattr(database, "replace_result_prune_rules", None)
+            if callable(replace_rules):
+                replace_rules(settings, [
+                    {
+                        "pattern": rule.pattern,
+                        "pattern_type": rule.pattern_type,
+                        "reason": rule.reason,
+                    }
+                    for rule in derived_rules
+                ])
+            else:
+                # Compatibility for lightweight adapters; production storage
+                # replaces the complete derived set so stale thresholds expire.
+                for rule in derived_rules:
+                    database.upsert_result_prune_rule(
+                        settings, rule.pattern, rule.pattern_type, rule.reason,
+                    )
             pruned_count += len(database.prune_unbacktested_matching(
                 settings, database.get_result_prune_rules(settings),
             ))
@@ -221,6 +241,17 @@ class ResearchLoopCoordinator:
             partial_failed = partial_failed or any(
                 status.status == "FAILED" for status in parent_statuses
             )
+
+    @staticmethod
+    def _bounded_selection_window(
+        candidates: Sequence[Candidate],
+        plan: ConstructionPlan,
+    ) -> list[Candidate]:
+        """Bound scoring/audit volume without imposing a stage backtest quota."""
+        window_size = plan.platform_batch_size * plan.selection_window_batches
+        return sorted(
+            candidates, key=lambda item: (item.family, item.candidate_id),
+        )[:window_size]
 
     @staticmethod
     def _catalog_family_quotas(plan: ConstructionPlan) -> dict[str, int]:
@@ -331,7 +362,10 @@ class ResearchLoopCoordinator:
         statuses: list[StrategyStatus] = []
         priorities = {config.strategy_id: index for index, config in enumerate(plan.strategies)}
         for row in rows:
-            if not row.checks_passed or not plan.parent_gate.passes(row.sharpe, row.fitness):
+            # Construction promotion deliberately uses the exploratory parent
+            # gate. Full platform checks belong to review/submission and are
+            # still enforced by _queue_signal_candidates.
+            if not plan.parent_gate.passes(row.sharpe, row.fitness):
                 continue
             parent = Candidate(
                 candidate_id=row.alpha_sha or row.expression,
@@ -353,7 +387,7 @@ class ResearchLoopCoordinator:
                 parent_config = replace(config, source="qualified_candidates")
                 parent_plan = ConstructionPlan(
                     (parent_config,), plan.parent_gate, plan.platform_batch_size, plan.promotion,
-                    plan.rolling_capacity_queue,
+                    plan.rolling_capacity_queue, plan.selection_window_batches,
                 )
                 raw_delay = settings.get("delay")
                 delay = int(raw_delay) if isinstance(raw_delay, (int, float, str)) else None

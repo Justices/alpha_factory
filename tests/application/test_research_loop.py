@@ -209,6 +209,16 @@ def test_next_shard_keeps_full_selection_pool_for_each_eligible_leaf() -> None:
     assert sum(candidate.family == family_b for candidate in shard) == 6
 
 
+def test_scoring_window_bounds_audit_volume_without_stage_coverage_rules() -> None:
+    plan = ConstructionPlan(_plan("database").strategies, selection_window_batches=1)
+    candidates = [_candidate(index, "family") for index in range(12)]
+
+    selected = ResearchLoopCoordinator._bounded_selection_window(candidates, plan)
+
+    assert len(selected) == 8
+    assert selected == sorted(candidates, key=lambda item: (item.family, item.candidate_id))[:8]
+
+
 def test_loop_reports_requested_strategy_failure_after_preserving_other_work() -> None:
     runtime = LoopRuntime(LoopDatabase([]), KnowledgeBase())
     policy = ResearchPolicy("USA", "TOP3000", 0, **{
@@ -303,6 +313,46 @@ def test_early_stop_skips_enhancement_and_routes_signals_to_terminal_validation(
     assert selected == [row]
     assert target_stages == {"sha": 3}
     assert database.decisions[-1][4:7] == ("early_stop", "signal_target_reached", {"target": 1, "validation_stage": 3})
+
+
+def test_platform_submission_checks_do_not_block_construction_promotion() -> None:
+    class DecisionDatabase:
+        def __init__(self):
+            self.decisions = []
+
+        def record_promotion_decision(self, *args):
+            self.decisions.append(args)
+
+    strategies = (
+        ConstructionStrategyConfig(
+            "raw", "raw_first_order", ("first_order",),
+            StructuralConstraint(minimum=1, maximum=3), StructuralConstraint(exact=1),
+            source="raw_fields", stage=1,
+        ),
+        ConstructionStrategyConfig(
+            "depth", "depth_construction", ("unary",),
+            StructuralConstraint(minimum=2, maximum=6), StructuralConstraint(minimum=1, maximum=4),
+            source="qualified_candidates", stage=2,
+        ),
+    )
+    plan = ConstructionPlan(
+        strategies,
+        promotion=PromotionPolicy(correlation=CorrelationPromotionPolicy(enabled=False)),
+    )
+    row = CompletedExpression(
+        "rank(close)", ("close",), 0.8, 0.5, False,
+        alpha_sha="exploratory", origin_strategy="raw", long_count=60, short_count=60,
+    )
+    database = DecisionDatabase()
+
+    retained, selected, target_stages = ResearchLoopCoordinator(object())._select_promotion_rows(
+        "task", database, SETTINGS, [row], plan,
+    )
+
+    assert retained == [row]
+    assert selected == [row]
+    assert target_stages == {"exploratory": 2}
+    assert database.decisions[-1][4:6] == ("promote", "")
 
 
 def test_terminal_template_results_use_shared_pruning_and_only_survivors_are_queued() -> None:

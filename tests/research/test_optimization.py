@@ -5,6 +5,10 @@ from alpha_operator_framework.research.optimization import (
     is_signal_parent,
 )
 from alpha_operator_framework.distill.template_pruner import matches_prune_rule
+from alpha_operator_framework.research.strategy_config import Threshold
+
+
+PROMOTION_SHARPE_GATE = Threshold("gt", 0.6)
 
 
 def _row(expression: str, fields: tuple[str, ...], sharpe: float, fitness: float, checks_passed: bool = True) -> CompletedExpression:
@@ -20,31 +24,45 @@ def test_signal_parent_thresholds_are_strict() -> None:
 def test_low_sharpe_template_is_pruned_without_waiting_for_consensus() -> None:
     failures = [_row(f"rank(f{index})", (f"f{index}",), 0.0, 0.0) for index in range(4)]
 
-    assert derive_consensus_prune_rules(failures) == [
-        ResultPruneRule("rank({a})", "abstract_template", "sharpe below 0.8"),
+    assert derive_consensus_prune_rules(failures, sharpe_gate=PROMOTION_SHARPE_GATE) == [
+        ResultPruneRule("rank({a})", "abstract_template", "sharpe fails parent gate (> 0.6)"),
         ResultPruneRule("rank(", "prefix", "consensus failure"),
     ]
     assert derive_consensus_prune_rules([
         *failures,
         _row("rank(winner)", ("winner",), 1.26, 0.81),
-    ]) == [ResultPruneRule("rank({a})", "abstract_template", "sharpe below 0.8")]
+    ], sharpe_gate=PROMOTION_SHARPE_GATE) == [
+        ResultPruneRule("rank({a})", "abstract_template", "sharpe fails parent gate (> 0.6)"),
+    ]
 
 
-def test_consensus_pruning_uses_strict_point_eight_sharpe_cutoff() -> None:
+def test_consensus_pruning_uses_configured_strict_promotion_sharpe_gate() -> None:
     below_cutoff = [
-        _row(f"rank(f{index})", (f"f{index}",), 0.79, 0.9)
+        _row(f"rank(f{index})", (f"f{index}",), 0.59, 0.9)
         for index in range(4)
     ]
     at_cutoff = [
-        _row(f"rank(f{index})", (f"f{index}",), 0.8, 0.9)
+        _row(f"rank(f{index})", (f"f{index}",), 0.6, 0.9)
+        for index in range(4)
+    ]
+    above_cutoff = [
+        _row(f"rank(f{index})", (f"f{index}",), 0.61, 0.9)
         for index in range(4)
     ]
 
-    assert derive_consensus_prune_rules(below_cutoff) == [
-        ResultPruneRule("rank({a})", "abstract_template", "sharpe below 0.8"),
+    expected = [
+        ResultPruneRule("rank({a})", "abstract_template", "sharpe fails parent gate (> 0.6)"),
         ResultPruneRule("rank(", "prefix", "consensus failure")
     ]
-    assert derive_consensus_prune_rules(at_cutoff) == []
+    assert derive_consensus_prune_rules(
+        below_cutoff, sharpe_gate=PROMOTION_SHARPE_GATE,
+    ) == expected
+    assert derive_consensus_prune_rules(
+        at_cutoff, sharpe_gate=PROMOTION_SHARPE_GATE,
+    ) == expected
+    assert derive_consensus_prune_rules(
+        above_cutoff, sharpe_gate=PROMOTION_SHARPE_GATE,
+    ) == []
 
 
 def test_abstract_template_rule_only_matches_the_same_field_shape() -> None:

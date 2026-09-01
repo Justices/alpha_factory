@@ -116,7 +116,7 @@ python alpha_machine.py drill-recovery
 ```
 
 ### 4. 显式策略 Alpha 投研生命周期 (`research-cycle`) 🌟
-通过 `configs/alpha-factory.yaml` 显式组合数据库模板、多阶、多元与论文/LLM 策略。`order_depth` 是 AST 算子嵌套深度，`field_count` 是去重后的原始字段数；二者独立约束。每个叶子族每轮最多选择 8 条，平台固定按 8 条切片。
+通过 `configs/alpha-factory.yaml` 显式组合数据库模板、多阶、多元与论文/LLM 策略。`order_depth` 是 AST 算子嵌套深度，`field_count` 是去重后的原始字段数；二者独立约束。每个叶子族每轮最多选择 8 条，平台固定按 8 条切片。正式打分与事件审计每轮只接收有限候选窗口，避免对完整候选目录重复写入 `CandidateGenerated`/`CandidateScored`；该窗口不构成第一阶段累计回测条数或字段覆盖率限制。
 
 构建模式是预编排流程，而非临时算法开关：`template` 为数据库已验证模板的字段实例化，不升阶，但首批回测后仍会产生结构剪枝规则，剪掉尚未回测的同形低质量实例，幸存者继续下一批并进入人工候选池；`multi-stage` 为确定性原始字段一阶 → 信号筛选/剪枝 → 深度变换 → group 二阶 → rank/sign 验证；`ai-multi-stage` 将第一节点替换为受限算子下的 AI 经济裸信号，代码按字段类型落地表达式：MATRIX 直接标量化、EVENT 固定 `vec_avg`、VECTOR 在允许的 `vec_*` reducer 中按候选轮转；`multivariate` 为原始字段一阶 → 信号筛选/剪枝 → 多字段组合 → rank/sign 验证。每个已完成分片都会先落库，再执行无效结果门、作用域隔离的结构剪枝，以及按 Sharpe/Fitness/Margin 排序的多通道 PnL 相关性剪枝。初始表达式满足可配置的 `parent_gate`（默认 `Sharpe > 0.6`、`Fitness > 0.4`）即可进入下一构造节点；人工候选与提交前的高信号门仍为 `Sharpe > 1.25`、`Fitness > 0.8`。达到 `early_stop_signal_count` 时会跳过后续增强并直接进入终端验证。验证变体不会混入人工候选，更不会自动提交 Alpha。
 

@@ -61,10 +61,15 @@ class WeightedStratifiedSelector:
 
         selected_ids: set[str] = set()
         # 均分回测预算到各族；至少保证每族 1 个配额，避免小族全部丢失
-        per_family = max(1, policy.max_backtests // max(1, len(grouped)))
-        for family, members in grouped.items():
+        family_names = sorted(grouped)
+        per_family = max(1, policy.max_backtests // max(1, len(family_names)))
+        remainder = policy.max_backtests % max(1, len(family_names))
+        for family_index, family in enumerate(family_names):
+            members = grouped[family]
             # 优先使用策略中显式配置的族配额，否则退回到均分值
-            quota = policy.family_quotas.get(family, per_family)
+            quota = policy.family_quotas.get(
+                family, per_family + (1 if family_index < remainder else 0),
+            )
             # 按综合评分降序排列族内成员，候选 ID 作为同分时的稳定决胜字段
             ranked = sorted(members, key=lambda candidate: (-self.score(candidate, policy, knowledge), candidate.candidate_id))
             selected_ids.update(candidate.candidate_id for candidate in ranked[:quota])
@@ -176,9 +181,14 @@ class DiversitySelector(UcbSelector):
                 grouped[candidate.family].append(candidate)
 
         selected: list[Candidate] = []
-        per_family = max(1, policy.max_backtests // max(1, len(grouped)))
-        for family, members in sorted(grouped.items()):
-            quota = policy.family_quotas.get(family, per_family)
+        family_names = sorted(grouped)
+        per_family = max(1, policy.max_backtests // max(1, len(family_names)))
+        remainder = policy.max_backtests % max(1, len(family_names))
+        for family_index, family in enumerate(family_names):
+            members = grouped[family]
+            quota = policy.family_quotas.get(
+                family, per_family + (1 if family_index < remainder else 0),
+            )
             pool = list(members)
             family_selected: list[Candidate] = []
             while pool and len(family_selected) < quota:

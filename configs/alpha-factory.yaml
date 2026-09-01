@@ -44,6 +44,9 @@ research:
         - [signal-validation]
   construction:
     rolling_capacity_queue: true
+    # Only this many 8-expression batches enter scoring/audit per round. This
+    # prevents the complete candidate catalog being re-emitted to event_log.
+    selection_window_batches: 8
     strategies:
       # 已验证的数据库模板分支。
       - id: database-template

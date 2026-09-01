@@ -77,6 +77,43 @@ class AlphaWriteMixin(BaseRepository):
         )
         self._get_connection().commit()
 
+    def replace_result_prune_rules(
+        self,
+        settings: Mapping[str, Any],
+        rules: Sequence[Mapping[str, str]],
+    ) -> None:
+        """Atomically replace derived rules for one settings scope.
+
+        Result-derived rules depend on the active construction parent gate, so
+        retaining rules calculated under an older threshold would make a
+        configuration change ineffective.
+        """
+        scope_hash = self.settings_scope_hash(settings)
+        now = self._timestamp()
+        conn = self._get_connection()
+        try:
+            conn.execute("DELETE FROM result_prune_rules WHERE scope_hash=?", (scope_hash,))
+            conn.executemany(
+                """INSERT INTO result_prune_rules
+                   (scope_hash, pattern, pattern_type, reason, created_at, updated_at)
+                   VALUES (?, ?, ?, ?, ?, ?)""",
+                [
+                    (
+                        scope_hash,
+                        str(rule["pattern"]),
+                        str(rule["pattern_type"]),
+                        str(rule["reason"]),
+                        now,
+                        now,
+                    )
+                    for rule in rules
+                ],
+            )
+            conn.commit()
+        except Exception:
+            conn.rollback()
+            raise
+
     def record_promotion_decision(
         self,
         task_id: str,

@@ -62,3 +62,5 @@ data/*
 
 # Local provider credentials. Copy and customize llm_config.example.json locally.
 configs/llm_config.json
+.codex/*
+

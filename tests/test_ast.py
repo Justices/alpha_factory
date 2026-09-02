@@ -110,6 +110,15 @@ def test_ast_validation():
     assert any("Division by literal zero" in err for err in res_div.errors)
 
 
+def test_ast_validation_rejects_scientific_notation_literals():
+    res = validate_expression(
+        "log(1e-06 + abs(ts_delta(ts_sum(ts_backfill(balanced_price_oscillator, 120), 5), 500)))"
+    )
+
+    assert not res.is_valid
+    assert any("Scientific-notation literals" in err for err in res.errors)
+
+
 def test_field_extraction():
     fields = extract_ast_fields("ts_delta(close, 10) / (high - low + volume)")
     assert sorted(fields) == ["close", "high", "low", "volume"]

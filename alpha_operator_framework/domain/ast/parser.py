@@ -24,6 +24,14 @@ from alpha_operator_framework.domain.ast.nodes import (
 )
 
 
+# WorldQuant BRAIN's expression parser does not accept exponent notation
+# (for example ``1e-6``).  Reject it locally instead of letting a generated
+# candidate consume a platform simulation slot and fail there.
+_SCIENTIFIC_LITERAL_RE = re.compile(
+    r"(?<![A-Za-z0-9_])(?:\d+(?:\.\d*)?|\.\d+)[eE][+-]?\d+(?![A-Za-z0-9_])"
+)
+
+
 def _convert_ternary_syntax(expr_str: str) -> str:
     """将 C/BRAIN 风格三元表达式 `cond ? a : b` 转换为 Python 风格 `(a if cond else b)`."""
     # 递归/多轮转换处理可能存在的三元运算符
@@ -240,6 +248,11 @@ def parse_expression(expr_str: str) -> ExpressionNode:
     cleaned = expr_str.strip()
     if not cleaned:
         raise ValueError("Cannot parse empty expression")
+    if _SCIENTIFIC_LITERAL_RE.search(cleaned):
+        raise ValueError(
+            "Scientific-notation literals are not supported by the platform; "
+            "use a decimal literal such as 0.000001 instead"
+        )
 
     # 预处理三元表达式与逻辑符号
     converted = _convert_ternary_syntax(cleaned)

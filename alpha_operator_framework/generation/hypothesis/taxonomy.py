@@ -64,7 +64,7 @@ BUILTIN_HYPOTHESES: Tuple[EconomicHypothesis, ...] = (
         required_slots=("price_field", "volume_field"),
         templates=(
             "ts_rank({a}, 10) - ts_rank({b}, 10)",
-            "group_neutralize(ts_delta({a}, 5) / (ts_mean({b}, 20) + 1e-4), subindustry)",
+            "group_neutralize(ts_delta({a}, 5) / (ts_mean({b}, 20) + 0.0001), subindustry)",
             "ts_regression(ts_zscore({a}, 60), ts_zscore({b}, 60), 60, rettype=2)",
         ),
     ),
@@ -78,7 +78,7 @@ BUILTIN_HYPOTHESES: Tuple[EconomicHypothesis, ...] = (
         required_slots=("cashflow_field", "earnings_field"),
         templates=(
             "rank({a}) - rank({b})",
-            "group_neutralize(rank({a} / ({b} + 1e-4)), sector)",
+            "group_neutralize(rank({a} / ({b} + 0.0001)), sector)",
             "ts_rank({a}, 252) / (ts_rank({b}, 252) + 0.01)",
         ),
     ),

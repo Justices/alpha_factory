@@ -24,7 +24,8 @@ def test_dry_run_appends_replayable_research_events() -> None:
     events = EventStore()
     use_case = ResearchCycleUseCase(Repository(), DryRunGateway(), KnowledgeBase(), event_store=events)
     request = ResearchCycleRequest("event-round", 7, ResearchPolicy("GBR", "TOP700", 1), KnowledgeSnapshot(version=0),
-                                   [Candidate("c", "rank(returns)", "family", ("returns",), ("rank",), "template")])
+                                   [Candidate("c", "rank(returns)", "family", ("returns",), ("rank",), "template")],
+                                   catalog_round_id="event-round")
 
     use_case.execute(request)
 
@@ -41,7 +42,8 @@ def test_live_cycle_appends_only_simulation_request_events() -> None:
     events = EventStore()
     use_case = ResearchCycleUseCase(Repository(), Gateway(), KnowledgeBase(), BatchRepository(), event_store=events)
     request = ResearchCycleRequest("live-event-round", 7, ResearchPolicy("GBR", "TOP700", 1), KnowledgeSnapshot(version=0),
-                                   [Candidate("c", "rank(returns)", "family", ("returns",), ("rank",), "template")], True)
+                                   [Candidate("c", "rank(returns)", "family", ("returns",), ("rank",), "template")], True,
+                                   catalog_round_id="live-event-round")
 
     use_case.execute(request)
 
@@ -58,7 +60,8 @@ def test_live_cycle_defers_approval_until_worker_execution() -> None:
     events = EventStore()
     use_case = ResearchCycleUseCase(Repository(), Gateway(), KnowledgeBase(), BatchRepository(), event_store=events, evidence_gateway=EvidenceGateway())
     request = ResearchCycleRequest("approved-event-round", 7, ResearchPolicy("GBR", "TOP700", 1), KnowledgeSnapshot(version=0),
-                                   [Candidate("c", "rank(returns)", "family", ("returns",), ("rank",), "template")], True)
+                                   [Candidate("c", "rank(returns)", "family", ("returns",), ("rank",), "template")], True,
+                                   catalog_round_id="approved-event-round")
 
     use_case.execute(request)
 
@@ -76,7 +79,8 @@ def test_planner_never_enqueues_submission_without_worker_execution() -> None:
     outbox = Outbox()
     use_case = ResearchCycleUseCase(Repository(), Gateway(), KnowledgeBase(), BatchRepository(), event_store=EventStore(), evidence_gateway=EvidenceGateway(), submission_outbox=outbox)
     request = ResearchCycleRequest("outbox-round", 7, ResearchPolicy("GBR", "TOP700", 1), KnowledgeSnapshot(version=0),
-                                   [Candidate("c", "rank(returns)", "family", ("returns",), ("rank",), "template")], True)
+                                   [Candidate("c", "rank(returns)", "family", ("returns",), ("rank",), "template")], True,
+                                   catalog_round_id="outbox-round")
 
     use_case.execute(request)
 

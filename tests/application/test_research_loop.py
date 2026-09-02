@@ -126,10 +126,12 @@ class LoopRuntime:
     def __post_init__(self):
         self.planned = {}
         self.selection_inputs = {}
+        self.catalog_round_ids = []
         self.experiment_repository = None
 
     def plan(self, request):
         candidates = list(request.candidates)
+        self.catalog_round_ids.append(request.catalog_round_id)
         self.selection_inputs[request.round_id] = candidates
         selected = []
         for family in sorted({item.family for item in candidates}):
@@ -186,6 +188,8 @@ def test_loop_applies_eight_per_leaf_family_and_eight_per_platform_shard() -> No
     )
 
     assert summary.status == "EXHAUSTED"
+    assert list(runtime.planned) == ["task-batch-1"]
+    assert runtime.catalog_round_ids == ["task"]
     assert [len(batch) for batch in runtime.planned.values()] == [12]
     assert [len(pool) for pool in runtime.selection_inputs.values()] == [14]
     assert runtime.alpha_database.selected_counts_by_family("task") == {

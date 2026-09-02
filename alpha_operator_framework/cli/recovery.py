@@ -30,7 +30,7 @@ def command_drill_recovery(args: Namespace) -> None:
 
     round_id = "round_drill_recovery_001"
     initial = build_research_runtime(config_path, execute_platform=True, backtest_gateway=Gateway())
-    initial.plan(ResearchCycleRequest(round_id, 42, policy, initial.knowledge_base.snapshot(), candidates, True))
+    initial.plan(ResearchCycleRequest(round_id, 42, policy, initial.knowledge_base.snapshot(), candidates, True, catalog_round_id=round_id))
     recovered = build_research_runtime(config_path, execute_platform=True, backtest_gateway=Gateway(), evidence_records={alpha_id: {"locked_oos_passed": True, "checks_passed": True, "correlation_passed": True, "oos_metrics": {"sharpe": 1.45}, "checks": [{"name": "LOW_SHARPE", "result": "PASS"}], "judge_verdict": "READY"} for alpha_id in ("DRILL_ALPHA_001", "DRILL_ALPHA_002")}, submission_authorized=True)
     summary = recovered.process_round(round_id)
     approval = SubmissionApprovalEngine.evaluate(alpha_id="DRILL_ALPHA_001", evidence_level=EvidenceLevel.PLATFORM_IS, is_metrics={"sharpe": 1.72, "fitness": 1.40, "turnover": 0.18, "margin": 7.0}, oos_metrics={"sharpe": 1.45}, checks=[{"name": "LOW_SHARPE", "result": "PASS"}], sc_value=0.25, pc_value=0.20, judge_verdict="READY")

@@ -64,6 +64,7 @@ def test_worker_does_not_prune_backtested_expressions() -> None:
         ResearchCycleRequest(
             "pruned-after-result", 9, ResearchPolicy("GBR", "TOP700", 1), KnowledgeSnapshot(version=0),
             [Candidate("candidate", "rank(close)", "family", ("close",), ("rank",), "template")], True,
+            catalog_round_id="pruned-after-result",
         )
     )
 
@@ -85,7 +86,7 @@ def test_worker_resumes_submitted_batch_and_runs_only_missing_tasks() -> None:
         [
             Candidate("a", "rank(close)", "family", ("close",), ("rank",), "template"),
             Candidate("b", "rank(open)", "family", ("open",), ("rank",), "template"),
-        ], True,
+        ], True, catalog_round_id="worker-round",
     )
     ResearchCycleUseCase(rounds, gateway, knowledge, batches, event_store=events).execute(request)
     completed_task = next(iter(batches.batch.tasks.values()))
@@ -113,7 +114,7 @@ def test_worker_submits_selected_tasks_in_batches_of_eight() -> None:
         for index in range(17)
     ]
     ResearchCycleUseCase(rounds, gateway, knowledge, batches, event_store=events).execute(
-        ResearchCycleRequest("chunked-round", 9, ResearchPolicy("GBR", "TOP700", 17), KnowledgeSnapshot(version=0), candidates, True)
+        ResearchCycleRequest("chunked-round", 9, ResearchPolicy("GBR", "TOP700", 17), KnowledgeSnapshot(version=0), candidates, True, catalog_round_id="chunked-round")
     )
 
     summary = ResearchBatchWorker(events, rounds, batches, knowledge, gateway).process_round("chunked-round")
@@ -150,7 +151,7 @@ def test_worker_projects_distilled_templates_to_primary_library() -> None:
                 Candidate("a", "rank(close)", "family", ("close",), ("rank",), "template"),
                 Candidate("b", "rank(volume)", "family", ("volume",), ("rank",), "template"),
             ],
-            True,
+            True, catalog_round_id="primary-promotion-round",
         )
     )
 
@@ -176,6 +177,7 @@ def test_worker_persists_retry_state_after_rate_limit() -> None:
         ResearchCycleRequest(
             "retry-round", 9, ResearchPolicy("GBR", "TOP700", 1), KnowledgeSnapshot(version=0),
             [Candidate("a", "rank(close)", "family", ("close",), ("rank",), "template")], True,
+            catalog_round_id="retry-round",
         )
     )
 
@@ -205,6 +207,7 @@ def test_worker_keeps_polling_capacity_after_normal_retry_budget_is_exhausted() 
         ResearchCycleRequest(
             "capacity-round", 9, policy, KnowledgeSnapshot(version=0),
             [Candidate("a", "rank(close)", "family", ("close",), ("rank",), "template")], True,
+            catalog_round_id="capacity-round",
         )
     )
 
@@ -229,7 +232,7 @@ def test_worker_records_outstanding_tasks_when_gateway_returns_partial_results()
             [
                 Candidate("a", "rank(close)", "family", ("close",), ("rank",), "template"),
                 Candidate("b", "rank(open)", "family", ("open",), ("rank",), "template"),
-            ], True,
+            ], True, catalog_round_id="partial-result-round",
         )
     )
 
@@ -259,6 +262,7 @@ def test_worker_uses_policy_retry_backoff_for_transient_failures() -> None:
         ResearchCycleRequest(
             "policy-retry-round", 9, policy, KnowledgeSnapshot(version=0),
             [Candidate("a", "rank(close)", "family", ("close",), ("rank",), "template")], True,
+            catalog_round_id="policy-retry-round",
         )
     )
 
@@ -285,6 +289,7 @@ def test_worker_uses_retry_after_guidance_over_policy_backoff() -> None:
         ResearchCycleRequest(
             "retry-after-round", 9, policy, KnowledgeSnapshot(version=0),
             [Candidate("a", "rank(close)", "family", ("close",), ("rank",), "template")], True,
+            catalog_round_id="retry-after-round",
         )
     )
 
@@ -339,6 +344,7 @@ def test_worker_uses_policy_retry_budget() -> None:
         ResearchCycleRequest(
             "retry-budget-round", 9, policy, KnowledgeSnapshot(version=0),
             [Candidate("a", "rank(close)", "family", ("close",), ("rank",), "template")], True,
+            catalog_round_id="retry-budget-round",
         )
     )
 
@@ -358,6 +364,7 @@ def test_worker_scans_and_processes_due_batches() -> None:
         ResearchCycleRequest(
             "due-round", 9, ResearchPolicy("GBR", "TOP700", 1), KnowledgeSnapshot(version=0),
             [Candidate("a", "rank(close)", "family", ("close",), ("rank",), "template")], True,
+            catalog_round_id="due-round",
         )
     )
 
@@ -370,7 +377,7 @@ def test_cycle_records_complete_candidate_facts_for_rebuild() -> None:
     events, rounds, batches = EventStore(), RoundRepository(), BatchRepository()
     candidate = Candidate("a", "rank(close)", "family", ("close",), ("rank",), "template")
     ResearchCycleUseCase(rounds, object(), KnowledgeBase(), batches, event_store=events).execute(
-        ResearchCycleRequest("facts-round", 9, ResearchPolicy("GBR", "TOP700", 1), KnowledgeSnapshot(version=0), [candidate], False)
+        ResearchCycleRequest("facts-round", 9, ResearchPolicy("GBR", "TOP700", 1), KnowledgeSnapshot(version=0), [candidate], False, catalog_round_id="facts-round")
     )
 
     payload = next(event.payload for event in events.read_stream("facts-round") if event.event_type is EventType.CANDIDATE_GENERATED)

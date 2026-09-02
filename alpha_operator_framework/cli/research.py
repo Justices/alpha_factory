@@ -131,7 +131,7 @@ def command_research_cycle(args: argparse.Namespace) -> None:
             runtime.alpha_database.requeue_retryable_failed_research_expressions(research_settings)
             try:
                 candidates = runtime.alpha_database.load_unbacktested_research_candidates(
-                    research_settings, catalog_round_id=f"{base_round_id}-catalog",
+                    research_settings, catalog_round_id=base_round_id,
                 )
             except TypeError:
                 candidates = runtime.alpha_database.load_unbacktested_research_candidates(research_settings)
@@ -181,6 +181,7 @@ def command_research_cycle(args: argparse.Namespace) -> None:
             summary = runtime.plan(ResearchCycleRequest(
                 base_round_id, options.get("seed", 42), policy,
                 runtime.knowledge_base.snapshot(), candidates, args.execute,
+                catalog_round_id=base_round_id,
             ))
             if any(status.status == "FAILED" for status in strategy_statuses):
                 summary = replace(summary, status="PARTIAL_FAILED")

@@ -118,7 +118,7 @@ class ResearchLoopCoordinator:
         initial_candidates = list(base_candidates)
         initial_available = True
         round_sequence = database.next_task_round_sequence(base_round_id)
-        catalog_round_id = f"{base_round_id}-catalog"
+        catalog_round_id = base_round_id
         cap_catalog = getattr(database, "prune_catalog_candidates_beyond_family_quota", None)
         if (not construction_plan.rolling_capacity_queue and callable(cap_catalog)
                 and self._catalog_family_quotas(construction_plan)):
@@ -151,7 +151,7 @@ class ResearchLoopCoordinator:
             round_policy = self._policy_for_candidates(
                 policy, selection_pool, construction_plan, selected_counts,
             )
-            round_id = base_round_id if round_sequence == 1 else f"{base_round_id}-{round_sequence}"
+            round_id = f"{base_round_id}-batch-{round_sequence}"
             planned = self.runtime.plan(ResearchCycleRequest(
                 round_id,
                 seed,
@@ -159,6 +159,7 @@ class ResearchLoopCoordinator:
                 self.runtime.knowledge_base.snapshot(),
                 selection_pool,
                 True,
+                catalog_round_id=catalog_round_id,
             ))
             if planned.status == "NO_ELIGIBLE_CANDIDATES":
                 # The selector has conclusively rejected this shard.  Its
@@ -713,7 +714,7 @@ class ResearchLoopCoordinator:
             candidate_sha = database.compute_alpha_sha(candidate.expression, settings)
             database.record_candidate_provenance(settings, candidate_sha, provenance)
         if outcome.candidates:
-            database.catalog_research_candidates(f"{task_id}-catalog", outcome.candidates, settings)
+            database.catalog_research_candidates(task_id, outcome.candidates, settings)
 
     def _process_until_terminal(self, round_id: str) -> Any:
         while True:

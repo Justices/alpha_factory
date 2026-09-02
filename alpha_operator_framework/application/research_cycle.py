@@ -26,6 +26,7 @@ class ResearchCycleRequest:
     knowledge: KnowledgeSnapshot
     candidates: Sequence[Candidate]
     execute_platform: bool = False
+    catalog_round_id: str = field(kw_only=True)
 
 
 @dataclass(frozen=True)
@@ -122,7 +123,6 @@ class ResearchCycleUseCase:
                     candidate.expression, backtest_settings, expression_origin="research_cycle",
                     fields=list(candidate.fields), status="generated",
                 )
-            self.alpha_database.catalog_research_candidates(round_.round_id, generated_candidates, backtest_settings)
 
         if self.event_store is not None:
             from alpha_operator_framework.core.events import EventType
@@ -139,7 +139,7 @@ class ResearchCycleUseCase:
                     selected_count, len(decisions) - selected_count, request.policy.max_backtests)
 
         if self.alpha_database is not None:
-            self.alpha_database.record_round_selection(round_.round_id, decisions)
+            self.alpha_database.record_round_selection(request.catalog_round_id, decisions)
 
         if self.event_store is not None:
             from alpha_operator_framework.core.events import EventType
@@ -169,7 +169,7 @@ class ResearchCycleUseCase:
             if self.alpha_database is not None:
                 prune = getattr(self.alpha_database, "prune_unselected_round_candidates", None)
                 if callable(prune):
-                    prune(round_.round_id)
+                    prune(request.catalog_round_id)
             logger.info(
                 "回合 %s 没有通过筛选的候选；不创建空回测批次。",
                 round_.round_id,

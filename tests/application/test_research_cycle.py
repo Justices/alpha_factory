@@ -88,6 +88,7 @@ def test_cycle_returns_replayable_planned_round_without_live_gateway() -> None:
         knowledge=KnowledgeSnapshot(version=0),
         candidates=[Candidate("candidate", "rank(close)", "family", ("close",), ("rank",), "template")],
         execute_platform=False,
+        catalog_round_id="round-1",
     )
 
     summary = use_case.execute(request)
@@ -102,19 +103,30 @@ def test_live_cycle_does_not_create_an_empty_batch_when_all_candidates_are_rejec
         def rejects(self, _candidate) -> bool:
             return True
 
+    class RootCatalogRepository:
+        def __init__(self) -> None:
+            self.pruned_round_ids = []
+        def insert_expression(self, *_args, **_kwargs) -> None: return None
+        def record_round_selection(self, *_args, **_kwargs) -> None: return None
+        def prune_unselected_round_candidates(self, round_id) -> None:
+            self.pruned_round_ids.append(round_id)
+
     repository = MemoryRepository()
     batches = MemoryBatchRepository()
+    primary = RootCatalogRepository()
     summary = ResearchCycleUseCase(
-        repository, DryRunGateway(), RejectingKnowledge(version=0), batches, event_store=EventStore(),
+        repository, DryRunGateway(), RejectingKnowledge(version=0), batches, event_store=EventStore(), alpha_database=primary,
     ).execute(ResearchCycleRequest(
         "empty-live-round", 9, ResearchPolicy("GBR", "TOP700", 1),
         RejectingKnowledge(version=0),
         [Candidate("candidate", "rank(close)", "family", ("close",), ("rank",), "template")],
         True,
+        catalog_round_id="empty-live-round",
     ))
 
     assert summary.status == "NO_ELIGIBLE_CANDIDATES"
     assert batches.batch is None
+    assert primary.pruned_round_ids == ["empty-live-round"]
 
 
 def test_planned_cycle_catalogs_every_candidate_before_selection() -> None:
@@ -125,7 +137,7 @@ def test_planned_cycle_catalogs_every_candidate_before_selection() -> None:
     ]
 
     ResearchCycleUseCase(MemoryRepository(), DryRunGateway(), alpha_database=primary).execute(
-        ResearchCycleRequest("catalog-planned", 9, ResearchPolicy("GBR", "TOP700", 1), KnowledgeSnapshot(version=0), candidates)
+        ResearchCycleRequest("catalog-planned", 9, ResearchPolicy("GBR", "TOP700", 1), KnowledgeSnapshot(version=0), candidates, catalog_round_id="catalog-planned")
     )
 
     assert [expression for expression, _, _ in primary.inserted] == ["rank(close)", "rank(volume)"]
@@ -140,13 +152,14 @@ def test_live_cycle_defers_static_pruning_until_after_backtesting() -> None:
             "deferred-pruning", 9,
             ResearchPolicy("GBR", "TOP700", 1, prohibited_patterns=("rank(",)),
             KnowledgeSnapshot(version=0), [candidate], True,
+            catalog_round_id="deferred-pruning",
         )
     )
 
     assert [task.candidate_id for task in batches.batch.tasks.values()] == ["candidate"]
 
 
-def test_live_cycle_records_round_candidates_selection_and_simulation_batch_link() -> None:
+def test_live_cycle_records_selection_on_root_catalog_and_batch_on_child_round() -> None:
     class LinkedPrimaryRepository:
         def __init__(self):
             self.cataloged, self.selections, self.batch_round_id = [], [], None
@@ -163,15 +176,16 @@ def test_live_cycle_records_round_candidates_selection_and_simulation_batch_link
         Candidate("second", "rank(volume)", "family", ("volume",), ("rank",), "template"),
     ]
     ResearchCycleUseCase(MemoryRepository(), CompletedGateway(), KnowledgeBase(), batches, event_store=EventStore(), alpha_database=primary).execute(
-        ResearchCycleRequest("linked-round", 9, ResearchPolicy("GBR", "TOP700", 1), KnowledgeSnapshot(version=0), candidates, True)
+        ResearchCycleRequest(
+            "linked-root-batch-1", 9, ResearchPolicy("GBR", "TOP700", 1),
+            KnowledgeSnapshot(version=0), candidates, True,
+            catalog_round_id="linked-root",
+        )
     )
 
-    assert primary.cataloged == [("linked-round", candidates, {
-        "region": "GBR", "universe": "TOP700", "delay": 1, "decay": 8,
-        "neutralization": "SUBINDUSTRY", "truncation": 0.08,
-    })]
-    assert primary.selections[0][0] == "linked-round"
-    assert primary.batch_round_id == "linked-round"
+    assert primary.cataloged == []
+    assert primary.selections[0][0] == "linked-root"
+    assert primary.batch_round_id == "linked-root-batch-1"
 
 
 class CompletedGateway:
@@ -193,6 +207,7 @@ def test_execute_cycle_submits_a_recoverable_batch_without_running_gateway() -> 
         ResearchCycleRequest(
             "round-submitted", 9, ResearchPolicy("GBR", "TOP700", 1), KnowledgeSnapshot(version=0),
             [Candidate("candidate", "rank(close)", "family", ("close",), ("rank",), "template")], True,
+            catalog_round_id="round-submitted",
         )
     )
 
@@ -209,7 +224,7 @@ def test_execute_cycle_catalogs_all_candidates_and_binds_selected_tasks_to_a_rea
         Candidate("second", "rank(volume)", "family", ("volume",), ("rank",), "template"),
     ]
     ResearchCycleUseCase(MemoryRepository(), CompletedGateway(), KnowledgeBase(), batches, event_store=EventStore(), alpha_database=primary).execute(
-        ResearchCycleRequest("primary-store-round", 9, ResearchPolicy("GBR", "TOP700", 1), KnowledgeSnapshot(version=0), candidates, True)
+        ResearchCycleRequest("primary-store-round", 9, ResearchPolicy("GBR", "TOP700", 1), KnowledgeSnapshot(version=0), candidates, True, catalog_round_id="primary-store-round")
     )
 
     settings = {"region": "GBR", "universe": "TOP700", "delay": 1, "decay": 8, "neutralization": "SUBINDUSTRY", "truncation": 0.08}
@@ -227,6 +242,7 @@ def test_execute_cycle_requires_event_ledger_and_batch_projection() -> None:
     request = ResearchCycleRequest(
         "invalid-live-round", 9, ResearchPolicy("GBR", "TOP700", 1), KnowledgeSnapshot(version=0),
         [Candidate("candidate", "rank(close)", "family", ("close",), ("rank",), "template")], True,
+        catalog_round_id="invalid-live-round",
     )
 
     import pytest
@@ -244,7 +260,7 @@ def test_planner_reuses_partial_failed_batch_without_recreating_tasks() -> None:
     batches = MemoryBatchRepository(batch)
 
     ResearchCycleUseCase(MemoryRepository(), CompletedGateway(), KnowledgeBase(), batches, event_store=EventStore()).execute(
-        ResearchCycleRequest("partial-round", 9, policy, KnowledgeSnapshot(version=0), [candidate], True)
+        ResearchCycleRequest("partial-round", 9, policy, KnowledgeSnapshot(version=0), [candidate], True, catalog_round_id="partial-round")
     )
 
     assert batches.batch.state is BatchState.PARTIAL_FAILED
@@ -262,6 +278,7 @@ def test_live_cycle_only_submits_work_for_the_worker() -> None:
         knowledge=knowledge_base.snapshot(),
         candidates=[Candidate("candidate", "rank(close)", "family", ("close",), ("rank",), "template")],
         execute_platform=True,
+        catalog_round_id="round-live",
     )
 
     summary = use_case.execute(request)
@@ -281,6 +298,7 @@ def test_live_cycle_persists_submitted_batch(tmp_path) -> None:
         policy=ResearchPolicy("GBR", "TOP700", 1), knowledge=KnowledgeSnapshot(version=0),
         candidates=[Candidate("candidate", "rank(close)", "family", ("close",), ("rank",), "template")],
         execute_platform=True,
+        catalog_round_id="round-persisted",
     )
 
     use_case.execute(request)
@@ -300,6 +318,7 @@ def test_live_cycle_records_operational_telemetry() -> None:
         knowledge=KnowledgeSnapshot(version=0),
         candidates=[Candidate("candidate", "rank(close)", "family", ("close",), ("rank",), "template")],
         execute_platform=True,
+        catalog_round_id="round-metrics",
     )
 
     use_case.execute(request)
@@ -322,7 +341,7 @@ def test_live_cycle_resumes_existing_submitted_batch() -> None:
     repository = BatchRepository(existing)
     use_case = ResearchCycleUseCase(MemoryRepository(), CompletedGateway(), KnowledgeBase(), repository, event_store=EventStore())
 
-    use_case.execute(ResearchCycleRequest("round-resume", 9, policy, KnowledgeSnapshot(version=0), [candidate], True))
+    use_case.execute(ResearchCycleRequest("round-resume", 9, policy, KnowledgeSnapshot(version=0), [candidate], True, catalog_round_id="round-resume"))
 
     assert repository.batch.tasks[task.task_id].idempotency_key == task.idempotency_key
     assert repository.batch.state == BatchState.SUBMITTED

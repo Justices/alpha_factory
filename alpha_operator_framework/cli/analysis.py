@@ -15,13 +15,22 @@ def _datasets(args: Namespace) -> list[str] | None:
 
 def command_research(args: Namespace) -> None:
     from alpha_operator_framework.research import run_literature_research_pipeline
+    from alpha_operator_framework.infrastructure.runtime_factory import resolve_literature_llm_options
+
+    config_path = Path(getattr(args, "config", DEFAULT_CONFIG_PATH))
+    llm_options = resolve_literature_llm_options(config_path, {
+        "enabled": getattr(args, "use_llm", None),
+        "config_path": getattr(args, "llm_config", None),
+        "provider": getattr(args, "provider", None),
+        "model": getattr(args, "model", None),
+    })
 
     result = run_literature_research_pipeline(
         literature_source=args.paper, region=args.region, universe=getattr(args, "universe", None),
         neutralization=getattr(args, "neutralization", "SUBINDUSTRY"), delay=getattr(args, "delay", 1),
-        decay=int(getattr(args, "decay", 8)), datasets=_datasets(args), use_llm=getattr(args, "use_llm", False),
-        provider=getattr(args, "provider", None), model=getattr(args, "model", None),
-        execute_on_platform=False, config_path=Path(getattr(args, "config", DEFAULT_CONFIG_PATH)),
+        decay=int(getattr(args, "decay", 8)), datasets=_datasets(args), use_llm=llm_options["enabled"],
+        provider=llm_options["provider"], model=llm_options["model"], llm_config_path=llm_options["config_path"],
+        execute_on_platform=False, config_path=config_path,
         save_to_db=True, output_report_path=getattr(args, "output", None),
     )
     print(result.summary_markdown())

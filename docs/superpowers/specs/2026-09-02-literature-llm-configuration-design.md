@@ -35,3 +35,11 @@ research:
 ## 边界与验收
 
 仅改动 `research` 文献流水线及其配置解析，不改 `research-cycle` 的 LLM strategy 配置。测试覆盖：YAML 默认生效、CLI 显式 `true`/`false` 覆盖、CLI 配置路径覆盖，以及旧 YAML 缺失该块时仍关闭 LLM。
+
+## 用法
+
+```powershell
+D:\quant-venv\Scripts\python.exe .\alpha_machine.py research `
+  --paper "D:\research\paper.md" --use-llm true `
+  --llm-config ".\configs\llm_config.json"
+```

@@ -69,6 +69,24 @@ def resolve_research_options(config_path: Path, overrides: Mapping[str, Any]) ->
     return values
 
 
+def resolve_literature_llm_options(config_path: Path, overrides: Mapping[str, Any]) -> dict[str, Any]:
+    """Resolve literature-pipeline LLM settings from YAML and CLI overrides."""
+    config = load_runtime_config(config_path)
+    research = config.get("research", {})
+    if not isinstance(research, Mapping):
+        raise ValueError("research configuration must be a mapping")
+    raw = research.get("literature_llm", {})
+    if not isinstance(raw, Mapping):
+        raise ValueError("research.literature_llm must be a mapping")
+    values = {"enabled": False, "config_path": None, "provider": None, "model": None, **raw}
+    values.update({key: value for key, value in overrides.items() if value is not None})
+    if not isinstance(values["enabled"], bool):
+        raise ValueError("research.literature_llm.enabled must be a boolean")
+    path_value = values["config_path"]
+    values["config_path"] = (config_path.parent / path_value).resolve() if path_value else None
+    return values
+
+
 def resolve_construction_plan(config_path: Path, *, mode: str | None = None):
     """Load one explicit, ordered construction pipeline before field access."""
     from alpha_operator_framework.research.strategy_config import ConstructionPlan

@@ -15,6 +15,13 @@ STANDARD_WINDOWS = (5, 22, 66, 120, 252, 504)
 DEFAULT_CONFIG_PATH = Path(__file__).resolve().parents[2] / "configs" / "alpha-factory.yaml"
 
 
+def _parse_bool(value: str) -> bool:
+    normalized = value.lower()
+    if normalized not in {"true", "false"}:
+        raise argparse.ArgumentTypeError("expected true or false")
+    return normalized == "true"
+
+
 @dataclass(frozen=True)
 class LazyCommandHandler:
     """Resolve a command implementation only when the router dispatches it."""
@@ -180,7 +187,8 @@ def configure_research(parser: argparse.ArgumentParser) -> None:
     parser.add_argument("--decay", type=int, default=8)
     parser.add_argument("--datasets")
     parser.add_argument("--category")
-    parser.add_argument("--use-llm", action="store_true")
+    parser.add_argument("--use-llm", type=_parse_bool, default=None)
+    parser.add_argument("--llm-config")
     parser.add_argument("--provider")
     parser.add_argument("--model")
     parser.add_argument("--output")

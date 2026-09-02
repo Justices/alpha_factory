@@ -5,6 +5,11 @@ storage:
   url: ../data/alpha_research.db
 research:
   execute_platform: false
+  literature_llm:
+    enabled: false
+    config_path: llm_config.json
+    provider: null
+    model: null
   region: GBR
   universe: TOP700
   delay: 1

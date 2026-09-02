@@ -7,6 +7,7 @@ import pytest
 from alpha_operator_framework.infrastructure.runtime_factory import (
     build_research_runtime,
     resolve_construction_plan,
+    resolve_literature_llm_options,
 )
 
 
@@ -130,4 +131,35 @@ def test_checked_in_construction_modes_keep_their_intended_stage_graph() -> None
             ("raw-first-order", 1), ("qualified-composition", 2),
             ("signal-validation", 3),
         ],
+    }
+
+
+def test_literature_llm_options_merge_yaml_and_explicit_cli_values(tmp_path: Path) -> None:
+    config = tmp_path / "alpha-factory.yaml"
+    config.write_text(
+        "storage:\n  driver: sqlite\n  path: research.db\nresearch:\n"
+        "  literature_llm:\n    enabled: true\n    config_path: llm/default.json\n"
+        "    provider: qwen\n    model: qwen-plus\n",
+        encoding="utf-8",
+    )
+
+    configured = resolve_literature_llm_options(config, {})
+    overridden = resolve_literature_llm_options(config, {
+        "enabled": False,
+        "config_path": "llm/override.json",
+        "provider": "openai",
+        "model": "gpt-4o",
+    })
+
+    assert configured == {
+        "enabled": True,
+        "config_path": (tmp_path / "llm" / "default.json").resolve(),
+        "provider": "qwen",
+        "model": "qwen-plus",
+    }
+    assert overridden == {
+        "enabled": False,
+        "config_path": (tmp_path / "llm" / "override.json").resolve(),
+        "provider": "openai",
+        "model": "gpt-4o",
     }

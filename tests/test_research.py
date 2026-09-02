@@ -1,7 +1,9 @@
 """Unit tests for Literature & Research Mining Engine (research/)."""
 
+from pathlib import Path
 
 from alpha_operator_framework.domain.fields import FieldSpec
+from alpha_operator_framework.research import pipeline
 from alpha_operator_framework.research import (
     DocumentType,
     IdeaExtractor,
@@ -139,4 +141,28 @@ def test_end_to_end_literature_pipeline():
     assert len(tasks) >= 1
     assert "paper_" in tasks[0].expression_origin
     assert "returns" in tasks[0].expression
+
+
+def test_literature_pipeline_uses_explicit_llm_configuration_path(monkeypatch, tmp_path: Path):
+    captured = {}
+
+    class FakeManager:
+        def __init__(self, config_path=None):
+            captured["config_path"] = config_path
+
+    idea = PaperIdea(
+        idea_id="idea_01", title="Momentum", category="momentum_reversal", rationale="test",
+        abstract_formula="rank(momentum)", variable_roles={"momentum": "returns"}, recommended_decay=6,
+    )
+    monkeypatch.setattr(pipeline, "LLMConfigManager", FakeManager)
+    monkeypatch.setattr(pipeline, "extract_ideas_with_llm", lambda *args, **kwargs: [idea])
+
+    pipeline.run_literature_research_pipeline(
+        literature_source="# research", available_fields=[
+            FieldSpec(id="returns", dataset_id="pv1", type="MATRIX", description="Return rate"),
+        ], use_llm=True, llm_config_path=tmp_path / "llm.json", run_sandbox_backtest=False,
+        run_overfitting_defense=False, run_decay_profiler=False, run_judge_review=False, save_to_db=False,
+    )
+
+    assert captured["config_path"] == tmp_path / "llm.json"
 

@@ -86,6 +86,23 @@ def test_root_parser_accepts_continue_research_for_research_cycle() -> None:
     assert args.execute is True
 
 
+def test_research_parser_accepts_tri_state_llm_overrides() -> None:
+    parser = build_parser()
+
+    default_args = parser.parse_args(["research", "--paper", "paper.md"])
+    explicit_args = parser.parse_args([
+        "research", "--paper", "paper.md", "--use-llm", "false",
+        "--llm-config", "custom-llm.json", "--provider", "openai", "--model", "gpt-4o",
+    ])
+
+    assert default_args.use_llm is None
+    assert default_args.llm_config is None
+    assert explicit_args.use_llm is False
+    assert explicit_args.llm_config == "custom-llm.json"
+    assert explicit_args.provider == "openai"
+    assert explicit_args.model == "gpt-4o"
+
+
 def test_default_research_config_allocates_eight_backtests_per_leaf_family() -> None:
     plan = resolve_construction_plan(DEFAULT_CONFIG_PATH)
 

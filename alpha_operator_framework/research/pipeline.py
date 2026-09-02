@@ -236,6 +236,7 @@ def run_literature_research_pipeline(
     use_llm: bool = False,
     provider: Optional[str] = None,
     model: Optional[str] = None,
+    llm_config_path: Optional[Union[str, Path]] = None,
     execute_on_platform: bool = False,
     market_data: Optional[MarketDataCrossSection] = None,
     run_sandbox_backtest: bool = True,
@@ -300,7 +301,7 @@ def run_literature_research_pipeline(
 
     # 3. 提取假说
     logger.info("第3阶段: 开始提炼文献经济学假说...")
-    client = UnifiedLLMClient()
+    client = UnifiedLLMClient(config_manager=LLMConfigManager(config_path=llm_config_path))
     if use_llm or provider is not None or model is not None:
         ideas = extract_ideas_with_llm(doc, available_fields=fields_pool, provider=provider, model=model, client=client)
     else:

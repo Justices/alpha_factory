@@ -372,10 +372,13 @@ class ConstructionPlan:
     promotion: PromotionPolicy = PromotionPolicy()
     rolling_capacity_queue: bool = False
     selection_window_batches: int = SELECTION_WINDOW_BATCHES
+    max_total_backtests: int | None = None
 
     def __post_init__(self) -> None:
         if self.selection_window_batches < 1:
             raise ValueError("construction.selection_window_batches must be positive")
+        if self.max_total_backtests is not None and self.max_total_backtests < 1:
+            raise ValueError("construction.max_total_backtests must be positive when set")
 
     @classmethod
     def from_mapping(
@@ -410,6 +413,10 @@ class ConstructionPlan:
                 value.get("selection_window_batches", SELECTION_WINDOW_BATCHES),
                 "construction.selection_window_batches",
             ),
+            max_total_backtests=_optional_int(
+                value.get("max_total_backtests"),
+                "construction.max_total_backtests",
+            ),
         )
 
     def to_mapping(self) -> dict[str, object]:
@@ -420,6 +427,7 @@ class ConstructionPlan:
             "promotion": self.promotion.to_mapping(),
             "rolling_capacity_queue": self.rolling_capacity_queue,
             "selection_window_batches": self.selection_window_batches,
+            "max_total_backtests": self.max_total_backtests,
         }
 
     def strategies_for_stage(self, stage: int) -> tuple[ConstructionStrategyConfig, ...]:

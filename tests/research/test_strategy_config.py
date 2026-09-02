@@ -30,6 +30,7 @@ def test_construction_plan_parses_exact_ranges_and_parent_gate() -> None:
             "fitness": {"operator": "gte", "value": 0.8},
         },
         "platform_batch_size": 8,
+        "max_total_backtests": 1024,
     })
 
     strategy = plan.strategies[0]
@@ -38,6 +39,7 @@ def test_construction_plan_parses_exact_ranges_and_parent_gate() -> None:
     assert strategy.field_count.contains(1)
     assert plan.parent_gate.passes(1.26, 0.8)
     assert not plan.parent_gate.passes(1.25, 0.8)
+    assert plan.max_total_backtests == 1024
 
 
 def test_parent_gate_defaults_to_initial_promotion_thresholds() -> None:

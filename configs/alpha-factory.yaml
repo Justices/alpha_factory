@@ -52,6 +52,9 @@ research:
     # Only this many 8-expression batches enter scoring/audit per round. This
     # prevents the complete candidate catalog being re-emitted to event_log.
     selection_window_batches: 8
+    # Hard exploration budget per research task. A logical round selects up to
+    # 64 candidates here, while the worker still submits them in batches of 8.
+    max_total_backtests: 1024
     strategies:
       # 已验证的数据库模板分支。
       - id: database-template

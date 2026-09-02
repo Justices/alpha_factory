@@ -85,6 +85,7 @@ class ResearchLoopCoordinator:
             construction_plan.promotion,
             construction_plan.rolling_capacity_queue,
             construction_plan.selection_window_batches,
+            construction_plan.max_total_backtests,
         )
         outcome = self.registry.generate(initial_plan, context)
         self._persist_outcome(task_id, settings, construction_plan, outcome)
@@ -125,6 +126,22 @@ class ResearchLoopCoordinator:
             pruned_count += cap_catalog(catalog_round_id, self._catalog_family_quotas(construction_plan))
 
         while True:
+            if (
+                construction_plan.max_total_backtests is not None
+                and completed_backtests >= construction_plan.max_total_backtests
+            ):
+                database.save_construction_task(
+                    base_round_id,
+                    settings,
+                    construction_plan.to_mapping(),
+                    seed,
+                    "BUDGET_EXHAUSTED",
+                    "",
+                )
+                return ResearchLoopSummary(
+                    "BUDGET_EXHAUSTED", round_ids, completed_backtests, pruned_count,
+                    generated_count, tuple(statuses),
+                )
             pending = self._load_task_candidates(database, settings, catalog_round_id)
             candidates = pending
             if not candidates and initial_available:
@@ -151,6 +168,14 @@ class ResearchLoopCoordinator:
             round_policy = self._policy_for_candidates(
                 policy, selection_pool, construction_plan, selected_counts,
             )
+            if construction_plan.max_total_backtests is not None:
+                round_policy = replace(
+                    round_policy,
+                    max_backtests=min(
+                        round_policy.max_backtests,
+                        construction_plan.max_total_backtests - completed_backtests,
+                    ),
+                )
             round_id = f"{base_round_id}-batch-{round_sequence}"
             planned = self.runtime.plan(ResearchCycleRequest(
                 round_id,
@@ -330,7 +355,11 @@ class ResearchLoopCoordinator:
         selected_counts: dict[str, int],
     ) -> ResearchPolicy:
         if plan.rolling_capacity_queue:
-            return replace(policy, max_backtests=plan.platform_batch_size, family_quotas={})
+            return replace(
+                policy,
+                max_backtests=plan.platform_batch_size * plan.selection_window_batches,
+                family_quotas={},
+            )
         configs = {config.strategy_id: config for config in plan.strategies}
         quotas: dict[str, int] = {}
         for candidate in candidates:
@@ -388,7 +417,7 @@ class ResearchLoopCoordinator:
                 parent_config = replace(config, source="qualified_candidates")
                 parent_plan = ConstructionPlan(
                     (parent_config,), plan.parent_gate, plan.platform_batch_size, plan.promotion,
-                    plan.rolling_capacity_queue, plan.selection_window_batches,
+                    plan.rolling_capacity_queue, plan.selection_window_batches, plan.max_total_backtests,
                 )
                 raw_delay = settings.get("delay")
                 delay = int(raw_delay) if isinstance(raw_delay, (int, float, str)) else None

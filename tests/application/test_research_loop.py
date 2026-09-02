@@ -59,7 +59,7 @@ def _candidate(index, family, strategy="database"):
     )
 
 
-def test_rolling_capacity_queue_keeps_candidates_and_selects_one_platform_batch() -> None:
+def test_rolling_capacity_queue_selects_the_configured_window_for_one_logical_round() -> None:
     plan = ConstructionPlan(
         (_plan("database").strategies[0],),
         rolling_capacity_queue=True,
@@ -72,7 +72,7 @@ def test_rolling_capacity_queue_keeps_candidates_and_selects_one_platform_batch(
     )
 
     assert len(shard) == 12
-    assert policy.max_backtests == 8
+    assert policy.max_backtests == 64
     assert policy.family_quotas == {}
 
 
@@ -196,6 +196,38 @@ def test_loop_applies_eight_per_leaf_family_and_eight_per_platform_shard() -> No
         first_family: 8,
         second_family: 4,
     }
+
+
+def test_rolling_queue_stops_after_the_configured_total_backtest_budget() -> None:
+    class BudgetRuntime(LoopRuntime):
+        def plan(self, request):
+            selected = list(request.candidates)[:request.policy.max_backtests]
+            self.planned[request.round_id] = selected
+            self.catalog_round_ids.append(request.catalog_round_id)
+            for candidate in selected:
+                self.alpha_database.selected[(request.round_id, candidate.candidate_id)] = candidate
+            return ResearchCycleSummary("SUBMITTED", request.round_id, [])
+
+    candidates = [_candidate(index, "family") for index in range(40)]
+    runtime = BudgetRuntime(LoopDatabase(candidates), KnowledgeBase())
+    plan = ConstructionPlan(
+        (_plan("database").strategies[0],),
+        rolling_capacity_queue=True,
+        selection_window_batches=2,
+        max_total_backtests=12,
+    )
+    policy = ResearchPolicy("USA", "TOP3000", 99, **{
+        key: value for key, value in SETTINGS.items() if key not in {"region", "universe"}
+    })
+
+    summary = ResearchLoopCoordinator(runtime).run(
+        policy, (), candidates, construction_plan=plan, seed=7,
+        execute=True, base_round_id="budgeted-task",
+    )
+
+    assert summary.status == "BUDGET_EXHAUSTED"
+    assert summary.completed_backtests == 12
+    assert [len(batch) for batch in runtime.planned.values()] == [12]
 
 
 def test_next_shard_keeps_full_selection_pool_for_each_eligible_leaf() -> None:

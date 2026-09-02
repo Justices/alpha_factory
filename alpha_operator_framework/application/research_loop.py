@@ -232,7 +232,7 @@ class ResearchLoopCoordinator:
             rows = database.load_completed_expression_results(settings)
             self._evaluate_signal_validations(database, settings, construction_plan)
             derived_rules = derive_consensus_prune_rules(
-                rows, sharpe_gate=construction_plan.parent_gate.sharpe,
+                rows, parent_gate=construction_plan.parent_gate,
             )
             replace_rules = getattr(database, "replace_result_prune_rules", None)
             if callable(replace_rules):

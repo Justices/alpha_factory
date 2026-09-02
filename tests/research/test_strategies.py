@@ -173,6 +173,7 @@ def test_raw_first_order_expands_fields_without_database_templates() -> None:
     expressions = {candidate.expression for candidate in outcome.candidates}
     assert "rank(ts_backfill(returns, 120))" in expressions
     assert "ts_rank(ts_backfill(returns, 120), 504)" in expressions
+    assert all(not expression.startswith("ts_backfill(") for expression in expressions)
     assert all("500" not in expression and "240" not in expression for expression in expressions)
 
 
@@ -193,7 +194,7 @@ def test_raw_first_order_is_exhaustive_and_independent_from_selection_quota() ->
         ), (), seed=7),
     )
 
-    assert len(outcome.candidates) == 7_300
+    assert len(outcome.candidates) == 7_200
     assert all("field_" in candidate.expression for candidate in outcome.candidates)
     assert outcome.strategy_statuses[0].generated_count == len(outcome.candidates)
 

@@ -153,10 +153,6 @@ class RawFirstOrderStrategy:
             accepted_by_depth[depth] = accepted_by_depth.get(depth, 0) + 1
             return True
 
-        base_depths = [1 if field.type == "MATRIX" else 2 for field, _ in field_expressions]
-        for (field_spec, expression), depth in zip(field_expressions, base_depths):
-            add(expression, field_spec.id, "identity", depth)
-
         time_operations = [
             (operator, window) for operator in ts_ops for window in self.windows
         ]

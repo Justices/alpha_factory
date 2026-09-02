@@ -7,14 +7,13 @@ from typing import Sequence
 
 from alpha_operator_framework.distill.template_abstractor import abstract_template
 from alpha_operator_framework.experiment.models import BacktestResult
-from alpha_operator_framework.research.strategy_config import Threshold
+from alpha_operator_framework.research.strategy_config import ParentGate
 
 
 SIGNAL_SHARPE = 1.25
 SIGNAL_FITNESS = 0.8
 MIN_DISTINCT_FIELDS = 3
 MIN_SAMPLES = 4
-MIN_FAILURE_RATE = 0.80
 
 
 @dataclass(frozen=True)
@@ -73,9 +72,9 @@ def promotion_quality_reason(
 def derive_consensus_prune_rules(
     rows: Sequence[CompletedExpression],
     *,
-    sharpe_gate: Threshold,
+    parent_gate: ParentGate,
 ) -> list[ResultPruneRule]:
-    """Derive structural rules using the configured promotion Sharpe gate."""
+    """Retire only exact templates with sufficient, unanimous negative evidence."""
     by_template: dict[str, list[CompletedExpression]] = {}
     for row in rows:
         template = abstract_template(row.expression, row.fields)
@@ -83,32 +82,18 @@ def derive_consensus_prune_rules(
             by_template.setdefault(template, []).append(row)
 
     rules: list[ResultPruneRule] = []
-    seen_patterns: set[tuple[str, str]] = set()
-    # Any expression that fails the same Sharpe gate used for construction
-    # promotion retires its exact abstract template before another slice is
-    # planned. This applies without waiting for the consensus sample size.
-    gate_symbol = ">" if sharpe_gate.operator == "gt" else ">="
-    gate_reason = f"sharpe fails parent gate ({gate_symbol} {sharpe_gate.value:g})"
     for template, samples in sorted(by_template.items()):
-        if any(not sharpe_gate.passes(sample.sharpe) for sample in samples):
-            key = (template, "abstract_template")
-            if key not in seen_patterns:
-                rules.append(ResultPruneRule(template, "abstract_template", gate_reason))
-                seen_patterns.add(key)
-    for template, samples in sorted(by_template.items()):
-        if len(samples) < MIN_SAMPLES or any(is_signal_parent(sample) for sample in samples):
+        if len(samples) < MIN_SAMPLES:
             continue
         fields = {field for sample in samples for field in sample.fields}
-        failures = [sample for sample in samples if not sharpe_gate.passes(sample.sharpe)]
+        if len(fields) < MIN_DISTINCT_FIELDS:
+            continue
+        # A single parent-gate pass is evidence that the structure can carry
+        # signal for at least one field, so field failures must not retire it.
+        if any(parent_gate.passes(sample.sharpe, sample.fitness) for sample in samples):
+            continue
         average_sharpe = sum(sample.sharpe for sample in samples) / len(samples)
-        if (
-            len(fields) >= MIN_DISTINCT_FIELDS
-            and len(failures) / len(samples) >= MIN_FAILURE_RATE
-            and not sharpe_gate.passes(average_sharpe)
-        ):
-            prefix = template.split("{", 1)[0]
-            key = (prefix, "prefix")
-            if prefix and key not in seen_patterns:
-                rules.append(ResultPruneRule(prefix, "prefix", "consensus failure"))
-                seen_patterns.add(key)
+        average_fitness = sum(sample.fitness for sample in samples) / len(samples)
+        if not parent_gate.passes(average_sharpe, average_fitness):
+            rules.append(ResultPruneRule(template, "abstract_template", "consensus failure"))
     return rules

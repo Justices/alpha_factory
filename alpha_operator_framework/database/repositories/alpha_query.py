@@ -230,13 +230,14 @@ class AlphaQueryMixin(BaseRepository):
         return {row["family"]: int(row["selected_count"]) for row in rows}
 
     def next_task_round_sequence(self, task_id: str) -> int:
-        row = self._get_connection().execute(
-            """SELECT COUNT(DISTINCT round_id) AS round_count
-               FROM round_candidates
-               WHERE (round_id=? OR round_id LIKE ?) AND selection_status='selected'""",
-            (task_id, f"{task_id}-%"),
-        ).fetchone()
-        return int(row["round_count"] or 0) + 1
+        prefix = f"{task_id}-batch-"
+        rows = self._get_connection().execute(
+            """SELECT round_id FROM research_round_snapshot WHERE substr(round_id, 1, ?)=?
+               UNION SELECT round_id FROM round_candidates WHERE substr(round_id, 1, ?)=?""",
+            (len(prefix), prefix, len(prefix), prefix),
+        ).fetchall()
+        suffixes = [str(row["round_id"])[len(prefix):] for row in rows]
+        return max((int(suffix) for suffix in suffixes if suffix.isdigit()), default=0) + 1
 
     def load_construction_strategy_statuses(self, task_id: str) -> list[object]:
         from alpha_operator_framework.research.strategies import StrategyStatus

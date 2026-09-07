@@ -129,8 +129,8 @@ class RawFirstOrderStrategy:
             return []
         family = config.families[0]
         # Generation and selection are deliberately separate.  By default
-        # this is exhaustive field × operator expansion; quota is applied
-        # only later when selecting platform backtests.
+        # this expands fields × operators, with coarse TS probes when enabled;
+        # legacy leaf quotas apply only later during platform selection.
         field_expressions = sorted(
             preprocess_fields_rotated(context.fields, seed=context.seed),
             key=lambda item: hashlib.sha256(

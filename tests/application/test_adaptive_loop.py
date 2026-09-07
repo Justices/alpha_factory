@@ -1,9 +1,7 @@
 from dataclasses import replace
-from pathlib import Path
 
 from alpha_operator_framework.database.repository import AlphaDatabase
-from alpha_operator_framework.domain.fields import FieldSpec
-from alpha_operator_framework.research.round import Candidate, SelectionDecision
+from alpha_operator_framework.research.round import SelectionDecision
 from alpha_operator_framework.research.field_loader import load_real_market_fields
 from alpha_operator_framework.research.strategy_config import CoveragePolicy
 from test_research_loop import LoopRuntime, LoopDatabase, _plan, _candidate, SETTINGS
@@ -89,13 +87,13 @@ def test_real_runtime_balanced_feedback_and_restart_budget(tmp_path):
         def __init__(self): self.calls = []
         def run_backtests(self, tasks):
             self.calls.append(len(tasks))
-            return [BacktestResult(t.task_id, t.expression, 0.1, 0.1, 0.2, 0.001, False,
+            return [BacktestResult(t.task_id, t.expression, 0.7, 0.5, 0.2, 0.001, False,
                                    f"alpha-{t.task_id}") for t in tasks]
     config = tmp_path / "config.yaml"
     config.write_text(yaml.safe_dump({"storage": {"driver": "sqlite", "path": str(tmp_path / "r.db")}}))
     gateway = Gateway()
     runtime = build_research_runtime(config, execute_platform=True, backtest_gateway=gateway)
-    pool = [_candidate(i, "family") for i in range(30)]
+    pool = [replace(_candidate(i, "family"), template_id=f"template-{i}") for i in range(30)]
     db = runtime.alpha_database
     for c in pool:
         db.insert_expression(c.expression, SETTINGS, fields=list(c.fields), status="generated")
@@ -108,7 +106,29 @@ def test_real_runtime_balanced_feedback_and_restart_budget(tmp_path):
     assert summary.status == "BUDGET_EXHAUSTED"
     assert gateway.calls == [8, 8, 3]
     assert len(db.load_task_candidates("root", selected_only=True)) == 19
+    assert db.next_task_round_sequence("root") == 4
     again = coordinator.run(policy, (), (), construction_plan=plan, seed=7, execute=True, base_round_id="root")
     assert again.status == "BUDGET_EXHAUSTED"
     assert gateway.calls == [8, 8, 3]
     runtime.close()
+
+
+def test_task_local_feedback_preserves_global_pruning_counterevidence(monkeypatch):
+    from alpha_operator_framework.research.optimization import CompletedExpression
+    import alpha_operator_framework.application.research_loop as module
+    candidate = _candidate(1, "family")
+    database = LoopDatabase([candidate])
+    global_row = CompletedExpression("rank(global_field)", ("global_field",), 1.5, 1.0, True)
+    database.completed = [global_row]
+    database.load_task_candidates = lambda task, selected_only=False: [] if selected_only else [candidate]
+    runtime = LoopRuntime(database, KnowledgeBase())
+    observed = []
+    def derive(rows, **kwargs):
+        observed.extend(rows)
+        return []
+    monkeypatch.setattr(module, "derive_consensus_prune_rules", derive)
+    plan = replace(_plan("database"), rolling_capacity_queue=True, max_total_backtests=1,
+                   coverage=CoveragePolicy(enabled=True))
+    ResearchLoopCoordinator(runtime).run(ResearchPolicy("USA", "TOP3000", 1), (), [candidate],
+        construction_plan=plan, seed=7, execute=True, base_round_id="root")
+    assert global_row in observed

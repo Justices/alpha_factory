@@ -58,8 +58,8 @@ research:
       probe_windows: [5, 66, 252]
       candidate_windows: [5, 22, 66, 120, 252, 504]
       minimum_neighbor_ratio: 0.50
-    # Only this many 8-expression batches enter scoring/audit per round. This
-    # prevents the complete candidate catalog being re-emitted to event_log.
+    # Legacy mode scoring/audit bound. Balanced coverage uses one batch of 8
+    # per feedback round, so validation and new fields do not wait for 64 results.
     selection_window_batches: 8
     # Hard reserved-candidate budget per research task, including resumed runs.
     max_total_backtests: 1024
@@ -80,8 +80,8 @@ research:
         families: ["first_order"]
         order_depth: {min: 1, max: 3}
         field_count: {exact: 1}
-        # Exhaustive field × operator generation. quota only caps selection
-        # for platform backtests, never local candidate construction.
+        # Field × operator generation uses coarse TS probes when enabled.
+        # This leaf quota applies to legacy selection; balanced mode uses coverage history.
         quota_per_leaf_family: 8
         source: raw_fields
       - id: ai-naked-signals

@@ -243,6 +243,7 @@ class ResearchLoopCoordinator:
             completed_backtests += summary.completed_backtests
 
             rows = database.load_completed_expression_results(settings)
+            shared_rows = rows
             if construction_plan.coverage.enabled and callable(load_history):
                 task_expressions = {c.expression for c in load_history(base_round_id)}
                 rows = [r for r in rows if r.expression in task_expressions]
@@ -251,7 +252,7 @@ class ResearchLoopCoordinator:
             )
             self._evaluate_signal_validations(database, settings, construction_plan)
             derived_rules = derive_consensus_prune_rules(
-                rows, parent_gate=construction_plan.parent_gate,
+                shared_rows, parent_gate=construction_plan.parent_gate,
             )
             replace_rules = getattr(database, "replace_result_prune_rules", None)
             if callable(replace_rules):

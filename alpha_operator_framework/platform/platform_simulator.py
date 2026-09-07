@@ -334,6 +334,7 @@ class BrainPlatformSimulator:
         decay: int = 8,
         batch_size: int = 5,
         max_wait_seconds: float = 600.0,
+        truncation: float = 0.08,
     ) -> List[PlatformAlphaResult]:
         """将一组任务按分片批量提交至 WorldQuant BRAIN 真实网络环境并拉取结果。
 
@@ -356,6 +357,7 @@ class BrainPlatformSimulator:
             "neutralization": neutralization,
             "delay": delay,
             "decay": decay,
+            "truncation": truncation,
         }
 
         all_platform_results: List[PlatformAlphaResult] = []
@@ -437,5 +439,7 @@ class BrainPlatformSimulator:
             neutralization=cfg.get("neutralization", "SUBINDUSTRY"),
             delay=int(cfg.get("delay", 1)),
             decay=int(cfg.get("decay", 8)),
+            truncation=float(cfg.get("truncation", 0.08)),
+            batch_size=8,
             max_wait_seconds=timeout,
         )

@@ -20,7 +20,7 @@ from alpha_operator_framework.domain.operators import ACCESS_LIMITED_OPS, basic_
 
 from .construction import AstCandidateBuilder
 from .round import Candidate
-from .strategy_config import ConstructionPlan, ConstructionStrategyConfig
+from .strategy_config import ConstructionPlan, ConstructionStrategyConfig, TSWindowPolicy
 from .structure import NON_DATA_VARIABLES, leaf_family, measure_expression_structure
 
 
@@ -81,6 +81,7 @@ class ConstructionContext:
     region: str = ""
     universe: str = ""
     delay: int | None = None
+    ts_window_policy: TSWindowPolicy = TSWindowPolicy()
 
 
 @dataclass
@@ -153,9 +154,8 @@ class RawFirstOrderStrategy:
             accepted_by_depth[depth] = accepted_by_depth.get(depth, 0) + 1
             return True
 
-        time_operations = [
-            (operator, window) for operator in ts_ops for window in self.windows
-        ]
+        windows = context.ts_window_policy.probe_windows if context.ts_window_policy.enabled else self.windows
+        time_operations = [(operator, window) for operator in ts_ops for window in windows]
         time_operations.sort(
             key=lambda item: (item != ("ts_rank", 504), item[0], item[1]),
         )

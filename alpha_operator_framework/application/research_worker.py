@@ -482,11 +482,15 @@ class ResearchBatchWorker:
             terminal_failures = [
                 result for result in failures if result not in retryable_failures
             ]
+            exhausted = [r for r in retryable_failures
+                         if batch.tasks[r.task_id].attempts + 1 >= policy.max_retry_attempts]
+            terminal_failures.extend(exhausted)
+            retryable_failures = [r for r in retryable_failures if r not in exhausted]
             for result in retryable_failures:
                 task = batch.tasks[result.task_id]
                 delay_seconds = (
                     self._policy_backoff_seconds(policy, attempts)
-                    if self._is_rate_limited_result_error(result.error)
+                    if self._is_retryable_result_error(result.error)
                     else 0.0
                 )
                 batch.record_retry(
@@ -532,9 +536,17 @@ class ResearchBatchWorker:
                 for task in batch.tasks.values()
                 if task.task_id not in batch.results
             ]
+            if any(batch.tasks[t].attempts + 1 >= policy.max_retry_attempts for t in outstanding):
+                self._event(EventType.MONITORING_OBSERVED, round_id,
+                            {"retry_budget_exhausted": True, "task_ids": outstanding,
+                             "platform_failure": "gateway returned incomplete results"})
+                self.experiment_repository.save_batch(batch)
+                self._transition(batch, BatchState.FAILED)
+                return self._summary(batch, "FAILED")
             batch.record_retry(
                 outstanding,
-                next_retry_at=now.isoformat(),
+                next_retry_at=(now + timedelta(seconds=self._policy_backoff_seconds(
+                    policy, max(batch.tasks[t].attempts for t in outstanding) + 1))).isoformat(),
                 error="gateway returned incomplete results",
             )
             self._record_retry_fact(

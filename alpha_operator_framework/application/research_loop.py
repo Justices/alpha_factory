@@ -77,16 +77,9 @@ class ResearchLoopCoordinator:
             region=policy.region,
             universe=policy.universe,
             delay=policy.delay,
+            ts_window_policy=construction_plan.ts_windows,
         )
-        initial_plan = ConstructionPlan(
-            construction_plan.strategies_for_stage(1),
-            construction_plan.parent_gate,
-            construction_plan.platform_batch_size,
-            construction_plan.promotion,
-            construction_plan.rolling_capacity_queue,
-            construction_plan.selection_window_batches,
-            construction_plan.max_total_backtests,
-        )
+        initial_plan = replace(construction_plan, strategies=construction_plan.strategies_for_stage(1))
         outcome = self.registry.generate(initial_plan, context)
         self._persist_outcome(task_id, settings, construction_plan, outcome)
         status = "PARTIAL_FAILED" if outcome.partial_failed else "GENERATED"
@@ -114,6 +107,9 @@ class ResearchLoopCoordinator:
         settings = self._settings(policy)
         round_ids: list[str] = []
         completed_backtests = pruned_count = generated_count = 0
+        load_history = getattr(database, "load_task_candidates", None)
+        history = list(load_history(base_round_id, selected_only=True)) if callable(load_history) else []
+        reserved_backtests = len({c.expression for c in history})
         statuses = list(strategy_statuses)
         partial_failed = any(status.status == "FAILED" for status in statuses)
         initial_candidates = list(base_candidates)
@@ -128,7 +124,7 @@ class ResearchLoopCoordinator:
         while True:
             if (
                 construction_plan.max_total_backtests is not None
-                and completed_backtests >= construction_plan.max_total_backtests
+                and reserved_backtests >= construction_plan.max_total_backtests
             ):
                 database.save_construction_task(
                     base_round_id,
@@ -147,7 +143,19 @@ class ResearchLoopCoordinator:
             if not candidates and initial_available:
                 candidates = initial_candidates
             initial_available = False
-            candidates = self._bounded_selection_window(candidates, construction_plan)
+            if construction_plan.coverage.enabled:
+                from alpha_operator_framework.research.exploration import balanced_cohort
+                if callable(load_history):
+                    history = list(load_history(base_round_id, selected_only=True))
+                reserved_expressions = {c.expression for c in history}
+                candidates = [c for c in candidates if c.expression not in reserved_expressions]
+                remaining = (construction_plan.max_total_backtests - reserved_backtests
+                             if construction_plan.max_total_backtests is not None else construction_plan.platform_batch_size)
+                candidates = balanced_cohort(candidates, history, fields,
+                    limit=min(construction_plan.platform_batch_size, remaining), seed=seed,
+                    weights=construction_plan.coverage.stage_weights)
+            else:
+                candidates = self._bounded_selection_window(candidates, construction_plan)
             selected_counts = database.selected_counts_by_family(base_round_id)
             selection_pool = self._next_shard(candidates, construction_plan, selected_counts)
             if not selection_pool:
@@ -173,7 +181,7 @@ class ResearchLoopCoordinator:
                     round_policy,
                     max_backtests=min(
                         round_policy.max_backtests,
-                        construction_plan.max_total_backtests - completed_backtests,
+                        construction_plan.max_total_backtests - reserved_backtests,
                     ),
                 )
             round_id = f"{base_round_id}-batch-{round_sequence}"
@@ -220,6 +228,11 @@ class ResearchLoopCoordinator:
                     mark_pruned(catalog_round_id, unselected_ids)
                 pruned_count += len(unselected_ids)
             round_ids.append(planned.round_id)
+            selected_ids = {str(item["candidate_id"]) for item in planned.selection_audit if item["selected"]}
+            selected = [c for c in selection_pool if c.candidate_id in selected_ids]
+            # Minimal runtime doubles may omit the audit; real runtimes always emit it.
+            reserved_backtests += len(selected) if planned.selection_audit else min(len(selection_pool), round_policy.max_backtests)
+            history.extend(selected)
             round_sequence += 1
             summary = self._process_until_terminal(planned.round_id)
             if summary.status != "COMPLETED":
@@ -230,6 +243,12 @@ class ResearchLoopCoordinator:
             completed_backtests += summary.completed_backtests
 
             rows = database.load_completed_expression_results(settings)
+            if construction_plan.coverage.enabled and callable(load_history):
+                task_expressions = {c.expression for c in load_history(base_round_id)}
+                rows = [r for r in rows if r.expression in task_expressions]
+            generated_count += self._generate_ts_refinements(
+                base_round_id, settings, fields, rows, construction_plan, seed,
+            )
             self._evaluate_signal_validations(database, settings, construction_plan)
             derived_rules = derive_consensus_prune_rules(
                 rows, parent_gate=construction_plan.parent_gate,
@@ -354,6 +373,10 @@ class ResearchLoopCoordinator:
         plan: ConstructionPlan,
         selected_counts: dict[str, int],
     ) -> ResearchPolicy:
+        if plan.coverage.enabled:
+            from collections import Counter
+            return replace(policy, max_backtests=len(candidates),
+                           family_quotas=dict(Counter(c.family for c in candidates)))
         if plan.rolling_capacity_queue:
             return replace(
                 policy,
@@ -415,10 +438,7 @@ class ResearchLoopCoordinator:
                 if database.has_parent_strategy_run(settings, parent.candidate_id, config.strategy_id):
                     continue
                 parent_config = replace(config, source="qualified_candidates")
-                parent_plan = ConstructionPlan(
-                    (parent_config,), plan.parent_gate, plan.platform_batch_size, plan.promotion,
-                    plan.rolling_capacity_queue, plan.selection_window_batches, plan.max_total_backtests,
-                )
+                parent_plan = replace(plan, strategies=(parent_config,))
                 raw_delay = settings.get("delay")
                 delay = int(raw_delay) if isinstance(raw_delay, (int, float, str)) else None
                 context = ConstructionContext(
@@ -426,6 +446,7 @@ class ResearchLoopCoordinator:
                     region=str(settings.get("region") or ""),
                     universe=str(settings.get("universe") or ""),
                     delay=delay,
+                    ts_window_policy=plan.ts_windows,
                 )
                 outcome = self.registry.generate(parent_plan, context)
                 priority = priorities[config.strategy_id]
@@ -455,6 +476,20 @@ class ResearchLoopCoordinator:
                         )
                 generated += len(outcome.candidates)
         return generated, statuses
+
+    def _generate_ts_refinements(self, task_id, settings, fields, rows, plan, seed) -> int:
+        if not plan.ts_windows.enabled:
+            return 0
+        from alpha_operator_framework.research.exploration import refine_ts_windows
+        from alpha_operator_framework.research.strategies import CandidateAcceptancePipeline
+        database = self._database()
+        catalog = database.load_task_candidates(task_id)
+        existing = {c.expression for c in catalog}
+        drafts = [replace(d, seed=seed) for d in refine_ts_windows(rows, plan.ts_windows, plan.parent_gate)
+                  if d.expression not in existing]
+        outcome = CandidateAcceptancePipeline().accept(drafts, plan, {f.id for f in fields})
+        self._persist_outcome(task_id, settings, plan, outcome)
+        return len(outcome.candidates)
 
     @staticmethod
     def _record_promotion(
@@ -665,6 +700,7 @@ class ResearchLoopCoordinator:
                     margin=row.margin,
                     robustness_status="rank_sign_pending",
                     robustness_notes="terminal rank/sign validation has not completed",
+                    discovery_only=True,
                 )
 
     @staticmethod

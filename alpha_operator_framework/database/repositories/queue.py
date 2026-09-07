@@ -177,10 +177,15 @@ class QueueRepository(BaseRepository):
         robustness_notes: Optional[str] = None,
         pyramid_category: Optional[str] = None,
         pyramid_multiplier: Optional[float] = None,
+        discovery_only: bool = False,
     ) -> int:
         """录入或更新达标提交候选池."""
         now = self._timestamp()
         conn = self._get_connection()
+        if discovery_only:
+            existing = conn.execute("SELECT id FROM alpha_submission_candidates WHERE alpha_id=?", (alpha_id,)).fetchone()
+            if existing is not None:
+                return int(existing["id"])
         cursor = conn.execute(
             """INSERT INTO alpha_submission_candidates
             (alpha_id, expression, sharpe, fitness, turnover, margin,

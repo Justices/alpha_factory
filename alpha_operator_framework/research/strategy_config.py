@@ -365,6 +365,57 @@ class ConstructionStrategyConfig:
 
 
 @dataclass(frozen=True)
+class CoveragePolicy:
+    enabled: bool = False
+    stage_weights: tuple[int, int, int] = (4, 2, 2)
+
+    @classmethod
+    def from_mapping(cls, value: Mapping[str, Any] | None) -> "CoveragePolicy":
+        value = value or {}
+        weights = tuple(_required_int(v, "coverage.stage_weights") for v in value.get("stage_weights", (4, 2, 2)))
+        if len(weights) != 3 or any(v < 1 for v in weights):
+            raise ValueError("coverage.stage_weights requires three positive weights")
+        return cls(_required_bool(value.get("enabled", False), "coverage.enabled"), weights)
+
+    def to_mapping(self) -> dict[str, object]:
+        return {"enabled": self.enabled, "stage_weights": list(self.stage_weights)}
+
+
+@dataclass(frozen=True)
+class TSWindowPolicy:
+    enabled: bool = False
+    probe_windows: tuple[int, ...] = (5, 66, 252)
+    candidate_windows: tuple[int, ...] = (5, 22, 66, 120, 252, 504)
+    minimum_neighbor_ratio: float = 0.50
+
+    def __post_init__(self) -> None:
+        for windows in (self.probe_windows, self.candidate_windows):
+            if not windows or any(isinstance(w, bool) or not isinstance(w, int) or w < 1 for w in windows):
+                raise ValueError("TS windows must be positive integers")
+            if tuple(sorted(set(windows))) != windows:
+                raise ValueError("TS windows must be unique and sorted")
+        if len(self.probe_windows) < 2 or not set(self.probe_windows).issubset(self.candidate_windows):
+            raise ValueError("TS probes require at least two windows from candidate_windows")
+        if not 0 < self.minimum_neighbor_ratio <= 1:
+            raise ValueError("TS minimum_neighbor_ratio must be in (0, 1]")
+
+    @classmethod
+    def from_mapping(cls, value: Mapping[str, Any] | None) -> "TSWindowPolicy":
+        value = value or {}
+        return cls(
+            _required_bool(value.get("enabled", False), "ts_windows.enabled"),
+            tuple(_required_int(v, "ts_windows.probe_windows") for v in value.get("probe_windows", (5, 66, 252))),
+            tuple(_required_int(v, "ts_windows.candidate_windows") for v in value.get("candidate_windows", (5, 22, 66, 120, 252, 504))),
+            float(value.get("minimum_neighbor_ratio", 0.50)),
+        )
+
+    def to_mapping(self) -> dict[str, object]:
+        return {"enabled": self.enabled, "probe_windows": list(self.probe_windows),
+                "candidate_windows": list(self.candidate_windows),
+                "minimum_neighbor_ratio": self.minimum_neighbor_ratio}
+
+
+@dataclass(frozen=True)
 class ConstructionPlan:
     strategies: tuple[ConstructionStrategyConfig, ...]
     parent_gate: ParentGate = ParentGate()
@@ -373,6 +424,8 @@ class ConstructionPlan:
     rolling_capacity_queue: bool = False
     selection_window_batches: int = SELECTION_WINDOW_BATCHES
     max_total_backtests: int | None = None
+    coverage: CoveragePolicy = CoveragePolicy()
+    ts_windows: TSWindowPolicy = TSWindowPolicy()
 
     def __post_init__(self) -> None:
         if self.selection_window_batches < 1:
@@ -417,6 +470,8 @@ class ConstructionPlan:
                 value.get("max_total_backtests"),
                 "construction.max_total_backtests",
             ),
+            coverage=CoveragePolicy.from_mapping(value.get("coverage")),
+            ts_windows=TSWindowPolicy.from_mapping(value.get("ts_windows")),
         )
 
     def to_mapping(self) -> dict[str, object]:
@@ -428,6 +483,8 @@ class ConstructionPlan:
             "rolling_capacity_queue": self.rolling_capacity_queue,
             "selection_window_batches": self.selection_window_batches,
             "max_total_backtests": self.max_total_backtests,
+            "coverage": self.coverage.to_mapping(),
+            "ts_windows": self.ts_windows.to_mapping(),
         }
 
     def strategies_for_stage(self, stage: int) -> tuple[ConstructionStrategyConfig, ...]:

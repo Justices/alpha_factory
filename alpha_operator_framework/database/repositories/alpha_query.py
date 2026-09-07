@@ -109,7 +109,7 @@ class AlphaQueryMixin(BaseRepository):
         if catalog_round_id:
             parameters.append(catalog_round_id)
         rows = self._get_connection().execute(
-            f"""SELECT ae.alpha_sha, ae.expression, ae.fields,
+            f"""SELECT ae.alpha_sha, MIN(rc.candidate_id) AS catalog_candidate_id, ae.expression, ae.fields,
                       COALESCE(cp.leaf_family, MIN(rc.family)) AS family,
                       COALESCE(cp.template_id, MIN(rc.template_id)) AS template_id,
                       COALESCE(cp.strategy_id, '') AS strategy_id,
@@ -134,12 +134,27 @@ class AlphaQueryMixin(BaseRepository):
         for row in rows:
             validation = validate_expression(row["expression"])
             candidates.append(Candidate(
-                row["alpha_sha"], row["expression"], row["family"],
+                row["catalog_candidate_id"], row["expression"], row["family"],
                 tuple(json.loads(row["fields"] or "[]")), tuple(sorted(validation.operators_used)), row["template_id"],
                 origin_strategy=row["strategy_id"], leaf_family=row["family"],
                 order_depth=int(row["order_depth"]), field_count=int(row["field_count"]),
             ))
         return candidates
+
+    def load_task_candidates(self, task_id: str, *, selected_only: bool = False) -> list[object]:
+        """Read coverage/reserved budget from one root catalog, never a prefix."""
+        from alpha_operator_framework.research.round import Candidate
+        from alpha_operator_framework.domain.ast import validate_expression
+        clause = " AND rc.selection_status='selected'" if selected_only else ""
+        rows = self._get_connection().execute(
+            f"""SELECT rc.candidate_id, rc.family, rc.template_id, ae.expression,
+                       ae.fields, ae.expression_origin
+                FROM round_candidates rc JOIN alpha_expressions ae ON ae.alpha_sha=rc.alpha_sha
+                WHERE rc.round_id=? {clause} ORDER BY rc.candidate_id""", (task_id,),
+        ).fetchall()
+        return [Candidate(r["candidate_id"], r["expression"], r["family"],
+            tuple(json.loads(r["fields"] or "[]")), tuple(sorted(validate_expression(r["expression"]).operators_used)),
+            r["template_id"], origin_strategy=r["expression_origin"]) for r in rows]
 
     def load_candidate_provenance(
         self,

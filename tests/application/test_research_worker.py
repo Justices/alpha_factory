@@ -25,6 +25,25 @@ class BatchRepository:
     def list_due_batches(self): return [self.batch] if self.batch is not None else []
 
 
+def test_worker_bounds_error_results_and_incomplete_results():
+    for error in ("temporary platform error", None):
+        class Gateway:
+            def run_backtests(self, tasks):
+                if error is None:
+                    return []
+                return [BacktestResult(t.task_id, t.expression, 0, 0, 0, 0, False,
+                                       error=error) for t in tasks]
+
+        events, rounds, batches, knowledge = EventStore(), RoundRepository(), BatchRepository(), KnowledgeBase()
+        policy = ResearchPolicy("GBR", "TOP700", 1, max_retry_attempts=1)
+        ResearchCycleUseCase(rounds, Gateway(), knowledge, batches, event_store=events).execute(
+            ResearchCycleRequest("bounded", 9, policy, KnowledgeSnapshot(version=0),
+                [Candidate("a", "rank(close)", "family", ("close",), ("rank",), "template")],
+                True, catalog_round_id="bounded"))
+        summary = ResearchBatchWorker(events, rounds, batches, knowledge, Gateway()).process_round("bounded")
+        assert summary.status == "FAILED"
+
+
 def test_worker_fails_an_empty_legacy_batch_instead_of_evaluating_it() -> None:
     events, rounds, batches = EventStore(), RoundRepository(), BatchRepository()
     batch = ExperimentBatch("empty-round", "empty-round")

@@ -31,3 +31,15 @@ def test_poll_batch_preserves_platform_failure_details() -> None:
 
     with pytest.raises(RuntimeError, match=r"status=FAILED.*code=INVALID_SIMULATION.*expression rejected"):
         simulator.poll_batch("/simulations/123")
+
+
+def test_simulate_batch_preserves_eight_task_shards_and_truncation():
+    simulator = BrainPlatformSimulator(session_manager=_SessionManager())
+    calls = []
+    def submit(tasks, settings):
+        calls.append((len(tasks), dict(settings)))
+        return "/simulations/test"
+    simulator.submit_batch = submit
+    simulator.poll_batch = lambda *args, **kwargs: []
+    simulator.simulate_batch([{"expression": "rank(x)"}] * 8, {"truncation": 0.03})
+    assert [(n, s["truncation"]) for n, s in calls] == [(8, 0.03)]

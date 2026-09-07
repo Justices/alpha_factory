@@ -11,6 +11,7 @@ from __future__ import annotations
 
 import json
 import logging
+from collections import defaultdict, deque
 from pathlib import Path
 from typing import Any, Dict, List, Optional, Sequence, Union
 
@@ -103,7 +104,7 @@ def load_real_market_fields(
             target_dir = alt_dirs[0]
 
     if target_dir.exists():
-        json_files = list(target_dir.glob("*.json"))
+        json_files = sorted(target_dir.glob("*.json"))
         for jf in json_files:
             ds_name = jf.stem
             if ds_name.startswith("_"):
@@ -144,19 +145,26 @@ def load_real_market_fields(
                         alpha_count=alpha_c,
                         category=str(cat),
                         description=fdesc,
+                        frequency=str(row.get("frequency") or ""),
                     )
                     fields_map[fid.lower()] = spec
 
-                    if len(fields_map) >= max_fields:
-                        break
 
             except Exception as e:
                 logger.warning(f"读取数据集文件 {jf} 失败: {e}")
 
-            if len(fields_map) >= max_fields:
+    grouped = defaultdict(list)
+    for spec in fields_map.values():
+        grouped[spec.dataset_id].append(spec)
+    queues = [deque(sorted(grouped[ds], key=lambda f: f.id)) for ds in sorted(grouped)]
+    selected = []
+    while queues and len(selected) < max_fields:
+        for queue in queues:
+            if len(selected) >= max_fields:
                 break
-
-    return list(fields_map.values())
+            selected.append(queue.popleft())
+        queues = [q for q in queues if q]
+    return selected
 
 
 def load_cached_group_fields(

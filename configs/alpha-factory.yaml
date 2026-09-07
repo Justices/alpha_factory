@@ -49,11 +49,19 @@ research:
         - [signal-validation]
   construction:
     rolling_capacity_queue: true
+    # Balanced mode feeds back after each physical batch of eight. Empty stages lend capacity.
+    coverage:
+      enabled: true
+      stage_weights: [4, 2, 2]  # exploration, optimization, validation
+    ts_windows:
+      enabled: true
+      probe_windows: [5, 66, 252]
+      candidate_windows: [5, 22, 66, 120, 252, 504]
+      minimum_neighbor_ratio: 0.50
     # Only this many 8-expression batches enter scoring/audit per round. This
     # prevents the complete candidate catalog being re-emitted to event_log.
     selection_window_batches: 8
-    # Hard exploration budget per research task. A logical round selects up to
-    # 64 candidates here, while the worker still submits them in batches of 8.
+    # Hard reserved-candidate budget per research task, including resumed runs.
     max_total_backtests: 1024
     strategies:
       # 已验证的数据库模板分支。

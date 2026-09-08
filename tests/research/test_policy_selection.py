@@ -95,12 +95,12 @@ def test_policy_parses_declarative_construction_templates() -> None:
 def test_policy_parses_template_promotion_thresholds() -> None:
     snapshot = PolicySnapshot.from_mapping({
         "region": "GBR", "universe": "TOP700", "max_backtests": 1,
-        "template_promotion": {"min_support": 3, "min_sharpe": 1.2, "min_fitness": 0.9, "max_correlation": 0.7, "observation_window": 2},
+        "template_promotion": {"min_support": 3, "min_sharpe": 1.2, "min_fitness": 0.9, "max_correlation": 0.7, "observation_window": 2, "failure_rate": 0.9},
     })
 
     policy = snapshot.to_research_policy()
 
-    assert (policy.template_min_support, policy.template_observation_window) == (3, 2)
+    assert (policy.template_min_support, policy.template_observation_window, policy.template_failure_rate) == (3, 2, 0.9)
 
 
 def test_policy_file_rejects_conflicting_explicit_cli_override() -> None:

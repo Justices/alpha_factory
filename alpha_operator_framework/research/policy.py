@@ -85,12 +85,15 @@ class PolicySnapshot:
         if not 0 < float(settings.get("truncation", 0.08)) <= 1:
             logger.error("解析策略失败：truncation 范围溢出，应当在 (0, 1] 之间")
             raise ValueError("settings are invalid")
-        if set(promotion) - {"min_support", "min_sharpe", "min_fitness", "max_correlation", "structural_max_correlation", "platform_max_correlation", "observation_window"}:
+        if set(promotion) - {"min_support", "min_sharpe", "min_fitness", "max_correlation", "structural_max_correlation", "platform_max_correlation", "observation_window", "failure_rate"}:
             logger.error("解析策略失败：template_promotion 包含未知参数")
             raise ValueError("template_promotion is invalid")
         if int(promotion.get("min_support", 1)) < 1 or int(promotion.get("observation_window", 1)) < 1:
             logger.error("解析策略失败：min_support 或 observation_window 参数小于 1")
             raise ValueError("template_promotion is invalid")
+        if not 0 < float(promotion.get("failure_rate", 0.80)) <= 1:
+            logger.error("解析策略失败：template_promotion.failure_rate 必须在 (0, 1] 内")
+            raise ValueError("template_promotion.failure_rate is invalid")
         if set(retry) - {"max_attempts", "backoff_seconds"}:
             logger.error("解析策略失败：retry 包含未知参数")
             raise ValueError("retry is invalid")
@@ -162,6 +165,7 @@ class PolicySnapshot:
             template_structural_max_correlation=float(promotion.get("structural_max_correlation", promotion.get("max_correlation", 0.70))),
             template_platform_max_correlation=float(promotion.get("platform_max_correlation", promotion.get("max_correlation", 0.70))),
             template_observation_window=int(promotion.get("observation_window", 1)),
+            template_failure_rate=float(promotion.get("failure_rate", 0.80)),
             max_retry_attempts=int(retry.get("max_attempts", 3)),
             retry_backoff_seconds=tuple(float(value) for value in retry.get("backoff_seconds", (30.0, 60.0, 120.0))))
 

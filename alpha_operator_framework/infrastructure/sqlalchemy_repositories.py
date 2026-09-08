@@ -69,10 +69,17 @@ def _batch(payload: str) -> ExperimentBatch:
 
 def _knowledge(payload: str) -> KnowledgeBase:
     value = json.loads(payload)
+    # Snapshots written before evidence tracking used a one-strike permanent
+    # blacklist.  It has no recoverable support/failure evidence, so do not
+    # carry it into the evidence-based selector.
+    evidence_available = "template_trials" in value and "template_hard_failures" in value
     return KnowledgeBase(
         version=value["version"], field_scores=value["field_scores"], operator_scores=value["operator_scores"],
-        template_scores=value["template_scores"], rejected_templates=set(value["rejected_templates"]),
+        template_scores=value["template_scores"],
+        rejected_templates=set(value["rejected_templates"]) if evidence_available else set(),
         field_trials=value["field_trials"],
+        template_trials=value.get("template_trials", {}),
+        template_hard_failures=value.get("template_hard_failures", {}),
     )
 
 
@@ -166,6 +173,8 @@ class SqlAlchemyKnowledgeRepository:
         payload = _json({"version": knowledge.version, "field_scores": knowledge.field_scores,
                          "operator_scores": knowledge.operator_scores, "template_scores": knowledge.template_scores,
                          "rejected_templates": sorted(knowledge.rejected_templates), "field_trials": knowledge.field_trials,
+                         "template_trials": knowledge.template_trials,
+                         "template_hard_failures": knowledge.template_hard_failures,
                          "round_id": round_id, "policy_version": policy_version,
                          "event_offset": event_offset, "created_at": datetime.now(UTC).isoformat()})
         with self.engine.begin() as connection:

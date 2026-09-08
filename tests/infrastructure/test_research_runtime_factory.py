@@ -120,12 +120,12 @@ def test_checked_in_construction_modes_keep_their_intended_stage_graph() -> None
     assert resolved == {
         "template": [("database-template", 1)],
         "multi-stage": [
-            ("raw-first-order", 1), ("qualified-depth", 2),
-            ("qualified-group-second-order", 3), ("signal-validation", 4),
+            ("raw-first-order", 1), ("qualified-group-second-order", 2),
+            ("signal-validation", 3),
         ],
         "ai-multi-stage": [
-            ("ai-naked-signals", 1), ("qualified-depth", 2),
-            ("qualified-group-second-order", 3), ("signal-validation", 4),
+            ("ai-naked-signals", 1), ("qualified-group-second-order", 2),
+            ("signal-validation", 3),
         ],
         "multivariate": [
             ("raw-first-order", 1), ("qualified-composition", 2),

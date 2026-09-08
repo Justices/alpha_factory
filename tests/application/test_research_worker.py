@@ -11,6 +11,7 @@ from alpha_operator_framework.experiment.lifecycle import BatchState, transition
 from alpha_operator_framework.experiment.models import BacktestResult, BacktestTask, ExperimentBatch
 from alpha_operator_framework.knowledge.models import KnowledgeBase
 from alpha_operator_framework.research.round import Candidate, KnowledgeSnapshot, ResearchPolicy, ResearchRound
+from alpha_operator_framework.database import AlphaDatabase
 
 
 class RoundRepository:
@@ -90,6 +91,34 @@ def test_worker_does_not_prune_backtested_expressions() -> None:
     ResearchBatchWorker(events, rounds, batches, knowledge, Gateway(), alpha_database=primary).process_round("pruned-after-result")
 
     assert primary.pruned == []
+
+
+def test_worker_completes_when_platform_result_repeats_a_check_name(tmp_path) -> None:
+    class Gateway:
+        def run_backtests(self, tasks):
+            return [BacktestResult(
+                task.task_id, task.expression, 1.2, 0.9, 0.2, 5.0, False, "alpha-duplicate",
+                raw_details={"regular": {"code": task.expression}, "is": {"checks": [
+                    {"name": "LOW_SHARPE", "result": "PASS"},
+                    {"name": "LOW_SHARPE", "result": "FAIL"},
+                ]}},
+            ) for task in tasks]
+
+    database = AlphaDatabase(tmp_path / "worker.db")
+    events, rounds, batches, knowledge = EventStore(), RoundRepository(), BatchRepository(), KnowledgeBase()
+    ResearchCycleUseCase(rounds, Gateway(), knowledge, batches, event_store=events, alpha_database=database).execute(
+        ResearchCycleRequest("duplicate-check-round", 9, ResearchPolicy("GBR", "TOP700", 1), KnowledgeSnapshot(version=0),
+            [Candidate("a", "rank(close)", "family", ("close",), ("rank",), "template")], True,
+            catalog_round_id="duplicate-check-round"),
+    )
+
+    summary = ResearchBatchWorker(events, rounds, batches, knowledge, Gateway(), alpha_database=database).process_round(
+        "duplicate-check-round"
+    )
+
+    assert summary.status == "COMPLETED"
+    assert database.get_checks("alpha-duplicate") == [{"name": "LOW_SHARPE", "result": "FAIL", "limit": None, "value": None}]
+    database.close()
 
 
 def test_worker_resumes_submitted_batch_and_runs_only_missing_tasks() -> None:

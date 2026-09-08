@@ -6,6 +6,7 @@
 
 from __future__ import annotations
 
+from decimal import Decimal
 from abc import ABC, abstractmethod
 from dataclasses import dataclass
 from typing import Any, Tuple, Union
@@ -86,7 +87,11 @@ class LiteralNode(ExpressionNode):
             # 去除冗余的小数点 0，如 10.0 -> 10.0，整数形式直接显示
             if self.value.is_integer():
                 return f"{int(self.value)}"
-            return f"{self.value}"
+            # Python renders sufficiently small floats as ``1e-06`` by
+            # default, but the platform expression grammar does not accept
+            # exponent literals.  Decimal from repr preserves Python's
+            # round-trip decimal while ``f`` forces ordinary decimal syntax.
+            return format(Decimal(repr(self.value)), "f")
         return str(self.value)
 
 

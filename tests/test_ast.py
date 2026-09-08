@@ -119,6 +119,13 @@ def test_ast_validation_rejects_scientific_notation_literals():
     assert any("Scientific-notation literals" in err for err in res.errors)
 
 
+def test_canonicalization_renders_small_decimal_literals_without_scientific_notation():
+    canonical = to_canonical_string("log(abs(ts_delta(close, 500)) + 0.000001)")
+
+    assert canonical == "log(0.000001 + abs(ts_delta(close, 500)))"
+    assert validate_expression(canonical, known_fields={"close"}).is_valid
+
+
 def test_field_extraction():
     fields = extract_ast_fields("ts_delta(close, 10) / (high - low + volume)")
     assert sorted(fields) == ["close", "high", "low", "volume"]

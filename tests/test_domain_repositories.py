@@ -1,5 +1,6 @@
 """Unit tests for Domain-Specific Repositories and AlphaDatabase composite facade."""
 
+import json
 import tempfile
 from pathlib import Path
 
@@ -14,6 +15,24 @@ from alpha_operator_framework.database import (
 )
 from alpha_operator_framework.database.models import Template
 from alpha_operator_framework.research.round import Candidate
+
+
+def test_duplicate_platform_check_names_are_deduplicated_without_losing_failure(tmp_path) -> None:
+    db = AlphaDatabase(tmp_path / "duplicate_checks.db")
+    checks = [
+        {"name": "LOW_SHARPE", "result": "PASS", "value": 1.6},
+        {"name": "LOW_SHARPE", "result": "FAIL", "value": 0.4, "limit": 1.58},
+        {"name": "LOW_FITNESS", "result": "PENDING"},
+    ]
+
+    db.save_result_with_checks("alpha-duplicate", {"is": {"checks": checks}}, {"region": "GBR"})
+
+    stored = {item["name"]: item for item in db.get_checks("alpha-duplicate")}
+    assert set(stored) == {"LOW_SHARPE", "LOW_FITNESS"}
+    assert stored["LOW_SHARPE"]["result"] == "FAIL"
+    detail = db.query_alphas(limit=1)[0]
+    assert json.loads(detail.checks_json) == checks
+    db.close()
 
 
 def test_persisted_alpha_chain_uses_only_alpha_sha() -> None:

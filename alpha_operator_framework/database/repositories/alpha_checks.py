@@ -16,24 +16,44 @@ class AlphaChecksMixin(BaseRepository):
 
     @staticmethod
     def check_array_to_rows(checks: List[Dict], alpha_id: str = "") -> List[Dict]:
-        """将 is.checks 数组归一化为 alpha_checks 行 dict."""
-        rows = []
+        """Normalize platform checks into unique rows for the keyed projection.
+
+        The source payload remains intact in ``alpha_details.checks_json``.
+        A platform response can repeat a check name, while ``alpha_checks``
+        permits one row per (alpha_id, check_name). Keep the most severe result
+        so a duplicate PASS cannot mask a FAIL in the queryable projection.
+        """
+        rows_by_name: Dict[str, Dict] = {}
+
+        def severity(result: object) -> int:
+            normalized = str(result or "").upper()
+            if normalized in {"FAIL", "ERROR", "REJECTED"}:
+                return 3
+            if normalized in {"PENDING", "WARNING"}:
+                return 2
+            if normalized in {"PASS", "SUCCESS"}:
+                return 1
+            return 2
+
         for check in checks or []:
             if not isinstance(check, dict):
                 continue
-            name = check.get("name") or ""
+            name = str(check.get("name") or "").strip()
             if not name:
                 continue
             extra = {k: v for k, v in check.items() if k not in ("name", "result", "limit", "value")}
-            rows.append({
+            row = {
                 "alpha_id": alpha_id,
                 "check_name": name,
                 "result": check.get("result"),
                 "limit": _num(check, "limit"),
                 "value": _num(check, "value"),
                 "extra_json": json.dumps(extra, ensure_ascii=False) if extra else None,
-            })
-        return rows
+            }
+            existing = rows_by_name.get(name)
+            if existing is None or severity(row["result"]) >= severity(existing["result"]):
+                rows_by_name[name] = row
+        return list(rows_by_name.values())
 
     def _write_checks(self, cursor: Any, alpha_id: str, checks: List[Dict], now: str) -> None:
         """内部: 替换式写入 checks."""

@@ -676,7 +676,13 @@ class ResearchBatchWorker:
             task.task_id: templates_by_candidate[task.candidate_id]
             for task in batch.tasks.values()
         }
-        knowledge = self.knowledge_base.apply_batch(batch, templates)
+        knowledge = self.knowledge_base.apply_batch(
+            batch,
+            templates,
+            min_template_observations=max(3, policy.template_min_support),
+            template_failure_rate=policy.template_failure_rate,
+            max_turnover=policy.max_turnover,
+        )
 
         from alpha_operator_framework.knowledge.distillation import distill_templates
 
@@ -715,6 +721,8 @@ class ResearchBatchWorker:
                         self.knowledge_base.rejected_templates
                     ),
                     "field_trials": self.knowledge_base.field_trials,
+                    "template_trials": self.knowledge_base.template_trials,
+                    "template_hard_failures": self.knowledge_base.template_hard_failures,
                 }
             },
         )

@@ -27,18 +27,17 @@ research:
     template:
       stages:
         - [database-template]
-    # 原始字段一阶 -> 合格者深度变换 -> 合格者 group 二阶。
+    # 原始字段一阶 -> 合格者 group 二阶 -> rank/sign 验证。
+    # 不把成熟一阶信号重组为任意深层模板；二阶只采用可解释的 group 变换。
     multi-stage:
       stages:
         - [raw-first-order]
-        - [qualified-depth]
         - [qualified-group-second-order]
         - [signal-validation]
     # AI generates simple economic seeds; all later gates remain deterministic.
     ai-multi-stage:
       stages:
         - [ai-naked-signals]
-        - [qualified-depth]
         - [qualified-group-second-order]
         - [signal-validation]
     # 原始字段一阶 -> 合格者多字段组合；不与多阶链路混跑。
@@ -94,15 +93,8 @@ research:
         quota_per_leaf_family: 8
         source: raw_fields
       # Only candidates that pass the parent gate are eligible for these stages.
-      # This mirrors machine_lib's first-order -> group/compound second-order flow
-      # while retaining AST validation, lineage, and access-control checks.
-      - id: qualified-depth
-        kind: depth_construction
-        families: ["unary", "binary", "ternary", "quaternary"]
-        order_depth: {min: 2, max: 6}
-        field_count: {min: 1, max: 4}
-        quota_per_leaf_family: 8
-        source: qualified_candidates
+      # Production multi-stage construction promotes them through interpretable
+      # group operators, rather than arbitrary deep-template recombination.
       - id: qualified-composition
         kind: field_composition
         families: ["binary", "ternary", "quaternary"]

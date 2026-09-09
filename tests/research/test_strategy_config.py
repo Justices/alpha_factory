@@ -136,7 +136,7 @@ def test_default_configuration_exposes_separate_named_construction_modes() -> No
     )
 
     assert [strategy.strategy_id for strategy in plan.strategies] == [
-        "database-template", "raw-first-order", "ai-naked-signals", "qualified-depth", "qualified-composition",
+        "database-template", "raw-first-order", "ai-naked-signals", "qualified-composition",
         "qualified-group-second-order", "signal-validation",
     ]
     assert plan.promotion.quality.min_long_short_sum == 20
@@ -148,12 +148,10 @@ def test_default_configuration_exposes_separate_named_construction_modes() -> No
     modes = config["research"]["construction_modes"]
     assert modes["template"]["stages"] == [["database-template"]]
     assert modes["multi-stage"]["stages"] == [
-        ["raw-first-order"], ["qualified-depth"],
-        ["qualified-group-second-order"], ["signal-validation"],
+        ["raw-first-order"], ["qualified-group-second-order"], ["signal-validation"],
     ]
     assert modes["ai-multi-stage"]["stages"] == [
-        ["ai-naked-signals"], ["qualified-depth"],
-        ["qualified-group-second-order"], ["signal-validation"],
+        ["ai-naked-signals"], ["qualified-group-second-order"], ["signal-validation"],
     ]
     assert modes["multivariate"]["stages"] == [
         ["raw-first-order"], ["qualified-composition"], ["signal-validation"],

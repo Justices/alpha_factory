@@ -45,6 +45,7 @@ class ResearchPolicy:
     template_structural_max_correlation: float = 0.70
     template_platform_max_correlation: float = 0.70
     template_observation_window: int = 1
+    template_failure_rate: float = 0.80
     max_retry_attempts: int = 3
     retry_backoff_seconds: tuple[float, ...] = (30.0, 60.0, 120.0)
 

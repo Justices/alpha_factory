@@ -97,6 +97,42 @@ def test_research_cycle_command_uses_new_dry_run_cycle(monkeypatch, tmp_path, ca
     assert (tmp_path / "metrics.jsonl").exists()
 
 
+def test_research_cycle_refreshes_every_requested_dataset_before_loading_fields(monkeypatch, tmp_path) -> None:
+    calls = []
+
+    def load_fields(**kwargs):
+        calls.append(("load", kwargs))
+        return [FieldSpec(id="cached_field", dataset_id="cached", type="MATRIX")]
+
+    monkeypatch.setattr(
+        "alpha_operator_framework.research.field_loader.load_real_market_fields",
+        load_fields,
+    )
+    monkeypatch.setattr(
+        "alpha_operator_framework.cache.datafields.DataFieldCache.get_datafields",
+        lambda _self, **kwargs: calls.append(("cache", kwargs)) or [],
+    )
+    config = _config(tmp_path)
+    _cache_universes(monkeypatch, tmp_path, "EUR", 1, ["TOP2500"])
+    args = SimpleNamespace(
+        region="EUR", universe="TOP2500", delay=1, datasets="cached,missing",
+        execute=False, seed=9, config=str(config), policy_file=None,
+        telemetry_file=None, algorithm="diversity", round_id="analyst14-round",
+    )
+
+    alpha_machine.command_research_cycle(args)
+
+    assert calls == [
+        ("cache", {"region": "EUR", "universe": "TOP2500", "delay": 1, "dataset_id": "cached"}),
+        ("cache", {"region": "EUR", "universe": "TOP2500", "delay": 1, "dataset_id": "missing"}),
+        ("load", {
+            "region": "EUR", "universe": "TOP2500", "delay": 1,
+            "datasets": ["cached", "missing"], "include_base_fields": False,
+            "allow_scope_fallback": False, "category": None,
+        }),
+    ]
+
+
 def test_research_cycle_sets_the_requested_quota_for_each_family(monkeypatch, tmp_path) -> None:
     monkeypatch.setattr(
         "alpha_operator_framework.research.field_loader.load_real_market_fields",

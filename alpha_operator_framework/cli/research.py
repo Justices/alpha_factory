@@ -73,17 +73,28 @@ def command_research_cycle(args: argparse.Namespace) -> None:
         policy.universe if policy else getattr(args, "universe", None),
     )
     options["universe"] = field_scope["universe"]
+    requested_datasets = [
+        dataset.strip() for dataset in args.datasets.split(",")
+        if dataset.strip()
+    ] if args.datasets else []
+    if requested_datasets:
+        from alpha_operator_framework.cache.datafields import DataFieldCache
+
+        cache = DataFieldCache()
+        for dataset_id in requested_datasets:
+            cache.get_datafields(**field_scope, dataset_id=dataset_id)
     fields = load_real_market_fields(
         **field_scope,
-        datasets=args.datasets.split(",") if args.datasets else None,
+        datasets=requested_datasets or None,
         include_base_fields=False, allow_scope_fallback=False, category=getattr(args, "category", None),
     )
     if not fields:
         from alpha_operator_framework.cache.datafields import DataFieldCache
 
-        DataFieldCache().get_datafields(**field_scope)
+        if not requested_datasets:
+            DataFieldCache().get_datafields(**field_scope)
         fields = load_real_market_fields(
-            **field_scope, datasets=args.datasets.split(",") if args.datasets else None,
+            **field_scope, datasets=requested_datasets or None,
             include_base_fields=False, allow_scope_fallback=False, category=getattr(args, "category", None),
         )
     if not fields:
